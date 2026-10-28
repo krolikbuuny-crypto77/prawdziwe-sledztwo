@@ -491,7 +491,113 @@ hr{border:none; height:1px; background:linear-gradient(90deg, transparent, rgba(
 @media(max-width:640px){#inspection12 .sc6-result{padding:13px}#inspection12 .sc6-actions{display:grid;grid-template-columns:1fr}#inspection12 .sc6-actions .btn,#inspection12 .sc6-result>.btn{width:100%;text-align:center}#inspection12 .sc6-phase{font-size:10px;padding:6px 8px}}
 @media(prefers-reduced-motion:reduce){#inspection12 .sc6-result{transition:none}}
 </style>
-</head><body>
+<style>
+/* Świadek: nowa informacja musi wynikać z zweryfikowanej korekty, nie z nastroju. */
+.psb-panel{margin:8px 16px 10px;padding:14px 16px;border:1px solid #667262;background:linear-gradient(145deg,#1d292a,#151d22);border-radius:12px;display:grid;gap:12px;box-shadow:inset 2px 0 #c7a469}
+.psb-panel[hidden]{display:none!important}
+.psb-heading{display:flex;align-items:flex-start;gap:12px}
+.psb-mark{flex:0 0 29px;width:29px;height:29px;border-radius:50%;display:grid;place-items:center;color:#eecf9e;background:#7c5f3452;border:1px solid #96774b;font-size:20px}
+.psb-heading strong{display:block;color:#e5d1ab;letter-spacing:.105em;font-size:11px;text-transform:uppercase}
+.psb-heading p{margin-top:5px;color:#d8ddd6;font-size:12px;line-height:1.6}
+.psb-routes{display:grid;gap:7px;border-top:1px solid #50605a;padding-top:11px}
+.psb-label{color:#a9b8ae;font-size:10px;font-weight:750;letter-spacing:.1em}
+.psb-btn{width:100%;padding:10px 12px;border-radius:7px;background:#24332f;color:#e5eae5;border:1px solid #62705e;font-size:12px;text-align:left;cursor:pointer}
+.psb-btn:hover,.psb-btn:focus-visible{background:#30443a;outline:2px solid #bc9a59;outline-offset:2px}
+#witnessStage .wp-stage.psb-fractured{box-shadow:0 0 0 1px #c4a26e,0 0 34px #a77a4b35;position:relative}
+#witnessStage .wp-stage.psb-fractured .wp-figure{animation:psb-break 1050ms ease-out both}
+#witnessStage .wp-stage.psb-fractured .wp-face{animation:psb-avert 900ms ease-in-out both;transform-origin:50% 45%}
+#witnessStage .wp-stage.psb-guarded .wp-figure{transform:translateX(-2px) rotate(-.5deg);filter:saturate(.85)}
+#witnessStage .wp-stage.psb-closed .wp-figure{filter:brightness(.76) saturate(.65);transform:translateY(5px)}
+#witnessStage .wp-stage.psb-reconsidering .wp-figure{filter:contrast(1.05) saturate(.85)}
+#witnessStage .psb-portrait-caption{position:absolute;bottom:33px;left:10px;z-index:5;padding:5px 9px;border-radius:5px;background:#102025e8;color:#e9d1ab;border:1px solid #a78b5b;text-transform:uppercase;font-size:9px;letter-spacing:.12em;pointer-events:none}
+@keyframes psb-break{0%{transform:translateX(0) rotate(0)}18%{transform:translateX(-3px) rotate(-1.3deg)}35%{transform:translateX(2px)}65%{transform:translateY(3px)}100%{transform:translateY(2px)}}
+@keyframes psb-avert{0%{transform:translateX(0)}40%{transform:translateX(-5px) rotate(-1deg)}100%{transform:translateX(-2px)}}
+@media(max-width:700px){.psb-panel{margin:8px 9px;padding:12px}.psb-routes{grid-template-columns:1fr}.psb-btn{min-height:45px;font-size:13px}}
+@media(prefers-reduced-motion:reduce){#witnessStage .wp-stage.psb-fractured .wp-figure,#witnessStage .wp-stage.psb-fractured .wp-face{animation:none!important}}
+
+/* Indywidualne, krótkie reakcje każdego świadka. */
+#witnessStage .wp-stage.psb-fractured[data-psb-person="MAREK"] .wp-figure{animation:psb-marek .9s ease-out both}
+#witnessStage .wp-stage.psb-fractured[data-psb-person="TOMASZ"] .wp-figure{animation:psb-tomasz .9s ease-out both}
+#witnessStage .wp-stage.psb-fractured[data-psb-person="JANUSZ"] .wp-figure{animation:psb-janusz .8s ease-out both}
+#witnessStage .wp-stage.psb-fractured[data-psb-person="ELZBIETA"] .wp-figure{animation:psb-elzbieta 1.1s ease-out both}
+#witnessStage .wp-stage.psb-fractured[data-psb-person="KAMIL"] .wp-figure{animation:psb-kamil .9s ease-out both}
+#witnessStage .wp-stage.psb-fractured[data-psb-person="MAGDALENA"] .wp-figure{animation:psb-magdalena 1s ease-out both}
+@keyframes psb-marek{0%{transform:translateY(0)}40%{transform:translateY(4px)}75%{transform:translateY(-1px)}100%{transform:translateY(2px)}}
+@keyframes psb-tomasz{0%{transform:translateX(0)}35%{transform:translateX(5px) rotate(1deg)}70%{transform:translateX(-3px)}100%{transform:translateX(1px)}}
+@keyframes psb-janusz{0%{transform:translateX(0)}18%{transform:translateX(-3px)}37%{transform:translateX(3px)}60%{transform:translateY(4px)}100%{transform:translateY(1px)}}
+@keyframes psb-elzbieta{0%{transform:translateY(0)}36%{transform:translateY(5px) rotate(-.7deg)}75%{transform:translateY(4px)}100%{transform:translateY(3px)}}
+@keyframes psb-kamil{0%{transform:translateX(0)}32%{transform:translateX(-5px)}62%{transform:translateX(3px)}100%{transform:translateX(-2px)}}
+@keyframes psb-magdalena{0%{transform:translateY(0)}30%{transform:translateY(2px)}60%{transform:translateY(1px) rotate(.8deg)}100%{transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){#witnessStage .wp-stage.psb-fractured .wp-figure{animation:none!important}}
+
+</style><style id="ps-loop-style">/* Gameplay Loop — Punkty Konfrontacji i mikro-feedback. Wyłącznie warstwa UI. */
+#conflictPanel{margin:0 0 17px;background:linear-gradient(150deg,#151e24,#12191f);border:1px solid #46545b;border-radius:12px;padding:19px}
+#conflictPanel .cf-head{display:flex;justify-content:space-between;align-items:start;gap:14px;margin-bottom:10px}
+#conflictPanel .cf-head h3{font-size:20px;line-height:1.2;margin-top:5px;color:#f2e8d7}
+#conflictPanel .cf-kicker{font-size:10px;letter-spacing:.17em;color:#e5b96e;font-weight:800}
+#conflictPanel .cf-intro{color:#aebac0;font-size:12px;line-height:1.6;max-width:710px}
+#conflictPanel .cf-count{border:1px solid #846f4f;color:#eed2a6;padding:6px 10px;border-radius:20px;font:12px ui-monospace,monospace;white-space:nowrap}
+#conflictPanel .cf-actions{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0}
+#conflictPanel .cf-toggle{background:#253036;border:1px solid #48575d;color:#e8ede9;padding:8px 11px;border-radius:7px;font-size:12px;cursor:pointer}
+#conflictPanel .cf-filters{display:flex;gap:6px;flex-wrap:wrap;margin:11px 0}
+#conflictPanel .cf-filters button{background:transparent;border:1px solid #46535b;padding:6px 10px;color:#b7c3c9;border-radius:20px;font-size:11px;cursor:pointer}
+#conflictPanel .cf-filters button[aria-pressed="true"]{background:#382d27;color:#f1c8a7;border-color:#ac7554}
+#conflictPanel .cf-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:9px;max-height:465px;overflow:auto}
+#conflictPanel .cf-entry{background:#1c262c;border:1px solid #3c4d55;border-left:3px solid #b98a57;border-radius:7px;padding:13px;min-width:0}
+#conflictPanel .cf-entry.cf-verified{border-left-color:#dfad66}
+#conflictPanel .cf-entry.cf-review{border-left-color:#7c9aa8}
+#conflictPanel .cf-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;color:#d6b783;font-size:10px;letter-spacing:.07em;text-transform:uppercase}
+#conflictPanel .cf-entry h4{margin:6px 0;font-size:14px;line-height:1.35}
+#conflictPanel .cf-entry p{color:#cad0d1;font-size:12px;line-height:1.55;white-space:normal}
+#conflictPanel .cf-sources{color:#a4b6be;font-size:11px;margin-top:10px;overflow-wrap:anywhere}
+#conflictPanel .cf-entry .cf-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+#conflictPanel .cf-entry .cf-links button{background:#304048;border:1px solid #59727b;color:#f3e7d4;padding:7px 9px;border-radius:6px;font-size:11px;cursor:pointer}
+#conflictPanel .cf-empty{padding:12px;background:#19242a;border-radius:7px;color:#c4caca;font-size:12px}
+#scNotebookList .cf-note-flag{display:inline-block;border:1px solid #8b7456;background:#302923;color:#e2c5a1;padding:3px 7px;font-size:10px;border-radius:4px;margin:7px 0}
+#psMicroFeedback{position:fixed;z-index:150;top:82px;right:22px;display:flex;align-items:center;gap:10px;max-width:min(350px,calc(100vw - 26px));padding:12px 15px;background:#162924;color:#eaf3e7;border:1px solid #69927a;box-shadow:0 15px 45px #0008;border-radius:9px;pointer-events:none;opacity:0;transform:translateY(-12px) scale(.98);transition:opacity .25s,transform .25s}
+#psMicroFeedback[hidden]{display:none}
+#psMicroFeedback.psmf-on{opacity:1;transform:translateY(0) scale(1)}
+#psMicroFeedback .psmf-seal{border:2px solid #86b19a;letter-spacing:.12em;color:#a9dcc2;padding:7px 5px;border-radius:50%;font-size:10px;font-weight:900;transform:rotate(-8deg)}
+#psMicroFeedback strong{display:block;font-size:13px}
+#psMicroFeedback small{color:#bed0c5;font-size:11px}
+.psmf-timeline-flash{animation:psmfTimeline .9s ease-out}
+@keyframes psmfTimeline{0%{box-shadow:inset 0 0 0 2px rgba(134,196,162,.65)}100%{box-shadow:inset 0 0 0 0 rgba(134,196,162,0)}}
+@media(max-width:620px){#conflictPanel{padding:13px}#conflictPanel .cf-head{flex-direction:column;gap:6px}#conflictPanel .cf-list{max-height:420px}#psMicroFeedback{top:65px;right:8px;left:8px;max-width:none}}
+@media(prefers-reduced-motion:reduce){#psMicroFeedback{transition:none;transform:none}.psmf-timeline-flash{animation:none}}
+</style><style id="psFinalRoutesStyle">/* Final 2.0 */
+#psQualification{border:1px solid #74624a;background:linear-gradient(145deg,#1e262d,#141d24);padding:19px;border-radius:12px;margin:0 0 18px}
+#psQualification h3{font:600 22px/1.3 Georgia,serif;color:#f1e1c4;margin:7px 0}
+.ps-qualification-grid{display:grid;gap:9px;margin:15px 0}
+.ps-q-choice{display:flex;align-items:flex-start;gap:10px;background:#111d24;border:1px solid #3a4b55;border-radius:9px;padding:13px;cursor:pointer;min-width:0}
+.ps-q-choice:focus-within{outline:2px solid #d8b477;outline-offset:2px}
+.ps-q-choice.selected{border-color:#e3b56c;background:#312a23}
+.ps-q-choice input{width:18px;height:18px;flex-shrink:0;accent-color:#e4b978;margin-top:3px}
+.ps-q-choice span{display:block;min-width:0}
+.ps-q-choice b{display:block;font-size:13px;line-height:1.5;color:#f3e4c7}
+.ps-q-choice small{display:block;margin-top:4px;font-size:12px;line-height:1.55;color:#b7c0c2}
+.ps-epilogue{background:linear-gradient(155deg,#272824,#111a20);border:1px solid #88724d;border-radius:13px;padding:21px;margin:24px 0;color:#e7e4da;scroll-margin-top:75px}
+.ps-epilogue h3{font:600 28px/1.2 Georgia,serif;margin:8px 0 12px;color:#f4dab0}
+.ps-ep-lead{line-height:1.7;max-width:850px}
+.ps-ep-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:20px 0}
+.ps-ep-stats>div{padding:12px;background:#131e25;border:1px solid #41525b;border-radius:8px}
+.ps-ep-stats strong{display:block;font:700 22px/1.2 Georgia,serif;color:#efc98b}
+.ps-ep-stats span{display:block;color:#b0babb;font-size:11px;margin-top:5px}
+.ps-ep-columns{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.ps-ep-columns>section{background:#111b23;border:1px solid #42515b;border-radius:9px;padding:15px;min-width:0}
+.ps-ep-columns h4{font-size:15px;margin:0 0 13px;color:#ead3a5}
+.ps-ep-columns li{font-size:12px;margin:7px 0;line-height:1.6}
+.ps-ep-columns ul{padding-left:20px}
+.ps-ep-nodes{display:grid;gap:7px}
+.ps-ep-node{display:flex;flex-wrap:wrap;justify-content:space-between;gap:7px;padding:8px 10px;background:#1a2830;border-radius:5px;font-size:11px}
+.ps-ep-node strong{font-weight:600;max-width:380px}
+.ps-good{color:#97cba6}.ps-warn{color:#e0ac88}
+.ps-ep-note{display:block;font-size:11px;color:#b5c2c5;margin-top:2px}
+.ps-ep-actions{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}
+.ps-epilogue summary{cursor:pointer;color:#e5be80;padding:8px 0}
+@media(min-width:1050px){.ps-qualification-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){.ps-ep-stats{grid-template-columns:1fr 1fr}.ps-ep-columns{grid-template-columns:1fr}.ps-epilogue{padding:14px}.ps-epilogue h3{font-size:22px}}
+@media(prefers-reduced-motion:reduce){#psQualification *,#psFinalEpilogue *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style></head><body>
 <a class="skip-link" href="#mainContent">Przejdź do treści</a>
 <div class="ui14-backdrop" id="ui14Backdrop" hidden></div>
 <div class="layout">
@@ -5154,7 +5260,7 @@ function simRenderHearing(){const area=$('simHearingDetail');if(!area)return;sim
  // The only reliable tab switch for the added button is through the existing navigation API.
  area.querySelector('[data-go="deduction"]')?.addEventListener('click',()=>showTab('deduction'));
 }
-function simSubmit(){fcOnCharge();const s=STATE.final13;s.attempts++;s.submitted=true;STATE.sim.trial=null;
+function simSubmit(){fcOnCharge();const s=STATE.final13;s.attempts++;s.submitted=!!(s.culprit&&s.method&&s.alibi&&s.keystone&&STATE.found.has(s.keystone));STATE.sim.trial=null;
  const a=simCaseAssessment();if(!s.culprit||!s.method||!s.alibi||!s.keystone){simError('Próba złożenia niekompletnego aktu oskarżenia.',4,5);s.feedback='Uzupełnij osobę, mechanizm, dowód kluczowy i ocenę alibi. Możesz już sprawdzić siłę materiału poniżej.';}
  else{if(!simScore(SIM_NODE_MAP.get('identity')).ready)simError('Bezpodstawne przypisanie sprawstwa bez zweryfikowanej identyfikacji.',4,6);else simTime(2,0,'Skierowano projekt aktu do oceny procesowej');s.feedback='Projekt przedstawiony. Zweryfikuj niezależne ścieżki dowodowe oraz odpowiedź na zarzuty obrony przed zamknięciem przewodu.';}
  fcRender();simRenderHearing();$('simHearing').scrollIntoView({block:'start',behavior:'smooth'});
@@ -8573,7 +8679,7 @@ window.PS57_QA={version:'5.7',analyze:(id,raw,attached)=>{const c=CONTENT.charac
  }
  panel.addEventListener('click',e=>{const btn=e.target.closest('button[data-ps601-tab]');if(!btn)return;showTab(btn.dataset.ps601Tab);});
  function invalidateIfNecessary(){
-  if(STATE.sim?.trial?.kind==='solid'&&!review().complete)STATE.sim.trial=null;
+  if(STATE.sim?.trial?.kind==='solid'&&!STATE.sim.trial?.qualification&&!review().complete)STATE.sim.trial=null;
  }
  const oldRender=simRenderHearing;
  simRenderHearing=function(){invalidateIfNecessary();const result=oldRender.apply(this,arguments);render();return result;};
@@ -10124,6 +10230,12 @@ state();beforeDecision();render();
   isReconciling=true;
   try{
    // Recalculate from actual evidence, defense, statements, and procedural choices.
+   if(STATE.sim.trial.qualification&&window.PS_FINAL_VARIANTS?.signature){
+     if(STATE.sim.trial.signature===window.PS_FINAL_VARIANTS.signature())return false;
+     STATE.sim.trial=null;
+     pendingNotice=true;
+     return true;
+   }
    const expected=window.PS602_VERDICT.expected();
    if(expected===STATE.sim.trial.kind)return false;
    STATE.sim.trial=null;
@@ -10247,6 +10359,174 @@ state();beforeDecision();render();
 })();
 </script>
 <script id="ps77-cloud-interrogations">
+/* -- NOWY MODUL PSYCHOLOGICZNY -- */
+/* Psychologia przesłuchań: przełom na podstawie skorygowanych zeznań, reakcje na błędy
+   i dwa nowe, udokumentowane pytania następcze. Bez automatycznego dodawania dowodów. */
+(function(){
+'use strict';
+if(typeof STATE==='undefined'||typeof ps52Witness!=='function'||typeof simSendChat!=='function'||typeof ps52Threads!=='function')return;
+// Nazwa zjawiska «zagrożenie» nie jest groźbą przesłuchującego.
+const baseTone=npc9Tone;
+npc9Tone=function(raw){const text=String(raw||'').replace(/\bzagro(?:ż|z)en(?:ie|ia|iu|iem)?\b/gi,'ryzyko');return baseTone(text);};
+const by=id=>document.getElementById(id);
+const people=Object.fromEntries(CONTENT.characters.map(c=>[c.id,c]));
+const witnessReaction={
+ MAREK:{break:'Marek milknie, opiera ręce o stół i sprawdza wzrokiem oba dokumenty.',wrong:'To nie jest dokument, o który pan pyta. Nie będę łączył niepowiązanych zapisów.',firm:'Może pan mówić stanowczo, ale nie zmieni to treści rozliczeń.',post:'Marek ostrożniej dobiera słowa; zamiast ogólnych zapewnień wraca do zakresu własnej odpowiedzialności.'},
+ TOMASZ:{break:'Tomasz urywa wypowiedź. Odwraca wzrok ku drzwiom, zanim podejmuje odpowiedź.',wrong:'Ta karta nie wyjaśnia mojej dyspozycji. Proszę nie mieszać tych zdarzeń.',firm:'Nie potrzebuję podniesionego tonu, żeby przypomnieć sobie tamtą noc.',post:'Tomasz przestaje odpowiadać odruchowo. Wyraźnie rozdziela to, co pamięta, od informacji z rejestru.'},
+ JANUSZ:{break:'Janusz zaciska dłonie na krawędzi stołu, po czym powoli prostuje wcześniej złożone wyjaśnienie.',wrong:'Pan miesza dokumentację warsztatu z inną sprawą. Proszę o konkretny zapis.',firm:'Nie ustala się przebiegu naprawy przez nacisk na pracownika.',post:'Janusz przestaje zasłaniać się skrótem procedury i wyjaśnia dokumentację punkt po punkcie.'},
+ ELZBIETA:{break:'Elżbieta zamiera, spuszcza wzrok na notatki i po dłuższej chwili prostuje swoje słowa.',wrong:'Nie wiem, jak ten dokument miałby potwierdzać to, o co pan pyta.',firm:'Proszę nie wymuszać na mnie wspomnień. Potrzebuję spokojnego, dokładnego pytania.',post:'Elżbieta mówi ciszej, ale konkretniej. Zaznacza granicę między obawą a wiedzą o zdarzeniu.'},
+ KAMIL:{break:'Kamil odsuwa się od stołu. Po chwili wraca do wykresów i precyzuje wcześniejsze zapewnienia.',wrong:'To są dwa różne zestawy danych. Samo ich pokazanie nie tworzy związku.',firm:'Proszę nie przedstawiać mi technicznego logu jak gotowego oskarżenia.',post:'Kamil rezygnuje z szybkich odpowiedzi, dokładnie rozdzielając zdarzenie systemowe i działanie osoby.'},
+ MAGDALENA:{break:'Magdalena zawiesza głos. Przez chwilę patrzy na dokument, następnie rzeczowo koryguje stanowisko.',wrong:'Nie widzę związku między tym materiałem a pańskim pytaniem.',firm:'Nacisk nie zastąpi wykazania związku między źródłem a twierdzeniem.',post:'Magdalena nadal zachowuje formalny ton, ale przestaje kategorycznie wykluczać ustalone rozbieżności.'}
+};
+// Każda nowa odpowiedź ogranicza się do tego, co wynika z dotychczasowych sprostowań.
+const routes={
+ MN_PAYROLL:{explain:['Co dokładnie wycofuje pan ze swojej wcześniejszej wypowiedzi o ewidencji?', 'Wycofuję stwierdzenie, że sam grafik pozwalał odtworzyć obecność osób. Wpisy korygowano ręcznie; nie wolno z nich bezpośrednio wyprowadzać czyjejś lokalizacji.'],verify:['Jak można niezależnie sprawdzić te korekty?', 'Trzeba zestawić pierwotną ewidencję, historię poprawek i rejestr wejść. Te źródła opisują inne etapy, a każde ma własne ograniczenia.']},
+ TK_RADIO:{explain:['Którą część wcześniejszej relacji o powrocie wagonu musi pan sprostować?', 'Zmieniałem dyspozycję powrotu TW-217. Nie powinienem był przedstawiać przebiegu jako standardowego. Luka w radiu pozostaje osobnym pytaniem.'],verify:['Co potwierdzi i co może podważyć pańską wersję dyspozycji?', 'Proszę zestawić polecenie powrotu z dostępną korespondencją radiową i zarejestrowaną chronologią wagonu. Brak fragmentu nagrania nie dowodzi sam z siebie czyjegoś zamiaru.']},
+ JW_SERVICE:{explain:['Co było niepełne w opisywanym przeglądzie?', 'Karta nie była kompletna; nie powinienem był tak jej nazywać. Trzeba osobno sprawdzić wykonane czynności i ich autoryzację.'],verify:['Z którymi dokumentami porównać kartę warsztatu?', 'Z pierwotnym zleceniem, dokumentacją testu i potwierdzeniem autoryzacji. Sam brak wpisu nie wyjaśnia, co stało się później z Leną.']},
+ EZ_HAZARD:{explain:['Co pani koryguje w zeznaniu o zgłoszeniu bezpieczeństwa?', 'Nie powinnam była mówić, że wszystkie sygnały zostały przekazane formalnie. Zgłoszenie pozostało projektem, nie potwierdzonym doręczeniem.'],verify:['Jak sprawdzić, czy ostrzeżenie rzeczywiście dotarło do właściwej osoby?', 'Należy odróżnić treść projektu od rejestru wysyłki i potwierdzenia odbioru. Bez nich nie powiem, kto zapoznał się z ostrzeżeniem.']},
+ KB_CARD:{explain:['Co pan teraz potwierdza w sprawie karty T-17?', 'Przekazałem kartę T-17 Magdalenie o 00:39. Nie powinienem był twierdzić, że cały czas pozostawała pod moją kontrolą.'],verify:['Jak zweryfikować dalsze użycie przekazanej karty?', 'Proszę porównać zapis przekazania z odczytami czytników i niezależnymi źródłami obecności. Czytnik nie identyfikuje twarzy osoby, która użyła karty.']},
+ KB_TEST:{explain:['Co zmienia okazana autoryzacja diagnostyki?', 'Pozwala precyzyjniej wyjaśnić zakres autoryzowanego testu. Nie można traktować alarmu diagnostycznego jako bezpośredniego obrazu urazów Leny.'],verify:['Jak potwierdzić, w jakim trybie pracował system?', 'Trzeba zestawić autoryzację testu z przebiegiem sesji TCMS. Nie wystarcza sam odczyt jednego zdarzenia z logu.']},
+ MK_SESSION:{explain:['Które twierdzenie o alibi musi pani ograniczyć?', 'Aktywna transmisja nie dowodzi, że przez cały ten czas fizycznie przebywałam w pokoju. Tego nie mogę już kategorycznie utrzymywać na podstawie samego połączenia.'],verify:['Jak sprawdzić faktyczną obecność podczas transmisji?', 'Trzeba porównać log sesji, zapis przejść i materiał kamer. Każde z tych źródeł ma inny zakres i żadne samo nie przesądza tożsamości.']},
+ MK_INVITATION:{explain:['Co pani przyjmuje do wiadomości w sprawie kontaktu z Leną?', 'Nie mogę już kategorycznie wykluczać kontaktu wskazanego w odzyskanej korespondencji. Nie oznacza to jednak przyznania zamiaru wyrządzenia krzywdy.'],verify:['Co może potwierdzić pochodzenie tej wiadomości?', 'Należy zestawić treść z metadanymi urządzenia i rzeczywistą chronologią. Sam tekst nie jest dowodem, kto spotkał się z Leną.']},
+ MK_ACCEPTANCE:{explain:['Co się nie zgadza w odbiorze podzespołu?', 'Istnieje rozbieżność między oznaczeniem fizycznej części a dokumentacją odbioru. Wcześniej mówiłam o tej zgodności zbyt kategorycznie.'],verify:['Jak zweryfikować rozbieżność w oznaczeniach?', 'Proszę zestawić oryginalne oznaczenie części z protokołem odbioru i historią autoryzacji. Nie można z tego automatycznie wnioskować o sprawcy śmierci Leny.']}
+};
+const clone=v=>JSON.parse(JSON.stringify(v));
+function fresh(){return {version:1,witnesses:{}};}
+function state(){return STATE.sim.breakthrough ||=fresh();}
+function one(id){const s=state();return s.witnesses[id] ||= {phase:'neutral',unlocked:[],last:'',lastIssue:'',missteps:0,misstepKeys:[],followed:[],revision:0};}
+function normQ(s){return norm(String(s||'')).replace(/\s+/g,' ').trim();}
+function recognized(c,issue){return !!ps52Witness(c).issues?.[issue]?.resolved&&!!ps52Witness(c).issues?.[issue]?.conflict;}
+function getCandidate(c,q){const input=normQ(q);for(const issue of one(c.id).unlocked){if(!recognized(c,issue))continue;for(const key of ['explain','verify']){const route=routes[issue]?.[key];if(route&&normQ(route[0])===input)return {issue,key,answer:route[1]};}}return null;}
+const emotional=/smier|zgin|tragic|lek|obaw|zal|uczuc|emocj|strach|win|plak|wstrza/;
+function irrelevant(c,question,doc){if(!doc||!STATE.found.has(doc)||!ps52EvidenceValid(doc))return false;
+ const topics=ps52Threads(c).filter(t=>PS52_THREADS[t.id]?.tokens.test(normQ(question)));
+ if(!topics.length)return false;return !topics.some(t=>t.evidence.includes(doc));}
+function bindReaction(c,kind,issue){const p=one(c.id);p.last=kind;p.lastIssue=issue||p.lastIssue;p.revision++;
+ const stage=by('witnessStage');if(stage){stage.dataset.psbSignal=kind;}
+}
+function appendLine(c,line){const log=STATE.dialogues[c.id],last=log?.at(-1);if(last?.role!=='npc')return false;
+ if(!String(last.text).includes(line))last.text+='\n\n'+line;return true;}
+function afterReply(c){if(STATE.tab==='interview')renderChat();}
+const previous=simSendChat;
+function send(){
+ const c=people[STATE.activeChar],q=by('chatInput')?.value?.trim()||'',doc=by('attachedDoc')?.value||'';
+ if(!c||!q)return previous.apply(this,arguments);
+ const p=one(c.id),found=STATE.found.size,log=STATE.dialogues[c.id],start=log?.length||0;
+ const snapshot=Object.fromEntries(ps52Threads(c).map(t=>[t.id,recognized(c,t.id)]));
+ const candidate=!doc?getCandidate(c,q):null;
+ const badDoc=irrelevant(c,q,doc);
+ const stance=NPC4_STATE[c.id]?.stance||'neutral',tactic=ps52Witness(c)?.tactic||'free';
+ const insensitive=!!(!doc&&stance==='firm'&&['ELZBIETA','TOMASZ','MAGDALENA'].includes(c.id)&&emotional.test(normQ(q)));
+ const wasBlocked=!!simWitness(c).blocked;
+ const coercive=npc9Tone(q)==='pressure';
+ const out=previous.apply(this,arguments);
+ // Nie ingerujemy w oryginalne bramki, odmowy, liczniki zdobytych dowodów ani diagnozę AI.
+ const newReply=log?.length>start&&log.at(-1)?.role==='npc';
+ if(newReply&&!wasBlocked){
+  let changed=false;
+  for(const t of ps52Threads(c)){
+   if(!snapshot[t.id]&&recognized(c,t.id)&&!p.unlocked.includes(t.id)){
+    p.unlocked.push(t.id);p.phase='fractured';bindReaction(c,'break',t.id);
+    changed=true;
+   }
+  }
+  if(!changed&&candidate&&!simWitness(c).blocked&&p.unlocked.includes(candidate.issue)){
+   // Swobodna wypowiedź w odblokowanym wątku, bez dopisywania nowych faktów sprawy.
+   const last=log.at(-1),old=last.text;last.text=candidate.answer;
+   const m=NPC9_MEMORY[c.id];const sem=m?.semantic?.slice().reverse().find(x=>x.answer===old&&x.turn===m.turn&& !['CORRECTION_WITH_EVIDENCE','CONFESSION'].includes(x.status));
+   if(sem)sem.answer=candidate.answer;
+   const stmt=m?.statements?.slice().reverse().find(x=>x.text===old&&x.turn===m.turn&& !['CORRECTION_WITH_EVIDENCE','CONFESSION'].includes(x.status));
+   if(stmt)stmt.text=candidate.answer;
+   const key=candidate.issue+'/'+candidate.key;if(!p.followed.includes(key))p.followed.push(key);
+   p.phase='reconsidering';bindReaction(c,'reflection',candidate.issue);
+  }else if(!changed&&badDoc&&!simWitness(c).blocked){
+   const key=doc+':'+normQ(q).slice(0,55);if(!p.misstepKeys.includes(key)){
+    p.misstepKeys.push(key);p.misstepKeys=p.misstepKeys.slice(-35);p.missteps=Math.min(30,p.missteps+1);
+    NPC4_STATE[c.id].tension=npc4Clamp(NPC4_STATE[c.id].tension+7);
+    NPC4_STATE[c.id].rapport=npc4Clamp(NPC4_STATE[c.id].rapport-5);
+   }
+   appendLine(c,witnessReaction[c.id].wrong);
+   p.phase='guarded';bindReaction(c,'unrelated',doc);
+   // Dopiero powtarzana błędna konfrontacja przy wysokim napięciu prowadzi do przerwy.
+   if(p.missteps>=3&&NPC4_STATE[c.id].tension>=80&&NPC4_STATE[c.id].rapport<=22){
+    simWitness(c).blocked=true;appendLine(c,'Na tym zakończę rozmowę. Proszę zarządzić przerwę i wrócić do pytań opartych na faktach.');p.phase='closed';bindReaction(c,'closed',doc);
+   }
+  }else if(!changed&&insensitive&&!simWitness(c).blocked){
+   appendLine(c,witnessReaction[c.id].firm);
+   NPC4_STATE[c.id].tension=npc4Clamp(NPC4_STATE[c.id].tension+5);
+   NPC4_STATE[c.id].rapport=npc4Clamp(NPC4_STATE[c.id].rapport-3);
+   p.phase='guarded';bindReaction(c,'pressure');
+  }else if(!changed&&simWitness(c).blocked){p.phase='closed';bindReaction(c,'closed');}
+  else if(!changed&&coercive){appendLine(c,witnessReaction[c.id].firm);p.phase='guarded';bindReaction(c,'pressure');}
+  else if(!changed&&p.phase==='fractured'){p.phase='reconsidering';bindReaction(c,'reflection');}
+ }
+ // Liczba dowodów nie może wzrosnąć wskutek samej rozmowy z lokalną warstwą reakcji.
+ if(STATE.found.size!==found)console.warn('[psych] Niezależny mechanizm zmienił liczbę dowodów podczas przesłuchania');
+ if(newReply&&wasBlocked){p.phase='closed';bindReaction(c,'closed');}
+ if(newReply)afterReply(c);
+ return out;
+}
+simSendChat=send;sendChat=send;
+const btn=by('chatSend');if(btn){const freshBtn=btn.cloneNode(true);btn.replaceWith(freshBtn);freshBtn.addEventListener('click',send);}
+// Stan zachowania jest również widoczny dla opóźnionego renderowania portretów.
+function install(){const root=by('interview');if(!root||by('psbPanel'))return;
+ const panel=document.createElement('section');panel.id='psbPanel';panel.className='psb-panel';panel.setAttribute('aria-live','polite');panel.hidden=true;
+ const chat=root.querySelector('.chathead');chat?.insertAdjacentElement('afterend',panel);
+ root.addEventListener('click',ev=>{const button=ev.target.closest('[data-psb-route]');if(!button)return;
+  const c=people[STATE.activeChar];if(!c)return;
+  const [issue,kind]=(button.dataset.psbRoute||'').split('/');if(!one(c.id).unlocked.includes(issue)||!recognized(c,issue)||!routes[issue]?.[kind])return;
+  by('attachedDoc').value='';by('chatInput').value=routes[issue][kind][0];by('chatInput').focus();
+  by('chatInput').scrollIntoView({block:'nearest',behavior:'smooth'});
+ });
+}
+function ui(){install();const c=people[STATE.activeChar],panel=by('psbPanel');if(!c||!panel)return;
+ const p=one(c.id),rec=witnessReaction[c.id],last=[...p.unlocked].reverse().find(id=>recognized(c,id));
+ const relevant=!!last,active=!!p.last;
+ panel.hidden=!relevant&&!active;
+ if(panel.hidden)return;
+ const title=p.phase==='fractured'?'PRZEŁOM W ZEZNANIACH':p.phase==='reconsidering'?'ZMIANA STANOWISKA':p.phase==='closed'?'ROZMOWA PRZERWANA':p.phase==='guarded'?'UTRATA ZAUFANIA':'PRZESŁUCHANIE';
+ const summary=p.phase==='fractured'?rec.break:p.phase==='reconsidering'?rec.post:p.phase==='closed'?'Świadek odmawia dalszych odpowiedzi. Zarządź przerwę, aby wrócić do rozmowy.':p.phase==='guarded'?'Okazany materiał lub forma pytania wzbudziły opór. Wróć do pytań rzeczowych.':rec.post;
+ panel.replaceChildren();
+ const top=document.createElement('div');top.className='psb-heading';top.innerHTML='<span class="psb-mark" aria-hidden="true">◈</span><div><strong></strong><p></p></div>';
+ top.querySelector('strong').textContent=title;top.querySelector('p').textContent=summary;panel.append(top);
+ if(relevant){const routesBox=document.createElement('div');routesBox.className='psb-routes';const label=document.createElement('p');label.className='psb-label';label.textContent='NOWE PYTANIA — NA PODSTAWIE ZWERYFIKOWANYCH ZEZNAŃ';routesBox.append(label);
+  for(const key of ['explain','verify']){const item=routes[last]?.[key];if(!item)continue;const b=document.createElement('button');b.type='button';b.className='psb-btn';b.dataset.psbRoute=last+'/'+key;b.textContent=(key==='explain'?'Doprecyzuj zmianę stanowiska':'Sprawdź nowe wyjaśnienie')+' ↗';b.title=item[0];routesBox.append(b);}
+  panel.append(routesBox);
+ }
+ const stage=by('witnessStage')?.querySelector('.wp-stage');if(stage){stage.dataset.psbPerson=c.id;stage.classList.remove('psb-fractured','psb-reconsidering','psb-guarded','psb-closed');stage.classList.add('psb-'+(p.phase==='fractured'?'fractured':p.phase==='reconsidering'?'reconsidering':p.phase==='closed'?'closed':p.phase==='guarded'?'guarded':'reconsidering'));
+  const badge=document.createElement('div');badge.className='psb-portrait-caption';badge.textContent=title;stage.append(badge);
+  stage.querySelector('.wp-picture')?.setAttribute('aria-label','Portret: '+c.name+'. '+title.toLowerCase());
+ }
+ const quick=by('witnessQuickState');if(quick){quick.querySelector('b')&&(quick.querySelector('b').textContent='REAKCJA ŚWIADKA');const text=quick.querySelector('span');if(text)text.textContent=title.toLowerCase()+'. Reakcja nie przesądza o winie.';}
+}
+const prevChat=renderChat;
+renderChat=function(){const out=prevChat.apply(this,arguments);ui();return out;};
+const prevBreak=simBreak;
+ simBreak=function(){const out=prevBreak.apply(this,arguments);const c=people[STATE.activeChar];if(c&&!simWitness(c).blocked&&one(c.id).phase==='closed'){one(c.id).phase='guarded';bindReaction(c,'recess');if(STATE.tab==='interview')renderChat();}return out;};
+ const prevSave=buildSave;
+buildSave=function(){const out=prevSave.apply(this,arguments);if(out.investigationSim)out.investigationSim.breakthrough=clone(state());return out;};
+const prevLoad=applySave;
+applySave=function(d){const out=prevLoad.apply(this,arguments),raw=d?.investigationSim?.breakthrough;STATE.sim.breakthrough=fresh();
+ if(raw&&typeof raw==='object'&&raw.witnesses&&typeof raw.witnesses==='object'){
+  for(const c of CONTENT.characters){const x=raw.witnesses[c.id];if(!x)continue;const p=one(c.id);
+   p.unlocked=[...new Set((Array.isArray(x.unlocked)?x.unlocked:[]).filter(id=>routes[id]&&recognized(c,id)))];
+   p.phase=['neutral','fractured','reconsidering','guarded','closed'].includes(x.phase)?x.phase:'neutral';
+   if(p.phase==='fractured'&&!p.unlocked.length)p.phase='neutral';
+   p.last=typeof x.last==='string'?x.last.slice(0,28):'';
+   p.lastIssue=typeof x.lastIssue==='string'?x.lastIssue.slice(0,40):'';
+   p.missteps=Number.isInteger(x.missteps)?Math.max(0,Math.min(30,x.missteps)):0;
+   p.misstepKeys=(Array.isArray(x.misstepKeys)?x.misstepKeys:[]).filter(v=>typeof v==='string').slice(-35);
+   p.followed=(Array.isArray(x.followed)?x.followed:[]).filter(v=>typeof v==='string'&&v.length<65).slice(-30);
+  }
+ }
+ for(const c of CONTENT.characters){const p=one(c.id);if(p.unlocked.length===0&&(!raw||!raw.witnesses?.[c.id])){const legacy=ps52Threads(c).filter(t=>recognized(c,t.id)).map(t=>t.id);if(legacy.length){p.unlocked=legacy;p.phase='reconsidering';p.last='reflection';p.lastIssue=legacy.at(-1);}}}
+ if(STATE.tab==='interview')renderChat();return out;};
+const prevReset=simReset;
+simReset=function(){const result=prevReset.apply(this,arguments);STATE.sim.breakthrough=fresh();if(STATE.tab==='interview')renderChat();return result;};
+window.PS_BREAKTHROUGH={version:1,state:id=>id?clone(one(id)):clone(state()),shouldKeepCanonical:(id,q,attached)=>!attached&&!!people[id]&&!!getCandidate(people[id],q)};
+install();if(STATE.tab==='interview')ui();
+})();
+
 /* Opcjonalne odpowiedzi w chmurze, bez zmian dowodów, kar i zasad finału. */
 (function(){
  'use strict';
@@ -10282,7 +10562,7 @@ state();beforeDecision();render();
   const question=String(input?.value||'').trim(),attached=by('attachedDoc')?.value||'';
   const log=c?STATE.dialogues[c.id]:null,oldLen=log?.length||0;
   const result=old.apply(this,arguments); // FIRST: run all original mechanics, triggers, witness emotions and save state.
-  if(!c||!question||!log||log.length!==oldLen+2||attached||!CLOUD_AI_READY||!navigator.onLine||Date.now()<cloudRetryAt)return result;
+  if(!c||!question||!log||log.length!==oldLen+2||attached||window.PS_BREAKTHROUGH?.shouldKeepCanonical(c.id,question,attached)||!CLOUD_AI_READY||!navigator.onLine||Date.now()<cloudRetryAt)return result;
   const row=log.at(-1),answer=row?.text;
   if(!row||row.role!=='npc'||typeof answer!=='string'||answer.length<12||simWitness(c).blocked)return result;
   if(/\b(?:odmawiam|pelnomocnik|nie bede dalej odpowiadac|nie moge potwierdzic wniosku z tego materialu)\b/i.test(norm(answer)))return result;
@@ -12882,5 +13162,1054 @@ window.psDualAssess=async function(draft,sourceMap){
   panel.textContent=rows.filter(Boolean).join('\n');
  }catch{if(panel.isConnected)panel.textContent='Ocena AI chwilowo niedostępna. Lokalna kontrola powyżej nadal działa.'}
 };
+</script>
+<style id="psStudioV2">/* Prawdziwe Sledztwo · Studio V2. Single presentation system, gameplay unchanged. */
+:root{--bg:#0a0e13;--panel:#151b21;--panel2:#1b232b;--panel3:#232d35;--line:#323d45;--text:#f3f1eb;--muted:#b0b9bf;--amber:#dba668;--amberd:#a27a48;--green:#8ec4a5;--red:#d78582;--blue:#9ac1cd;--sv2-bg:#090e13;--sv2-paper:#111922;--sv2-raised:#18232c;--sv2-elevated:#202d37;--sv2-border:#35444b;--sv2-bright:#eee7da;--sv2-muted:#acbbc4;--sv2-copper:#dfb17a;--sv2-copper-soft:#aa855c;--sv2-hairline:rgba(177,198,208,.16)}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{background:#090e13!important;color:var(--sv2-bright)!important;font-family:system-ui,-apple-system,'Segoe UI',sans-serif!important;font-size:14px!important;line-height:1.6!important}
+*{scrollbar-width:thin;scrollbar-color:#485a66 transparent}
+button,input,select,textarea{font-family:inherit!important}
+button{touch-action:manipulation}
+:where(button,input,select,textarea,a,summary):focus-visible{outline:2px solid #e5b77f!important;outline-offset:3px!important}
+button:disabled{cursor:not-allowed}
+.layout{grid-template-columns:234px minmax(0,1fr)!important}
+.sidebar{background:#0d151c!important;border-right:1px solid #283640!important;padding:22px 15px 16px!important;box-shadow:none!important;overflow-x:hidden!important}
+.sidebar .brand{padding:2px 6px 25px!important;margin-bottom:16px!important;gap:11px!important;border-color:var(--sv2-hairline)!important}
+.sidebar .brand .seal{width:39px!important;height:39px!important;flex:none;border-radius:10px;background:#252820!important;color:var(--sv2-copper)!important;border:1px solid #7c653f!important;font-size:21px!important}
+.sidebar .brand .brand-copy{min-width:0;overflow:hidden}
+.sidebar .brand b{font:700 11px/1.45 system-ui!important;letter-spacing:.095em!important;white-space:normal!important}
+.sidebar .brand span{font:700 9px/1.5 system-ui!important;letter-spacing:.14em!important;color:#8ea4ac!important}
+.ui14-navcaption{color:#8fa0a7!important;letter-spacing:.18em!important;font-weight:800!important;margin:5px 13px 10px!important}
+.sidebar .nav{gap:3px!important;padding-top:7px!important}
+.sidebar .nav button{font-size:13px!important;font-weight:620!important;padding:11px 12px!important;min-height:43px;border-radius:8px!important;color:#b7c2c8!important;background:transparent!important;border:1px solid transparent!important;letter-spacing:.007em;transition:background .15s,border-color .15s,color .15s!important}
+.sidebar .nav button:hover{background:#1b2730!important;color:#f8f4ec!important;transform:none!important}
+.sidebar .nav button.active{color:#f6e4ca!important;background:linear-gradient(90deg,#322b25,#20252a)!important;border-color:#766044!important;box-shadow:inset 3px 0 0 #d6a66a!important}
+.sidebar .nav button .num{width:21px;flex:0 0 21px;text-align:center!important;color:#9eaeb4!important;font-size:10px!important;opacity:1!important;border:none!important}
+.sidebar .nav button.active .num{color:#e7be88!important}
+.sidebar .sidebottom{padding:15px 8px!important;border-top:1px solid var(--sv2-hairline)!important}
+.sidebar .sidebottom .status{font-size:11px;color:var(--sv2-copper)!important}
+.main{background:linear-gradient(180deg,#101820 0,#090e13 580px,#090e13 100%)!important;min-width:0}
+.topbar{background:rgba(13,21,28,.97)!important;position:sticky!important;top:0!important;z-index:40!important;height:70px!important;min-height:70px!important;border-bottom:1px solid #293943!important;padding:0 clamp(18px,2.5vw,41px)!important;box-shadow:none!important;backdrop-filter:none!important;gap:15px!important}
+.topbar .ui14-location{min-width:130px}
+.topbar .ui14-top-label{color:var(--sv2-copper)!important;letter-spacing:.18em!important;font-size:10px!important;font-weight:800!important}
+.topbar #ui14CurrentTitle{font:600 21px/1.1 Georgia,Times,serif!important;color:#f3e8d9!important}
+.topbar #ps80AudioBar{margin-left:auto}
+.topbar #ps80MusicToggle{max-width:173px}
+.sv2-actions{display:flex;align-items:center;gap:9px;margin-left:auto}
+.sv2-command{min-height:39px;border:1px solid #465762;border-radius:9px;background:#1a2833;color:#e6e7e4;font-weight:640;font-size:12px;padding:8px 12px;display:inline-flex;align-items:center;gap:9px}
+.sv2-command:hover{border-color:#d2a66b;background:#233541}
+.sv2-command svg{width:17px;height:17px;stroke:var(--sv2-copper)}
+.sv2-command kbd{font:10px ui-monospace,monospace;color:#94a7b2;border:1px solid #46535a;border-radius:4px;padding:2px 4px}
+.sv2-mobile-nav{display:none}
+.content{max-width:1430px!important;margin:0 auto!important;padding:clamp(20px,2.8vw,42px)!important}
+.section{min-width:0}
+.section h1,.section h2,.section h3{letter-spacing:-.02em}
+.section h2,.ev-header h2,.dd-head h2{font-family:Georgia,'Times New Roman',serif!important;letter-spacing:-.035em!important;font-weight:600!important;color:#f2eadf!important}
+.sectionheading,.dd-head,.tl-head{margin-bottom:24px!important;align-items:flex-start!important;gap:18px}
+.sectionheading h2,.dd-head h2,.ev-header h2,.tl-head h2{font-size:clamp(29px,3vw,40px)!important;line-height:1.11!important;margin:6px 0 9px!important}
+.sectionheading p,.dd-head p,.ev-header p{font-size:13.5px!important;line-height:1.55!important;color:#aab8c0!important;max-width:64ch!important}
+.eyebrow,.case-kicker,.ev-kicker,.dd-kicker,.tl-kicker{color:#ddb07a!important;font-size:10px!important;letter-spacing:.17em!important;font-weight:800!important}
+.surface,.searchbox,.category,.listpane,.tcms-intro,.msg-intro{background:#16212a!important;border:1px solid #32414a!important;border-radius:12px!important;box-shadow:none!important}
+.surface{overflow-wrap:anywhere}
+.padded{padding:clamp(16px,2vw,27px)!important}
+.notice{border-radius:8px!important;background:#26231d!important;border-left:3px solid #d6a66c!important}
+.btn{border-radius:9px!important;font-size:12.5px!important;font-weight:750!important;min-height:42px;padding:10px 16px!important;box-shadow:none!important;transition:background .15s,border-color .15s!important}
+.btn:not(.alt):not(.subtle){background:#a6753c!important;color:#140e08!important;border-color:#d4a064!important}
+.btn:not(.alt):not(.subtle):hover{background:#deb17c!important;border-color:#edbe88!important;transform:none!important}
+.btn.alt{background:#243641!important;border-color:#526873!important;color:#edf1ef!important}
+.btn.alt:hover{background:#2e4754!important}
+.btn.subtle{background:#17222a!important;border-color:#3c4c55!important;color:#b9c4c8!important}
+input:not([type=checkbox]):not([type=radio]),textarea,select{background:#101b24!important;color:#edece9!important;border-color:#4a5b64!important;border-radius:8px!important;min-height:41px}
+textarea{min-height:105px}
+/* Hero — actual case photography, no dead 600px dark slab */
+#overview .hero{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(320px,.86fr)!important;gap:0!important;position:relative;border-radius:18px;overflow:hidden;min-height:363px;max-width:100%;border:1px solid #806b50;background:#111b23!important;box-shadow:0 22px 50px rgba(0,0,0,.21)}
+#overview .hero .heroText{grid-column:1;grid-row:1;background:linear-gradient(110deg,#18242e 80%,#17212a)!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:363px!important;padding:clamp(24px,3vw,46px)!important;gap:13px!important;position:relative;z-index:2}
+#overview .hero .heroText:before{content:'';position:absolute;inset:0 auto 0 0;width:4px;background:#cc995e}
+#overview .hero h1{font:500 clamp(44px,4.7vw,77px)/.98 Georgia,'Times New Roman',serif!important;letter-spacing:-.055em!important;color:#fff2e1!important;margin:17px 0 19px!important}
+#overview .hero h1 em{font-style:italic;color:#d8ad78!important;font-size:.76em!important;white-space:nowrap}
+#overview .case-lead{color:#c5cbce!important;max-width:61ch!important;font-size:13.5px!important;line-height:1.65!important}
+#overview .case-actions{display:flex;gap:10px!important;margin:16px 0 0!important;flex-wrap:wrap}
+#overview .case-actions button{min-height:44px}
+#overview .case-meta{display:flex;flex-wrap:wrap;gap:12px!important;margin-top:13px;color:#9bacb3!important;font:700 9px system-ui!important;letter-spacing:.1em}
+#overview .photos{grid-column:2;grid-row:1;position:relative;margin:0!important;display:grid!important;grid-template-columns:1fr 1fr!important;grid-template-rows:1fr 1fr!important;gap:4px!important;min-height:363px!important;max-height:none!important;border-radius:0!important;background:radial-gradient(circle at 44% 35%,#434c4b,#16222b 72%)!important}
+#overview .photos img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.82) contrast(1.13)!important}
+#overview .photos img:first-child{grid-row:span 2!important}
+#overview .photos:after{content:'';pointer-events:none;position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,23,30,.24),transparent 50%),linear-gradient(0deg,rgba(5,12,18,.2),transparent 40%)}
+#overview .photos figcaption{display:none}
+/* Onboarding first, then progress, then optional actions */
+#overview:has(.ux2-start:not([hidden])) .ux2-start{order:0}
+#overview .ux2-onboard,#overview .ux2-intro,#overview .ux2-start,#overview .ux2-welcome{border-radius:14px!important}
+#overview .ui14-dashboard{background:#14222b!important;border:1px solid #354b52!important;border-radius:13px!important;box-shadow:none!important;padding:clamp(17px,2vw,26px)!important;margin:20px 0!important}
+#overview .ui14-dashboard-head h3{font:600 23px/1.22 Georgia,serif!important;color:#efe5d5}
+#overview .ui14-dashboard-head p{color:#a9bac1!important;font-size:12px!important}
+#overview .ui14-stats{gap:10px!important}
+#overview .ui14-stat{background:#1b2b35!important;border:1px solid #30444c!important;border-radius:9px!important;box-shadow:none!important;padding:14px!important}
+#overview .ui14-stat b{color:#eec38d!important;font-size:clamp(19px,2vw,25px)!important}
+#overview .ui14-stat span{font-size:11px!important;color:#aebbc0!important}
+#overview .ui14-progress-track{border-radius:99px!important;height:7px!important;background:#283842!important}
+#overview .ui14-progress-track span{border-radius:99px!important;background:#d1a26e!important}
+#overview .ui14-module-grid{gap:12px!important}
+#overview .ui14-module{background:#17242d!important;border-color:#3a4a53!important;border-radius:11px!important;padding:20px!important;box-shadow:none!important;transition:border-color .15s,background .15s!important}
+#overview .ui14-module:hover{background:#20313b!important;border-color:#af8759!important;transform:none!important}
+#overview .ui14-module b{font-size:15px!important}
+#overview .ui14-module span{color:#acbdc5}
+#overview .ui14-path-head{margin:24px 0 13px!important}
+/* headings do not impersonate buttons */
+.sv2-subnav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:-5px 0 20px}
+.sv2-subnav button{font:700 11px system-ui!important;border:1px solid #3c505a;color:#c5d0d2;background:#1b2c35;border-radius:8px;padding:8px 12px;min-height:37px}
+.sv2-subnav button:hover{background:#2a414b;border-color:#ce9e68;color:#fff0db}
+.sv2-subnav-label{color:#8fa5af;font:800 10px system-ui;letter-spacing:.13em;margin-right:4px}
+/* Case files: typography, clear selection, readable document */
+#evidence .ev-header{background:linear-gradient(105deg,#1b2a35,#141e27)!important;border:1px solid #3a4b53!important;border-radius:15px!important;padding:clamp(17px,2.4vw,32px)!important;margin-bottom:14px!important;align-items:center!important}
+#evidence .ev-header h2{font-size:clamp(33px,3.5vw,47px)!important}
+#evidence .ev-header .ev-progress{flex:none}
+#evidence .ev-header .ev-progress strong{font-size:28px!important}
+#evidence .ev-controls{background:#14222b!important;border:1px solid #32454c!important;border-radius:11px!important;padding:12px!important;margin-bottom:12px!important;box-shadow:none!important}
+#evidence .ev-search{background:#0d1b24!important;border:1px solid #455b65!important;border-radius:9px!important;min-height:47px!important}
+#evidence .ev-categories{display:flex!important;gap:7px!important;margin-bottom:17px!important;overflow-x:auto;flex-wrap:nowrap!important;padding-bottom:6px}
+#evidence .ev-categories button{white-space:nowrap;flex:none;min-height:37px!important;font-size:11px!important;border-radius:7px!important}
+#evidence .ev-workspace{display:grid!important;grid-template-columns:minmax(320px,.8fr) minmax(0,1.2fr)!important;gap:15px!important;align-items:start}
+#evidence .ev-index,#evidence .ev-reader{background:#111c24!important;border:1px solid #33444d!important;border-radius:12px!important;min-width:0;overflow:hidden}
+#evidence .ev-file-list{max-height: min(64vh,760px)!important;overflow-y:auto!important;scrollbar-width:thin;overscroll-behavior:contain}
+#evidence .ev-file{padding:13px 16px!important;transition:background .15s!important;min-height:63px}
+#evidence .ev-file.selected{background:#322b25!important;border-left-color:#d8a46c!important}
+#evidence .ev-file:hover{background:#23323a!important}
+#evidence .ev-file strong{font-size:12.5px!important;line-height:1.42!important;color:#f0ece3!important}
+#evidence .ev-reader{max-width:100%!important}
+#evidence .ev-sheet{background:#dfdacb!important;color:#263037!important;box-shadow:0 15px 29px rgba(0,0,0,.18)!important}
+#evidence .ev-file-list:empty{min-height:120px}
+.sv2-doc-pager{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 13px;background:#17262f;border-top:1px solid #33454f;color:#aec0c7;font-size:11px}
+.sv2-doc-pager button{border:1px solid #49616c;background:#243844;border-radius:7px;color:#eaece6;padding:8px 10px;font:700 11px system-ui;min-height:34px}
+.sv2-doc-pager button:hover{border-color:#c89e69}
+.sv2-doc-pager[hidden],.sv2-doc-pager [hidden],.sv2-file-hidden{display:none!important}
+.sv2-doc-switch{display:none}
+/* Search room selector shouldn't overpower search */
+#search.active{display:flex!important;flex-direction:column}
+#search>.sectionheading{order:0}
+#search>.searchbox{order:1;margin-bottom:18px!important}
+#search>.locationgrid{order:2}
+#search .searchbox{background:#172731!important;padding:22px!important;border-color:#3a535d!important}
+#search #searchInput{font-size:15px!important}
+#search .locationgrid{gap:10px!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}
+#search .location{background:#15232c!important;border:1px solid #3c4d56!important;border-radius:10px!important;min-height:84px!important;padding:15px!important}
+#search .location:hover{background:#22323c!important;border-color:#a8865b!important}
+#search .location.selected{background:#343026!important;border-color:#c69d62!important}
+#search #searchResults{line-height:1.65!important}
+/* Interview — prioritize witness and composing, maintain portrait */
+#interview .charactergrid{display:grid!important;grid-template-columns:minmax(195px,228px) minmax(0,1fr)!important;gap:16px!important}
+#interview .characterlist{display:grid!important;gap:7px!important;align-content:start!important;max-height:690px;overflow-y:auto}
+#interview .character{border:1px solid #3c5059!important;border-radius:9px!important;background:#172630!important;padding:12px!important}
+#interview .character:hover{background:#263742!important}
+#interview .character.active{border-color:#be925d!important;background:#353026!important}
+#interview .chat{background:#101b24!important;border:1px solid #344852!important;border-radius:13px!important;overflow:hidden!important;min-width:0}
+#interview .chathead{background:#192732!important}
+#interview .chatlog{background:#0e1820!important;min-height:210px!important;max-height:360px!important;overflow:auto}
+#interview .bubble{max-width:80%!important;font-size:13.5px!important;line-height:1.6!important;border-radius:12px!important}
+#interview .bubble.npc{background:#21333d!important}
+#interview .bubble.player{background:#624329!important}
+#interview .chatfoot{background:#182832!important}
+#interview .chatfoot textarea{font-size:15px!important}
+/* Inspection and laboratories: density and logical groupings */
+#inspection12 .sc-layout{gap:15px!important}
+#inspection12 .sc-stats{margin-bottom:14px!important}
+#inspection12 .sc-hotspots,#inspection12 .sc84-queue{overflow-y:auto!important;max-height:430px!important}
+#inspection12 .sc-inspector{background:#182832!important;border:1px solid #48606a!important;border-radius:11px!important}
+#inspection12 .et1-actions{border-radius:10px!important}
+#inspection12 .et1-photos{border-radius:11px!important;overflow:hidden}
+#inspection12 .sc-rooms{scrollbar-width:thin}
+#labs #labCards{gap:13px!important}
+#labs .ux5-lab-item{border-radius:11px!important;box-shadow:none!important}
+#labs .ux5-lab-item:hover{border-color:#bc915d!important}
+#deduction .dd-work{gap:15px!important}
+#deduction .dd-note{background:#17252e!important;border-radius:9px!important}
+#deduction .dd-source-list{max-height:480px!important;overflow:auto!important}
+#deduction .dd-source-panel,#deduction .dd-editor-panel{min-width:0!important}
+#final .fc-grid>*,#final .fc-fields>*{min-width:0}
+/* One command dialog. Keyboard accessibility, no hidden gameplay. */
+.sv2-palette[hidden]{display:none!important}
+.sv2-palette{position:fixed;inset:0;z-index:999;background:rgba(5,9,12,.84);display:grid;justify-items:center;align-content:start;padding:9vh 15px 20px}
+.sv2-dialog{width:min(620px,100%);max-height:80vh;display:flex;flex-direction:column;border:1px solid #bd9362;border-radius:16px;background:#14232d;box-shadow:0 28px 90px #000b;overflow:hidden}
+.sv2-dialog-head{display:flex;justify-content:space-between;align-items:center;padding:19px 20px 12px;gap:10px;border-bottom:1px solid #2e404b}
+.sv2-dialog-head strong{font:600 22px Georgia,serif;color:#f0e6d6}
+.sv2-dialog-head button{background:#273b45;border:1px solid #47606c;border-radius:8px;color:#fff;padding:7px 11px;min-height:38px}
+.sv2-dialog input{margin:16px 18px 12px;min-height:50px;font-size:16px!important}
+.sv2-results{overflow-y:auto;padding:0 10px 14px;min-height:0}
+.sv2-results button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:transparent;border:1px solid transparent;border-radius:8px;color:#f3f1ea;padding:11px 12px;min-height:51px}
+.sv2-results button:hover,.sv2-results button.active{background:#263742;border-color:#7a6852}
+.sv2-results .n{flex:none;color:#dfb178;border:1px solid #57656b;border-radius:6px;display:grid;place-items:center;width:28px;height:28px;font:11px ui-monospace,monospace}
+.sv2-results b{display:block;font:700 13px system-ui}.sv2-results small{display:block;color:#a7b8c0;font-size:11px;margin-top:2px}
+.sv2-dialog-foot{padding:12px 20px;border-top:1px solid #344751;font-size:11px;color:#a8b5b9}
+body.sv2-modal{overflow:hidden}
+/* Responsive structure: mobile should feel purpose-built, not squeezed desktop */
+@media(max-width:1000px){
+ .layout{display:block!important;grid-template-columns:1fr!important}
+ .sidebar{display:none!important}
+ .topbar{height:60px!important;min-height:60px!important;padding:0 13px!important}
+ .topbar #ps80AudioBar{margin-left:0}
+ .topbar #ps80MusicToggle{max-width:48px;padding:8px 9px!important}
+ .topbar #ps80MusicToggle .ps80-label{display:none!important}
+ .sv2-actions{margin-left:auto!important;margin-right:5px}
+ .sv2-command{padding:9px!important;min-width:39px;justify-content:center}
+ .sv2-command span,.sv2-command kbd{display:none}
+ .sv2-mobile-nav{display:flex;position:sticky;top:60px;z-index:39;gap:5px;overflow-x:auto;padding:8px 12px;background:#111d25;border-bottom:1px solid #30424b;scrollbar-width:none;overscroll-behavior-x:contain}
+ .sv2-mobile-nav::-webkit-scrollbar{display:none}
+ .sv2-mobile-nav button{flex:none;white-space:nowrap;min-height:36px;border:1px solid #40535c;border-radius:8px;background:#1b2b35;color:#c0cbd1;font:700 11px system-ui;padding:8px 12px}
+ .sv2-mobile-nav button.active{color:#ffebd0;background:#47372a;border-color:#b58b59}
+ .content{padding:22px!important}
+ #overview .hero{grid-template-columns:1fr .85fr!important;min-height:330px}
+ #overview .hero .heroText{min-height:330px!important;padding:26px!important}
+ #overview .photos{min-height:330px!important}
+ #interview .charactergrid{grid-template-columns:minmax(0,1fr)!important}
+ #interview .characterlist{display:flex!important;gap:7px!important;overflow-x:auto!important;overflow-y:hidden!important;max-height:none;scrollbar-width:none}
+ #interview .character{min-width:155px;flex:0 0 155px}
+}
+@media(max-width:690px){
+ .content{padding:13px!important}
+ .topbar .ui14-top-label{font-size:9px!important;max-width:152px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+ .topbar #ui14CurrentTitle{font-size:17px!important}
+ .topbar #ps80AudioBar{max-width:44px}
+ #overview .hero{display:flex!important;flex-direction:column!important;min-height:0!important}
+ #overview .hero .heroText{order:2;min-height:0!important;padding:20px 19px 22px!important;background:#182730!important}
+ #overview .hero h1{font-size:clamp(39px,10.8vw,57px)!important;margin:10px 0 14px!important}
+ #overview .hero .photos{order:1;height:170px!important;min-height:170px!important;max-height:170px!important;grid-template-columns:1fr 1fr!important;grid-template-rows:1fr 1fr!important}
+ #overview .hero .case-lead{font-size:12px!important;line-height:1.58!important}
+ #overview .hero .case-meta{margin-top:12px}
+ #overview .case-actions{gap:8px!important}
+ #overview .case-actions button{flex:1;min-width:130px}
+ #overview .ui14-dashboard{margin:12px 0!important;padding:16px!important}
+ #overview .ui14-stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
+ #overview .ui14-stat{padding:10px 5px!important;min-width:0!important}
+ #overview .ui14-stat b{font-size:17px!important;overflow-wrap:anywhere}
+ #overview .ui14-stat span{font-size:9px!important;line-height:1.25}
+ #overview .ui14-module-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+ #overview .ui14-module{padding:13px!important;min-height:140px}
+ #overview .ui14-module b{font-size:13px!important}
+ .sectionheading,.dd-head,.tl-head{margin-bottom:16px!important}
+ .sectionheading h2,.dd-head h2,.ev-header h2,.tl-head h2{font-size:clamp(27px,8vw,33px)!important}
+ #evidence .ev-header{padding:18px!important;align-items:flex-start!important}
+ #evidence .ev-progress{padding:0 0 0 10px!important}
+ #evidence .ev-progress strong{font-size:20px!important}
+ #evidence .ev-controls{padding:8px!important;display:flex!important;gap:7px!important}
+ #evidence .ev-controls .ev-search{flex:1;min-width:0}
+ #evidence .ev-controls #evClear{min-width:80px!important;font-size:11px!important}
+ #evidence .ev-categories{gap:5px!important}
+ #evidence .ev-workspace{display:block!important;grid-template-columns:1fr!important}
+ #evidence .ev-index,#evidence .ev-reader{width:100%!important;max-width:100%!important}
+ #evidence .ev-file-list{max-height:65vh!important;overflow-y:auto!important}
+ .sv2-doc-switch{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:0 0 11px;background:#15242d;padding:5px;border:1px solid #3b515c;border-radius:10px}
+ .sv2-doc-switch button{min-height:38px;border-radius:7px;border:1px solid transparent;background:transparent;color:#b6c5cb;font-size:12px;font-weight:750}
+ .sv2-doc-switch button.active{color:#fae5c5;background:#3c332a;border-color:#8e6e4a}
+ #evidence.sv2-doc-view-list .ev-reader{display:none!important}
+ #evidence.sv2-doc-view-preview .ev-index{display:none!important}
+ #evidence .ev-sheet{padding:17px!important}
+ #search .searchbox{padding:14px!important}
+ #search .locationgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+ #search .location{min-height:73px!important;padding:11px!important}
+ #interview .chatlog{min-height:200px!important;max-height:350px!important}
+ #interview .bubble{max-width:91%!important}
+ #inspection12 .sc-hotspots,#inspection12 .sc84-queue{max-height:310px!important}
+ #deduction .dd-source-list{max-height:320px!important}
+ #labs #labCards{gap:8px!important}
+ .sv2-subnav{overflow-x:auto;flex-wrap:nowrap!important;scrollbar-width:none;padding-bottom:4px}
+ .sv2-subnav button{flex:none}
+ .sv2-palette{padding-top:7vh}
+}
+@media(max-width:360px){
+ .content{padding:10px!important}
+ .topbar .ui14-top-label{display:none!important}
+ #overview .hero .photos{height:140px!important;min-height:140px!important}
+ #overview .case-actions button{min-width:100%}
+ #search .locationgrid{grid-template-columns:1fr!important}
+ #overview .ui14-module-grid{grid-template-columns:1fr!important}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation:none!important;transition:none!important}}
+/* Final layout audit refinements: true image hero and mobile-first task density. */
+#overview #photoGrid{display:grid!important;visibility:visible!important;opacity:1!important}
+#overview #photoGrid img:first-child{display:block!important;grid-column:1/-1!important;grid-row:1/-1!important;width:100%!important;height:100%!important;object-fit:cover!important}
+#overview #photoGrid img:not(:first-child){display:none!important}
+#overview #photoGrid:after{background:linear-gradient(90deg,rgba(17,28,35,.15),transparent 55%),linear-gradient(0deg,#0b141c66,transparent 65%)!important}
+#overview .hero{background:#1a2832!important}
+/* compact onboarding; other tasks remain accessible by expanding all steps */
+#ps2Welcome{background:#15232b!important;border:1px solid #3c5058!important;border-radius:13px!important;box-shadow:none!important}
+#ps2Welcome .ps2-head h2{font-family:Georgia,serif!important;font-size:clamp(23px,2.3vw,29px)!important;color:#f0e6d6!important}
+#ps2Welcome .ps2-eyebrow{color:#deb079!important}
+#ps2Welcome .ps2-step{border-radius:10px!important;background:#1d2b34!important;border:1px solid #3b4e56!important;box-shadow:none!important}
+#ps2Welcome .ps2-step.is-next{background:#312b25!important;border-color:#ad8455!important}
+#ps2Welcome .ps2-step b{color:#f2e7d9!important}
+#ps2Welcome .ps2-step p{color:#b7c3c6!important}
+.sv2-expand-steps{border:1px solid #53616a!important;border-radius:8px;background:#21313a;color:#e5d8c6;font:700 11px system-ui;padding:9px 12px;min-height:37px;margin:0 0 12px}
+.sv2-expand-steps:hover{border-color:#d4a36b}
+@media(max-width:690px){
+ #overview #photoGrid{display:grid!important;min-height:156px!important;height:156px!important;max-height:156px!important}
+ #overview #photoGrid img:first-child{min-height:156px!important;object-position:50% 43%!important}
+ #overview .hero .heroText{padding:18px!important}
+ #overview .hero h1{font-size:clamp(39px,10vw,51px)!important}
+ #ps2Welcome{padding:15px!important}
+ #ps2Welcome .ps2-head{margin:0 0 10px!important}
+ #ps2Welcome .ps2-head h2{font-size:23px!important;margin:4px 0!important}
+ #ps2Welcome .ps2-lead{font-size:11.5px!important;line-height:1.5!important;margin:0 0 10px!important}
+ #ps2Welcome .ps2-steps{display:block!important}
+ #ps2Welcome .ps2-step{padding:13px!important;margin:0 0 8px!important;min-height:0!important}
+ #ps2Welcome:not(.sv2-show-steps) .ps2-step:not(.is-next){display:none!important}
+ #ps2Welcome .ps2-step p{font-size:11.5px!important;line-height:1.45!important;margin:5px 0 10px!important}
+ #ps2Welcome .ps2-step button{width:100%!important;min-height:39px!important}
+ #ps2Welcome .ux6-start-now{min-height:42px!important;margin:4px 0 10px!important;width:100%!important}
+ #ps2Welcome .ps2-controls{margin-top:4px!important;gap:8px!important}
+ #ps2Welcome .ps2-controls span{display:none!important}
+ #ps2Welcome .ps2-controls button{width:100%;min-height:37px!important;font-size:11px!important}
+ .ps2-context{padding:12px!important;gap:9px!important;border-radius:10px!important}
+ .ps2-context .ps2-context-copy b{font-size:12px!important}
+ .ps2-context .ps2-context-copy p{font-size:11.5px!important;line-height:1.4!important;margin-top:3px!important}
+ .ps2-context .btn{min-height:34px!important;padding:7px 11px!important;font-size:11px!important}
+ #evidence .ev-header{min-height:0!important;margin-bottom:8px!important;padding:12px 15px!important;gap:10px!important}
+ #evidence .ev-header h2{font-size:30px!important;margin:3px 0!important}
+ #evidence .ev-header p{font-size:11.5px!important;line-height:1.35!important}
+ #evidence .ev-header .ev-progress{min-width:84px!important;padding:5px 0 5px 8px!important}
+ #evidence .ev-header .ev-progress span{font-size:8px!important}
+ #evidence .ev-header .ev-progress strong{font-size:20px!important}
+ #evidence .ux6-shortcuts{margin:0 0 8px!important}
+ #evidence .ev-controls{margin-bottom:7px!important}
+ #evidence .ev-categories{margin-bottom:8px!important}
+ #evidence .sv2-doc-switch{margin-bottom:8px!important}
+ #interview .sectionheading{margin-bottom:11px!important}
+ #interview .cross3-inline{font-size:11px!important;padding:10px 12px!important;line-height:1.45!important;margin-bottom:10px!important}
+ #interview .characterlist{margin-top:0!important}
+ #interview .sv2-subnav{margin:0 0 9px!important}
+ #interview .ux6-shortcuts{margin-bottom:8px!important}
+}
+/* The legacy theme positions the photo figure absolutely. Restore normal flow. */
+#overview #photoGrid{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;flex:none!important;grid-column:2!important;grid-row:1!important;width:100%!important;height:100%!important}
+@media(max-width:690px){
+ #overview #photoGrid{order:1!important;height:132px!important;min-height:132px!important;max-height:132px!important;grid-column:auto!important;grid-row:auto!important}
+ #overview #photoGrid img:first-child{min-height:132px!important}
+ #overview .hero .heroText{order:2!important}
+}
+/* Accurate full-width hero text pane; legacy stylesheet restricted its width. */
+#overview .hero .heroText{width:100%!important;max-width:none!important;min-width:0!important;justify-self:stretch!important}
+#overview #photoGrid img:first-child{filter:saturate(.93) brightness(1.08) contrast(1.05)!important}
+#overview #photoGrid:after{background:linear-gradient(90deg,rgba(13,25,33,.19),transparent 62%),linear-gradient(0deg,rgba(6,15,22,.18),transparent 68%)!important}
+@media(min-width:691px){#ps2Welcome .sv2-expand-steps{display:none!important}}
+@media(max-width:690px){
+ #evidence.sv2-doc-view-list .ev-index{display:flex!important;flex-direction:column!important}
+ #evidence.sv2-doc-view-preview .ev-reader{display:block!important}
+}
+@media(max-width:690px){
+ /* A one-button shortcut to the list is redundant once the list is directly beneath search. */
+ #evidence > .ux6-shortcuts{display:none!important}
+ #evidence .ps2-context [data-ps2-go="overview"]{display:none!important}
+}
+</style><script id="psStudioV2Script">/* Studio V2 navigation + progressive document browsing. Does not mutate gameplay facts. */
+(()=>{'use strict';
+ const init=()=>{
+ if(document.getElementById('sv2Find'))return;
+ const modules=[
+ ['overview','Pulpit','Rozpocznij lub kontynuuj sprawę'],['evidence','Akta','Czytaj zdobyte materiały'],
+ ['search','Poszukiwania','Przeszukuj rejestry i archiwa'],['interview','Przesłuchania','Rozmawiaj ze świadkami'],
+ ['timeline','Oś czasu','Weryfikuj chronologię'],['inspection12','Oględziny','Badaj strefy zajezdni'],
+ ['notebook','Notatnik','Twoje zapiski i odkrycia'],['labs','Laboratorium','Pięć pracowni analitycznych'],
+ ['deduction','Dedukcja','Buduj i sprawdzaj hipotezy'],['final','Finał','Akt oskarżenia i obrona']];
+ const find=id=>document.getElementById(id);
+ const current=()=>document.querySelector('#nav button.active')?.dataset.tab||document.querySelector('.section.active')?.id||'overview';
+ const go=id=>{const btn=document.querySelector('#nav [data-tab="'+id+'"]');if(btn)btn.click();};
+ const header=document.querySelector('.topbar');if(!header)return;
+ const actions=document.createElement('div');actions.className='sv2-actions';
+ const findBtn=document.createElement('button');findBtn.type='button';findBtn.id='sv2Find';findBtn.className='sv2-command';findBtn.setAttribute('aria-label','Wyszukaj moduł');findBtn.setAttribute('aria-haspopup','dialog');findBtn.innerHTML='<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m16 16 5 5"/></svg><span>Przejdź do modułu</span><kbd>Ctrl K</kbd>';
+ actions.append(findBtn);header.insertBefore(actions,find('ps80AudioBar')||header.lastChild);
+ const nav=document.createElement('nav');nav.className='sv2-mobile-nav';nav.setAttribute('aria-label','Sekcje śledztwa');
+ for(const m of modules){const b=document.createElement('button');b.type='button';b.dataset.sv2Tab=m[0];b.textContent=m[1];b.addEventListener('click',()=>go(m[0]));nav.append(b)}
+ header.after(nav);
+ const overlay=document.createElement('div');overlay.className='sv2-palette';overlay.hidden=true;overlay.id='sv2Palette';
+ overlay.innerHTML='<div class="sv2-dialog" role="dialog" aria-modal="true" aria-label="Wybierz moduł"><div class="sv2-dialog-head"><strong>Przejdź do modułu</strong><button type="button" id="sv2Close" aria-label="Zamknij">Zamknij</button></div><input type="search" autocomplete="off" id="sv2Query" placeholder="Akta, świadkowie, oględziny…" aria-label="Szukaj modułu"><div id="sv2Results" class="sv2-results"></div><div class="sv2-dialog-foot">↑ ↓ wybór · Enter otwórz · Esc zamknij</div></div>';
+ document.body.append(overlay);
+ const input=find('sv2Query'),list=find('sv2Results');let found=[],selected=0;
+ const norm=v=>(v||'').toLocaleLowerCase('pl').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l');
+ function render(){const q=norm(input.value.trim());found=modules.filter(m=>!q||norm(m.join(' ')).includes(q));selected=Math.min(selected,Math.max(0,found.length-1));list.replaceChildren();if(!found.length){const p=document.createElement('p');p.style.padding='15px';p.textContent='Nie znaleziono modułu. Spróbuj: akta, dedukcja, świadkowie.';list.append(p);return;}
+ found.forEach((m,i)=>{const b=document.createElement('button');b.type='button';b.classList.toggle('active',i===selected);const n=document.createElement('span');n.className='n';n.textContent=String(modules.indexOf(m)+1).padStart(2,'0');const t=document.createElement('span');const strong=document.createElement('b');strong.textContent=m[1];const small=document.createElement('small');small.textContent=m[2];t.append(strong,small);b.append(n,t);b.addEventListener('click',()=>{hide();go(m[0])});b.addEventListener('mouseenter',()=>{selected=i;mark()});list.append(b)})}
+ function mark(){[...list.children].forEach((b,i)=>b.classList.toggle('active',i===selected))}
+ function show(){overlay.hidden=false;document.body.classList.add('sv2-modal');input.value='';selected=0;render();input.focus()}
+ function hide(){overlay.hidden=true;document.body.classList.remove('sv2-modal');findBtn.focus()}
+ findBtn.addEventListener('click',show);find('sv2Close').addEventListener('click',hide);overlay.addEventListener('click',e=>{if(e.target===overlay)hide()});input.addEventListener('input',()=>{selected=0;render()});
+ input.addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();selected=(selected+(e.key==='ArrowDown'?1:-1)+found.length)%Math.max(found.length,1);mark()}else if(e.key==='Enter'&&found[selected]){e.preventDefault();let id=found[selected][0];hide();go(id)}});
+ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();overlay.hidden?show():hide()}else if(e.key==='Escape'&&!overlay.hidden){e.preventDefault();hide()}});
+ function sync(){const tab=current();nav.querySelectorAll('button').forEach(b=>{const active=b.dataset.sv2Tab===tab;b.classList.toggle('active',active);if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')})}
+ const side=find('nav');if(side)new MutationObserver(sync).observe(side,{subtree:true,attributes:true,attributeFilter:['class']});sync();
+ // Compact navigational landmarks inside long sections.
+ const anchors={interview:[['Świadkowie','#characterList'],['Rozmowa','#chatLog'],['Pytanie','#chatInput']],inspection12:[['Strefy','#scRooms'],['Badaj','#scDetail'],['Zdjęcia','#et1Photos']],labs:[['Pracownie','#labCards'],['Raporty','#cross3Panel']],deduction:[['Źródła','#dedSourceList'],['Hipoteza','#ddCardForm'],['Tablica','#dedBoard']]};
+ for(const [tab,targets] of Object.entries(anchors)){const sec=find(tab);if(!sec)continue;const bar=document.createElement('div');bar.className='sv2-subnav';bar.setAttribute('aria-label','Skróty w sekcji');const title=document.createElement('span');title.className='sv2-subnav-label';title.textContent='W TYM MODULE';bar.append(title);
+ for(const [name,target] of targets){const el=sec.querySelector(target);if(!el)continue;const b=document.createElement('button');b.type='button';b.textContent=name;b.addEventListener('click',()=>{el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});if(el.matches('input,textarea'))el.focus({preventScroll:true})});bar.append(b)}
+ const h=sec.querySelector(':scope > .sectionheading,:scope > .dd-head');if(h&&bar.childElementCount>1)h.after(bar)}
+ // All documents still searched/filtered by the original system; this only limits rendered list length.
+ const docs=find('docList');if(docs){let cap=20,all=false,frame=0;const foot=document.createElement('div');foot.className='sv2-doc-pager';foot.id='sv2DocPager';const label=document.createElement('span');const more=document.createElement('button');more.type='button';more.textContent='Pokaż 20 kolejnych';const showAll=document.createElement('button');showAll.type='button';showAll.textContent='Pokaż wszystkie';foot.append(label,more,showAll);docs.after(foot);
+ const update=()=>{frame=0;const rows=[...docs.children].filter(el=>el.matches('.ev-file'));const chosen=rows.findIndex(el=>el.classList.contains('selected'));if(chosen>=cap)cap=Math.ceil((chosen+1)/20)*20;let visible=all?rows.length:Math.min(rows.length,cap);rows.forEach((el,i)=>el.classList.toggle('sv2-file-hidden',i>=visible));foot.hidden=rows.length<=20||visible>=rows.length;label.textContent=visible+' z '+rows.length+' materiałów';more.hidden=visible>=rows.length;showAll.hidden=visible>=rows.length};
+ const schedule=()=>{if(!frame)frame=requestAnimationFrame(update)};more.addEventListener('click',()=>{cap+=20;schedule()});showAll.addEventListener('click',()=>{all=true;schedule()});
+ for(const id of ['filterDocs','filterCategory']){const el=find(id);el?.addEventListener(id==='filterDocs'?'input':'change',()=>{cap=20;all=false;schedule()})}
+ new MutationObserver(schedule).observe(docs,{childList:true});schedule()}
+ // First-run guidance shows the active task on narrow screens. The player can expand all three.
+ const welcome=find('ps2Welcome');if(welcome){const steps=welcome.querySelector('.ps2-steps');if(steps){const expand=document.createElement('button');expand.type='button';expand.className='sv2-expand-steps';expand.textContent='Zobacz wszystkie 3 kroki';expand.setAttribute('aria-expanded','false');steps.before(expand);expand.addEventListener('click',()=>{const open=welcome.classList.toggle('sv2-show-steps');expand.textContent=open?'Zwiń plan wprowadzenia':'Zobacz wszystkie 3 kroki';expand.setAttribute('aria-expanded',String(open))})}}
+ // Mobile document list/preview switch; never changes selected document or evidence state.
+ const evidence=find('evidence'),work=evidence?.querySelector('.ev-workspace');
+ if(evidence&&work){const switcher=document.createElement('div');switcher.className='sv2-doc-switch';switcher.setAttribute('role','group');switcher.setAttribute('aria-label','Widok akt');const listBtn=document.createElement('button');const previewBtn=document.createElement('button');listBtn.type='button';previewBtn.type='button';listBtn.textContent='Lista dokumentów';previewBtn.textContent='Podgląd dokumentu';switcher.append(listBtn,previewBtn);work.before(switcher);
+ const setView=view=>{evidence.classList.toggle('sv2-doc-view-list',view==='list');evidence.classList.toggle('sv2-doc-view-preview',view==='preview');listBtn.classList.toggle('active',view==='list');previewBtn.classList.toggle('active',view==='preview');listBtn.setAttribute('aria-pressed',String(view==='list'));previewBtn.setAttribute('aria-pressed',String(view==='preview'))};setView('list');listBtn.addEventListener('click',()=>setView('list'));previewBtn.addEventListener('click',()=>setView('preview'));
+ find('docList')?.addEventListener('click',e=>{if(e.target.closest('.ev-file')&&matchMedia('(max-width:690px)').matches){setView('preview');switcher.scrollIntoView({block:'start',behavior:'smooth'})}});
+ evidence.querySelectorAll('.ev-reader button').forEach(btn=>{if(/spis dokumentów/i.test(btn.textContent))btn.addEventListener('click',()=>setView('list'))})}
+ };
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script><style id="ps-mentor-thread-style">/* Starszy Śledczy */
+.senior-fab[hidden],.senior-panel[hidden]{display:none!important}
+.senior-fab{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));right:20px;z-index:80;display:flex;align-items:center;gap:9px;border:1px solid #9d835d;border-radius:999px;background:#e4c795;color:#192027;box-shadow:0 12px 36px #000a;padding:11px 15px;font-size:12px;font-weight:800;letter-spacing:.02em;cursor:pointer}
+.senior-fab:hover{background:#f2dab0}.senior-fab-symbol{display:grid;place-items:center;width:28px;height:28px;border:1px solid #4a493d;border-radius:50%;font-size:20px}
+.senior-panel{position:fixed;right:20px;bottom:calc(82px + env(safe-area-inset-bottom));width:min(390px,calc(100vw - 28px));max-height:min(630px,calc(100dvh - 110px));z-index:82;overflow:auto;border:1px solid #8b7557;border-radius:14px;background:#17232a;box-shadow:0 25px 80px #000c;color:#f5eee0}
+.senior-panel header{display:flex;align-items:center;gap:11px;padding:16px 17px;background:linear-gradient(130deg,#2e332e,#242e32);border-bottom:1px solid #615640}
+.senior-panel header>span:nth-child(2){display:grid;flex:1;gap:1px}.senior-panel header strong{font-family:Georgia,serif;font-size:21px;font-weight:600}.senior-panel header small{font-size:11px;color:#c9bfae}
+.senior-avatar{width:43px;height:43px;display:grid;place-items:center;border:1px solid #ab9871;border-radius:50%;color:#efd6a4;background:#172126;font:700 15px Georgia,serif}
+#seniorClose{border:0;background:transparent;color:#e5dccb;font-size:26px;padding:3px 10px;cursor:pointer}.senior-content{display:grid;gap:12px;padding:18px}.senior-kicker{font-size:10px;letter-spacing:.15em;font-weight:800;color:#d9bc83}.senior-content h3{font:600 24px/1.15 Georgia,serif;color:#fff}.senior-content>p:not(.senior-disclaimer){padding:15px;background:#263238;border-left:3px solid #d9b87b;border-radius:6px;line-height:1.62;color:#eae4d9;min-height:93px}
+.senior-level{font-size:11px;color:#b5a996}.senior-action,.senior-go{width:100%;border-radius:6px;padding:12px;border:1px solid #967f5a;cursor:pointer;font-weight:700}.senior-action{background:#d8ba85;color:#162027}.senior-go{background:#1c2b30;color:#e4cfa9}.senior-disclaimer{font-size:11px;color:#b6ad9f;line-height:1.5}.senior-opt,.senior-setting{display:flex;align-items:center;gap:9px;font-size:12px;color:#ded5c5;cursor:pointer}.senior-opt{padding-top:12px;border-top:1px solid #4b5253}.senior-opt input,.senior-setting input{accent-color:#c6a76a;width:18px;height:18px}.senior-setting{padding:12px 0 4px}
+/* Czerwona Nitka */
+.thread-board-panel{margin:18px 0 24px;border:1px solid #6b5a45;border-radius:12px;overflow:hidden;background:#161f22;color:#f0e8d8;box-shadow:0 15px 35px #0005}
+.thread-heading{display:flex;justify-content:space-between;align-items:start;gap:16px;padding:24px 25px;background:linear-gradient(110deg,#2b302c,#19252a);border-bottom:1px solid #655741}
+.thread-eyebrow{display:block;font-size:10px;letter-spacing:.18em;color:#cfaa70;font-weight:850}.thread-heading h3{font:600 clamp(27px,3vw,38px)/1.13 Georgia,serif;margin:8px 0 7px;color:#fff5e5}.thread-heading p{max-width:610px;font-size:12px;line-height:1.65;color:#c8c7bb}
+.thread-legend{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.thread-label{border-radius:99px;border:1px solid #85745c;padding:6px 9px;font-size:10px;white-space:nowrap}
+.thread-label.supports{border-color:#668d6e;color:#aed7b3}.thread-label.refutes{border-color:#b95b5b;color:#f2b0a5}.thread-label.limits{border-color:#b29157;color:#efcc85}
+.thread-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px 20px;background:#182229}
+.thread-controls label{display:grid;gap:6px;font-size:11px;color:#cdc2af}.thread-controls input{width:100%;background:#10191f;border:1px solid #52606a;border-radius:5px;padding:10px;color:#f4eee2;min-width:0}
+.thread-cork{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;padding:22px 28px 26px;isolation:isolate;min-height:280px;background:radial-gradient(circle at 18% 8%,#80694e40,transparent 60%),repeating-linear-gradient(23deg,#523d2c15 0px,#523d2c15 1px,transparent 1px,transparent 12px),linear-gradient(125deg,#3b342c,#292b29 45%,#3e3229)}
+.thread-cork::before{content:'';position:absolute;inset:0;pointer-events:none;border:9px solid #584635;box-shadow:inset 0 0 12px #0006}
+#threadSvg{position:absolute;left:0;top:0;z-index:2;width:100%;height:100%;overflow:visible;pointer-events:none}.thread-wire{fill:none;stroke-width:3.1;stroke:#6aab83;filter:drop-shadow(1px 2px 1px #0009);opacity:.9}
+.thread-wire.refutes{stroke:#bd4f50;stroke-dasharray:9 5}.thread-wire.limits{stroke:#e3ad60;stroke-dasharray:2 6}.thread-wire.context{stroke:#a9a99e;stroke-width:2}.thread-wire.preview{stroke:#d85450;stroke-width:4;stroke-dasharray:7 6}
+.thread-column{z-index:3;position:relative;min-width:0}.thread-column>header{display:flex;justify-content:space-between;align-items:center;gap:9px;background:#201f1bc7;color:#f3e6d2;padding:9px 12px;border:1px solid #867054;border-radius:6px;margin-bottom:12px}.thread-column header strong{font:600 16px Georgia,serif}.thread-column header span{font-size:10px;color:#cdb894}
+.thread-node-list{display:grid;gap:13px;max-height:550px;overflow-y:auto;scrollbar-gutter:stable;padding:4px 8px 10px 4px;overscroll-behavior:contain}.thread-paper{position:relative;background:#eee2c8;color:#2b2926;border:1px solid #c1a77c;border-radius:3px;padding:14px 15px;box-shadow:2px 4px 0 #271e1980,0 8px 15px #0004;min-width:0;overflow-wrap:anywhere;transition:transform .15s,outline-color .15s}.thread-paper:nth-child(2n){background:#ebdabe;transform:rotate(.35deg)}.thread-paper:nth-child(3n){transform:rotate(-.5deg)}.thread-paper:hover{z-index:4;transform:translateY(-2px)}.thread-paper strong{display:block;font:600 17px/1.3 Georgia,serif;margin:4px 28px 6px 0}.thread-paper small{display:block;color:#746049;font-size:10px;letter-spacing:.03em}.thread-paper p{margin:5px 0;font-size:12px;color:#4d4840;line-height:1.48}
+.thread-source-card{padding-right:34px}.thread-pin,.thread-target{position:absolute;z-index:6;display:grid;place-items:center;right:-11px;top:13px;width:28px;height:28px;border:2px solid #e3c4a5;border-radius:50%;background:#a33634;color:#fff;font-size:20px;line-height:1;box-shadow:0 2px 4px #0005;cursor:crosshair;touch-action:none;user-select:none}.thread-target{left:-11px;right:auto;background:#715741;color:#fff;border-color:#ead8a8}.thread-picked{outline:3px solid #a43435;outline-offset:4px}
+.thread-hypothesis{padding:14px 15px 14px 24px}.thread-hyp-top{position:relative;display:flex;align-items:center;justify-content:space-between;gap:6px}.thread-hyp-top .thread-target{top:-4px;left:-36px}.thread-hyp-statement{max-height:75px;overflow:hidden}.thread-hyp-foot{display:flex;align-items:center;justify-content:space-between;gap:7px;border-top:1px dashed #bbaa8e;margin-top:10px;padding-top:9px}.thread-hyp-foot span{font-size:10px;color:#715a4d}.thread-edit{border:0;background:transparent;padding:4px 1px;color:#734832;text-decoration:underline;font:600 11px system-ui;cursor:pointer}
+.thread-edge-list{display:flex;flex-wrap:wrap;gap:4px;margin-top:9px}.thread-edge-pill{background:#e4d3b7;border:1px solid #9c927c;border-radius:3px;padding:4px 6px;font-size:10px;color:#3a3d32;cursor:pointer}.thread-edge-pill.supports{border-color:#5d8a6d}.thread-edge-pill.refutes{border-color:#aa5f59;border-style:dashed}.thread-edge-pill.limits{border-color:#bb9552}
+.thread-more,.thread-create{width:100%;padding:11px 12px;border:1px solid #c1aa84;border-radius:5px;background:#dac49f;color:#28241f;font-size:12px;font-weight:750;cursor:pointer;margin-top:10px}.thread-empty{padding:20px 14px;border:1px dashed #a68c70;border-radius:5px;background:#e7d5b8;color:#3c332a}.thread-empty strong{display:block;font:600 18px Georgia,serif}.thread-empty p{font-size:12px;margin:7px 0 0}
+.thread-status{background:#18252a;border-top:1px solid #665441;padding:12px 22px;font-size:11px;line-height:1.6;color:#dfcba7}.thread-classic{margin-top:16px;border:1px solid #4d5456;border-radius:8px;padding:14px;background:#162024}.thread-classic summary{cursor:pointer;color:#d7c39d;font-weight:700;padding:4px}.thread-classic .dd-board-head{margin-top:15px}
+.thread-dialog{width:min(530px,calc(100vw - 25px));max-height:92dvh;overflow:auto;border:1px solid #a48a60;border-radius:12px;padding:0;background:#1e2a2f;color:#f7eee0;box-shadow:0 25px 80px #000c}.thread-dialog::backdrop{background:#000b;backdrop-filter:blur(3px)}.thread-dialog form{display:grid;gap:14px;padding:24px}.thread-dialog h3{font:600 27px Georgia,serif;margin:7px 0}.thread-dialog header p{color:#cfbca2;font-size:12px;line-height:1.55}.thread-dialog label{display:grid;gap:7px;font-size:12px;font-weight:700}.thread-dialog textarea,.thread-dialog select{width:100%;border:1px solid #66727a;background:#10191d;color:#fff4e1;border-radius:6px;padding:11px;font:13px/1.5 system-ui}.thread-dialog footer{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:7px}.thread-dialog footer button{padding:10px 13px;border:1px solid #887251;border-radius:5px;color:#f8e7ca;background:#344044;cursor:pointer}.thread-dialog #threadConfirm{background:#d8b981;color:#182022;font-weight:750}.thread-dialog #threadDelete{margin-right:auto;border-color:#a05f5c;color:#f5bcb8}.thread-error{color:#f1a7a7;font-size:12px;min-height:14px}
+@media(max-width:770px){.thread-heading{padding:18px;display:grid}.thread-legend{justify-content:flex-start}.thread-controls{padding:12px;grid-template-columns:1fr}.thread-cork{gap:16px;padding:15px;grid-template-columns:minmax(0,1fr)}.thread-cork::before{border-width:5px}.thread-node-list{max-height:460px}.senior-fab span:last-child{display:none}.senior-fab{width:46px;height:46px;justify-content:center;padding:7px}.thread-column{padding:0 12px}.thread-column>header{margin-left:4px;margin-right:4px}.thread-pin{right:-17px}.thread-hypothesis{margin-left:10px}.thread-target{left:-17px}.thread-paper{padding:12px}.thread-paper strong{font-size:16px}.thread-heading h3{font-size:30px}.senior-panel{right:10px;bottom:calc(82px + env(safe-area-inset-bottom));width:calc(100vw - 20px)}.senior-fab{right:10px;bottom:calc(10px + env(safe-area-inset-bottom));padding:9px 12px}.senior-fab-symbol{width:24px;height:24px}}
+@media(prefers-reduced-motion:reduce){.thread-paper{transition:none}.senior-panel{scroll-behavior:auto}}
+</style>
+<script id="ps-mentor-thread-script">/* Starszy Śledczy + Czerwona Nitka — no network requests, no spoilers, no new proof. */
+(function(){
+'use strict';
+const by=id=>document.getElementById(id);
+const escText=s=>String(s||'');
+const memo={enabled:true,step:0,key:'',open:false};
+const mentorPref='ps_senior_detective_enabled_v1';
+try{memo.enabled=localStorage.getItem(mentorPref)!=='off'}catch(_){}
+function applyMentorSetting(value){
+ memo.enabled=!!value;
+ try{localStorage.setItem(mentorPref,value?'on':'off')}catch(_){}
+ by('seniorToggle').checked=memo.enabled;
+ const other=by('seniorSettingsSwitch');if(other)other.checked=memo.enabled;
+ by('seniorFab').hidden=!memo.enabled;
+ if(!memo.enabled)closeMentor();
+}
+function diagnose(){
+ const progress=ui15Status();
+ if(progress.complete)return {key:'finished',tab:'overview',label:'Ukończone dochodzenie',messages:[
+  'Sprawa ma rozstrzygnięcie. Nie musisz zbierać wszystkich materiałów, by móc do niej wrócić.',
+  'Możesz porównać pominięte źródła z już zapisanymi hipotezami, bez zmieniania wyników.',
+  'Sprawdź, czy każda mocna teza ma niezależne potwierdzenie oraz czy wskazano ograniczenia źródeł.']};
+ if(progress.charge)return {key:'defense',tab:'final',label:'Próba obrony aktu',messages:[
+  'Rozstrzygnięcie wymaga jeszcze sprawdzenia odporności oskarżenia na kontrargumenty.',
+  'Do każdego zarzutu dobierz źródła niezależne od tych, na których opiera się główna teza.',
+  'Oddziel to, co dokument stwierdza wprost, od interpretacji i hipotezy. Nie traktuj braku alibi jako dowodu sprawstwa.']};
+ if(progress.done===progress.checks.length)return {key:'charge',tab:'final',label:'Opracowanie oskarżenia',messages:[
+  'Ustalenia wstępne są kompletne. Teraz oceń, czy argumentacja jest wystarczająco spójna.',
+  'Przed złożeniem aktu porównaj metody, chronologię i przypisanie osób z niezależnymi dowodami.',
+  'Nie opieraj identyfikacji człowieka wyłącznie na logu, identyfikatorze lub karcie dostępu.']};
+ const sceneDone=progress.checks[2]?.ok;
+ const timeDone=progress.checks[0]?.ok;
+ const boardDone=progress.checks[1]?.ok;
+ const here=STATE.tab;
+ const focus=(here==='inspection12'&&!sceneDone)?'scene':(here==='timeline'&&!timeDone)?'time':(here==='deduction'&&!boardDone)?'board':!sceneDone?'scene':!timeDone?'time':!boardDone?'board':'complete';
+ if(!sceneDone&&focus==='scene') {
+  const visited=new Set(STATE.scene12?.visited||[]);
+  const room=SC_ROOMS.find(r=>!visited.has(r.id));
+  const base=STATE.scene12?.room||'bay';
+  const incomplete=SC_SPOTS.filter(p=>p.room===base&&!STATE.scene12?.inspected?.includes(p.id));
+  return {key:'scene:'+base+':'+(incomplete.length?'pending':'all'),tab:'inspection12',label:'Oględziny miejsca zdarzenia',messages:[
+   'W dokumentacji miejsca zdarzenia brakuje jeszcze zweryfikowanej obserwacji. Sama fotografia nie przesądza o przyczynie zdarzenia.',
+   incomplete.length?'W bieżącej strefie pozostały punkty, których nie poddano pełnemu badaniu. Zwróć uwagę na metodę i interpretację.':'Sprawdź na planie, czy odwiedzono wszystkie istotne strefy, a szczególnie miejsce pierwszych oględzin.',
+   room?'Na planie pozostaje jeszcze nieodwiedzona strefa: '+room.title+'. Jeśli szukasz konkretnego tropu, skonfrontuj go z aktami.':'Przejrzyj dziennik oględzin: odróżnij punkt zbadany od materiału formalnie zabezpieczonego do akt.'
+  ]};
+ }
+ if(!timeDone&&focus==='time'){
+  const events=['e16','e17'].map(id=>TL_MAP.get(id)).filter(Boolean);
+  const issue=events.map(e=>({e,r:tlAssessment(e,STATE.timeline11?.entries?.[e.id])})).find(x=>x.r.state!=='ok');
+  const warn=issue?.r?.bad?.[0]||issue?.r?.warn?.[0];
+  const having=issue?.e?.sources?.some(id=>STATE.found.has(id));
+  return {key:'time:'+(issue?.e?.id||'complete')+':'+(issue?.r?.state||''),tab:'timeline',label:'Spójność chronologii',messages:[
+   'Oś czasu nie ma jeszcze dwóch wystarczająco uzasadnionych punktów odniesienia.',
+   having?'Sprawdź, czy dla wskazanego zdarzenia oddzielono znacznik urządzenia od przedziału czasu ustalonego inną metodą.':'Zanim oceniasz godzinę, uzyskaj niezależne źródło o charakterze medycznym lub technicznym.',
+   warn?'W istniejącej rekonstrukcji warto sprawdzić: '+warn:'Przy każdym wpisie wskaż źródło, miejsce i własne uzasadnienie. Nie zawężaj udokumentowanego przedziału do jednej minuty.'
+  ]};
+ }
+ if(!boardDone&&focus==='board'){
+  const cards=STATE.deduction?.cards||[];
+  const audit=cards.map(c=>dd7Reasoning(c)).sort((a,b)=>a.issues.length-b.issues.length)[0];
+  const sources=dedAvailable();
+  return {key:'ded:'+cards.length+':'+(audit?.issues.length||0)+':'+sources.size,tab:'deduction',label:'Argumentacja i źródła',messages:[
+   cards.length?'Na tablicy są już hipotezy. Jeszcze nie wszystkie powiązania stanowią dostateczne uzasadnienie.':'Masz materiał do własnego wniosku, ale nie zapisano jeszcze hipotezy spełniającej kryteria argumentacji.',
+   'Rozdziel obserwację od interpretacji. Dwie relacje oparte na tym samym zapisie nie są dwoma niezależnymi dowodami.',
+   audit?.issues?.[0]?'Najbliższy punkt do sprawdzenia: '+audit.issues[0]:'Połącz zdobytą dokumentację z hipotezą, opisz znaczenie każdej nici i zaproponuj sprawdzenie alternatywy.'
+  ]};
+ }
+ return {key:'scene:resume',tab:'inspection12',label:'Weryfikacja miejsca zdarzenia',messages:[
+  'Przed kolejną decyzją porównaj zebrane materiały z obserwacjami miejsca.',
+  'Sprawdź, które strefy zostały tylko odwiedzone, a które faktycznie zbadane.',
+  'Jeżeli procedura oględzin dobiegła końca, upewnij się, że materiał zabezpieczono do akt.'
+ ]};
+}
+function openMentor(){if(!memo.enabled)return;memo.open=true;by('seniorPanel').hidden=false;by('seniorFab').setAttribute('aria-expanded','true');drawMentor();}
+function closeMentor(){memo.open=false;by('seniorPanel').hidden=true;by('seniorFab').setAttribute('aria-expanded','false');}
+function drawMentor(){if(!memo.open)return;const d=diagnose();if(d.key!==memo.key){memo.key=d.key;memo.step=0;}
+ by('seniorContext').textContent=d.label;
+ by('seniorAdvice').textContent=memo.step?d.messages[Math.min(memo.step-1,2)]:'Nie podam rozwiązania. Mogę pomóc ustalić, które czynności lub źródła warto ponownie zweryfikować.';
+ by('seniorLevel').textContent=memo.step?'Poziom '+memo.step+' z 3':'Podpowiedź na życzenie';
+ by('seniorAsk').textContent=memo.step>=3?'Powtórz diagnozę':'Poproś o '+(memo.step===0?'subtelną wskazówkę':memo.step===1?'bardziej konkretną diagnozę':'wskazówkę proceduralną');
+ by('seniorGo').dataset.tab=d.tab;by('seniorGo').textContent='Przejdź do: '+({inspection12:'Oględzin',timeline:'Osi czasu',deduction:'Dedukcji',final:'Finału',overview:'Pulpitu'}[d.tab]||d.tab);
+}
+function setupMentor(){
+ const fab=document.createElement('button');fab.id='seniorFab';fab.type='button';fab.className='senior-fab';fab.setAttribute('aria-label','Starszy Śledczy — opcjonalne wskazówki');fab.setAttribute('aria-controls','seniorPanel');fab.setAttribute('aria-expanded','false');fab.innerHTML='<span class="senior-fab-symbol" aria-hidden="true">⌕</span><span>Starszy Śledczy</span>';
+ const panel=document.createElement('section');panel.id='seniorPanel';panel.className='senior-panel';panel.hidden=true;panel.setAttribute('aria-label','Pomoc Starszego Śledczego');panel.innerHTML='<header><span class="senior-avatar" aria-hidden="true">SŚ</span><span><strong>Starszy Śledczy</strong><small>Opcjonalny konsultant proceduralny</small></span><button type="button" id="seniorClose" aria-label="Zamknij konsultację">×</button></header><div class="senior-content"><span class="senior-kicker">DIAGNOZA AKTUALNEGO POSTĘPU</span><h3 id="seniorContext"></h3><p id="seniorAdvice" aria-live="polite"></p><span id="seniorLevel" class="senior-level"></span><button type="button" id="seniorAsk" class="senior-action"></button><button type="button" id="seniorGo" class="senior-go"></button><p class="senior-disclaimer">Wskazówki nie dodają dowodów, nie zaliczają zadań i nie zdradzają sprawcy.</p><label class="senior-opt"><input type="checkbox" checked id="seniorToggle"> Włącz Starszego Śledczego</label></div>';
+ document.body.append(fab,panel);
+ fab.addEventListener('click',()=>memo.open?closeMentor():openMentor());
+ by('seniorClose').addEventListener('click',closeMentor);
+ by('seniorAsk').addEventListener('click',()=>{if(memo.step<3){memo.step++;if(typeof PS!=='undefined')PS.hints=(PS.hints||0)+1;}drawMentor();});
+ by('seniorGo').addEventListener('click',()=>{const tab=by('seniorGo').dataset.tab;if(tab)showTab(tab);closeMentor();});
+ by('seniorToggle').addEventListener('change',e=>applyMentorSetting(e.target.checked));
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&memo.open)closeMentor();});
+ const settings=by('ps80Settings')||document.querySelector('.sidebottom');
+ if(settings){const div=document.createElement('label');div.className='senior-setting';div.innerHTML='<input type="checkbox" id="seniorSettingsSwitch"> Starszy Śledczy — podpowiedzi';settings.append(div);div.querySelector('input').addEventListener('change',e=>applyMentorSetting(e.target.checked));}
+ applyMentorSetting(memo.enabled);
+}
+const T={search:'',more:12,cardSearch:'',from:null,drag:null,dialogData:null};
+let boardEl,sourceEl,cardEl,svgEl,formDialog;
+const roles={supports:{label:'Potwierdza',css:'supports',stroke:'#528b6e'},refutes:{label:'Podważa / sprzeczność',css:'refutes',stroke:'#ab4545'},limits:{label:'Ogranicza zakres',css:'limits',stroke:'#bc9658'},context:{label:'Kontekst',css:'context',stroke:'#9d9987'}};
+function make(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function boardSources(){const list=[...dedAvailable().values()];const q=T.search.trim().toLowerCase();return list.filter(s=>!q||(s.label+' '+s.subtitle+' '+s.body).toLowerCase().includes(q));}
+function boardCards(){const q=T.cardSearch.trim().toLowerCase();return STATE.deduction.cards.filter(c=>!q||(c.id+' '+c.title+' '+c.statement).toLowerCase().includes(q));}
+function positionCenter(el){const outer=boardEl.getBoundingClientRect(),rect=el.getBoundingClientRect();return {x:rect.left-outer.left+rect.width/2,y:rect.top-outer.top+rect.height/2};}
+function lineData(a,b){const dy=Math.abs(b.y-a.y);const curve=Math.min(125,Math.max(25,Math.abs(b.x-a.x)*.37));return 'M'+a.x+' '+a.y+' C'+(a.x+curve)+' '+a.y+' '+(b.x-curve)+' '+b.y+' '+b.x+' '+b.y;}
+function drawLines(){if(!svgEl||!boardEl.isConnected)return;const w=boardEl.clientWidth,h=boardEl.clientHeight;svgEl.setAttribute('viewBox',`0 0 ${w} ${h}`);svgEl.innerHTML='';
+ for(const card of boardCards()){
+  const dest=[...cardEl.querySelectorAll('[data-thread-card]')].find(e=>e.dataset.threadCard===card.id);if(!dest)continue;
+  for(const l of card.links||[]){
+   const from=[...sourceEl.querySelectorAll('[data-thread-source]')].find(e=>e.dataset.threadSource===l.source);if(!from)continue;
+   const fr=from.getBoundingClientRect(),sr=sourceEl.getBoundingClientRect(),dr=dest.getBoundingClientRect(),cr=cardEl.getBoundingClientRect();
+   if(fr.bottom<sr.top||fr.top>sr.bottom||dr.bottom<cr.top||dr.top>cr.bottom)continue;
+   const a=positionCenter(from),b=positionCenter(dest),path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',lineData(a,b));path.setAttribute('class','thread-wire '+(roles[l.role]?.css||'context'));svgEl.append(path);
+  }
+ }
+ if(T.drag){const from=[...sourceEl.querySelectorAll('[data-thread-source]')].find(e=>e.dataset.threadSource===T.drag.key);if(from){const a=positionCenter(from),b={x:T.drag.x,y:T.drag.y};const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',lineData(a,b));p.setAttribute('class','thread-wire preview');svgEl.append(p);}}
+}
+function updateSelection(){sourceEl.querySelectorAll('[data-thread-source]').forEach(e=>e.classList.toggle('thread-picked',e.dataset.threadSource===T.from));}
+function threadRender(){if(!boardEl)return;const sources=boardSources(),cards=boardCards(),available=new Map(dedAvailable());
+ sourceEl.replaceChildren();cardEl.replaceChildren();
+ for(const s of sources.slice(0,T.more)){
+  const node=make('article','thread-paper thread-source-card');node.dataset.threadSource=s.key;
+  const title=make('strong','',s.label),sub=make('small','',s.type==='say'?'ZEZNANIE · '+s.subtitle:'DOKUMENT · '+s.subtitle);const excerpt=make('p','',s.body.slice(0,115).replace(/\s+/g,' ')+'…');
+  const handle=make('button','thread-pin','●');handle.type='button';handle.setAttribute('aria-label','Wybierz źródło do połączenia: '+s.label);handle.title='Złap i przeciągnij do hipotezy albo dotknij źródła i hipotezy';
+  handle.addEventListener('click',e=>{if(T.drag?.active)return;T.from=T.from===s.key?null:s.key;updateSelection();by('threadStatus').textContent=T.from?'Wybrano źródło. Dotknij hipotezy albo przeciągnij nić.':'Wybierz materiał, aby utworzyć połączenie.';});
+  handle.addEventListener('pointerdown',e=>{if(e.button!==0)return;const r=boardEl.getBoundingClientRect();T.drag={key:s.key,startX:e.clientX,startY:e.clientY,x:e.clientX-r.left,y:e.clientY-r.top,active:false};handle.setPointerCapture(e.pointerId);});
+  handle.addEventListener('pointermove',e=>{if(!T.drag||T.drag.key!==s.key)return;const r=boardEl.getBoundingClientRect();T.drag.x=e.clientX-r.left;T.drag.y=e.clientY-r.top;if(Math.hypot(e.clientX-T.drag.startX,e.clientY-T.drag.startY)>7)T.drag.active=true;if(T.drag.active){T.from=s.key;updateSelection();drawLines();}});
+  handle.addEventListener('pointerup',e=>{if(!T.drag||T.drag.key!==s.key)return;const active=T.drag.active;T.drag=null;drawLines();if(active){e.preventDefault();e.stopPropagation();T.from=s.key;updateSelection();const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('[data-thread-card]');if(target)openLinkDialog(s.key,target.dataset.threadCard);else by('threadStatus').textContent='Wskaż hipotezę, aby zakończyć połączenie.';}});
+  handle.addEventListener('pointercancel',()=>{T.drag=null;drawLines();});
+  node.append(handle,title,sub,excerpt);sourceEl.append(node);
+ }
+ if(!sourceEl.children.length){sourceEl.append(make('p','thread-empty',sources.length?'Pokaż więcej materiałów, aby zobaczyć dopasowanie.':'Brak zdobytych źródeł pasujących do filtra.'));}
+ const count=by('threadSourceCount');count.textContent=`${Math.min(sources.length,T.more)} / ${sources.length} źródeł`;by('threadMore').hidden=sources.length<=T.more;
+ for(const c of cards){
+  const node=make('article','thread-paper thread-hypothesis');node.dataset.threadCard=c.id;
+  const h=make('div','thread-hyp-top');h.append(make('small','',c.id+' · '+(DD_KINDS[c.kind]||c.kind)));
+  const target=make('button','thread-target','◉');target.type='button';target.title='Połącz z wybranym źródłem';target.setAttribute('aria-label','Połącz źródło z hipotezą '+c.title);target.dataset.threadCard=c.id;
+  target.addEventListener('click',()=>{if(T.from)openLinkDialog(T.from,c.id);else by('threadStatus').textContent='Najpierw wybierz materiał w lewej kolumnie.';});h.append(target);
+  node.append(h,make('strong','',c.title),make('p','thread-hyp-statement',c.statement.slice(0,185)));
+  const bottom=make('div','thread-hyp-foot');const edit=make('button','thread-edit','Edytuj hipotezę');edit.type='button';edit.addEventListener('click',()=>{dedSelect(c.id);by('dedTitle')?.scrollIntoView({behavior:'smooth',block:'center'});});bottom.append(edit,make('span','',String(c.links.length)+' powiązań'));
+  node.append(bottom);
+  if(c.links?.length){const pins=make('div','thread-edge-list');for(const l of c.links.slice(0,24)){const s=available.get(l.source);if(!s)continue;const chip=make('button','thread-edge-pill '+(roles[l.role]?.css||'context'),(roles[l.role]?.label||'Kontekst')+' · '+s.short);chip.type='button';chip.title='Zmień rolę, uzasadnienie lub usuń połączenie';chip.addEventListener('click',()=>openLinkDialog(l.source,c.id));pins.append(chip);}node.append(pins);}
+  cardEl.append(node);
+ }
+ if(!cardEl.children.length){const empty=make('div','thread-empty');empty.append(make('strong','',cards.length?'Brak wyników filtra hipotez':'Zacznij od własnej hipotezy.'),make('p','',cards.length?'Zmień wyszukiwane hasło.':'Utwórz kartę hipotezy w warsztacie. Potem połącz ją z dokumentem lub zapisanym zeznaniem.'));
+  const button=make('button','thread-create','+ Utwórz hipotezę');button.type='button';button.addEventListener('click',()=>{by('dedNew').click();by('dedTitle').scrollIntoView({behavior:'smooth',block:'center'});});empty.append(button);cardEl.append(empty);}
+ by('threadCardCount').textContent=cards.length+' hipotez';updateSelection();requestAnimationFrame(drawLines);
+}
+function openLinkDialog(sourceKey,cardId){const source=dedAvailable().get(sourceKey),card=STATE.deduction.cards.find(c=>c.id===cardId);if(!source||!card)return;
+ if(STATE.deduction.dirty){by('threadStatus').textContent='Najpierw zapisz lub odrzuć niezapisane zmiany w edytorze hipotezy.';return;}
+ const found=card.links.find(l=>l.source===sourceKey);
+ T.dialogData={sourceKey,cardId};by('threadDialogTitle').textContent=found?'Zmień powiązanie':'Nowe powiązanie';by('threadPair').textContent=source.label+'  ↔  '+card.title;
+ by('threadRole').value=found?.role||'supports';by('threadNote').value=found?.note||'';by('threadDelete').hidden=!found;
+ by('threadError').textContent='';formDialog.showModal();by('threadNote').focus();
+}
+function saveLink(remove){if(!T.dialogData)return;const {sourceKey,cardId}=T.dialogData,card=STATE.deduction.cards.find(c=>c.id===cardId);if(!card||!dedAvailable().has(sourceKey))return;
+ const note=by('threadNote').value.trim(),role=by('threadRole').value;
+ if(!remove&&(!note||note.length<12)){by('threadError').textContent='Wyjaśnij znaczenie źródła dla hipotezy (co najmniej 12 znaków). Sama nić nie dowodzi związku.';by('threadNote').focus();return;}
+ if(!remove&&!roles[role])return;
+ const old=card.links.findIndex(l=>l.source===sourceKey);
+ if(!remove&&old<0&&card.links.length>=24){by('threadError').textContent='Jedna hipoteza może mieć maksymalnie 24 powiązania.';return;}
+ if(old>=0)card.links.splice(old,1);
+ if(!remove)card.links.push({source:sourceKey,role,note:note.slice(0,850)});
+ if(STATE.deduction.selected===card.id){STATE.deduction.draft=JSON.parse(JSON.stringify(card));STATE.deduction.dirty=false;}
+ T.from=null;T.dialogData=null;formDialog.close();dedRender();
+ by('threadStatus').textContent=remove?'Połączenie usunięto.':'Powiązanie zapisano. Kolor oznacza ocenę gracza, nie automatyczny werdykt.';
+}
+function setupBoard(){const section=by('deduction');if(!section)return;
+ const panel=document.createElement('section');panel.id='threadBoardPanel';panel.className='thread-board-panel';
+ panel.innerHTML='<div class="thread-heading"><div><span class="thread-eyebrow">TABLICA POWIĄZAŃ / AKTA ŚLEDCZE</span><h3>Czerwona Nitka</h3><p>Połącz zdobyte dokumenty i zeznania z własnymi hipotezami. Przeciągnij nić z punktu ● na punkt ◉ albo wybierz kolejno źródło i hipotezę.</p></div><div class="thread-legend"><span class="thread-label supports">Potwierdza</span><span class="thread-label refutes">Podważa</span><span class="thread-label limits">Ogranicza</span></div></div><div class="thread-controls"><label>Szukaj źródła<input id="threadSourceSearch" type="search" placeholder="Dokument, świadek lub fragment…"></label><label>Szukaj hipotezy<input id="threadCardSearch" type="search" placeholder="Nazwa albo treść hipotezy…"></label></div><div class="thread-cork" id="threadCanvas"><svg id="threadSvg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"></svg><div class="thread-column"><header><strong>Zdobyte materiały</strong><span id="threadSourceCount"></span></header><div id="threadSourceNodes" class="thread-node-list"></div><button type="button" id="threadMore" class="thread-more">Pokaż następne źródła</button></div><div class="thread-column"><header><strong>Twoje hipotezy</strong><span id="threadCardCount"></span></header><div id="threadCardNodes" class="thread-node-list"></div></div></div><div class="thread-status" id="threadStatus" role="status" aria-live="polite">Wskazówka: to Ty określasz, czy źródło potwierdza czy podważa tezę. Linia nie jest automatyczną oceną dowodu.</div>';
+ const work=section.querySelector('.dd-work');work.before(panel);
+ boardEl=by('threadCanvas');sourceEl=by('threadSourceNodes');cardEl=by('threadCardNodes');svgEl=by('threadSvg');
+ // Existing list remains available, but the visual board is primary.
+ const oldHead=section.querySelector('.dd-board-head'),oldBoard=by('dedBoard');const oldNote=oldBoard?.nextElementSibling;
+ if(oldHead&&oldBoard){const details=document.createElement('details');details.className='thread-classic';details.innerHTML='<summary>Klasyczne karty i szczegółowa sieć wnioskowania</summary>';oldHead.before(details);details.append(oldHead,oldBoard);if(oldNote?.matches('p'))details.append(oldNote);}
+ formDialog=document.createElement('dialog');formDialog.className='thread-dialog';formDialog.id='threadDialog';formDialog.innerHTML='<form method="dialog" id="threadForm"><header><span class="thread-eyebrow">KRYTYCZNA ANALIZA DOWODÓW</span><h3 id="threadDialogTitle">Nowe powiązanie</h3><p id="threadPair"></p></header><label>Rola źródła<select id="threadRole"><option value="supports">Potwierdza tezę — zielona nitka</option><option value="refutes">Podważa tezę — czerwona przerywana nitka</option><option value="limits">Ogranicza — bursztynowa nitka</option><option value="context">Tło / kontekst — szara nitka</option></select></label><label>Dlaczego łączysz te materiały?<textarea id="threadNote" maxlength="850" rows="4" placeholder="Co wynika ze źródła, a co jest jedynie interpretacją?"></textarea></label><p class="thread-error" id="threadError" role="alert"></p><footer><button type="button" id="threadDelete" class="thread-delete">Usuń nić</button><button type="button" id="threadCancel">Anuluj</button><button type="submit" id="threadConfirm">Zapisz powiązanie</button></footer></form>';
+ document.body.append(formDialog);
+ by('threadForm').addEventListener('submit',e=>{e.preventDefault();saveLink(false);});by('threadCancel').addEventListener('click',()=>formDialog.close());by('threadDelete').addEventListener('click',()=>saveLink(true));
+ by('threadSourceSearch').addEventListener('input',e=>{T.search=e.target.value;T.more=12;threadRender()});by('threadCardSearch').addEventListener('input',e=>{T.cardSearch=e.target.value;threadRender()});by('threadMore').addEventListener('click',()=>{T.more+=12;threadRender()});
+ const oldDedRender=dedRender;dedRender=function(){oldDedRender();threadRender();};
+ const oldShowTab=showTab;showTab=function(tab){oldShowTab(tab);if(tab==='deduction'){requestAnimationFrame(()=>threadRender());}};
+ new ResizeObserver(()=>{if(boardEl?.offsetParent)requestAnimationFrame(drawLines)}).observe(boardEl);
+ sourceEl.addEventListener('scroll',drawLines,{passive:true});cardEl.addEventListener('scroll',drawLines,{passive:true});
+ window.addEventListener('resize',()=>{if(boardEl?.offsetParent)drawLines()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&T.from){T.from=null;updateSelection();by('threadStatus').textContent='Anulowano wybór źródła.';}});
+ threadRender();
+}
+function init(){try{setupMentor();setupBoard();}catch(error){console.error('Starszy Śledczy / Czerwona Nitka:',error);}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+<script id="ps-loop-code">
+/* Dziennik: ostrożne, wyjaśnialne flagowanie. Mikro-feedback: tylko potwierdzone sukcesy.
+   Brak wywołań sieci; nie przyznaje dowodów, nie zmienia zaliczeń ani fabuły. */
+(function(){
+ 'use strict';
+ if(typeof STATE==='undefined'||typeof TL_EVENTS==='undefined'||typeof tlAssessment!=='function')return;
+ const by=id=>document.getElementById(id);
+ const plain=x=>String(x||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l');
+ const qs=(id)=>by(id);
+ const seen=x=>STATE.found.has(x);
+ const labelDoc=id=>byId[id]?.title||'Materiał w aktach';
+ const P='psLoopFeedbackEnabled';
+ let on=true;try{on=localStorage.getItem(P)!=='0';}catch(_){}
+ let filter='all',reveal=true,refreshQueued=false,hideTimer=0,ctx=null;
+ const MAX=14;
+ function hasCaution(t){return /(?:nie dowodz|nie potwierdz|nie oznacz|nie przesadz|nie mozna|nie jest pew|bez dowod|tylko|nie wynika|nie wiadomo|hipotez|mozl|nie rozstrzyg|nie mam pewnosci|brak podstaw)/.test(plain(t));}
+ function flags(){
+  const out=[]; const add=x=>{if(!out.some(y=>y.id===x.id))out.push(x);};
+  // Chronologia: działamy wyłącznie na zdarzeniach odblokowanych zdobytymi źródłami.
+  for(const e of TL_EVENTS){
+   const entry=STATE.timeline11?.entries?.[e.id];
+   if(!entry?.at||!e.sources?.some(seen))continue;
+   const r=tlAssessment(e,entry);
+   if(r.state==='ok'||r.state==='unplaced')continue;
+   const reasons=[...(r.bad||[]),...(r.warn||[])];
+   const relevant=reasons.filter(t=>/czas|godzin|przedział|źródł|zgodn|lokali|miejsce|osob|przypis|znaczn|zakres|chronolog|zapis|godz/i.test(t));
+   if(!relevant.length)continue;
+   const available=e.sources.filter(seen);
+   add({id:'tl:'+e.id,grade:r.bad?.length?'verified':'review',type:'timeline',
+    title:'Sprawdź ustalenie: '+e.title,
+    detail:relevant[0], docs:available,action:'timeline',event:e.id, noteId:null});
+  }
+  // Użytkownik sam oznaczył podejrzenie: nigdy nie potwierdzamy go automatycznie.
+  const notes=STATE.scene12?.notes||[];
+  for(const n of notes.slice(0,120)){
+   const t=String(n.text||'');if(n.kind!=='contradiction')continue;
+   const spot=SC_BY_SPOT[n.ref],docs=(spot?.doc&&seen(spot.doc))?[spot.doc]:[];
+   add({id:'note:'+n.id,grade:'review',type:'note',noteId:n.id,
+    title:'Możliwa sprzeczność w notatce #'+n.id,
+    detail:t.slice(0,240),docs,action:'inspection12',event:null,spot:n.ref});
+  }
+  // Językowe reguły wysokiej pewności: wymagają konkretnych, posiadanych materiałów.
+  // Same wypowiedzi NIE stanowią automatycznego dowodu winy ani obecności osoby.
+  const statements=[{id:'free',text:STATE.notes||'',where:'Luźne zapiski'}];
+  for(const n of notes.slice(0,120))statements.push({id:'n'+n.id,text:n.text||'',where:'Notatka #'+n.id,noteId:n.id});
+  for(const [person,dialogue] of Object.entries(STATE.dialogues||{})){
+   (dialogue||[]).filter(m=>m.role==='npc').slice(-55).forEach((m,i)=>statements.push({id:person+':'+i,text:m.text||'',where:CONTENT.characters.find(c=>c.id===person)?.name||'Świadek',person}));
+  }
+  for(const s of statements){
+   const t=plain(s.text), caution=hasCaution(s.text);
+   // Negacja zdarzenia wprost vs. pozytywny zapis administracyjny.
+   // Nie utożsamiamy użycia karty z tożsamością użytkownika.
+   if(seen('EVID_T17_DOOR_EVENT')&&/(t.?17|karta)/.test(t)&&/(nie bylo zadnego|nie odnotowano|brak odczytu|nikt nie uzy|nigdy nie uzy)/.test(t)&&/(odczyt|karta|uzy|drzw)/.test(t)){
+    add({id:'gate:denial:'+s.id,grade:'verified',type:'witness',person:s.person,noteId:s.noteId,
+     title:'Deklaracja o braku użycia karty a rejestr',
+     detail:'Wypowiedź kwestionuje istnienie odczytu, który jest zapisany w zdobytej dokumentacji. Potwierdza to zdarzenie przy czytniku, lecz nie identyfikuje człowieka.',docs:['EVID_T17_DOOR_EVENT'],action:'interview'});
+   }
+   if(seen('EVID_RAW_ENTRY_TIMES')&&/(nie bylo zadnego wejsc|nikt nie wchodzil|brak jakichkolwiek wejsc)/.test(t)){
+    add({id:'gate:entries:'+s.id,grade:'review',type:'witness',person:s.person,noteId:s.noteId,
+     title:'Oświadczenie o ruchu na bramie a rejestr',
+     detail:'Wypowiedź o całkowitym braku wejść wymaga porównania z posiadanym rejestrem. Rejestr może być niepełny i sam nie ustala tożsamości osoby.',docs:['EVID_RAW_ENTRY_TIMES'],action:'interview'});
+   }
+   if(seen('LAB-08')&&seen('MED-04')&&/(wszystkie|kazde|calosc)/.test(t)&&/(obrazen|uraz)/.test(t)&&/(jeden|jednego|wylacznie)/.test(t)&&/(upad|uderzen|mechanizm)/.test(t)&&!caution){
+    add({id:'lab:mechanism:'+s.id,grade:'review',type:'claim',person:s.person,noteId:s.noteId,
+     title:'Uogólnienie mechanizmu obrażeń a opinie biegłych',
+     detail:'Sprawdź, czy kategoryczne przypisanie wszystkich urazów jednej przyczynie odpowiada zakresowi dwóch zdobytych opinii medyczno-sądowych.',docs:['MED-04','LAB-08'],action:'deduction'});
+   }
+   if(caution)continue;
+   if(seen('TEC-14')&&seen('MED-03')&&/(czujnik|impuls|sygnal)/.test(t)&&/01:44/.test(t)&&/(zgon|smierc|umar|zabila)/.test(t)&&/(dokladnie|na pewno|dowodzi|pewn|bezsporn|moment)/.test(t)){
+    add({id:'logic:sensor:'+s.id,grade:'verified',type:'claim',noteId:s.noteId,
+     title:'Sygnał urządzenia a moment zgonu',
+     detail:'W tej wypowiedzi znacznik czujnika został potraktowany jak jednoznaczny czas śmierci. Porównaj ograniczenia dwóch niezależnych źródeł.',docs:['TEC-14','MED-03'],person:s.person,action:'deduction'});
+   }
+   if(seen('EVID_T17_DOOR_EVENT')&&/(t.?17|karta|czytnik)/.test(t)&&/(log|odczyt|karta|czytnik)/.test(t)&&/(kto|osob|obecn|identyfik)/.test(t)&&/(na pewno|jednoznacznie|dowodzi|potwierdza|pewne)/.test(t)){
+    add({id:'logic:card:'+s.id,grade:'review',type:'claim',noteId:s.noteId,
+     title:'Odczyt karty a tożsamość osoby',
+     detail:'Rejestruje się użycie identyfikatora, ale sam zapis nie rozstrzyga, kto fizycznie był przy drzwiach. Zweryfikuj osobę w innym źródle.',docs:['EVID_T17_DOOR_EVENT'],person:s.person,action:'deduction'});
+   }
+   if(seen('EVID_CONFERENCE_SESSION')&&/(wideokonferenc|sesj|transmisj|polaczen)/.test(t)&&/(alibi|fizycz|obecn|caly czas|przez caly czas)/.test(t)&&/(dowodzi|potwierdza|na pewno|jednoznacznie|bez przerwy)/.test(t)){
+    add({id:'logic:session:'+s.id,grade:'review',type:'claim',noteId:s.noteId,
+     title:'Aktywna sesja a fizyczna obecność',
+     detail:'Techniczny zapis połączenia nie musi dowodzić ciągłej obecności uczestnika. Sprawdź tę granicę interpretacji.',docs:['EVID_CONFERENCE_SESSION'],person:s.person,action:'deduction'});
+   }
+  }
+  // Ściśle określone rozbieżności w godzinie zgłoszenia, tylko gdy istnieje właściwy log.
+  if(seen('DIG-10')){
+   const d=STATE.dialogues?.TOMASZ||[];
+   d.filter(m=>m.role==='npc').slice(-80).forEach((m,i)=>{
+    const t=plain(m.text);const hit=/(?:zglosilem|zgloszono|zglosilismy|alarm (?:zostal|byl) zgloszon)[^.!?\n]{0,75}?\b(?:o\s*)?([012]?\d:[0-5]\d)\b/.exec(t);
+    if(!hit)return;
+    const time=hit[1].padStart(5,'0');if(time==='02:02'||hasCaution(m.text))return;
+    add({id:'witness:alarm:'+i,grade:'verified',type:'witness',person:'TOMASZ',
+     title:'Godzina zgłoszenia alarmu — zeznanie i rejestr',
+     detail:'Wypowiedź zawiera godzinę alarmu różną od odczytu w zdobytym rejestrze. Porównaj oba zapisy, zanim postawisz zarzut.',docs:['DIG-10'],action:'interview'});
+   });
+  }
+  return out.slice(0,MAX);
+ }
+ let current=[];
+ function jump(tab,f){if(typeof showTab==='function')showTab(tab);if(f)setTimeout(f,90);}
+ function goto(item,mode){
+  if(mode==='interview' && item.person){jump('interview',()=>{STATE.activeChar=item.person;renderChat();const doc=(item.docs||[]).find(seen);const attach=by('attachedDoc');if(doc&&attach&&[...attach.options].some(x=>x.value===doc))attach.value=doc;if(by('chatInput')){by('chatInput').value='Wcześniej przedstawiono inną wersję wydarzeń. Jak wyjaśnić tę rozbieżność w kontekście materiału „'+(doc?labelDoc(doc):'zapisanych ustaleń')+'”?';by('chatInput').focus();}});return;}
+  if(mode==='source'&&item.docs?.length){const id=item.docs.find(seen);if(!id)return;jump('evidence',()=>{try{activeDoc=id;renderDocs();by('docPaper')?.scrollIntoView({block:'start',behavior:'smooth'});}catch(_){}});return;}
+  if(mode==='timeline'){jump('timeline',()=>{if(item.event&&TL_MAP.has(item.event)){STATE.timeline11.selected=item.event;tlRender();by('tlEditor')?.scrollIntoView({block:'start',behavior:'smooth'});}});return;}
+  if(mode==='inspection12'){jump('inspection12',()=>{if(item.spot&&SC_BY_SPOT[item.spot]){STATE.scene12.room=SC_BY_SPOT[item.spot].room;STATE.scene12.selected=item.spot;scRender();}});return;}
+  jump('deduction',()=>by('threadBoardPanel')?.scrollIntoView({block:'start',behavior:'smooth'}));
+ }
+ function buildPanel(){const nb=by('notebook');if(!nb||by('conflictPanel'))return;
+  const box=document.createElement('section');box.id='conflictPanel';box.setAttribute('aria-label','Punkty konfrontacji');
+  box.innerHTML='<div class="cf-head"><div><div class="cf-kicker">ANALIZA DZIENNIKA</div><h3>Punkty konfrontacji</h3></div><span class="cf-count" id="cfCount">0 sygnałów</span></div><p class="cf-intro">Wskazówki do sprawdzenia: możliwe rozbieżności czasowe, ograniczenia źródeł i własne podejrzenia. Zaznaczenie nie rozstrzyga, kto mówi prawdę. Używa tylko zdobytych akt i zapisanych zeznań.</p><div class="cf-actions"><button type="button" class="cf-toggle" id="cfToggle" aria-expanded="true">Zwiń analizę</button><button type="button" class="cf-toggle" id="cfRefresh">Sprawdź ponownie</button></div><div id="cfBody"><div class="cf-filters" role="group" aria-label="Rodzaj punktów"><button type="button" data-cff="all" aria-pressed="true">Wszystkie</button><button type="button" data-cff="verified" aria-pressed="false">Rozbieżności źródeł</button><button type="button" data-cff="review" aria-pressed="false">Do sprawdzenia</button></div><div class="cf-list" id="cfList" aria-live="polite"></div></div>';
+  const heading=nb.querySelector('.sectionheading');if(heading)heading.after(box);else nb.prepend(box);
+  by('cfToggle').addEventListener('click',()=>{reveal=!reveal;by('cfBody').hidden=!reveal;by('cfToggle').textContent=reveal?'Zwiń analizę':'Rozwiń analizę';by('cfToggle').setAttribute('aria-expanded',String(reveal));});
+  by('cfRefresh').addEventListener('click',refresh);
+  box.querySelector('.cf-filters').addEventListener('click',e=>{const b=e.target.closest('[data-cff]');if(!b)return;filter=b.dataset.cff;box.querySelectorAll('[data-cff]').forEach(n=>n.setAttribute('aria-pressed',String(n===b)));renderList();});
+  by('cfList').addEventListener('click',e=>{const b=e.target.closest('button[data-cf-id]');if(!b)return;const item=current.find(x=>x.id===b.dataset.cfId);if(item)goto(item,b.dataset.cfMode);});
+ }
+ function highlightNotes(){const list=by('scNotebookList');if(!list)return;list.querySelectorAll('.cf-note-flag').forEach(e=>e.remove());
+  const ids=new Set(current.filter(x=>x.noteId!=null).map(x=>String(x.noteId)));
+  list.querySelectorAll('[data-sc-edit]').forEach(btn=>{const id=btn.dataset.scEdit;if(!ids.has(id))return;const card=btn.closest('.sc-note');if(!card||card.querySelector('.cf-note-flag'))return;const chip=document.createElement('span');chip.className='cf-note-flag';chip.textContent='Punkt konfrontacji · do weryfikacji';card.querySelector('.sc-note-top')?.after(chip);});
+ }
+ function renderList(){const box=by('cfList');if(!box)return;
+  const arr=current.filter(x=>filter==='all'||x.grade===filter);
+  box.replaceChildren();if(!arr.length){const e=document.createElement('p');e.className='cf-empty';e.textContent=current.length?'Brak punktów w wybranej kategorii.':'Nie wykryto rozbieżności w aktualnych materiałach. To nie oznacza, że wszystkie zeznania są zgodne — sprawdzaj także własne hipotezy.';box.append(e);return;}
+  for(const item of arr){const card=document.createElement('article');card.className='cf-entry cf-'+item.grade;
+   const top=document.createElement('div');top.className='cf-meta';top.textContent=item.grade==='verified'?'PORÓWNAJ ZE ŹRÓDŁEM':'WYMAGA WERYFIKACJI';card.append(top);
+   const h=document.createElement('h4');h.textContent=item.title;card.append(h);
+   const p=document.createElement('p');p.textContent=item.detail;card.append(p);
+   if(item.docs?.length){const s=document.createElement('div');s.className='cf-sources';s.textContent='Powiązane akta: '+item.docs.filter(seen).map(labelDoc).join(' · ');card.append(s);}
+   const actions=document.createElement('div');actions.className='cf-links';
+   const add=(text,mode)=>{const b=document.createElement('button');b.type='button';b.dataset.cfId=item.id;b.dataset.cfMode=mode;b.textContent=text;actions.append(b);};
+   if(item.type==='timeline')add('Sprawdź na osi','timeline');
+   if(item.type==='note')add(item.spot?'Wróć do punktu':'Oględziny','inspection12');
+   if(item.person)add('Przygotuj konfrontację','interview');
+   if(item.docs?.some(seen))add('Zobacz akta','source');
+   add('Tablica dedukcyjna','deduction');card.append(actions);box.append(card);
+  }
+ }
+ function refresh(){buildPanel();current=flags();by('cfCount')&&(by('cfCount').textContent=current.length+' '+(current.length===1?'sygnał':'sygnałów'));renderList();highlightNotes();}
+ function queue(){if(refreshQueued)return;refreshQueued=true;setTimeout(()=>{refreshQueued=false;try{refresh();}catch(e){console.warn('[Dziennik] Aktualizacja niedostępna',e);}},120);}
+ // Obserwujemy tylko zakończone operacje. Nie dotykamy stanu dowodów i nie kopiujemy treści nieodkrytych akt.
+ function hook(name,after){const old=window[name];if(typeof old!=='function')return;
+  window[name]=function(){let before;try{before=after.snapshot?.();}catch(_){}const value=old.apply(this,arguments);try{after(before,arguments);}catch(e){console.warn('[Gameplay loop]',name,e);}return value;};
+ }
+ const prefKey='psLoopVisualFeedback';let visual=true;let lastEffectKey='',lastEffectAt=0;try{visual=localStorage.getItem(prefKey)!=='0';}catch(_){}
+ const prefersReduce=()=>window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+ function makeSettings(){const menu=by('ps80Settings');if(!menu||by('psmfVisual'))return;
+   const lab=document.createElement('label');lab.className='ps80-checkrow';lab.htmlFor='psmfVisual';
+   const input=document.createElement('input');input.id='psmfVisual';input.type='checkbox';input.checked=visual;lab.append(input,document.createTextNode(' Animacje potwierdzeń i postępu'));menu.append(lab);
+   input.addEventListener('change',()=>{visual=input.checked;try{localStorage.setItem(prefKey,visual?'1':'0');}catch(_){}});
+ }
+ function feedbackBox(){if(by('psMicroFeedback'))return;const el=document.createElement('div');el.id='psMicroFeedback';el.hidden=true;el.setAttribute('role','status');el.setAttribute('aria-live','polite');el.innerHTML='<span class="psmf-seal" aria-hidden="true">OK</span><div><strong></strong><small></small></div>';document.body.append(el);}
+ function chime(){if(!by('ps80Effects')?.checked)return;try{const A=window.AudioContext||window.webkitAudioContext;if(!A)return;if(!ctx)ctx=new A();if(ctx.state==='suspended')return;
+  const now=ctx.currentTime;[620,780].forEach((f,i)=>{const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type='sine';osc.frequency.setValueAtTime(f,now+i*.085);gain.gain.setValueAtTime(.0001,now+i*.085);gain.gain.exponentialRampToValueAtTime(.018,now+i*.085+.016);gain.gain.exponentialRampToValueAtTime(.0001,now+i*.085+.17);osc.connect(gain);gain.connect(ctx.destination);osc.start(now+i*.085);osc.stop(now+i*.085+.18);});}catch(_){}
+ }
+ function celebrate(title,detail,kind){if(!visual)return;const key=title+'|'+detail;const now=Date.now();if(lastEffectKey===key&&now-lastEffectAt<2600)return;lastEffectKey=key;lastEffectAt=now;feedbackBox();const el=by('psMicroFeedback');clearTimeout(hideTimer);el.querySelector('strong').textContent=title;el.querySelector('small').textContent=detail;el.hidden=false;el.classList.remove('psmf-on');void el.offsetWidth;el.classList.add('psmf-on');
+  if(kind==='timeline'&&!prefersReduce()){const chart=by('tlChart');chart?.classList.remove('psmf-timeline-flash');void chart?.offsetWidth;chart?.classList.add('psmf-timeline-flash');}
+  chime();hideTimer=setTimeout(()=>{el.classList.remove('psmf-on');setTimeout(()=>{if(!el.classList.contains('psmf-on'))el.hidden=true;},270);},1900);
+ }
+ const solved=()=>[!!STATE.tcms?.solved,!!STATE.msg?.solved,!!STATE.cctv?.solved,!!STATE.forensic?.solved,!!STATE.access?.solved];
+ const reportNames=['TCMS','Korespondencja','Monitoring','Mikroślady','Analiza dostępu'];
+ // Obserwacja prawdziwych ZMIAN STANU po standardowym komunikacie gry.
+ // Wykorzystujemy istniejące potwierdzenia, zamiast podpinać się pod stare listenery przycisków.
+ const verifiedTimeline=new Set(),verifiedCards=new Set();let knownReports=[];
+ function snapshotMilestones(){
+  knownReports=solved();verifiedTimeline.clear();verifiedCards.clear();
+  for(const e of TL_EVENTS){const x=STATE.timeline11?.entries?.[e.id];if(x?.at&&e.sources.some(seen)&&tlAssessment(e,x).state==='ok')verifiedTimeline.add(e.id);}
+  for(const c of STATE.deduction?.cards||[]){try{if(dd7Reasoning(c).ok)verifiedCards.add(c.id);}catch(_){}}
+ }
+ function checkMilestones(){
+  const currentReports=solved();
+  for(let i=0;i<currentReports.length;i++){
+   if(currentReports[i]&&!knownReports[i])celebrate('ZWERYFIKOWANO','Raport '+reportNames[i]+' został przyjęty do akt.');
+  }
+  knownReports=currentReports;
+  for(const e of TL_EVENTS){const x=STATE.timeline11?.entries?.[e.id];if(!x?.at||!e.sources.some(seen))continue;
+   if(tlAssessment(e,x).state==='ok'&&!verifiedTimeline.has(e.id)){
+    verifiedTimeline.add(e.id);celebrate('ZAPIS POTWIERDZONY','Zdarzenie uzyskało spójną chronologię.','timeline');
+   }
+  }
+  for(const c of STATE.deduction?.cards||[]){let ok=false;try{ok=!!dd7Reasoning(c).ok;}catch(_){}
+   if(ok&&!verifiedCards.has(c.id)){verifiedCards.add(c.id);celebrate('WNIOSEK ZAPISANY','Argumentacja została powiązana ze źródłami.');}
+  }
+ }
+ snapshotMilestones();
+ if(typeof toast==='function'){
+  const originalToast=toast;
+  toast=function(){const result=originalToast.apply(this,arguments);checkMilestones();queue();return result;};
+ }
+ hook('scRenderNotebook',()=>queue());hook('renderChat',()=>queue());hook('showTab',()=>queue());
+ by('notes')?.addEventListener('input',queue);
+ hook('applySave',()=>{snapshotMilestones();queue();});hook('simReset',()=>{snapshotMilestones();queue();});hook('scSecure',()=>queue());
+ makeSettings();buildPanel();queue();
+})();
+
+</script><script id="psFinalRoutesScript">
+/* Final 2.0 — warianty kwalifikacji i epilog. Nie dodaje dowodów ani nie zmienia dialogów/API. */
+(function(){
+'use strict';
+if(typeof STATE==='undefined'||typeof simTrial!=='function'||typeof simCaseAssessment!=='function'||typeof simDefendEvaluation!=='function'||!document.getElementById('fcCulprit'))return;
+const el=id=>document.getElementById(id);
+const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const VARIANTS=[
+ {id:'intentional',title:'Umyślne pozbawienie życia',explain:'Oskarżenie dotyczące bezpośredniej przemocy. Wymaga niezależnego powiązania osoby, kontaktu, obrażeń i chronologii.'},
+ {id:'planned',title:'Umyślne zabójstwo z wcześniej powziętym zamiarem',explain:'Najpoważniejsza teza. Samo umówienie spotkania i istnienie motywu nie dowodzą wcześniejszego zamiaru zabójstwa.'},
+ {id:'negligence',title:'Nieumyślne spowodowanie śmierci przez zaniedbanie techniczne',explain:'Weryfikacja naruszenia obowiązków technicznych i odrębnie — związku przyczynowego ze śmiercią.'},
+ {id:'sabotage',title:'Świadome ukrywanie niezgodności i możliwy sabotaż dokumentacji',explain:'Dotyczy protokołów i działań organizacyjnych; samo fałszowanie zapisu nie przesądza o odpowiedzialności za śmierć.'},
+ {id:'complicity',title:'Współudział w zatajeniu nieprawidłowości',explain:'Sprawdzenie współdziałania przy ukrywaniu danych, bez automatycznego przypisywania współsprawstwa zabójstwa.'}
+];
+const VARIANT_MAP=new Map(VARIANTS.map(v=>[v.id,v]));
+const getChoice=()=>VARIANT_MAP.has(STATE.final13?.qualification)?STATE.final13.qualification:'intentional';
+const setChoice=id=>{if(!VARIANT_MAP.has(id))return; if(STATE.final13.qualification===id)return;
+ STATE.final13.qualification=id;STATE.sim.trial=null;
+ if(STATE.final13.submitted){STATE.final13.submitted=false;STATE.final13.feedback='Zmiana kwalifikacji wymaga ponownego przedstawienia aktu.';}
+ if(typeof fcRender==='function')fcRender();};
+const has=id=>STATE.found.has(id);
+const every=(...ids)=>ids.every(has);
+const any=(...ids)=>ids.some(has);
+const ready=(ass,id)=>!!ass.cs[id]?.ready;
+const pscore=(ass,id)=>Math.round(ass.cs[id]?.score||0);
+const grade=(...scores)=>Math.round(scores.reduce((a,b)=>a+b,0)/scores.length);
+const RELEVANT={
+ intentional:['accident','contract','message','card','remote','traces'],
+ planned:['accident','contract','message','card','remote','traces'],
+ negligence:['accident','contract','traces'],
+ sabotage:['contract','message','card'],
+ complicity:['contract','message','card','remote']
+};
+const MAPPING={
+ MAREK:['EVID_PAYROLL_MANUAL_EDIT','EVID_ACCEPTANCE_RECORD','TEC-09'],
+ TOMASZ:['EVID_TCMS_SESSION','TEC-13','EVID_WORK_ORDER_RAW'],
+ JANUSZ:['EVID_WORK_ORDER_RAW','EVID_SERVICE_FORM_GAPS','TEC-09'],
+ ELZBIETA:['EVID_BHP_DRAFT','EVID_OUTBOX_MISSING_SUBMISSION','DIG-16'],
+ KAMIL:['EVID_RESOURCE_HANDOVER','EVID_T17_DOOR_EVENT','EVID_TEST_AUTHORIZATION'],
+ MAGDALENA:['EVID_ACCEPTANCE_RECORD','EVID_MESSAGE_DEVICE_METADATA','TEC-09']
+};
+const limit=['Nie utożsamiaj użytkownika konta lub karty z osobą bez niezależnego sprawdzenia.',
+ 'Dokumentacja serwisowa może dowodzić zaniedbań, lecz niekoniecznie mechanizmu śmierci.',
+ 'Odtworzona wiadomość wskazuje proponowane spotkanie; nie dokumentuje samego aktu przemocy.'];
+function signature(){
+ const sim=STATE.sim||{},final=STATE.final13||{};
+ return JSON.stringify({qualification:getChoice(),found:[...STATE.found].sort(),links:sim.links,verified:sim.verified,
+ challenges:sim.challenges,ignoredTimeline:sim.ignoredTimeline,errors:sim.errors,trust:sim.trust,
+ person:final.culprit,method:final.method,alibi:final.alibi,keystone:final.keystone,
+ roles:final.links,reasons:final.reasons,submitted:final.submitted,
+ timeline:STATE.timeline11?.entries,scene:STATE.scene12?.inspected,cards:STATE.deduction?.cards,process54:sim.process54,sourceAudit:sim.auditJudgments,violations:sim.psych52?.violations});
+}
+function decide(){
+ const branch=getChoice(),person=STATE.final13.culprit,method=STATE.final13.method;
+ const a=simCaseAssessment(),d=simDefendEvaluation(),s=STATE.sim;
+ const relevantIds=RELEVANT[branch]||RELEVANT.intentional;
+ const relevant=d.responses.filter(x=>relevantIds.includes(x.id));
+ const passed=relevant.filter(x=>x.passed).length, defenseAll=passed===relevant.length;
+ const timelineOK=!a.timelineIssues.length&&!s.ignoredTimeline;
+ const defect=every('EVID_SERIAL_PHOTO','EVID_ACCEPTANCE_RECORD')&&any('EVID_WORK_ORDER_RAW','TEC-09');
+ const procedural=every('EVID_BHP_DRAFT','EVID_OUTBOX_MISSING_SUBMISSION')||every('EVID_WORK_ORDER_RAW','EVID_SERVICE_FORM_GAPS');
+ const contact=every('EVID_MESSAGE_THREAD_RECOVERED','EVID_MESSAGE_DEVICE_METADATA');
+ const trauma=every('MED-04','MED-09')&&any('LAB-08','LAB-09');
+ const actorDocs=(MAPPING[person]||[]).filter(has);
+ const actorFit=actorDocs.length>=2;
+ const roleDocs=new Set(typeof fcAllDocs==='function'?fcAllDocs():[]);
+ const validActor=person==='MAGDALENA'&&ready(a,'identity')&&ready(a,'meeting');
+ const mechanistic=method==='two_stage'&&trauma&&ready(a,'mechanism');
+ const core=validActor&&mechanistic&&ready(a,'chronology')&&ready(a,'alibi')&&timelineOK;
+ const rightProof=typeof fcFamilies==='function'&&roleDocs.size>=6&&fcFamilies([...roleDocs])>=4;
+ const trustOK=s.trust>=35&&!a.badKey;
+ const defenseGrade=passed/relevant.length;
+ let score=0,verdict='',title='',text='',kind='weak',gaps=[],positive=[],needed=[],charge='';
+ const addPositive=(cond,description)=>{if(cond)positive.push(description);else gaps.push('Brak potwierdzenia: '+description.toLowerCase()+'.');};
+ const opposition=relevant.filter(x=>!x.passed).map(x=>'Nieodparty zarzut: '+x.title);
+ const proceduralRisk=(a.auditCritical?.length||0)+(a.auditOverclaims?.length||0)+(a.story53?.over||0)+(s.psych52?.violations?.length||0);
+ const poorProcedure=!trustOK||s.errors>=5||proceduralRisk>=3;
+ if(branch==='intentional'||branch==='planned'){
+  charge=branch==='planned'?'Zabójstwo z uprzednio powziętym zamiarem':'Umyślne pozbawienie życia';
+  addPositive(contact,'Zweryfikowane źródło wiadomości i treść propozycji spotkania');
+  addPositive(ready(a,'identity')&&person==='MAGDALENA','Niezależne powiązanie wskazanej osoby z kontaktem i trasą');
+  addPositive(mechanistic,'Medyczna i techniczna rekonstrukcja dwóch faz obrażeń');
+  addPositive(ready(a,'chronology')&&timelineOK,'Zgodna oś czasu po kontroli znaczników');
+  addPositive(ready(a,'alibi'),'Niezależna kontrola ograniczeń alibi');
+  addPositive(rightProof,'Źródła przypisane do ról oskarżenia');
+  score=Math.max(0,Math.min(100,Math.round(grade(pscore(a,'identity'),pscore(a,'meeting'),pscore(a,'mechanism'),pscore(a,'chronology'),pscore(a,'alibi'))*.73+defenseGrade*18+(trustOK?8:0)-(rightProof?0:12)-(timelineOK?0:18)-(person==='MAGDALENA'?0:25))));
+  if(branch==='planned'){
+   const preparation=defect&&contact&&ready(a,'conceal');
+   addPositive(preparation,'Łańcuch źródeł o przygotowaniu spotkania i interesie w ukryciu niezgodności');
+   // Materiał fabularny nie zawiera bezpośredniego dowodu z góry powziętego zamiaru zabicia.
+   gaps.push('Brak bezpośredniego dowodu wcześniejszego zamiaru zabójstwa; zaproszenie na spotkanie nie jest jego równoznacznikiem.');
+   if(core&&passed>=5&&trustOK&&!poorProcedure&&rightProof){kind='returned';verdict='Rekwalifikacja — zamiar uprzedni nieudowodniony';title='Mocne ustalenia w sprawie przemocy, brak podstaw do premedytacji';text='Kontrola odmawia utrzymania zarzutu z góry powziętego zamiaru. Materiały mogą wspierać odrębną tezę umyślnego pozbawienia życia, lecz konieczna jest decyzja o zmianie kwalifikacji.';}
+   else{kind='weak';verdict='Odmowa utrzymania zarzutu';title='Teza o premedytacji nie wytrzymała kontroli';text='Brakuje niezależnego, kompletnego łańcucha łączącego osobę, mechanizm i zamiar. Nie wolno zastąpić go samym motywem.';}
+  }else if(core&&passed>=5&&trustOK&&!poorProcedure&&rightProof&&score>=76){kind='solid';verdict='Symulowany wyrok skazujący — oskarżenie utrzymane';title='Skazanie po odparciu istotnych zarzutów obrony';text='Niezależne źródła wiążą kontakt, przebieg zdarzenia i obrażenia. Obrona nie podważyła decydujących ogniw rozumowania. To fikcyjne rozstrzygnięcie, a nie gwarancja wyniku rzeczywistego procesu.';}
+  else if(person!=='MAGDALENA'&&s.ignoredTimeline&&a.timelineIssues.length){kind='miscarriage';verdict='Błędne skazanie w symulacji';title='Ostrzeżenie: zignorowano dowody odciążające';text='Wariant ostrzegawczy: oskarżenie nieprawidłowej osoby zostało oparte na pominiętych sprzecznościach. Takie rozstrzygnięcie nie oznacza, że poszlaki rzeczywiście dowodzą winy.';}
+  else if(passed>=2&&score>=48){kind='returned';verdict='Zwrot aktu do uzupełnienia';title='Niepełne powiązanie osoby i mechanizmu';text='Prokurator wymaga dalszego ustalenia brakujących ogniw. Obrona wykazała słabości, których nie można zastąpić większą liczbą niepowiązanych dokumentów.';}
+  else{kind='acquittal';verdict='Brak podstaw do utrzymania oskarżenia';title='Oskarżenie nie osiągnęło progu wiarygodności';text='Zgromadzony materiał nie pozwala przypisać odpowiedzialności za śmierć w sposób dostatecznie spójny.';}
+ } else if(branch==='negligence'){
+  charge='Nieumyślne spowodowanie śmierci w następstwie zaniedbań technicznych';
+  addPositive(defect,'Udokumentowana rozbieżność podzespołu i protokołu');
+  addPositive(procedural,'Potwierdzona luka kontroli lub zgłoszenia ryzyka');
+  addPositive(trauma,'Niezależna opinia o dwóch grupach obrażeń');
+  addPositive(actorFit,'Dokumenty łączące wybraną osobę z obowiązkami proceduralnymi');
+  const deathCausality=trauma&&method==='slip'&&!ready(a,'mechanism');
+  // Zweryfikowane akta wskazują, że zwykły upadek nie tłumaczy całości obrażeń.
+  gaps.push('Nie wykazano, że sama usterka techniczna spowodowała śmierć; opinie opisują odrębny uraz głowy.');
+  score=Math.max(0,Math.min(100,Math.round((defect?27:0)+(procedural?24:0)+(actorFit?13:0)+(trauma?12:0)+passed*3-(poorProcedure?15:0))));
+  if(defect&&procedural&&actorFit&&passed>=2){kind='returned';verdict='Odrębny wątek zaniedbań — bez wykazanej przyczynowości śmierci';title='Naruszenia procedur wymagają rozliczenia';text='Ustalono podstawy do kontroli odpowiedzialności za dopuszczenie wagonu i sposób dokumentowania ryzyka. Nie wykazano jednak, że te uchybienia same spowodowały śmierć Leny. Zarzut śmiertelnego skutku wymaga odrębnego dowodu.';}
+  else{kind='weak';verdict='Brak podstaw do wskazanej kwalifikacji';title='Nie udowodniono związku zaniedbań ze śmiercią';text='Samo niedopełnienie procedury nie przesądza o skutku śmiertelnym ani o odpowiedzialności wskazanej osoby.';}
+ } else if(branch==='sabotage'){
+  charge='Świadome ukrywanie niezgodności w dokumentacji odbioru';
+  const pattern=every('EVID_SERIAL_PHOTO','EVID_ACCEPTANCE_RECORD')&&any('TEC-09','EVID_SERVICE_FORM_GAPS');
+  const signature=person==='MAGDALENA'&&has('EVID_ACCEPTANCE_RECORD');
+  addPositive(pattern,'Niezależne porównanie oznaczeń L-2 i L-3');
+  addPositive(signature,'Powiązanie zatwierdzenia protokołu ze wskazaną osobą');
+  addPositive(ready(a,'conceal'),'Zweryfikowana teza o zatajaniu rozbieżności');
+  gaps.push('Dokumenty nie przesądzają o fizycznym sabotażu urządzenia ani współsprawstwie zabójstwa.');
+  score=Math.min(100,Math.max(0,Math.round((pattern?35:0)+(signature?26:0)+(ready(a,'conceal')?22:0)+passed*2-(poorProcedure?12:0))));
+  if(pattern&&signature&&ready(a,'conceal')&&passed>=2&&!poorProcedure){kind='documentation';verdict='Utrzymanie wątku dokumentacyjnego';title='Potwierdzono podstawy odpowiedzialności za zapis odbioru';text='Łańcuch źródeł wspiera odrębną odpowiedzialność za ukrywanie niezgodności w dokumentacji. Nie jest to rozstrzygnięcie odpowiedzialności za śmierć ani za fizyczny sabotaż.';}
+  else if(pattern){kind='returned';verdict='Skierowanie do dalszego ustalenia sprawstwa';title='Rozbieżność jest rzeczywista, udział osoby niepełny';text='Niezgodność podzespołów została udokumentowana, ale nie przypisano bez dostatecznych podstaw świadomego działania konkretnej osobie.';}
+  else{kind='weak';verdict='Brak podstaw do utrzymania aktu';title='Zarzut oparto na niepełnej dokumentacji';text='Do oceny świadomej manipulacji konieczne są oryginały i niezależne potwierdzenie ich zmiany.';}
+ } else {
+  charge='Współudział w ukrywaniu nieprawidłowości proceduralnych';
+  addPositive(actorFit,'Źródła wskazujące rolę osoby w obiegu dokumentów lub identyfikatorów');
+  addPositive(procedural||defect,'Potwierdzone naruszenie zasad kontroli i dokumentowania');
+  addPositive(ready(a,'conceal'),'Zweryfikowany kontekst zatajonych rozbieżności');
+  gaps.push('Sam udział w obiegu dokumentów nie dowodzi porozumienia co do zabójstwa.');
+  score=Math.min(100,Math.max(0,Math.round((actorFit?27:0)+(procedural||defect?29:0)+(ready(a,'conceal')?22:0)+passed*3-(poorProcedure?13:0))));
+  if(actorFit&&(procedural||defect)&&ready(a,'conceal')&&passed>=2){kind='returned';verdict='Wydzielenie wątku współdziałania proceduralnego';title='Możliwe współdziałanie przy zatajeniu';text='Ustalono rolę wskazanej osoby i rozbieżności dokumentacyjne. Należy jeszcze wykazać świadome porozumienie; nie wolno rozszerzać tych ustaleń na współsprawstwo zabójstwa.';}
+  else{kind='weak';verdict='Współudział nieudowodniony';title='Brak wystarczającego dowodu porozumienia';text='Dostęp do dokumentów lub pojedynczy błąd proceduralny nie wystarczają, by wykazać świadomy wspólny zamiar ukrywania informacji.';}
+ }
+ if(!timelineOK&&!gaps.some(x=>x.includes('chronolog')))gaps.push('Nieusunięte sprzeczności chronologii osłabiają wiarygodność wniosku.');
+ if(poorProcedure)gaps.push('Błędy proceduralne lub niska wiarygodność prowadzenia czynności obniżyły wartość argumentacji.');
+ if(!defenseAll)gaps.push(...opposition);
+ if(!roleDocs.size)gaps.push('Brak dowodów wyraźnie przypisanych do elementów aktu.');
+ // Obowiązek rzetelnego ujawnienia okoliczności odciążających dotyczy każdej ścieżki.
+ const disclosure=s.process54?.disclosure||'';
+ if(disclosure==='defer'){
+  kind='returned';verdict='Akta skierowane do uzupełnienia na wniosek śledczego';
+  title='Ujawniono wymagające wyjaśnienia luki';
+  text='Śledczy nie forsuje orzeczenia, lecz zwraca materiał do dalszych czynności. Wniosek może zostać ponowiony po uzupełnieniu źródeł.';
+ }else if(disclosure==='suppress'){
+  gaps.push('Świadomie nie ujawniono materiałów odciążających, naruszając warunki rzetelnej oceny.');
+  const wrong=person&&person!=='MAGDALENA';
+  kind=wrong&&(!timelineOK||['card_proves','remote_proves','console_proves'].includes(STATE.final13.alibi))?'miscarriage':'excluded';
+  verdict=kind==='miscarriage'?'Błąd wymiaru sprawiedliwości':'Istotne uchybienie proceduralne';
+  title=kind==='miscarriage'?'Błędne rozstrzygnięcie na podstawie zatajonych wątpliwości':'Akt nie został utrzymany po zatajeniu materiałów';
+  text=kind==='miscarriage'?'W fikcyjnej gałęzi błędnie oskarżono osobę, ignorując jej możliwe alibi i źródła odciążające.':'Nieujawnienie wątpliwości podważa rzetelność całego wnioskowania, niezależnie od kwalifikacji.';
+ }
+ const result={kind,title,text,defense:`Obroniono ${passed} z ${relevant.length} zarzutów właściwych dla tej kwalifikacji`,reasons:[...new Set(gaps)].slice(0,20),strength:score,
+  qualification:branch,qualificationTitle:charge,verdict,signature:signature(),positive:[...new Set(positive)],defensePassed:passed,defenseTotal:relevant.length,
+  assessedPerson:person, assessedAt:Date.now(), evidenceCount:STATE.found.size,trust:s.trust,errors:s.errors,graph:SIM_NODES.map(n=>({id:n.id,title:n.title,ready:a.cs[n.id].ready,score:a.cs[n.id].score}))};
+ return result;
+}
+function thesisReport(){return (STATE.deduction?.cards||[]).slice(0,40).map((c,i)=>{
+ let v={ok:false,issues:['Wymaga weryfikacji']};try{v=dd7Reasoning(c);}catch(_){}
+ return {title:String(c.title||c.name||`Hipoteza ${i+1}`).slice(0,140),ok:!!v.ok,issues:Array.isArray(v.issues)?v.issues.slice(0,2):[],sources:(c.sourceIds||c.sources||c.ids||[]).length};
+ });}
+function epilogue(result){
+ const area=el('simHearingDetail');if(!area||!result)return;
+ let box=el('psFinalEpilogue');if(!box){box=document.createElement('section');box.id='psFinalEpilogue';box.className='ps-epilogue';area.appendChild(box);} // regenerated with hearing
+ const hypotheses=thesisReport(),unverified=Object.keys(SIM_DEGRADED).filter(id=>has(id)&&!simIsVerified(id));
+ const niceDocs=DOCS.filter(d=>has(d.id)).length;
+ const protectedReasons=result.reasons.length?result.reasons.map(x=>`<li>${safe(x)}</li>`).join(''):'<li>W testowanej argumentacji nie ujawniono istotnej luki.</li>';
+ const hypothesesMarkup=hypotheses.length?hypotheses.map(h=>`<li><b>${safe(h.title)}</b> — ${h.ok?'<span class="ps-good">argumentacja zaliczona</span>':'<span class="ps-warn">wymaga korekty</span>'}${h.issues.length?`<span class="ps-ep-note">${safe(h.issues[0])}</span>`:''}</li>`).join(''):'<li>Nie zapisano własnych kart hipotez poza obowiązkowymi ustaleniami.</li>';
+ const nodes=result.graph.map(g=>`<div class="ps-ep-node"><strong>${safe(g.title)}</strong><span class="${g.ready?'ps-good':'ps-warn'}">${g.ready?'Weryfikacja zaliczona':'Do dalszego sprawdzenia'} · ${g.score}%</span></div>`).join('');
+ box.innerHTML=`<div class="eyebrow">ZAMKNIĘCIE DOCHODZENIA · EPILOG</div><h3>Co rzeczywiście ustalono?</h3>
+ <p class="ps-ep-lead">${safe(result.verdict)}. Wybrana kwalifikacja: <b>${safe(result.qualificationTitle)}</b>. Poniżej rozliczenie decyzji, bez przyznawania nowych dowodów.</p>
+ <div class="ps-ep-stats"><div><strong>${niceDocs} / ${DOCS.length}</strong><span>Materiały w aktach</span></div><div><strong>${result.defensePassed} / ${result.defenseTotal}</strong><span>Odparte zarzuty</span></div><div><strong>${result.trust}%</strong><span>Zaufanie procesowe</span></div><div><strong>${result.errors}</strong><span>Błędy metodologiczne</span></div></div>
+ <div class="ps-ep-columns"><section><h4>Wnioski i hipotezy</h4><div class="ps-ep-nodes">${nodes}</div><details><summary>Własne hipotezy gracza (${hypotheses.length})</summary><ul>${hypothesesMarkup}</ul></details></section>
+ <section><h4>Co osłabiło oskarżenie?</h4><ul>${protectedReasons}</ul>${unverified.length?`<p class="muted small">Nie w pełni zweryfikowane materiały: ${unverified.slice(0,8).map(id=>safe(byId[id]?.title||id)).join('; ')}.</p>`:''}
+ ${result.positive.length?`<details><summary>Ustalenia, które przetrwały kontrolę</summary><ul>${result.positive.map(x=>`<li>${safe(x)}</li>`).join('')}</ul></details>`:''}</section></div>
+ <div class="ps-ep-actions"><button type="button" class="btn alt" data-ps-ep-go="deduction">Sprawdź hipotezy</button><button type="button" class="btn alt" data-ps-ep-go="timeline">Wróć do chronologii</button><button type="button" class="btn alt" data-ps-ep-go="evidence">Przejrzyj akta</button></div>
+ <p class="small muted">To symulacja fabularna. Zaliczenie tezy w grze nie jest matematycznym prawdopodobieństwem winy ani rzeczywistym wyrokiem sądowym.</p>`;
+ box.querySelectorAll('[data-ps-ep-go]').forEach(btn=>btn.addEventListener('click',()=>showTab(btn.dataset.psEpGo)));
+}
+function qualifyUI(){
+ const first=el('fcCulprit');if(!first||el('psQualification'))return;
+ const group=document.createElement('div');group.id='psQualification';group.className='ps-qualification';
+ group.innerHTML=`<div class="eyebrow">WYBÓR KIERUNKU POSTĘPOWANIA</div><h3>Jak kwalifikujesz ustalony czyn?</h3><p class="muted small">Wybierz tezę odpowiadającą zebranemu materiałowi. Poważniejszy zarzut wymaga silniejszych podstaw; niezależny zarzut dokumentacyjny nie zastępuje dowodu przemocy.</p><div class="ps-qualification-grid">${VARIANTS.map(v=>`<label class="ps-q-choice"><input type="radio" name="psQualificationChoice" value="${v.id}"><span><b>${safe(v.title)}</b><small>${safe(v.explain)}</small></span></label>`).join('')}</div><p id="psQInfo" class="small muted" role="status"></p>`;
+ first.closest('.fc-main')?.insertBefore(group,first.closest('.fc-fields'));
+ group.addEventListener('change',e=>{if(e.target.name==='psQualificationChoice'){setChoice(e.target.value);renderChoice();}});
+ renderChoice();
+}
+function renderChoice(){
+ const group=el('psQualification');if(!group)return;
+ const current=getChoice();
+ group.querySelectorAll('input[name="psQualificationChoice"]').forEach(r=>{r.checked=r.value===current;r.closest('label').classList.toggle('selected',r.checked);});
+ const desc=VARIANT_MAP.get(current);
+ el('psQInfo').textContent='Wybrano: '+desc.title+'. Oceniane będą dowody właściwe tej kwalifikacji, nie tylko ogólny procent kompletności akt.';
+}
+// Zachowaj istniejący moduł i jego mechaniki, zastępując jedynie sposób zakończenia.
+const oldTrial=simTrial;
+simTrial=function(){
+ if(!STATE.final13.submitted)return toast('Najpierw złóż akt do kontroli.');
+ const mode=STATE.sim.process54?.disclosure||'';
+ if(!mode)return toast('Przed rozstrzygnięciem wskaż, jak postępujesz z materiałami odciążającymi.');
+ const relevant=RELEVANT[getChoice()];
+ const defense=simDefendEvaluation().responses.filter(x=>relevant.includes(x.id));
+ if(mode==='suppress')simError('Świadomie nie ujawniono wątpliwości obronie.',6,15);
+ else if(mode==='defer')simTime(3,0,'Dobrowolne skierowanie akt do uzupełnienia');
+ else if(defense.some(x=>['shortcut','skip'].includes(x.method)))simError('Pominięto zarzut obrony lub przeceniono pojedynczy dowód.',3,4);
+ else simTime(2,0,'Kontrola kontradyktoryjna — '+VARIANT_MAP.get(getChoice()).title);
+ if(STATE.sim.process54)STATE.sim.process54.hearings=(STATE.sim.process54.hearings||0)+1;
+ STATE.sim.trial=decide();
+ simRenderHearing();
+ el('simHearing')?.scrollIntoView({block:'start',behavior:'smooth'});
+};
+const oldHearing=simRenderHearing;
+simRenderHearing=function(){const out=oldHearing.apply(this,arguments);
+ // Konfrontacje proceduralne są dobierane do treści kwalifikacji.
+ const cards=[...document.querySelectorAll('#ps54Hearing .ps54-issue')];
+ const relevant=RELEVANT[getChoice()];
+ if(cards.length){
+  cards.forEach((card,i)=>{card.hidden=!relevant.includes(FC_CHALLENGES[i]?.id);});
+  const h=el('ps54Hearing')?.querySelector('h3');if(h)h.textContent='Zarzuty obrony właściwe dla kwalifikacji · '+relevant.length;
+  const count=el('ps54Hearing')?.querySelector('.ps54-score b');
+  if(count)count.textContent=simDefendEvaluation().responses.filter(r=>relevant.includes(r.id)&&r.passed).length+'/'+relevant.length;
+ }
+ if(STATE.sim?.trial)epilogue(STATE.sim.trial);
+ else el('psFinalEpilogue')?.remove();
+ renderChoice();return out;};
+const oldBuild=buildSave;
+buildSave=function(){const out=oldBuild.apply(this,arguments);if(out.investigationSim){out.investigationSim.finalQualification=getChoice();out.investigationSim.finalDecided=!!STATE.sim?.trial;}return out;};
+const oldApply=applySave;
+applySave=function(data){const out=oldApply.apply(this,arguments);const raw=data?.investigationSim;
+ STATE.final13.qualification=VARIANT_MAP.has(raw?.finalQualification)?raw.finalQualification:'intentional';
+ if(raw?.finalDecided&&STATE.final13.submitted){STATE.sim.trial=decide();}else STATE.sim.trial=null;
+ renderChoice();simRenderHearing();return out;};
+const oldReset=fcReset;
+fcReset=function(){const out=oldReset.apply(this,arguments);STATE.final13.qualification='intentional';STATE.sim.trial=null;renderChoice();simRenderHearing();return out;};
+const oldSimReset=simReset;
+simReset=function(){const out=oldSimReset.apply(this,arguments);STATE.sim.trial=null;simRenderHearing();return out;};
+const oldFcRender=fcRender;
+fcRender=function(){const out=oldFcRender.apply(this,arguments);renderChoice();return out;};
+qualifyUI();
+window.PS_FINAL_VARIANTS={variants:VARIANTS,evaluate:decide,signature,epilogue,choice:getChoice,setChoice};
+})();
+
 </script>
 </body></html>
