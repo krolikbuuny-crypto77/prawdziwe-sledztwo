@@ -1,0 +1,34 @@
+{
+  "scope": "36 tur w interfejsie; ręczna ocena bezpośredniej trafności (nie liczba trafień LLM)",
+  "criteria": "Czy odpowiedź dotyczy dokładnie informacji żądanej w pytaniu lub jasno wyjaśnia brak możliwości odpowiedzi?",
+  "directly_on_topic": 18,
+  "off_target": 18,
+  "total": 36,
+  "by_category": {
+    "alibi": [
+      6,
+      6
+    ],
+    "potwierdzenie obecności": [
+      6,
+      6
+    ],
+    "obserwacja własna": [
+      0,
+      6
+    ],
+    "sprzeczność logiczna": [
+      0,
+      6
+    ],
+    "przypomnienie": [
+      6,
+      6
+    ],
+    "bezpośredni zarzut": [
+      0,
+      6
+    ]
+  },
+  "limitations": "6 stałych pytań na świadka w jednym scenariuszu; bez prawdziwego Z.ai; wynik nie uogólnia się na całą grę"
+}

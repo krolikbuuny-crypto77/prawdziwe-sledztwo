@@ -1,0 +1,39 @@
+
+#ov3Grid[hidden],#ov35Fine[hidden]{display:none!important}
+.ov35-workspace{display:grid;gap:12px;background:linear-gradient(145deg,#172832,#0c171c);border:1px solid #536773;border-radius:10px;padding:15px;margin:12px 0}
+.ov35-workspace h3{font-size:16px;color:#f3d9ae}
+.ov35-flex{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.ov35-tip{font-size:12px;color:#bfcbcf;line-height:1.6}
+.ov35-flex .ov3-btn{min-height:42px}
+.ov35-tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ov35-tools button{font-size:12px;min-height:42px;border-radius:8px;border:1px solid #516872;background:#1a3038;color:#e0ecee;cursor:pointer;padding:9px 10px}
+.ov35-tools button[aria-pressed=true]{color:#ffebcb;background:#5b4229;border-color:#d5a56c}
+.ov35-sector{border:1px solid #465d68;border-radius:8px;padding:12px;background:#0e1b22;display:grid;gap:10px}
+.ov35-sector h4{color:#e4cda4;font-size:13px}
+.ov35-fine{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ov35-fine button{background:#152932;color:#dde9e9;border:1px solid #61757f;min-height:48px;border-radius:7px;font-size:12px;cursor:pointer;touch-action:manipulation}
+.ov35-fine button:hover,.ov35-fine button:focus-visible{background:#455439;color:#f9e0b6}
+.ov35-fine button.observed{border-color:#668979;color:#a0c9b4}
+.ov35-detail{display:grid;gap:8px;padding:13px 14px;border:1px solid #4d6069;border-radius:8px;background:#101d25}
+.ov35-detail label{font-size:12px;color:#d7c49c}
+.ov35-detail input{width:100%;min-width:0;background:#0a141a;border:1px solid #4d626b;padding:11px;border-radius:6px;color:#e7eded}
+.ov35-annotations{display:grid;gap:5px;max-height:140px;overflow:auto}
+.ov35-annotation{display:flex;gap:10px;align-items:center;justify-content:space-between;border:1px solid #3d535f;background:#101b23;border-radius:7px;padding:8px;font-size:11px;color:#c4d0d2}
+.ov35-annotation button{background:#273640;border:1px solid #62727c;color:#f0dbb6;border-radius:5px;min-height:32px;padding:4px 9px;cursor:pointer;white-space:nowrap}
+.ov35-marks{position:absolute;inset:0;pointer-events:none;z-index:3}
+.ov35-marker{position:absolute;transform:translate(-50%,-50%);height:16px;width:16px;border:2px solid #e7cd89;background:#111c20ba;border-radius:50%;box-shadow:0 0 0 3px #0812186e}
+.ov35-marker:after{content:'';position:absolute;width:22px;height:1px;background:#e7cd89;top:5px;left:14px}
+.ov35-ruler{position:absolute;transform-origin:0 50%;height:2px;background:#e0c37b;box-shadow:0 0 0 2px #060f13ad}
+.ov35-ruler:before,.ov35-ruler:after{content:'';position:absolute;width:2px;height:10px;top:-4px;background:#e0c37b}
+.ov35-ruler:before{left:0}.ov35-ruler:after{right:0}
+.ov35-mark-number{position:absolute;color:#f1d69e;font:10px ui-monospace,monospace;background:#101c23ca;padding:2px 4px;transform:translate(8px,8px)}
+.ov35-macro-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(#ffffff3b 1px,transparent 1px),linear-gradient(90deg,#ffffff3b 1px,transparent 1px);background-size:25% 25%;opacity:0;transition:opacity .2s}
+.ov35-macro-grid.on{opacity:.65}
+.ov35-macro-readout{font:11px/1.5 ui-monospace,monospace;color:#dbbd86}
+#inspection12 .et1-photo-stage.ov35-annotate{cursor:crosshair}
+#inspection12 .et1-photo-stage.ov35-annotate .et2-parallax-layer{touch-action:none}
+@media(max-width:640px){.ov35-workspace{padding:11px}.ov35-tools{grid-template-columns:1fr 1fr}.ov35-fine button{min-height:46px}.ov35-detail{padding:10px}}
+
+/* Pakiet 6.3: sektory zachowują siatkę obrazu; poprawiono czytelność fokusów. */
+#ov35FineGrid button:focus-visible,#ov3Grid button:focus-visible,#ov35GridToggle:focus-visible{outline:3px solid #e6c493;outline-offset:2px}
+#ov35Info{scroll-margin-top:100px}

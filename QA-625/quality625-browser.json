@@ -1,0 +1,1296 @@
+[
+  {
+    "viewport": 390,
+    "samples": [
+      {
+        "id": "MAREK",
+        "topic": "tech",
+        "q": "Co wiesz o awarii L-2 i L-3?",
+        "answer": "O L-2 i L-3 nie mam własnego ustalenia technicznego. Mogę mówić o decyzjach organizacyjnych, nie o stanie części.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "tech",
+        "q": "Jaka usterka dotknęła L2 albo L3?",
+        "answer": "L-2 i L-3 to szczegóły techniczne. Nie będę ich oceniał zamiast diagnosty.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "tech",
+        "q": "Co jest nie tak z L-3?",
+        "answer": "Co do L-2 i L-3, sam nie ustalę przyczyny awarii. Tu potrzebne są oględziny.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "receipt",
+        "q": "Kto odpowiada za protokół odbioru L-3?",
+        "answer": "W odbiorze L-3 liczy się podpis na protokole. Bez niego nie wskażę odpowiedzialnej osoby.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "receipt",
+        "q": "Kto podpisał odbiór L3?",
+        "answer": "W sprawie odbioru L-3 ważne jest, czyje zatwierdzenie widnieje w dokumentacji. Tego nie potwierdzę bez niej.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "sequence",
+        "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
+        "answer": "Nie chcę łączyć alarmu i zmiany dyspozycji w jedną historię bez porównania godzin.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "routing",
+        "q": "Dlaczego zmieniono dyspozycję TW-217?",
+        "answer": "Nie potrafię podać pewnego powodu zmiany dyspozycji TW-217. Proszę oddzielić decyzję od późniejszego zapisu.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "workorder",
+        "q": "Jakie były powody decyzji o zleceniu?",
+        "answer": "Proszę wskazać zlecenie. Nie chcę przypisywać komuś powodu, którego nie znam.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "contradiction",
+        "q": "Wcześniej mówiłaś inaczej.",
+        "answer": "Co konkretnie się nie zgadza? Bez wskazania wypowiedzi nie odpowiem na zarzut.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "contradiction",
+        "q": "Co się nie zgadza w twoich zeznaniach?",
+        "answer": "Proszę powiedzieć, o którą moją odpowiedź chodzi. Nie chciałbym zgadywać.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "contradiction",
+        "q": "Przed chwilą powiedziałeś coś innego.",
+        "answer": "Wcześniej powiedziałem: „Proszę powiedzieć, o którą moją odpowiedź chodzi. Nie chciałbym zgadywać”.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o usterce?",
+        "answer": "Nie powiedziałem, że wiedziałem o wszystkim, co działo się podczas zmiany. Lena zgłaszała wątpliwości dotyczące bezpieczeństwa wagonu. Kierownik powinien dopilnować ich udokumentowania; nie znam z własnej obserwacji wszystkich usterek."
+      },
+      {
+        "id": "MAREK",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o awarii L-2?",
+        "answer": "Nie powiedziałem, że wiedziałem o wszystkim, co działo się podczas zmiany. Lena zgłaszała wątpliwości dotyczące bezpieczeństwa wagonu. Kierownik powinien dopilnować ich udokumentowania; nie znam z własnej obserwacji wszystkich usterek."
+      },
+      {
+        "id": "MAREK",
+        "topic": "protected",
+        "q": "Czy odpowiadasz za sabotaż L-3?",
+        "answer": "Odpowiadam za organizację służby i rzetelność jej rozliczenia. Odpowiadam za organizację służby, a nie za każde zachowanie pracownika."
+      },
+      {
+        "id": "MAREK",
+        "topic": "protected",
+        "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
+        "answer": "Nie wiem, kto wtedy użył tej karty. Nie widziałem tego."
+      },
+      {
+        "id": "MAREK",
+        "topic": "protected",
+        "q": "Czy przyznajesz się do zabójstwa Leny?",
+        "answer": "Nie przyznaję się do zabójstwa Leny. Proszę oddzielić moje decyzje służbowe od takiego zarzutu."
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "tech",
+        "q": "Co wiesz o awarii L-2 i L-3?",
+        "answer": "L-2 i L-3? Nie sprawdzałem tych części. Nie powiem, co się w nich zepsuło.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "tech",
+        "q": "Jaka usterka dotknęła L2 albo L3?",
+        "answer": "Nie mam własnych oględzin L-2 ani L-3. Nie chcę zgadywać usterki.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "tech",
+        "q": "Co jest nie tak z L-3?",
+        "answer": "O L-2 i L-3 nie potrafię powiedzieć, jaka była awaria. Tym zajmowali się ludzie od techniki.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "receipt",
+        "q": "Kto odpowiada za protokół odbioru L-3?",
+        "answer": "Protokół odbioru L-3 nie był moim meldunkiem z dyspozytorni. Nie wiem, kto go zatwierdził.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "receipt",
+        "q": "Kto podpisał odbiór L3?",
+        "answer": "Nie potrafię wskazać osoby odpowiedzialnej za odbiór L-3. Moje zapisy dotyczyły dyspozycji.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "sequence",
+        "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
+        "answer": "Nie potrafię z pewnością odtworzyć pełnej kolejności tych zdarzeń. Alarm zgłosiłem o 02:02. Przebieg wcześniejszej godziny trzeba odtworzyć z dyspozycji i rejestru łączności.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "routing",
+        "q": "Dlaczego zmieniono dyspozycję TW-217?",
+        "answer": "Nie pamiętam, z jakiego powodu zmieniono dyspozycję TW-217.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "workorder",
+        "q": "Jakie były powody decyzji o zleceniu?",
+        "answer": "Powód zlecenia? Z mojego stanowiska nie potwierdzę, dlaczego je wystawiono.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "contradiction",
+        "q": "Wcześniej mówiłaś inaczej.",
+        "answer": "Mogłem coś pomylić, ale powiedz najpierw, co się nie zgadza.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "contradiction",
+        "q": "Co się nie zgadza w twoich zeznaniach?",
+        "answer": "Co powiedziałem inaczej?",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "contradiction",
+        "q": "Przed chwilą powiedziałeś coś innego.",
+        "answer": "Wcześniej powiedziałem: „Co powiedziałem inaczej”.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o usterce?",
+        "answer": "Nie miałem pełnego obrazu tego, co działo się poza dyspozytornią. Lena naciskała, żeby nie bagatelizować zgłoszeń o wagonie. To wiem. Szczegóły techniczne należy sprawdzić u diagnosty."
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o awarii L-2?",
+        "answer": "Nie miałem pełnego obrazu tego, co działo się poza dyspozytornią. Lena naciskała, żeby nie bagatelizować zgłoszeń o wagonie. To wiem. Szczegóły techniczne należy sprawdzić u diagnosty."
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "protected",
+        "q": "Czy odpowiadasz za sabotaż L-3?",
+        "answer": "Odpowiadałem za decyzje ruchowe i przekierowanie TW-217. Wydawałem polecenia dotyczące ruchu."
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "protected",
+        "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
+        "answer": "Nie widziałem, kto użył tej karty. Sam zapis nie pokaże mi osoby."
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "protected",
+        "q": "Czy przyznajesz się do zabójstwa Leny?",
+        "answer": "Nie przyznaję się do zabójstwa Leny. Jeśli mnie o to oskarżasz, pytaj wprost i przedstaw podstawy."
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "tech",
+        "q": "Co wiesz o awarii L-2 i L-3?",
+        "answer": "O tych częściach mogę mówić tylko w zakresie wykonanej pracy. Przyczyny awarii nie ustalę bez sprawdzenia L-2 i L-3.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "tech",
+        "q": "Jaka usterka dotknęła L2 albo L3?",
+        "answer": "L-2 i L-3 trzeba sprawdzić na warsztacie. Z samego pytania nie wyciągnę przyczyny awarii.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "tech",
+        "q": "Co jest nie tak z L-3?",
+        "answer": "Co z L-2 i L-3? Musiałbym zobaczyć surowe zlecenie i wynik oględzin. Nie będę zgadywał.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "receipt",
+        "q": "Kto odpowiada za protokół odbioru L-3?",
+        "answer": "Odbiór L-3 to nie to samo co wykonanie pracy. Bez dokumentu nie wskażę odpowiedzialnej osoby.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "receipt",
+        "q": "Kto podpisał odbiór L3?",
+        "answer": "Kto odpowiada za protokół odbioru L-3? Najpierw zobaczmy podpis i zakres czynności.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "sequence",
+        "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
+        "answer": "Nie byłem przy każdej dyspozycji. Alarm i zmianę kursu trzeba porównać z zapisami, nie z moją pamięcią.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "routing",
+        "q": "Dlaczego zmieniono dyspozycję TW-217?",
+        "answer": "Zmiana kursu TW-217? Nie będę dopowiadał powodu za dyspozytornię.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "workorder",
+        "q": "Jakie były powody decyzji o zleceniu?",
+        "answer": "Przy zleceniu wolę zobaczyć, co wpisano. Bez tego nie powiem, dlaczego je uruchomiono.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "contradiction",
+        "q": "Wcześniej mówiłaś inaczej.",
+        "answer": "Daj mi tę wcześniejszą wypowiedź. Nie będę kłócił się z ogólnym zarzutem.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "contradiction",
+        "q": "Co się nie zgadza w twoich zeznaniach?",
+        "answer": "To powiedz, w którym miejscu.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "contradiction",
+        "q": "Przed chwilą powiedziałeś coś innego.",
+        "answer": "Wcześniej powiedziałem: „To powiedz, w którym miejscu”.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o usterce?",
+        "answer": "Znałem część problemów z TW-217, nie każdą późniejszą okoliczność. Problem z TW-217 znałem. Nie będę udawał, że każdy alarm oznaczał awarię, która mogła ją zabić."
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o awarii L-2?",
+        "answer": "Znałem część problemów z TW-217, nie każdą późniejszą okoliczność. Problem z TW-217 znałem. Nie będę udawał, że każdy alarm oznaczał awarię, która mogła ją zabić."
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "protected",
+        "q": "Czy odpowiadasz za sabotaż L-3?",
+        "answer": "Odpowiadałem za obieg kart napraw. Za karty napraw odpowiadałem."
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "protected",
+        "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
+        "answer": "Tego z kartą nie widziałem. Nie będę zgadywał, kto ją miał."
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "protected",
+        "q": "Czy przyznajesz się do zabójstwa Leny?",
+        "answer": "Nie przyznaję się. Kłótnia z Leną to nie jest przyznanie się do jej zabójstwa."
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "tech",
+        "q": "Co wiesz o awarii L-2 i L-3?",
+        "answer": "L-2 i L-3 to pytanie do dokumentacji technicznej. Mogę mówić o zgłoszeniach, które znałam.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "tech",
+        "q": "Jaka usterka dotknęła L2 albo L3?",
+        "answer": "Nie potwierdzę rodzaju usterki L-2 ani L-3. Sama tych podzespołów nie sprawdzałam.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "tech",
+        "q": "Co jest nie tak z L-3?",
+        "answer": "O awarii L-2 i L-3 nie mam własnej diagnozy. Zajmowałam się zgłoszeniem ryzyka, nie pomiarem tych części.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "receipt",
+        "q": "Kto odpowiada za protokół odbioru L-3?",
+        "answer": "Protokół odbioru L-3 wymaga sprawdzenia podpisów. Nie wiem z własnej wiedzy, kto go zatwierdził.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "receipt",
+        "q": "Kto podpisał odbiór L3?",
+        "answer": "Nie potrafię wskazać odpowiedzialnego za odbiór L-3 bez protokołu. Moje obowiązki dotyczyły BHP.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "sequence",
+        "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
+        "answer": "Kolejności tych dwóch zdarzeń nie potwierdzę. Rozmawiałam o zagrożeniu, nie śledziłam wszystkich dyspozycji.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "routing",
+        "q": "Dlaczego zmieniono dyspozycję TW-217?",
+        "answer": "Przyczyny zmiany dyspozycji TW-217 nie znam na tyle dobrze, by ją podać jako fakt.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "workorder",
+        "q": "Jakie były powody decyzji o zleceniu?",
+        "answer": "Proszę wskazać konkretne zlecenie. Wolałabym nie mieszać go z korespondencją BHP.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "contradiction",
+        "q": "Wcześniej mówiłaś inaczej.",
+        "answer": "Które zdanie masz na myśli?",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "contradiction",
+        "q": "Co się nie zgadza w twoich zeznaniach?",
+        "answer": "Jeżeli coś zabrzmiało inaczej, chciałabym wiedzieć co.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "contradiction",
+        "q": "Przed chwilą powiedziałeś coś innego.",
+        "answer": "Wcześniej powiedziałam: „Jeżeli coś zabrzmiało inaczej, chciałabym wiedzieć co”.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o usterce?",
+        "answer": "Wiedziałam o zgłaszanym ryzyku, ale nie o każdym późniejszym zdarzeniu. Lena była przekonana, że sygnały z wagonu wymagają wyjaśnienia. Zlekceważenie zgłoszenia nie jest tym samym co dowód przemocy."
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o awarii L-2?",
+        "answer": "Wiedziałam o zgłaszanym ryzyku, ale nie o każdym późniejszym zdarzeniu. Lena była przekonana, że sygnały z wagonu wymagają wyjaśnienia. Zlekceważenie zgłoszenia nie jest tym samym co dowód przemocy."
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "protected",
+        "q": "Czy odpowiadasz za sabotaż L-3?",
+        "answer": "Mogłam dokładniej dopilnować obiegu zgłoszenia. Mogłam skuteczniej dopilnować drogi zgłoszenia."
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "protected",
+        "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
+        "answer": "Nie wiem, kto użył T-17. Nie byłam przy tym wejściu."
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "protected",
+        "q": "Czy przyznajesz się do zabójstwa Leny?",
+        "answer": "Nie przyznaję się do zabójstwa Leny. To poważny zarzut i chcę wiedzieć, na czym go opierasz."
+      },
+      {
+        "id": "KAMIL",
+        "topic": "tech",
+        "q": "Co wiesz o awarii L-2 i L-3?",
+        "answer": "L-2, L-3... Potrzebuję wskazania konkretnego odczytu. Inaczej nie odróżnię usterki od błędu zapisu.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "tech",
+        "q": "Jaka usterka dotknęła L2 albo L3?",
+        "answer": "L-2 i L-3 wymagają sprawdzenia surowych danych. Nie nazwę usterki na podstawie samej wzmianki.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "tech",
+        "q": "Co jest nie tak z L-3?",
+        "answer": "O L-2 i L-3 nie da się powiedzieć uczciwie „awaria”, nie ustalając, co pokazują pomiary.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "receipt",
+        "q": "Kto odpowiada za protokół odbioru L-3?",
+        "answer": "Nie wiem, kto podpisał odbiór L-3. Diagnostyka i zatwierdzenie protokołu to różne rzeczy.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "receipt",
+        "q": "Kto podpisał odbiór L3?",
+        "answer": "Odbiór L-3? To trzeba sprawdzić w historii zatwierdzeń, nie wyciągać z logu diagnostycznego.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "sequence",
+        "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
+        "answer": "Alarm i dyspozycja to osobne zapisy. Nie skleję ich w chronologię bez porównania.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "routing",
+        "q": "Dlaczego zmieniono dyspozycję TW-217?",
+        "answer": "Sam odczyt techniczny nie podaje powodu zmiany dyspozycji TW-217. Tego nie wiem.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "workorder",
+        "q": "Jakie były powody decyzji o zleceniu?",
+        "answer": "Powód zlecenia trzeba potwierdzić w dokumentacji. Log nie jest uzasadnieniem decyzji.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "contradiction",
+        "q": "Wcześniej mówiłaś inaczej.",
+        "answer": "Co dokładnie się rozjechało?",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "contradiction",
+        "q": "Co się nie zgadza w twoich zeznaniach?",
+        "answer": "Pokaż tę różnicę. Bez tego nie wiem, do czego mam się odnieść.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "contradiction",
+        "q": "Przed chwilą powiedziałeś coś innego.",
+        "answer": "Wcześniej powiedziałem: „Pokaż tę różnicę. Bez tego nie wiem, do czego mam się odnieść”.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o usterce?",
+        "answer": "Znałem sygnały z diagnostyki, nie cały przebieg nocy. Znam nietypowe alarmy TCMS. Trzeba sprawdzić tryb serwisowy i autoryzację, zanim nazwie się coś sabotażem."
+      },
+      {
+        "id": "KAMIL",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o awarii L-2?",
+        "answer": "Znałem sygnały z diagnostyki, nie cały przebieg nocy. Znam nietypowe alarmy TCMS. Trzeba sprawdzić tryb serwisowy i autoryzację, zanim nazwie się coś sabotażem."
+      },
+      {
+        "id": "KAMIL",
+        "topic": "protected",
+        "q": "Czy odpowiadasz za sabotaż L-3?",
+        "answer": "Odpowiadam za diagnostykę. Za test automatyki odpowiadam."
+      },
+      {
+        "id": "KAMIL",
+        "topic": "protected",
+        "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
+        "answer": "Sam zapis T-17 nie mówi mi, kto trzymał kartę w chwili użycia."
+      },
+      {
+        "id": "KAMIL",
+        "topic": "protected",
+        "q": "Czy przyznajesz się do zabójstwa Leny?",
+        "answer": "Nie przyznaję się do zabójstwa Leny. Moja praca przy wagonie nie jest odpowiedzią na taki zarzut."
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "tech",
+        "q": "Co wiesz o awarii L-2 i L-3?",
+        "answer": "Nie potwierdzę przyczyny awarii L-2 i L-3 bez dokumentacji technicznej.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "tech",
+        "q": "Jaka usterka dotknęła L2 albo L3?",
+        "answer": "L-2 i L-3 są objęte dokumentacją odbiorową. Sam zapis nie wystarczy, by przesądzić usterkę.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "tech",
+        "q": "Co jest nie tak z L-3?",
+        "answer": "Nie ma podstaw, żebym z pamięci rozstrzygała stan L-2 i L-3.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "receipt",
+        "q": "Kto odpowiada za protokół odbioru L-3?",
+        "answer": "W sprawie protokołu odbioru L-3 proszę wskazać konkretną wersję. Wtedy można ustalić zakres zatwierdzenia.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "receipt",
+        "q": "Kto podpisał odbiór L3?",
+        "answer": "Nie wskażę odpowiedzialności za odbiór L-3 bez numeru dokumentu i jego wersji.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "sequence",
+        "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
+        "answer": "Nie ustalę chronologii alarmu i dyspozycji na podstawie jednego rejestru.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "routing",
+        "q": "Dlaczego zmieniono dyspozycję TW-217?",
+        "answer": "Powodu zmiany dyspozycji TW-217 nie potrafię potwierdzić z dokumentacji odbiorowej.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "workorder",
+        "q": "Jakie były powody decyzji o zleceniu?",
+        "answer": "Nie potrafię przypisać decyzji o zleceniu konkretnego powodu bez dokumentu.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "contradiction",
+        "q": "Wcześniej mówiłaś inaczej.",
+        "answer": "Co konkretnie miałam powiedzieć inaczej?",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "contradiction",
+        "q": "Co się nie zgadza w twoich zeznaniach?",
+        "answer": "Na co się pan powołuje? Nie chcę odpowiadać na niedopowiedziany zarzut.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "contradiction",
+        "q": "Przed chwilą powiedziałeś coś innego.",
+        "answer": "Wcześniej powiedziałam: „Na co się pan powołuje? Nie chcę odpowiadać na niedopowiedziany zarzut”.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o usterce?",
+        "answer": "Znałam zastrzeżenia dotyczące dokumentacji, nie każdy ruch pracowników. Nieprawidłowość w dokumentacji wymaga weryfikacji. Samo zgłoszenie techniczne nie jest dowodem celowego działania."
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o awarii L-2?",
+        "answer": "Znałam zastrzeżenia dotyczące dokumentacji, nie każdy ruch pracowników. Nieprawidłowość w dokumentacji wymaga weryfikacji. Samo zgłoszenie techniczne nie jest dowodem celowego działania."
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "protected",
+        "q": "Czy odpowiadasz za sabotaż L-3?",
+        "answer": "Odpowiadałam za audyt dokumentacji. Odpowiadałam za dokumentację audytu."
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "protected",
+        "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
+        "answer": "Zapis użycia karty nie pokazuje człowieka przy drzwiach. Co dokładnie ma potwierdzać?"
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "protected",
+        "q": "Czy przyznajesz się do zabójstwa Leny?",
+        "answer": "Nie przyznaję się do zabójstwa Leny. Proszę wskazać, jakie fakty mają uzasadniać to oskarżenie."
+      }
+    ]
+  },
+  {
+    "viewport": 1280,
+    "samples": [
+      {
+        "id": "MAREK",
+        "topic": "tech",
+        "q": "Co wiesz o awarii L-2 i L-3?",
+        "answer": "O L-2 i L-3 nie mam własnego ustalenia technicznego. Mogę mówić o decyzjach organizacyjnych, nie o stanie części.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "tech",
+        "q": "Jaka usterka dotknęła L2 albo L3?",
+        "answer": "L-2 i L-3 to szczegóły techniczne. Nie będę ich oceniał zamiast diagnosty.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "tech",
+        "q": "Co jest nie tak z L-3?",
+        "answer": "Co do L-2 i L-3, sam nie ustalę przyczyny awarii. Tu potrzebne są oględziny.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "receipt",
+        "q": "Kto odpowiada za protokół odbioru L-3?",
+        "answer": "W odbiorze L-3 liczy się podpis na protokole. Bez niego nie wskażę odpowiedzialnej osoby.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "receipt",
+        "q": "Kto podpisał odbiór L3?",
+        "answer": "W sprawie odbioru L-3 ważne jest, czyje zatwierdzenie widnieje w dokumentacji. Tego nie potwierdzę bez niej.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "sequence",
+        "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
+        "answer": "Nie chcę łączyć alarmu i zmiany dyspozycji w jedną historię bez porównania godzin.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "routing",
+        "q": "Dlaczego zmieniono dyspozycję TW-217?",
+        "answer": "Nie potrafię podać pewnego powodu zmiany dyspozycji TW-217. Proszę oddzielić decyzję od późniejszego zapisu.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "workorder",
+        "q": "Jakie były powody decyzji o zleceniu?",
+        "answer": "Proszę wskazać zlecenie. Nie chcę przypisywać komuś powodu, którego nie znam.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "contradiction",
+        "q": "Wcześniej mówiłaś inaczej.",
+        "answer": "Co konkretnie się nie zgadza? Bez wskazania wypowiedzi nie odpowiem na zarzut.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "contradiction",
+        "q": "Co się nie zgadza w twoich zeznaniach?",
+        "answer": "Proszę powiedzieć, o którą moją odpowiedź chodzi. Nie chciałbym zgadywać.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "contradiction",
+        "q": "Przed chwilą powiedziałeś coś innego.",
+        "answer": "Wcześniej powiedziałem: „Proszę powiedzieć, o którą moją odpowiedź chodzi. Nie chciałbym zgadywać”.",
+        "modified": true
+      },
+      {
+        "id": "MAREK",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o usterce?",
+        "answer": "Nie powiedziałem, że wiedziałem o wszystkim, co działo się podczas zmiany. Lena zgłaszała wątpliwości dotyczące bezpieczeństwa wagonu. Kierownik powinien dopilnować ich udokumentowania; nie znam z własnej obserwacji wszystkich usterek."
+      },
+      {
+        "id": "MAREK",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o awarii L-2?",
+        "answer": "Nie powiedziałem, że wiedziałem o wszystkim, co działo się podczas zmiany. Lena zgłaszała wątpliwości dotyczące bezpieczeństwa wagonu. Kierownik powinien dopilnować ich udokumentowania; nie znam z własnej obserwacji wszystkich usterek."
+      },
+      {
+        "id": "MAREK",
+        "topic": "protected",
+        "q": "Czy odpowiadasz za sabotaż L-3?",
+        "answer": "Odpowiadam za organizację służby i rzetelność jej rozliczenia. Odpowiadam za organizację służby, a nie za każde zachowanie pracownika."
+      },
+      {
+        "id": "MAREK",
+        "topic": "protected",
+        "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
+        "answer": "Nie wiem, kto wtedy użył tej karty. Nie widziałem tego."
+      },
+      {
+        "id": "MAREK",
+        "topic": "protected",
+        "q": "Czy przyznajesz się do zabójstwa Leny?",
+        "answer": "Nie przyznaję się do zabójstwa Leny. Proszę oddzielić moje decyzje służbowe od takiego zarzutu."
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "tech",
+        "q": "Co wiesz o awarii L-2 i L-3?",
+        "answer": "L-2 i L-3? Nie sprawdzałem tych części. Nie powiem, co się w nich zepsuło.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "tech",
+        "q": "Jaka usterka dotknęła L2 albo L3?",
+        "answer": "Nie mam własnych oględzin L-2 ani L-3. Nie chcę zgadywać usterki.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "tech",
+        "q": "Co jest nie tak z L-3?",
+        "answer": "O L-2 i L-3 nie potrafię powiedzieć, jaka była awaria. Tym zajmowali się ludzie od techniki.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "receipt",
+        "q": "Kto odpowiada za protokół odbioru L-3?",
+        "answer": "Protokół odbioru L-3 nie był moim meldunkiem z dyspozytorni. Nie wiem, kto go zatwierdził.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "receipt",
+        "q": "Kto podpisał odbiór L3?",
+        "answer": "Nie potrafię wskazać osoby odpowiedzialnej za odbiór L-3. Moje zapisy dotyczyły dyspozycji.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "sequence",
+        "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
+        "answer": "Nie potrafię z pewnością odtworzyć pełnej kolejności tych zdarzeń. Alarm zgłosiłem o 02:02. Przebieg wcześniejszej godziny trzeba odtworzyć z dyspozycji i rejestru łączności.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "routing",
+        "q": "Dlaczego zmieniono dyspozycję TW-217?",
+        "answer": "Nie pamiętam, z jakiego powodu zmieniono dyspozycję TW-217.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "workorder",
+        "q": "Jakie były powody decyzji o zleceniu?",
+        "answer": "Powód zlecenia? Z mojego stanowiska nie potwierdzę, dlaczego je wystawiono.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "contradiction",
+        "q": "Wcześniej mówiłaś inaczej.",
+        "answer": "Mogłem coś pomylić, ale powiedz najpierw, co się nie zgadza.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "contradiction",
+        "q": "Co się nie zgadza w twoich zeznaniach?",
+        "answer": "Co powiedziałem inaczej?",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "contradiction",
+        "q": "Przed chwilą powiedziałeś coś innego.",
+        "answer": "Wcześniej powiedziałem: „Co powiedziałem inaczej”.",
+        "modified": true
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o usterce?",
+        "answer": "Nie miałem pełnego obrazu tego, co działo się poza dyspozytornią. Lena naciskała, żeby nie bagatelizować zgłoszeń o wagonie. To wiem. Szczegóły techniczne należy sprawdzić u diagnosty."
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o awarii L-2?",
+        "answer": "Nie miałem pełnego obrazu tego, co działo się poza dyspozytornią. Lena naciskała, żeby nie bagatelizować zgłoszeń o wagonie. To wiem. Szczegóły techniczne należy sprawdzić u diagnosty."
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "protected",
+        "q": "Czy odpowiadasz za sabotaż L-3?",
+        "answer": "Odpowiadałem za decyzje ruchowe i przekierowanie TW-217. Wydawałem polecenia dotyczące ruchu."
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "protected",
+        "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
+        "answer": "Nie widziałem, kto użył tej karty. Sam zapis nie pokaże mi osoby."
+      },
+      {
+        "id": "TOMASZ",
+        "topic": "protected",
+        "q": "Czy przyznajesz się do zabójstwa Leny?",
+        "answer": "Nie przyznaję się do zabójstwa Leny. Jeśli mnie o to oskarżasz, pytaj wprost i przedstaw podstawy."
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "tech",
+        "q": "Co wiesz o awarii L-2 i L-3?",
+        "answer": "O tych częściach mogę mówić tylko w zakresie wykonanej pracy. Przyczyny awarii nie ustalę bez sprawdzenia L-2 i L-3.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "tech",
+        "q": "Jaka usterka dotknęła L2 albo L3?",
+        "answer": "L-2 i L-3 trzeba sprawdzić na warsztacie. Z samego pytania nie wyciągnę przyczyny awarii.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "tech",
+        "q": "Co jest nie tak z L-3?",
+        "answer": "Co z L-2 i L-3? Musiałbym zobaczyć surowe zlecenie i wynik oględzin. Nie będę zgadywał.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "receipt",
+        "q": "Kto odpowiada za protokół odbioru L-3?",
+        "answer": "Odbiór L-3 to nie to samo co wykonanie pracy. Bez dokumentu nie wskażę odpowiedzialnej osoby.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "receipt",
+        "q": "Kto podpisał odbiór L3?",
+        "answer": "Kto odpowiada za protokół odbioru L-3? Najpierw zobaczmy podpis i zakres czynności.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "sequence",
+        "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
+        "answer": "Nie byłem przy każdej dyspozycji. Alarm i zmianę kursu trzeba porównać z zapisami, nie z moją pamięcią.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "routing",
+        "q": "Dlaczego zmieniono dyspozycję TW-217?",
+        "answer": "Zmiana kursu TW-217? Nie będę dopowiadał powodu za dyspozytornię.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "workorder",
+        "q": "Jakie były powody decyzji o zleceniu?",
+        "answer": "Przy zleceniu wolę zobaczyć, co wpisano. Bez tego nie powiem, dlaczego je uruchomiono.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "contradiction",
+        "q": "Wcześniej mówiłaś inaczej.",
+        "answer": "Daj mi tę wcześniejszą wypowiedź. Nie będę kłócił się z ogólnym zarzutem.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "contradiction",
+        "q": "Co się nie zgadza w twoich zeznaniach?",
+        "answer": "To powiedz, w którym miejscu.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "contradiction",
+        "q": "Przed chwilą powiedziałeś coś innego.",
+        "answer": "Wcześniej powiedziałem: „To powiedz, w którym miejscu”.",
+        "modified": true
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o usterce?",
+        "answer": "Znałem część problemów z TW-217, nie każdą późniejszą okoliczność. Problem z TW-217 znałem. Nie będę udawał, że każdy alarm oznaczał awarię, która mogła ją zabić."
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o awarii L-2?",
+        "answer": "Znałem część problemów z TW-217, nie każdą późniejszą okoliczność. Problem z TW-217 znałem. Nie będę udawał, że każdy alarm oznaczał awarię, która mogła ją zabić."
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "protected",
+        "q": "Czy odpowiadasz za sabotaż L-3?",
+        "answer": "Odpowiadałem za obieg kart napraw. Za karty napraw odpowiadałem."
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "protected",
+        "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
+        "answer": "Tego z kartą nie widziałem. Nie będę zgadywał, kto ją miał."
+      },
+      {
+        "id": "JANUSZ",
+        "topic": "protected",
+        "q": "Czy przyznajesz się do zabójstwa Leny?",
+        "answer": "Nie przyznaję się. Kłótnia z Leną to nie jest przyznanie się do jej zabójstwa."
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "tech",
+        "q": "Co wiesz o awarii L-2 i L-3?",
+        "answer": "L-2 i L-3 to pytanie do dokumentacji technicznej. Mogę mówić o zgłoszeniach, które znałam.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "tech",
+        "q": "Jaka usterka dotknęła L2 albo L3?",
+        "answer": "Nie potwierdzę rodzaju usterki L-2 ani L-3. Sama tych podzespołów nie sprawdzałam.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "tech",
+        "q": "Co jest nie tak z L-3?",
+        "answer": "O awarii L-2 i L-3 nie mam własnej diagnozy. Zajmowałam się zgłoszeniem ryzyka, nie pomiarem tych części.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "receipt",
+        "q": "Kto odpowiada za protokół odbioru L-3?",
+        "answer": "Protokół odbioru L-3 wymaga sprawdzenia podpisów. Nie wiem z własnej wiedzy, kto go zatwierdził.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "receipt",
+        "q": "Kto podpisał odbiór L3?",
+        "answer": "Nie potrafię wskazać odpowiedzialnego za odbiór L-3 bez protokołu. Moje obowiązki dotyczyły BHP.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "sequence",
+        "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
+        "answer": "Kolejności tych dwóch zdarzeń nie potwierdzę. Rozmawiałam o zagrożeniu, nie śledziłam wszystkich dyspozycji.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "routing",
+        "q": "Dlaczego zmieniono dyspozycję TW-217?",
+        "answer": "Przyczyny zmiany dyspozycji TW-217 nie znam na tyle dobrze, by ją podać jako fakt.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "workorder",
+        "q": "Jakie były powody decyzji o zleceniu?",
+        "answer": "Proszę wskazać konkretne zlecenie. Wolałabym nie mieszać go z korespondencją BHP.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "contradiction",
+        "q": "Wcześniej mówiłaś inaczej.",
+        "answer": "Które zdanie masz na myśli?",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "contradiction",
+        "q": "Co się nie zgadza w twoich zeznaniach?",
+        "answer": "Jeżeli coś zabrzmiało inaczej, chciałabym wiedzieć co.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "contradiction",
+        "q": "Przed chwilą powiedziałeś coś innego.",
+        "answer": "Wcześniej powiedziałam: „Jeżeli coś zabrzmiało inaczej, chciałabym wiedzieć co”.",
+        "modified": true
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o usterce?",
+        "answer": "Wiedziałam o zgłaszanym ryzyku, ale nie o każdym późniejszym zdarzeniu. Lena była przekonana, że sygnały z wagonu wymagają wyjaśnienia. Zlekceważenie zgłoszenia nie jest tym samym co dowód przemocy."
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o awarii L-2?",
+        "answer": "Wiedziałam o zgłaszanym ryzyku, ale nie o każdym późniejszym zdarzeniu. Lena była przekonana, że sygnały z wagonu wymagają wyjaśnienia. Zlekceważenie zgłoszenia nie jest tym samym co dowód przemocy."
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "protected",
+        "q": "Czy odpowiadasz za sabotaż L-3?",
+        "answer": "Mogłam dokładniej dopilnować obiegu zgłoszenia. Mogłam skuteczniej dopilnować drogi zgłoszenia."
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "protected",
+        "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
+        "answer": "Nie wiem, kto użył T-17. Nie byłam przy tym wejściu."
+      },
+      {
+        "id": "ELZBIETA",
+        "topic": "protected",
+        "q": "Czy przyznajesz się do zabójstwa Leny?",
+        "answer": "Nie przyznaję się do zabójstwa Leny. To poważny zarzut i chcę wiedzieć, na czym go opierasz."
+      },
+      {
+        "id": "KAMIL",
+        "topic": "tech",
+        "q": "Co wiesz o awarii L-2 i L-3?",
+        "answer": "L-2, L-3... Potrzebuję wskazania konkretnego odczytu. Inaczej nie odróżnię usterki od błędu zapisu.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "tech",
+        "q": "Jaka usterka dotknęła L2 albo L3?",
+        "answer": "L-2 i L-3 wymagają sprawdzenia surowych danych. Nie nazwę usterki na podstawie samej wzmianki.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "tech",
+        "q": "Co jest nie tak z L-3?",
+        "answer": "O L-2 i L-3 nie da się powiedzieć uczciwie „awaria”, nie ustalając, co pokazują pomiary.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "receipt",
+        "q": "Kto odpowiada za protokół odbioru L-3?",
+        "answer": "Nie wiem, kto podpisał odbiór L-3. Diagnostyka i zatwierdzenie protokołu to różne rzeczy.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "receipt",
+        "q": "Kto podpisał odbiór L3?",
+        "answer": "Odbiór L-3? To trzeba sprawdzić w historii zatwierdzeń, nie wyciągać z logu diagnostycznego.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "sequence",
+        "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
+        "answer": "Alarm i dyspozycja to osobne zapisy. Nie skleję ich w chronologię bez porównania.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "routing",
+        "q": "Dlaczego zmieniono dyspozycję TW-217?",
+        "answer": "Sam odczyt techniczny nie podaje powodu zmiany dyspozycji TW-217. Tego nie wiem.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "workorder",
+        "q": "Jakie były powody decyzji o zleceniu?",
+        "answer": "Powód zlecenia trzeba potwierdzić w dokumentacji. Log nie jest uzasadnieniem decyzji.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "contradiction",
+        "q": "Wcześniej mówiłaś inaczej.",
+        "answer": "Co dokładnie się rozjechało?",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "contradiction",
+        "q": "Co się nie zgadza w twoich zeznaniach?",
+        "answer": "Pokaż tę różnicę. Bez tego nie wiem, do czego mam się odnieść.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "contradiction",
+        "q": "Przed chwilą powiedziałeś coś innego.",
+        "answer": "Wcześniej powiedziałem: „Pokaż tę różnicę. Bez tego nie wiem, do czego mam się odnieść”.",
+        "modified": true
+      },
+      {
+        "id": "KAMIL",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o usterce?",
+        "answer": "Znałem sygnały z diagnostyki, nie cały przebieg nocy. Znam nietypowe alarmy TCMS. Trzeba sprawdzić tryb serwisowy i autoryzację, zanim nazwie się coś sabotażem."
+      },
+      {
+        "id": "KAMIL",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o awarii L-2?",
+        "answer": "Znałem sygnały z diagnostyki, nie cały przebieg nocy. Znam nietypowe alarmy TCMS. Trzeba sprawdzić tryb serwisowy i autoryzację, zanim nazwie się coś sabotażem."
+      },
+      {
+        "id": "KAMIL",
+        "topic": "protected",
+        "q": "Czy odpowiadasz za sabotaż L-3?",
+        "answer": "Odpowiadam za diagnostykę. Za test automatyki odpowiadam."
+      },
+      {
+        "id": "KAMIL",
+        "topic": "protected",
+        "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
+        "answer": "Sam zapis T-17 nie mówi mi, kto trzymał kartę w chwili użycia."
+      },
+      {
+        "id": "KAMIL",
+        "topic": "protected",
+        "q": "Czy przyznajesz się do zabójstwa Leny?",
+        "answer": "Nie przyznaję się do zabójstwa Leny. Moja praca przy wagonie nie jest odpowiedzią na taki zarzut."
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "tech",
+        "q": "Co wiesz o awarii L-2 i L-3?",
+        "answer": "Nie potwierdzę przyczyny awarii L-2 i L-3 bez dokumentacji technicznej.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "tech",
+        "q": "Jaka usterka dotknęła L2 albo L3?",
+        "answer": "L-2 i L-3 są objęte dokumentacją odbiorową. Sam zapis nie wystarczy, by przesądzić usterkę.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "tech",
+        "q": "Co jest nie tak z L-3?",
+        "answer": "Nie ma podstaw, żebym z pamięci rozstrzygała stan L-2 i L-3.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "receipt",
+        "q": "Kto odpowiada za protokół odbioru L-3?",
+        "answer": "W sprawie protokołu odbioru L-3 proszę wskazać konkretną wersję. Wtedy można ustalić zakres zatwierdzenia.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "receipt",
+        "q": "Kto podpisał odbiór L3?",
+        "answer": "Nie wskażę odpowiedzialności za odbiór L-3 bez numeru dokumentu i jego wersji.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "sequence",
+        "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
+        "answer": "Nie ustalę chronologii alarmu i dyspozycji na podstawie jednego rejestru.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "routing",
+        "q": "Dlaczego zmieniono dyspozycję TW-217?",
+        "answer": "Powodu zmiany dyspozycji TW-217 nie potrafię potwierdzić z dokumentacji odbiorowej.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "workorder",
+        "q": "Jakie były powody decyzji o zleceniu?",
+        "answer": "Nie potrafię przypisać decyzji o zleceniu konkretnego powodu bez dokumentu.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "contradiction",
+        "q": "Wcześniej mówiłaś inaczej.",
+        "answer": "Co konkretnie miałam powiedzieć inaczej?",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "contradiction",
+        "q": "Co się nie zgadza w twoich zeznaniach?",
+        "answer": "Na co się pan powołuje? Nie chcę odpowiadać na niedopowiedziany zarzut.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "contradiction",
+        "q": "Przed chwilą powiedziałeś coś innego.",
+        "answer": "Wcześniej powiedziałam: „Na co się pan powołuje? Nie chcę odpowiadać na niedopowiedziany zarzut”.",
+        "modified": true
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o usterce?",
+        "answer": "Znałam zastrzeżenia dotyczące dokumentacji, nie każdy ruch pracowników. Nieprawidłowość w dokumentacji wymaga weryfikacji. Samo zgłoszenie techniczne nie jest dowodem celowego działania."
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "protected",
+        "q": "Czy Lena wiedziała o awarii L-2?",
+        "answer": "Znałam zastrzeżenia dotyczące dokumentacji, nie każdy ruch pracowników. Nieprawidłowość w dokumentacji wymaga weryfikacji. Samo zgłoszenie techniczne nie jest dowodem celowego działania."
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "protected",
+        "q": "Czy odpowiadasz za sabotaż L-3?",
+        "answer": "Odpowiadałam za audyt dokumentacji. Odpowiadałam za dokumentację audytu."
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "protected",
+        "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
+        "answer": "Zapis użycia karty nie pokazuje człowieka przy drzwiach. Co dokładnie ma potwierdzać?"
+      },
+      {
+        "id": "MAGDALENA",
+        "topic": "protected",
+        "q": "Czy przyznajesz się do zabójstwa Leny?",
+        "answer": "Nie przyznaję się do zabójstwa Leny. Proszę wskazać, jakie fakty mają uzasadniać to oskarżenie."
+      }
+    ]
+  }
+]

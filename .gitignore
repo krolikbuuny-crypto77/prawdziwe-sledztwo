@@ -1,5 +1,13 @@
+# Secrets and local setup
 .env
 .env.*
 !.env.example
-.vercel
-node_modules
+node_modules/
+.vercel/
+
+# Temporary outputs and local diagnostics
+.tmp-check-script.js
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

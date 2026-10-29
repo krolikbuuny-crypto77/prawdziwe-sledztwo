@@ -1,0 +1,21 @@
+
+/* Finał jako konsekwencja śledztwa. Bez elementów technicznych i ocen gracza. */
+#ps72Before{margin:15px 0;padding:16px 18px;border-left:3px solid #b99a72;border-radius:7px;background:#27241f;color:#e4d7c3}
+#ps72Before h4{font-size:15px;margin:0 0 8px;color:#f1d6aa}
+#ps72Before p{font-size:13px;line-height:1.75;margin:0}
+#ps72Before[hidden],#ps72Last[hidden]{display:none!important}
+#ps72Last{margin-top:20px;border-top:1px solid rgba(215,177,113,.25);padding-top:20px;min-width:0}
+#ps72Last h4{font-size:19px;line-height:1.35;margin:7px 0 10px;color:#f2d4a6}
+#ps72Last .ps72-lead{font-size:13px;color:#d4dcdd;line-height:1.75}
+#ps72Last .ps72-facts{margin:17px 0;display:grid;gap:11px;grid-template-columns:repeat(2,minmax(0,1fr))}
+#ps72Last .ps72-fact{padding:14px 15px;border:1px solid rgba(160,180,184,.24);border-radius:7px;background:#14212a;min-width:0}
+#ps72Last .ps72-fact b{display:block;color:#eed09e;font-size:11px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:7px}
+#ps72Last .ps72-fact p{color:#d3e1e1;font-size:13px;line-height:1.7;overflow-wrap:anywhere}
+#ps72Last .ps72-choice-label{font-size:13px;color:#d8d1c5;margin:15px 0 10px}
+#ps72Last .ps72-choices{display:flex;flex-wrap:wrap;gap:8px}
+#ps72Last .ps72-choices button{border:1px solid #53616a;border-radius:6px;background:#1b2b34;color:#e5eaea;padding:10px 12px;text-align:left;font-size:12px;line-height:1.45;flex:1 1 150px;cursor:pointer}
+#ps72Last .ps72-choices button:hover{border-color:#d1a665}
+#ps72Last .ps72-choices button[aria-pressed="true"]{border-color:#e7b45f;background:#3b3021;color:#ffdfa9}
+#ps72Last .ps72-outro{padding:14px 16px;border-left:2px solid #c5a071;margin:16px 0 0;background:rgba(29,37,39,.66);font-size:13px;line-height:1.8;color:#e8dbcb}
+@media(max-width:620px){#ps72Last .ps72-facts{grid-template-columns:1fr}#ps72Last .ps72-choices button{flex-basis:100%}}
+@media(prefers-reduced-motion:reduce){#ps72Last *{scroll-behavior:auto!important}}

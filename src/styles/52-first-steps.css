@@ -1,0 +1,30 @@
+
+#ps2Welcome{margin:18px 0 20px;padding:22px;background:linear-gradient(155deg,#17262d,#121c24 70%);border:1px solid #526264;border-radius:12px}
+#ps2Welcome[hidden],.ps2-context[hidden]{display:none!important}
+#ps2Welcome .ps2-eyebrow{font-size:10px;font-weight:800;letter-spacing:.13em;color:#e1b46e}
+#ps2Welcome h2{font-size:clamp(19px,3.4vw,25px);margin:6px 0 7px;color:#f2e9d8}
+#ps2Welcome .ps2-lead{font-size:13px;color:#c5cecc;line-height:1.7;max-width:780px}
+#ps2Welcome .ps2-head{display:flex;gap:16px;align-items:flex-start;justify-content:space-between}
+#ps2Welcome .ps2-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:17px}
+#ps2Welcome .ps2-step{min-width:0;border:1px solid #3e4c54;background:#1a252d;border-radius:9px;padding:14px;display:flex;flex-direction:column;gap:7px}
+#ps2Welcome .ps2-step.is-next{border-color:#b78e58;background:#2b2925}
+#ps2Welcome .ps2-step.is-done{border-color:#486957}
+#ps2Welcome .ps2-step span{font-size:10px;letter-spacing:.07em;color:#d6ad70}
+#ps2Welcome .ps2-step.is-done span{color:#9dd4ad}
+#ps2Welcome .ps2-step b{font-size:14px;color:#f5e9d7}
+#ps2Welcome .ps2-step p{font-size:12px;color:#bac5c8;line-height:1.5;margin:0;flex:1}
+#ps2Welcome .ps2-step button{width:100%;min-height:43px;text-align:center}
+#ps2Welcome .ps2-controls{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:14px}
+#ps2Welcome .ps2-controls span{font-size:12px;color:#c6cdd0}
+#ps2Welcome .ps2-controls button{font-size:12px}
+#overview.ps2-active .case-actions,#overview.ps2-active .case-meta{display:none!important}
+#overview.ps2-active .hero{min-height:0!important}
+#overview.ps2-active .heroText{justify-content:flex-start!important;padding-top:24px!important}
+body.ps2-welcome-visible #psFab{display:none!important}
+#overview.ps2-active>.ui14-dashboard,#overview.ps2-active>.ui14-path-head,#overview.ps2-active>.ui14-module-grid{display:none!important}
+.ps2-context{margin:0 0 14px;padding:12px 15px;border-radius:10px;border:1px solid #4c5e5d;background:#17262b;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.ps2-context .ps2-context-copy{min-width:0}
+.ps2-context b{font-size:12px;color:#e7d3aa;display:block;margin-bottom:3px}
+.ps2-context p{font-size:12px;line-height:1.55;color:#c6d0ce;margin:0}
+.ps2-context button{min-height:42px;white-space:nowrap;flex-shrink:0}
+@media(max-width:850px){#overview.ps2-active .photos,#overview.ps2-active .case-meta{display:none!important}#overview.ps2-active .heroText{min-height:0!important;padding-bottom:14px!important}#ps2Welcome{padding:16px}#ps2Welcome .ps2-steps{grid-template-columns:1fr;gap:8px}#ps2Welcome .ps2-step{padding:12px}#ps2Welcome .ps2-step button{width:auto;align-self:start}#ps2Welcome .ps2-head{flex-direction:column}.ps2-context{flex-direction:column;align-items:stretch}.ps2-context button{width:100%}}

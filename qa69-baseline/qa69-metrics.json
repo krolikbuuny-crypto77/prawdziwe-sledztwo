@@ -1,0 +1,49 @@
+{
+  "source": "local WitnessEngine, real Chromium; no live Z.ai",
+  "characters": [
+    {
+      "id": "MAREK",
+      "name": "Marek Nowicki"
+    },
+    {
+      "id": "TOMASZ",
+      "name": "Tomasz Krawczyk"
+    },
+    {
+      "id": "JANUSZ",
+      "name": "Janusz Wójcik"
+    },
+    {
+      "id": "ELZBIETA",
+      "name": "Elżbieta Zięba"
+    },
+    {
+      "id": "KAMIL",
+      "name": "Kamil Brzozowski"
+    },
+    {
+      "id": "MAGDALENA",
+      "name": "Magdalena Kaczmarek"
+    }
+  ],
+  "direct_questions": 180,
+  "real_ui_turns": 36,
+  "empty_answers": 0,
+  "unique_answers": 163,
+  "unique_ratio": 0.906,
+  "mean_answer_chars": 128.3,
+  "minimum_answer_chars": 38,
+  "maximum_answer_chars": 333,
+  "per_witness_unique_counts": {
+    "MAREK": 28,
+    "TOMASZ": 28,
+    "JANUSZ": 28,
+    "ELZBIETA": 28,
+    "KAMIL": 28,
+    "MAGDALENA": 28
+  },
+  "no_evidence_added_by_dialogues": true,
+  "script_errors": [],
+  "human_semantic_accuracy": "not measured automatically; see curated review",
+  "true_zai_api": "not tested"
+}

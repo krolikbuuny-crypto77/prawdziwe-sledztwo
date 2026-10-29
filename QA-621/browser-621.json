@@ -1,0 +1,152 @@
+{
+  "390": {
+    "questions": 9,
+    "threads": [
+      "access",
+      "source"
+    ],
+    "combined": [
+      "access",
+      "alibi",
+      "source"
+    ],
+    "scene": "Zderzenie dyspozycji i dokumentów",
+    "audioDefault": false,
+    "scenes": [
+      {
+        "id": "work",
+        "mood": "paper"
+      },
+      {
+        "id": "warning",
+        "mood": "warning"
+      },
+      {
+        "id": "access",
+        "mood": "cold"
+      },
+      {
+        "id": "lastcontact",
+        "mood": "night"
+      },
+      {
+        "id": "mechanism",
+        "mood": "night"
+      },
+      {
+        "id": "faultline",
+        "mood": "warning"
+      },
+      {
+        "id": "presence",
+        "mood": "cold"
+      },
+      {
+        "id": "boundary",
+        "mood": "night"
+      }
+    ],
+    "docScroll": 390,
+    "viewport": 390
+  },
+  "768": {
+    "questions": 9,
+    "threads": [
+      "access",
+      "source"
+    ],
+    "combined": [
+      "access",
+      "alibi",
+      "source"
+    ],
+    "scene": "Zderzenie dyspozycji i dokumentów",
+    "audioDefault": false,
+    "scenes": [
+      {
+        "id": "work",
+        "mood": "paper"
+      },
+      {
+        "id": "warning",
+        "mood": "warning"
+      },
+      {
+        "id": "access",
+        "mood": "cold"
+      },
+      {
+        "id": "lastcontact",
+        "mood": "night"
+      },
+      {
+        "id": "mechanism",
+        "mood": "night"
+      },
+      {
+        "id": "faultline",
+        "mood": "warning"
+      },
+      {
+        "id": "presence",
+        "mood": "cold"
+      },
+      {
+        "id": "boundary",
+        "mood": "night"
+      }
+    ],
+    "docScroll": 768,
+    "viewport": 768
+  },
+  "1280": {
+    "questions": 9,
+    "threads": [
+      "access",
+      "source"
+    ],
+    "combined": [
+      "access",
+      "alibi",
+      "source"
+    ],
+    "scene": "Zderzenie dyspozycji i dokumentów",
+    "audioDefault": false,
+    "scenes": [
+      {
+        "id": "work",
+        "mood": "paper"
+      },
+      {
+        "id": "warning",
+        "mood": "warning"
+      },
+      {
+        "id": "access",
+        "mood": "cold"
+      },
+      {
+        "id": "lastcontact",
+        "mood": "night"
+      },
+      {
+        "id": "mechanism",
+        "mood": "night"
+      },
+      {
+        "id": "faultline",
+        "mood": "warning"
+      },
+      {
+        "id": "presence",
+        "mood": "cold"
+      },
+      {
+        "id": "boundary",
+        "mood": "night"
+      }
+    ],
+    "docScroll": 1280,
+    "viewport": 1280
+  }
+}

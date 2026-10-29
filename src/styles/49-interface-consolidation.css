@@ -1,0 +1,38 @@
+
+/* ETAP 8.8: pojedyncze wejścia do istniejących funkcji, bez zmian stanu gry. */
+#labs.ps88-single-labs #labCards{display:none!important}
+#labs.ps88-single-labs #ps62LabStatus{margin-top:0}
+#labs.ps88-single-labs #ps62LabGrid .ps62-lab-jump{min-height:42px}
+#ps603HelpBtn{display:none!important}
+#notebook.ps88-notes-unified>.sectionheading{margin-bottom:18px}
+#notebook.ps88-notes-unified>.sc-notebook{margin-top:0}
+.ps88-details{margin:14px 0;border:1px solid var(--line);border-radius:9px;background:#131b21;overflow:hidden}
+.ps88-details>summary{cursor:pointer;padding:15px 18px;font-weight:700;color:#e5d1ad;list-style-position:inside;min-height:49px}
+.ps88-details[open]>summary{border-bottom:1px solid var(--line)}
+.ps88-details>p{padding:0 18px 12px;color:var(--muted);font-size:12px;line-height:1.55}
+.ps88-details>.surface,.ps88-details>aside{border:0;border-radius:0;background:transparent;box-shadow:none}
+.ps88-details .formline{align-items:center}
+.ps88-notepad-tools{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+#ps62Orientation.ps88-in-details{margin:0;border:0;background:transparent;box-shadow:none}
+#ps62Orientation.ps88-in-details>.eyebrow,#ps62Orientation.ps88-in-details>h3,#ps62Orientation.ps88-in-details>p{display:none}
+#ps62Orientation.ps88-in-details #ps62Metrics{display:none}
+#ps66Notebook{display:none}
+#final.ps88-final-simplified .fc-grid{grid-template-columns:minmax(0,1fr)}
+#final.ps88-final-simplified .fc-grid>.fc-main{min-width:0}
+#final.ps88-final-simplified .fc-grid>.fc-side{display:none}
+#final.ps88-final-simplified #ps60AuditRefresh{display:none!important}
+#final.ps88-final-simplified #ps60CaseAudit>.ps60-actions{display:none}
+#final.ps88-final-simplified .ps88-details .fc-side{display:block}
+#final.ps88-final-simplified .ps88-details .ps60-actions{padding:5px 18px 18px;margin:0}
+#final.ps88-final-simplified .ps88-details>aside{padding:14px 18px}
+#final.ps88-final-simplified .fc-intro .fc-actions{display:flex;flex-wrap:wrap}
+#ps88ProcessButton{margin-top:9px;min-height:39px}
+@media(max-width:950px){
+ body.ps88-help-mobile #psFab{position:fixed!important;inset:auto 12px 14px auto!important;left:auto!important;right:12px!important;top:auto!important;bottom:14px!important;width:auto!important;min-width:128px!important;max-width:180px!important;padding:10px 12px!important;z-index:68!important;box-shadow:0 9px 24px #000b!important;text-align:center!important}
+ body.ps88-help-mobile #ps76Tools{display:none}
+}
+@media(max-width:640px){
+ .ps88-details>summary{padding:13px 12px}
+ #final.ps88-final-simplified .fc-intro .fc-actions .btn{flex:1 1 140px}
+ #labs.ps88-single-labs #ps62LabGrid{grid-template-columns:minmax(0,1fr)}
+}

@@ -1,0 +1,6 @@
+test:progression: PASS (0.6s)
+js && node tools/test-sync617.mjs
+
+PASS 6.18: 51 tests; 15 canonical puzzle stages, 5 module awards, timeline anchors, forged-progress rejection, six objections, independent server verdict
+PASS 6.17 Supabase mocked: HMAC cookie, initial approved state, rejected forged verdict, server evidence confirmation, CAS conflicts
+PASS offline 6.17 VM: local action queued, persisted across runtime restart, replayed on recovery

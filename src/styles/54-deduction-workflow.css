@@ -1,0 +1,40 @@
+
+#deduction .ux4-guide{padding:18px 20px;margin:12px 0 15px;background:linear-gradient(130deg,#202c32,#13232d);border:1px solid #65583f;border-radius:12px}
+#deduction .ux4-guide-title{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:14px}
+#deduction .ux4-guide-title h3{font-size:20px;line-height:1.3;margin:4px 0 6px;color:#f2e3c7}
+#deduction .ux4-guide-title p{font-size:12px;color:#c3cdd0;max-width:660px}
+#deduction .ux4-count{font:11px ui-monospace,monospace;white-space:nowrap;border:1px solid #526069;border-radius:99px;color:#e6cca4;padding:7px 11px}
+#deduction .ux4-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:18px 0 10px}
+#deduction .ux4-step-button{display:flex;align-items:center;text-align:left;gap:11px;background:#172129;border:1px solid #43515a;color:#d2dcdd;border-radius:9px;padding:11px;min-height:66px;cursor:pointer}
+#deduction .ux4-step-button[aria-current="step"]{border-color:#d2a962;background:#342b20;color:#ffe6bd}
+#deduction .ux4-step-button:hover{border-color:#d2a962}
+#deduction .ux4-step-number{display:grid;place-items:center;border:1px solid #6d7274;border-radius:50%;height:31px;width:31px;min-width:31px;font-size:13px;font-weight:800}
+#deduction .ux4-step-button[aria-current="step"] .ux4-step-number{border-color:#d2a962}
+#deduction .ux4-step-copy{display:grid;gap:3px;font-size:12px;line-height:1.2}
+#deduction .ux4-step-copy strong{font-size:13px}
+#deduction .ux4-step-copy small{font-size:11px;color:#bac4c5}
+#deduction .ux4-step-help{font-size:12px;line-height:1.55;color:#d6d7cc;margin-top:9px}
+#deduction .ux4-panel-heading{font-size:13px;color:#ebc98e;margin:7px 0 12px;letter-spacing:.035em}
+#deduction .ux4-nav{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:14px 0 2px}
+#deduction .ux4-nav .btn{min-height:43px}
+#deduction .ux4-nav small{color:#b4bfc0;font-size:11px}
+#deduction .ux4-step-section[hidden],#deduction .dd-source-panel[hidden],#deduction .dd-editor-actions[hidden],#deduction #dd2Review[hidden]{display:none!important}
+#deduction .dd-work.ux4-one-column{grid-template-columns:minmax(0,1fr)!important}
+#deduction .dd-work.ux4-one-column .dd-editor-panel{width:100%;max-width:100%}
+#deduction .ux4-section-note{font-size:12px;color:#acb8bb;line-height:1.65;margin:0 0 13px}
+#deduction .ux4-optional{border:1px solid #394953;border-radius:8px;padding:11px 13px;margin-top:12px;background:#17222b}
+#deduction .ux4-optional summary{font-size:12px;font-weight:650;cursor:pointer;color:#e7cea4}
+#deduction .ux4-optional .dd-field{margin:13px 0 1px}
+#deduction .ux4-disclosure{background:#121e27;border:1px solid #40525c;border-radius:10px;padding:0 15px;margin:13px 0}
+#deduction .ux4-disclosure>summary{cursor:pointer;list-style:none;font-weight:700;color:#e5d3b2;font-size:13px;padding:16px 0}
+#deduction .ux4-disclosure>summary::before{content:'+';display:inline-block;width:24px;color:var(--amber);font-size:17px}
+#deduction .ux4-disclosure[open]>summary::before{content:'−'}
+#deduction .ux4-disclosure>summary::-webkit-details-marker{display:none}
+#deduction .ux4-disclosure>*:not(summary){margin-top:9px}
+#deduction #ux4Advanced .sim-root,#deduction #ux4Advanced .sim51-root,#deduction #ux4Advanced .ps53-root{margin:12px 0}
+#deduction #ux4Advanced .ps69-section,#deduction #ux4Advanced #ps85Stories{margin:12px 0}
+#deduction #ux4Board>summary{display:flex;justify-content:space-between;align-items:center;gap:12px}
+#deduction #ux4BoardCount{font-size:12px;font-weight:500;color:#b6c5c7}
+#deduction .dd-source-list{max-height:375px;overflow:auto}
+@media(max-width:900px){#deduction .ux4-steps{gap:6px}#deduction .ux4-step-button{padding:10px 8px;gap:7px}#deduction .ux4-step-copy strong{font-size:12px}}
+@media(max-width:600px){#deduction .ux4-guide{padding:14px 13px;margin:10px 0}#deduction .ux4-guide-title h3{font-size:18px}#deduction .ux4-steps{grid-template-columns:1fr;gap:5px;margin:12px 0 10px}#deduction .ux4-step-button{min-height:44px;padding:9px 12px}#deduction .ux4-step-copy{display:flex;align-items:baseline;gap:10px}#deduction .ux4-step-copy small{font-size:10px}#deduction .ux4-step-number{width:25px;height:25px;min-width:25px}#deduction .ux4-nav{display:grid;grid-template-columns:1fr 1fr}#deduction .ux4-nav .btn{width:100%;padding:11px 8px}#deduction .ux4-nav small{grid-column:1/-1}#deduction .ux4-disclosure{padding:0 10px}#deduction .dd-source-list{max-height:330px}}

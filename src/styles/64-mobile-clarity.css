@@ -1,0 +1,35 @@
+/* Pakiet 6.1: mniej równoczesnych pasków na małych ekranach. */
+.ps61-navigation{display:none}
+.ps61-secondary-shortcuts>summary{display:none}
+@media(max-width:1000px){
+ .ps61-navigation{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:60px;z-index:39;min-height:48px;padding:5px 13px;background:#111e26;border-bottom:1px solid #354750}
+ .ps61-current{min-width:0;display:flex;flex-direction:column;gap:0;line-height:1.25}
+ .ps61-current span{font:800 9px/1.4 system-ui;letter-spacing:.12em;color:#bd9a70}
+ .ps61-current strong{font:650 15px/1.35 system-ui;color:#eee5d6;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .ps61-menu-button{flex:none;min-height:40px;min-width:112px;padding:8px 12px;border:1px solid #977b56;border-radius:9px;background:#372b23;color:#ffe3bd;font:750 12px system-ui;cursor:pointer}
+ .ps61-menu-button:focus-visible,.ps61-secondary-shortcuts summary:focus-visible{outline:2px solid #e5b77f;outline-offset:2px}
+ .sv2-mobile-nav:not(.ps61-open){display:none!important}
+ .sv2-mobile-nav.ps61-open{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));position:sticky;top:108px;z-index:39;gap:6px;padding:10px 12px;overflow:visible;white-space:normal}
+ .sv2-mobile-nav.ps61-open button{min-width:0;min-height:43px;white-space:normal;padding:8px 5px;line-height:1.25}
+ .ps61-secondary-shortcuts{margin:0 0 11px;border:1px solid #384d55;background:#12212b;border-radius:9px}
+ .ps61-secondary-shortcuts>summary{display:list-item;list-style-position:inside;padding:11px 12px;min-height:44px;cursor:pointer;color:#e0c297;font-size:12px;font-weight:750}
+ .ps61-secondary-shortcuts:not([open])>.sv2-subnav{display:none!important}
+ .ps61-secondary-shortcuts[open]>.sv2-subnav{padding:0 10px 10px;margin:0!important;gap:6px!important}
+ .ps61-secondary-shortcuts .sv2-subnav-label{display:none!important}
+ .section,.section [id]{scroll-margin-top:120px}
+}
+@media(max-width:690px){
+ .ps61-navigation{top:60px;padding:5px 12px}
+ .sv2-mobile-nav.ps61-open{grid-template-columns:repeat(2,minmax(0,1fr));top:108px}
+ .sv2-mobile-nav.ps61-open button{min-height:44px;font-size:12px}
+ .ps61-navigation .ps61-menu-button{min-width:118px}
+}
+@media(max-width:360px){
+ .ps61-navigation{padding:5px 9px;gap:6px}
+ .ps61-current strong{font-size:13px}
+ .ps61-menu-button{min-width:105px;padding:8px}
+}
+@media(min-width:1001px){
+ .ps61-secondary-shortcuts{display:contents}
+ .ps61-secondary-shortcuts>.sv2-subnav{display:flex}
+}

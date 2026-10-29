@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="pl"><head>
+<meta charset="utf-8">
+<!-- BUILD P8: AUDYT INTEGRACYJNY PRZED API; BADANIE OSIAGALNOSCI 78/78, 5 PRACOWNI, FINALE, ZAPISU; MECHANIKI BEZ ZMIAN --><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark"><meta name="theme-color" content="#0b151d"><meta name="description" content="Prawdziwe Śledztwo — kompletna internetowa gra detektywistyczna. Przesłuchania, dokumenty, laboratorium, oględziny, dedukcja i akt oskarżenia."><title>Prawdziwe Śledztwo — Ostatni kurs</title>
+<style>__PS_SOURCE_STYLE_000__</style><style id="ps-fixes">__PS_SOURCE_STYLE_001__</style><style id="etap1-unified-skin">__PS_SOURCE_STYLE_002__</style>
+<style id="etap2-styles">__PS_SOURCE_STYLE_003__</style><style id="stage3-cross-style">__PS_SOURCE_STYLE_004__</style>
+<style id="ps-full-repair-styles">__PS_SOURCE_STYLE_005__</style>
+<style id="ps-v2-patches">__PS_SOURCE_STYLE_006__</style>
+<style id="deduction2-style">__PS_SOURCE_STYLE_007__</style>
+
+<style id="npc4-style">__PS_SOURCE_STYLE_008__</style>
+<style id="minigames31-style">__PS_SOURCE_STYLE_009__</style>
+<style id="p2-reasoning-style">__PS_SOURCE_STYLE_010__</style>
+<style id="p2-final-style">__PS_SOURCE_STYLE_011__</style>
+<style id="mobile-photo-performance">__PS_SOURCE_STYLE_012__</style>
+<style id="ps-release-polish">__PS_SOURCE_STYLE_013__</style>
+
+<style id="wow-ui-overrides">__PS_SOURCE_STYLE_014__</style>
+
+<style id="sim52-psychological-style">__PS_SOURCE_STYLE_015__</style>
+<style id="ps84-better-inspection">__PS_SOURCE_STYLE_016__</style>
+
+<style id="sc6-simplify-css">__PS_SOURCE_STYLE_017__</style>
+<style>__PS_SOURCE_STYLE_018__</style><style id="ps-loop-style">__PS_SOURCE_STYLE_019__</style><style id="psFinalRoutesStyle">__PS_SOURCE_STYLE_020__</style>
+<style id="ps-navigation-no-scroll">__PS_SOURCE_STYLE_021__</style>
+<style>__PS_SOURCE_STYLE_022__</style>
+<style id="ps-defense-diagnostic-styles">__PS_SOURCE_STYLE_023__</style>
+
+
+</head><body>
+<a class="skip-link" href="#mainContent">Przejdź do treści</a>
+<div class="ui14-backdrop" id="ui14Backdrop" hidden></div>
+<div class="layout">
+<aside class="sidebar" id="ui14Sidebar"><div class="brand"><div class="seal" aria-hidden="true">✧</div><div class="brand-copy"><b>PRAWDZIWE ŚLEDZTWO</b><span>ZAJEZDNIA TRAMWAJOWA</span></div><button type="button" id="ui14Close" class="ui14-icon-btn ui14-close" aria-label="Zamknij menu">✕</button></div>
+<div class="ui14-navcaption">NAWIGACJA</div>
+<nav class="nav" id="nav" aria-label="Moduły śledztwa">
+<button class="active" data-tab="overview"><span class="num">01</span> Pulpit</button>
+<button data-tab="evidence"><span class="num">02</span> Akta</button>
+<button data-tab="search"><span class="num">03</span> Poszukiwania</button>
+<button data-tab="interview"><span class="num">04</span> Przesłuchania</button>
+<button data-tab="timeline"><span class="num">05</span> Oś czasu</button>
+<button data-tab="inspection12"><span class="num">06</span> Oględziny</button>
+<button data-tab="notebook"><span class="num">07</span> Notatnik</button>
+<button data-tab="labs"><span class="num">08</span> Laboratorium</button>
+<button data-tab="deduction"><span class="num">09</span> Dedukcja</button>
+<button data-tab="final"><span class="num">10</span> Finał</button>
+</nav>
+</aside>
+<div class="main"><header class="topbar"><div class="ui14-top-left"><button type="button" class="ui14-icon-btn ui14-menu" id="ui14Menu" aria-controls="ui14Sidebar" aria-expanded="false" aria-label="Otwórz menu modułów"><span></span><span></span><span></span></button><div class="ui14-location"><div class="ui14-top-label">DOCHODZENIE <span class="ui14-sep">/</span> OSTATNI KURS</div><strong id="ui14CurrentTitle">Przegląd sprawy</strong></div></div><div id="ps80AudioBar" aria-label="Muzyka i dźwięk gry"><button type="button" id="ps80MusicToggle" aria-pressed="false" aria-label="Włącz muzykę"><span aria-hidden="true" class="ps80-musical">♫</span><span class="ps80-label">Włącz muzykę</span><span class="ps80-audio-indicator" aria-hidden="true"><i></i><i></i><i></i></span></button><button type="button" id="ps80MusicOptions" aria-label="Ustawienia dźwięku" aria-controls="ps80Settings" aria-expanded="false">☷</button><div id="ps80Settings" hidden><span class="ps80-eyebrow">Ścieżka dźwiękowa</span><div class="ps80-track" id="ps80TrackName">Nocne akta</div><label class="ps80-volume-label" for="ps80Volume"><span>Głośność muzyki</span><output id="ps80VolumeText">44%</output></label><input id="ps80Volume" type="range" min="0" max="100" value="44" step="1" aria-label="Głośność muzyki"><label class="ps80-checkrow" for="ps80Effects"><input id="ps80Effects" type="checkbox" checked>Dźwięki akt, dowodów i odkryć</label><div class="ps83-audio-section" aria-label="Dźwięki lokacji">
+  <div class="ps83-section-title">Dźwięki otoczenia</div>
+  <label class="ps80-checkrow" for="ps83Enable"><input id="ps83Enable" type="checkbox" checked> Atmosfera miejsc śledztwa</label>
+  <div class="ps83-audio-controls">
+    <label class="ps80-volume-label" for="ps83Volume"><span>Głośność otoczenia</span><output id="ps83VolumeText">35%</output></label>
+    <input type="range" min="0" max="100" step="1" value="35" id="ps83Volume" aria-label="Głośność dźwięków otoczenia">
+    <div class="ps83-room-label" role="status" aria-live="polite">Aktualne tło: <strong id="ps83RoomName">Cisza poza oględzinami</strong></div>
+  </div>
+  <small class="ps83-note">Każda z siedmiu stref ma własne tło. Dźwięki przechodzą płynnie między lokacjami i wygasają po wyjściu z oględzin. Muzykę i otoczenie regulujesz niezależnie.</small>
+</div>
+<small class="ps80-muted-note">Muzyka jest opcjonalna. Uruchamia się dopiero po naciśnięciu przycisku.</small></div></div></header>
+<main class="content" id="mainContent" tabindex="-1">
+<section class="section active" id="overview">
+<div class="hero">
+ <div class="surface heroText">
+  <div>
+   <div class="case-kicker"><span class="case-kicker-mark"></span> 17—18 LISTOPADA 2026</div>
+   <h1>Ostatni kurs<br><em>tramwaju</em></h1>
+   <p class="case-lead">Po nocnym kursie Lena Rudnicka zostaje znaleziona przy stanowisku nr 3. Zanim doszło do tragedii, udokumentowała rozbieżność w podzespole tramwaju TW-217. W zajezdni każdy zna fragment historii — i niemal każdy ma powód, by przemilczeć inną jej część.</p>
+  </div>
+  <div class="case-actions"><button class="btn" data-go="evidence">Przejrzyj akta <span aria-hidden="true">↗</span></button><button class="btn alt" data-go="interview">Rozpocznij przesłuchania</button></div>
+  <div class="case-meta"><span>ZAJEZDNIA TRAMWAJOWA</span><span>WAGON TW–217</span><span>AKTA ŚLEDZTWA</span></div>
+ </div>
+ <figure class="photos" id="photoGrid"><img loading="lazy" decoding="async" alt="Zajezdnia tramwajowa — fotografia poglądowa"><img loading="lazy" decoding="async" alt="Dokumenty na miejscu zdarzenia — fotografia poglądowa"><img loading="lazy" decoding="async" alt="Infrastruktura techniczna — fotografia poglądowa"></figure>
+</div>
+<div class="ui14-dashboard ui15-dashboard" aria-label="Pulpit postępu śledztwa">
+  <div class="ui14-dashboard-head"><div><div class="eyebrow">PRZEBIEG DOCHODZENIA</div><h3>Co jeszcze trzeba ustalić?</h3><p>Możesz badać sprawę we własnej kolejności. Poniższa lista pomaga przygotować wiarygodny akt oskarżenia.</p></div></div>
+  <div class="ui14-stats" id="ui14Stats" aria-live="off"><div class="ui14-stat"><b>0 / 3</b><span>Ustalenia wstępne</span></div><div class="ui14-stat"><b>—</b><span>Akt oskarżenia</span></div><div class="ui14-stat"><b>0 / 6</b><span>Odpowiedzi na obronę</span></div></div>
+  <div class="ui14-progress-heading"><span>Przygotowanie sprawy do finału</span><strong id="ui14EvidencePercent">0 / 3</strong></div>
+  <div class="ui14-progress-track" role="progressbar" id="ui14Progress" aria-label="Spełnione warunki przygotowania sprawy" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0"><span id="ui14ProgressFill"></span></div>
+  <p class="ui15-phase-note" id="ui15NextAction" aria-live="polite">Zweryfikuj chronologię, oględziny i wniosek dedukcyjny.</p>
+  <div class="ui15-final-action" id="ui15FinalAction" hidden><button type="button" class="btn" id="ui15GoFinal">Przejdź do aktu oskarżenia</button></div>
+  <div class="ui15-checklist" id="ui15Checklist" aria-label="Warunki przygotowania sprawy"></div>
+  <div class="ui15-discovery"><div class="ui15-discovery-head"><strong>Dodatkowa eksploracja</strong><span>Nie trzeba osiągnąć 100%, aby ukończyć śledztwo.</span></div>
+    <div class="ui15-explore-stats" id="ui15ExploreStats" aria-live="off"></div>
+    <p>Niektóre z tych materiałów będą potrzebne do aktu oskarżenia, lecz sama liczba odkryć nie decyduje o rozwiązaniu sprawy.</p>
+  </div>
+</div>
+<div class="ui14-path-head"><div><div class="eyebrow">DZIAŁANIA</div><h3>Kontynuuj dochodzenie</h3></div></div>
+<div class="ui14-module-grid">
+ <button type="button" data-go="search" class="ui14-module"><span class="ui14-module-n">01 <span class="case-module-symbol" aria-hidden="true">⌕</span></span><b>Poszukiwania</b><span>Znajdź nowe materiały w aktach sprawy.</span><span class="ui14-module-open">Przejdź <i aria-hidden="true">↗</i></span></button>
+ <button type="button" data-go="interview" class="ui14-module"><span class="ui14-module-n">02 <span class="case-module-symbol" aria-hidden="true">◌</span></span><b>Przesłuchania</b><span>Porozmawiaj ze świadkami i sprawdź ich wersje.</span><span class="ui14-module-open">Przejdź <i aria-hidden="true">↗</i></span></button>
+ <button type="button" data-go="inspection12" class="ui14-module"><span class="ui14-module-n">03 <span class="case-module-symbol" aria-hidden="true">⌗</span></span><b>Oględziny</b><span>Zbadaj pomieszczenia i zabezpiecz ślady.</span><span class="ui14-module-open">Przejdź <i aria-hidden="true">↗</i></span></button>
+ <button type="button" data-go="deduction" class="ui14-module"><span class="ui14-module-n">04 <span class="case-module-symbol" aria-hidden="true">◇</span></span><b>Dedukcja</b><span>Połącz dowody i sprawdź własne hipotezy.</span><span class="ui14-module-open">Przejdź <i aria-hidden="true">↗</i></span></button>
+</div>
+</section>
+<section class="section ev-section" id="evidence">
+  <div class="ev-header">
+    <div class="ev-header-copy">
+      <div class="ev-kicker"><span class="ev-kicker-mark"></span> ARCHIWUM ŚLEDZTWA <span class="ev-kicker-line"></span> 17—18.11.2026</div>
+      <h2>Akta <em>sprawy</em></h2>
+      <p>Dokumenty, zapisy i ślady odkryte w toku dochodzenia.</p>
+    </div>
+    <div class="ev-progress"><span>ZGROMADZONE MATERIAŁY</span><strong id="evCount">13 / 78</strong><span>W AKTACH</span></div>
+  </div>
+  <div class="ev-controls">
+    <label class="ev-search" for="filterDocs"><span class="ev-search-symbol" aria-hidden="true">⌕</span><input id="filterDocs" type="search" placeholder="Znajdź dokument, nazwisko lub szczegół…" autocomplete="off" aria-label="Szukaj w dokumentach"/></label>
+    <select id="filterCategory" class="ev-original-select" aria-label="Kategoria dowodów"><option value="">Wszystkie kategorie</option></select>
+    <button type="button" id="evClear" class="ev-clear">Wyczyść filtry</button>
+  </div>
+  <div class="ev-evidence-types" id="evTypeFilters" role="group" aria-label="Filtruj akta według rodzaju dowodu"></div>
+  <details class="ev-detailed-categories" id="evDetailedCategories">
+   <summary><span id="evDetailedCategoryLabel">Szczegółowe teczki</span><span class="ev-detailed-categories-chevron" aria-hidden="true">⌄</span></summary>
+   <div class="ev-categories" id="categoryCount" aria-label="Szczegółowe kategorie akt"></div>
+  </details>
+  <div class="ev-workspace">
+    <aside class="ev-index" aria-label="Spis dokumentów">
+      <div class="ev-index-head"><div><span class="ev-index-kicker">SPIS MATERIAŁÓW</span><h3>Dokumenty</h3></div><span id="evResultCount" class="ev-index-num">—</span></div>
+      <div id="docList" class="ev-file-list"></div>
+      <div class="ev-index-bottom"><span class="ev-index-line"></span> PRZEGLĄDAJ ODKRYTE AKTA</div>
+    </aside>
+    <div class="ev-reader">
+      <div class="ev-reader-top"><span class="ev-reader-location">PODGLĄD DOKUMENTU</span><button type="button" id="evBack" class="ev-back">← Spis dokumentów</button></div>
+      <article class="ev-sheet" id="docPaper" aria-live="polite"><div class="ev-empty"><span class="ev-empty-signet">◇</span><h3>Wybierz dokument</h3><p>Otwórz materiał ze spisu po lewej.</p></div></article>
+      <div class="ev-reader-foot"><span>OSTATNI KURS</span><span>ARCHIWUM SPRAWY</span></div>
+    </div>
+  </div>
+</section>
+<section class="section" id="search"><div class="sectionheading"><div><div class="eyebrow">POSZUKIWANIA</div><h2>Poszukiwania</h2><p>Przeszukuj rejestry i archiwa. Ślady wymagające zbadania na miejscu zabezpieczysz dopiero w Oględzinach.</p></div></div>
+<div class="locationgrid" id="areas"></div><div class="searchbox"><div class="eyebrow">KRYTERIUM WYSZUKIWANIA</div><div class="formline" style="margin-top:12px"><input id="searchQuery" class="input grow" placeholder="Opisz dokument, rejestr lub ślad..." aria-label="Czego szukasz"><button class="btn" id="searchBtn">Przeszukaj</button></div><div class="searchResults" id="searchResults">Wskaż obszar i wpisz własne kryterium wyszukiwania.</div></div></section>
+<section class="section" id="interview"><div class="sectionheading"><div><div class="eyebrow">SALA PRZESŁUCHAŃ</div><h2>Przesłuchania</h2><p>Wybierz świadka, zadawaj własne pytania i konfrontuj jego zeznania z aktami.</p></div></div><div class="cross3-inline"><strong>Konfrontacja z materiałem:</strong> ukończ analizę, aby przygotować pytanie o konkretny dowód. Świadkowie pamiętają przebieg rozmowy i reagują na sposób jej prowadzenia.</div><div class="charactergrid"><div class="characterlist" id="characterList"></div><div class="surface chat"><div class="chathead chathead-live"><div class="chathead-copy"><div class="chathead-title"><div><div class="eyebrow">AKTYWNY ŚWIADEK</div><h3 id="chatName">—</h3><div class="muted small" id="chatRole">—</div></div><div class="witness-quick" id="witnessQuickState"><b>REAKCJA</b><span>Portret reaguje na przebieg rozmowy.</span></div></div><div id="npc4Panel" aria-label="Stan przesłuchania"><div class="npc4-state-head"><strong id="npc4Mood">Stan rozmowy: rzeczowy</strong><small id="npc4Count">0 pytań</small></div><div class="npc4-metrics" id="npc4Meters"></div><div class="npc4-notice">Nastrój świadka nie przesądza o wiarygodności jego zeznań.</div></div></div><div class="witness-stage-host"><div id="witnessStage" aria-live="polite" aria-label="Żywy portret świadka"></div></div></div><div class="chatlog" id="chatLog"></div><div class="chatfoot"><div class="npc4-style-row" role="group" aria-label="Sposób prowadzenia przesłuchania"><span class="npc4-subtitle">Podejście do rozmówcy</span><button type="button" class="npc4-stance" data-npc4-stance="neutral" aria-pressed="true">Rzeczowo</button><button type="button" class="npc4-stance" data-npc4-stance="support" aria-pressed="false">Wspierająco</button><button type="button" class="npc4-stance" data-npc4-stance="firm" aria-pressed="false">Stanowczo</button></div><div id="npc4Hint" role="status" aria-live="polite">Sposób prowadzenia rozmowy wpływa na reakcje świadka.</div><select id="attachedDoc" aria-label="Okazywany dowód"><option value="">Nie okazuj dowodu</option></select><textarea id="chatInput" maxlength="2000" placeholder="Napisz własne pytanie lub wypowiedź…" aria-label="Własne pytanie"></textarea><div class="formline"><button class="btn" id="chatSend">Zadaj pytanie</button><span class="muted tiny">Enter = wyślij; Shift+Enter = nowa linia</span></div></div></div></div></section>
+<section class="section" id="timeline"><div class="tl-head"><div><div class="eyebrow">REKONSTRUKCJA ZDARZEŃ</div><h2>Oś czasu</h2><p>Ułóż wydarzenia z nocy 17–18 listopada (18:00–06:00). Dla każdego podaj czas, miejsce i źródło.</p></div><span class="chip">17.11 18:00 – 18.11 06:00</span></div>
+<div class="tl-metrics" id="tlMetrics"></div>
+<div class="tl-main"><section class="tl-panel"><div class="eyebrow">MATERIAŁY CHRONOLOGICZNE</div><h3 style="margin-top:6px">Dwadzieścia punktów do ustalenia</h3><p class="muted small">Ustal kolejność zdarzeń na podstawie zgromadzonych materiałów.</p><select id="tlFilter" class="input tl-filter" aria-label="Filtr zdarzeń" style="margin-top:10px"><option value="all">Wszystkie punkty</option><option value="available">Odkryte</option><option value="unplaced">Odkryte, nieustalone</option><option value="review">Do poprawy</option></select><div class="tl-selection" id="tlChoices"></div></section>
+<section class="tl-panel"><div class="eyebrow">REKONSTRUKCJA WŁASNA</div><h3 style="margin-top:6px">Karta zdarzenia</h3><div id="tlEditor"></div></section></div>
+<section class="tl-visual"><div class="eyebrow">CHRONOLOGIA ZDARZEŃ</div><h3 style="margin-top:5px">Zdarzenia ułożone przez śledczego</h3><p class="muted small">Zdarzenia pojawiają się na osi zgodnie z ustalonymi przez Ciebie godzinami.</p><div class="tl-chart" id="tlChart" aria-label="Wizualna dwunastogodzinna oś czasu"></div><p class="muted small" id="tlChartCaption" style="margin-top:8px"></p></section>
+<section class="tl-consistency"><div class="formline" style="justify-content:space-between"><div><div class="eyebrow">KONTROLA METODOLOGICZNA</div><h3 style="margin-top:5px">Spójność całej rekonstrukcji</h3></div><button class="btn alt" id="tlVerifyAll">Sprawdź wszystkie ustalenia</button></div><p class="muted small" style="margin-top:7px">Kontrola dotyczy odwróconej kolejności, zakresów czasu, powiązania ze źródłem, miejsca oraz ewentualnej wykonalności trasy. Zapis cyfrowy nie jest automatycznym dowodem przebywania osoby przy urządzeniu.</p><div id="tlConsistency" class="tl-consistency-list" aria-live="polite"></div></section>
+<details class="surface tl-journal" id="tlJournal"><summary>Dodatkowe notatki do chronologii</summary><p class="muted small" style="margin-top:10px">Miejsce na dodatkowe obserwacje i zdarzenia, które chcesz uwzględnić w rekonstrukcji.</p><div class="formline"><input type="datetime-local" id="timeAt" class="input" aria-label="Data i godzina" value="2026-11-17T18:00"><input id="timeText" class="input grow" placeholder="Jakie zdarzenie ustaliłeś?" aria-label="Opis zdarzenia"><input id="timeSource" class="input" placeholder="Źródło / dowód" aria-label="Źródło zdarzenia"><button class="btn" id="timeAdd">Dodaj</button></div><div id="eventList" style="margin-top:14px"></div><span class="muted tiny" id="tlCount"></span></details>
+</section>
+<section class="section" id="inspection12">
+ <div class="sectionheading"><div><div class="eyebrow">BADANIE MIEJSCA</div><h2>Oględziny zajezdni</h2><p>Przejrzyj dokumentację miejsc zdarzenia, sprawdź wskazane obszary i samodzielnie oceń materiał przed jego zabezpieczeniem.</p></div><span class="chip">TEREN / 7 STREF</span></div>
+ <div class="sc-stats" id="scMetrics" aria-live="polite"></div>
+ <details class="ps-inspection-help"><summary>Jak prowadzić oględziny</summary><div class="sc-mission"><div><span class="eyebrow">PRZEBIEG BADANIA</span><strong>Odkrywaj. Badaj. Weryfikuj.</strong><p>Wybierz oznaczony obszar albo dokumentację strefy. Dobierz metodę, oceń wynik i — jeśli powstał dokument — osobno zabezpiecz go do akt.</p></div><div class="sc-mission-progress"><span id="scMissionCount">0 / 30</span><small>zbadanych punktów</small></div></div></details>
+ <div class="et1-actions" aria-label="Tryby oględzin">
+ 
+ <span class="et1-mode-help">Przyjrzyj się fotografiom i zbadaj każdy odnaleziony ślad przed dołączeniem go do akt.</span>
+</div>
+<div class="sc-layout">
+  <div class="sc-left">
+   <div class="surface padded"><div class="sc-header"><div><div class="eyebrow">PLAN ZAJEZDNI</div><h3>Wybierz pomieszczenie</h3></div><span class="muted small">7 stref</span></div><div id="scRooms" class="sc-rooms"></div></div>
+   <div class="surface padded"><div class="sc-header"><div><div class="eyebrow">STREFA BADANIA</div><h3 id="scRoomTitle">—</h3><p class="muted small" id="scRoomDesc"></p></div><span id="scRoomProgress" class="chip"></span></div>
+    <div class="sc84-toolbar" id="sc84Toolbar"><div class="sc84-summary"><div id="sc84RoomSummary" class="sc84-summary-card"></div><div class="sc84-actions"><button class="btn alt" type="button" id="sc84NextAction">Następny punkt</button><button class="sc84-chipbtn" type="button" id="sc84TogglePending" aria-pressed="false"><span>Tylko niezbadane</span><small id="sc84ToggleCount">0</small></button><button class="btn subtle" type="button" id="sc84JumpRecent">Ostatni ślad</button></div></div><div id="sc84Queue" class="sc84-queue"></div></div><div class="et1-photos" id="et1Photos" aria-label="Dokumentacja fotograficzna 4K — przegląd obrotowy lokacji">
+ <div class="et1-photo-heading"><span class="eyebrow">DOKUMENTACJA WIZUALNA · 4K</span><span class="et1-frame-counter" id="et1FrameCount">Kadr 1 / 3</span></div>
+ <div class="et1-photo-stage">
+  <img id="et1SceneImage" alt="Kadr dokumentacyjny wybranej strefy" decoding="async" loading="lazy" />
+  <div id="et1ScenePins" class="et1-photo-pins" aria-label="Punkty badań na aktualnym zdjęciu"></div>
+ </div>
+ <div class="et1-photo-controls">
+   <button class="btn alt" type="button" id="et1PreviousFrame" aria-label="Poprzedni kadr">Poprzedni kadr</button>
+   <span id="et1SceneCaption" aria-live="polite">Trzy kadry dokumentacyjne strefy.</span>
+   <button class="btn alt" type="button" id="et1NextFrame" aria-label="Następny kadr">Następny kadr</button>
+ </div>
+ <p class="et1-caution">Numery na zdjęciu wskazują miejsca wymagające sprawdzenia. Otwórz obszar, a następnie zdecyduj, jak go zbadać.</p>
+</div>
+<div id="sc84Recent" class="sc84-recent"></div>
+<details class="sc84-compare"><summary>Porównanie zbadanych śladów</summary><div id="sc84Compare"></div></details>
+<div class="sc-blueprint" id="scBlueprint"><div id="scBlueprintBase" class="sc-blueprint-base"></div><div class="sc-blueprint-pins" id="scPins"></div><div class="sc-blueprint-legend">PLAN OGLĘDZIN</div></div>
+    <div id="scHotspots" class="sc-hotspots"></div><div id="scRoomCase" class="sc-room-case"></div>
+   </div>
+  </div>
+  <div class="surface padded sc-inspector"><div class="eyebrow">BADANIE WYBRANEGO OBIEKTU</div><div id="sc84Focus" class="sc84-focus"></div><div id="et1EvidenceVisual" class="et1-evidence-visual" hidden>
+ <img id="et1EvidenceImage" alt="Fotografia detalu do oceny podczas oględzin" decoding="async" loading="lazy" />
+ <div class="et1-evidence-caption"><span id="et1EvidenceTitle"></span><small>Fotografia szczegółowa · materiał przed zabezpieczeniem</small></div>
+</div>
+<div id="scDetail" aria-live="polite"></div></div>
+ </div>
+ <div class="surface padded" style="margin-top:16px"><div class="sc-header"><div><div class="eyebrow">DZIENNIK CZYNNOŚCI</div><h3>Przebieg oględzin</h3></div><button class="btn alt" type="button" id="scGoNotes">Przejdź do notatnika</button></div><div id="scActivity" class="sc-activity"></div></div>
+ 
+</section>
+<section class="section" id="notebook"><div class="sectionheading"><div><div class="eyebrow">ZAPISKI ŚLEDCZE</div><h2>Notatnik</h2><p>Zapisuj informacje i pytania, do których chcesz wrócić.</p></div></div><div class="surface padded"><textarea class="input note" id="notes" placeholder="Zapisuj własne obserwacje, sprzeczności, hipotezy i pytania do dalszych czynności..." aria-label="Notatnik śledczego"></textarea><div class="formline" style="margin-top:12px"><button class="btn alt" id="saveBtn">Zapisz postęp do pliku</button><button class="btn subtle" id="loadBtn">Wczytaj postęp z pliku</button><input type="file" id="loadFile" accept="application/json,.json" hidden><button class="btn subtle" id="resetBtn">Rozpocznij od nowa</button></div></div>
+<div class="surface padded sc-notebook"><div class="sc-header"><div><div class="eyebrow">NOTATKI Z OGLĘDZIN</div><h3>Rejestr obserwacji</h3><p class="muted small">Fakty, hipotezy, pytania i sprzeczności pozostają opisane Twoimi słowami.</p></div><span id="scNotebookCount" class="chip">0 zapisów</span></div><div class="sc-notegrid"><div><label class="sc-field">Kategoria<select id="scNoteKind"><option value="observation">Obserwacja</option><option value="hypothesis">Hipoteza</option><option value="question">Pytanie do sprawdzenia</option><option value="contradiction">Możliwa sprzeczność</option></select></label><label class="sc-field">Powiązanie z obejrzanym obiektem<select id="scNoteRef"><option value="">Notatka ogólna / bez obiektu</option></select></label><label class="sc-field">Treść notatki<textarea id="scNoteText" rows="7" maxlength="3000" placeholder="Opisz własne spostrzeżenie, alternatywną interpretację lub pytanie wymagające dalszej weryfikacji."></textarea></label><div class="formline"><button type="button" class="btn" id="scNoteSave">Dodaj notatkę</button><button type="button" class="btn subtle" id="scNoteCancel" hidden>Anuluj edycję</button></div></div><div class="sc-notelist" id="scNotebookList"></div></div></div>
+</section>
+<section class="section" id="labs"><div class="sectionheading"><div><div class="eyebrow">LABORATORIUM</div><h2>Analizy laboratoryjne</h2><p>Analizuj zapisy techniczne, wiadomości, monitoring, ślady i trasy.</p></div></div><div id="labCards" class="grid2"></div>
+  <section class="cross3-section" id="cross3Panel" aria-label="Audyt niezależności dowodowej">
+  <div class="cross3-top"><div><div class="eyebrow">WERYFIKACJA MATERIAŁU DOWODOWEGO</div><h3>Audyt przekrojowy pięciu analiz</h3><p>Zestaw wyniki pięciu analiz z niezależnymi dokumentami. Ustal, co potwierdzają źródła i jakie mają ograniczenia.</p></div><div class="cross3-counts"><span id="cross3Count">0 / 5 zweryfikowanych</span><span id="cross3Tracker">0 / 5 konfrontacji</span></div></div>
+  <div class="cross3-cards" id="cross3Cards"></div>
+  <div class="cross3-interview"><div class="eyebrow">KONFRONTACJA ZE ŚWIADKAMI</div><div id="cross3InterviewList"></div><p class="small muted" style="margin-top:10px">Zweryfikowane wnioski mogą posłużyć do przygotowania pytań i okazania materiału świadkowi.</p></div>
+  </section><div id="tcmsPanel" hidden><div id="tcmsWorkspace"></div></div><div id="msgPanel" hidden><div id="msgWorkspace"></div></div><div id="cctvPanel" hidden><div id="cctvWorkspace"></div></div><div id="forensicPanel" hidden><div id="forensicWorkspace"></div></div><div id="accessPanel" hidden><div id="accessWorkspace"></div></div></section>
+
+<section class="section" id="deduction"><div class="dd-head"><div><div class="eyebrow">ANALIZA POWIĄZAŃ</div><h2>Tablica dedukcyjna</h2><p>Łącz dokumenty i zeznania w hipotezy. Rozróżniaj fakty, przypuszczenia, sprzeczności i alternatywne wyjaśnienia.</p></div></div>
+<div class="cross3-inline" id="cross3DedPrompt">Zweryfikowane analizy: 0 / 5. Ich ustalenia możesz przenieść na tablicę hipotez.</div>
+<div class="dd-note" style="margin-top:14px"><b>Zasada:</b> dokument może potwierdzać określony zapis, ale niekoniecznie jego prawdziwą interpretację. Zeznanie jest faktem złożenia wypowiedzi, a nie automatycznym dowodem prawdziwości jej treści. Role źródeł i klasyfikacje ustala prowadzący.</div>
+<div class="dd-metrics" id="dedMetrics" aria-live="polite"></div>
+<div class="dd-work"><section class="surface padded dd-source-panel"><div class="dd-panel-head"><div><div class="eyebrow">BAZA ŹRÓDEŁ</div><h3>Materiały do połączenia</h3></div><span class="dd-tag" id="dedSourceCount"></span></div><p class="small muted">Dostępne są wyłącznie zdobyte dokumenty i wypowiedzi rzeczywiście zapisane w tej sesji.</p><div class="dd-filters"><input id="dedSourceSearch" aria-label="Szukaj w dostępnych materiałach" placeholder="Szukaj tytułu, treści lub ID…"><select id="dedSourceType" aria-label="Rodzaj źródła"><option value="all">Dokumenty i zeznania</option><option value="doc">Tylko dokumenty</option><option value="say">Tylko zeznania</option></select></div><div id="dedSourceList" class="dd-source-list"></div></section>
+<section class="surface padded dd-editor-panel"><div class="dd-editor-top"><div><div class="eyebrow">WARSZTAT HIPOTEZ</div><h3 id="dedEditorTitle">Nowa karta</h3></div><div class="formline"><button class="btn alt" id="dedNew">+ Nowa karta</button><button class="btn subtle" id="dedDelete" disabled>Usuń kartę</button></div></div><div class="dd-field"><label for="dedTitle">Tytuł ustalenia</label><input id="dedTitle" maxlength="120" placeholder="Np. Niejasność w podanym alibi"></div><div class="dd-field"><label for="dedKind">Rodzaj rozumowania</label><select id="dedKind"><option value="fakt">Fakt źródłowy</option><option value="przypuszczenie" selected>Przypuszczenie / hipoteza</option><option value="sprzecznosc">Sprzeczność</option><option value="alternatywa">Alternatywne wyjaśnienie</option></select><span class="dd-help">Fakt źródłowy ≠ pewne rozstrzygnięcie sprawy.</span></div><div class="dd-field"><label for="dedStatement">Treść wniosku</label><textarea id="dedStatement" maxlength="3000" placeholder="Co dokładnie wynika ze źródeł? Oddziel obserwację od interpretacji."></textarea></div><div class="dd-field"><label for="dedAlternative">Kontrargument lub inne możliwe wyjaśnienie</label><textarea id="dedAlternative" maxlength="2000" placeholder="Jak można inaczej wyjaśnić te same dane? Co je osłabia?"></textarea></div><div class="dd-field"><label for="dedTest">Co trzeba jeszcze sprawdzić?</label><textarea id="dedTest" maxlength="1500" placeholder="Pytanie do świadka, kolejny dokument, sprawdzenie czasu…"></textarea></div><div class="dd-field"><label for="dedRival">Powiąż z konkurencyjną kartą (opcjonalnie)</label><select id="dedRival"><option value="">Brak wskazania</option></select></div><div class="dd-panel-head"><h3>Powiązane źródła</h3><span class="dd-tag" id="dedLinkCount">0</span></div><p class="muted small">Wybierz materiał po lewej. Dla każdego określ, czy potwierdza, podważa, ogranicza czy tylko stanowi kontekst.</p><div id="dedLinks" class="dd-links"></div><div class="dd-editor-actions"><button class="btn" id="dedSave">Zapisz kartę na tablicy</button><button class="btn alt" id="dedAssess">Sprawdź argumentację</button><span id="dedUnsaved" class="muted tiny" aria-live="polite"></span></div><div id="dedFeedback" class="dd-feedback" role="status" aria-live="polite">Wybierz co najmniej jedno źródło, wpisz własny wniosek i zapisz kartę. Sprawdzenie wskaże mocne strony i luki w Twoim rozumowaniu.</div><section id="dd2Review" class="dd2-review" aria-label="Audyt znaczenia uzasadnienia" aria-live="polite" hidden></section></section></div>
+<div class="dd-board-head"><div><div class="eyebrow">SIEĆ WNIOSKOWANIA</div><h3>Twoja tablica powiązań</h3></div><label class="small muted">Filtr kart <select id="dedCardFilter" class="input" aria-label="Filtruj rodzaj kart"><option value="all">Wszystkie rodzaje</option><option value="fakt">Fakty źródłowe</option><option value="przypuszczenie">Przypuszczenia</option><option value="sprzecznosc">Sprzeczności</option><option value="alternatywa">Wyjaśnienia alternatywne</option></select></label></div><div class="dd-board" id="dedBoard"></div><p class="muted tiny" style="margin-top:13px">Karty zapisują Twoje hipotezy. Możesz je modyfikować, łączyć i podważać w miarę poznawania nowych faktów.</p></section>
+<section class="section" id="final">
+ <div class="sectionheading"><div><div class="eyebrow">ZAMKNIĘCIE SPRAWY</div><h2>Akt oskarżenia</h2><p>Sformułuj wersję zdarzenia, powiąż osobę, mechanizm i dowody, a następnie skonfrontuj wnioski z konkurencyjnymi wyjaśnieniami.</p></div><span class="chip">POSTĘPOWANIE DOWODOWE</span></div>
+ <div class="fc-progress" id="fcProgress" aria-live="polite"></div>
+ <div class="surface padded fc-intro"><strong>Reguły finału</strong><p>Wykorzystywać można tylko materiały rzeczywiście znajdujące się w aktach. Dokument podpisany przez podejrzanego nie dowodzi przemocy, karta nie identyfikuje osoby, a aktywna sesja internetowa nie potwierdza ciągłej obecności. Każdy wniosek wymaga oparcia w źródłach i uwzględnienia ich ograniczeń.</p><div class="fc-actions"><button class="btn alt" type="button" id="fcGoEvidence">Przejrzyj akta</button><button class="btn alt" type="button" id="fcGoDeduction">Otwórz tablicę dedukcyjną</button><button class="btn alt" type="button" id="fcGoTimeline">Sprawdź oś czasu</button></div></div>
+ <div class="fc-grid">
+  <div class="surface padded fc-main"><div class="eyebrow">CZĘŚĆ I — TEZA OSKARŻENIA</div><h3 style="margin:8px 0 14px">Cztery elementy aktu</h3>
+   <div class="fc-fields">
+    <label>1. Osoba, której przypisujesz sprawstwo<select id="fcCulprit"><option value="">— wskaż rozmówcę —</option></select></label>
+    <label>2. Mechanizm zdarzenia<select id="fcMethod"><option value="">— wybierz rekonstrukcję —</option></select></label>
+    <label>3. Kluczowy dowód wiążący sprawę z osobą<select id="fcKeystone"><option value="">— tylko zdobyte dokumenty —</option></select></label>
+    <label>4. Sposób zweryfikowania alibi<select id="fcAlibi"><option value="">— wybierz wniosek —</option></select></label>
+   </div>
+   <div class="fc-reasons">
+    <div class="fc-reason-choice"><h4>Związek wskazanej osoby ze zdarzeniem</h4><input id="fcWhyPerson" type="hidden"><div id="fcChoicePerson"></div></div>
+    <div class="fc-reason-choice"><h4>Dlaczego ten mechanizm, a nie prosty wypadek?</h4><input id="fcWhyMethod" type="hidden"><div id="fcChoiceMethod"></div></div>
+    <div class="fc-reason-choice"><h4>Dlaczego wybrany dowód jest istotny — i jakie ma ograniczenia?</h4><input id="fcWhyProof" type="hidden"><div id="fcChoiceProof"></div></div>
+    <div class="fc-reason-choice"><h4>Dlaczego alibi nie wyklucza obecności w zajezdni?</h4><input id="fcWhyAlibi" type="hidden"><div id="fcChoiceAlibi"></div></div>
+   </div>
+   <div class="fc-attach"><div class="fc-row-head"><div><h3>Materiał powiązany z wnioskami</h3><p class="muted small">Każdy dowód przypisz do roli, którą rzeczywiście pełni. Jeden dokument można powiązać z kilkoma wnioskami.</p></div></div>
+    <div class="fc-attach-grid"><label>Dowód<select id="fcAddSource"></select></label><label>Do jakiego wniosku?<select id="fcAddRole"><option value="person">Osoba / związek ze zdarzeniem</option><option value="method">Mechanizm obrażeń</option><option value="motive">Konflikt / powód spotkania</option><option value="alibi">Alibi / trasa</option></select></label><button class="btn alt" type="button" id="fcAddLink">Połącz</button></div>
+    <div id="fcLinks" class="fc-links"></div>
+   </div>
+   <div class="fc-actions"><button class="btn" type="button" id="fcSubmit">Przedstaw akt oskarżenia</button><button class="btn subtle" type="button" id="fcClear" >Wyczyść projekt aktu</button></div>
+   <div id="fcChargeFeedback" class="fc-feedback" role="status" aria-live="polite"></div>
+  </div>
+  <aside class="surface padded fc-side"><div class="eyebrow">KONTROLA MATERIAŁU</div><h3 style="margin:8px 0 14px">Warunki postępowania</h3><div id="fcChecklist"></div><div class="rule"></div><div class="eyebrow">AKTA NA TABLICY</div><div id="fcBoardHints" class="fc-board-hints"></div></aside>
+ </div>
+ <div class="surface padded fc-defense" id="fcDefense" hidden><div class="fc-row-head"><div><div class="eyebrow">CZĘŚĆ II — KONTRADYKTORYJNA OBRONA WNIOSKÓW</div><h3 style="margin:8px 0">Konfrontacja z alternatywną interpretacją</h3><p class="muted small">Każde z sześciu zastrzeżeń rozpatrywane jest osobno. Wskaż logiczną odpowiedź, dwa lub trzy odpowiednie źródła oraz napisz własne uzasadnienie z zastrzeżeniem co do ich zakresu. Nie zalicza się samego kliknięcia poprawnej opcji.</p></div><span id="fcDefenseCount" class="chip">0 / 6</span></div>
+  <div id="fcDefenseList" class="fc-defense-list"></div>
+  <div class="fc-actions"><button class="btn" type="button" id="fcVerdict">Przeprowadź końcową ocenę</button><button class="btn alt" type="button" id="fcEditCharge">Zmień oskarżenie</button></div>
+  <div id="fcDefenseFeedback" class="fc-feedback" role="status" aria-live="polite"></div>
+ </div>
+ <div class="surface padded fc-verdict" id="fcVerdictPanel" hidden aria-live="polite"></div>
+ <div class="notice" style="margin-top:16px">Przedstawiony akt musi wynikać z ustaleń zapisanych w sprawie. Pamiętaj o ograniczeniach każdego źródła.</div>
+</section>
+
+
+</main></div></div><div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>__PS_SOURCE_SCRIPT_000__</script>
+
+
+
+
+<script id="npc5-natural-conversation">__PS_SOURCE_SCRIPT_001__</script>
+<script type="application/json" id="etap1-assets">__PS_SOURCE_SCRIPT_002__</script>
+
+<script id="etap2-visual-bridge">__PS_SOURCE_SCRIPT_003__</script>
+<script id="stage3-cross-bridge">__PS_SOURCE_SCRIPT_004__</script>
+
+<script id="stage4-stability">__PS_SOURCE_SCRIPT_005__</script>
+
+<style id="cinematic-inspection-style">__PS_SOURCE_STYLE_024__</style>
+
+<script id="cinematic-inspection-enhancer">__PS_SOURCE_SCRIPT_006__</script>
+
+
+<style id="ogledziny3-styles">__PS_SOURCE_STYLE_025__</style>
+
+<style id="ogledziny35-styles">__PS_SOURCE_STYLE_026__</style>
+
+<script id="ogledziny35-engine">__PS_SOURCE_SCRIPT_007__</script>
+
+
+<style id="mg2-style">__PS_SOURCE_STYLE_027__</style>
+<script id="mg2-engine">__PS_SOURCE_SCRIPT_008__</script>
+<style id="puzzle3-style">__PS_SOURCE_STYLE_028__</style>
+<script id="puzzle3-engine">__PS_SOURCE_SCRIPT_009__</script>
+<style id="inspection-guided-style">__PS_SOURCE_STYLE_029__</style>
+<script id="inspection-guided-engine">__PS_SOURCE_SCRIPT_010__</script>
+
+<style id="story-expanded-style">__PS_SOURCE_STYLE_030__</style>
+<script id="story26-linked-intrigue">__PS_SOURCE_SCRIPT_011__</script>
+
+<style id="cinematic-luxury-v1">__PS_SOURCE_STYLE_031__</style>
+
+<style id="sim51-audit-styles">__PS_SOURCE_STYLE_032__</style>
+<script id="sim51-audit-engine">__PS_SOURCE_SCRIPT_012__</script>
+<script id="sim52-psychological-engine">__PS_SOURCE_SCRIPT_013__</script><script>__PS_SOURCE_SCRIPT_014__</script><script>__PS_SOURCE_SCRIPT_015__</script><script>__PS_SOURCE_SCRIPT_016__</script><style id="ps57-mobile-layout">__PS_SOURCE_STYLE_033__</style><script id="dialogue57">__PS_SOURCE_SCRIPT_017__</script><script>__PS_SOURCE_SCRIPT_018__</script><script>__PS_SOURCE_SCRIPT_019__</script>
+<script>__PS_SOURCE_SCRIPT_020__</script>
+<style id="ps603-style">__PS_SOURCE_STYLE_034__</style>
+<script id="ps603-script">__PS_SOURCE_SCRIPT_021__</script>
+<script>__PS_SOURCE_SCRIPT_022__</script>
+<style id="ps62-style">__PS_SOURCE_STYLE_035__</style>
+<script id="ps62-script">__PS_SOURCE_SCRIPT_023__</script>
+<style id="ps63-polish-css">__PS_SOURCE_STYLE_036__</style>
+<script id="ps63-polish-js">__PS_SOURCE_SCRIPT_024__</script>
+<script>__PS_SOURCE_SCRIPT_025__</script>
+<style id="ps66-style">__PS_SOURCE_STYLE_037__</style>
+<script id="ps66-script">__PS_SOURCE_SCRIPT_026__</script>
+<style id="ps67-style">__PS_SOURCE_STYLE_038__</style>
+<script id="ps67-script">__PS_SOURCE_SCRIPT_027__</script>
+<script id="dialog-natural-68">__PS_SOURCE_SCRIPT_028__</script>
+<style id="ps69-dramaturgy-style">__PS_SOURCE_STYLE_039__</style>
+<script id="ps69-dramaturgy-js">__PS_SOURCE_SCRIPT_029__</script>
+<style id="ps70-story-rhythm-style">__PS_SOURCE_STYLE_040__</style>
+<script id="ps70-story-rhythm-js">__PS_SOURCE_SCRIPT_030__</script>
+<style id="ps71-continuity-style">__PS_SOURCE_STYLE_041__</style>
+<script id="ps71-continuity-script">__PS_SOURCE_SCRIPT_031__</script>
+<style id="ps72-final-style">__PS_SOURCE_STYLE_042__</style>
+<script id="ps72-last-page">__PS_SOURCE_SCRIPT_032__</script>
+<script id="ps75-integrity">__PS_SOURCE_SCRIPT_033__</script>
+
+<style id="release-polish-styles">__PS_SOURCE_STYLE_043__</style>
+
+<script id="release-polish-actions">__PS_SOURCE_SCRIPT_034__</script>
+<script id="ps77-cloud-interrogations">__PS_SOURCE_SCRIPT_035__</script>
+<style id="ps80-cinematic-styles">__PS_SOURCE_STYLE_044__</style>
+<script id="ps80-original-score">__PS_SOURCE_SCRIPT_036__</script>
+<script id="ps81-event-audio">__PS_SOURCE_SCRIPT_037__</script>
+<style id="ps82-cinematic-ui">__PS_SOURCE_STYLE_045__</style><script id="ps82-cinematic-enhancements">__PS_SOURCE_SCRIPT_038__</script><style id="ps83-ambience-style">__PS_SOURCE_STYLE_046__</style><script id="ps83-room-ambience">__PS_SOURCE_SCRIPT_039__</script>
+<script id="ps84-better-inspection-script">__PS_SOURCE_SCRIPT_040__</script>
+
+<style id="ps85-turning-points-css">__PS_SOURCE_STYLE_047__</style>
+
+
+<script id="ps85-plot-turns">__PS_SOURCE_SCRIPT_041__</script>
+
+
+<style id="ps87-cinematic-style">__PS_SOURCE_STYLE_048__</style>
+<script id="ps87-cinematic-scenes">__PS_SOURCE_SCRIPT_042__</script>
+
+<style id="ps88-simplification-css">__PS_SOURCE_STYLE_049__</style>
+
+<script id="ps88-simplification-js">__PS_SOURCE_SCRIPT_043__</script>
+<script id="ps89-natural-witnesses">__PS_SOURCE_SCRIPT_044__</script>
+<style id="ps95-guidance-style">__PS_SOURCE_STYLE_050__</style>
+<!-- ETAP UX 1: fazowe ujawnianie finału; bez nowych kluczy API. -->
+<style id="psF1Style">__PS_SOURCE_STYLE_051__</style>
+<script id="psF1Controller">__PS_SOURCE_SCRIPT_045__</script>
+
+<!-- ETAP UX 2: nieobowiązkowe, zależne od działań wprowadzenie. -->
+<style id="ps2Style">__PS_SOURCE_STYLE_052__</style>
+<script id="ps2Controller">__PS_SOURCE_SCRIPT_046__</script>
+
+<!-- ETAP 3 · Wyszukiwanie znaczeniowe: publiczna gra offline, bez zewnętrznego API. -->
+<style id="ps3SearchStyle">__PS_SOURCE_STYLE_053__</style>
+<script id="ps3SearchScript">__PS_SOURCE_SCRIPT_047__</script>
+
+<!-- ETAP 4 · progresywny warsztat dedukcji bez redukcji logiki i dowodów -->
+<style id="ux4DeductionStyle">__PS_SOURCE_STYLE_054__</style>
+<script id="ux4DeductionScript">__PS_SOURCE_SCRIPT_048__</script>
+
+<!-- ETAP 5 · jeden przejrzysty widok pracowni, bez zmian walidatorów minigier -->
+<style id="ux5LabStyle">__PS_SOURCE_STYLE_055__</style>
+<script id="ux5LabScript">__PS_SOURCE_SCRIPT_049__</script>
+
+<!-- ETAP UX 6 · Mobilny warsztat śledczego; bez zmian logiki dowodowej, oceny i fabuły -->
+<style id="ux6MobileStyle">__PS_SOURCE_STYLE_056__</style>
+<script id="ux6MobileScript">__PS_SOURCE_SCRIPT_050__</script>
+
+<style id="psP1Style">__PS_SOURCE_STYLE_057__</style>
+<script id="psP1Script">__PS_SOURCE_SCRIPT_051__</script>
+
+<script id="p2-confidence-and-regression">__PS_SOURCE_SCRIPT_052__</script>
+<script>__PS_SOURCE_SCRIPT_053__</script>
+<style id="psStudioV2">__PS_SOURCE_STYLE_058__</style><script id="psStudioV2Script">__PS_SOURCE_SCRIPT_054__</script><style id="ps-mentor-thread-style">__PS_SOURCE_STYLE_059__</style>
+<script id="ps-mentor-thread-script">__PS_SOURCE_SCRIPT_055__</script>
+<script id="ps-loop-code">__PS_SOURCE_SCRIPT_056__</script><script id="psFinalRoutesScript">__PS_SOURCE_SCRIPT_057__</script>
+<style id="ps-correlation-styles">__PS_SOURCE_STYLE_060__</style>
+<script id="ps-correlation-module">__PS_SOURCE_SCRIPT_058__</script>
+<style id="psm-portrait-responsive-style">__PS_SOURCE_STYLE_061__</style>
+<script id="psm-mobile-workspaces">__PS_SOURCE_SCRIPT_059__</script>
+<style id="psa-case-success-style">__PS_SOURCE_STYLE_062__</style>
+<script id="psa-case-success-script">__PS_SOURCE_SCRIPT_060__</script>
+<!-- POPRAWKA 1 / MOBILE P1: zachowaj dostep do elementow, bez poziomego przewijania strony -->
+<style id="fix1-mobile-layout">__PS_SOURCE_STYLE_063__</style>
+</body></html>

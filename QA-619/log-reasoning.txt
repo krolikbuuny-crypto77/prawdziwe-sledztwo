@@ -1,0 +1,8 @@
+PASS central ReasoningEngine online, five qualifications, one six-objection registry
+PASS unavailable or repeated source cannot prove independence or be created by reasoning
+PASS single hypothesis-link operation for classic board and Red Thread; local audit and source checks agree
+PASS one defense grade shared with procedural hearing; invalid interpretation and missing evidence rejected
+PASS five indictment variants produce deterministic qualification/signature without invented conviction
+PASS complete Stage-2 save roundtrip preserves reasoning state without schema migration
+PASS Cloudflare-opinion adapter uses only owned evidence, clamps output and never mutates progress
+PASS zero uncaught JavaScript errors

@@ -1,0 +1,6 @@
+test:architecture: PASS (0.5s)
+e tools/test-sync617.mjs
+
+PASS 6.17: provider priority, outage + semantic failover, common context, local fallback, server-side evidence rules, immutable witness ledger, no browser verdict
+PASS 6.17 Supabase mocked: HMAC cookie, initial approved state, rejected forged verdict, server evidence confirmation, CAS conflicts
+PASS offline 6.17 VM: local action queued, persisted across runtime restart, replayed on recovery

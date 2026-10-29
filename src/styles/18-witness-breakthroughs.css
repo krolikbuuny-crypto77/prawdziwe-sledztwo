@@ -1,0 +1,39 @@
+
+/* Świadek: nowa informacja musi wynikać z zweryfikowanej korekty, nie z nastroju. */
+.psb-panel{margin:8px 16px 10px;padding:14px 16px;border:1px solid #667262;background:linear-gradient(145deg,#1d292a,#151d22);border-radius:12px;display:grid;gap:12px;box-shadow:inset 2px 0 #c7a469}
+.psb-panel[hidden]{display:none!important}
+.psb-heading{display:flex;align-items:flex-start;gap:12px}
+.psb-mark{flex:0 0 29px;width:29px;height:29px;border-radius:50%;display:grid;place-items:center;color:#eecf9e;background:#7c5f3452;border:1px solid #96774b;font-size:20px}
+.psb-heading strong{display:block;color:#e5d1ab;letter-spacing:.105em;font-size:11px;text-transform:uppercase}
+.psb-heading p{margin-top:5px;color:#d8ddd6;font-size:12px;line-height:1.6}
+.psb-routes{display:grid;gap:7px;border-top:1px solid #50605a;padding-top:11px}
+.psb-label{color:#a9b8ae;font-size:10px;font-weight:750;letter-spacing:.1em}
+.psb-btn{width:100%;padding:10px 12px;border-radius:7px;background:#24332f;color:#e5eae5;border:1px solid #62705e;font-size:12px;text-align:left;cursor:pointer}
+.psb-btn:hover,.psb-btn:focus-visible{background:#30443a;outline:2px solid #bc9a59;outline-offset:2px}
+#witnessStage .wp-stage.psb-fractured{box-shadow:0 0 0 1px #c4a26e,0 0 34px #a77a4b35;position:relative}
+#witnessStage .wp-stage.psb-fractured .wp-figure{animation:psb-break 1050ms ease-out both}
+#witnessStage .wp-stage.psb-fractured .wp-face{animation:psb-avert 900ms ease-in-out both;transform-origin:50% 45%}
+#witnessStage .wp-stage.psb-guarded .wp-figure{transform:translateX(-2px) rotate(-.5deg);filter:saturate(.85)}
+#witnessStage .wp-stage.psb-closed .wp-figure{filter:brightness(.76) saturate(.65);transform:translateY(5px)}
+#witnessStage .wp-stage.psb-reconsidering .wp-figure{filter:contrast(1.05) saturate(.85)}
+#witnessStage .psb-portrait-caption{position:absolute;bottom:33px;left:10px;z-index:5;padding:5px 9px;border-radius:5px;background:#102025e8;color:#e9d1ab;border:1px solid #a78b5b;text-transform:uppercase;font-size:9px;letter-spacing:.12em;pointer-events:none}
+@keyframes psb-break{0%{transform:translateX(0) rotate(0)}18%{transform:translateX(-3px) rotate(-1.3deg)}35%{transform:translateX(2px)}65%{transform:translateY(3px)}100%{transform:translateY(2px)}}
+@keyframes psb-avert{0%{transform:translateX(0)}40%{transform:translateX(-5px) rotate(-1deg)}100%{transform:translateX(-2px)}}
+@media(max-width:700px){.psb-panel{margin:8px 9px;padding:12px}.psb-routes{grid-template-columns:1fr}.psb-btn{min-height:45px;font-size:13px}}
+@media(prefers-reduced-motion:reduce){#witnessStage .wp-stage.psb-fractured .wp-figure,#witnessStage .wp-stage.psb-fractured .wp-face{animation:none!important}}
+
+/* Indywidualne, krótkie reakcje każdego świadka. */
+#witnessStage .wp-stage.psb-fractured[data-psb-person="MAREK"] .wp-figure{animation:psb-marek .9s ease-out both}
+#witnessStage .wp-stage.psb-fractured[data-psb-person="TOMASZ"] .wp-figure{animation:psb-tomasz .9s ease-out both}
+#witnessStage .wp-stage.psb-fractured[data-psb-person="JANUSZ"] .wp-figure{animation:psb-janusz .8s ease-out both}
+#witnessStage .wp-stage.psb-fractured[data-psb-person="ELZBIETA"] .wp-figure{animation:psb-elzbieta 1.1s ease-out both}
+#witnessStage .wp-stage.psb-fractured[data-psb-person="KAMIL"] .wp-figure{animation:psb-kamil .9s ease-out both}
+#witnessStage .wp-stage.psb-fractured[data-psb-person="MAGDALENA"] .wp-figure{animation:psb-magdalena 1s ease-out both}
+@keyframes psb-marek{0%{transform:translateY(0)}40%{transform:translateY(4px)}75%{transform:translateY(-1px)}100%{transform:translateY(2px)}}
+@keyframes psb-tomasz{0%{transform:translateX(0)}35%{transform:translateX(5px) rotate(1deg)}70%{transform:translateX(-3px)}100%{transform:translateX(1px)}}
+@keyframes psb-janusz{0%{transform:translateX(0)}18%{transform:translateX(-3px)}37%{transform:translateX(3px)}60%{transform:translateY(4px)}100%{transform:translateY(1px)}}
+@keyframes psb-elzbieta{0%{transform:translateY(0)}36%{transform:translateY(5px) rotate(-.7deg)}75%{transform:translateY(4px)}100%{transform:translateY(3px)}}
+@keyframes psb-kamil{0%{transform:translateX(0)}32%{transform:translateX(-5px)}62%{transform:translateX(3px)}100%{transform:translateX(-2px)}}
+@keyframes psb-magdalena{0%{transform:translateY(0)}30%{transform:translateY(2px)}60%{transform:translateY(1px) rotate(.8deg)}100%{transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){#witnessStage .wp-stage.psb-fractured .wp-figure{animation:none!important}}
+

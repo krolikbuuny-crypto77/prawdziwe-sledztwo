@@ -1,0 +1,34 @@
+
+/* AKTA / TYPY DOWODÓW: SVG + FILTRY SEMANTYCZNE */
+#evidence .ev-evidence-types{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:0 0 12px;padding:0;min-width:0}
+#evidence .ev-type-filter{display:flex;align-items:center;justify-content:flex-start;gap:9px;min-width:0;min-height:58px;border:1px solid #354a55;background:#14232c;color:#c9d4d4;border-radius:10px;padding:10px 12px;font:650 12px/1.3 system-ui;cursor:pointer;text-align:left;transition:border-color .16s,background .16s,transform .16s;}
+#evidence .ev-type-filter:hover{border-color:#ab926e;background:#21313a}
+#evidence .ev-type-filter:focus-visible{outline:2px solid #e4b878;outline-offset:2px}
+#evidence .ev-type-filter.active{border-color:#d2a66c;background:linear-gradient(140deg,#3a3329,#1f2c33);color:#fff1dc;box-shadow:inset 0 0 0 1px #866c48}
+#evidence .ev-type-filter-name{flex:1;min-width:0;overflow-wrap:normal}
+#evidence .ev-type-filter-count{display:grid;place-items:center;background:#293840;border:1px solid #48545a;min-width:26px;padding:4px 5px;border-radius:5px;font:750 11px ui-monospace,monospace;color:#dfc69d}
+#evidence .ev-type-filter.active .ev-type-filter-count{background:#493b2b;border-color:#776144}
+#evidence .ev-type-icon,#evidence .ev-type-filter-icon{width:34px;height:34px;display:inline-grid;place-items:center;flex:none;border:1px solid #4b5962;border-radius:9px;background:#27353e;color:#d9b687}
+#evidence .ev-type-icon--testimony{background:#243642;border-color:#456077;color:#8ec5dc}
+#evidence .ev-type-icon--trace{background:#26362e;border-color:#4a705b;color:#9fceb0}
+#evidence .ev-type-icon--all{background:#29313a;color:#d5cdc0}
+#evidence .ev-type-svg{display:block;width:20px;height:20px}
+#evidence .ev-detailed-categories{border:1px solid #2d3c45;border-radius:9px;background:#121f27;margin:0 0 14px;overflow:clip}
+#evidence .ev-detailed-categories>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:41px;padding:9px 15px;cursor:pointer;color:#a9b8bb;font:650 11px/1.4 system-ui;list-style:none;user-select:none}
+#evidence .ev-detailed-categories>summary::-webkit-details-marker{display:none}
+#evidence .ev-detailed-categories>summary:hover{color:#ebdbbc;background:#182831}
+#evidence .ev-detailed-categories-chevron{color:#c9ae86;transition:transform .2s;font-size:19px;line-height:1}
+#evidence .ev-detailed-categories[open] .ev-detailed-categories-chevron{transform:rotate(180deg)}
+#evidence .ev-detailed-categories .ev-categories{display:flex!important;flex-wrap:wrap!important;overflow-x:visible!important;gap:7px!important;margin:0!important;padding:5px 10px 12px!important;border-top:1px solid #2f424c}
+#evidence .ev-file{grid-template-columns:23px 35px minmax(0,1fr) 14px!important;align-items:center!important;column-gap:10px!important}
+#evidence .ev-file-n{align-self:center;padding-top:0}
+#evidence .ev-file .ev-type-icon{width:34px;height:34px;border-radius:8px}
+#evidence .ev-file-class{display:flex;align-items:center;flex-wrap:wrap;gap:5px 9px}
+#evidence .ev-file-type-text{color:#a5b9bf;font-size:9px;letter-spacing:0;text-transform:none;font-family:system-ui;font-weight:650}
+#evidence .ev-doc-classification{gap:9px!important;min-width:0}
+#evidence .ev-doc-classification .ev-type-icon{width:31px;height:31px;flex:none}
+#evidence .ev-doc-classification .ev-type-svg{width:18px;height:18px}
+#evidence .ev-type-filter[aria-pressed="true"] .ev-type-filter-name{font-weight:800}
+@media(max-width:980px){#evidence .ev-evidence-types{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){#evidence .ev-evidence-types{gap:7px}#evidence .ev-type-filter{min-height:49px;padding:7px 8px;gap:6px;font-size:11px}#evidence .ev-type-filter-icon{width:29px;height:29px;border-radius:7px}#evidence .ev-type-filter .ev-type-svg{width:17px;height:17px}#evidence .ev-type-filter-count{min-width:22px;font-size:10px;padding:3px}#evidence .ev-file{grid-template-columns:19px 31px minmax(0,1fr) 10px!important;gap:7px!important;padding:10px 8px!important}#evidence .ev-file .ev-type-icon{width:30px;height:30px}#evidence .ev-file .ev-type-svg{width:18px;height:18px}#evidence .ev-file-main strong{font-size:12px!important}}
+@media(prefers-reduced-motion:reduce){#evidence .ev-type-filter,#evidence .ev-detailed-categories-chevron{transition:none}}

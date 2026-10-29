@@ -1,0 +1,614 @@
+[
+  {
+    "witness": "MAREK",
+    "question": "Gdzie przebywałeś podczas nocnej zmiany?",
+    "result": {
+      "before": 1,
+      "after": 3,
+      "player": {
+        "role": "player",
+        "text": "Gdzie przebywałeś podczas nocnej zmiany?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Podczas tej zmiany kierowałem pracą zajezdni, głównie z biura. Nadzorowałem nocną zmianę."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "MAREK",
+    "question": "Kto może potwierdzić, że naprawdę tam byłeś?",
+    "result": {
+      "before": 3,
+      "after": 5,
+      "player": {
+        "role": "player",
+        "text": "Kto może potwierdzić, że naprawdę tam byłeś?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Rozumiem, dlaczego pan o to pyta. Nadzorowałem nocną zmianę. Byłem dostępny z biura, ale nie twierdzę, że przebywałem w nim bez przerwy. Nie wskażę osoby, która obserwowała mnie przez całą noc. Połączenia służbowe potwierdzą kontakt, a rejestr wejść tylko część przemieszczania."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "MAREK",
+    "question": "Nie pytam o dokument, tylko o to, co sam widziałeś.",
+    "result": {
+      "before": 5,
+      "after": 7,
+      "player": {
+        "role": "player",
+        "text": "Nie pytam o dokument, tylko o to, co sam widziałeś."
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Mogę odpowiadać za rozliczenia zmiany. Archiwum zawiera wersje zatwierdzone."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "MAREK",
+    "question": "Jak możesz mieć pewność, że nikt tam nie wszedł, skoro tego nie obserwowałeś?",
+    "result": {
+      "before": 7,
+      "after": 9,
+      "player": {
+        "role": "player",
+        "text": "Jak możesz mieć pewność, że nikt tam nie wszedł, skoro tego nie obserwowałeś?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Rozumiem. Proszę pytać, nawet niewygodnie, ale rzeczowo."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "MAREK",
+    "question": "Przypomnij wcześniejsze zeznanie o alibi.",
+    "result": {
+      "before": 9,
+      "after": 11,
+      "player": {
+        "role": "player",
+        "text": "Przypomnij wcześniejsze zeznanie o alibi."
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Wcześniej powiedziałem: „Rozumiem, dlaczego pan o to pyta. Nadzorowałem nocną zmianę. Byłem dostępny z biura, ale nie twierdzę, że przebywałem w nim bez przerwy. Nie wskażę osoby, która obserwowała mnie przez całą noc. Połączenia służbowe potwierdzą kontakt, a rejestr wejść tylko część przemieszczania.”"
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "MAREK",
+    "question": "Czy przyznajesz się do zabójstwa Leny?",
+    "result": {
+      "before": 11,
+      "after": 13,
+      "player": {
+        "role": "player",
+        "text": "Czy przyznajesz się do zabójstwa Leny?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "O śmierci Leny dowiedziałem się po alarmie. Nie widziałem ataku ani momentu odnalezienia jej."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "TOMASZ",
+    "question": "Gdzie przebywałeś podczas nocnej zmiany?",
+    "result": {
+      "before": 1,
+      "after": 3,
+      "player": {
+        "role": "player",
+        "text": "Gdzie przebywałeś podczas nocnej zmiany?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Pracowałem w dyspozytorni. Byłem na służbie jako dyspozytor."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "TOMASZ",
+    "question": "Kto może potwierdzić, że naprawdę tam byłeś?",
+    "result": {
+      "before": 3,
+      "after": 5,
+      "player": {
+        "role": "player",
+        "text": "Kto może potwierdzić, że naprawdę tam byłeś?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Pamiętam ten moment. Byłem na służbie jako dyspozytor. O 02:02 zgłosiłem alarm. To nie znaczy, że mam świadka dla każdej minuty przed alarmem. Meldunki i rejestr łączności radiowej potwierdzą, kiedy pracowałem przy konsoli. Nie mam człowieka, który potwierdzi każdą minutę mojej obecności."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "TOMASZ",
+    "question": "Nie pytam o dokument, tylko o to, co sam widziałeś.",
+    "result": {
+      "before": 5,
+      "after": 7,
+      "player": {
+        "role": "player",
+        "text": "Nie pytam o dokument, tylko o to, co sam widziałeś."
+      },
+      "npc": {
+        "role": "npc",
+        "text": "W dyspozytorni są zapisy zmian poleceń i łączności. W dyspozytorni trzymaliśmy historię poleceń i łączności."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "TOMASZ",
+    "question": "Jak możesz mieć pewność, że nikt tam nie wszedł, skoro tego nie obserwowałeś?",
+    "result": {
+      "before": 7,
+      "after": 9,
+      "player": {
+        "role": "player",
+        "text": "Jak możesz mieć pewność, że nikt tam nie wszedł, skoro tego nie obserwowałeś?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Dobra. Pytajmy dalej bez wyzwisk."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "TOMASZ",
+    "question": "Przypomnij wcześniejsze zeznanie o alibi.",
+    "result": {
+      "before": 9,
+      "after": 11,
+      "player": {
+        "role": "player",
+        "text": "Przypomnij wcześniejsze zeznanie o alibi."
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Wcześniej powiedziałem: „Pamiętam ten moment. Byłem na służbie jako dyspozytor. O 02:02 zgłosiłem alarm. To nie znaczy, że mam świadka dla każdej minuty przed alarmem. Meldunki i rejestr łączności radiowej potwierdzą, kiedy pracowałem przy konsoli. Nie mam człowieka, który potwierdzi każdą minutę mojej obecności.”"
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "TOMASZ",
+    "question": "Czy przyznajesz się do zabójstwa Leny?",
+    "result": {
+      "before": 11,
+      "after": 13,
+      "player": {
+        "role": "player",
+        "text": "Czy przyznajesz się do zabójstwa Leny?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Znalazłem Lenę przy stanowisku numer trzy i wezwałem pomoc. Nie widziałem, jak doszło do obrażeń."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "JANUSZ",
+    "question": "Gdzie przebywałeś podczas nocnej zmiany?",
+    "result": {
+      "before": 1,
+      "after": 3,
+      "player": {
+        "role": "player",
+        "text": "Gdzie przebywałeś podczas nocnej zmiany?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Pracowałem przy zleceniach i kolejce napraw w warsztacie. Miałem nocne obowiązki warsztatowe."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "JANUSZ",
+    "question": "Kto może potwierdzić, że naprawdę tam byłeś?",
+    "result": {
+      "before": 3,
+      "after": 5,
+      "player": {
+        "role": "player",
+        "text": "Kto może potwierdzić, że naprawdę tam byłeś?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "W warsztacie wszystko ma swoją kolejność. Miałem nocne obowiązki warsztatowe. Zlecenia pokazują moją pracę, ale nie rejestrują każdego kroku. Ludzie z warsztatu widywali mnie przy pracy, jednak nie podam jednego świadka na całą noc. Sprawdźmy konkretne zlecenie i godzinę."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "JANUSZ",
+    "question": "Nie pytam o dokument, tylko o to, co sam widziałeś.",
+    "result": {
+      "before": 5,
+      "after": 7,
+      "player": {
+        "role": "player",
+        "text": "Nie pytam o dokument, tylko o to, co sam widziałeś."
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Karty serwisowe powinny zawierać wykonane czynności. Zlecenia mamy w warsztacie."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "JANUSZ",
+    "question": "Jak możesz mieć pewność, że nikt tam nie wszedł, skoro tego nie obserwowałeś?",
+    "result": {
+      "before": 7,
+      "after": 9,
+      "player": {
+        "role": "player",
+        "text": "Jak możesz mieć pewność, że nikt tam nie wszedł, skoro tego nie obserwowałeś?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "No dobrze. Mówmy o faktach."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "JANUSZ",
+    "question": "Przypomnij wcześniejsze zeznanie o alibi.",
+    "result": {
+      "before": 9,
+      "after": 11,
+      "player": {
+        "role": "player",
+        "text": "Przypomnij wcześniejsze zeznanie o alibi."
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Wcześniej powiedziałem: „W warsztacie wszystko ma swoją kolejność. Miałem nocne obowiązki warsztatowe. Zlecenia pokazują moją pracę, ale nie rejestrują każdego kroku. Ludzie z warsztatu widywali mnie przy pracy, jednak nie podam jednego świadka na całą noc. Sprawdźmy konkretne zlecenie i godzinę.”"
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "JANUSZ",
+    "question": "Czy przyznajesz się do zabójstwa Leny?",
+    "result": {
+      "before": 11,
+      "after": 13,
+      "player": {
+        "role": "player",
+        "text": "Czy przyznajesz się do zabójstwa Leny?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "O tym, że Lena zginęła, dowiedziałem się po alarmie. Wcześniej kłóciliśmy się czasem o stan wagonu."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "ELZBIETA",
+    "question": "Gdzie przebywałeś podczas nocnej zmiany?",
+    "result": {
+      "before": 1,
+      "after": 3,
+      "player": {
+        "role": "player",
+        "text": "Gdzie przebywałeś podczas nocnej zmiany?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Zajmowałam się zgłoszeniami BHP i rejestrem zagrożeń. Wykonywałam obowiązki związane z BHP."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "ELZBIETA",
+    "question": "Kto może potwierdzić, że naprawdę tam byłeś?",
+    "result": {
+      "before": 3,
+      "after": 5,
+      "player": {
+        "role": "player",
+        "text": "Kto może potwierdzić, że naprawdę tam byłeś?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "To dla mnie trudna część tej sprawy. Wykonywałam obowiązki związane z BHP. Potrafię potwierdzić rozmowę z Leną o 21:47, ale nie całą późniejszą noc. Naszą rozmowę o 21:47 mogą potwierdzać wpisy dotyczące zgłoszenia. Nie mam świadka, który obserwował mnie bez przerwy później."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "ELZBIETA",
+    "question": "Nie pytam o dokument, tylko o to, co sam widziałeś.",
+    "result": {
+      "before": 5,
+      "after": 7,
+      "player": {
+        "role": "player",
+        "text": "Nie pytam o dokument, tylko o to, co sam widziałeś."
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Ważne jest, czy zgłoszenie zostało wysłane, a nie tylko zapisane jako szkic. Rejestr zgłoszeń BHP ma szkice i wysyłki."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "ELZBIETA",
+    "question": "Jak możesz mieć pewność, że nikt tam nie wszedł, skoro tego nie obserwowałeś?",
+    "result": {
+      "before": 7,
+      "after": 9,
+      "player": {
+        "role": "player",
+        "text": "Jak możesz mieć pewność, że nikt tam nie wszedł, skoro tego nie obserwowałeś?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Dziękuję. Chcę odpowiadać dokładnie."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "ELZBIETA",
+    "question": "Przypomnij wcześniejsze zeznanie o alibi.",
+    "result": {
+      "before": 9,
+      "after": 11,
+      "player": {
+        "role": "player",
+        "text": "Przypomnij wcześniejsze zeznanie o alibi."
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Wcześniej powiedziałam: „To dla mnie trudna część tej sprawy. Wykonywałam obowiązki związane z BHP. Potrafię potwierdzić rozmowę z Leną o 21:47, ale nie całą późniejszą noc. Naszą rozmowę o 21:47 mogą potwierdzać wpisy dotyczące zgłoszenia. Nie mam świadka, który obserwował mnie bez przerwy później.”"
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "ELZBIETA",
+    "question": "Czy przyznajesz się do zabójstwa Leny?",
+    "result": {
+      "before": 11,
+      "after": 13,
+      "player": {
+        "role": "player",
+        "text": "Czy przyznajesz się do zabójstwa Leny?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Lena mówiła mi o ryzyku związanym z TW-217. O jej śmierci usłyszałam dopiero po alarmie."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "KAMIL",
+    "question": "Gdzie przebywałeś podczas nocnej zmiany?",
+    "result": {
+      "before": 1,
+      "after": 3,
+      "player": {
+        "role": "player",
+        "text": "Gdzie przebywałeś podczas nocnej zmiany?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Zajmowałem się diagnostyką TW-217. Tej nocy prowadziłem diagnostykę."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "KAMIL",
+    "question": "Kto może potwierdzić, że naprawdę tam byłeś?",
+    "result": {
+      "before": 3,
+      "after": 5,
+      "player": {
+        "role": "player",
+        "text": "Kto może potwierdzić, że naprawdę tam byłeś?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Mogę opowiedzieć o diagnostyce. Tej nocy prowadziłem diagnostykę. Zapisy sesji pokażą jej przebieg, nie moje położenie w każdej sekundzie. Inni technicy mogli widzieć mnie przy diagnostyce, ale log sam nie jest świadkiem mojej obecności. Nie podam zmyślonego nazwiska."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "KAMIL",
+    "question": "Nie pytam o dokument, tylko o to, co sam widziałeś.",
+    "result": {
+      "before": 5,
+      "after": 7,
+      "player": {
+        "role": "player",
+        "text": "Nie pytam o dokument, tylko o to, co sam widziałeś."
+      },
+      "npc": {
+        "role": "npc",
+        "text": "W logu trzeba odróżniać błąd transmisji od nowej operacji. Surowy log i raport końcowy to dwa różne poziomy informacji."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "KAMIL",
+    "question": "Jak możesz mieć pewność, że nikt tam nie wszedł, skoro tego nie obserwowałeś?",
+    "result": {
+      "before": 7,
+      "after": 9,
+      "player": {
+        "role": "player",
+        "text": "Jak możesz mieć pewność, że nikt tam nie wszedł, skoro tego nie obserwowałeś?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Okej. Wolę spokojnie przejść przez logi."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "KAMIL",
+    "question": "Przypomnij wcześniejsze zeznanie o alibi.",
+    "result": {
+      "before": 9,
+      "after": 11,
+      "player": {
+        "role": "player",
+        "text": "Przypomnij wcześniejsze zeznanie o alibi."
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Wcześniej powiedziałem: „Mogę opowiedzieć o diagnostyce. Tej nocy prowadziłem diagnostykę. Zapisy sesji pokażą jej przebieg, nie moje położenie w każdej sekundzie. Inni technicy mogli widzieć mnie przy diagnostyce, ale log sam nie jest świadkiem mojej obecności. Nie podam zmyślonego nazwiska.”"
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "KAMIL",
+    "question": "Czy przyznajesz się do zabójstwa Leny?",
+    "result": {
+      "before": 11,
+      "after": 13,
+      "player": {
+        "role": "player",
+        "text": "Czy przyznajesz się do zabójstwa Leny?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Z Leną dyskutowaliśmy o odczytach wagonu. O tym, co wydarzyło się potem, dowiedziałem się po fakcie."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "MAGDALENA",
+    "question": "Gdzie przebywałeś podczas nocnej zmiany?",
+    "result": {
+      "before": 1,
+      "after": 3,
+      "player": {
+        "role": "player",
+        "text": "Gdzie przebywałeś podczas nocnej zmiany?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Prowadziłam audyt dokumentacji odbiorowej. Według rejestru sesja audytowa była aktywna od 01:30 do 02:00."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "MAGDALENA",
+    "question": "Kto może potwierdzić, że naprawdę tam byłeś?",
+    "result": {
+      "before": 3,
+      "after": 5,
+      "player": {
+        "role": "player",
+        "text": "Kto może potwierdzić, że naprawdę tam byłeś?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Pozostańmy przy konkretnym zakresie audytu. Według rejestru sesja audytowa była aktywna od 01:30 do 02:00. Nie twierdzę, że zapis sesji samodzielnie potwierdza moją obecność przy komputerze przez cały czas. Mogę wskazać rejestr sesji, ale nie jest on niezależnym świadkiem mojej fizycznej obecności. Nie wskażę osoby bez podstaw."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "MAGDALENA",
+    "question": "Nie pytam o dokument, tylko o to, co sam widziałeś.",
+    "result": {
+      "before": 5,
+      "after": 7,
+      "player": {
+        "role": "player",
+        "text": "Nie pytam o dokument, tylko o to, co sam widziałeś."
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Dokumentacja odbiorowa określa zakres czynności i podpisy. Dokumentacja audytu podlega wersjonowaniu."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "MAGDALENA",
+    "question": "Jak możesz mieć pewność, że nikt tam nie wszedł, skoro tego nie obserwowałeś?",
+    "result": {
+      "before": 7,
+      "after": 9,
+      "player": {
+        "role": "player",
+        "text": "Jak możesz mieć pewność, że nikt tam nie wszedł, skoro tego nie obserwowałeś?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Przyjmuję. Proszę pozostać przy ustaleniach."
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "MAGDALENA",
+    "question": "Przypomnij wcześniejsze zeznanie o alibi.",
+    "result": {
+      "before": 9,
+      "after": 11,
+      "player": {
+        "role": "player",
+        "text": "Przypomnij wcześniejsze zeznanie o alibi."
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Wcześniej powiedziałam: „Pozostańmy przy konkretnym zakresie audytu. Według rejestru sesja audytowa była aktywna od 01:30 do 02:00. Nie twierdzę, że zapis sesji samodzielnie potwierdza moją obecność przy komputerze przez cały czas. Mogę wskazać rejestr sesji, ale nie jest on niezależnym świadkiem mojej fizycznej obecności. Nie wskażę osoby bez podstaw.”"
+      },
+      "found": 13
+    }
+  },
+  {
+    "witness": "MAGDALENA",
+    "question": "Czy przyznajesz się do zabójstwa Leny?",
+    "result": {
+      "before": 11,
+      "after": 13,
+      "player": {
+        "role": "player",
+        "text": "Czy przyznajesz się do zabójstwa Leny?"
+      },
+      "npc": {
+        "role": "npc",
+        "text": "Lena kwestionowała zapisy odbiorowe. Nie posiadam osobistej obserwacji momentu jej śmierci."
+      },
+      "found": 13
+    }
+  }
+]

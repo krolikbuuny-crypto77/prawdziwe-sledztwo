@@ -1,0 +1,1 @@
+PASS API 6.17: AI-first v3; whole-question audit; incomplete/unentailed fallback; backward-compatible v2 request

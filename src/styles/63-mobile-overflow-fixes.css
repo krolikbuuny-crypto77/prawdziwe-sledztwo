@@ -1,0 +1,78 @@
+
+@media (max-width: 900px) {
+  /* Zawijane skróty w modułach zamiast jednego przewijanego rzędu */
+  .sv2-subnav {
+    display:flex !important;
+    flex-wrap:wrap !important;
+    overflow-x:visible !important;
+    overflow-y:visible !important;
+    width:100%; max-width:100%; min-width:0;
+    gap:6px !important;
+  }
+  .sv2-subnav-label {flex:0 0 100% !important; margin:0 !important}
+  .sv2-subnav button {
+    flex:1 1 auto !important;
+    min-width:0 !important;max-width:100%;
+    white-space:normal !important;
+    overflow-wrap:anywhere;
+    text-align:center;
+  }
+
+  /* Lista świadków: karty w siatce, nigdy poziomy slider */
+  #interview .charactergrid,
+  #interview .characterlist {min-width:0 !important;max-width:100% !important;}
+  #interview .characterlist {
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    align-items:stretch;
+    overflow:visible !important;
+    max-height:none !important;
+    gap:9px !important;
+  }
+  /* Zachowaj mobilne zakładki — rozmowa ukrywa listę świadków */
+  #interview.psm-show-chat .characterlist {display:none !important}
+  #interview.psm-show-witnesses .charactergrid>.chat {display:none !important}
+  #interview .characterlist .character {
+    min-width:0 !important;
+    width:100% !important;
+    max-width:100% !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere;
+    box-sizing:border-box;
+  }
+  #interview .characterlist .charactercopy,
+  #interview .characterlist .charactercopy * {
+    min-width:0 !important;
+    max-width:100% !important;
+    overflow-wrap:anywhere;
+    white-space:normal !important;
+  }
+  #interview .chat, #interview .chathead,
+  #interview .chatfoot {min-width:0;max-width:100%}
+
+  /* Liczniki oględzin i dedukcji: dwie czytelne kolumny */
+  #inspection12 .sc-stats,
+  #deduction .dd-metrics {
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+    width:100%;max-width:100%;min-width:0;
+    overflow:visible !important;
+    padding:0 !important;
+  }
+  #inspection12 .sc-stats > *,
+  #deduction .dd-metrics > * {
+    flex:none !important;
+    min-width:0 !important;
+    max-width:none !important;
+    width:auto !important;
+    box-sizing:border-box;
+    overflow-wrap:anywhere;
+  }
+  #inspection12 .sc-stats > * *,
+  #deduction .dd-metrics > * * {min-width:0;max-width:100%;overflow-wrap:anywhere}
+}
+@media (max-width: 460px) {
+  #interview .characterlist {grid-template-columns:minmax(0,1fr) !important}
+  #interview .characterlist .character {text-align:left}
+}

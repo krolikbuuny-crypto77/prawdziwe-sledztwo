@@ -1,0 +1,16 @@
+/* Przesłuchania 5.2: bez obcych komponentów, z dotykowymi przyciskami. */
+.ps52{border-bottom:1px solid #43525c;margin:0 0 11px;padding:4px 0 13px}
+.ps52-eyebrow{font-size:10px;letter-spacing:.13em;color:#dfbd86;font-weight:700;margin:3px 0 9px}
+.ps52-tactics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:10px}
+.ps52-tactics button{font-size:12px;min-height:42px;padding:7px 6px;text-align:center;cursor:pointer;border-radius:6px;border:1px solid #475862;background:#172730;color:#cfdee2}
+.ps52-tactics button[aria-pressed="true"]{background:#4a3622;color:#fbe0ad;border-color:#bd915a}
+.ps52-state{display:flex;flex-wrap:wrap;gap:5px;margin:9px 0 0}
+.ps52-state span{padding:4px 7px;background:#1e2d36;color:#c2d1d6;border-radius:4px;border:1px solid #3a4c55;font-size:11px}
+.ps52-state b{color:#f0cb91}
+.ps52-cases{margin:10px 0 0;padding:9px;border:1px solid #465862;border-radius:5px;background:#0e1d26}
+.ps52-cases summary{font-size:12px;color:#e6c08a;cursor:pointer}
+.ps52-case{display:grid;gap:4px;border-top:1px solid #32434b;padding:9px 2px;font-size:11px}
+.ps52-case:first-of-type{margin-top:8px}.ps52-case b{font-size:12px}.ps52-case small{color:#aec2ca}.ps52-case .ps52-quote{color:#d3c2a5;line-height:1.5}
+.ps52-hearing{padding:12px 13px;margin:0 0 15px;border-left:3px solid #bda27b;background:#1c282e;display:grid;gap:5px;border-radius:5px;font-size:12px;color:#c7d2d2}
+.ps52-hearing b{color:#e5c58d}
+@media(max-width:380px){.ps52-tactics button{font-size:11px;padding:7px 3px}.ps52-state{display:grid;grid-template-columns:1fr 1fr}}

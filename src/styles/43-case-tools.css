@@ -1,0 +1,18 @@
+
+/* Case tools live in the case navigation, not above active inputs or inspection photos. */
+.ps76-tools{margin-top:auto;padding:18px 9px 6px;border-top:1px solid #33434b;display:grid;gap:9px}
+.ps76-tools .ps76-caption{font-size:10px;color:#b9a783;letter-spacing:.11em;font-weight:700;text-transform:uppercase}
+#psFab{position:static!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;width:100%!important;height:auto!important;min-height:44px!important;display:block!important;font-size:12px!important;padding:10px 13px!important;border-radius:7px!important;text-align:left;box-shadow:none!important;transform:none!important;letter-spacing:normal!important}
+#psPanel{left:calc(260px + 16px);bottom:22px;width:min(390px,calc(100vw - 292px));max-height:min(78dvh,620px);overscroll-behavior:contain}
+#psFab:focus-visible,.ps76-tools button:focus-visible{outline:2px solid #f1cb90;outline-offset:3px}
+@media(max-width:950px){
+ .sidebar .brand{gap:9px}
+ .sidebar .brand-copy{min-width:0;flex:1}
+ .sidebar .brand-copy b{font-size:13px;letter-spacing:.02em;white-space:normal;overflow-wrap:break-word;line-height:1.35}
+ .sidebar .brand-copy span{font-size:9px}
+ #toast{z-index:25!important;pointer-events:none;left:12px;right:12px;bottom:12px;max-width:calc(100vw - 24px);font-size:12px}
+ .ps76-tools{margin-top:18px;padding:15px 8px 25px}
+ #psPanel{top:70px;left:12px;right:12px;bottom:auto;width:auto;max-height:calc(100dvh - 88px);z-index:70}
+}
+@media(max-width:420px){#psPanel .ps-card{padding:14px}}
+@media(prefers-reduced-motion:reduce){#psFab{transition:none!important}}

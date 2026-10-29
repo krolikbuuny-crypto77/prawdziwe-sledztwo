@@ -1,0 +1,163 @@
+
+:root{
+  --wow-gold:#f3cb87;
+  --wow-gold-soft:rgba(243,203,135,.22);
+  --wow-cyan:rgba(116,196,221,.20);
+  --wow-panel:rgba(19,27,35,.84);
+  --wow-panel-2:rgba(25,36,46,.88);
+  --wow-shadow:0 18px 60px rgba(0,0,0,.36);
+}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(circle at 12% 8%, rgba(243,203,135,.12), transparent 26%),
+    radial-gradient(circle at 88% 16%, rgba(116,196,221,.10), transparent 24%),
+    radial-gradient(circle at 52% 100%, rgba(243,203,135,.06), transparent 32%),
+    linear-gradient(180deg,#081018 0%,#0b1118 42%,#0d141c 100%);
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size:26px 26px; mask-image:linear-gradient(180deg, rgba(0,0,0,.55), transparent 80%);
+}
+.layout,.main,.content,.sidebar{position:relative; z-index:1}
+.sidebar{
+  background:linear-gradient(180deg, rgba(11,17,23,.95), rgba(14,21,28,.92));
+  border-right:1px solid rgba(255,255,255,.06);
+  backdrop-filter:blur(18px);
+  box-shadow:18px 0 60px rgba(0,0,0,.22);
+}
+.sidebar::before{
+  content:""; position:absolute; inset:0 0 auto 0; height:220px; pointer-events:none;
+  background:radial-gradient(circle at 25% 0%, rgba(243,203,135,.16), transparent 45%);
+}
+.brand{
+  margin-bottom:18px; border-bottom:1px solid rgba(255,255,255,.08);
+}
+.seal{
+  border-radius:14px; border-color:rgba(243,203,135,.55)!important;
+  box-shadow:0 0 0 1px rgba(243,203,135,.22) inset, 0 10px 28px rgba(0,0,0,.28);
+}
+.brand-copy b{letter-spacing:.12em}
+.brand-copy span,.ui14-navcaption,.eyebrow{color:#dcb57a!important}
+.nav{gap:10px}
+.nav button{
+  position:relative; border:1px solid rgba(255,255,255,.06); border-radius:16px;
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+  box-shadow:0 10px 24px rgba(0,0,0,.16);
+  transition:transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.nav button .num{
+  border-radius:999px; min-width:34px; padding:3px 8px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
+}
+.nav button:hover{transform:translateX(4px); border-color:rgba(243,203,135,.28); box-shadow:0 14px 28px rgba(0,0,0,.22)}
+.nav button.active{
+  background:linear-gradient(180deg, rgba(243,203,135,.22), rgba(243,203,135,.08) 32%, rgba(116,196,221,.09));
+  border-color:rgba(243,203,135,.45); box-shadow:0 18px 36px rgba(0,0,0,.28), 0 0 0 1px rgba(243,203,135,.10) inset;
+}
+.nav button.active::before{
+  content:""; position:absolute; left:10px; top:50%; transform:translateY(-50%);
+  width:6px; height:68%; border-radius:999px; background:linear-gradient(180deg, #f7d59c, #9dd5e7);
+  box-shadow:0 0 20px rgba(243,203,135,.45);
+}
+.topbar{
+  position:sticky; top:0; z-index:6; margin:0 0 18px;
+  background:linear-gradient(180deg, rgba(10,16,23,.88), rgba(10,16,23,.74));
+  backdrop-filter:blur(16px); border-bottom:1px solid rgba(255,255,255,.06);
+  box-shadow:0 10px 30px rgba(0,0,0,.18);
+}
+.ui14-location strong{font-size:18px; letter-spacing:.01em}
+.content{padding-bottom:54px}
+.section{
+  animation:wowFade .28s ease;
+}
+@keyframes wowFade{from{opacity:.0; transform:translateY(10px)}to{opacity:1; transform:none}}
+.sectionheading,.heroText,.surface,.searchbox,.characterlist,.chat,.photos img,
+.locationgrid > *, .cross3-inline, .ui14-dashboard, .ui14-stats > *, .searchResults,
+#deductionBoard, #finalBoard, .timelinecard, .labpanel, .labcard, .caseboard, .modalContent{
+  background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012)) !important;
+  border:1px solid rgba(255,255,255,.08) !important;
+  box-shadow:var(--wow-shadow);
+  backdrop-filter:blur(14px);
+}
+.hero{
+  gap:20px;
+}
+.heroText{
+  position:relative; overflow:hidden; border-radius:28px!important;
+  background:
+    radial-gradient(circle at top right, rgba(243,203,135,.16), transparent 32%),
+    linear-gradient(145deg, rgba(26,36,46,.92), rgba(15,21,28,.92)) !important;
+}
+.heroText::after{
+  content:""; position:absolute; inset:auto -10% -40% auto; width:260px; height:260px; border-radius:50%;
+  background:radial-gradient(circle, rgba(116,196,221,.18), transparent 62%); pointer-events:none;
+}
+.case-kicker{display:inline-flex; align-items:center; gap:10px; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08)}
+.case-kicker-mark{box-shadow:0 0 0 4px rgba(243,203,135,.12),0 0 18px rgba(243,203,135,.45)}
+.case-lead{max-width:72ch; color:#d8dfe1}
+.case-meta span{
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:999px; padding:8px 12px;
+}
+.photos{gap:16px}
+.photos img{
+  border-radius:22px; overflow:hidden; min-height:170px; object-fit:cover;
+  transform:translateZ(0); transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+}
+.photos img:hover{transform:translateY(-4px) scale(1.01); border-color:rgba(243,203,135,.36)!important; box-shadow:0 22px 44px rgba(0,0,0,.28)}
+.btn{
+  border:none; border-radius:14px; padding:12px 18px;
+  background:linear-gradient(135deg, #f3cb87, #dba868);
+  color:#1b130a; font-weight:700; letter-spacing:.02em;
+  box-shadow:0 12px 26px rgba(219,168,104,.24), 0 1px 0 rgba(255,255,255,.18) inset;
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.btn:hover{transform:translateY(-2px); box-shadow:0 16px 28px rgba(219,168,104,.28), 0 1px 0 rgba(255,255,255,.18) inset; filter:saturate(1.03)}
+.btn.alt,
+button.alt{
+  background:linear-gradient(135deg, rgba(117,194,220,.18), rgba(117,194,220,.08))!important; color:#e8f6ff!important;
+  border:1px solid rgba(117,194,220,.24)!important; box-shadow:0 12px 24px rgba(0,0,0,.2)!important;
+}
+.input,input:not([type=checkbox]):not([type=radio]),select,textarea{
+  border-radius:14px!important; border:1px solid rgba(255,255,255,.10)!important;
+  background:rgba(8,13,18,.6)!important; box-shadow:0 8px 22px rgba(0,0,0,.16) inset;
+}
+textarea{min-height:120px}
+.surface,.sectionheading,.searchbox,.characterlist,.chat,.ui14-dashboard{border-radius:24px!important}
+.ui14-dashboard-head,.sectionheading{position:relative; overflow:hidden}
+.ui14-dashboard-head::after,.sectionheading::after{
+  content:""; position:absolute; inset:0 auto 0 0; width:6px; border-radius:999px; background:linear-gradient(180deg, #f3cb87, #78c8e4);
+}
+.ui14-stats{gap:14px}
+.ui14-stats > *{
+  border-radius:20px; overflow:hidden; position:relative;
+}
+.ui14-stats > *::before{
+  content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,.03), transparent 55%); pointer-events:none;
+}
+.characterlist,.chat{overflow:hidden}
+.characterlist button,.charactercard,.charbtn{
+  border-radius:16px!important;
+}
+.chathead{
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.chatlog > *, .bubble, .msg, .chatmsg{
+  border-radius:18px!important;
+}
+.cross3-inline{
+  border-left:4px solid rgba(243,203,135,.55); padding:14px 16px!important; color:#dbe4e7;
+}
+.searchResults,.searchbox,.locationgrid > *{border-radius:20px!important}
+.surface img, .detail-photo, .macro-photo, .scene-photo, .inspection-photo, .evidence-photo{border-radius:18px}
+hr{border:none; height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent)}
+::-webkit-scrollbar{width:12px;height:12px}
+::-webkit-scrollbar-track{background:rgba(255,255,255,.03)}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg, rgba(243,203,135,.35), rgba(116,196,221,.22)); border-radius:999px; border:2px solid rgba(8,12,17,.9)}
+@media (max-width: 920px){
+  .topbar{margin-bottom:14px}
+  .heroText,.sectionheading,.surface,.searchbox,.characterlist,.chat,.ui14-dashboard{border-radius:20px!important}
+  .photos img{min-height:140px}
+}

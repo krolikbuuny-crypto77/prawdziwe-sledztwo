@@ -1,0 +1,63 @@
+/* Original score / polished casefile UI — no network resources */
+:root {--ps80-ink:#080f16;--ps80-paper:#18242c;--ps80-gold:#e4bb81;--ps80-ice:#a9c4cc;}
+::selection {background:#b48d52;color:#101820;}
+#overview .hero{box-shadow:0 24px 92px rgba(0,0,0,.57), 0 0 0 1px rgba(244,208,151,.08) inset!important;}
+#overview .hero::after{border-color:rgba(230,191,135,.23)!important;}
+#overview .hero h1{text-wrap:balance;}
+#overview .case-lead{font-size:clamp(13px,1.12vw,16px)!important;line-height:1.76!important;}
+#overview .case-meta span{border-color:rgba(215,179,117,.23)!important;}
+.sidebar{background:linear-gradient(180deg,#0a131b 0%,#0b1720 62%,#080e14 100%)!important;}
+.sidebar .nav button{font-size:13px!important;position:relative;}
+.sidebar .nav button:not(.active):hover{border-color:rgba(234,197,137,.3)!important;}
+.sidebar .brand{position:relative;}
+.sidebar .brand:after{content:"";position:absolute;bottom:-1px;left:0;width:52px;height:1px;background:#c99c5a;box-shadow:0 0 12px rgba(212,173,106,.4);}
+.topbar{border-bottom:1px solid rgba(231,187,119,.24)!important;}
+.topbar .ui14-location strong{color:#f5e9d6!important;}
+#mainContent{position:relative;}
+.sectionheading{border-bottom:1px solid rgba(218,183,134,.12);padding-bottom:16px;}
+.sectionheading h2,.ev-header h2{font-family:Georgia,'Times New Roman',serif!important;letter-spacing:-.018em!important;}
+.sectionheading p{color:#b7c5cc!important;}
+.ui14-dashboard,.ui14-module,#ps70Pulse,.ps69-entry{box-shadow:0 13px 35px rgba(1,8,14,.19)!important;}
+.ui14-module:hover{border-color:rgba(229,185,117,.5)!important;}
+#evidence .ev-index,#evidence .ev-reader{box-shadow:0 15px 50px rgba(0,0,0,.22)!important;}
+#evidence .ev-sheet{background:linear-gradient(155deg,#e8e0c8,#cfc5aa)!important;}
+#interview .chat{border:1px solid rgba(222,181,113,.18)!important;}
+#interview .chatlog{background:radial-gradient(circle at 80% 0%,rgba(82,114,128,.055),transparent 47%),linear-gradient(180deg,#101d26,#0a141c)!important;}
+#interview .bubble.npc{background:linear-gradient(160deg,#253743,#1b2b34)!important;color:#f1f0e9!important;border:1px solid rgba(164,197,209,.16)!important;box-shadow:0 5px 21px rgba(0,0,0,.17);}
+#interview .bubble.player{background:linear-gradient(155deg,#59422d,#34291e)!important;color:#f7e8d1!important;border:1px solid rgba(240,196,130,.2)!important;}
+#interview .bubble span{color:#dfbe91;opacity:1;}
+#chatInput{min-height:78px!important;}
+#interview .character.active{box-shadow:inset 3px 0 0 #d4ae74,0 12px 30px rgba(0,0,0,.2)!important;}
+.btn,.nav button,.ui14-module,button{touch-action:manipulation;}
+.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible {outline:2px solid #f5c98b!important;outline-offset:3px!important;}
+#ps70Pulse h3{font-family:Georgia,'Times New Roman',serif;font-weight:550;}
+.ps69-entry{background:linear-gradient(145deg,#1b2932,#101b24)!important;border-color:rgba(218,184,133,.26)!important;}
+#ps72Last .ps72-fact{border-color:rgba(204,172,126,.2)!important;}
+/* Small, player-facing score controller in the top bar. */
+#ps80AudioBar{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-left:auto;position:relative;flex:0 0 auto;z-index:13}
+#ps80MusicToggle,#ps80MusicOptions{font:600 12px/1.2 system-ui,-apple-system,'Segoe UI',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:39px;border:1px solid rgba(229,190,128,.34);color:#ead8ba;background:linear-gradient(160deg,rgba(44,49,49,.9),rgba(15,25,31,.96));border-radius:10px;padding:8px 12px;box-shadow:0 5px 18px rgba(0,0,0,.19);white-space:nowrap;transition:background .18s,border-color .18s;}
+#ps80MusicToggle:hover,#ps80MusicOptions:hover{background:#283039;border-color:rgba(238,199,135,.7);}
+#ps80MusicToggle[aria-pressed="true"]{background:linear-gradient(125deg,#564129,#322e29);border-color:#d1ab74;color:#ffe2b2;}
+#ps80MusicToggle .ps80-musical{font-size:18px;line-height:1;opacity:.9;}
+#ps80MusicToggle[aria-pressed="true"] .ps80-musical{color:#f6d395;}
+#ps80MusicOptions{width:39px;padding:5px;font-size:19px;}
+#ps80Settings{position:absolute;top:calc(100% + 12px);right:0;width:284px;max-width:calc(100vw - 24px);padding:17px 18px 16px;background:linear-gradient(160deg,#202c33,#101b24);border:1px solid rgba(239,199,138,.43);border-radius:13px;box-shadow:0 22px 60px rgba(0,0,0,.5);color:#ede6da;z-index:50;}
+#ps80Settings[hidden]{display:none!important;}
+#ps80Settings::before{content:"";position:absolute;top:-7px;right:15px;width:12px;height:12px;transform:rotate(45deg);background:#202b33;border-left:1px solid rgba(239,199,138,.43);border-top:1px solid rgba(239,199,138,.43);}
+.ps80-eyebrow{display:block;letter-spacing:.19em;color:#e5bd7f;font-size:10px;font-weight:750;margin-bottom:5px;text-transform:uppercase;}
+.ps80-track{font:500 16px/1.3 Georgia,'Times New Roman',serif;color:#f1e8d9;margin-bottom:13px;}
+.ps80-volume-label{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#c6d4d6;margin-bottom:9px;}
+#ps80Volume{display:block;appearance:auto!important;width:100%;height:24px;margin:0 0 12px;accent-color:#d7b480;cursor:pointer;box-shadow:none!important;border:0!important;background:transparent!important;padding:0!important;}
+.ps80-checkrow{display:flex;gap:9px;align-items:center;min-height:36px;font-size:12px;color:#d4dcd9;cursor:pointer;}
+#ps80Effects{width:17px;height:17px;accent-color:#cfa66e;flex-shrink:0;}
+.ps80-muted-note{display:block;color:#a3b6bc;font-size:11px;line-height:1.5;margin-top:9px;}
+.ps80-audio-indicator{display:inline-flex;gap:3px;align-items:end;height:12px;}
+.ps80-audio-indicator i{height:4px;width:2px;border-radius:2px;background:#dfb677;display:block;}
+#ps80MusicToggle[aria-pressed="true"] .ps80-audio-indicator i:nth-child(1){animation:ps80Equal .9s infinite alternate}
+#ps80MusicToggle[aria-pressed="true"] .ps80-audio-indicator i:nth-child(2){animation:ps80Equal .65s .15s infinite alternate}
+#ps80MusicToggle[aria-pressed="true"] .ps80-audio-indicator i:nth-child(3){animation:ps80Equal .8s .25s infinite alternate}
+@keyframes ps80Equal{to{height:11px;}}
+@media(max-width:950px){#ps80AudioBar{gap:5px}#ps80MusicToggle{padding:6px 10px;min-width:38px}#ps80MusicOptions{width:38px}#ps80MusicToggle .ps80-label{display:none}#ps80MusicToggle .ps80-audio-indicator{display:none}}
+@media(max-width:440px){.topbar{gap:8px!important;padding-left:11px!important;padding-right:11px!important;} .topbar .ui14-top-left{min-width:0;flex:1;} .ui14-location{min-width:0;} .ui14-top-label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;} .ui14-location strong{font-size:16px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px;display:block;}#ps80MusicToggle,#ps80MusicOptions{min-height:36px;width:36px;min-width:36px;border-radius:9px;padding:4px!important;}#ps80AudioBar{gap:4px;}#ps80Settings{top:calc(100% + 10px);right:-2px;}}
+@media(max-width:360px){.ui14-location strong{max-width:135px;}.topbar .ui14-top-label{font-size:8px!important;}}
+@media(prefers-reduced-motion:reduce){#ps80MusicToggle .ps80-audio-indicator i{animation:none!important;} .nav button,.btn,.ui14-module{transition:none!important;}}

@@ -1,0 +1,20 @@
+
+.ps66-root{border:1px solid #455964;background:#111d26;border-radius:11px;margin:16px 0;padding:12px 15px;min-width:0}
+.ps66-root>summary{cursor:pointer;font-weight:750;color:#ead3a8;padding:8px 2px;min-height:38px;line-height:1.5}
+.ps66-root p,.ps66-explain p{font-size:12px;color:#c1cbd0;line-height:1.65;margin:8px 0}
+.ps66-questions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:13px 0}
+.ps66-question{border:1px solid #4a5c64;border-radius:7px;background:#1a2932;color:#e0e6e2;padding:10px;text-align:left;font-size:12px;min-height:45px}
+.ps66-question[aria-pressed="true"]{border-color:#d4ac71;background:#382d21;color:#ffdfaf}
+.ps66-detail{border:1px solid #4f626b;background:#182732;border-radius:8px;padding:14px;min-width:0}
+.ps66-detail h4{font-size:16px;line-height:1.4;margin:5px 0 8px}
+.ps66-metric{font-size:11px;color:#e7c996;line-height:1.6}
+.ps66-routes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.ps66-route{border:1px solid #41515b;background:#14212a;border-radius:7px;padding:12px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.ps66-route b{font-size:12px;color:#ebd4a5}.ps66-route small{font-size:11px;color:#bdcbcf;line-height:1.5}
+.ps66-route button{margin-top:auto;align-self:flex-start;border:1px solid #6a7b83;background:#2b424e;border-radius:6px;color:#ffe0b1;font-size:12px;padding:9px 13px;min-height:42px}
+.ps66-explain{margin:12px 0 18px;padding:10px 12px;border:1px solid #425761;background:#172630;border-radius:8px}
+.ps66-explain>summary{font-size:12px;min-height:38px;padding:9px 0;cursor:pointer;font-weight:700;color:#e9c690}
+.ps66-analysis{font-size:12px;color:#d4dfe0;line-height:1.7;white-space:pre-line;padding:10px;background:#10202a;border:1px solid #384d56;border-radius:6px}
+.ps66-check{font:inherit;font-size:12px;border:1px solid #6f7c81;background:#273943;color:#edd5ad;padding:8px 12px;min-height:41px;border-radius:6px;margin-bottom:9px}
+.ps66-noreveal{display:block;margin-top:10px;color:#98aab1;font-size:11px}
+@media(max-width:620px){.ps66-questions,.ps66-routes{grid-template-columns:1fr}.ps66-root{padding:10px}.ps66-detail{padding:11px}.ps66-route button{width:100%;text-align:center}}

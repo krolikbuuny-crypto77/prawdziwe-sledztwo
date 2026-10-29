@@ -1,0 +1,108 @@
+{
+  "v": [
+    {
+      "id": "MAREK",
+      "replies": [
+        {
+          "q": "Czy karta T-17 potwierdza obecność?",
+          "a": "Nie wiem, kto wtedy użył tej karty. Nie widziałem tego."
+        },
+        {
+          "q": "Co pamiętasz z nocnej zmiany?",
+          "a": "Nadzorowałem nocną zmianę. Podczas tej zmiany kierowałem pracą zajezdni, głównie z biura."
+        },
+        {
+          "q": "Czy przyznajesz się do zabójstwa Leny?",
+          "a": "Nie przyznaję się do zabójstwa Leny. Proszę oddzielić moje decyzje służbowe od takiego zarzutu."
+        }
+      ]
+    },
+    {
+      "id": "TOMASZ",
+      "replies": [
+        {
+          "q": "Czy karta T-17 potwierdza obecność?",
+          "a": "Nie widziałem, kto użył tej karty. Sam zapis nie pokaże mi osoby."
+        },
+        {
+          "q": "Co pamiętasz z nocnej zmiany?",
+          "a": "Byłem na służbie jako dyspozytor. Pracowałem w dyspozytorni."
+        },
+        {
+          "q": "Czy przyznajesz się do zabójstwa Leny?",
+          "a": "Nie przyznaję się do zabójstwa Leny. Jeśli mnie o to oskarżasz, pytaj wprost i przedstaw podstawy."
+        }
+      ]
+    },
+    {
+      "id": "JANUSZ",
+      "replies": [
+        {
+          "q": "Czy karta T-17 potwierdza obecność?",
+          "a": "Tego z kartą nie widziałem. Nie będę zgadywał, kto ją miał."
+        },
+        {
+          "q": "Co pamiętasz z nocnej zmiany?",
+          "a": "Miałem nocne obowiązki warsztatowe. Pracowałem przy zleceniach i kolejce napraw w warsztacie."
+        },
+        {
+          "q": "Czy przyznajesz się do zabójstwa Leny?",
+          "a": "Nie przyznaję się. Kłótnia z Leną to nie jest przyznanie się do jej zabójstwa."
+        }
+      ]
+    },
+    {
+      "id": "ELZBIETA",
+      "replies": [
+        {
+          "q": "Czy karta T-17 potwierdza obecność?",
+          "a": "Nie wiem, kto użył T-17. Nie byłam przy tym wejściu."
+        },
+        {
+          "q": "Co pamiętasz z nocnej zmiany?",
+          "a": "Wykonywałam obowiązki związane z BHP. Zajmowałam się zgłoszeniami BHP i rejestrem zagrożeń."
+        },
+        {
+          "q": "Czy przyznajesz się do zabójstwa Leny?",
+          "a": "Nie przyznaję się do zabójstwa Leny. To poważny zarzut i chcę wiedzieć, na czym go opierasz."
+        }
+      ]
+    },
+    {
+      "id": "KAMIL",
+      "replies": [
+        {
+          "q": "Czy karta T-17 potwierdza obecność?",
+          "a": "Sam zapis T-17 nie mówi mi, kto trzymał kartę w chwili użycia."
+        },
+        {
+          "q": "Co pamiętasz z nocnej zmiany?",
+          "a": "Tej nocy prowadziłem diagnostykę. Zajmowałem się diagnostyką TW-217."
+        },
+        {
+          "q": "Czy przyznajesz się do zabójstwa Leny?",
+          "a": "Nie przyznaję się do zabójstwa Leny. Moja praca przy wagonie nie jest odpowiedzią na taki zarzut."
+        }
+      ]
+    },
+    {
+      "id": "MAGDALENA",
+      "replies": [
+        {
+          "q": "Czy karta T-17 potwierdza obecność?",
+          "a": "Zapis użycia karty nie pokazuje człowieka przy drzwiach. Co dokładnie ma potwierdzać?"
+        },
+        {
+          "q": "Co pamiętasz z nocnej zmiany?",
+          "a": "Według rejestru sesja audytowa była aktywna od 01:30 do 02:00. Prowadziłam audyt dokumentacji odbiorowej."
+        },
+        {
+          "q": "Czy przyznajesz się do zabójstwa Leny?",
+          "a": "Nie przyznaję się do zabójstwa Leny. Proszę wskazać, jakie fakty mają uzasadniać to oskarżenie."
+        }
+      ]
+    }
+  ],
+  "unchanged": true,
+  "overflow": 0
+}

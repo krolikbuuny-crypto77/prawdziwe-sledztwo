@@ -1,0 +1,50 @@
+
+/* Filmowy montaz scen 8.2: warstwa wyłącznie wizualna, bez zmian reguł śledztwa. */
+:root{--ps82-brass:#d4ac75;--ps82-veil:rgba(5,12,18,.66);--ps82-frame:rgba(219,179,118,.22)}
+#mainContent{isolation:isolate}
+#mainContent:before{content:"";position:absolute;inset:0 0 auto;height:260px;background:radial-gradient(ellipse 62% 90% at 79% 0%,rgba(160,132,89,.065),transparent 72%);pointer-events:none;z-index:-1}
+#overview .hero{position:relative;overflow:hidden}
+#overview .hero:before{content:"";position:absolute;inset:0;z-index:2;border:1px solid rgba(223,189,131,.2);border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 58px rgba(3,9,14,.14)}
+#overview .heroText{position:relative;z-index:2}
+#overview .photos{isolation:isolate}
+#overview .photos img{will-change:auto;transform-origin:50% 50%}
+#overview .hero .case-kicker-mark{box-shadow:0 0 14px rgba(222,175,100,.23)}
+#overview .case-meta{border-top:1px solid rgba(224,191,141,.14);padding-top:10px}
+#overview .ui14-dashboard,#overview #ps70Pulse{border-color:rgba(218,184,129,.25)!important}
+.sectionheading,.ev-header{position:relative}
+.sectionheading:after{content:"";display:block;position:absolute;bottom:-1px;left:0;width:min(96px,26%);height:1px;background:linear-gradient(90deg,rgba(241,196,129,.75),transparent);pointer-events:none}
+.sectionheading .eyebrow,.ev-kicker{letter-spacing:.17em}
+#docList .ev-file,#interview .character,#scRooms button{transition:background-color .16s ease,border-color .16s ease,box-shadow .18s ease}
+#docList .ev-file.selected{box-shadow:inset 3px 0 0 rgba(229,184,115,.83),inset 0 0 19px rgba(215,177,116,.06)}
+#evidence .ev-sheet{position:relative;box-shadow:0 10px 28px rgba(0,0,0,.21),inset 0 0 0 1px rgba(115,87,45,.18)!important}
+#evidence .ev-sheet:after{content:"";position:absolute;inset:9px;pointer-events:none;border:1px solid rgba(95,75,50,.08)}
+#interview .chathead{background:linear-gradient(98deg,rgba(197,155,99,.08),transparent 58%);border-bottom:1px solid rgba(214,173,113,.17)}
+#interview .chatfoot{border-top:1px solid rgba(220,180,128,.22)}
+#interview .bubble.npc{border-left:2px solid rgba(133,164,180,.34)!important}
+#interview .bubble.player{border-right:2px solid rgba(238,196,132,.5)!important}
+#et1Photos .et1-photo-stage{position:relative;isolation:isolate}
+#et1Photos .et1-photo-stage:after{content:"";position:absolute;inset:0;z-index:6;pointer-events:none;border:1px solid rgba(203,185,150,.3);background:linear-gradient(transparent 72%,rgba(9,16,24,.09));}
+#et1Photos.ps82-scan .et1-photo-stage:before{content:"";position:absolute;inset:0;pointer-events:none;z-index:5;background:linear-gradient(105deg,transparent 18%,rgba(232,211,161,.12) 48%,transparent 72%);animation:ps82-scan .7s ease-out both}
+#final .surface,#deduction .surface{border-color:rgba(183,158,113,.23)}
+#ps82Moment{position:fixed;top:82px;left:50%;width:min(400px,calc(100vw - 30px));z-index:60;pointer-events:none;visibility:hidden;opacity:0;transform:translate3d(-50%,-8px,0);padding:13px 17px 13px 21px;border:1px solid rgba(234,195,138,.5);border-left:3px solid var(--ps82-brass);border-radius:9px;background:linear-gradient(120deg,rgba(24,39,49,.97),rgba(11,24,33,.97));box-shadow:0 17px 50px rgba(0,0,0,.42),0 0 0 1px rgba(255,255,255,.045) inset;text-align:left;transition:opacity .22s,transform .22s,visibility .22s}
+#ps82Moment.ps82-visible{visibility:visible;opacity:1;transform:translate3d(-50%,0,0)}
+#ps82Moment .ps82-kicker{display:block;letter-spacing:.18em;color:#e6c391;font-size:10px;font-weight:780;margin-bottom:4px}
+#ps82Moment strong{font:500 18px/1.3 Georgia,'Times New Roman',serif;color:#f9e8d1}
+#ps82Moment .ps82-sub{display:block;color:#b9cbd0;font-size:12px;line-height:1.5;margin-top:5px}
+#ps82Motion{width:17px;height:17px;accent-color:#cfa66e;flex-shrink:0}
+#ps82SceneSweep{position:fixed;inset:0;z-index:54;pointer-events:none;opacity:0;background:linear-gradient(100deg,transparent 33%,rgba(185,151,105,.065) 49%,rgba(9,17,23,.11) 55%,transparent 72%);transform:translate3d(-110%,0,0)}
+#ps82SceneSweep.ps82-run{animation:ps82-sweep .55s cubic-bezier(.2,.1,.1,1) both}
+@keyframes ps82-sweep{0%{opacity:0;transform:translate3d(-110%,0,0)}24%{opacity:.75}100%{opacity:0;transform:translate3d(110%,0,0)}}
+@keyframes ps82-scan{0%{opacity:0;transform:translate3d(-75%,0,0)}30%{opacity:1}100%{opacity:0;transform:translate3d(85%,0,0)}}
+@keyframes ps82-kenburns{from{transform:scale(1)}to{transform:scale(1.045)}}
+@media(min-width:800px) and (hover:hover) and (pointer:fine){
+html:not(.ps82-motion-off) #overview.section.active .photos img{animation:ps82-kenburns 19s ease-in-out infinite alternate}
+html:not(.ps82-motion-off) #overview.section.active .photos img:nth-child(2){animation-delay:-7s;animation-duration:23s}
+html:not(.ps82-motion-off) #overview.section.active .photos img:nth-child(3){animation-delay:-11s;animation-duration:21s}
+html:not(.ps82-motion-off) .ui14-module:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(0,0,0,.24)!important}
+}
+@media(max-width:620px){#ps82Moment{top:70px;padding:11px 14px 11px 17px}#ps82Moment strong{font-size:16px}}
+@media(prefers-reduced-motion:reduce){#ps82SceneSweep,#ps82Moment,#et1Photos.ps82-scan .et1-photo-stage:before,#overview .photos img{animation:none!important;transition:none!important;transform:none!important}#ps82SceneSweep,#et1Photos.ps82-scan .et1-photo-stage:before{display:none!important}}
+html.ps82-motion-off #ps82SceneSweep,html.ps82-motion-off #et1Photos.ps82-scan .et1-photo-stage:before{display:none!important}
+html.ps82-motion-off #overview .photos img{animation:none!important;transform:none!important}
+html.ps82-motion-off #ps82Moment{transition:none!important}

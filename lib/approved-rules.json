@@ -1,0 +1,812 @@
+{
+  "version": 1,
+  "initial": [
+    "MED-01",
+    "MED-07",
+    "MED-08",
+    "TEC-01",
+    "TEC-02",
+    "TEC-03",
+    "TEC-04",
+    "TEC-16",
+    "DIG-10",
+    "VIS-10",
+    "ADM-01",
+    "ADM-10",
+    "ADM-11"
+  ],
+  "scriptedCorrections": {
+    "MAREK": {
+      "text": "Tak, tę korektę wykonano z mojego konta. Powinienem był powiedzieć o niej od razu.",
+      "gates": [
+        [
+          "EVID_PAYROLL_MANUAL_EDIT",
+          "EVID_RAW_ENTRY_TIMES"
+        ]
+      ]
+    },
+    "TOMASZ": {
+      "text": "Tak. Jest luka w zapisie, a ja powinienem ją zgłosić. To nie była wiadomość do Leny.",
+      "gates": [
+        [
+          "EVID_RADIO_GAP",
+          "EVID_DISPATCH_REVISION"
+        ]
+      ]
+    },
+    "JANUSZ": {
+      "text": "Tak, widzę lukę. Nie powinienem był mówić, że karta jest kompletna.",
+      "gates": [
+        [
+          "EVID_WORK_ORDER_RAW",
+          "EVID_SERVICE_FORM_GAPS",
+          "EVID_TEST_AUTHORIZATION"
+        ]
+      ]
+    },
+    "ELZBIETA": {
+      "text": "Tak. Nie wysłałam tego zgłoszenia. Zostawiłam je w projekcie. To był mój błąd.",
+      "gates": [
+        [
+          "EVID_BHP_DRAFT",
+          "EVID_OUTBOX_MISSING_SUBMISSION"
+        ]
+      ]
+    },
+    "KAMIL": {
+      "text": "Tak, przekazałem ją Magdalenie. O 00:39. Nie powinienem był tego robić ani tego ukrywać.",
+      "gates": [
+        [
+          "EVID_RESOURCE_HANDOVER",
+          "EVID_T17_DOOR_EVENT"
+        ],
+        [
+          "EVID_TCMS_SESSION",
+          "EVID_TEST_AUTHORIZATION"
+        ]
+      ]
+    },
+    "MAGDALENA": {
+      "text": "Przyjmuję, że przedstawione dane wymagają wyjaśnienia. Nie zgodzę się jednak, że jeden fragment nagrania wyjaśnia całość.",
+      "gates": [
+        [
+          "EVID_CONFERENCE_SESSION",
+          "EVID_CCTV_SYNC",
+          "EVID_T17_DOOR_EVENT"
+        ],
+        [
+          "EVID_MESSAGE_THREAD_RECOVERED",
+          "EVID_MESSAGE_DEVICE_METADATA"
+        ],
+        [
+          "EVID_SERIAL_PHOTO",
+          "EVID_ACCEPTANCE_RECORD"
+        ]
+      ]
+    }
+  },
+  "documents": {
+    "MED-01": {
+      "acquisition": "start",
+      "area": "med",
+      "family": "alarm"
+    },
+    "MED-02": {
+      "acquisition": "oględziny",
+      "area": "med",
+      "family": "medycyna"
+    },
+    "MED-03": {
+      "acquisition": "oględziny",
+      "area": "med",
+      "family": "medycyna"
+    },
+    "MED-04": {
+      "acquisition": "analiza",
+      "area": "med",
+      "family": "medycyna"
+    },
+    "MED-05": {
+      "acquisition": "analiza",
+      "area": "med",
+      "family": "medycyna"
+    },
+    "MED-06": {
+      "acquisition": "analiza",
+      "area": "med",
+      "family": "medycyna"
+    },
+    "MED-07": {
+      "acquisition": "start",
+      "area": "med",
+      "family": "ratownictwo"
+    },
+    "MED-08": {
+      "acquisition": "start",
+      "area": "med",
+      "family": "medycyna"
+    },
+    "MED-09": {
+      "acquisition": "po-mg",
+      "area": "med",
+      "family": "medycyna"
+    },
+    "MED-10": {
+      "acquisition": "po-mg",
+      "area": "med",
+      "family": "medycyna"
+    },
+    "TEC-01": {
+      "acquisition": "start",
+      "area": "tech",
+      "family": "tabor"
+    },
+    "TEC-02": {
+      "acquisition": "start",
+      "area": "tech",
+      "family": "ruch"
+    },
+    "TEC-03": {
+      "acquisition": "start",
+      "area": "tech",
+      "family": "tcms"
+    },
+    "TEC-04": {
+      "acquisition": "start",
+      "area": "tech",
+      "family": "zlecenie"
+    },
+    "EVID_WORK_ORDER_RAW": {
+      "acquisition": "oględziny",
+      "area": "tech",
+      "family": "warsztat"
+    },
+    "EVID_SERVICE_FORM_GAPS": {
+      "acquisition": "oględziny",
+      "area": "tech",
+      "family": "kontrola protokołów"
+    },
+    "TEC-07": {
+      "acquisition": "oględziny",
+      "area": "tech",
+      "family": "magazyn"
+    },
+    "EVID_ACCEPTANCE_RECORD": {
+      "acquisition": "oględziny",
+      "area": "tech",
+      "family": "odbiór"
+    },
+    "TEC-09": {
+      "acquisition": "oględziny",
+      "area": "tech",
+      "family": "repozytorium"
+    },
+    "EVID_TEST_AUTHORIZATION": {
+      "acquisition": "przed-mg",
+      "area": "tech",
+      "family": "autoryzacje"
+    },
+    "EVID_TCMS_SESSION": {
+      "acquisition": "po-mg",
+      "area": "tech",
+      "family": "tcms"
+    },
+    "TEC-12": {
+      "acquisition": "przed-mg",
+      "area": "tech",
+      "family": "tcms-pakiety"
+    },
+    "TEC-13": {
+      "acquisition": "po-mg",
+      "area": "tech",
+      "family": "protokol-testu"
+    },
+    "TEC-14": {
+      "acquisition": "oględziny",
+      "area": "tech",
+      "family": "stanowisko"
+    },
+    "TEC-15": {
+      "acquisition": "oględziny",
+      "area": "tech",
+      "family": "specyfikacja"
+    },
+    "TEC-16": {
+      "acquisition": "start",
+      "area": "tech",
+      "family": "instalacje"
+    },
+    "DIG-01": {
+      "acquisition": "oględziny",
+      "area": "digital",
+      "family": "biling"
+    },
+    "DIG-02": {
+      "acquisition": "oględziny",
+      "area": "digital",
+      "family": "repozytorium"
+    },
+    "DIG-03": {
+      "acquisition": "przed-mg",
+      "area": "digital",
+      "family": "indeks-sms"
+    },
+    "DIG-04": {
+      "acquisition": "przed-mg",
+      "area": "digital",
+      "family": "pamięć-urządzenia"
+    },
+    "DIG-05": {
+      "acquisition": "przed-mg",
+      "area": "digital",
+      "family": "metadane-operatora"
+    },
+    "EVID_MESSAGE_THREAD_RECOVERED": {
+      "acquisition": "po-mg",
+      "area": "digital",
+      "family": "korespondencja"
+    },
+    "EVID_MESSAGE_DEVICE_METADATA": {
+      "acquisition": "po-mg",
+      "area": "digital",
+      "family": "urządzenia-i-uprawnienia"
+    },
+    "EVID_CONFERENCE_SESSION": {
+      "acquisition": "oględziny",
+      "area": "digital",
+      "family": "sesja-wideokonferencji"
+    },
+    "DIG-09": {
+      "acquisition": "oględziny",
+      "area": "digital",
+      "family": "komputer"
+    },
+    "DIG-10": {
+      "acquisition": "start",
+      "area": "digital",
+      "family": "centrala-alarmów"
+    },
+    "DIG-11": {
+      "acquisition": "oględziny",
+      "area": "digital",
+      "family": "depozyt"
+    },
+    "EVID_PAYROLL_MANUAL_EDIT": {
+      "acquisition": "oględziny",
+      "area": "digital",
+      "family": "rozliczenia"
+    },
+    "EVID_RADIO_GAP": {
+      "acquisition": "oględziny",
+      "area": "digital",
+      "family": "łączność"
+    },
+    "DIG-14": {
+      "acquisition": "oględziny",
+      "area": "digital",
+      "family": "archiwum-zapytań"
+    },
+    "DIG-15": {
+      "acquisition": "oględziny",
+      "area": "digital",
+      "family": "łączność-komórkowa"
+    },
+    "DIG-16": {
+      "acquisition": "oględziny",
+      "area": "digital",
+      "family": "udostępnienia"
+    },
+    "EVID_SERIAL_PHOTO": {
+      "acquisition": "oględziny",
+      "area": "cctv",
+      "family": "foto-seryjne"
+    },
+    "VIS-02": {
+      "acquisition": "oględziny",
+      "area": "cctv",
+      "family": "foto-miejsca"
+    },
+    "VIS-03": {
+      "acquisition": "przed-mg",
+      "area": "cctv",
+      "family": "kamera-A"
+    },
+    "VIS-04": {
+      "acquisition": "przed-mg",
+      "area": "cctv",
+      "family": "kamera-B"
+    },
+    "VIS-05": {
+      "acquisition": "przed-mg",
+      "area": "cctv",
+      "family": "kamera-C"
+    },
+    "VIS-06": {
+      "acquisition": "przed-mg",
+      "area": "cctv",
+      "family": "sygnalizacja"
+    },
+    "EVID_CCTV_SYNC": {
+      "acquisition": "po-mg",
+      "area": "cctv",
+      "family": "CCTV"
+    },
+    "VIS-08": {
+      "acquisition": "po-mg",
+      "area": "cctv",
+      "family": "identyfikacja-wizualna"
+    },
+    "VIS-09": {
+      "acquisition": "przed-mg",
+      "area": "cctv",
+      "family": "obraz-drzwi"
+    },
+    "VIS-10": {
+      "acquisition": "start",
+      "area": "cctv",
+      "family": "topografia-monitoringu"
+    },
+    "VIS-11": {
+      "acquisition": "oględziny",
+      "area": "cctv",
+      "family": "foto-zabezpieczenie"
+    },
+    "VIS-12": {
+      "acquisition": "po-mg",
+      "area": "cctv",
+      "family": "walidacja-CCTV"
+    },
+    "ADM-01": {
+      "acquisition": "start",
+      "area": "admin",
+      "family": "lista-obsady"
+    },
+    "EVID_RAW_ENTRY_TIMES": {
+      "acquisition": "oględziny",
+      "area": "admin",
+      "family": "kontrola dostępu"
+    },
+    "EVID_DISPATCH_REVISION": {
+      "acquisition": "oględziny",
+      "area": "admin",
+      "family": "ruch"
+    },
+    "ADM-04": {
+      "acquisition": "po-mg",
+      "area": "admin",
+      "family": "rekonstrukcja-przejść"
+    },
+    "EVID_BHP_DRAFT": {
+      "acquisition": "oględziny",
+      "area": "admin",
+      "family": "BHP"
+    },
+    "EVID_OUTBOX_MISSING_SUBMISSION": {
+      "acquisition": "oględziny",
+      "area": "admin",
+      "family": "bramka wysyłkowa"
+    },
+    "ADM-07": {
+      "acquisition": "przed-mg",
+      "area": "admin",
+      "family": "wydania kart"
+    },
+    "EVID_RESOURCE_HANDOVER": {
+      "acquisition": "oględziny",
+      "area": "admin",
+      "family": "zasoby"
+    },
+    "EVID_T17_DOOR_EVENT": {
+      "acquisition": "przed-mg",
+      "area": "admin",
+      "family": "dostęp-strefowy"
+    },
+    "ADM-10": {
+      "acquisition": "start",
+      "area": "admin",
+      "family": "zeznania"
+    },
+    "ADM-11": {
+      "acquisition": "start",
+      "area": "admin",
+      "family": "topografia"
+    },
+    "ADM-12": {
+      "acquisition": "przed-mg",
+      "area": "admin",
+      "family": "administracja-strefowa"
+    },
+    "ADM-13": {
+      "acquisition": "oględziny",
+      "area": "admin",
+      "family": "protokół-zabezpieczenia"
+    },
+    "ADM-14": {
+      "acquisition": "oględziny",
+      "area": "admin",
+      "family": "procedura-dowodowa"
+    },
+    "LAB-01": {
+      "acquisition": "oględziny",
+      "area": "lab",
+      "family": "laboratorium-pobranie"
+    },
+    "LAB-02": {
+      "acquisition": "przed-mg",
+      "area": "lab",
+      "family": "chemia-materiałowa"
+    },
+    "LAB-03": {
+      "acquisition": "przed-mg",
+      "area": "lab",
+      "family": "mikrowłókna"
+    },
+    "LAB-04": {
+      "acquisition": "przed-mg",
+      "area": "lab",
+      "family": "ślad-kontaktowy"
+    },
+    "LAB-05": {
+      "acquisition": "przed-mg",
+      "area": "lab",
+      "family": "wzorce-narzędzi"
+    },
+    "LAB-06": {
+      "acquisition": "przed-mg",
+      "area": "lab",
+      "family": "higiena-dowodów"
+    },
+    "LAB-07": {
+      "acquisition": "oględziny",
+      "area": "lab",
+      "family": "wyposażenie-audytowe"
+    },
+    "LAB-08": {
+      "acquisition": "po-mg",
+      "area": "lab",
+      "family": "analiza-urazów"
+    },
+    "LAB-09": {
+      "acquisition": "po-mg",
+      "area": "lab",
+      "family": "analiza-porównawcza"
+    },
+    "LAB-10": {
+      "acquisition": "po-mg",
+      "area": "lab",
+      "family": "walidacja-biegłych"
+    }
+  },
+  "spots": {
+    "bay_photo": {
+      "id": "bay_photo",
+      "room": "bay",
+      "doc": "VIS-02"
+    },
+    "bay_body": {
+      "id": "bay_body",
+      "room": "bay",
+      "doc": "MED-02"
+    },
+    "bay_protocol": {
+      "id": "bay_protocol",
+      "room": "bay",
+      "doc": "ADM-13"
+    },
+    "bay_sensor": {
+      "id": "bay_sensor",
+      "room": "bay",
+      "doc": "TEC-14"
+    },
+    "bay_objects": {
+      "id": "bay_objects",
+      "room": "bay",
+      "doc": "VIS-11"
+    },
+    "wrk_order": {
+      "id": "wrk_order",
+      "room": "workshop",
+      "doc": "EVID_WORK_ORDER_RAW"
+    },
+    "wrk_gaps": {
+      "id": "wrk_gaps",
+      "room": "workshop",
+      "doc": "EVID_SERVICE_FORM_GAPS"
+    },
+    "wrk_serial": {
+      "id": "wrk_serial",
+      "room": "workshop",
+      "doc": "TEC-07"
+    },
+    "wrk_device": {
+      "id": "wrk_device",
+      "room": "workshop",
+      "doc": "TEC-15"
+    },
+    "disp_order": {
+      "id": "disp_order",
+      "room": "dispatch",
+      "doc": "EVID_DISPATCH_REVISION"
+    },
+    "disp_entry": {
+      "id": "disp_entry",
+      "room": "dispatch",
+      "doc": "EVID_RAW_ENTRY_TIMES"
+    },
+    "disp_radio": {
+      "id": "disp_radio",
+      "room": "dispatch",
+      "doc": "EVID_RADIO_GAP"
+    },
+    "aud_accept": {
+      "id": "aud_accept",
+      "room": "audit",
+      "doc": "EVID_ACCEPTANCE_RECORD"
+    },
+    "aud_versions": {
+      "id": "aud_versions",
+      "room": "audit",
+      "doc": "TEC-09"
+    },
+    "aud_stream": {
+      "id": "aud_stream",
+      "room": "audit",
+      "doc": "EVID_CONFERENCE_SESSION"
+    },
+    "aud_telemetry": {
+      "id": "aud_telemetry",
+      "room": "audit",
+      "doc": "DIG-09"
+    },
+    "aud_photo": {
+      "id": "aud_photo",
+      "room": "audit",
+      "doc": "EVID_SERIAL_PHOTO"
+    },
+    "off_bhp": {
+      "id": "off_bhp",
+      "room": "office",
+      "doc": "EVID_BHP_DRAFT"
+    },
+    "off_outbox": {
+      "id": "off_outbox",
+      "room": "office",
+      "doc": "EVID_OUTBOX_MISSING_SUBMISSION"
+    },
+    "off_payroll": {
+      "id": "off_payroll",
+      "room": "office",
+      "doc": "EVID_PAYROLL_MANUAL_EDIT"
+    },
+    "pass_card": {
+      "id": "pass_card",
+      "room": "passage",
+      "doc": "ADM-07"
+    },
+    "pass_cart": {
+      "id": "pass_cart",
+      "room": "passage",
+      "doc": "EVID_RESOURCE_HANDOVER"
+    },
+    "pass_reader": {
+      "id": "pass_reader",
+      "room": "passage",
+      "doc": "EVID_T17_DOOR_EVENT"
+    },
+    "pass_cctv": {
+      "id": "pass_cctv",
+      "room": "passage",
+      "doc": "VIS-09"
+    },
+    "lab_catalog": {
+      "id": "lab_catalog",
+      "room": "lab",
+      "doc": "LAB-01"
+    },
+    "lab_compare": {
+      "id": "lab_compare",
+      "room": "lab",
+      "doc": "LAB-07"
+    },
+    "lab_s3": {
+      "id": "lab_s3",
+      "room": "lab",
+      "doc": "LAB-02"
+    },
+    "lab_w7": {
+      "id": "lab_w7",
+      "room": "lab",
+      "doc": "LAB-03"
+    },
+    "lab_med": {
+      "id": "lab_med",
+      "room": "lab",
+      "doc": "MED-03"
+    }
+  },
+  "searchable": [
+    "EVID_TEST_AUTHORIZATION",
+    "TEC-12",
+    "DIG-01",
+    "DIG-02",
+    "DIG-03",
+    "DIG-04",
+    "DIG-05",
+    "DIG-11",
+    "DIG-14",
+    "DIG-15",
+    "DIG-16",
+    "VIS-03",
+    "VIS-04",
+    "VIS-05",
+    "VIS-06",
+    "ADM-12",
+    "ADM-14",
+    "LAB-04",
+    "LAB-05",
+    "LAB-06"
+  ],
+  "gates": {
+    "MED-03": [
+      "MED-02"
+    ],
+    "EVID_SERVICE_FORM_GAPS": [
+      "EVID_WORK_ORDER_RAW"
+    ],
+    "TEC-09": [
+      "EVID_ACCEPTANCE_RECORD"
+    ],
+    "DIG-09": [
+      "EVID_CONFERENCE_SESSION"
+    ],
+    "EVID_OUTBOX_MISSING_SUBMISSION": [
+      "EVID_BHP_DRAFT"
+    ],
+    "EVID_RESOURCE_HANDOVER": [
+      "ADM-07"
+    ],
+    "VIS-11": [
+      "ADM-13"
+    ],
+    "LAB-01": [
+      "ADM-13"
+    ],
+    "LAB-07": [
+      "LAB-01"
+    ],
+    "LAB-02": [
+      "LAB-01"
+    ],
+    "LAB-03": [
+      "LAB-01"
+    ],
+    "EVID_SERIAL_PHOTO": [
+      "TEC-07"
+    ],
+    "EVID_T17_DOOR_EVENT": [
+      "ADM-07"
+    ]
+  },
+  "challenges": {
+    "bay_photo": {
+      "method": "photo",
+      "correct": 0
+    },
+    "bay_body": {
+      "method": "photo",
+      "correct": 1
+    },
+    "bay_protocol": {
+      "method": "record",
+      "correct": 2
+    },
+    "bay_sensor": {
+      "method": "record",
+      "correct": 0
+    },
+    "bay_objects": {
+      "method": "photo",
+      "correct": 1
+    },
+    "bay_compare": {
+      "method": "compare",
+      "correct": 2
+    },
+    "wrk_order": {
+      "method": "record",
+      "correct": 0
+    },
+    "wrk_gaps": {
+      "method": "compare",
+      "correct": 1
+    },
+    "wrk_serial": {
+      "method": "compare",
+      "correct": 2
+    },
+    "wrk_device": {
+      "method": "compare",
+      "correct": 0
+    },
+    "disp_order": {
+      "method": "record",
+      "correct": 1
+    },
+    "disp_entry": {
+      "method": "record",
+      "correct": 2
+    },
+    "disp_radio": {
+      "method": "record",
+      "correct": 0
+    },
+    "aud_accept": {
+      "method": "record",
+      "correct": 1
+    },
+    "aud_versions": {
+      "method": "compare",
+      "correct": 2
+    },
+    "aud_stream": {
+      "method": "record",
+      "correct": 0
+    },
+    "aud_telemetry": {
+      "method": "compare",
+      "correct": 1
+    },
+    "aud_photo": {
+      "method": "photo",
+      "correct": 2
+    },
+    "off_bhp": {
+      "method": "record",
+      "correct": 0
+    },
+    "off_outbox": {
+      "method": "compare",
+      "correct": 1
+    },
+    "off_payroll": {
+      "method": "record",
+      "correct": 2
+    },
+    "pass_card": {
+      "method": "record",
+      "correct": 0
+    },
+    "pass_cart": {
+      "method": "record",
+      "correct": 1
+    },
+    "pass_reader": {
+      "method": "record",
+      "correct": 2
+    },
+    "pass_cctv": {
+      "method": "compare",
+      "correct": 0
+    },
+    "lab_catalog": {
+      "method": "record",
+      "correct": 1
+    },
+    "lab_compare": {
+      "method": "compare",
+      "correct": 2
+    },
+    "lab_s3": {
+      "method": "sample",
+      "correct": 0
+    },
+    "lab_w7": {
+      "method": "sample",
+      "correct": 1
+    },
+    "lab_med": {
+      "method": "record",
+      "correct": 2
+    }
+  }
+}

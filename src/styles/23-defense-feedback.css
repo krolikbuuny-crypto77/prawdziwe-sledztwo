@@ -1,0 +1,5 @@
+
+.fc-challenge-result,.ps54-feedback{white-space:pre-line;}
+.fc-challenge-result:not(:empty){line-height:1.55;}
+.ps54-feedback{border-left:2px solid rgba(215,174,112,.40);padding-left:10px;}
+@media(prefers-reduced-motion:reduce){.fc-challenge-result,.ps54-feedback{scroll-behavior:auto}}

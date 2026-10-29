@@ -1,0 +1,30 @@
+
+/* Naprawa P1: minimalna wysokość aktywnej ścieżki, nie poziomu trudności. */
+#p1InspectionNow{display:none}
+#inspection12 .p1-inspection-extras{margin:8px 0 12px;border:1px solid #40545f;border-radius:9px;background:#15242c}
+#inspection12 .p1-inspection-extras>summary{display:none}
+#inspection12 .p1-inspection-extras>*:not(summary){margin:0}
+@media(min-width:701px){#inspection12 .p1-inspection-extras{display:contents;border:0;padding:0;margin:0;background:transparent}#inspection12 .p1-inspection-extras>summary{display:none}}
+@media(max-width:700px){
+ #p1InspectionNow{display:grid;gap:8px;position:relative;scroll-margin-top:78px;padding:11px 12px;margin:9px 0 12px;background:linear-gradient(145deg,#2c302b,#142632);border:1px solid #8a7550;border-radius:10px}
+ #p1InspectionNow .p1-stage{color:#e8c694;font-weight:750;font-size:11px;letter-spacing:.06em}
+ #p1InspectionNow .p1-active{font-size:14px;font-weight:750;line-height:1.35;color:#f6e7d0}
+ #p1InspectionNow .p1-room-label{display:grid;gap:5px;font-size:11px;color:#bfcdd0}
+ #p1InspectionNow .p1-room-label select{width:100%;min-height:44px;font-size:16px;padding:9px 10px;background:#14252d;border:1px solid #60737c;border-radius:7px;color:#f6e6cc}
+ #p1InspectionNow .p1-steps{display:flex;flex-wrap:wrap;gap:5px}
+ #p1InspectionNow .p1-steps span{font-size:10px;border-radius:20px;border:1px solid #53656c;padding:4px 7px;color:#c0ced0}
+ #p1InspectionNow .p1-steps span[aria-current=step]{background:#473722;color:#ffe0ab;border-color:#bb9665}
+ #p1InspectionNow .p1-actions{display:flex;gap:8px;flex-wrap:wrap}
+ #p1InspectionNow button{flex:1 1 150px;padding:10px 12px;min-height:44px;color:#ffdfac;background:#544027;border:1px solid #a58453;border-radius:7px;font-weight:700}
+ #p1InspectionNow .p1-sub{font-size:11px;color:#aebec0;line-height:1.45}
+ #inspection12 .p1-inspection-extras{padding:0 11px}
+ #inspection12 .p1-inspection-extras>summary{display:list-item;cursor:pointer;min-height:44px;padding:12px 2px;color:#dfc9a3;font-size:12px;font-weight:700}
+ #inspection12 .p1-inspection-extras[open]>*:not(summary){margin:8px 0 12px}
+ #inspection12 .sc-room{min-height:42px}
+ #inspection12 .sc-room small{font-size:10px}
+ #inspection12 .sc84-toolbar{margin-top:5px}
+ #inspection12 .sc84-toolbar .sc84-actions{gap:6px}
+ #inspection12 .et1-caution{font-size:11px;line-height:1.45}
+ #inspection12 .sc-inspector{scroll-margin-top:80px}
+ #inspection12 #scDetail{scroll-margin-top:80px}
+}

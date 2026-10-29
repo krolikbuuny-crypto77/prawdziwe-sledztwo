@@ -1,0 +1,46 @@
+
+/* 6.3: Jeden wiarygodny zestaw wskaźników świadka (NPC4), bez powtarzania w innych panelach. */
+#interview #psMeter{display:none!important}
+#interview #simInterrogation .sim-meters>span:nth-child(1),
+#interview #simInterrogation .sim-meters>span:nth-child(2){display:none!important}
+#interview #simInterrogation .sim-meters{display:block;margin:0 0 7px}
+#interview #simInterrogation .sim-meters>span:last-child{display:block;padding:0;font-size:12px;line-height:1.5;color:var(--muted)}
+#interview .chathead{padding:14px 17px}
+#interview .chathead #npc4Panel{margin-top:9px;gap:7px}
+#interview .chathead .npc4-notice{margin:0;font-size:11px;line-height:1.45}
+#interview .chathead .npc4-metric{padding:8px}
+#interview .chatfoot{gap:9px}
+#interview #simInterrogation{margin:1px 0;padding-top:7px;border-top:1px solid var(--line)}
+#interview .npc4-style-row{row-gap:8px}
+#interview .chatlog{scrollbar-gutter:stable;overscroll-behavior:contain}
+#interview #chatInput{min-height:85px;resize:vertical;max-height:45vh;line-height:1.5}
+#interview .bubble{overflow-wrap:anywhere}
+#interview .chat-history button{min-height:44px}
+/* Przewidywalne cele dotykowe i widoczny fokus klawiatury. */
+#interview button, #interview select, #interview #chatSend,
+.ps62-route button,.ps62-lab-jump,.ps62-help-more{min-height:42px}
+#interview :is(button,textarea,select):focus-visible,.ps62-shell button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+:where(button,select){touch-action:manipulation}
+/* Stabilne szerokości przy tekstach polskich i długich nazwach dowodów. */
+#interview .charactergrid,#interview .chat,#interview .chathead,#interview .chatfoot,#interview .bubble{min-width:0;max-width:100%}
+#interview select#attachedDoc{width:100%;max-width:100%;min-width:0;text-overflow:ellipsis}
+@media(max-width:620px){
+ #interview .chathead{padding:12px}
+ #interview .chat{min-height:0;max-height:none}
+ #interview #npc4Panel{gap:5px}
+ #interview .npc4-metrics{gap:5px}
+ #interview .npc4-metric{padding:6px 5px}
+ #interview .npc4-notice{display:none}
+ #interview .chatlog{min-height:250px;max-height:54vh;padding:12px;gap:9px}
+ #interview .bubble{max-width:97%;padding:10px 12px}
+ #interview .chatfoot{padding:12px}
+ #interview #chatInput{font-size:16px;min-height:84px}
+ #interview .npc4-style-row{display:flex;flex-wrap:wrap;gap:6px}
+ #interview .npc4-stance{min-width:0;flex:1 1 29%}
+ #interview .formline #chatSend{width:auto;flex:0 0 auto;min-height:44px}
+ #interview #npc4Count{white-space:nowrap}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ #interview *, .ps62-shell *{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
+}

@@ -1,0 +1,6 @@
+test:natural-dialogue: PASS (0.3s)
+
+> prawdziwe-sledztwo@1.0.0 test:natural-dialogue
+> node tools/test-dialogue623.mjs
+
+PASS 6.23: natural dialogue, style rejection triggers Groq, approved Z.ai priority, identical bank of facts, fallback, no fictional confession

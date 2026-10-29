@@ -1,0 +1,9 @@
+
+.ps603-help-button{margin-left:auto;background:#26343c!important;color:#f5dab0!important;min-width:40px;min-height:39px;border:1px solid #63707b!important;border-radius:8px;font-size:16px;cursor:pointer;flex:none}
+.ps603-help{position:fixed;z-index:55;top:78px;right:18px;width:min(390px,calc(100vw - 28px));max-height:min(70vh,520px);overflow:auto;background:#192832;color:#e2e9e8;border:1px solid #a98455;border-radius:12px;padding:19px;box-shadow:0 18px 70px #0009}
+.ps603-help[hidden]{display:none!important}
+.ps603-help h3{font-size:18px;margin:4px 36px 10px 0;color:#f2d3a1}
+.ps603-help p{color:#bfccd0;font-size:13px;line-height:1.7}
+.ps603-help-close{float:right;min-width:35px;min-height:35px;border:1px solid #526470;background:#273942;color:#eaf0eb;border-radius:7px;cursor:pointer}
+.ps603-help small{display:block;border-top:1px solid #394e59;color:#9eacb3;margin-top:14px;padding-top:11px;line-height:1.6}
+@media(max-width:570px){.ps603-panel{padding:14px}.ps603-flags{grid-template-columns:1fr}.ps603-help{right:10px;top:72px}}

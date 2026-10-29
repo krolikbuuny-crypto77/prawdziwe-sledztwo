@@ -1,0 +1,35 @@
+{
+  "390": {
+    "witnesses": 6,
+    "uniqueScenes": 6,
+    "pressure": "pressure",
+    "sourceGated": true,
+    "noEarlyLeak": true,
+    "displayedLength": 106,
+    "visible": true,
+    "width": 390,
+    "viewport": 390
+  },
+  "768": {
+    "witnesses": 6,
+    "uniqueScenes": 6,
+    "pressure": "pressure",
+    "sourceGated": true,
+    "noEarlyLeak": true,
+    "displayedLength": 106,
+    "visible": true,
+    "width": 768,
+    "viewport": 768
+  },
+  "1280": {
+    "witnesses": 6,
+    "uniqueScenes": 6,
+    "pressure": "pressure",
+    "sourceGated": true,
+    "noEarlyLeak": true,
+    "displayedLength": 106,
+    "visible": true,
+    "width": 1280,
+    "viewport": 1280
+  }
+}

@@ -1,0 +1,14 @@
+
+/* Mniej powtórzonych liczników i czytelniejszy układ na małych ekranach. */
+#ciRoomProgress,#ciShotLabel{display:none!important}
+.ps-inspection-help{margin:9px 0 16px;border:1px solid var(--line,#38454d);border-radius:9px;padding:0 12px}
+.ps-inspection-help>summary{cursor:pointer;padding:11px 0;font-weight:650;font-size:.88rem}
+.ps-inspection-help>.sc-mission{margin:0 0 12px}
+#inspection12 .et1-mode-help{display:none}
+.ps-opt-orientation{margin:10px 0;border:1px solid var(--line,#38454d);border-radius:10px;background:rgba(13,20,26,.28);padding:0 12px}
+.ps-opt-orientation summary{cursor:pointer;padding:10px 0;font-size:.87rem;color:var(--muted,#b5b9bb);font-weight:650}
+.ps-opt-orientation .et2-orient{margin:3px 0 9px}
+.ps-opt-orientation .et2-hint{margin:4px 0 12px;font-size:.8rem}
+.ps-opt-orientation .et2-orient #et2EnlargeScene{display:none}
+.et1-photo-controls .ps-scene-zoom{max-width:100%;white-space:normal}
+@media(max-width:480px){.ps-opt-orientation{padding:0 10px}.ps-opt-orientation summary{padding:11px 0}.et1-photo-controls .ps-scene-zoom{width:100%}}

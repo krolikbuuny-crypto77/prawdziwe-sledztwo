@@ -1,0 +1,38 @@
+{
+  "description": "Baseline counts of legacy function wrappers. Changes require a separate compatibility review.",
+  "trackedAssignments": {
+    "showTab": 0,
+    "buildSave": 0,
+    "applySave": 0
+  },
+  "trackedSections": {
+    "script": 61,
+    "style": 64
+  },
+  "navigation": {
+    "controller": "src/core/case-engine.js",
+    "moduleCount": 10,
+    "hookCount": 28
+  },
+  "saveManager": {
+    "controller": "src/core/save-manager.js",
+    "moduleCount": 49,
+    "schemaVersion": 2
+  },
+  "witnessEngine": {
+    "controller": "src/core/witness-engine.js",
+    "witnessCount": 6,
+    "layerCounts": {
+      "answer": 19,
+      "export": 8,
+      "restore": 8,
+      "send": 9
+    }
+  },
+  "eventBus": {
+    "controller": "src/core/event-bus.js",
+    "reactionModule": "src/core/event-reactions.js",
+    "eventCount": 7,
+    "subscriberCount": 7
+  }
+}

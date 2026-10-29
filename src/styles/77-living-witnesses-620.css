@@ -1,0 +1,12 @@
+/* Pakiet 6.20: dyskretna reakcja, bez skali emocji i bez dodatkowych zagadek. */
+.ps620-witness-beat{margin:8px 14px 12px;padding:10px 13px;border-left:2px solid rgba(165,187,193,.35);background:rgba(120,145,160,.055);border-radius:0 8px 8px 0;line-height:1.45}
+.ps620-witness-beat[hidden]{display:none}
+.ps620-beat-label{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;opacity:.64}
+.ps620-witness-beat p{margin:4px 0 0;font-size:.88rem;color:inherit;opacity:.85}
+.ps620-witness-beat[data-stance="pressure"]{border-left-color:rgba(179,150,126,.56)}
+.ps620-witness-beat[data-stance="source"]{border-left-color:rgba(131,168,163,.56)}
+@media(max-width:600px){.ps620-witness-beat{margin:6px 8px 10px;padding:8px 11px}.ps620-witness-beat p{font-size:.83rem}}
+@media(prefers-reduced-motion:reduce){.ps620-witness-beat,.ps620-witness-beat *{transition:none!important;animation:none!important}}
+
+.ps620-next{display:inline-block;min-height:34px;margin-top:8px;padding:6px 12px;font-size:.78rem}
+.ps620-next[hidden]{display:none}

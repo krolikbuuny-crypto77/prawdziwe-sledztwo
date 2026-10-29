@@ -1,0 +1,34 @@
+/* Gameplay Loop — Punkty Konfrontacji i mikro-feedback. Wyłącznie warstwa UI. */
+#conflictPanel{margin:0 0 17px;background:linear-gradient(150deg,#151e24,#12191f);border:1px solid #46545b;border-radius:12px;padding:19px}
+#conflictPanel .cf-head{display:flex;justify-content:space-between;align-items:start;gap:14px;margin-bottom:10px}
+#conflictPanel .cf-head h3{font-size:20px;line-height:1.2;margin-top:5px;color:#f2e8d7}
+#conflictPanel .cf-kicker{font-size:10px;letter-spacing:.17em;color:#e5b96e;font-weight:800}
+#conflictPanel .cf-intro{color:#aebac0;font-size:12px;line-height:1.6;max-width:710px}
+#conflictPanel .cf-count{border:1px solid #846f4f;color:#eed2a6;padding:6px 10px;border-radius:20px;font:12px ui-monospace,monospace;white-space:nowrap}
+#conflictPanel .cf-actions{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0}
+#conflictPanel .cf-toggle{background:#253036;border:1px solid #48575d;color:#e8ede9;padding:8px 11px;border-radius:7px;font-size:12px;cursor:pointer}
+#conflictPanel .cf-filters{display:flex;gap:6px;flex-wrap:wrap;margin:11px 0}
+#conflictPanel .cf-filters button{background:transparent;border:1px solid #46535b;padding:6px 10px;color:#b7c3c9;border-radius:20px;font-size:11px;cursor:pointer}
+#conflictPanel .cf-filters button[aria-pressed="true"]{background:#382d27;color:#f1c8a7;border-color:#ac7554}
+#conflictPanel .cf-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:9px;max-height:465px;overflow:auto}
+#conflictPanel .cf-entry{background:#1c262c;border:1px solid #3c4d55;border-left:3px solid #b98a57;border-radius:7px;padding:13px;min-width:0}
+#conflictPanel .cf-entry.cf-verified{border-left-color:#dfad66}
+#conflictPanel .cf-entry.cf-review{border-left-color:#7c9aa8}
+#conflictPanel .cf-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;color:#d6b783;font-size:10px;letter-spacing:.07em;text-transform:uppercase}
+#conflictPanel .cf-entry h4{margin:6px 0;font-size:14px;line-height:1.35}
+#conflictPanel .cf-entry p{color:#cad0d1;font-size:12px;line-height:1.55;white-space:normal}
+#conflictPanel .cf-sources{color:#a4b6be;font-size:11px;margin-top:10px;overflow-wrap:anywhere}
+#conflictPanel .cf-entry .cf-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+#conflictPanel .cf-entry .cf-links button{background:#304048;border:1px solid #59727b;color:#f3e7d4;padding:7px 9px;border-radius:6px;font-size:11px;cursor:pointer}
+#conflictPanel .cf-empty{padding:12px;background:#19242a;border-radius:7px;color:#c4caca;font-size:12px}
+#scNotebookList .cf-note-flag{display:inline-block;border:1px solid #8b7456;background:#302923;color:#e2c5a1;padding:3px 7px;font-size:10px;border-radius:4px;margin:7px 0}
+#psMicroFeedback{position:fixed;z-index:150;top:82px;right:22px;display:flex;align-items:center;gap:10px;max-width:min(350px,calc(100vw - 26px));padding:12px 15px;background:#162924;color:#eaf3e7;border:1px solid #69927a;box-shadow:0 15px 45px #0008;border-radius:9px;pointer-events:none;opacity:0;transform:translateY(-12px) scale(.98);transition:opacity .25s,transform .25s}
+#psMicroFeedback[hidden]{display:none}
+#psMicroFeedback.psmf-on{opacity:1;transform:translateY(0) scale(1)}
+#psMicroFeedback .psmf-seal{border:2px solid #86b19a;letter-spacing:.12em;color:#a9dcc2;padding:7px 5px;border-radius:50%;font-size:10px;font-weight:900;transform:rotate(-8deg)}
+#psMicroFeedback strong{display:block;font-size:13px}
+#psMicroFeedback small{color:#bed0c5;font-size:11px}
+.psmf-timeline-flash{animation:psmfTimeline .9s ease-out}
+@keyframes psmfTimeline{0%{box-shadow:inset 0 0 0 2px rgba(134,196,162,.65)}100%{box-shadow:inset 0 0 0 0 rgba(134,196,162,0)}}
+@media(max-width:620px){#conflictPanel{padding:13px}#conflictPanel .cf-head{flex-direction:column;gap:6px}#conflictPanel .cf-list{max-height:420px}#psMicroFeedback{top:65px;right:8px;left:8px;max-width:none}}
+@media(prefers-reduced-motion:reduce){#psMicroFeedback{transition:none;transform:none}.psmf-timeline-flash{animation:none}}

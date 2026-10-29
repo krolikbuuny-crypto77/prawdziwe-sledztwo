@@ -1,0 +1,23 @@
+
+#interview .chathead{background:linear-gradient(135deg,#172329,#101921);border-bottom:1px solid #40515c}
+#npc4Panel{margin-top:14px;display:grid;gap:9px}
+.npc4-state-head{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.npc4-state-head strong{font-size:12px;color:#e4d0aa}
+.npc4-state-head small{color:#abb9bd;font-size:11px}
+.npc4-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.npc4-metric{border:1px solid #394c55;border-radius:7px;background:#111b20;padding:8px;min-width:0}
+.npc4-metric .npc4-label{display:flex;gap:4px;justify-content:space-between;align-items:center;font-size:10px;color:#c5d0d0}
+.npc4-metric .npc4-value{font:700 11px ui-monospace,monospace;color:#ead2ab}
+.npc4-track{height:5px;margin-top:6px;border-radius:9px;background:#2c373c;overflow:hidden}
+.npc4-track>span{display:block;height:100%;background:#80a996;border-radius:9px;transition:width .2s ease}
+.npc4-metric.tension .npc4-track>span{background:#c38c70}
+.npc4-metric.fatigue .npc4-track>span{background:#b8a47a}
+.npc4-notice{font-size:11px;line-height:1.5;color:#9bb2b7}
+.npc4-style-row{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.npc4-style-row .npc4-subtitle{font-size:11px;color:#c5cdd0;margin-right:4px}
+.npc4-stance{min-height:36px;background:#162329;color:#d4dddb;border:1px solid #445860;border-radius:7px;padding:7px 11px;font:600 11px system-ui;cursor:pointer}
+.npc4-stance[aria-pressed="true"]{background:#3e3022;border-color:#c79d61;color:#f6deb4}
+#npc4Hint{font-size:11px;color:#a0b2b6;line-height:1.55}
+.npc4-transcript-note{display:block;font-size:10px;color:#93a0a3;margin-top:6px}
+@media(max-width:600px){#interview .chathead{padding:12px}.npc4-metrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.npc4-metric{padding:7px 5px}.npc4-state-head strong{font-size:11px}.npc4-stance{flex:1 1 27%;padding:7px 6px}.npc4-style-row{align-items:stretch}.npc4-style-row .npc4-subtitle{flex-basis:100%}}
+@media(prefers-reduced-motion:reduce){.npc4-track>span{transition:none}}

@@ -1,0 +1,3 @@
+
+/* Nawigacja mobilna: otwarty panel pozostaje nad nakładką. */
+@media(max-width:950px){body.ui14-nav-open .layout{z-index:auto!important}}

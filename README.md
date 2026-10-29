@@ -1,64 +1,75 @@
-# Prawdziwe Śledztwo — integracja API przez Vercel
+# Pakiet 6.22 — animowane portrety sześciu świadków
 
-**Ważne:** ten katalog nie zawiera prawdziwych kluczy. Wszystkie klucze dodajesz wyłącznie w panelu Vercel.
+Mimika wektorowa twarzy podczas przesłuchań, ośmiu scen przełomowych i finału. Zachowana architektura 6.21, bez nowych zagadek i faktów. Raport: `RAPORT-QA-6.22.md`.
 
-## Co jest podłączone
+# Prawdziwe Śledztwo — wersja 6.20
 
-- `index.html`: ostatnia wersja gry po naprawach P1 i P2 (oryginalne grafiki i audio).
-- `/api/interview`: **Z.ai GLM-4.7-Flash**, tylko przesłuchania. Lokalna odpowiedź nadal kontroluje wiedzę i stan świadka; Z.ai nadaje jej bardziej naturalną formę. Gdy API jest niedostępne, zostaje odpowiedź lokalna.
-- `/api/evaluate`: **Cloudflare Workers AI / @cf/qwen/qwen3-30b-a3b-fp8**, tylko dodatkowa, opisowa ocena hipotez i powiązanych materiałów w sekcji **Dedukcja → Sprawdź argumentację**. Lokalna walidacja nadal decyduje, czy etap można zaliczyć. To celowe: AI nie może przyznać dowodu ani zdradzić rozwiązania.
-- `/api/status`: pokazuje, czy obie konfiguracje zostały znalezione; nie wyświetla kluczy.
+Pakiet 6.20: dodatkowe, różne dla sześciu świadków reakcje sceniczne, opcjonalne pytania źródłowe i wspólne prowadzenie stylu Z.ai/Groq. Bez zmian kanonu i warunków ukończenia. Szczegóły: `PAKIET-6.20-ZYWE-REAKCJE-I-CIAGLOSC-POSTACI.md` oraz `RAPORT-QA-6.20.md`.
 
-**Zakres:** pierwsza integracja oceny AI obejmuje kontrolę argumentacji w Dedukcji. Pozostałe mechanizmy oceny osi czasu, minigier i końcowego aktu pozostają na tym etapie lokalne — można je podłączyć do tego samego endpointu później bez trzeciego AI.
+> **Pakiet 6.19 — Fabuła 2.0 i finał 3.0.** Zobacz [README-PAKIET-6.19.md](README-PAKIET-6.19.md), [RAPORT-QA-6.19.md](RAPORT-QA-6.19.md) i [biblię fabularną](story-bible/BIBLIA_FABULARNA_619.md).
 
-## Krok 1. GitHub
+# Prawdziwe Śledztwo — Ostatni kurs, Pakiet 6.18
 
-1. Otwórz repozytorium gry na GitHubie.
-2. Wgraj pliki z tego katalogu do głównego katalogu repozytorium, zachowując ścieżki `api/...` i `lib/...`.
-3. Jeśli repo zawiera już `index.html`, utwórz kopię zapasową poprzedniej wersji, potem zastąp ją nową.
-4. Nie wgrywaj `.env` ani żadnych prawdziwych kluczy.
-5. Zatwierdź zmiany (Commit).
+**Z.ai → Groq → lokalny WitnessEngine** w przesłuchaniach; **Cloudflare** tylko jako
+analityk dowodów; **Supabase** jako serwerowy dziennik sprawdzanych działań,
+z offline-first SaveManager.
 
-Możesz też utworzyć nowy projekt GitHub z tymi plikami i podłączyć go do Vercel. Plik `package.json` nie ma zewnętrznych zależności.
+Pierwszy krok: [GITHUB-WGRYWANIE.md](GITHUB-WGRYWANIE.md). Szczegółowy opis,
+zakres zatwierdzania i ograniczenia: [PAKIET-6.17-TRZY-SILNIKI-I-SUPABASE.md](PAKIET-6.17-TRZY-SILNIKI-I-SUPABASE.md).
 
-## Krok 2. Vercel
+**Uwaga:** Pełne zatwierdzanie finału, minigier i postępu fabularnego na serwerze
+wymaga dalszej migracji; po tej paczce nie jest jeszcze ukończone.
 
-1. Zaloguj się do `https://vercel.com/dashboard`.
-2. Jeśli gra nie jest jeszcze na Vercel: **Add New → Project → Import Git Repository**, wybierz repo, jako Framework Preset ustaw **Other** i pozostaw Root Directory na `./`.
-3. W istniejącym projekcie wybierz **Settings → Environment Variables** i dodaj:
+---
 
-| Name | Value |
-| --- | --- |
-| `ZAI_API_KEY` | Twój klucz Z.ai (model API, nie Coding Plan) |
-| `CLOUDFLARE_API_TOKEN` | Twój token Workers AI |
-| `CLOUDFLARE_ACCOUNT_ID` | Identyfikator konta Cloudflare |
+# Prawdziwe Śledztwo — Ostatni kurs (Pakiet 6.16)
 
-4. Zaznacz **Production** (oraz **Preview**, jeśli chcesz testować podglądy).
-5. Kliknij **Save** i wykonaj nowy deployment (**Redeploy** albo nowy commit).
+Polska gra detektywistyczna HTML/CSS/JavaScript. Pakiet bazuje na wersji 6.15.
 
-## Krok 3. Test bez udostępniania kluczy
+**Z.ai = wyłącznie przesłuchania. Cloudflare Workers AI = wyłącznie pomocnicza ocena zebranych dowodów i hipotez.**
 
-1. Otwórz `https://TWOJ-PROJEKT.vercel.app/api/status`.
-2. Sprawdź `interviewConfigured: true` i `evaluationConfigured: true`. To potwierdza obecność zmiennych, **nie** poprawność kluczy.
-3. Otwórz grę na tej samej domenie. Zadaj pytanie świadkowi; gdy Z.ai działa, poprawi naturalność odpowiedzi. Gdy nie — gra pokaże lokalną odpowiedź.
-4. Przejdź do **Dedukcji**, wybierz posiadany dokument i użyj **Sprawdź argumentację**. Pod lokalną analizą pojawi się pomocnicza opinia drugiego AI.
-5. Jeśli pojawi się informacja o niedostępnym API, sprawdź logi Functions na Vercel oraz panel zużycia odpowiedniego dostawcy.
+W 6.16 opinie Cloudflare są łatwiejsze do zrozumienia: rozdzielają potwierdzone elementy od niepewności, podają nazwy już zebranych źródeł i proponują co najwyżej jeden opcjonalny następny krok. Nie zwiększono trudności, nie zmieniono warunków wygranej, dowodów ani fabuły.
 
-## Krok 4. Ochrona darmowych limitów
+## Uruchomienie i testy
 
-- Z.ai podaje model `glm-4.7-flash` jako darmowy, lecz może ograniczać przepustowość.
-- Cloudflare Workers AI Free: **10 000 neuronów dziennie**. Po przekroczeniu limitu zapytania nie są obsługiwane.
-- W Vercel Firewall skonfiguruj ograniczenie liczby żądań dla ścieżki `/api/` (oba modele); darmowy plan Hobby ma ograniczoną liczbę reguł oraz własne limity. Sprawdź ewentualne opłaty za korzystanie z WAF.
-- Na początek możesz użyć np. 10–20 żądań na minutę na IP. Dobierz wartości na podstawie prawdziwego ruchu.
-- Nie można zabezpieczyć publicznych endpointów wyłącznie ukryciem kluczy. Bez WAF lub innego trwałego ograniczania żądań użytkownik może wielokrotnie wywoływać API.
-- Gra wymaga jeszcze testów na docelowej domenie i urządzeniach mobilnych przed ogłoszeniem premiery.
+```bash
+npm run build
+npm run check
+npm run test:evidence-quality
+npm run test:reasoning
+```
 
-## Ważne ograniczenia
+`index.html` jest gotową stroną. Kod źródłowy: `src/`. Endpointy: `api/interview.js` (Z.ai) i nowy `api/evidence-review.js` (Cloudflare). Starszego `api/evaluate` na repozytorium **nie usuwaj**.
 
-- Dostęp z samego pliku `file://` uruchamia **lokalny** silnik gry, bez obu API. Testuj pod adresem Vercel.
-- Z.ai otrzymuje fakty z lokalnie wygenerowanej wypowiedzi i jedynie ją naturalizuje. Takie podejście zmniejsza ryzyko sprzeczności fabularnych, ale nie daje pełnej autonomii świadka.
-- Opinia Cloudflare jest **pomocnicza**. Nie przyznaje punktów/zdobytych dowodów i nie odblokowuje finału — zostają do tego istniejące reguły.
-- Dane przesyłane w API to treść pytania i fragmenty rozmowy oraz, w ocenie, tylko materiały wybrane przez gracza. Ogranicz to w polityce prywatności gry.
-- W Vercel Hobby obowiązują zasady używania do celów osobistych i niekomercyjnych. Publiczna gra bez reklam i monetyzacji może wpisywać się w niekomercyjny charakter, ale sprawdź aktualne warunki przed publikacją.
+Konfiguracja Vercel: `ZAI_API_KEY`, `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN` (wartości wyłącznie w serwerowych zmiennych środowiskowych). Bez chmury działają lokalne oceny i rozmowy awaryjne.
 
-Dokumentacja: `https://docs.z.ai/api-reference/llm/chat-completion`, `https://developers.cloudflare.com/workers-ai/get-started/rest-api/`, `https://vercel.com/docs/environment-variables`.
+Dokumenty: `PAKIET-6.16-JAKOSC-ANALIZ-CLOUDFLARE.md`, `RAPORT-QA-6.16.md`, `GITHUB-WGRYWANIE.md`.
+
+API były testowane z mockami, a nie rzeczywistymi kluczami. 
+
+
+### Pakiet 6.18 — walidacja chronologii, minigier i finału
+
+Serwer `api/game-state.js` zatwierdza teraz `verify_puzzle_stage`, `verify_timeline`,
+`file_indictment`, `defend_objection`, `request_verdict`. Walidatory znajdują się
+w `lib/progression-618.js`, a kanoniczne parametry są w `lib/server-canon-618.json`.
+Przeglądarka przesyła dowody wykonania czynności, a nie flagę `solved` czy gotowy werdykt.
+Połączenie offline przez kolejkę `PS617_SYNC` pozostaje obsługiwane.
+Do uruchomienia: `npm run build && npm run check && npm run test:progression`.
+Zachowaj `api/interview.js` (Z.ai→Groq→lokalnie) oraz `api/evidence-review.js` (Cloudflare).
+
+## Pakiet 6.21
+
+Długie, wielowątkowe rozmowy i filmowe oświetlenie scen przełomowych, bez nowych zagadek. Z.ai → Groq → lokalny silnik; zatwierdzona historia na backendzie do 48 wiadomości, do AI ostatnie 12 oraz mapa tematów. Dźwięk scen jest opcjonalny i domyślnie wyłączony. Szczegóły w `README-PAKIET-6.21.md`, `RAPORT-QA-6.21.md`.
+
+## Pakiet 6.23 — naturalniejszy dialog
+
+Nowe dyrektywy mówionego polskiego, ograniczanie sztucznych formułek i bardziej elastyczna, ale bezpieczna kontrola liczb w `api/interview.js`. Z.ai pozostaje pierwszym dostawcą; Groq rezerwą, lokalny silnik ostatnim wariantem. Szczegóły i ograniczenia w `RAPORT-QA-6.23.md`.
+
+## Pakiet 6.24 — poprawki krytyczne po audycie
+
+Serwer sam przygotowuje zaufany bank faktów; klient nie może autoryzować własnego `factBank`. Poprawiono lokalne odpowiedzi o karcie T-17 u wszystkich sześciu świadków oraz zapis niezweryfikowanych tur offline. Pełny opis: `PAKIET-6.24-POPRAWKI-PO-AUDYCIE.md`, raport: `RAPORT-QA-6.24.md`.
+
+## Pakiet 6.25
+
+Poprawa trafności lokalnych odpowiedzi na pytania o L-2/L-3, protokoły, dyspozycję i sprzeczne zeznania; sześć indywidualnych wariantów głosu. Bez zmian kanonu i zagadek. Uruchom `npm run test:relevance625`. Szczegóły w `README-PAKIET-6.25.md`.

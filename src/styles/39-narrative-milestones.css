@@ -1,0 +1,13 @@
+
+/* Zwięzłe przełomy fabularne bez elementów developerskich. */
+.ps69-section{margin:17px 0 24px;scroll-margin-top:90px}
+.ps69-section>h3{font-size:22px;margin:5px 0 9px}
+.ps69-intro{font-size:13px;color:var(--muted);max-width:850px;line-height:1.65}
+#ps69Entries{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.ps69-entry{min-width:0;background:linear-gradient(155deg,#1e3037,#15232b);border:1px solid #56634f;border-left:3px solid #bb9663;border-radius:8px;padding:16px;display:grid;gap:9px}
+.ps69-entry h4{font-size:15px;color:#f3d5a5;line-height:1.4}
+.ps69-entry p{font-size:13px;color:#d2dcdc;line-height:1.65}
+.ps69-entry small{font-size:11px;color:var(--muted);line-height:1.5}
+.ps69-empty{grid-column:1/-1;padding:14px;border:1px dashed #48575e;border-radius:8px;color:var(--muted);font-size:12px}
+@media(max-width:650px){#ps69Entries{grid-template-columns:1fr}.ps69-section{padding:15px}.ps69-entry{padding:13px}}
+

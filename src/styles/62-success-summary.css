@@ -1,0 +1,25 @@
+
+/* Podsumowanie wygranej sprawy — niezależne od epilogu fabularnego. */
+.psa-backdrop[hidden]{display:none!important}
+.psa-backdrop{position:fixed;inset:0;z-index:999999;display:grid;place-items:center;padding:16px;background:rgba(3,9,14,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.psa-dialog{position:relative;display:flex;flex-direction:column;gap:0;width:min(710px,100%);max-height:min(92dvh,850px);overflow:auto;overscroll-behavior:contain;border:1px solid #6b6359;border-radius:16px;background:linear-gradient(160deg,#24323b 0%,#131e27 43%,#0d171f 100%);color:#e7e8e2;box-shadow:0 28px 95px #000b;font-family:inherit}
+.psa-head{padding:clamp(24px,5vw,38px) clamp(20px,5vw,40px) 22px;border-bottom:1px solid #43515b;position:relative;background:radial-gradient(ellipse at 100% 0%,#70512a55,transparent 70%)}
+.psa-eyebrow{color:#e1b778;font-size:11px;letter-spacing:.17em;text-transform:uppercase;font-weight:750;margin-bottom:12px}
+.psa-head h2{margin:0 48px 10px 0;font-family:Georgia,serif;font-size:clamp(26px,4.8vw,39px);line-height:1.12;color:#fff2da;font-weight:650}
+.psa-head p{margin:0;color:#bac8cb;font-size:13px;line-height:1.65;max-width:55ch}
+.psa-close{position:absolute;right:20px;top:20px;width:42px;height:42px;display:grid;place-items:center;border:1px solid #64717c;border-radius:9px;color:#fff4e2;background:#24313a;cursor:pointer;font:inherit;font-size:26px}
+.psa-close:focus-visible,.psa-actions button:focus-visible{outline:3px solid #f0bd74;outline-offset:3px}
+.psa-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:23px clamp(15px,4.5vw,38px) 15px}
+.psa-stat{padding:18px 12px 16px;border:1px solid #40515c;border-radius:11px;background:#1d2a33;min-width:0;text-align:center}
+.psa-stat-value{display:block;color:#f2c785;font-variant-numeric:tabular-nums;font-size:clamp(23px,3.8vw,34px);line-height:1.22;font-weight:800;letter-spacing:-.035em;overflow-wrap:anywhere}
+.psa-stat-label{display:block;color:#c1d0d3;font-size:11px;line-height:1.45;margin-top:9px;font-weight:650}
+.psa-stat-sub{display:block;color:#93a7b0;font-size:10px;line-height:1.35;margin-top:4px}
+.psa-bottom{padding:3px clamp(20px,5vw,40px) 30px}
+.psa-note{margin:8px 0 22px;padding:12px 14px;border-left:2px solid #d2a66c;background:#22303a;color:#bdcbd1;font-size:12px;line-height:1.6}
+.psa-actions{display:flex;gap:10px;flex-wrap:wrap}
+.psa-actions button,.psa-ep-open{border:1px solid #a27d4c;border-radius:9px;padding:11px 16px;min-height:44px;background:#543c23;color:#ffe9c5;cursor:pointer;font-weight:700;font-size:13px;font-family:inherit}
+.psa-actions button:last-child{background:#21313b;border-color:#4d6570;color:#d8e4e7}
+.psa-ep-open{background:#2b383e;border-color:#657c75;color:#f3dfb9;min-height:40px}
+body.psa-modal-open{overflow:hidden}
+@media(max-width:540px){.psa-backdrop{padding:8px;align-items:center}.psa-dialog{max-height:94dvh;border-radius:12px}.psa-stats{gap:7px;padding:15px 9px}.psa-stat{padding:15px 5px}.psa-stat-label{font-size:10px}.psa-stat-sub{font-size:9px}.psa-actions{display:grid;grid-template-columns:1fr}.psa-head{padding:23px 17px 19px}.psa-close{right:12px;top:12px}}
+@media(prefers-reduced-motion:reduce){.psa-backdrop{backdrop-filter:none;-webkit-backdrop-filter:none}}

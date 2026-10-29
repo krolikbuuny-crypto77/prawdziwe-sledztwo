@@ -1,0 +1,65 @@
+
+/* Obszary dokumentacyjne; oznaczenia nie przesądzają o wartości dowodowej. */
+#inspection12 .sc-blueprint{display:none!important}
+#ov35GridToggle,#ov35Fine{display:none!important}
+#ov35Workspace>p.ov35-tip{display:none!important}
+#ov35Workspace .ov35-flex{margin-top:-5px}
+#ov35Workspace .ov35-flex .ov3-btn{min-width:0}
+#ov35Workspace{gap:9px;margin:10px 0 12px;padding:12px 14px;border-color:#435963;background:linear-gradient(120deg,#122129,#10202a)}
+#ov35Workspace .ov3-find-head h3{font-size:14px}
+#inspection12 .et1-photo-stage{cursor:default!important}
+#inspection12 .et1-photo-stage:active{cursor:default!important}
+#inspection12 .ov36-region-layer{position:absolute;inset:0;pointer-events:none;z-index:9}
+#inspection12 .ov36-region{position:absolute;transform:translate(-50%,-50%);width:clamp(43px,5vw,55px);height:clamp(43px,5vw,55px);border-radius:50%;border:2px solid #e4c38d;background:rgba(17,30,37,.87);color:#ffeccf;box-shadow:0 0 0 6px rgba(18,31,37,.42),0 4px 20px #0008;display:grid;place-items:center;font:800 16px/1 ui-sans-serif,system-ui,sans-serif;cursor:pointer;pointer-events:auto;transition:transform .12s ease,box-shadow .12s ease;touch-action:manipulation}
+#inspection12 .ov36-region:hover,#inspection12 .ov36-region:focus-visible{transform:translate(-50%,-50%) scale(1.14);background:#6b482a;outline:3px solid #f4d4a0;outline-offset:3px;box-shadow:0 0 0 14px #a67b3e40,0 4px 20px #0008}
+#inspection12 .ov36-region.is-done{background:#20443c;border-color:#8ab9a9;color:#e7fff4}
+#inspection12 .ov36-region.is-active{box-shadow:0 0 0 8px #d9a56544,0 0 0 13px #d9a5651f,0 4px 20px #000a}
+#inspection12 .ov36-region::after{content:attr(data-hint);position:absolute;left:50%;bottom:calc(100% + 11px);transform:translateX(-50%);width:max-content;max-width:min(270px,70vw);white-space:normal;background:#0b1821ee;border:1px solid #aa885b;border-radius:7px;padding:7px 9px;color:#f6e3c0;font:600 12px/1.4 system-ui,sans-serif;box-shadow:0 7px 16px #0009;opacity:0;visibility:hidden;pointer-events:none;z-index:20}
+#inspection12 .ov36-region:is(:hover,:focus-visible)::after{opacity:1;visibility:visible}
+#inspection12 .ov36-navigator{background:linear-gradient(165deg,#14232b,#0e1921);padding:13px 15px;border:1px solid #465b65;border-radius:9px;margin:12px 0;display:grid;gap:11px;min-width:0}
+#inspection12 .ov36-advanced{border:1px solid #364b57;border-radius:8px;background:#101e25;margin:5px 0 12px;min-width:0}
+#inspection12 .ov36-advanced>summary{padding:13px 15px;color:#d7e4e6;font-size:12px;cursor:pointer;min-height:44px;font-weight:600}
+#inspection12 .ov36-advanced[open]>summary{color:#f0d7a7;border-bottom:1px solid #405660}
+#inspection12 .ov36-advanced #ov35Workspace{margin:8px}
+#inspection12 .ov36-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+#inspection12 .ov36-heading h4{color:#f0d9af;font-size:14px;margin:0}
+#inspection12 .ov36-counter{border:1px solid #536971;border-radius:99px;padding:4px 10px;color:#c7d4d9;font-size:11px;white-space:nowrap}
+#inspection12 .ov36-help{font-size:12px;line-height:1.55;color:#c3d0d1;margin:0}
+#inspection12 .ov36-regions{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,215px),1fr));gap:9px}
+#inspection12 .ov36-region-card{appearance:none;border:1px solid #50636c;background:#182a33;border-radius:8px;padding:11px;display:flex;align-items:flex-start;gap:11px;color:#e4edf0;text-align:left;cursor:pointer;width:100%;min-height:84px;transition:border-color .12s,background .12s;min-width:0}
+#inspection12 .ov36-region-card:hover,#inspection12 .ov36-region-card:focus-visible{border-color:#dab17c;background:#263840;outline:2px solid #c69f69;outline-offset:2px}
+#inspection12 .ov36-region-card.is-active{border-color:#d6aa75;background:#27343b}
+#inspection12 .ov36-region-card.is-done{border-color:#568c7c}
+#inspection12 .ov36-number{flex:none;width:33px;height:33px;border:1px solid #c8a475;background:#423523;color:#f8dfb4;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:750}
+#inspection12 .ov36-region-card.is-done .ov36-number{border-color:#85b5a6;background:#25473d;color:#e5f7ec}
+#inspection12 .ov36-description{display:grid;gap:5px;min-width:0;flex:1}
+#inspection12 .ov36-description strong{font-size:12.5px;line-height:1.35;color:#f4e1c5;overflow-wrap:anywhere}
+#inspection12 .ov36-description span{font-size:11px;color:#bdcbd0;line-height:1.45;overflow-wrap:anywhere}
+#inspection12 .ov36-empty{color:#b9c8cf;font-size:12px;padding:9px 0}
+#inspection12 .ov36-where{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:8px;border-top:1px solid #3c5058}
+#inspection12 .ov36-where p{margin:0;color:#bfcfd2;font-size:11px}
+#inspection12 .ov36-where button{border:1px solid #b69268;background:#3b332a;color:#ffead0;border-radius:6px;font-size:11px;padding:9px 11px;min-height:40px;cursor:pointer}
+#inspection12 #scHotspots .ov3-unfound{color:#b9c6ca}
+#et2Viewer .ov36-viewer-area{padding:9px 14px;border-top:1px solid #334852;background:#10212b;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+#et2Viewer .ov36-viewer-area b{font-size:11px;color:#dac5a5;margin-right:4px}
+#et2Viewer .ov36-viewer-area button{font-size:11px;min-width:44px;min-height:38px;padding:7px 10px;background:#1b3540;border:1px solid #66808b;color:#fae9d1;border-radius:6px}
+@media (max-width:640px){#inspection12 .ov36-navigator{padding:11px}#inspection12 .ov36-regions{grid-template-columns:1fr}#inspection12 .ov36-region{width:46px;height:46px;font-size:14px}#inspection12 .ov36-region::after{display:none}#inspection12 #ov35Workspace{padding:10px}#inspection12 #ov35Workspace .ov35-tools{grid-template-columns:repeat(3,minmax(0,1fr))}#inspection12 #ov35Workspace .ov35-tools button{font-size:11px;padding:8px 5px}}
+@media(prefers-reduced-motion:reduce){#inspection12 .ov36-region,#inspection12 .ov36-region-card{transition:none}}
+
+/* Oględziny: only image-grounded objects carry photographic markers. */
+#inspection12 .ov37-navigator{gap:14px}
+#inspection12 .ov37-visual,#inspection12 .ov37-archive{display:grid;gap:9px;min-width:0}
+#inspection12 .ov37-archive{background:rgba(8,17,24,.37);border:1px solid #435560;border-radius:9px;padding:12px}
+#inspection12 .ov37-section-head{display:flex;flex-wrap:wrap;gap:3px 14px;align-items:baseline;justify-content:space-between}
+#inspection12 .ov37-section-head h5{color:#e7d3b1;font-size:13px;letter-spacing:.02em;margin:0}
+#inspection12 .ov37-section-head span{font-size:11px;color:#9cb0bd}
+#inspection12 .ov37-card-document{background:#19232d;border-color:#495b70}
+#inspection12 .ov37-card-document .ov36-number{border-radius:8px;background:#253445;border-color:#708ca6;color:#d3e4f7}
+#inspection12 .ov37-source{font-size:11px;color:#d4b88b;line-height:1.4;font-weight:600}
+#inspection12 .ov37-card-document .ov37-source{color:#a8c5df}
+#inspection12 .ov37-context{font-size:11.5px;color:#c1ced3;line-height:1.45}
+#inspection12 .ov37-status{font-size:11px;color:#93aeb6;margin-top:2px}
+#inspection12 #scPins .sc-pin[hidden]{display:none!important}
+#inspection12 #ov35GridToggle,#inspection12 [data-ov35-tool="discover"],#inspection12 #ov35Fine{display:none!important}
+#inspection12 .ov37-card-photo:focus-visible,#inspection12 .ov37-card-document:focus-visible{outline:3px solid #e6bd82;outline-offset:2px}
+@media(max-width:560px){#inspection12 .ov37-archive{padding:9px}#inspection12 .ov37-context{font-size:11px}}

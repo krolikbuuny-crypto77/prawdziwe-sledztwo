@@ -1,0 +1,79 @@
+{
+  "390": {
+    "snapshot": {
+      "profileCount": 6,
+      "profileStyles": 6,
+      "initialLena": 2,
+      "initialExpected": 2,
+      "afterLena": 6,
+      "turns": 1200,
+      "empty": 0,
+      "exception": 0,
+      "oversize": 0,
+      "unique": 495,
+      "foundStart": 13,
+      "foundEnd": 21,
+      "epilogues": 6,
+      "voice": "Precyzyjna, formalna, lecz przy wspomnieniu ostatniej rozmowy z Leną bardziej osobista.",
+      "viewWidth": 390,
+      "viewport": 390,
+      "firstAnswers": [
+        "Podczas tej zmiany kierowałem pracą zajezdni, głównie z biura. Wychodziłem też do spraw służbowych.",
+        "Byłem na służbie jako dyspozytor. Pracowałem w dyspozytorni.",
+        "Proszę zestawić surowe zlecenia i podpisy z później uzupełnionymi formularzami. O kartach napraw mówię z pracy w warsztacie.",
+        "Ważne jest, czy zgłoszenie zostało wysłane, a nie tylko zapisane jako szkic. Rejestr zgłoszeń BHP ma szkice i wysyłki.",
+        "W logu trzeba odróżniać błąd transmisji od nowej operacji. Surowy log i raport końcowy to dwa różne poziomy informacji.",
+        "Dokumentacja odbiorowa określa zakres czynności i podpisy. Dokumentacja audytu podlega wersjonowaniu. Nie mam wiedzy pozwalającej wskazać sprawcę. Nie zaakceptuję oskarżenia opartego na domysłach.",
+        "Organizację zmiany znam z własnej pracy. Proszę porównać surowe wejścia i połączenia z ostatecznym grafikiem. Nadzorowałem nocną zmianę. Nie wskażę osoby, która obserwowała mnie przez całą noc.",
+        "Odpowiem o tym, co sam widziałem, a nie o tym, co zapisano w aktach. Przy dyspozytorni widziałem ludzi podczas służby, ale nie śledziłem każdego przejścia przez plac. Konkretną osobę trzeba zestawić z innym źródłem.",
+        "Wcześniej powiedziałem: „Proszę zestawić surowe zlecenia i podpisy z później uzupełnionymi formularzami. O kartach napraw mówię z pracy w warsztacie”.",
+        "Wracam do naszej rozmowy. Wracam myślami do naszej ostatniej rozmowy."
+      ]
+    },
+    "pageErrors": []
+  },
+  "768": {
+    "snapshot": {
+      "profileCount": 6,
+      "profileStyles": 6,
+      "initialLena": 2,
+      "initialExpected": 2,
+      "afterLena": 6,
+      "turns": 0,
+      "empty": 0,
+      "exception": 0,
+      "oversize": 0,
+      "unique": 0,
+      "foundStart": 13,
+      "foundEnd": 21,
+      "epilogues": 6,
+      "voice": "Precyzyjna, formalna, lecz przy wspomnieniu ostatniej rozmowy z Leną bardziej osobista.",
+      "viewWidth": 768,
+      "viewport": 768,
+      "firstAnswers": []
+    },
+    "pageErrors": []
+  },
+  "1280": {
+    "snapshot": {
+      "profileCount": 6,
+      "profileStyles": 6,
+      "initialLena": 2,
+      "initialExpected": 2,
+      "afterLena": 6,
+      "turns": 0,
+      "empty": 0,
+      "exception": 0,
+      "oversize": 0,
+      "unique": 0,
+      "foundStart": 13,
+      "foundEnd": 21,
+      "epilogues": 6,
+      "voice": "Precyzyjna, formalna, lecz przy wspomnieniu ostatniej rozmowy z Leną bardziej osobista.",
+      "viewWidth": 1280,
+      "viewport": 1280,
+      "firstAnswers": []
+    },
+    "pageErrors": []
+  }
+}

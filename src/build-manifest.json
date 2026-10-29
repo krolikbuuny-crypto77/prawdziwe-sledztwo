@@ -1,0 +1,1413 @@
+{
+  "schemaVersion": 1,
+  "sourceHash": "81e234c841f52d391b035ef1f688790cf3029c29d09c14b751873aeddc157c3c",
+  "sections": [
+    {
+      "kind": "style",
+      "index": 0,
+      "name": "base-design-system",
+      "parts": [
+        "src/styles/00-base-design-system.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_000__",
+      "sha256": "ce0a02fe8227fd7dfc79ac9c507e6eba9a9c734646d19214abea74713b5e6aea",
+      "size": 97522
+    },
+    {
+      "kind": "style",
+      "index": 1,
+      "name": "section-transitions",
+      "parts": [
+        "src/styles/01-section-transitions.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_001__",
+      "sha256": "ca08be9d89b22bd02bb63ab24aaa6e8877d31683fb2dbf0725fd6910c491b611",
+      "size": 3012
+    },
+    {
+      "kind": "style",
+      "index": 2,
+      "name": "theme-palette",
+      "parts": [
+        "src/styles/02-theme-palette.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_002__",
+      "sha256": "fba3d33fb39bee644850911d5fd027e22f0d9864c4dd327c45b573659e20178b",
+      "size": 3470
+    },
+    {
+      "kind": "style",
+      "index": 3,
+      "name": "parallax-scenes",
+      "parts": [
+        "src/styles/03-parallax-scenes.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_003__",
+      "sha256": "13b03040c0a75f6295e75c835b6c6dc37a0d4db4e3830e20c16dfd9cce345c56",
+      "size": 3664
+    },
+    {
+      "kind": "style",
+      "index": 4,
+      "name": "cross-case-panel",
+      "parts": [
+        "src/styles/04-cross-case-panel.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_004__",
+      "sha256": "cc775111e1396b7f678ce5abc81a85c55e3e926e03811386f92cf9cd26cb0ede",
+      "size": 2510
+    },
+    {
+      "kind": "style",
+      "index": 5,
+      "name": "four-k-compatibility",
+      "parts": [
+        "src/styles/05-four-k-compatibility.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_005__",
+      "sha256": "afa35bc1b056ac0882c4096e9ad47f6db58e4f3e9e5f673cb333ba6d793a1e9c",
+      "size": 740
+    },
+    {
+      "kind": "style",
+      "index": 6,
+      "name": "resume-session",
+      "parts": [
+        "src/styles/06-resume-session.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_006__",
+      "sha256": "022aefadb4d95f58c3c947b3c19264881418774c941a4003b839d4c7d09b6a6e",
+      "size": 921
+    },
+    {
+      "kind": "style",
+      "index": 7,
+      "name": "deduction-audit",
+      "parts": [
+        "src/styles/07-deduction-audit.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_007__",
+      "sha256": "52ecaf5dc50e36137c39f77550ff95a086845e05e352a5616c46a635b6a8df17",
+      "size": 2991
+    },
+    {
+      "kind": "style",
+      "index": 8,
+      "name": "witness-conversation",
+      "parts": [
+        "src/styles/08-witness-conversation.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_008__",
+      "sha256": "b7d39a3908249b551676e984e59448143f5f08ad2a37f235d3971f77abf95460",
+      "size": 2056
+    },
+    {
+      "kind": "style",
+      "index": 9,
+      "name": "minigame-fields",
+      "parts": [
+        "src/styles/09-minigame-fields.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_009__",
+      "sha256": "aa3101c7bd3f1563c32095db5b378873dab6c2f369d70f365a37d61b625770bc",
+      "size": 1249
+    },
+    {
+      "kind": "style",
+      "index": 10,
+      "name": "inspection-five-stages",
+      "parts": [
+        "src/styles/10-inspection-five-stages.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_010__",
+      "sha256": "a1249a47f3f677e8f81dea86826ca67cace9f4ec2ad071f4dd1b1fee5e1ca6e1",
+      "size": 784
+    },
+    {
+      "kind": "style",
+      "index": 11,
+      "name": "defense-reasoning",
+      "parts": [
+        "src/styles/11-defense-reasoning.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_011__",
+      "sha256": "062298ffc9f4e7bb1add029d6b98cdce13925d055613d22ed73c4aa09a462a7b",
+      "size": 216
+    },
+    {
+      "kind": "style",
+      "index": 12,
+      "name": "mobile-performance",
+      "parts": [
+        "src/styles/12-mobile-performance.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_012__",
+      "sha256": "5f496a7bd50a5f43d04699e7df0351d0e2af4869f118eda356d073de1507cdad",
+      "size": 376
+    },
+    {
+      "kind": "style",
+      "index": 13,
+      "name": "compact-progress",
+      "parts": [
+        "src/styles/13-compact-progress.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_013__",
+      "sha256": "2b85ccc7b01c9dc2e60ec51e56f676e135661540c4a77052e769da2a8b3a0479",
+      "size": 1081
+    },
+    {
+      "kind": "style",
+      "index": 14,
+      "name": "cinematic-layer",
+      "parts": [
+        "src/styles/14-cinematic-layer.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_014__",
+      "sha256": "29fa75f0aeab66e68c648b09b147eafa0e9e4116f0f2ee42a0047b8ac9a89606",
+      "size": 7944
+    },
+    {
+      "kind": "style",
+      "index": 15,
+      "name": "psychological-interrogations",
+      "parts": [
+        "src/styles/15-psychological-interrogations.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_015__",
+      "sha256": "6735ec6ada8e1971500b25f66334b4ff5d5358287b86245d7ebe5228d33fcf60",
+      "size": 1587
+    },
+    {
+      "kind": "style",
+      "index": 16,
+      "name": "inspection-toolbar",
+      "parts": [
+        "src/styles/16-inspection-toolbar.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_016__",
+      "sha256": "02383f38a28e309196c13706e548f6db5b1f28248d8af23ff983eebc312c84c3",
+      "size": 8753
+    },
+    {
+      "kind": "style",
+      "index": 17,
+      "name": "investigation-phases",
+      "parts": [
+        "src/styles/17-investigation-phases.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_017__",
+      "sha256": "c3562cf25acbc324270d38b1fb448a56834607decfd173e684d71d3835b589e6",
+      "size": 1809
+    },
+    {
+      "kind": "style",
+      "index": 18,
+      "name": "witness-breakthroughs",
+      "parts": [
+        "src/styles/18-witness-breakthroughs.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_018__",
+      "sha256": "0d46deff3dab50d9fface28f571313fe87401490fbfc3d81c3ff5a0c2ea5c0aa",
+      "size": 4482
+    },
+    {
+      "kind": "style",
+      "index": 19,
+      "name": "conflict-flags",
+      "parts": [
+        "src/styles/19-conflict-flags.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_019__",
+      "sha256": "433f6fa304c61c25cfbc6842e5374dc2914deb3cc1d1260e3484a7c4555ea2e7",
+      "size": 3990
+    },
+    {
+      "kind": "style",
+      "index": 20,
+      "name": "indictment-variants",
+      "parts": [
+        "src/styles/20-indictment-variants.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_020__",
+      "sha256": "472ce7ae0d8736152c5ba9aa23b0bc1c1f16ea160843d4674cc7e6d295ed7184",
+      "size": 2780
+    },
+    {
+      "kind": "style",
+      "index": 21,
+      "name": "navigation-no-scroll",
+      "parts": [
+        "src/styles/21-navigation-no-scroll.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_021__",
+      "sha256": "be1e8efad91a36588c8e1f3ee11502280923a411b2d10410994c265499194a3c",
+      "size": 3798
+    },
+    {
+      "kind": "style",
+      "index": 22,
+      "name": "evidence-category-icons",
+      "parts": [
+        "src/styles/22-evidence-category-icons.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_022__",
+      "sha256": "4c43ae339ce00bb92be9d7901988327a3139d940b8e5a6f67f398973539cb141",
+      "size": 4333
+    },
+    {
+      "kind": "style",
+      "index": 23,
+      "name": "defense-feedback",
+      "parts": [
+        "src/styles/23-defense-feedback.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_023__",
+      "sha256": "be490b2049b5420b6000dfdc3d341faedaa9f2318cb4c6505de1369e8ea6f443",
+      "size": 288
+    },
+    {
+      "kind": "script",
+      "index": 0,
+      "name": "case-engine",
+      "parts": [
+        "src/core/event-bus.js",
+        "src/data/case-content.js",
+        "src/core/save-manager.js",
+        "src/core/case-engine.js",
+        "src/core/witness-engine.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_000__",
+      "sha256": "88fa01ea1f4478352c5116e2dd570ae3706a2f7ac282ef804bde84a5218c1b29",
+      "size": 1458098
+    },
+    {
+      "kind": "script",
+      "index": 1,
+      "name": "conversation-consistency",
+      "parts": [
+        "src/witnesses/01-conversation-consistency.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_001__",
+      "sha256": "ca23324af14c5ea9be98b239322ec75f8cb86250e220fe4858ec252c1b1ad5e5",
+      "size": 16735
+    },
+    {
+      "kind": "script",
+      "index": 2,
+      "name": "inspection-photo-manifest",
+      "parts": [
+        "src/data/02-inspection-photo-manifest.json"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_002__",
+      "sha256": "2e017db7de3082ef400d541c2cee9bb3f9480ffd5518009ae454642a5d0d809e",
+      "size": 7103
+    },
+    {
+      "kind": "script",
+      "index": 3,
+      "name": "visual-asset-bridge",
+      "parts": [
+        "src/inspection/03-visual-asset-bridge.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_003__",
+      "sha256": "a329326c9e78f305f64b1dd8f9eaa0efced0f5030ace15c27630f814a7e2f038",
+      "size": 26992
+    },
+    {
+      "kind": "script",
+      "index": 4,
+      "name": "cross-source-audit",
+      "parts": [
+        "src/deduction/04-cross-source-audit.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_004__",
+      "sha256": "db1ced82c98aa3f268bd9af7503459c74654818415f5fb2c3fb08faa260aa4c9",
+      "size": 18601
+    },
+    {
+      "kind": "script",
+      "index": 5,
+      "name": "four-k-stability",
+      "parts": [
+        "src/inspection/05-four-k-stability.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_005__",
+      "sha256": "003040ad776d79918d8b8dd57a8f1fde13894c1ed5a508518e34cc0d28d76a18",
+      "size": 1251
+    },
+    {
+      "kind": "style",
+      "index": 24,
+      "name": "inspection-first-actions",
+      "parts": [
+        "src/styles/24-inspection-first-actions.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_024__",
+      "sha256": "a8f99ef89b6a62bd1ca178a70b329314d5a4bf41bf8bc64bb17013ea94d401fb",
+      "size": 6616
+    },
+    {
+      "kind": "script",
+      "index": 6,
+      "name": "cinematic-presentation",
+      "parts": [
+        "src/inspection/06-cinematic-presentation.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_006__",
+      "sha256": "24f43b405dd8455a39ce6780628b5d12a1658bd0a4c07c209bd8c8ed17068a03",
+      "size": 14288
+    },
+    {
+      "kind": "style",
+      "index": 25,
+      "name": "inspection-photo-pins",
+      "parts": [
+        "src/styles/25-inspection-photo-pins.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_025__",
+      "sha256": "df3d1942c117b4a9cc25e7862aa1e70e9bbeccb1c8f9d9d8a89ba03e13e71ec6",
+      "size": 3808
+    },
+    {
+      "kind": "style",
+      "index": 26,
+      "name": "inspection-workspace",
+      "parts": [
+        "src/styles/26-inspection-workspace.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_026__",
+      "sha256": "cb8930b6919e8b70ef23fefdb6f2caec94d26d61ec218fafd063ca4d3e5856dc",
+      "size": 3748
+    },
+    {
+      "kind": "script",
+      "index": 7,
+      "name": "scene-observation-engine",
+      "parts": [
+        "src/inspection/07-scene-observation-engine.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_007__",
+      "sha256": "8939346c63c34a0daa39a98b262089d77a49387eb28dfd1f89cae8c49f0613de",
+      "size": 18837
+    },
+    {
+      "kind": "style",
+      "index": 27,
+      "name": "advanced-minigames",
+      "parts": [
+        "src/styles/27-advanced-minigames.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_027__",
+      "sha256": "222bf73992cd52350d219747556516d034e87e6a5d951553cd550351925a208b",
+      "size": 3553
+    },
+    {
+      "kind": "script",
+      "index": 8,
+      "name": "advanced-minigames",
+      "parts": [
+        "src/laboratory/08-advanced-minigames.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_008__",
+      "sha256": "7522f1ec8201bbf03f316b06a18bbac64ea3cbcbdfb99d57c50f47f4f69fcd5e",
+      "size": 18695
+    },
+    {
+      "kind": "style",
+      "index": 28,
+      "name": "multi-stage-puzzles",
+      "parts": [
+        "src/styles/28-multi-stage-puzzles.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_028__",
+      "sha256": "c3d26c6df31864b4e81824c109e4d7e5498947724c75d26590f3b5bc9e170f48",
+      "size": 4089
+    },
+    {
+      "kind": "script",
+      "index": 9,
+      "name": "multi-stage-puzzles",
+      "parts": [
+        "src/laboratory/09-multi-stage-puzzles.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_009__",
+      "sha256": "f35b93f425ca940ccda8561997b0337263ce60e35d3b0deb44f3bca7e6573a9f",
+      "size": 30221
+    },
+    {
+      "kind": "style",
+      "index": 29,
+      "name": "technical-evidence-documents",
+      "parts": [
+        "src/styles/29-technical-evidence-documents.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_029__",
+      "sha256": "b7833206abdb4f637ef7cf77368af2848caac6f77033dd60a289d4f8b3ab16cc",
+      "size": 7471
+    },
+    {
+      "kind": "script",
+      "index": 10,
+      "name": "guided-investigation",
+      "parts": [
+        "src/inspection/10-guided-investigation.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_010__",
+      "sha256": "9d975bd82f1d3d861d4aed7bc57d7a136078b416d1cf768b31d6e7d7171e887d",
+      "size": 14904
+    },
+    {
+      "kind": "style",
+      "index": 30,
+      "name": "story-flow",
+      "parts": [
+        "src/styles/30-story-flow.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_030__",
+      "sha256": "1c457b7bed822951711276f14028a2d0a32c1a0aaaa202dd9a092396709aaed1",
+      "size": 1723
+    },
+    {
+      "kind": "script",
+      "index": 11,
+      "name": "linked-intrigue",
+      "parts": [
+        "src/story/11-linked-intrigue.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_011__",
+      "sha256": "a6da262fb8003d8c0f65476c7f7bfd7455f1db3c6589500bcf101dcc19fc7c09",
+      "size": 15333
+    },
+    {
+      "kind": "style",
+      "index": 31,
+      "name": "cinematic-noir-theme",
+      "parts": [
+        "src/styles/31-cinematic-noir-theme.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_031__",
+      "sha256": "1a744beade4e445a8d6cae0f8e85ac136f99a3ada6d56ee872c60582c7cc4591",
+      "size": 14513
+    },
+    {
+      "kind": "style",
+      "index": 32,
+      "name": "source-verification",
+      "parts": [
+        "src/styles/32-source-verification.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_032__",
+      "sha256": "c30b442cbdf3e5b2e7355ddeac61c43254ecb76112e1059543f9adadbd529371",
+      "size": 3077
+    },
+    {
+      "kind": "script",
+      "index": 12,
+      "name": "source-verification",
+      "parts": [
+        "src/deduction/12-source-verification.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_012__",
+      "sha256": "a04fcfbfc5a478e781abb551ad2e287ef81302b22782253a3b1726b42f09efbb",
+      "size": 23455
+    },
+    {
+      "kind": "script",
+      "index": 13,
+      "name": "psychological-interrogations",
+      "parts": [
+        "src/witnesses/13-psychological-interrogations.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_013__",
+      "sha256": "b50649fb88ab4500500de5af2596fddfae2ea4965f10737ea44699304ea0acf2",
+      "size": 45409
+    },
+    {
+      "kind": "script",
+      "index": 14,
+      "name": "adversarial-trial",
+      "parts": [
+        "src/finale/14-adversarial-trial.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_014__",
+      "sha256": "c94fa0caa827136426ad108422416d00a9f826ccf785fac468e1fb563b1afa61",
+      "size": 26692
+    },
+    {
+      "kind": "script",
+      "index": 15,
+      "name": "natural-language-questions",
+      "parts": [
+        "src/witnesses/15-natural-language-questions.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_015__",
+      "sha256": "8ee84f363e94770b883551565bcc6e0e3663336fa520c5afac2f671e8e779564",
+      "size": 12827
+    },
+    {
+      "kind": "script",
+      "index": 16,
+      "name": "contextual-question-understanding",
+      "parts": [
+        "src/witnesses/16-contextual-question-understanding.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_016__",
+      "sha256": "932520d3c41f68ce609e690bef4c312762a8174afa71b63347dcb5f2297b62fa",
+      "size": 24804
+    },
+    {
+      "kind": "style",
+      "index": 33,
+      "name": "mobile-chat-button",
+      "parts": [
+        "src/styles/33-mobile-chat-button.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_033__",
+      "sha256": "a7e9302fa11c5ba7bb9d71da98f7e4b693725c1f002318f034b93b6bee3f36cf",
+      "size": 413
+    },
+    {
+      "kind": "script",
+      "index": 17,
+      "name": "long-conversation-memory",
+      "parts": [
+        "src/witnesses/17-long-conversation-memory.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_017__",
+      "sha256": "41f155b088c4a9a4cd816d377987fbe90253163d029e6784223117f6c741bc96",
+      "size": 16209
+    },
+    {
+      "kind": "script",
+      "index": 18,
+      "name": "readiness-audit",
+      "parts": [
+        "src/case/18-readiness-audit.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_018__",
+      "sha256": "62d5bfa2821a246725203bb8bf42ba970fa51d25ef856f8fba24822214fdcb4b",
+      "size": 10735
+    },
+    {
+      "kind": "script",
+      "index": 19,
+      "name": "procedural-readiness-guards",
+      "parts": [
+        "src/case/19-procedural-readiness-guards.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_019__",
+      "sha256": "6d62317e48e93c60f96c80e42ba178fb41f53eba68e36aab5925433bca7f25d2",
+      "size": 5620
+    },
+    {
+      "kind": "script",
+      "index": 20,
+      "name": "natural-language-search",
+      "parts": [
+        "src/search/20-natural-language-search.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_020__",
+      "sha256": "da225a82edc6ecec8d1205e9dc4ce58e361181aaa5f95a8d81e6b1a0dcc4b5d6",
+      "size": 16496
+    },
+    {
+      "kind": "style",
+      "index": 34,
+      "name": "procedural-help",
+      "parts": [
+        "src/styles/34-procedural-help.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_034__",
+      "sha256": "994ae80bc73edb2a2e98164fc0d8b960d69b134dedf2c55bc299dfff770f1dbf",
+      "size": 1043
+    },
+    {
+      "kind": "script",
+      "index": 21,
+      "name": "procedural-hints",
+      "parts": [
+        "src/case/21-procedural-hints.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_021__",
+      "sha256": "7eb8a5cc9769ae0f18c6bb3591019961414046f75e660ec8c83e6f08ddf13f6f",
+      "size": 3529
+    },
+    {
+      "kind": "script",
+      "index": 22,
+      "name": "procedural-dialogue",
+      "parts": [
+        "src/witnesses/22-procedural-dialogue.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_022__",
+      "sha256": "bd52865ec7af973643347fa338bbe6a354b9834095eb50107d8cf055eb517d44",
+      "size": 12534
+    },
+    {
+      "kind": "style",
+      "index": 35,
+      "name": "navigation-status",
+      "parts": [
+        "src/styles/35-navigation-status.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_035__",
+      "sha256": "33b5ef3cdd67829fd53382d0b88c93a6031f6936cd06929034846833f978ab4f",
+      "size": 2887
+    },
+    {
+      "kind": "script",
+      "index": 23,
+      "name": "nonlinear-progress",
+      "parts": [
+        "src/navigation/23-nonlinear-progress.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_023__",
+      "sha256": "a5ada3aab01dbb000dec2b5f0a1ab59719d576c45956f520afb6633bf9f97f7f",
+      "size": 12257
+    },
+    {
+      "kind": "style",
+      "index": 36,
+      "name": "conversation-efficiency",
+      "parts": [
+        "src/styles/36-conversation-efficiency.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_036__",
+      "sha256": "022d927e45ae011e2a43bd936d2afea68766e557ad24f01539fe0b65de59a35a",
+      "size": 2726
+    },
+    {
+      "kind": "script",
+      "index": 24,
+      "name": "conversation-renderer",
+      "parts": [
+        "src/performance/24-conversation-renderer.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_024__",
+      "sha256": "f10d0c410ef4b2922868907acb14600f6a88478bfad00e70bb1067fe98a18c36",
+      "size": 1742
+    },
+    {
+      "kind": "script",
+      "index": 25,
+      "name": "pragmatic-multi-intent-dialogue",
+      "parts": [
+        "src/witnesses/25-pragmatic-multi-intent-dialogue.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_025__",
+      "sha256": "f4afa64af94180ae68b9570ed10e31eef1fe4f0438c0dc892b16f6c681224d9d",
+      "size": 16214
+    },
+    {
+      "kind": "style",
+      "index": 37,
+      "name": "investigation-review",
+      "parts": [
+        "src/styles/37-investigation-review.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_037__",
+      "sha256": "1024daa20c1069bbcee1e732d3513e223adbeadcfbde22200aa40a0bf9809b70",
+      "size": 2224
+    },
+    {
+      "kind": "script",
+      "index": 26,
+      "name": "independent-investigation",
+      "parts": [
+        "src/case/26-independent-investigation.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_026__",
+      "sha256": "b27e9d5d39cb1a6da4a7cc9a5254dc79f4d771e112676cb5e2b2951eba5c9cfa",
+      "size": 14181
+    },
+    {
+      "kind": "style",
+      "index": 38,
+      "name": "mobile-navigation-layer",
+      "parts": [
+        "src/styles/38-mobile-navigation-layer.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_038__",
+      "sha256": "425bf18653133ed1d66d1a2ad5da0b3a0b2f90ee0af9c26391517015d85cbb9d",
+      "size": 142
+    },
+    {
+      "kind": "script",
+      "index": 27,
+      "name": "legacy-empty-hook",
+      "parts": [
+        "src/compatibility/27-legacy-empty-hook.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_027__",
+      "sha256": "75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070",
+      "size": 2
+    },
+    {
+      "kind": "script",
+      "index": 28,
+      "name": "natural-dialogue-continuation",
+      "parts": [
+        "src/witnesses/28-natural-dialogue-continuation.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_028__",
+      "sha256": "8760a7e1a77ecec3171cc90e3c922cd36b8410274704353f9279988ffe0a4ac7",
+      "size": 16855
+    },
+    {
+      "kind": "style",
+      "index": 39,
+      "name": "narrative-milestones",
+      "parts": [
+        "src/styles/39-narrative-milestones.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_039__",
+      "sha256": "f25d38d7f9095a9d74c101ed84ef6e2e0cc80e10fef10fb815afa50c908bfab5",
+      "size": 966
+    },
+    {
+      "kind": "script",
+      "index": 29,
+      "name": "narrative-breakthroughs",
+      "parts": [
+        "src/story/29-narrative-breakthroughs.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_029__",
+      "sha256": "43b90c5221f80b40947ce43759c6b16b77ce408f67efb42cc50191416c81ed83",
+      "size": 12999
+    },
+    {
+      "kind": "style",
+      "index": 40,
+      "name": "story-rhythm",
+      "parts": [
+        "src/styles/40-story-rhythm.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_040__",
+      "sha256": "29d4eca4be078262257313e20e28ab9071a40e5aa6631a75bfbcd5dbc350b528",
+      "size": 1842
+    },
+    {
+      "kind": "script",
+      "index": 30,
+      "name": "investigation-pacing",
+      "parts": [
+        "src/story/30-investigation-pacing.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_030__",
+      "sha256": "ae035cf02148163985b6072b832fbdd07ea0ebf33e2bb56c7cf1e758ffe54a8c",
+      "size": 8740
+    },
+    {
+      "kind": "style",
+      "index": 41,
+      "name": "witness-continuity",
+      "parts": [
+        "src/styles/41-witness-continuity.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_041__",
+      "sha256": "536f39dbf83aa720fdfe6df448af2e56a3f3b38c5bf670f2b2de44e2752b14cc",
+      "size": 171
+    },
+    {
+      "kind": "script",
+      "index": 31,
+      "name": "emotional-continuity",
+      "parts": [
+        "src/witnesses/31-emotional-continuity.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_031__",
+      "sha256": "3d2d3be2ab5dffdd30228fdf436274f48967a7e7a4554cd034d39ad946fc024c",
+      "size": 8940
+    },
+    {
+      "kind": "style",
+      "index": 42,
+      "name": "case-epilogue",
+      "parts": [
+        "src/styles/42-case-epilogue.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_042__",
+      "sha256": "6e8c5780da1b37ecdf346507b01e29abb03bf8b2bdc0ab1baa7e91f40159ad62",
+      "size": 1966
+    },
+    {
+      "kind": "script",
+      "index": 32,
+      "name": "last-case-page",
+      "parts": [
+        "src/finale/32-last-case-page.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_032__",
+      "sha256": "9ade5fb9ffd5e0ec7d3ccd6fd451accedc4baba0b7b92378e68d16b1777fec2b",
+      "size": 10759
+    },
+    {
+      "kind": "script",
+      "index": 33,
+      "name": "verdict-integrity",
+      "parts": [
+        "src/finale/33-verdict-integrity.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_033__",
+      "sha256": "2e524cb9e0f485a0e0d1153a1dbb89a4cf4f649e718c7ddacca1c6478600b628",
+      "size": 2307
+    },
+    {
+      "kind": "style",
+      "index": 43,
+      "name": "case-tools",
+      "parts": [
+        "src/styles/43-case-tools.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_043__",
+      "sha256": "505be34efbbb50e7095fdc57ff18551991fac9902d1b0ba5671aee22d5070e3e",
+      "size": 1634
+    },
+    {
+      "kind": "script",
+      "index": 34,
+      "name": "polish-interface-actions",
+      "parts": [
+        "src/navigation/34-polish-interface-actions.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_034__",
+      "sha256": "a3602c4bdaccf1d0752c8641d7ded8fcb24e3e1ac33aed60d84c1fd9852ae920",
+      "size": 2419
+    },
+    {
+      "kind": "script",
+      "index": 35,
+      "name": "witness-breakthroughs",
+      "parts": [
+        "src/witnesses/35-witness-breakthroughs.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_035__",
+      "sha256": "6a9106f33986ebc7c1196c329afb19c7b713d31296eb4f798e04922a7eb9e335",
+      "size": 18693
+    },
+    {
+      "kind": "style",
+      "index": 44,
+      "name": "soundtrack-controls",
+      "parts": [
+        "src/styles/44-soundtrack-controls.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_044__",
+      "sha256": "b33eea64a621d9a971ac8535f5276fc035b2fa2241be7354351a24a218ffa30f",
+      "size": 7251
+    },
+    {
+      "kind": "script",
+      "index": 36,
+      "name": "original-score",
+      "parts": [
+        "src/audio/36-original-score.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_036__",
+      "sha256": "2ce6b20afba90c18f0a2b36aed30152014dcca57c553076e5dde49722cdb6d68",
+      "size": 8372
+    },
+    {
+      "kind": "script",
+      "index": 37,
+      "name": "event-feedback",
+      "parts": [
+        "src/audio/37-event-feedback.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_037__",
+      "sha256": "2879f711ffc09a39ab7946a0d111b1665d9d05b3c8228d53e04ccb3a3851eea3",
+      "size": 5578
+    },
+    {
+      "kind": "style",
+      "index": 45,
+      "name": "cinematic-overlays",
+      "parts": [
+        "src/styles/45-cinematic-overlays.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_045__",
+      "sha256": "d4a57be2d3ce16d7b97d75194c86c36d0ddd0ae65aca881acc27c8b865e83127",
+      "size": 5690
+    },
+    {
+      "kind": "script",
+      "index": 38,
+      "name": "cinematic-scene-effects",
+      "parts": [
+        "src/inspection/38-cinematic-scene-effects.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_038__",
+      "sha256": "5949a110b8e39285e4afcf216cb0c69643bc4bcc0f36f4d8175b90c726859031",
+      "size": 5657
+    },
+    {
+      "kind": "style",
+      "index": 46,
+      "name": "depot-ambience-panel",
+      "parts": [
+        "src/styles/46-depot-ambience-panel.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_046__",
+      "sha256": "3abec98f60e13dec69cf5ef21d79e30532f416cc46587b2e4494909d73936b2b",
+      "size": 711
+    },
+    {
+      "kind": "script",
+      "index": 39,
+      "name": "depot-ambience",
+      "parts": [
+        "src/audio/39-depot-ambience.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_039__",
+      "sha256": "487e2a5d5eb4b25f7b30aa23257221dcbba06503cbc8b4db05bd6ea3e04f0515",
+      "size": 8152
+    },
+    {
+      "kind": "script",
+      "index": 40,
+      "name": "inspection-guidance",
+      "parts": [
+        "src/inspection/40-inspection-guidance.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_040__",
+      "sha256": "1a7ab0edfce3df1e8af815ffae234e23fae9bf02c330fdc8912b61c8bd2a1def",
+      "size": 16069
+    },
+    {
+      "kind": "style",
+      "index": 47,
+      "name": "plot-turns",
+      "parts": [
+        "src/styles/47-plot-turns.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_047__",
+      "sha256": "2b6bbd4773a4aeb4a9078f2764f9944f5c46e3b1ac9fc9fa13196d7e80e0d26f",
+      "size": 4937
+    },
+    {
+      "kind": "script",
+      "index": 41,
+      "name": "investigation-plot-turns",
+      "parts": [
+        "src/story/41-investigation-plot-turns.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_041__",
+      "sha256": "2de6d0b1169cd2290fe60633a9f126f6275a1f83cb4abba05f8209322fc033fa",
+      "size": 16705
+    },
+    {
+      "kind": "style",
+      "index": 48,
+      "name": "interrogation-room-lighting",
+      "parts": [
+        "src/styles/48-interrogation-room-lighting.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_048__",
+      "sha256": "43ff3330da69326bb2bae2d9d1ba722edf805ee7cea4fa6bec98b33a7af2db05",
+      "size": 13992
+    },
+    {
+      "kind": "script",
+      "index": 42,
+      "name": "cinematic-room-scenes",
+      "parts": [
+        "src/inspection/42-cinematic-room-scenes.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_042__",
+      "sha256": "74425e3e1b6a9c019bca25378f7ba5c51e287b3a1162099db5f24912dc4822c6",
+      "size": 14160
+    },
+    {
+      "kind": "style",
+      "index": 49,
+      "name": "interface-consolidation",
+      "parts": [
+        "src/styles/49-interface-consolidation.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_049__",
+      "sha256": "bd3ba84dfff65d834db6835204115af161943ee56f4762a35eaf28c9954b9263",
+      "size": 2705
+    },
+    {
+      "kind": "script",
+      "index": 43,
+      "name": "interface-consolidation",
+      "parts": [
+        "src/navigation/43-interface-consolidation.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_043__",
+      "sha256": "e92191864b04320249bb8781d56398c523e97309d2d4d0618214b6413951d89d",
+      "size": 5265
+    },
+    {
+      "kind": "script",
+      "index": 44,
+      "name": "witness-answer-variety",
+      "parts": [
+        "src/witnesses/44-witness-answer-variety.js",
+        "src/witnesses/62-contextual-dialogue.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_044__",
+      "sha256": "1c0877914d9a2e9c9b24146213057b6279eeff933ebe4ffe4e46fbd0d76339fe",
+      "size": 26486
+    },
+    {
+      "kind": "style",
+      "index": 50,
+      "name": "witness-follow-up",
+      "parts": [
+        "src/styles/50-witness-follow-up.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_050__",
+      "sha256": "eac5388e760183c3444e95ce61374dc5b360225c92d18cb36d6b60e8059dbc29",
+      "size": 188
+    },
+    {
+      "kind": "style",
+      "index": 51,
+      "name": "progressive-final-access",
+      "parts": [
+        "src/styles/51-progressive-final-access.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_051__",
+      "sha256": "882cbca1a395339a4bb1be43ce5bbdbacec24aa0814e8a957db91d01d1861a46",
+      "size": 1625
+    },
+    {
+      "kind": "script",
+      "index": 45,
+      "name": "progressive-final-access",
+      "parts": [
+        "src/finale/45-progressive-final-access.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_045__",
+      "sha256": "7e52ac53cbe4ea87caf1f42693a9fc39a3be7289dd7e95bf27834a14361a181b",
+      "size": 5732
+    },
+    {
+      "kind": "style",
+      "index": 52,
+      "name": "first-steps",
+      "parts": [
+        "src/styles/52-first-steps.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_052__",
+      "sha256": "4cc6f853c198b0010119a69306b49a824e868052713b041a2159d6ddb8a94b3b",
+      "size": 2903
+    },
+    {
+      "kind": "script",
+      "index": 46,
+      "name": "first-steps-introduction",
+      "parts": [
+        "src/navigation/46-first-steps-introduction.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_046__",
+      "sha256": "45f186d41fba6eda246bf5487bd087c5aefa2781d422a30fc9f84b4cbffa68ee",
+      "size": 7524
+    },
+    {
+      "kind": "style",
+      "index": 53,
+      "name": "document-search",
+      "parts": [
+        "src/styles/53-document-search.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_053__",
+      "sha256": "b12ade880e1cef0e668d82c3c6dc5bd1e21f332683d9a273e64aee6372e714d9",
+      "size": 1440
+    },
+    {
+      "kind": "script",
+      "index": 47,
+      "name": "cross-area-document-search",
+      "parts": [
+        "src/search/47-cross-area-document-search.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_047__",
+      "sha256": "8fae5d268f7c7af992815a02e66d0625cc3d2c37d4e214a52f4f8b9731c88262",
+      "size": 14984
+    },
+    {
+      "kind": "style",
+      "index": 54,
+      "name": "deduction-workflow",
+      "parts": [
+        "src/styles/54-deduction-workflow.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_054__",
+      "sha256": "810cef6616fc53bfa78a31aa53134c3567e87fa127d806f52f35be3c38bb473a",
+      "size": 4441
+    },
+    {
+      "kind": "script",
+      "index": 48,
+      "name": "step-by-step-workshop",
+      "parts": [
+        "src/deduction/48-step-by-step-workshop.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_048__",
+      "sha256": "8bd91c2ffee224520c12b5a7c6d9b2319c53e73b17c4a4615e30d26be312f506",
+      "size": 8212
+    },
+    {
+      "kind": "style",
+      "index": 55,
+      "name": "laboratory-workflow",
+      "parts": [
+        "src/styles/55-laboratory-workflow.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_055__",
+      "sha256": "c9a890c30c939c4dbe8e146c46fc5599f88fcca402ac85b536e0edd1901e5046",
+      "size": 4093
+    },
+    {
+      "kind": "script",
+      "index": 49,
+      "name": "lab-workflow",
+      "parts": [
+        "src/laboratory/49-lab-workflow.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_049__",
+      "sha256": "4eb4da49f0336f9516654e2623fabbb755282086dd6ab96947fa98d1965ee4ea",
+      "size": 9805
+    },
+    {
+      "kind": "style",
+      "index": 56,
+      "name": "mobile-fast-navigation",
+      "parts": [
+        "src/styles/56-mobile-fast-navigation.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_056__",
+      "sha256": "5d9642863f9304ce9786f9e8f316418445cd34fe897f4c752572ea1e6387178b",
+      "size": 7357
+    },
+    {
+      "kind": "script",
+      "index": 50,
+      "name": "mobile-shortcuts",
+      "parts": [
+        "src/navigation/50-mobile-shortcuts.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_050__",
+      "sha256": "62236534b920baa19ab357c4abb508a2d6d4feeff714be0ab07617d2bff124ae",
+      "size": 4316
+    },
+    {
+      "kind": "style",
+      "index": 57,
+      "name": "inspection-shortcuts",
+      "parts": [
+        "src/styles/57-inspection-shortcuts.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_057__",
+      "sha256": "b64bc7fb2623588d32e7350a2e848edf45fdb55fe8f4d3046b9e63181825f1da",
+      "size": 2460
+    },
+    {
+      "kind": "script",
+      "index": 51,
+      "name": "inspection-usability",
+      "parts": [
+        "src/inspection/51-inspection-usability.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_051__",
+      "sha256": "49220a8323bbc22aec84e5bd92c280c91a21f481ee0cf802d62fac14c3a1658d",
+      "size": 7376
+    },
+    {
+      "kind": "script",
+      "index": 52,
+      "name": "semantic-validation-guards",
+      "parts": [
+        "src/deduction/52-semantic-validation-guards.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_052__",
+      "sha256": "9f0d87e626ca30f9be87697f7515f0e53eba60a36ec58574abbc75c29d4b30dc",
+      "size": 6304
+    },
+    {
+      "kind": "script",
+      "index": 53,
+      "name": "vercel-ai-client",
+      "parts": [
+        "src/integrations/53-vercel-ai-client.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_053__",
+      "sha256": "9eddd579ab8bfa1f69ee503d738b2d958729304f516ecf4a3017c12840412cc0",
+      "size": 4648
+    },
+    {
+      "kind": "style",
+      "index": 58,
+      "name": "studio-v2-interface",
+      "parts": [
+        "src/styles/58-studio-v2-interface.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_058__",
+      "sha256": "c80644bf6a4e049be0b8730336ce51c0715356606d16ccddafc3ef959b0456f5",
+      "size": 28322
+    },
+    {
+      "kind": "script",
+      "index": 54,
+      "name": "studio-interface",
+      "parts": [
+        "src/navigation/54-studio-interface.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_054__",
+      "sha256": "1d4b772c709a5a2162150c1e50c85755b617922c411bab9eea431d247ae344b8",
+      "size": 6996
+    },
+    {
+      "kind": "style",
+      "index": 59,
+      "name": "mentor-red-thread",
+      "parts": [
+        "src/styles/59-mentor-red-thread.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_059__",
+      "sha256": "8a7105e9751daeaa9887f33425766954179080b5221074bf01713e8adb0e88a9",
+      "size": 10420
+    },
+    {
+      "kind": "script",
+      "index": 55,
+      "name": "mentor-and-red-thread",
+      "parts": [
+        "src/deduction/55-mentor-and-red-thread.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_055__",
+      "sha256": "10024a0982467eda9489bf6777d3037a32d6bc7620539c9aaf21e37dadaef275",
+      "size": 24480
+    },
+    {
+      "kind": "script",
+      "index": 56,
+      "name": "conflict-flags-and-micro-feedback",
+      "parts": [
+        "src/case/56-conflict-flags-and-micro-feedback.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_056__",
+      "sha256": "d229dc6f7f9ebd7b608759db472a055d731db956a6788020142978cd13c310a5",
+      "size": 18609
+    },
+    {
+      "kind": "script",
+      "index": 57,
+      "name": "indictment-variants-and-epilogue",
+      "parts": [
+        "src/finale/57-indictment-variants-and-epilogue.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_057__",
+      "sha256": "e49286c44a031f0b2bc4f0758245e7308b4c52f97b639354762a81005cfe49d3",
+      "size": 24527
+    },
+    {
+      "kind": "style",
+      "index": 60,
+      "name": "source-correlation-highlights",
+      "parts": [
+        "src/styles/60-source-correlation-highlights.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_060__",
+      "sha256": "7d415221eab7c852ce604dfe051458727f473726f4853d31886663cc3683c071",
+      "size": 2244
+    },
+    {
+      "kind": "script",
+      "index": 58,
+      "name": "source-correlations",
+      "parts": [
+        "src/deduction/58-source-correlations.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_058__",
+      "sha256": "04c72d8e0c1e38249af15bc4fe500471bd83e4f3288584733cefc7a22e01297d",
+      "size": 12100
+    },
+    {
+      "kind": "style",
+      "index": 61,
+      "name": "mobile-touch-gestures",
+      "parts": [
+        "src/styles/61-mobile-touch-gestures.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_061__",
+      "sha256": "01bc9b6b0695ec81a6fd6902b59b5eb164fa7122b1423292066033af6ac87254",
+      "size": 4925
+    },
+    {
+      "kind": "script",
+      "index": 59,
+      "name": "mobile-workspaces",
+      "parts": [
+        "src/navigation/59-mobile-workspaces.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_059__",
+      "sha256": "7a847029a8cc0c9fd2a6dde355a018cadf99ede579cbb9d3aec5ee2caf426df6",
+      "size": 5961
+    },
+    {
+      "kind": "style",
+      "index": 62,
+      "name": "success-summary",
+      "parts": [
+        "src/styles/62-success-summary.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_062__",
+      "sha256": "693ad0d084b30240bbeee3df91424ab8d165687f009fc6649148ec0ed54f3faf",
+      "size": 3274
+    },
+    {
+      "kind": "script",
+      "index": 60,
+      "name": "success-statistics",
+      "parts": [
+        "src/finale/60-success-statistics.js",
+        "src/integrations/60-witness-ui.js",
+        "src/core/reasoning-engine.js",
+        "src/core/event-reactions.js",
+        "src/navigation/64-mobile-clarity.js",
+        "src/story/63-consequence-ledger.js",
+        "src/integrations/68-long-term-memory.js",
+        "src/integrations/65-witness-context.js",
+        "src/integrations/35-zai-client.js",
+        "src/witnesses/70-intent-repair.js",
+        "src/witnesses/71-expanded-local-nlu.js",
+        "src/witnesses/72-semantic-coverage.js",
+        "src/witnesses/73-semantic-intent-robustness.js",
+        "src/witnesses/74-grounded-response-variety.js",
+        "src/integrations/75-verified-state-sync.js",
+        "src/story/76-narrative-depth-619.js",
+        "src/story/77-living-witnesses-620.js",
+        "src/story/78-long-interviews-621.js",
+        "src/story/79-cinematic-turns-621.js",
+        "src/story/80-animated-faces-622.js",
+        "src/witnesses/81-out-of-scope-624.js",
+        "src/witnesses/82-relevance-and-voice-625.js"
+      ],
+      "marker": "__PS_SOURCE_SCRIPT_060__",
+      "sha256": "d5729385e94854fea1e1299bd471deb22356007f476d381c9d16b7698f7c5932",
+      "size": 201852
+    },
+    {
+      "kind": "style",
+      "index": 63,
+      "name": "mobile-overflow-fixes",
+      "parts": [
+        "src/styles/63-mobile-overflow-fixes.css",
+        "src/styles/64-mobile-clarity.css",
+        "src/styles/65-consequence-ledger.css",
+        "src/styles/76-narrative-depth-619.css",
+        "src/styles/77-living-witnesses-620.css",
+        "src/styles/78-interviews-cinema-621.css",
+        "src/styles/80-animated-faces-622.css"
+      ],
+      "marker": "__PS_SOURCE_STYLE_063__",
+      "sha256": "388c131e6de9628b02559abd44c0e98316b519d0310a4e72de52524e14836165",
+      "size": 16018
+    }
+  ]
+}

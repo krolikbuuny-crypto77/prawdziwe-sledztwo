@@ -1,0 +1,1133 @@
+{
+  "metrics": {
+    "source": "local WitnessEngine, real Chromium; no live Z.ai",
+    "characters": [
+      {
+        "id": "MAREK",
+        "name": "Marek Nowicki"
+      },
+      {
+        "id": "TOMASZ",
+        "name": "Tomasz Krawczyk"
+      },
+      {
+        "id": "JANUSZ",
+        "name": "Janusz Wójcik"
+      },
+      {
+        "id": "ELZBIETA",
+        "name": "Elżbieta Zięba"
+      },
+      {
+        "id": "KAMIL",
+        "name": "Kamil Brzozowski"
+      },
+      {
+        "id": "MAGDALENA",
+        "name": "Magdalena Kaczmarek"
+      }
+    ],
+    "direct_questions": 180,
+    "real_ui_turns": 36,
+    "empty_answers": 0,
+    "unique_answers": 163,
+    "unique_ratio": 0.906,
+    "mean_answer_chars": 129.7,
+    "minimum_answer_chars": 57,
+    "maximum_answer_chars": 333,
+    "per_witness_unique_counts": {
+      "MAREK": 29,
+      "TOMASZ": 30,
+      "JANUSZ": 28,
+      "ELZBIETA": 29,
+      "KAMIL": 28,
+      "MAGDALENA": 29
+    },
+    "no_evidence_added_by_dialogues": true,
+    "script_errors": [],
+    "human_semantic_accuracy": "not measured automatically; see curated review",
+    "true_zai_api": "not tested"
+  },
+  "direct": [
+    {
+      "witness": "MAREK",
+      "category": "alibi",
+      "question": "Gdzie przebywał pan podczas nocnej zmiany?",
+      "answer": "Podczas tej zmiany kierowałem pracą zajezdni, głównie z biura. Nadzorowałem nocną zmianę."
+    },
+    {
+      "witness": "MAREK",
+      "category": "alibi",
+      "question": "Gdzie był pan w czasie całego zajścia?",
+      "answer": "Nadzorowałem nocną zmianę. Byłem dostępny z biura, ale nie twierdzę, że przebywałem w nim bez przerwy."
+    },
+    {
+      "witness": "MAREK",
+      "category": "source",
+      "question": "Kto może potwierdzić pana obecność?",
+      "answer": "Nie wskażę osoby, która obserwowała mnie przez całą noc. Połączenia służbowe potwierdzą kontakt, a rejestr wejść tylko część przemieszczania."
+    },
+    {
+      "witness": "MAREK",
+      "category": "lena",
+      "question": "Czy Lena była sama na miejscu?",
+      "answer": "Rozumiem, dlaczego pan o to pyta. Nie potrafię potwierdzić, że Lena przez cały ten czas była sama. Nie wiem, którędy Lena poszła po ostatnim spotkaniu. Grafik pokazuje zadania, a nie jej rzeczywistą trasę. Nie pamiętam ostatniej minuty, w której sam widziałem Lenę. Nie będę podawał godziny z grafiku jako własnej obserwacji."
+    },
+    {
+      "witness": "MAREK",
+      "category": "lena",
+      "question": "Czy rozmawiał pan z Leną?",
+      "answer": "Powiem konkretnie: W zakładzie były spory o terminy napraw i bezpieczeństwo TW-217. Sam spór nie jest dowodem przemocy."
+    },
+    {
+      "witness": "MAREK",
+      "category": "time",
+      "question": "Kiedy ostatnio pan ją widział?",
+      "answer": "Nie pamiętam ostatniej minuty, w której sam widziałem Lenę. Nie będę podawał godziny z grafiku jako własnej obserwacji."
+    },
+    {
+      "witness": "MAREK",
+      "category": "time",
+      "question": "Kiedy ostatni raz rozmawiał pan z Leną?",
+      "answer": "Z mojej strony wygląda to tak: W zakładzie były spory o terminy napraw i bezpieczeństwo TW-217. Sam spór nie jest dowodem przemocy."
+    },
+    {
+      "witness": "MAREK",
+      "category": "time",
+      "question": "Co było przed alarmem?",
+      "answer": "Nie jestem w stanie wiarygodnie podać pełnej chronologii. Nie podam jednej minuty dla całego dyżuru. Godziny połączeń i wejść można porównać, lecz nie są ciągłą obserwacją."
+    },
+    {
+      "witness": "MAREK",
+      "category": "challenge",
+      "question": "Czy pan twierdzi, że na pewno nikogo tam nie było?",
+      "answer": "O śmierci Leny dowiedziałem się po alarmie. Nie widziałem ataku ani momentu odnalezienia jej."
+    },
+    {
+      "witness": "MAREK",
+      "category": "challenge",
+      "question": "Jak pan może twierdzić że nikt nie wszedł, skoro pana tam nie było?",
+      "answer": "Moja wypowiedź nie dowodzi, że nikogo tam nie było. Nie miałem ciągłej obserwacji."
+    },
+    {
+      "witness": "MAREK",
+      "category": "technical",
+      "question": "Czy to pana zdaniem była awaria?",
+      "answer": "Lena zgłaszała wątpliwości dotyczące bezpieczeństwa wagonu. Mogę odpowiadać za rozliczenia zmiany."
+    },
+    {
+      "witness": "MAREK",
+      "category": "technical",
+      "question": "Co powinno wynikać z raportu technicznego?",
+      "answer": "Mogę odpowiadać za rozliczenia zmiany. Archiwum zawiera wersje zatwierdzone."
+    },
+    {
+      "witness": "MAREK",
+      "category": "challenge",
+      "question": "Dlaczego nie zgłosił pan tego wcześniej?",
+      "answer": "Nie mam podstaw, żeby nazwać konkretny powód. Nie chcę dopowiadać czegoś, czego nie pamiętam."
+    },
+    {
+      "witness": "MAREK",
+      "category": "observation",
+      "question": "Nie pytam o dokument. Pytam co pan sam widział.",
+      "answer": "Odpowiem o tym, co sam widziałem, a nie o tym, co zapisano w aktach. Nie prowadziłem obserwacji placu przez całą noc. Widziałem pracowników podczas zmiany, ale nie mam podstaw, żeby przypisać wszystkim godziny i miejsca."
+    },
+    {
+      "witness": "MAREK",
+      "category": "observation",
+      "question": "Co pan wie z własnej obserwacji, a co tylko z czyichś słów?",
+      "answer": "Organizację zmiany znam z własnej pracy. Proszę porównać surowe wejścia i połączenia z ostatecznym grafikiem. Nadzorowałem nocną zmianę. Nie wskażę osoby, która obserwowała mnie przez całą noc."
+    },
+    {
+      "witness": "MAREK",
+      "category": "followup",
+      "question": "Nie o to pytałem. Kiedy to się wydarzyło?",
+      "answer": "To wydarzyło się na zmianie, za którą odpowiadałem. Lena nie żyje, a ja odpowiadałem za zmianę."
+    },
+    {
+      "witness": "MAREK",
+      "category": "recall",
+      "question": "Czy może pan powtórzyć ostatnią odpowiedź?",
+      "answer": "Wcześniej powiedziałem: „To wydarzyło się na zmianie, za którą odpowiadałem. Lena nie żyje, a ja odpowiadałem za zmianę”."
+    },
+    {
+      "witness": "MAREK",
+      "category": "observation",
+      "question": "Czy na pewno widział pan ją wtedy osobiście?",
+      "answer": "O śmierci Leny dowiedziałem się po alarmie. Nie widziałem ataku ani momentu odnalezienia jej."
+    },
+    {
+      "witness": "MAREK",
+      "category": "source",
+      "question": "Z jakiego źródła pochodzi ta godzina?",
+      "answer": "O znalezieniu Leny dowiedziałem się po alarmie, nie z osobistej obserwacji. Sam zatwierdzony grafik nie potwierdzi mojej lokalizacji."
+    },
+    {
+      "witness": "MAREK",
+      "category": "trust",
+      "question": "Dlaczego miałbym panu wierzyć?",
+      "answer": "Nie potwierdzam samego założenia, że podjąłem taką decyzję. Najpierw ustalmy, co faktycznie zrobiłem."
+    },
+    {
+      "witness": "MAREK",
+      "category": "followup",
+      "question": "Proszę powiedzieć to zwyczajnie, bez urzędowego języka.",
+      "answer": "Tego nie wiem z własnej obserwacji. Mogę sprawdzić dokumentację zmiany."
+    },
+    {
+      "witness": "MAREK",
+      "category": "relation",
+      "question": "Jakie były pana relacje z Leną?",
+      "answer": "Najważniejsze jest to: W zakładzie były spory o terminy napraw i bezpieczeństwo TW-217. Sam spór nie jest dowodem przemocy."
+    },
+    {
+      "witness": "MAREK",
+      "category": "challenge",
+      "question": "Czy nie kłamie pan w sprawie alibi?",
+      "answer": "Proszę bez gróźb. Nadzorowałem nocną zmianę. Wychodziłem też do spraw służbowych."
+    },
+    {
+      "witness": "MAREK",
+      "category": "compound",
+      "question": "Co stało się później i kto o tym wiedział?",
+      "answer": "O śmierci Leny dowiedziałem się po alarmie. Nie widziałem ataku ani momentu odnalezienia jej. Organizację zmiany znam z własnej pracy. O znalezieniu Leny dowiedziałem się po alarmie, nie z osobistej obserwacji."
+    },
+    {
+      "witness": "MAREK",
+      "category": "source",
+      "question": "Czy mógł pan to sprawdzić inaczej?",
+      "answer": "Proszę porównać surowe wejścia i połączenia z ostatecznym grafikiem. Organizację zmiany znam z własnej pracy."
+    },
+    {
+      "witness": "MAREK",
+      "category": "trust",
+      "question": "Nie sądzę by pan mówił całą prawdę.",
+      "answer": "Tego nie wiem z własnej obserwacji. Mogę sprawdzić dokumentację zmiany. Proszę wskazać, którego zdarzenia dotyczy pytanie."
+    },
+    {
+      "witness": "MAREK",
+      "category": "pronoun",
+      "question": "Gdzie ona była przed zmianą?",
+      "answer": "To dotyczy zmiany, za którą odpowiadałem. Nie potrafię potwierdzić, że Lena przez cały ten czas była sama. Nie wiem, którędy Lena poszła po ostatnim spotkaniu. Grafik pokazuje zadania, a nie jej rzeczywistą trasę. Nie pamiętam ostatniej minuty, w której sam widziałem Lenę. Nie będę podawał godziny z grafiku jako własnej obserwacji."
+    },
+    {
+      "witness": "MAREK",
+      "category": "technical",
+      "question": "Co oznacza protokół TCMS?",
+      "answer": "Korekta grafiku i zapis wejścia to dwa różne dokumenty, nie wolno ich utożsamiać. Jeśli szukamy wcześniejszych korekt, trzeba sięgnąć do historii zmian i zapisu wejść."
+    },
+    {
+      "witness": "MAREK",
+      "category": "technical",
+      "question": "Co pan wie o kartach BHP?",
+      "answer": "Kierownik powinien dopilnować ich udokumentowania; nie znam z własnej obserwacji wszystkich usterek. Korekta grafiku i zapis wejścia to dwa różne dokumenty, nie wolno ich utożsamiać."
+    },
+    {
+      "witness": "MAREK",
+      "category": "protected",
+      "question": "Czy pan zabił Lenę?",
+      "answer": "To poważny zarzut. Nie przyznaję się do zabójstwa. Jeśli ma pan konkretny materiał, proszę go przedstawić i sprawdzić."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "alibi",
+      "question": "Gdzie przebywał pan podczas nocnej zmiany?",
+      "answer": "Pracowałem w dyspozytorni. Byłem na służbie jako dyspozytor."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "alibi",
+      "question": "Gdzie był pan w czasie całego zajścia?",
+      "answer": "Byłem na służbie jako dyspozytor. O 02:02 zgłosiłem alarm. To nie znaczy, że mam świadka dla każdej minuty przed alarmem."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "source",
+      "question": "Kto może potwierdzić pana obecność?",
+      "answer": "Meldunki i rejestr łączności radiowej potwierdzą, kiedy pracowałem przy konsoli. Rejestr łączności radiowej i zmiany dyspozycji pokażą czas moich czynności."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "lena",
+      "question": "Czy Lena była sama na miejscu?",
+      "answer": "Pamiętam ten moment. Nie potrafię potwierdzić, że Lena przez cały ten czas była sama. Wiem, że wagon wrócił, ale nie obserwowałem późniejszej drogi Leny. Znalazłem ją dopiero przy stanowisku trzecim. Nie potrafię powiedzieć, kiedy ostatnio widziałem ją żywą. O 02:02 zgłosiłem znalezienie jej, a nie ostatnią rozmowę."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "lena",
+      "question": "Czy rozmawiał pan z Leną?",
+      "answer": "Pamiętam tyle: Kłóciliśmy się czasem o decyzje służbowe. Nie zamierzam robić z każdej ostrej wymiany zdań podejrzenia o zabójstwo."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "time",
+      "question": "Kiedy ostatnio pan ją widział?",
+      "answer": "Nie potrafię powiedzieć, kiedy ostatnio widziałem ją żywą. O 02:02 zgłosiłem znalezienie jej, a nie ostatnią rozmowę."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "time",
+      "question": "Kiedy ostatni raz rozmawiał pan z Leną?",
+      "answer": "W tej części mogę być precyzyjny: Kłóciliśmy się czasem o decyzje służbowe. Nie zamierzam robić z każdej ostrej wymiany zdań podejrzenia o zabójstwo."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "time",
+      "question": "Co było przed alarmem?",
+      "answer": "Nie jestem w stanie wiarygodnie podać pełnej chronologii. Alarm zgłosiłem o 02:02. Przebieg wcześniejszej godziny trzeba odtworzyć z dyspozycji i rejestru łączności."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "challenge",
+      "question": "Czy pan twierdzi, że na pewno nikogo tam nie było?",
+      "answer": "Znalazłem Lenę przy stanowisku numer trzy i wezwałem pomoc. Nie widziałem, jak doszło do obrażeń."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "challenge",
+      "question": "Jak pan może twierdzić że nikt nie wszedł, skoro pana tam nie było?",
+      "answer": "Nie byłem tego świadkiem, więc nie chcę niczego zgadywać."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "technical",
+      "question": "Czy to pana zdaniem była awaria?",
+      "answer": "Lena naciskała, żeby nie bagatelizować zgłoszeń o wagonie. W dyspozytorni są zapisy zmian poleceń i łączności."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "technical",
+      "question": "Co powinno wynikać z raportu technicznego?",
+      "answer": "W dyspozytorni są zapisy zmian poleceń i łączności. W dyspozytorni trzymaliśmy historię poleceń i łączności."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "challenge",
+      "question": "Dlaczego nie zgłosił pan tego wcześniej?",
+      "answer": "Nie pamiętam wystarczająco dużo, by wskazać konkretną przyczynę. Nie będę jej zgadywać."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "observation",
+      "question": "Nie pytam o dokument. Pytam co pan sam widział.",
+      "answer": "Odpowiem o tym, co sam widziałem, a nie o tym, co zapisano w aktach. Przy dyspozytorni widziałem ludzi podczas służby, ale nie śledziłem każdego przejścia przez plac. Konkretną osobę trzeba zestawić z innym źródłem."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "observation",
+      "question": "Co pan wie z własnej obserwacji, a co tylko z czyichś słów?",
+      "answer": "Powrót wagonu znam z rejestru ruchu i własnej dyspozycji. Rejestr łączności radiowej i zmiany dyspozycji pokażą czas moich czynności. Byłem na służbie jako dyspozytor. Nie mam człowieka, który potwierdzi każdą minutę mojej obecności."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "followup",
+      "question": "Nie o to pytałem. Kiedy to się wydarzyło?",
+      "answer": "Zobaczyłem ją tam. Pierwszy zobaczyłem ją przy stanowisku."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "recall",
+      "question": "Czy może pan powtórzyć ostatnią odpowiedź?",
+      "answer": "Wcześniej powiedziałem: „Zobaczyłem ją tam. Pierwszy zobaczyłem ją przy stanowisku”."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "observation",
+      "question": "Czy na pewno widział pan ją wtedy osobiście?",
+      "answer": "Lenę przy stanowisku widziałem sam. Nie dowiodą, że ani razu nie odszedłem od konsoli."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "source",
+      "question": "Z jakiego źródła pochodzi ta godzina?",
+      "answer": "Powrót wagonu znam z rejestru ruchu i własnej dyspozycji. Rejestr łączności radiowej i zmiany dyspozycji pokażą czas moich czynności."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "trust",
+      "question": "Dlaczego miałbym panu wierzyć?",
+      "answer": "Nie chcę wymyślać motywu działania, którego przebiegu nie ustaliliśmy."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "followup",
+      "question": "Proszę powiedzieć to zwyczajnie, bez urzędowego języka.",
+      "answer": "Nie widziałem tego. Nie będę zgadywał. Proszę wskazać, którego zdarzenia dotyczy pytanie."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "relation",
+      "question": "Jakie były pana relacje z Leną?",
+      "answer": "Powiem, co wiem: Kłóciliśmy się czasem o decyzje służbowe. Nie zamierzam robić z każdej ostrej wymiany zdań podejrzenia o zabójstwo."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "challenge",
+      "question": "Czy nie kłamie pan w sprawie alibi?",
+      "answer": "Niech pan nie krzyczy. Byłem na służbie jako dyspozytor. Zmieniłem dyspozycję powrotu wagonu, a później byłem przy stanowisku trzecim, gdzie znalazłem Lenę."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "compound",
+      "question": "Co stało się później i kto o tym wiedział?",
+      "answer": "Znalazłem Lenę przy stanowisku numer trzy i wezwałem pomoc. Nie widziałem, jak doszło do obrażeń. Powrót wagonu znam z rejestru ruchu i własnej dyspozycji. Lenę przy stanowisku widziałem sam."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "source",
+      "question": "Czy mógł pan to sprawdzić inaczej?",
+      "answer": "Rejestr łączności radiowej i zmiany dyspozycji pokażą czas moich czynności. Powrót wagonu znam z rejestru ruchu i własnej dyspozycji."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "trust",
+      "question": "Nie sądzę by pan mówił całą prawdę.",
+      "answer": "Nie widziałem tego. Nie będę zgadywał. Jeśli chodzi o zapis, proszę powiedzieć, który konkretnie."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "pronoun",
+      "question": "Gdzie ona była przed zmianą?",
+      "answer": "Spróbuję to uporządkować. Nie potrafię potwierdzić, że Lena przez cały ten czas była sama. Wiem, że wagon wrócił, ale nie obserwowałem późniejszej drogi Leny. Znalazłem ją dopiero przy stanowisku trzecim. Nie potrafię powiedzieć, kiedy ostatnio widziałem ją żywą. O 02:02 zgłosiłem znalezienie jej, a nie ostatnią rozmowę."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "technical",
+      "question": "Co oznacza protokół TCMS?",
+      "answer": "Nie wszystkie mają taką samą dokładność czasu. Nie wiem, kto później przenosił papierowe teczki."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "technical",
+      "question": "Co pan wie o kartach BHP?",
+      "answer": "Szczegóły techniczne należy sprawdzić u diagnosty. Nie wszystkie mają taką samą dokładność czasu."
+    },
+    {
+      "witness": "TOMASZ",
+      "category": "protected",
+      "question": "Czy pan zabił Lenę?",
+      "answer": "To poważny zarzut. Nie przyznaję się do zabójstwa. Jeśli ma pan konkretny materiał, proszę go przedstawić i sprawdzić."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "alibi",
+      "question": "Gdzie przebywał pan podczas nocnej zmiany?",
+      "answer": "Pracowałem przy zleceniach i kolejce napraw w warsztacie. Miałem nocne obowiązki warsztatowe."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "alibi",
+      "question": "Gdzie był pan w czasie całego zajścia?",
+      "answer": "Miałem nocne obowiązki warsztatowe. Zlecenia pokazują moją pracę, ale nie rejestrują każdego kroku."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "source",
+      "question": "Kto może potwierdzić pana obecność?",
+      "answer": "Ludzie z warsztatu widywali mnie przy pracy, jednak nie podam jednego świadka na całą noc. Sprawdźmy konkretne zlecenie i godzinę."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "lena",
+      "question": "Czy Lena była sama na miejscu?",
+      "answer": "W warsztacie wszystko ma swoją kolejność. Nie potrafię potwierdzić, że Lena przez cały ten czas była sama. Nie widziałem, dokąd Lena poszła po naszych rozmowach o wagonie. Nie pamiętam ostatniej chwili, w której ją widziałem. Wiem, że wracała do spraw usterek."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "lena",
+      "question": "Czy rozmawiał pan z Leną?",
+      "answer": "Sprowadza się to do jednego: Z Leną sprzeczaliśmy się o stan TW-217. W warsztacie nie ma tygodnia bez sporu o dostępność wagonów."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "time",
+      "question": "Kiedy ostatnio pan ją widział?",
+      "answer": "Nie pamiętam ostatniej chwili, w której ją widziałem. Wiem, że wracała do spraw usterek."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "time",
+      "question": "Kiedy ostatni raz rozmawiał pan z Leną?",
+      "answer": "To mogę wyjaśnić: Z Leną sprzeczaliśmy się o stan TW-217. W warsztacie nie ma tygodnia bez sporu o dostępność wagonów."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "time",
+      "question": "Co było przed alarmem?",
+      "answer": "O tym, że Lena zginęła, dowiedziałem się po alarmie. Wcześniej kłóciliśmy się czasem o stan wagonu."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "challenge",
+      "question": "Czy pan twierdzi, że na pewno nikogo tam nie było?",
+      "answer": "O tym, że Lena zginęła, dowiedziałem się po alarmie. Wcześniej kłóciliśmy się czasem o stan wagonu. O kartach napraw mówię z pracy w warsztacie. O śmierci dowiedziałem się po alarmie."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "challenge",
+      "question": "Jak pan może twierdzić że nikt nie wszedł, skoro pana tam nie było?",
+      "answer": "Nie mam tego ustalonego. Trzeba wrócić do zapisu albo oględzin."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "technical",
+      "question": "Czy to pana zdaniem była awaria?",
+      "answer": "Problem z TW-217 znałem. Karty serwisowe powinny zawierać wykonane czynności."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "technical",
+      "question": "Co powinno wynikać z raportu technicznego?",
+      "answer": "Karty serwisowe powinny zawierać wykonane czynności. Zlecenia mamy w warsztacie."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "challenge",
+      "question": "Dlaczego nie zgłosił pan tego wcześniej?",
+      "answer": "Nie potrafię rzetelnie wyjaśnić przyczyny na podstawie własnej pamięci. To byłoby zgadywanie."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "observation",
+      "question": "Nie pytam o dokument. Pytam co pan sam widział.",
+      "answer": "Odpowiem o tym, co sam widziałem, a nie o tym, co zapisano w aktach. W warsztacie kręciło się wielu ludzi. Nie umiem wskazać, kto dokładnie był na placu w danej minucie."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "observation",
+      "question": "Co pan wie z własnej obserwacji, a co tylko z czyichś słów?",
+      "answer": "O kartach napraw mówię z pracy w warsztacie. Proszę zestawić surowe zlecenia i podpisy z później uzupełnionymi formularzami. Miałem nocne obowiązki warsztatowe. Chodziłem też do narzędzi i wagonów, nie siedziałem cały czas w jednym miejscu."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "followup",
+      "question": "Nie o to pytałem. Kiedy to się wydarzyło?",
+      "answer": "Bywałem na nią zły za kolejne zgłoszenia. Nieraz myślałem, że Lena przesadza."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "recall",
+      "question": "Czy może pan powtórzyć ostatnią odpowiedź?",
+      "answer": "Wcześniej powiedziałem: „Bywałem na nią zły za kolejne zgłoszenia. Nieraz myślałem, że Lena przesadza”."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "observation",
+      "question": "Czy na pewno widział pan ją wtedy osobiście?",
+      "answer": "O tym, że Lena zginęła, dowiedziałem się po alarmie. Wcześniej kłóciliśmy się czasem o stan wagonu."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "source",
+      "question": "Z jakiego źródła pochodzi ta godzina?",
+      "answer": "O śmierci dowiedziałem się po alarmie. Z nich wyjdzie, co robiliśmy, nie każdy krok człowieka."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "trust",
+      "question": "Dlaczego miałbym panu wierzyć?",
+      "answer": "Nie chcę wymyślać motywu działania, którego przebiegu nie ustaliliśmy."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "followup",
+      "question": "Proszę powiedzieć to zwyczajnie, bez urzędowego języka.",
+      "answer": "Nie mam tego ustalonego. Trzeba wrócić do zapisu albo oględzin. Proszę wskazać, którego zdarzenia dotyczy pytanie."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "relation",
+      "question": "Jakie były pana relacje z Leną?",
+      "answer": "W warsztacie patrzyłem na to tak: Z Leną sprzeczaliśmy się o stan TW-217. W warsztacie nie ma tygodnia bez sporu o dostępność wagonów."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "challenge",
+      "question": "Czy nie kłamie pan w sprawie alibi?",
+      "answer": "Proszę bez wyzwisk. Miałem nocne obowiązki warsztatowe. Sprawdźmy konkretne zlecenie i godzinę."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "compound",
+      "question": "Co stało się później i kto o tym wiedział?",
+      "answer": "O tym, że Lena zginęła, dowiedziałem się po alarmie. Wcześniej kłóciliśmy się czasem o stan wagonu."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "source",
+      "question": "Czy mógł pan to sprawdzić inaczej?",
+      "answer": "Proszę zestawić surowe zlecenia i podpisy z później uzupełnionymi formularzami. O kartach napraw mówię z pracy w warsztacie."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "trust",
+      "question": "Nie sądzę by pan mówił całą prawdę.",
+      "answer": "Nie mam tego ustalonego. Trzeba wrócić do zapisu albo oględzin. Jeśli chodzi o zapis, proszę powiedzieć, który konkretnie."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "pronoun",
+      "question": "Gdzie ona była przed zmianą?",
+      "answer": "Lena wracała do tematu usterek. Nie potrafię potwierdzić, że Lena przez cały ten czas była sama. Nie widziałem, dokąd Lena poszła po naszych rozmowach o wagonie. Nie pamiętam ostatniej chwili, w której ją widziałem. Wiem, że wracała do spraw usterek."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "technical",
+      "question": "Co oznacza protokół TCMS?",
+      "answer": "Kiedy brakuje rubryki, trzeba wrócić do surowego zlecenia. Stary formularz i wersję po uzupełnieniu należy sprawdzić osobno."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "technical",
+      "question": "Co pan wie o kartach BHP?",
+      "answer": "Nie będę udawał, że każdy alarm oznaczał awarię, która mogła ją zabić. Kiedy brakuje rubryki, trzeba wrócić do surowego zlecenia."
+    },
+    {
+      "witness": "JANUSZ",
+      "category": "protected",
+      "question": "Czy pan zabił Lenę?",
+      "answer": "To poważny zarzut. Nie przyznaję się do zabójstwa. Jeśli ma pan konkretny materiał, proszę go przedstawić i sprawdzić."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "alibi",
+      "question": "Gdzie przebywał pan podczas nocnej zmiany?",
+      "answer": "Zajmowałam się zgłoszeniami BHP i rejestrem zagrożeń. Wykonywałam obowiązki związane z BHP."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "alibi",
+      "question": "Gdzie był pan w czasie całego zajścia?",
+      "answer": "Wykonywałam obowiązki związane z BHP. Potrafię potwierdzić rozmowę z Leną o 21:47, ale nie całą późniejszą noc."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "source",
+      "question": "Kto może potwierdzić pana obecność?",
+      "answer": "Naszą rozmowę o 21:47 mogą potwierdzać wpisy dotyczące zgłoszenia. Nie mam świadka, który obserwował mnie bez przerwy później."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "lena",
+      "question": "Czy Lena była sama na miejscu?",
+      "answer": "To dla mnie trudna część tej sprawy. Nie potrafię potwierdzić, że Lena przez cały ten czas była sama. Nie widziałam, dokąd poszła po naszej rozmowie o 21:47. Ostatnią pewną rozmowę z nią pamiętam z 21:47. Nie wiem, czy ktoś widział ją później."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "lena",
+      "question": "Czy rozmawiał pan z Leną?",
+      "answer": "Przypomnę istotną rzecz: Lena rozmawiała ze mną o ryzyku związanym z TW-217. Miałyśmy różne zdania co do trybu zgłoszenia."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "time",
+      "question": "Kiedy ostatnio pan ją widział?",
+      "answer": "Ostatnią pewną rozmowę z nią pamiętam z 21:47. Nie wiem, czy ktoś widział ją później."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "time",
+      "question": "Kiedy ostatni raz rozmawiał pan z Leną?",
+      "answer": "Powiem to inaczej: Lena rozmawiała ze mną o ryzyku związanym z TW-217. Miałyśmy różne zdania co do trybu zgłoszenia."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "time",
+      "question": "Co było przed alarmem?",
+      "answer": "Nie jestem w stanie wiarygodnie podać pełnej chronologii. Z Leną rozmawiałam o 21:47. Późniejszej chronologii nie odtworzę dokładnie z pamięci."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "challenge",
+      "question": "Czy pan twierdzi, że na pewno nikogo tam nie było?",
+      "answer": "Lena mówiła mi o ryzyku związanym z TW-217. O jej śmierci usłyszałam dopiero po alarmie."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "challenge",
+      "question": "Jak pan może twierdzić że nikt nie wszedł, skoro pana tam nie było?",
+      "answer": "Nie mam osobistej wiedzy, która pozwala mi to potwierdzić."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "technical",
+      "question": "Czy to pana zdaniem była awaria?",
+      "answer": "Lena była przekonana, że sygnały z wagonu wymagają wyjaśnienia. Ważne jest, czy zgłoszenie zostało wysłane, a nie tylko zapisane jako szkic."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "technical",
+      "question": "Co powinno wynikać z raportu technicznego?",
+      "answer": "Ważne jest, czy zgłoszenie zostało wysłane, a nie tylko zapisane jako szkic. Rejestr zgłoszeń BHP ma szkice i wysyłki."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "challenge",
+      "question": "Dlaczego nie zgłosił pan tego wcześniej?",
+      "answer": "Nie umiem wskazać konkretnej przyczyny na podstawie tego, co pamiętam. Nie chcę jej wymyślać."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "observation",
+      "question": "Nie pytam o dokument. Pytam co pan sam widział.",
+      "answer": "Odpowiem o tym, co sama widziałam, a nie o tym, co zapisano w aktach. Nie obserwowałam placu przez cały dyżur. Nie będę przypisywała czyjejś obecności bez własnego wspomnienia albo dokumentu."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "observation",
+      "question": "Co pan wie z własnej obserwacji, a co tylko z czyichś słów?",
+      "answer": "Rozmowę o 21:47 pamiętam sama. Trzeba sprawdzić szkic BHP, bramkę wysyłkową i potwierdzenie odbioru. Wykonywałam obowiązki związane z BHP. Naszą rozmowę o 21:47 mogą potwierdzać wpisy dotyczące zgłoszenia."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "followup",
+      "question": "Nie o to pytałem. Kiedy to się wydarzyło?",
+      "answer": "Wracam do naszej rozmowy. Wracam myślami do naszej ostatniej rozmowy."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "recall",
+      "question": "Czy może pan powtórzyć ostatnią odpowiedź?",
+      "answer": "Wcześniej powiedziałam: „Wracam do naszej rozmowy. Wracam myślami do naszej ostatniej rozmowy”."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "observation",
+      "question": "Czy na pewno widział pan ją wtedy osobiście?",
+      "answer": "Lena mówiła mi o ryzyku związanym z TW-217. O jej śmierci usłyszałam dopiero po alarmie."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "source",
+      "question": "Z jakiego źródła pochodzi ta godzina?",
+      "answer": "Doprecyzuj zdarzenie, a wtedy będzie można ustalić źródło tej informacji."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "trust",
+      "question": "Dlaczego miałbym panu wierzyć?",
+      "answer": "O przyczynie mogę mówić dopiero po ustaleniu, jaką decyzję rzeczywiście podjęłam."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "followup",
+      "question": "Proszę powiedzieć to zwyczajnie, bez urzędowego języka.",
+      "answer": "Nie mogę tego potwierdzić na podstawie własnej wiedzy. Proszę wskazać, którego zdarzenia dotyczy pytanie."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "relation",
+      "question": "Jakie były pana relacje z Leną?",
+      "answer": "Dla mnie ważne jest to, że Lena rozmawiała ze mną o ryzyku związanym z TW-217. Miałyśmy różne zdania co do trybu zgłoszenia."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "challenge",
+      "question": "Czy nie kłamie pan w sprawie alibi?",
+      "answer": "Proszę mówić spokojniej. Wykonywałam obowiązki związane z BHP. Nie mam świadka, który obserwował mnie bez przerwy później."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "compound",
+      "question": "Co stało się później i kto o tym wiedział?",
+      "answer": "Lena mówiła mi o ryzyku związanym z TW-217. O jej śmierci usłyszałam dopiero po alarmie. Rozmowę o 21:47 pamiętam sama. Status zgłoszenia wymaga sprawdzenia historii systemu."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "source",
+      "question": "Czy mógł pan to sprawdzić inaczej?",
+      "answer": "Trzeba sprawdzić szkic BHP, bramkę wysyłkową i potwierdzenie odbioru. Rozmowę o 21:47 pamiętam sama."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "trust",
+      "question": "Nie sądzę by pan mówił całą prawdę.",
+      "answer": "Nie mogę tego potwierdzić na podstawie własnej wiedzy. Jeśli chodzi o zapis, proszę powiedzieć, który konkretnie."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "pronoun",
+      "question": "Gdzie ona była przed zmianą?",
+      "answer": "Pamiętam tę rozmowę z Leną. Nie potrafię potwierdzić, że Lena przez cały ten czas była sama. Nie widziałam, dokąd poszła po naszej rozmowie o 21:47. Ostatnią pewną rozmowę z nią pamiętam z 21:47. Nie wiem, czy ktoś widział ją później."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "technical",
+      "question": "Co oznacza protokół TCMS?",
+      "answer": "Te statusy mogą się bardzo różnić. Status dokumentu trzeba sprawdzić w historii systemu, nie w samej treści."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "technical",
+      "question": "Co pan wie o kartach BHP?",
+      "answer": "Zlekceważenie zgłoszenia nie jest tym samym co dowód przemocy. Te statusy mogą się bardzo różnić."
+    },
+    {
+      "witness": "ELZBIETA",
+      "category": "protected",
+      "question": "Czy pan zabił Lenę?",
+      "answer": "To poważny zarzut. Nie przyznaję się do zabójstwa. Jeśli ma pan konkretny materiał, proszę go przedstawić i sprawdzić."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "alibi",
+      "question": "Gdzie przebywał pan podczas nocnej zmiany?",
+      "answer": "Zajmowałem się diagnostyką TW-217. Tej nocy prowadziłem diagnostykę."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "alibi",
+      "question": "Gdzie był pan w czasie całego zajścia?",
+      "answer": "Tej nocy prowadziłem diagnostykę. Zapisy sesji pokażą jej przebieg, nie moje położenie w każdej sekundzie."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "source",
+      "question": "Kto może potwierdzić pana obecność?",
+      "answer": "Inni technicy mogli widzieć mnie przy diagnostyce, ale log sam nie jest świadkiem mojej obecności. Nie podam zmyślonego nazwiska."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "lena",
+      "question": "Czy Lena była sama na miejscu?",
+      "answer": "Mogę opowiedzieć o diagnostyce. Nie potrafię potwierdzić, że Lena przez cały ten czas była sama. Nie śledziłem, którędy później chodziła Lena. Moje logi pokazują stan wagonu, nie jej trasę. Nie podam ostatniej minuty, w której ją widziałem. Rozmawialiśmy o błędach, lecz nie obserwowałem jej trasy."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "lena",
+      "question": "Czy rozmawiał pan z Leną?",
+      "answer": "W danych wygląda to tak: Z Leną dyskutowaliśmy o logach. Nie byłem zachwycony, że ciągle pytała o te same rozbieżności, ale miała prawo."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "time",
+      "question": "Kiedy ostatnio pan ją widział?",
+      "answer": "Nie podam ostatniej minuty, w której ją widziałem. Rozmawialiśmy o błędach, lecz nie obserwowałem jej trasy."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "time",
+      "question": "Kiedy ostatni raz rozmawiał pan z Leną?",
+      "answer": "Technicznie rzecz biorąc: Z Leną dyskutowaliśmy o logach. Nie byłem zachwycony, że ciągle pytała o te same rozbieżności, ale miała prawo."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "time",
+      "question": "Co było przed alarmem?",
+      "answer": "Z Leną dyskutowaliśmy o odczytach wagonu. O tym, co wydarzyło się potem, dowiedziałem się po fakcie."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "challenge",
+      "question": "Czy pan twierdzi, że na pewno nikogo tam nie było?",
+      "answer": "Z Leną dyskutowaliśmy o odczytach wagonu. O tym, co wydarzyło się potem, dowiedziałem się po fakcie. Własną diagnostykę znam z pracy i zapisów. O zdarzeniu przy stanowisku nie mam osobistej obserwacji."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "challenge",
+      "question": "Jak pan może twierdzić że nikt nie wszedł, skoro pana tam nie było?",
+      "answer": "Nie jestem tego pewien. Bez surowych danych nie chcę wyciągać wniosku."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "technical",
+      "question": "Czy to pana zdaniem była awaria?",
+      "answer": "Znam nietypowe alarmy TCMS. W logu trzeba odróżniać błąd transmisji od nowej operacji."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "technical",
+      "question": "Co powinno wynikać z raportu technicznego?",
+      "answer": "W logu trzeba odróżniać błąd transmisji od nowej operacji. Surowy log i raport końcowy to dwa różne poziomy informacji."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "challenge",
+      "question": "Dlaczego nie zgłosił pan tego wcześniej?",
+      "answer": "Nie umiem wskazać konkretnej przyczyny na podstawie tego, co pamiętam. Nie chcę jej wymyślać."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "observation",
+      "question": "Nie pytam o dokument. Pytam co pan sam widział.",
+      "answer": "Odpowiem o tym, co sam widziałem, a nie o tym, co zapisano w aktach. Nie mam listy wszystkich, których mijałem na placu. Logi nie identyfikują ludzi z mojego otoczenia."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "observation",
+      "question": "Co pan wie z własnej obserwacji, a co tylko z czyichś słów?",
+      "answer": "Własną diagnostykę znam z pracy i zapisów. Sprawdź numer sesji, autoryzację testu i surowe logi. Tej nocy prowadziłem diagnostykę. Inni technicy mogli widzieć mnie przy diagnostyce, ale log sam nie jest świadkiem mojej obecności."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "followup",
+      "question": "Nie o to pytałem. Kiedy to się wydarzyło?",
+      "answer": "Wracam myślami do naszych rozmów w warsztacie. Tak, ruszyło mnie."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "recall",
+      "question": "Czy może pan powtórzyć ostatnią odpowiedź?",
+      "answer": "Wcześniej powiedziałem: „Wracam myślami do naszych rozmów w warsztacie. Tak, ruszyło mnie”."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "observation",
+      "question": "Czy na pewno widział pan ją wtedy osobiście?",
+      "answer": "Z Leną dyskutowaliśmy o odczytach wagonu. O tym, co wydarzyło się potem, dowiedziałem się po fakcie."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "source",
+      "question": "Z jakiego źródła pochodzi ta godzina?",
+      "answer": "Nie potrafię wskazać konkretnego źródła tej informacji bez doprecyzowania, o które zdarzenie pytasz."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "trust",
+      "question": "Dlaczego miałbym panu wierzyć?",
+      "answer": "Nie chcę wymyślać motywu działania, którego przebiegu nie ustaliliśmy."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "followup",
+      "question": "Proszę powiedzieć to zwyczajnie, bez urzędowego języka.",
+      "answer": "Nie mam pewności. Sprawdźmy surowe dane, zanim coś stwierdzę. Proszę wskazać, którego zdarzenia dotyczy pytanie."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "relation",
+      "question": "Jakie były pana relacje z Leną?",
+      "answer": "Trzeba rozdzielić dwie rzeczy: Z Leną dyskutowaliśmy o logach. Nie byłem zachwycony, że ciągle pytała o te same rozbieżności, ale miała prawo."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "challenge",
+      "question": "Czy nie kłamie pan w sprawie alibi?",
+      "answer": "Ej, nie musisz na mnie krzyczeć. Tej nocy prowadziłem diagnostykę. Nie podam zmyślonego nazwiska."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "compound",
+      "question": "Co stało się później i kto o tym wiedział?",
+      "answer": "Z Leną dyskutowaliśmy o odczytach wagonu. O tym, co wydarzyło się potem, dowiedziałem się po fakcie."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "source",
+      "question": "Czy mógł pan to sprawdzić inaczej?",
+      "answer": "Sprawdź numer sesji, autoryzację testu i surowe logi. Własną diagnostykę znam z pracy i zapisów."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "trust",
+      "question": "Nie sądzę by pan mówił całą prawdę.",
+      "answer": "Nie mam pewności. Sprawdźmy surowe dane, zanim coś stwierdzę. Jeśli chodzi o zapis, proszę powiedzieć, który konkretnie."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "pronoun",
+      "question": "Gdzie ona była przed zmianą?",
+      "answer": "Te odczyty dobrze pamiętam. Nie potrafię potwierdzić, że Lena przez cały ten czas była sama. Nie śledziłem, którędy później chodziła Lena. Moje logi pokazują stan wagonu, nie jej trasę. Nie podam ostatniej minuty, w której ją widziałem. Rozmawialiśmy o błędach, lecz nie obserwowałem jej trasy."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "technical",
+      "question": "Co oznacza protokół TCMS?",
+      "answer": "Nie. Log pokazuje zdarzenia techniczne i sesje, nie dowodzi sam w sobie, kto fizycznie stał przy urządzeniu. Zestaw numer sesji z dokumentem zgody na test i surowymi wpisami, nie tylko z końcowym alarmem."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "technical",
+      "question": "Co pan wie o kartach BHP?",
+      "answer": "Trzeba sprawdzić tryb serwisowy i autoryzację, zanim nazwie się coś sabotażem. Kilka wpisów może opisywać ten sam pakiet."
+    },
+    {
+      "witness": "KAMIL",
+      "category": "protected",
+      "question": "Czy pan zabił Lenę?",
+      "answer": "To poważny zarzut. Nie przyznaję się do zabójstwa. Jeśli ma pan konkretny materiał, proszę go przedstawić i sprawdzić."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "alibi",
+      "question": "Gdzie przebywał pan podczas nocnej zmiany?",
+      "answer": "Prowadziłam audyt dokumentacji odbiorowej. Według rejestru sesja audytowa była aktywna od 01:30 do 02:00."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "alibi",
+      "question": "Gdzie był pan w czasie całego zajścia?",
+      "answer": "Według rejestru sesja audytowa była aktywna od 01:30 do 02:00. Nie twierdzę, że zapis sesji samodzielnie potwierdza moją obecność przy komputerze przez cały czas."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "source",
+      "question": "Kto może potwierdzić pana obecność?",
+      "answer": "Mogę wskazać rejestr sesji, ale nie jest on niezależnym świadkiem mojej fizycznej obecności. Zestawienie historii sesji, czytników i skorygowanego CCTV pozwala sprawdzić ograniczenia rejestru."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "lena",
+      "question": "Czy Lena była sama na miejscu?",
+      "answer": "Pozostańmy przy konkretnym zakresie audytu. Nie potrafię potwierdzić, że Lena przez cały ten czas była sama. Nie mogę z własnej obserwacji odtworzyć ostatniej trasy Leny. Nie mam własnej obserwacji pozwalającej ustalić ostatni moment, w którym widziałam Lenę."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "lena",
+      "question": "Czy rozmawiał pan z Leną?",
+      "answer": "W tym zakresie mogę potwierdzić: Relacje między pracownikami nie zastępują protokołów. O Lenie mogę powiedzieć, że kwestionowała niektóre zapisy."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "time",
+      "question": "Kiedy ostatnio pan ją widział?",
+      "answer": "Nie mam własnej obserwacji pozwalającej ustalić ostatni moment, w którym widziałam Lenę."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "time",
+      "question": "Kiedy ostatni raz rozmawiał pan z Leną?",
+      "answer": "Nie mam dodatkowych pewnych ustaleń ponad to, co już powiedziałam."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "time",
+      "question": "Co było przed alarmem?",
+      "answer": "Nie jestem w stanie wiarygodnie podać pełnej chronologii. Sesja audytowa trwała według systemu od 01:30 do 02:00. To nie jest pomiar moich ruchów."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "challenge",
+      "question": "Czy pan twierdzi, że na pewno nikogo tam nie było?",
+      "answer": "Lena kwestionowała zapisy odbiorowe. Nie posiadam osobistej obserwacji momentu jej śmierci."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "challenge",
+      "question": "Jak pan może twierdzić że nikt nie wszedł, skoro pana tam nie było?",
+      "answer": "Nie dysponuję ustaleniem, które pozwalałoby mi rzetelnie odpowiedzieć."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "technical",
+      "question": "Czy to pana zdaniem była awaria?",
+      "answer": "Nieprawidłowość w dokumentacji wymaga weryfikacji. Dokumentacja odbiorowa określa zakres czynności i podpisy."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "technical",
+      "question": "Co powinno wynikać z raportu technicznego?",
+      "answer": "Dokumentacja odbiorowa określa zakres czynności i podpisy. Dokumentacja audytu podlega wersjonowaniu."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "challenge",
+      "question": "Dlaczego nie zgłosił pan tego wcześniej?",
+      "answer": "Z mojej pamięci nie wynika pewna przyczyna. Nie zamierzam dorabiać do tego wyjaśnienia."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "observation",
+      "question": "Nie pytam o dokument. Pytam co pan sam widział.",
+      "answer": "Odpowiem o tym, co sama widziałam, a nie o tym, co zapisano w aktach. Nie mam własnej, nieprzerwanej obserwacji placu. Nie mogę rzetelnie wskazać osób na podstawie domysłów."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "observation",
+      "question": "Co pan wie z własnej obserwacji, a co tylko z czyichś słów?",
+      "answer": "Opieram się na dokumentacji odbiorowej i zapisach sesji. Zestawienie historii sesji, czytników i skorygowanego CCTV pozwala sprawdzić ograniczenia rejestru. Według rejestru sesja audytowa była aktywna od 01:30 do 02:00. Nie wskażę osoby bez podstaw."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "followup",
+      "question": "Nie o to pytałem. Kiedy to się wydarzyło?",
+      "answer": "Śmierć Leny była tragedią. Śmierć pracownicy jest tragedią."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "recall",
+      "question": "Czy może pan powtórzyć ostatnią odpowiedź?",
+      "answer": "Wcześniej powiedziałam: „Śmierć Leny była tragedią. Śmierć pracownicy jest tragedią”."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "observation",
+      "question": "Czy na pewno widział pan ją wtedy osobiście?",
+      "answer": "Lena kwestionowała zapisy odbiorowe. Nie posiadam osobistej obserwacji momentu jej śmierci."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "source",
+      "question": "Z jakiego źródła pochodzi ta godzina?",
+      "answer": "Nie potrafię wskazać konkretnego źródła tej informacji bez doprecyzowania, o które zdarzenie pytasz."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "trust",
+      "question": "Dlaczego miałbym panu wierzyć?",
+      "answer": "Nie chcę wymyślać motywu działania, którego przebiegu nie ustaliliśmy."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "followup",
+      "question": "Proszę powiedzieć to zwyczajnie, bez urzędowego języka.",
+      "answer": "Nie dysponuję ustaleniem, które pozwalałoby mi rzetelnie odpowiedzieć. Proszę wskazać, którego zdarzenia dotyczy pytanie."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "relation",
+      "question": "Jakie były pana relacje z Leną?",
+      "answer": "Oddzielmy dwie kwestie: Relacje między pracownikami nie zastępują protokołów. O Lenie mogę powiedzieć, że kwestionowała niektóre zapisy."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "challenge",
+      "question": "Czy nie kłamie pan w sprawie alibi?",
+      "answer": "Nie będę odpowiadać na groźby. Według rejestru sesja audytowa była aktywna od 01:30 do 02:00. Rejestr wskazuje aktywność sesji, ale nie służy do ustalania fizycznej obecności człowieka."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "compound",
+      "question": "Co stało się później i kto o tym wiedział?",
+      "answer": "Lena kwestionowała zapisy odbiorowe. Nie posiadam osobistej obserwacji momentu jej śmierci. Opieram się na dokumentacji odbiorowej i zapisach sesji. Nie mam osobistej obserwacji ataku."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "source",
+      "question": "Czy mógł pan to sprawdzić inaczej?",
+      "answer": "Zestawienie historii sesji, czytników i skorygowanego CCTV pozwala sprawdzić ograniczenia rejestru. Opieram się na dokumentacji odbiorowej i zapisach sesji."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "trust",
+      "question": "Nie sądzę by pan mówił całą prawdę.",
+      "answer": "Nie dysponuję ustaleniem, które pozwalałoby mi rzetelnie odpowiedzieć. Jeśli chodzi o zapis, proszę powiedzieć, który konkretnie."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "pronoun",
+      "question": "Gdzie ona była przed zmianą?",
+      "answer": "Mogę wyjaśnić ograniczenia tych danych. Nie potrafię potwierdzić, że Lena przez cały ten czas była sama. Nie mogę z własnej obserwacji odtworzyć ostatniej trasy Leny. Nie mam własnej obserwacji pozwalającej ustalić ostatni moment, w którym widziałam Lenę."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "technical",
+      "question": "Co oznacza protokół TCMS?",
+      "answer": "Nie. Zapis sesji potwierdza aktywność połączenia, a nie nieprzerwaną obecność konkretnej osoby. Można porównać log sesji z systemem dostępu i monitoringiem. Dane o połączeniu nie są osobistą obserwacją świadka."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "technical",
+      "question": "Co pan wie o kartach BHP?",
+      "answer": "Samo zgłoszenie techniczne nie jest dowodem celowego działania. Proszę wskazać konkretną pozycję, której dotyczy zarzut."
+    },
+    {
+      "witness": "MAGDALENA",
+      "category": "protected",
+      "question": "Czy pan zabił Lenę?",
+      "answer": "To poważny zarzut. Nie przyznaję się do zabójstwa. Jeśli ma pan konkretny materiał, proszę go przedstawić i sprawdzić."
+    }
+  ]
+}

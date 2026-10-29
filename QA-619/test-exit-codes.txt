@@ -1,0 +1,6 @@
+npm run check|0
+npm run test:progression|0
+npm run test:architecture|0
+npm run test:ai-primary|0
+npm run test:story|0
+npm run test:inspections-puzzles|0

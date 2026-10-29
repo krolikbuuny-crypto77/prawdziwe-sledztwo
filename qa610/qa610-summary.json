@@ -1,0 +1,15 @@
+{
+  "source": "Chromium, offline; not real Z.ai",
+  "questions": 36,
+  "witnesses": 6,
+  "score_by_type": {
+    "0": 6,
+    "1": 6,
+    "2": 6,
+    "3": 6,
+    "4": 6,
+    "5": 6
+  },
+  "script_errors": [],
+  "evidence_added": 0
+}

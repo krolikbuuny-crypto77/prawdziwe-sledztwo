@@ -1,0 +1,13 @@
+/* Pakiet 6.4 — dziennik następstw w istniejącym systemie wizualnym */
+.ps64-panel{margin-top:16px}.ps64-title,.ps64-cardtop{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ps64-title h3{margin:.3rem 0}.ps64-title p{max-width:70ch;line-height:1.6;color:var(--muted,#aeb8bb)}
+#ps64Count{font-size:.8rem;color:var(--gold,#cba96b);white-space:nowrap}
+.ps64-items{display:grid;gap:12px;margin-top:12px}.ps64-item{border:1px solid rgba(200,171,125,.24);border-radius:12px;padding:15px;background:rgba(9,19,25,.32)}
+.ps64-cardtop h4{margin:0;font-size:1rem}.ps64-status{font-size:.74rem;color:#d4b789}.ps64-item p{line-height:1.6;margin:.6rem 0}
+.ps64-actions{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0}.ps64-actions>div{min-width:min(100%,215px);display:grid;align-content:start;gap:5px}
+.ps64-actions button{text-align:left;white-space:normal;min-height:42px}.ps64-route,.ps64-foot{font-size:.78rem;color:#adbbbf}
+.ps64-item .ps64-foot{margin-bottom:0}#ps64More{margin:12px 0 0}#ps64More>summary{cursor:pointer;padding:9px 4px;color:#e4c58b}
+.ps64-teaser{margin:12px 0 20px;border:1px solid rgba(220,179,105,.28);border-radius:12px;padding:13px;display:flex;align-items:center;justify-content:space-between;gap:15px;background:rgba(21,34,39,.78)}
+.ps64-teaser[hidden],.ps64-panel[hidden],#ps64More[hidden]{display:none!important}.ps64-teaser strong{color:#f2d7a1}.ps64-teaser p{margin:5px 0 0;color:#b6c3c8;font-size:.85rem;line-height:1.5}.ps64-teaser button{flex-shrink:0}
+@media(max-width:600px){.ps64-actions{display:grid;grid-template-columns:minmax(0,1fr)}.ps64-actions>div{min-width:0}.ps64-teaser{align-items:stretch;flex-direction:column}.ps64-teaser button{width:100%}.ps64-item{padding:12px}}
+@media(prefers-reduced-motion:reduce){.ps64-panel *{scroll-behavior:auto!important}}

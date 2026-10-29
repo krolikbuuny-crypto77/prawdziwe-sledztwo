@@ -1,0 +1,207 @@
+{
+  "390": {
+    "metrics": {
+      "ids": 6,
+      "scriptErrors": 0,
+      "face": true,
+      "cinematic": true,
+      "fallback": true,
+      "after": "[\"MED-01\",\"MED-07\",\"MED-08\",\"TEC-01\",\"TEC-02\",\"TEC-03\",\"TEC-04\",\"TEC-16\",\"DIG-10\",\"VIS-10\",\"ADM-01\",\"ADM-10\",\"ADM-11\"]",
+      "before": "[\"MED-01\",\"MED-07\",\"MED-08\",\"TEC-01\",\"TEC-02\",\"TEC-03\",\"TEC-04\",\"TEC-16\",\"DIG-10\",\"VIS-10\",\"ADM-01\",\"ADM-10\",\"ADM-11\"]",
+      "pageWidth": 390,
+      "viewport": 390
+    },
+    "samples": [
+      {
+        "id": "MAREK",
+        "answers": [
+          {
+            "q": "Co pamiętasz z nocnego dyżuru?",
+            "a": "Nadzorowałem nocną zmianę. Podczas tej zmiany kierowałem pracą zajezdni, głównie z biura."
+          },
+          {
+            "q": "Skąd to wiesz?",
+            "a": "Nie nazwę źródła informacji, dopóki nie wiem, o jakie zdarzenie pytasz."
+          },
+          {
+            "q": "Przyznajesz się do zabójstwa Leny?",
+            "a": "Nie przyznaję się do zabójstwa Leny. Proszę oddzielić moje decyzje służbowe od takiego zarzutu."
+          },
+          {
+            "q": "Czy karta T-17 potwierdza obecność?",
+            "a": "Nie wskażę osoby, która obserwowała mnie przez całą noc. Połączenia służbowe potwierdzą kontakt, a rejestr wejść tylko część przemieszczania."
+          },
+          {
+            "q": "Nie pytam o dokument. Co widziałaś?",
+            "a": "Odpowiem o tym, co sam widziałem, a nie o tym, co zapisano w aktach. Nie prowadziłem obserwacji placu przez całą noc. Widziałem pracowników podczas zmiany, ale nie mam podstaw, żeby przypisać wszystkim godziny i miejsca."
+          },
+          {
+            "q": "Dlaczego nie wysłano ostrzeżenia?",
+            "a": "Z mojej pamięci nie wynika pewna przyczyna. Nie znam tego powodu."
+          }
+        ]
+      },
+      {
+        "id": "TOMASZ",
+        "answers": [
+          {
+            "q": "Co pamiętasz z nocnego dyżuru?",
+            "a": "Byłem na służbie jako dyspozytor. Pracowałem w dyspozytorni."
+          },
+          {
+            "q": "Skąd to wiesz?",
+            "a": "Pamiętam tyle: Mamy rejestr łączności radiowej i zapis z dyspozytorni. Porównajmy je; pojedynczy wydruk nie zamyka sprawy."
+          },
+          {
+            "q": "Przyznajesz się do zabójstwa Leny?",
+            "a": "Nie przyznaję się do zabójstwa Leny. Jeśli mnie o to oskarżasz, pytaj wprost i przedstaw podstawy."
+          },
+          {
+            "q": "Czy karta T-17 potwierdza obecność?",
+            "a": "Meldunki i rejestr łączności radiowej potwierdzą, kiedy pracowałem przy konsoli. Nie mam człowieka, który potwierdzi każdą minutę mojej obecności."
+          },
+          {
+            "q": "Nie pytam o dokument. Co widziałaś?",
+            "a": "Odpowiem o tym, co sam widziałem, a nie o tym, co zapisano w aktach. Przy dyspozytorni widziałem ludzi podczas służby, ale nie śledziłem każdego przejścia przez plac. Konkretną osobę trzeba zestawić z innym źródłem."
+          },
+          {
+            "q": "Dlaczego nie wysłano ostrzeżenia?",
+            "a": "Z mojej pamięci nie wynika pewna przyczyna. Nie znam tego powodu."
+          }
+        ]
+      },
+      {
+        "id": "JANUSZ",
+        "answers": [
+          {
+            "q": "Co pamiętasz z nocnego dyżuru?",
+            "a": "Miałem nocne obowiązki warsztatowe. Pracowałem przy zleceniach i kolejce napraw w warsztacie."
+          },
+          {
+            "q": "Skąd to wiesz?",
+            "a": "Doprecyzuj zdarzenie, a wtedy będzie można ustalić źródło tej informacji."
+          },
+          {
+            "q": "Przyznajesz się do zabójstwa Leny?",
+            "a": "Nie przyznaję się. Kłótnia z Leną to nie jest przyznanie się do jej zabójstwa."
+          },
+          {
+            "q": "Czy karta T-17 potwierdza obecność?",
+            "a": "Ludzie z warsztatu widywali mnie przy pracy, jednak nie podam jednego świadka na całą noc. Sprawdźmy konkretne zlecenie i godzinę."
+          },
+          {
+            "q": "Nie pytam o dokument. Co widziałaś?",
+            "a": "Odpowiem o tym, co sam widziałem, a nie o tym, co zapisano w aktach. W warsztacie kręciło się wielu ludzi. Nie umiem wskazać, kto dokładnie był na placu w danej minucie."
+          },
+          {
+            "q": "Dlaczego nie wysłano ostrzeżenia?",
+            "a": "Z mojej pamięci nie wynika pewna przyczyna. Nie znam tego powodu."
+          }
+        ]
+      },
+      {
+        "id": "ELZBIETA",
+        "answers": [
+          {
+            "q": "Co pamiętasz z nocnego dyżuru?",
+            "a": "Wykonywałam obowiązki związane z BHP. Zajmowałam się zgłoszeniami BHP i rejestrem zagrożeń."
+          },
+          {
+            "q": "Skąd to wiesz?",
+            "a": "Przypomnę istotną rzecz: Trzeba porównać szkic BHP z bramką wysyłkową i potwierdzeniem odbioru. Sam zapisany szkic nie dowodzi zgłoszenia."
+          },
+          {
+            "q": "Przyznajesz się do zabójstwa Leny?",
+            "a": "Nie przyznaję się do zabójstwa Leny. To poważny zarzut i chcę wiedzieć, na czym go opierasz."
+          },
+          {
+            "q": "Czy karta T-17 potwierdza obecność?",
+            "a": "Naszą rozmowę o 21:47 mogą potwierdzać wpisy dotyczące zgłoszenia. Nie mam świadka, który obserwował mnie bez przerwy później."
+          },
+          {
+            "q": "Nie pytam o dokument. Co widziałaś?",
+            "a": "Odpowiem o tym, co sama widziałam, a nie o tym, co zapisano w aktach. Nie obserwowałam placu przez cały dyżur. Nie będę przypisywała czyjejś obecności bez własnego wspomnienia albo dokumentu."
+          },
+          {
+            "q": "Dlaczego nie wysłano ostrzeżenia?",
+            "a": "Nie umiem wskazać konkretnej przyczyny na podstawie tego, co pamiętam. Nie chcę jej wymyślać."
+          }
+        ]
+      },
+      {
+        "id": "KAMIL",
+        "answers": [
+          {
+            "q": "Co pamiętasz z nocnego dyżuru?",
+            "a": "Tej nocy prowadziłem diagnostykę. Zajmowałem się diagnostyką TW-217."
+          },
+          {
+            "q": "Skąd to wiesz?",
+            "a": "W danych wygląda to tak: Zestaw numer sesji z dokumentem zgody na test i surowymi wpisami, nie tylko z końcowym alarmem."
+          },
+          {
+            "q": "Przyznajesz się do zabójstwa Leny?",
+            "a": "Nie przyznaję się do zabójstwa Leny. Moja praca przy wagonie nie jest odpowiedzią na taki zarzut."
+          },
+          {
+            "q": "Czy karta T-17 potwierdza obecność?",
+            "a": "Inni technicy mogli widzieć mnie przy diagnostyce, ale log sam nie jest świadkiem mojej obecności. Nie podam zmyślonego nazwiska."
+          },
+          {
+            "q": "Nie pytam o dokument. Co widziałaś?",
+            "a": "Odpowiem o tym, co sam widziałem, a nie o tym, co zapisano w aktach. Nie mam listy wszystkich, których mijałem na placu. Logi nie identyfikują ludzi z mojego otoczenia."
+          },
+          {
+            "q": "Dlaczego nie wysłano ostrzeżenia?",
+            "a": "Nie pamiętam wystarczająco dużo, by wskazać konkretną przyczynę. Nie będę jej zgadywać."
+          }
+        ]
+      },
+      {
+        "id": "MAGDALENA",
+        "answers": [
+          {
+            "q": "Co pamiętasz z nocnego dyżuru?",
+            "a": "Według rejestru sesja audytowa była aktywna od 01:30 do 02:00. Prowadziłam audyt dokumentacji odbiorowej."
+          },
+          {
+            "q": "Skąd to wiesz?",
+            "a": "Nie nazwę źródła informacji, dopóki nie wiem, o jakie zdarzenie pytasz."
+          },
+          {
+            "q": "Przyznajesz się do zabójstwa Leny?",
+            "a": "Nie przyznaję się do zabójstwa Leny. Proszę wskazać, jakie fakty mają uzasadniać to oskarżenie."
+          },
+          {
+            "q": "Czy karta T-17 potwierdza obecność?",
+            "a": "Proszę zestawić niezależne rejestry, nie tylko podsumowanie. Mogę wskazać rejestr sesji, ale nie jest on niezależnym świadkiem mojej fizycznej obecności. Zestawienie historii sesji, czytników i skorygowanego CCTV pozwala sprawdzić ograniczenia rejestru."
+          },
+          {
+            "q": "Nie pytam o dokument. Co widziałaś?",
+            "a": "Odpowiem o tym, co sama widziałam, a nie o tym, co zapisano w aktach. Nie mam własnej, nieprzerwanej obserwacji placu. Nie mogę rzetelnie wskazać osób na podstawie domysłów."
+          },
+          {
+            "q": "Dlaczego nie wysłano ostrzeżenia?",
+            "a": "Z mojej pamięci nie wynika pewna przyczyna. Nie znam tego powodu."
+          }
+        ]
+      }
+    ],
+    "jsErrors": []
+  },
+  "1280": {
+    "metrics": {
+      "ids": 6,
+      "scriptErrors": 0,
+      "face": true,
+      "cinematic": true,
+      "fallback": true,
+      "after": "[\"MED-01\",\"MED-07\",\"MED-08\",\"TEC-01\",\"TEC-02\",\"TEC-03\",\"TEC-04\",\"TEC-16\",\"DIG-10\",\"VIS-10\",\"ADM-01\",\"ADM-10\",\"ADM-11\"]",
+      "before": "[\"MED-01\",\"MED-07\",\"MED-08\",\"TEC-01\",\"TEC-02\",\"TEC-03\",\"TEC-04\",\"TEC-16\",\"DIG-10\",\"VIS-10\",\"ADM-01\",\"ADM-10\",\"ADM-11\"]",
+      "pageWidth": 1280,
+      "viewport": 1280
+    },
+    "samples": [],
+    "jsErrors": []
+  }
+}

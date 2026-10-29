@@ -1,0 +1,56 @@
+
+/* Oględziny: gesture layer moves the entire image and any future pins together. */
+#inspection12 .et1-photo-stage{touch-action:none!important;overscroll-behavior:contain;user-select:none;-webkit-user-select:none}
+#inspection12 .psm-scene-zoom-layer{position:absolute;inset:0;transform-origin:50% 50%;will-change:transform;contain:layout paint}
+#inspection12 .psm-scene-zoom-layer>.et2-parallax-layer{position:absolute;inset:0}
+#inspection12 .psm-photo-zoom{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin:10px 0 4px;min-width:0}
+#inspection12 .psm-photo-zoom button{min-height:40px;min-width:40px;padding:7px 10px;border:1px solid #6b7c84;border-radius:8px;background:#1b2e38;color:#f0e3d2;font-weight:700;cursor:pointer}
+#inspection12 .psm-photo-zoom button:focus-visible{outline:2px solid #edbf83;outline-offset:2px}
+#inspection12 .psm-photo-zoom button:last-child{min-width:78px}
+#inspection12 .psm-photo-zoom output{font-size:12px;color:#f0d0a1;font-variant-numeric:tabular-nums;min-width:44px;text-align:center}
+#inspection12 .psm-zoom-caption{font-size:11px;color:#b4c5cb;margin-right:auto;line-height:1.45}
+#et2ViewerStage{touch-action:none!important;overscroll-behavior:contain}
+#et2ViewerStage img{user-select:none;-webkit-user-drag:none}
+/* Mobile workspaces: explicit tabs rather than two squeezed columns. */
+.psm-mobile-tabs{display:none;gap:7px;margin:10px 0 14px;width:100%;min-width:0}
+.psm-mobile-tabs[hidden]{display:none!important}
+.psm-mobile-tabs button{background:#1a2a34;color:#cbd7dc;border:1px solid #455a65;border-radius:9px;min-width:0;min-height:46px;padding:10px 8px;font:650 13px/1.25 system-ui,sans-serif;white-space:normal;overflow-wrap:anywhere;cursor:pointer}
+.psm-mobile-tabs button[aria-selected="true"]{background:#3b3329;color:#f6deaf;border-color:#c19a65;box-shadow:inset 0 -2px 0 #c19a65}
+.psm-mobile-tabs button:focus-visible,.psm-portrait-toggle:focus-visible{outline:2px solid #edbf83;outline-offset:2px}
+.psm-portrait-toggle{display:none;width:100%;border:1px solid #415866;border-radius:8px;background:#243640;color:#efdfc9;padding:10px 12px;font:650 12px system-ui;margin:8px 0;text-align:left;min-height:43px}
+@media(max-width:899px) and (orientation:portrait), (max-width:599px){
+ #deduction,#interview{min-width:0;max-width:100%}
+ #deduction .psm-mobile-tabs,#interview .psm-mobile-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ #deduction .dd-work,#deduction .dd-work.ux4-one-column{display:block!important;min-width:0!important;max-width:100%!important}
+ #deduction .dd-source-panel,#deduction .dd-editor-panel{width:100%!important;min-width:0!important;max-width:100%!important}
+ #deduction.psm-show-sources .dd-editor-panel{display:none!important}
+ #deduction.psm-show-editor .dd-source-panel{display:none!important}
+ #deduction .dd-source-list{max-height:min(52dvh,440px)!important;overflow-y:auto!important;overflow-x:hidden!important}
+ #deduction .dd-links,#deduction .dd-board,#deduction .dd-source-item{max-width:100%;overflow-wrap:anywhere}
+ #deduction textarea,#deduction input,#deduction select{max-width:100%;min-width:0}
+ #interview .charactergrid{display:block!important;grid-template-columns:minmax(0,1fr)!important;max-width:100%!important}
+ #interview .characterlist{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-height:none!important;overflow:visible!important;max-width:100%!important}
+ #interview .charactergrid>.chat{min-width:0!important;max-width:100%!important;width:100%!important}
+ #interview.psm-show-chat .characterlist{display:none!important}
+ #interview.psm-show-witnesses .charactergrid>.chat{display:none!important}
+ #interview .character,.charactergrid,.charactergrid *{min-width:0}
+ #interview .chatlog{max-height:min(45dvh,400px)!important;min-height:150px!important;overflow-y:auto;overflow-x:hidden!important}
+ #interview .bubble{overflow-wrap:anywhere;max-width:94%!important}
+ #interview .chatfoot,#interview .chathead{min-width:0!important;max-width:100%!important;padding-inline:12px!important}
+ #interview .psm-portrait-toggle{display:block}
+ #interview:not(.psm-portrait-open) .witness-stage-host{display:none!important}
+ #interview:not(.psm-portrait-open) #npc4Panel{display:none!important}
+ #interview #chatInput{font-size:16px!important;max-width:100%}
+ #interview #attachedDoc{max-width:100%;min-width:0}
+ #interview .npc4-style-row{flex-wrap:wrap}
+ #interview .npc4-stance{white-space:normal}
+ #interview .chathead-copy,#interview .chathead-title{max-width:100%;min-width:0}
+}
+@media(max-width:360px){
+ #inspection12 .psm-zoom-caption{flex-basis:100%}
+ #interview .characterlist{grid-template-columns:minmax(0,1fr)!important}
+ #deduction .psm-mobile-tabs button,#interview .psm-mobile-tabs button{font-size:12px;padding:9px 4px}
+}
+@media(prefers-reduced-motion:reduce){
+ #inspection12 .psm-scene-zoom-layer,#et2ViewerImage{transition:none!important}
+}

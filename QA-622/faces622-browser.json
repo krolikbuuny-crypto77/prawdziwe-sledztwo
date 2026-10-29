@@ -1,0 +1,158 @@
+{
+  "320": {
+    "witnesses": [
+      {
+        "id": "MAREK",
+        "initial": "controlled",
+        "underPressure": "tense"
+      },
+      {
+        "id": "TOMASZ",
+        "initial": "uncertain",
+        "underPressure": "tense"
+      },
+      {
+        "id": "JANUSZ",
+        "initial": "focused",
+        "underPressure": "tense"
+      },
+      {
+        "id": "ELZBIETA",
+        "initial": "focused",
+        "underPressure": "tense"
+      },
+      {
+        "id": "KAMIL",
+        "initial": "focused",
+        "underPressure": "irritated"
+      },
+      {
+        "id": "MAGDALENA",
+        "initial": "controlled",
+        "underPressure": "controlled"
+      }
+    ],
+    "scenes": 8,
+    "finale": 2,
+    "reduced": true,
+    "overflow": 320,
+    "viewport": 320
+  },
+  "390": {
+    "witnesses": [
+      {
+        "id": "MAREK",
+        "initial": "controlled",
+        "underPressure": "tense"
+      },
+      {
+        "id": "TOMASZ",
+        "initial": "uncertain",
+        "underPressure": "tense"
+      },
+      {
+        "id": "JANUSZ",
+        "initial": "focused",
+        "underPressure": "tense"
+      },
+      {
+        "id": "ELZBIETA",
+        "initial": "focused",
+        "underPressure": "tense"
+      },
+      {
+        "id": "KAMIL",
+        "initial": "focused",
+        "underPressure": "irritated"
+      },
+      {
+        "id": "MAGDALENA",
+        "initial": "controlled",
+        "underPressure": "controlled"
+      }
+    ],
+    "scenes": 8,
+    "finale": 2,
+    "reduced": false,
+    "overflow": 390,
+    "viewport": 390
+  },
+  "768": {
+    "witnesses": [
+      {
+        "id": "MAREK",
+        "initial": "controlled",
+        "underPressure": "tense"
+      },
+      {
+        "id": "TOMASZ",
+        "initial": "uncertain",
+        "underPressure": "tense"
+      },
+      {
+        "id": "JANUSZ",
+        "initial": "focused",
+        "underPressure": "tense"
+      },
+      {
+        "id": "ELZBIETA",
+        "initial": "focused",
+        "underPressure": "tense"
+      },
+      {
+        "id": "KAMIL",
+        "initial": "focused",
+        "underPressure": "irritated"
+      },
+      {
+        "id": "MAGDALENA",
+        "initial": "controlled",
+        "underPressure": "controlled"
+      }
+    ],
+    "scenes": 8,
+    "finale": 2,
+    "reduced": false,
+    "overflow": 768,
+    "viewport": 768
+  },
+  "1440": {
+    "witnesses": [
+      {
+        "id": "MAREK",
+        "initial": "controlled",
+        "underPressure": "tense"
+      },
+      {
+        "id": "TOMASZ",
+        "initial": "uncertain",
+        "underPressure": "tense"
+      },
+      {
+        "id": "JANUSZ",
+        "initial": "focused",
+        "underPressure": "tense"
+      },
+      {
+        "id": "ELZBIETA",
+        "initial": "focused",
+        "underPressure": "tense"
+      },
+      {
+        "id": "KAMIL",
+        "initial": "focused",
+        "underPressure": "irritated"
+      },
+      {
+        "id": "MAGDALENA",
+        "initial": "controlled",
+        "underPressure": "controlled"
+      }
+    ],
+    "scenes": 8,
+    "finale": 2,
+    "reduced": false,
+    "overflow": 1440,
+    "viewport": 1440
+  }
+}

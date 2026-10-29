@@ -1,0 +1,21 @@
+
+/* Przebieg sprawy: dyskretny, fabularny rytm zamiast technicznego panelu. */
+#ps70Pulse{margin:17px 0 21px;padding:18px 21px;border:1px solid rgba(200,163,108,.27);border-left:3px solid #c4a173;border-radius:11px;background:linear-gradient(125deg,rgba(51,43,32,.38),rgba(18,31,40,.75));min-width:0}
+.ps70-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+.ps70-head .eyebrow{font-size:10px;letter-spacing:.13em}
+.ps70-head small{font-size:11px;color:#aabcc1}
+#ps70Pulse h3{font-size:18px;line-height:1.32;margin:10px 0 7px;color:#f2d4a6}
+#ps70Pulse p{font-size:13px;line-height:1.7;color:#d1dcde;max-width:880px}
+#ps70Pulse .ps70-latest{margin:9px 0 0;padding-left:12px;border-left:2px solid rgba(167,191,194,.45);color:#abbec4}
+.ps70-trail{display:flex;gap:5px;margin-top:15px;align-items:center}
+.ps70-trail i{display:block;height:3px;flex:1;background:#415057;border-radius:100px}
+.ps70-trail i.passed{background:linear-gradient(90deg,#92754c,#d6b884)}
+.ps70-trail span{font-size:10px;color:#aeb9bc;margin-left:7px;white-space:nowrap}
+#ps70Afterword{margin:18px 0 28px;border:1px solid rgba(211,175,112,.27);border-left:3px solid #c9a26c;border-radius:10px;padding:19px 20px;background:linear-gradient(150deg,#1e2b31,#141e27)}
+#ps70Afterword[hidden]{display:none}
+#ps70Afterword .eyebrow{font-size:10px}
+#ps70Afterword h3{font-size:19px;margin:9px 0 12px;color:#f0d3a6}
+#ps70Afterword p{font-size:13px;line-height:1.75;margin:9px 0;color:#d5dddc}
+#ps70Afterword .ps70-afternote{padding-top:11px;border-top:1px solid #3d4b4c;color:#b9c7c8}
+@media(max-width:550px){#ps70Pulse{padding:15px}#ps70Afterword{padding:15px}#ps70Pulse h3{font-size:17px}.ps70-trail span{font-size:9px}}
+@media(prefers-reduced-motion:reduce){#ps70Pulse,#ps70Afterword{animation:none!important;transition:none!important}}

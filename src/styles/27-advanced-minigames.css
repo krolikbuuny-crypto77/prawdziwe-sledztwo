@@ -1,0 +1,38 @@
+
+/* MINI-GRY 2.0 — interaktywne warsztaty analityczne, bez podpowiadania rozwiązania. */
+.mg2-panel{margin:18px 0;padding:19px;border:1px solid #607180;background:linear-gradient(145deg,#14222b,#10181e 65%);border-radius:11px;min-width:0}
+.mg2-top{display:flex;justify-content:space-between;align-items:start;gap:15px;flex-wrap:wrap;margin-bottom:12px}
+.mg2-top h3{margin:5px 0;font-size:19px;color:#eed4a3}
+.mg2-top p,.mg2-help{font-size:12px;color:#b8c6cb;line-height:1.6;margin-top:5px;max-width:780px}
+.mg2-status{font:700 11px ui-monospace,monospace;border:1px solid #596874;border-radius:20px;padding:6px 10px;color:#b7cdd4;white-space:nowrap}
+.mg2-status.done{color:#b9e1c9;border-color:#63866c}
+.mg2-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:13px 0}
+.mg2-controls.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mg2-controls label{display:grid;gap:6px;font-size:12px;color:#c8d3d4;min-width:0}
+.mg2-controls input,.mg2-controls select{width:100%;min-width:0;border:1px solid #536371;background:#0c151b;color:#edf0ee;border-radius:7px;padding:10px;font:inherit}
+.mg2-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:13px}
+.mg2-action{border:1px solid #b18857;background:#68492c;color:#f9ead1;padding:9px 14px;border-radius:7px;cursor:pointer;font:650 12px system-ui;min-height:40px}
+.mg2-action.alt{background:#202e36;border-color:#60717c;color:#e0e7e6}
+.mg2-action:hover{filter:brightness(1.12)}.mg2-action:disabled{opacity:.5;cursor:not-allowed}
+.mg2-message{white-space:pre-wrap;font-size:12px;color:#b6cbd0;margin-top:12px;line-height:1.65;min-height:28px}
+.mg2-message.ok{color:#bee2cb}.mg2-message.bad{color:#f0c7a7}
+.mg2-plot{border:1px solid #354651;background:#0b151c;border-radius:8px;padding:10px;overflow-x:auto;min-height:80px}
+.mg2-plot svg{display:block;width:100%;height:auto;min-width:390px;max-height:260px}
+.mg2-nodes{display:flex;gap:8px;overflow-x:auto;padding:8px 0 12px;align-items:center}
+.mg2-node{border:1px solid #556978;background:#1b2a34;border-radius:8px;min-width:122px;padding:10px 9px;color:#ece5d8;flex:0 0 auto;font-size:12px;line-height:1.5}
+.mg2-node small{display:block;color:#b5c4c9;font-size:10px;overflow-wrap:anywhere}
+.mg2-edge{font:700 21px monospace;color:#c9a470;flex:0 0 auto}
+.mg2-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:12px 0}
+.mg2-sample{background:#0e1a22;border:1px solid #344d59;border-radius:8px;padding:12px;min-width:0;overflow-wrap:anywhere}
+.mg2-sample strong{font-size:12px;color:#e8c893}.mg2-sample p{font-size:11px;color:#b9c8ca;margin-top:8px;line-height:1.55}
+.mg2-clock{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+.mg2-clock label{display:grid;gap:8px;font-size:12px;border:1px solid #354954;padding:11px;border-radius:7px;background:#13232b;color:#d7e3e3}
+.mg2-clock input{width:100%;accent-color:#d5a66b}
+.mg2-clock strong{color:#e9c896;font:700 14px monospace}
+.mg2-key{font-size:11px;color:#a9b9bd;margin:8px 0}
+.mg2-minirow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid #3c505b;font-size:12px}
+.mg2-minirow:last-child{border-bottom:1px solid #3c505b}
+.mg2-minirow em{font-style:normal;color:#a7c7d2}
+@media(max-width:700px){.mg2-panel{padding:13px}.mg2-controls,.mg2-controls.two,.mg2-clock,.mg2-compare{grid-template-columns:1fr}.mg2-plot svg{min-width:340px}.mg2-top h3{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.mg2-action{transition:none}}
+

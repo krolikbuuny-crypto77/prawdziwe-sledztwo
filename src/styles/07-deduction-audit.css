@@ -1,0 +1,34 @@
+
+/* Dedukcja 2.0: audyt argumentacji offline */
+#deduction .dd2-review[hidden]{display:none!important}
+#deduction .dd2-review{display:grid;gap:14px;border:1px solid #50616b;border-radius:9px;background:#101a21;padding:15px;margin-top:14px;min-width:0}
+#deduction .dd2-grade{display:grid;gap:7px}
+#deduction .dd2-grade>div:first-child{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+#deduction .dd2-grade b{font-size:14px;color:#efd4ad}
+#deduction .dd2-grade strong{font-size:29px;font-variant-numeric:tabular-nums;color:#e5ba7e}
+#deduction .dd2-grade strong small{font-size:12px;color:#b0babc;font-weight:400}
+#deduction .dd2-grade p{font-size:12px;color:#adbac0}
+#deduction .dd2-meter{height:8px;border-radius:50px;background:#27363e;overflow:hidden}
+#deduction .dd2-meter span{display:block;height:100%;border-radius:50px;background:#ac936b;transition:width .2s ease}
+#deduction .dd2-disclaimer{padding:10px 12px;border-left:3px solid #9a9c91;background:#202a30;color:#d4d7cd;font-size:12px;line-height:1.6}
+#deduction .dd2-dimensions{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+#deduction .dd2-dimensions span{display:flex;justify-content:space-between;gap:8px;padding:8px 9px;background:#19262d;border:1px solid #384a55;border-radius:5px;color:#c6d1d4;font-size:11px}
+#deduction .dd2-dimensions b{white-space:nowrap;color:#efd4ad}
+#deduction .dd2-claims{display:grid;gap:8px}
+#deduction .dd2-claims h4,#deduction .dd2-issues h4{font-size:14px;margin:0 0 3px;color:#e7d0aa}
+#deduction .dd2-claim{background:#16242c;border:1px solid #40525c;border-radius:7px;padding:10px 11px;min-width:0}
+#deduction .dd2-claim-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px;color:#9db0b8}
+#deduction .dd2-claim-head b{color:#b6cdd3}
+#deduction .dd2-claim-head .dd2-weak{color:#dfb19c}
+#deduction .dd2-claim-head .dd2-ok{color:#a8d4bd}
+#deduction .dd2-quote{font-size:12px;margin:9px 0;color:#e9e9e5;line-height:1.6;overflow-wrap:anywhere}
+#deduction .dd2-src{font-size:11px;color:#b3bec3;overflow-wrap:anywhere}
+#deduction .dd2-claim details{margin-top:10px;font-size:11px}
+#deduction .dd2-claim details summary{cursor:pointer;color:#eac994}
+#deduction .dd2-claim blockquote{margin:6px 0;border-left:2px solid #8199a1;padding:6px 10px;max-height:150px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;color:#bcd0d5}
+#deduction .dd2-risk{border-left:2px solid #ba9676;margin-top:9px;padding:7px 9px;font-size:11px;background:#2b2523;color:#e8cebb}
+#deduction .dd2-issues{padding:11px;border:1px solid #596062;border-radius:7px;background:#1a252b;font-size:12px}
+#deduction .dd2-issues ul{padding-left:20px;margin:7px 0 0;display:grid;gap:6px;color:#d2d7d8}
+@media(max-width:650px){#deduction .dd2-dimensions{grid-template-columns:minmax(0,1fr)}#deduction .dd2-review{padding:11px}#deduction .dd2-grade strong{font-size:23px}}
+@media(prefers-reduced-motion:reduce){#deduction .dd2-meter span{transition:none}}
+

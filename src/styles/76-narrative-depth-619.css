@@ -1,0 +1,14 @@
+/* Fabuła 2.0: karty źródłowe i epilog. Bez wyświetlania wskaźników emocji. */
+.ps619-section{margin:16px 0;padding:18px;border:1px solid rgba(173,185,187,.18);border-radius:14px}
+.ps619-heading h3,.ps619-section h3{margin:.35em 0 .55em;line-height:1.2}
+.ps619-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:12px;margin-top:16px}
+.ps619-tile{padding:15px;border:1px solid rgba(173,185,187,.18);border-radius:10px;background:rgba(0,0,0,.1);min-width:0}
+.ps619-tile h4{margin:0 0 8px;color:inherit;font-size:1.05rem}
+.ps619-tile p{margin:6px 0 0;line-height:1.55}
+.ps619-tile dt{font-size:.8rem;opacity:.8;font-weight:700;margin-top:10px}
+.ps619-tile dd{margin:2px 0 0;line-height:1.5}
+.ps619-source{opacity:.65;font-size:.79rem;overflow-wrap:anywhere}
+.ps619-prompt{font-style:italic;opacity:.85}
+.ps619-memorial{margin-top:16px;padding:14px 0;border-top:1px solid rgba(173,185,187,.2);line-height:1.65}
+@media(max-width:600px){.ps619-section{padding:12px;margin:12px 0}.ps619-grid{grid-template-columns:minmax(0,1fr);gap:9px}.ps619-tile{padding:12px}}
+@media(prefers-reduced-motion:reduce){.ps619-section *, .ps619-section{animation:none!important;transition:none!important}}

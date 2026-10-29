@@ -1,0 +1,9 @@
+
+/* Wydajność mobilna: zachowujemy oryginalne fotografie i ich rozdzielczość. */
+@media (hover:none) and (pointer:coarse){
+  .ci-stage-grain,.ci-stage-atmosphere{animation:none!important;}
+  #et2ViewerImage,#et1SceneImage,#et1EvidenceImage{image-rendering:auto;}
+}
+@media (prefers-reduced-motion:reduce){
+  .ci-enter{animation:none!important;transition:none!important;}
+}

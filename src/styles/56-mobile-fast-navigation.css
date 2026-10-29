@@ -1,0 +1,102 @@
+
+.ux6-help,.ux6-shortcuts,.ux6-start-now{display:none}
+@media(max-width:700px){
+ /* Jedna linia nagłówka: narzędzia postępu są dostępne tutaj, nie nad tekstem gry. */
+ .topbar{padding:0 10px 0 12px;gap:6px;min-height:62px;height:62px;position:sticky;top:0;z-index:35}
+ .topbar .ui14-top-left{min-width:0;flex:1 1 0}
+ .topbar .ui14-location{min-width:0;overflow:hidden}
+ .topbar .ui14-top-label{font-size:9px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .topbar #ui14CurrentTitle{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+ .topbar #ps80AudioBar{flex-shrink:0}
+ .ux6-help{display:grid;place-items:center;flex:0 0 39px;width:39px;height:40px;min-height:40px;border:1px solid #53666e;border-radius:9px;background:#1d2c32;color:#f1cf96;font-size:20px;line-height:1;cursor:pointer}
+ .ux6-help:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+ body.ps2-welcome-visible .ux6-help{display:none}
+ body.ps88-help-mobile #psFab{display:none!important}
+ #psPanel{position:fixed!important;left:auto!important;right:8px!important;top:68px!important;bottom:auto!important;max-height:calc(100dvh - 81px)!important;width:min(386px,calc(100vw - 16px))!important;z-index:72!important;overscroll-behavior:contain}
+ .content{padding:14px 12px 30px}
+ .sectionheading,.dd-head,.tl-head,.ev-header{margin-bottom:11px}
+ .sectionheading h2,.dd-head h2,.tl-head h2{font-size:22px;line-height:1.2}
+ .sectionheading p,.dd-head p,.tl-head p{margin-top:6px;line-height:1.45;font-size:12px}
+ .ux6-shortcuts{display:flex;flex-wrap:wrap;align-items:stretch;gap:7px;margin:8px 0 12px}
+ .ux6-shortcuts button{min-height:42px;flex:1 1 120px;border-radius:8px;border:1px solid #526873;background:#1b303b;color:#e7eded;font-size:12px;font-weight:650;padding:8px 10px;cursor:pointer}
+ .ux6-shortcuts button:first-child{border-color:#967b4e;background:#453523;color:#fbe2bd}
+ .ux6-shortcuts button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+ [id^=ux6],#scRooms,#scDetail,#ux4Guide,#ux5Hub,#searchQuery,.ev-workspace,.tl-main{scroll-margin-top:79px}
+ /* Pierwsze minuty: widoczna historia, bez zajmującego cały ekran kolażu. */
+ #overview.ps2-active .photos{display:none!important}
+ #overview.ps2-active .hero{grid-template-columns:minmax(0,1fr)!important;gap:0;margin-bottom:10px}
+ #overview.ps2-active>.ux6-shortcuts{display:none!important}
+ #overview.ps2-active .heroText{padding:15px 16px!important;gap:9px!important}
+ #overview.ps2-active .heroText h1{font-size:28px!important}
+ #overview.ps2-active .heroText .case-lead{font-size:12px;line-height:1.5}
+ #overview.ps2-active .case-meta{display:none!important}
+ #overview.ps2-active .case-actions{display:none!important}
+ #overview.ps2-active #ps2Welcome{margin:8px 0 12px!important;padding:13px 12px!important}
+ #overview.ps2-active #ps2Welcome .ps2-head{gap:5px}
+ #overview.ps2-active .ux6-start-now{display:block;width:100%;min-height:44px;padding:10px 14px;margin:10px 0 8px;border-radius:9px;border:1px solid #a38251;background:#513922;color:#ffdeae;font-weight:750;text-align:center}
+ #overview.ps2-active .ux6-start-now:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+ /* Poszukiwanie ponad opcjonalną mapą działów; wyszukiwanie globalne już obsługuje silnik. */
+ #search.section.active{display:flex;flex-direction:column}
+ #search .sectionheading{order:0}
+ #search .ux6-shortcuts{order:1}
+ #search .searchbox{order:2;margin-bottom:12px}
+ #search #areas{order:3;margin:0}
+ #search #areas:not(.ux6-open-areas){display:none}
+ #search #areas.ux6-open-areas{display:grid}
+ /* Liczniki w jednym przewijanym rzędzie zamiast trzech dużych kart. */
+ #inspection12 .sc-stats,#deduction .dd-metrics,#timeline .tl-metrics{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:7px;max-width:100%;padding:2px 1px 5px;overscroll-behavior-inline:contain}
+ #inspection12 .sc-stats>*,#deduction .dd-metrics>*,#timeline .tl-metrics>*{flex:0 0 auto;min-width:106px;max-width:160px;padding:8px 10px;font-size:11px}
+ /* Narzędzia obrazowe nadal istnieją: jawne rozwijanie, nie blokuje badań. */
+ #inspection12 .ux6-visual{margin:8px 0;border:1px solid #465861;background:#14212a;border-radius:9px;padding:0 10px}
+ #inspection12 .ux6-visual>summary{cursor:pointer;color:#e8cb97;font-weight:700;font-size:12px;padding:13px 2px;min-height:44px;list-style-position:inside}
+ #inspection12 .ux6-visual .ci-toolbar{padding:8px 0 12px;display:flex;flex-wrap:wrap;gap:6px}
+ #inspection12 .ux6-visual .ci-tool{min-height:42px}
+ #inspection12 .sc-layout{gap:10px}
+ #inspection12 .sc-layout .padded{padding:12px}
+ #inspection12 .sc84-actions{gap:6px}
+ #inspection12 .sc84-actions button{min-height:42px}
+ /* Trzy kroki dedukcji zawsze przed statystykami i długim opisem metodologii. */
+ #deduction .ux6-method{background:#14212a;border:1px solid #465861;border-radius:8px;padding:0 12px;margin:9px 0}
+ #deduction .ux6-method summary{min-height:42px;padding:12px 0;font-size:12px;font-weight:700;color:#e8cb97;cursor:pointer}
+ #deduction .ux6-method .dd-note{display:block;margin:0 0 12px!important;font-size:12px}
+ #deduction #ux4Guide{margin:8px 0!important;padding:12px!important}
+ #deduction .ux4-steps{gap:5px;margin:10px 0 7px}
+ #deduction .ux4-step-button{padding:7px 5px;min-height:60px;gap:5px}
+ #deduction .ux4-step-number{width:23px;height:23px;min-width:23px;font-size:11px}
+ #deduction .ux4-step-copy strong{font-size:11px}
+ #deduction .ux4-step-copy small{font-size:10px}
+ /* Laboratorium: nie pokazuj niepotrzebnych pasków nawigacji i technicznych liczb. */
+ #labs #ux5Hub{padding:12px!important;margin-top:7px}
+ #labs .ux5-top{margin-bottom:10px}
+ #labs .ux5-card{padding:11px;gap:8px}
+ #labs .ux5-card p{line-height:1.45}
+ #labs .ux5-actions button{min-height:44px}
+ /* Ulepszone pola dotykowe i zapobieganie samoczynnemu powiększaniu iOS. */
+ .section input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),.section textarea,.section select{font-size:16px;max-width:100%;min-height:42px}
+ .section button,.section summary{touch-action:manipulation}
+ .section .btn{min-height:42px}
+ .section textarea{line-height:1.45}
+ .main,.content,.section{min-width:0;max-width:100%}
+}
+@media(max-width:360px){
+ .topbar{padding:0 7px;gap:3px}
+ .topbar .ui14-top-label{display:none}
+ .ux6-help{flex-basis:36px;width:36px}
+ .ux6-shortcuts button{flex-basis:100px}
+ #deduction .ux4-step-copy small{display:none}
+ #deduction .ux4-step-number{display:none}
+ #deduction .ux4-step-button{justify-content:center;text-align:center}
+}
+@media(min-width:701px) and (max-width:950px){
+ .ux6-help{display:grid;place-items:center;flex:0 0 40px;height:40px;border-radius:9px;border:1px solid #53666e;background:#1d2c32;color:#f1cf96;font-size:20px;cursor:pointer}
+ body.ps2-welcome-visible .ux6-help{display:none}
+ body.ps88-help-mobile #psFab{display:none!important}
+ #psPanel{position:fixed!important;left:auto!important;right:12px!important;top:72px!important;bottom:auto!important;max-height:calc(100dvh - 88px)!important;z-index:72!important}
+}
+@media(min-width:701px){
+ #inspection12 .ux6-visual{display:contents}
+ #inspection12 .ux6-visual>summary{display:none}
+ #deduction .ux6-method{display:contents}
+ #deduction .ux6-method>summary{display:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
