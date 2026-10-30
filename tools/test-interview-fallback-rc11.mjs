@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {randomUUID} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import {INTERVIEW_BUDGET,phaseTimeout} from '../lib/interview-budget-636.js';
-assert.equal(INTERVIEW_BUDGET.totalMs,52000);
+assert.equal(INTERVIEW_BUDGET.totalMs,54000);
 assert.equal(INTERVIEW_BUDGET.zaiWindowMs,25000);
 assert.equal(phaseTimeout({provider:'zai',phase:'generate',now:0,turnDeadline:46000,providerDeadline:25000}),22000);
 const old={fetch:globalThis.fetch,info:console.info};

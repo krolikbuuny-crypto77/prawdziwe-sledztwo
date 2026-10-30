@@ -16,7 +16,7 @@ const assert=require('node:assert/strict');
     }});
    },
    async evaluate(fn){return dom.window.eval('('+fn.toString()+')()');},
-   async waitForFunction(fn){const deadline=Date.now()+3000;while(!await this.evaluate(fn)){if(Date.now()>deadline)throw Error('DOM wait timeout');await new Promise(r=>setImmediate(r));}},
+   async waitForFunction(fn){const deadline=Date.now()+10000;while(!await this.evaluate(fn)){if(Date.now()>deadline)throw Error('DOM wait timeout');await new Promise(r=>setImmediate(r));}},
    locator(selector){return {innerText:async()=>dom.window.document.querySelector(selector).textContent};}
   };
   const html=fs.readFileSync(require('node:path').join(__dirname,'../index.html'),'utf8')
@@ -58,15 +58,15 @@ const assert=require('node:assert/strict');
    window.testCooldownCalls=0;
    document.getElementById('chatInput').value='Kto może potwierdzić pana obecność?';
    window.fetch=async url=>{
-    if(url==='/api/game-state')return {ok:true,status:200};
+    if(url!=='/api/interview')return {ok:true,status:200,json:async()=>({})};
     window.testCooldownCalls++;
-    return {ok:false,status:503,json:async()=>({fallbackReason:'gemini_invalid_request;groq_rate_limited',retryAfterSeconds:1})};
+    return {ok:false,status:503,json:async()=>({fallbackReason:'gemini_invalid_request;groq_rate_limited',retryAfterSeconds:5})};
    };
    document.getElementById('chatSend').click();
   });
   await page.waitForFunction(()=>!PS77_AI.busy);
   assert(await page.evaluate(()=>document.getElementById('chatSend').disabled));
-  assert.match(await page.locator('#ps77-response-wait').innerText(),/odczekać 1 s/);
+  assert.match(await page.locator('#ps77-response-wait').innerText(),/odczekać 5 s/);
   await page.evaluate(()=>{showTab('files');showTab('interview');document.getElementById('chatSend').click();});
   assert.equal(await page.evaluate(()=>window.testCooldownCalls),1);
   await page.waitForFunction(()=>!document.getElementById('chatSend').disabled);

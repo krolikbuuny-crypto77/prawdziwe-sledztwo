@@ -1,4 +1,5 @@
 import {randomUUID} from 'node:crypto';
+import {factContractIssue} from '../lib/interview-fact-contract-rc14.js';
 import {askGemini,askGroq,models} from '../lib/ai-providers-rc7.js';
 import {trustedScene} from '../lib/trusted-interview-624.js';
 import {buildQuestionContext,repeatsIrrelevantly} from '../lib/question-context-630.js';
@@ -117,7 +118,7 @@ async function chat(system,scene,maxTokens=650,temperature=0.25,provider='gemini
  if(provider==='groq')return askGroq({system,payload:modelScene,maxTokens,temperature,
    model:models().deductionBackup,timeoutMs:timeout,role:'deduction'});
  return askGemini({system,payload:modelScene,maxTokens,temperature,model:models().interview,
-   timeoutMs:timeout,thinkingLevel:'medium'});
+   timeoutMs:timeout,thinkingLevel:phase==='semantic-audit'?'medium':'low'});
 }
 function anchors(text){return [...text.matchAll(/\b\d+(?::\d+)?(?:[.,]\d+)?\b/g)].map(x=>x[0]).sort();}
 const uncertainty=/\b(?:nie wiem|nie pamiętam|nie jestem pew|nie mogę potwierdzić|nie potrafię|chyba|może|możliwe|wydaje mi się|prawdopodobnie|według|podobno)\b/i;
@@ -256,12 +257,17 @@ export async function attemptInterview(scene,provider,invoke=chat,trace=null){
  const readEmotion=response=>allowedEmotions.has(response?.emotion)?response.emotion:'neutral';
  let priorDraft='';let repairReason='';
  for(let revision=0;revision<2;revision++){
-  const response=await run(answerSystem,revision?{...scene,repairInstruction:repairCue(scene,priorDraft,repairReason)}:scene,
+  const allowedFactIds=scene.knowledge.factBank.map(f=>f.id);
+  const contract=' Pole factIds jest tablicą 1–4 różnych ciągów znaków skopiowanych dokładnie z allowedFactIds. Nie zwracaj numerów, treści faktów ani sourceIds zamiast factIds. Nie wybieraj f0 automatycznie: dobierz fakty do pytania. decision=fallback oznacza brak bezpiecznej odpowiedzi, nie błąd identyfikatora.';
+  const response=await run(answerSystem+contract,{...scene,allowedFactIds,
+   ...(revision?{repairInstruction:{...repairCue(scene,priorDraft,repairReason),contractIssue:repairReason,allowedFactIds}}:{})},
    2200,0.35,revision?'rewrite':'generate');
   const ids=Array.isArray(response?.factIds)?response.factIds:[];
   const selected=ids.map(id=>scene.knowledge.factBank.find(f=>f.id===id));
-  if(response?.decision!=='answer'||ids.length<1||ids.length>4||selected.some(x=>!x)||new Set(ids).size!==ids.length){
-   if(reviseOrReject('bad_fact_ids',response?.text,revision))continue;
+  const contractIssue=factContractIssue(response,scene.knowledge.factBank);
+  if(contractIssue){
+   if(contractIssue==='model_fallback')return reject(contractIssue);
+   if(reviseOrReject(contractIssue,response?.text,revision))continue;
    return null;
   }
   const proposal=normalizeWitnessSpeech(scrub(response.text,1650));
@@ -428,7 +434,7 @@ export default async function handler(req,res){
   // Give the primary model one bounded window. The remainder stays available
   // for the backup provider and for committing the accepted answer.
    scene._providerDeadline=provider==='gemini'&&providers.includes('groq')
-    ?Math.min(startedAt+28000,scene._responseDeadline-INTERVIEW_BUDGET.commitReserveMs)
+    ?Math.min(startedAt+32000,scene._responseDeadline-INTERVIEW_BUDGET.commitReserveMs)
     :scene._responseDeadline-INTERVIEW_BUDGET.commitReserveMs;
   if(Date.now()+INTERVIEW_BUDGET.minCallMs>=scene._providerDeadline){
    reasons.push(provider+'_budget_exhausted');trace.add(provider,'generate','skipped',0,'no_retry_budget');continue;
