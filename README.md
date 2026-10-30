@@ -1,5 +1,5 @@
-Prawdziwe Śledztwo — wydanie 6.36-AI-FIRST-RC.
+Prawdziwe Śledztwo — wersja testowa **6.36-AI-UNDERSTANDING-RC3**.
 
-Instrukcja aktualizacji: README-6.36-AI-FIRST-RC.md. Raport: RAPORT-QA-6.36-AI-FIRST-RC.md.
+Instrukcja: `README-6.36-AI-UNDERSTANDING-RC3.md`. Raport: `RAPORT-QA-6.36-AI-UNDERSTANDING-RC3.md`.
 
-**Nie wdrażaj na produkcyjną gałąź main przed uruchomieniem migracji SQL 003 i testami Vercel Preview.**
+**Nie aktualizuj produkcyjnego `main` przed migracją Supabase `003` i testami Vercel Preview.**

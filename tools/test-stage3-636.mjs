@@ -15,7 +15,8 @@ const api=fs.readFileSync(new URL('../api/interview.js',import.meta.url),'utf8')
 assert(api.includes("import {INTERVIEW_BUDGET,phaseTimeout}"));
 assert(api.includes('scene._responseDeadline=startedAt+INTERVIEW_BUDGET.totalMs'));
 assert(api.includes('scene._providerDeadline=provider==='));
-assert(api.includes('invoke(system,{...payload,_responseDeadline:scene._responseDeadline'));
+assert(api.includes('invoke(system,{...modelContext(payload),_responseDeadline:scene._responseDeadline'));
+assert(api.includes('questionPlan:undefined, questionParts:undefined'), 'Local lexical plan must not override the cloud models');
 assert(api.includes('provider,phase)')); // independent audit under same deadline
 assert(api.includes("const providers=['zai','groq']"));
 assert(api.includes("scene._responseDeadline-INTERVIEW_BUDGET.commitReserveMs"));

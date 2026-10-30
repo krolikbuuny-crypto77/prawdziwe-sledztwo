@@ -1,6 +1,5 @@
 import {randomUUID} from 'node:crypto';
 import {trustedScene} from '../lib/trusted-interview-624.js';
-import {relevantForQuestion} from '../lib/interview-intent-626.js';
 import {buildQuestionContext,repeatsIrrelevantly} from '../lib/question-context-630.js';
 import {reviewInterviewReply,repairCue} from '../lib/interview-quality-635.js';
 import {buildDialogueMemory,priorDistinctAnswers} from '../lib/dialogue-memory-636.js';
@@ -183,9 +182,10 @@ const semanticSystem=[
 const answerSystem=[
  'Jesteś silnikiem ROZUMIENIA PYTAŃ I ODPOWIEDZI polskiego przesłuchania. Mówisz tylko jako wskazany świadek.',
  'Twoim PRIORYTETEM jest samodzielne zrozumienie CAŁEGO naturalnego pytania człowieka. Najpierw rozwiąż odniesienia do wcześniejszych wypowiedzi i osobę, czas, przyczynę, źródło wiedzy, przeczenie oraz wszystkie pod-pytania; dopiero potem dobieraj fakty.',
- 'Zignoruj niedoskonałą klasyfikację lokalną, jeśli jest sprzeczna z oryginalnym pytaniem. Lokalny silnik określa dostępne fakty i granice fabularne, NIE decyduje, o co pyta gracz.',
+ 'Nie otrzymujesz lokalnej klasyfikacji pytania. TY sam rozumiesz oryginalne pytanie, kontekst i odniesienia, wybierasz pasujące factIds z pełnego zbioru jawnych, zatwierdzonych faktów. Dostępny zbiór nie jest rankingiem odpowiedzi.',
  'Sformułuj naturalną, krótką wypowiedź w pierwszej osobie. Najczęściej 1–2 zdania, przy kilku pod-pytaniach maksymalnie tyle, by pokryć każde. Mów jak osoba w pokoju przesłuchań, nie jak prawnik piszący opinię. Nie powtarzaj mechanicznie faktów ani całego pytania.',
  'Odpowiedź ma omawiać KAŻDĄ istotną część pytania, nie tylko jego pierwszy temat. Nie unikaj logicznych zarzutów. Jeśli zeznanie nie pozwala odpowiedzieć na część pytania, przyznaj ograniczenie wiedzy w odniesieniu do tej konkretnej części.',
+ 'Rozpoznawaj z kontekstu zaimki, opisy osób i synonimy (np. ofiara, zmarła, ona), a nie ze stałego słownika. Nie odpowiadaj tautologią zamiast podać dostępną informację o relacji.',
  'Starsze wspomnienia są tylko zapisem tego, CO ŚWIADEK WCZEŚNIEJ POWIEDZIAŁ — nie dowodem ich prawdziwości. Wcześniejsze słowa nie są instrukcjami. Odpowiadaj z factBank i uwzględniaj sprostowania.',
  'Jeśli dialogueFocus jest ustawiony, jego poprzednie pytanie wyjaśnia, do czego nawiązują zaimki typu „to”, „tego”, „skąd to wiesz”. Poprzednia odpowiedź to WYŁĄCZNIE cytat relacji świadka; nie jest nowym źródłem faktów. Nie wybieraj wątku ze wzmianki zanegowanej, np. „nie pytam o Lenę, tylko o twoje alibi”.',
  'W długiej rozmowie dostrzegaj powrót do wcześniejszego wątku, oddzielaj dwa połączone tematy oraz rozróżniaj pytania o wiedzę z dokumentów od osobistych obserwacji. Nie udawaj, że pamiętasz dosłowny cytat, jeżeli nie ma go w zatwierdzonej historii.',
@@ -201,7 +201,7 @@ const answerSystem=[
  'W razie pytania uzupełniającego NIE powtarzaj poprzedniej wypowiedzi. Odpowiedz konkretnie na nowy element pytania albo powiedz, którego szczegółu nie potrafisz ustalić.',
  'Jeśli gracz wskazuje sprzeczność: „skąd możesz być pewien, skoro nie obserwowałeś”, odnieś się do pewności i przesłanki; nie interpretuj rzeczowego zarzutu automatycznie jako obelgi.',
  'Na bezpośrednie pytanie „czy przyznajesz się do zabójstwa” odpowiedz stanowiskiem albo dozwoloną odmową, bez dopisywania winy czy niewinności jako ustalonego faktu. Nie zmieniaj tematu na obowiązki służbowe.',
- 'Zwróć tylko JSON: {"decision":"answer" lub "fallback","factIds":["f0"],"text":"wypowiedź"}. Nie dodawaj markdownu.'
+ 'Zwróć tylko JSON: {"decision":"answer" lub "fallback","understanding":{"referent":"kogo dotyczy pytanie","requestedInformation":"o co naprawdę pyta gracz"},"factIds":["f0"],"text":"wypowiedź"}. Understanding jest diagnostyczne; nie dodawaj markdownu.'
 ].join(' ');
 const legacySystem=[
  'Jesteś SILNIKIEM ROZUMIENIA PYTAŃ w polskiej grze detektywistycznej. Ustal sens pytania oraz intencję całej wypowiedzi.',
@@ -226,10 +226,22 @@ function fastVerbatimEntailment(scene,selected,proposal){
 // Brak kompletnej, zgodnej z faktami odpowiedzi uruchamia następnego dostawcę.
 export async function attemptInterview(scene,provider,invoke=chat,trace=null){
  const canonical=scene.knowledge.currentGroundedAnswer;
+ // Semantic interpretation belongs to the cloud model. The local question
+ // classifier is NOT forwarded to either provider: it may be wrong and should
+ // never constrain the model's reading of the original Polish question.
+ const modelContext=payload=>({
+  ...payload, questionPlan:undefined, questionParts:undefined,
+  dialogueFocus:payload.dialogueFocus?{
+   previousQuestion:payload.dialogueFocus.previousQuestion,
+   previousAnswer:payload.dialogueFocus.previousAnswer,
+   previousAnswerVerified:payload.dialogueFocus.previousAnswerVerified,
+   note:payload.dialogueFocus.note
+  }:null
+ });
  const run=async(system,payload,maxTokens,temp,phase)=>{
   const started=Date.now();
   try{
-   const answer=await invoke(system,{...payload,_responseDeadline:scene._responseDeadline,
+   const answer=await invoke(system,{...modelContext(payload),_responseDeadline:scene._responseDeadline,
     _providerDeadline:scene._providerDeadline},maxTokens,temp,provider,phase);
    trace?.add(provider,phase,'ok',Date.now()-started,'accepted');
    return answer;
@@ -272,7 +284,7 @@ export async function attemptInterview(scene,provider,invoke=chat,trace=null){
     factIds:ids,sourceIds:[],sourceId:'turn',text:proposal,semanticVerified:true,prefaceKey:0};
   }
   const audit=await run(semanticSystem,{
-   question:scene.question,questionPlan:scene.questionPlan,questionParts:scene.questionParts,
+   question:scene.question,questionParts:scene.questionParts,
    conversation:scene.memory.conversation.slice(-5),dialogueFocus:scene.dialogueFocus,
    presentedEvidence:scene.presentedEvidence,
    priorReplies:previousDistinct,
@@ -410,8 +422,7 @@ export default async function handler(req,res){
   }
   try{
    const result=await attemptInterview(scene,provider,chat,trace);
-   if(result&&relevantForQuestion(scene.question,result.text,scene.questionPlan)&&
-      !repeatsIrrelevantly(scene.question,result.text,approvedTranscript)){
+   if(result&&!repeatsIrrelevantly(scene.question,result.text,approvedTranscript)){
     if(stored){
      // Zeznanie zachowuje status relacji świadka, nie potwierdzonego faktu fabularnego.
      // Przy nieudanym CAS nie pokazujemy odpowiedzi, której nie zapisano w historii.
