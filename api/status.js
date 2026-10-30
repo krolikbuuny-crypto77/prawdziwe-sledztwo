@@ -1,9 +1,6 @@
-import { json } from '../lib/common.js';
+// Publiczny punkt kontrolny bez ujawniania obecności kluczy API.
 export default function handler(req, res) {
-  if (req.method !== 'GET') return json(res, 405, { error: 'Użyj GET' });
-  return json(res, 200, {
-    service: 'Prawdziwe Śledztwo',
-    interviewConfigured: Boolean(process.env.ZAI_API_KEY),
-    evaluationConfigured: Boolean(process.env.CLOUDFLARE_API_TOKEN && process.env.CLOUDFLARE_ACCOUNT_ID),
-  });
+  res.setHeader('Cache-Control', 'no-store');
+  if (req.method !== 'GET') return res.status(405).json({ ok: false, error: 'method_not_allowed' });
+  return res.status(200).json({ ok: true, service: 'Prawdziwe Śledztwo', api: '6.29' });
 }

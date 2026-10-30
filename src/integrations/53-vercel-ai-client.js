@@ -26,13 +26,15 @@ window.psDualAssess=async function(draft,sourceMap){
   .map(x=>({text:text(x.text,330),ids:x.sourceIds.filter(id=>labels.has(id)).slice(0,3)})).filter(x=>x.text&&x.ids.length):[];
  try{
   const body=JSON.stringify({kind:draft.kind,statement:draft.statement,alternative:draft.alternative,test:draft.test,links});
-  let response=await fetch('/api/evidence-review',{method:'POST',headers:{'Content-Type':'application/json'},body,signal:controller.signal});
+  let response=await fetch('/api/evidence-review',{method:'POST',headers:{'Content-Type':'application/json','X-PS-Client':'game'},credentials:'same-origin',body,signal:controller.signal});
   // Compatibility with existing Vercel sites where the new endpoint is not yet deployed.
   if(response.status===404){
    response=await fetch('/api/evaluate',{method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({kind:draft.kind,statement:draft.statement,alternative:draft.alternative,test:draft.test,
      links:links.map(({name,body,role,note})=>({name,body,role,note}))}),signal:controller.signal});
   }
+  if(response.status===403){panel.textContent='Nie wszystkie wybrane źródła zostały zatwierdzone przez serwer. Poczekaj na synchronizację zapisu lub wybierz zatwierdzone materiały.';return;}
+  if(response.status===429){panel.textContent='Osiągnięto limit analiz AI. Wróć za kilka minut; lokalna analiza nadal działa.';return;}
   if(!response.ok)throw Error('Cloudflare temporarily unavailable');
   const data=await response.json();
   if(!panel.isConnected||requestId!==psEvidenceAssessmentRequest)return;

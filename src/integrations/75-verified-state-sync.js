@@ -78,7 +78,8 @@
  });
  // Wersja 6.18: tylko odpowiedzi gracza trafiają na serwer jako PROPOZYCJE.
  // Sam import lokalnego zapisu nie jest dowodem wykonania czynności.
- document.addEventListener('click',e=>{if(awaitingResume&&!e.target?.closest?.('#psResumeOffer'))window.PS617_SYNC?.resetSession?.();},{capture:true});
+ // Resume choice is explicit. A click outside the prompt must not reset the server session.
+
  window.addEventListener('online',()=>{disabled=false;schedule();});
  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')schedule();});
  if(!awaitingResume&&!resetPending){

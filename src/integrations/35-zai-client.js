@@ -76,8 +76,11 @@
   if(wantsCloud)pending={id:c.id,log,start:oldLen};
   let out;try{out=previous.apply(this,arguments);}catch(error){pending=null;throw error;}
   const finishLocal=()=>{
-    if(c&&question&&!wantsCloud&&log?.length===oldLen+2&&log.at(-1)?.role==='npc'){
-      window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:log.at(-1).text});
+    if(c&&question&&log?.length===oldLen+2&&log.at(-1)?.role==='npc'){
+      const finalText=log.at(-1).text;
+      log.at(-1).ai=psAiMeta({provider:'local',model:'witness-engine-local',fallbackReason:'local_or_scripted_turn',durationMs:0});
+      PS65_CONTEXT.finalize?.(c.id,finalText,finalText,log);
+      window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:finalText});
     }
     if(pending&&pending.log===log){pending=null;if(STATE.activeChar===c?.id&&STATE.tab==='interview')renderChat();}
     return out;
@@ -97,6 +100,7 @@
   fetch(URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:ctrl.signal})
    .then(r=>{if(!r.ok){
       cloudRetryAt=Date.now()+(r.status===429?3600000:r.status===404?86400000:120000);
+      row.ai=psAiMeta({provider:'local',model:'witness-engine-local',fallbackReason:'backend_http_'+r.status});
       window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:answer});
       return null;
     }return r.json();})
@@ -130,20 +134,55 @@
       const grounded=(data?.decision==='answer'&&valid)?choices.map(x=>x.text).join(' '):answer;
       next=prefix+(safeRewrite(grounded,text)?text:grounded);
     }
-    if(next===answer)return;
+    // The server has already checked relevance and committed its exact reply to Supabase.
+    // A second client-side rejection here would display a DIFFERENT answer than stored on the server.
+    if(next!==answer&&data?.serverCanonical!==true&&window.PS626_INTENT){
+     const kind=window.PS626_INTENT.focus(question);
+     if(kind&&!window.PS626_INTENT.relevant(kind,next))next=answer;
+    }
+    const serverApproved=data?.serverCanonical===true&&(
+     (data.decision==='answer'&&data.semanticVerified===true&&next===text)||
+     (data.decision==='fallback'&&next===text));
+    // An HTTP error has already recorded its actual status. Preserve it instead
+    // of mislabelling an unavailable backend as an unsupported JSON response.
+    const diag=data===null&&row.ai?row.ai:serverApproved?psAiMeta(data):psAiMeta({provider:'local',model:'witness-engine-local',
+     fallbackReason:data?.serverCanonical===true?'client_could_not_apply_response':'unsupported_response',requestId:data?.requestId});
+    if(next===answer){
+     // Even identical wording may have come from Z.ai/Groq, not necessarily local fallback.
+     if(serial===requestSerial&&STATE.dialogues[c.id]===log&&log.at(-1)===row)row.ai=diag;
+     return;
+    }
     // Kontrola sceny, sesji, kolejności, oryginalnego wpisu i niezmiennego statusu.
     if(serial!==requestSerial||STATE.dialogues[c.id]!==log||log.at(-1)!==row||row.text!==answer||
       ['CONFESSION','CORRECTION_WITH_EVIDENCE'].includes(NPC9_MEMORY?.[c.id]?.semantic?.at(-1)?.status)||
       simWitness(c).blocked)return;
     row.text=next;
+    row.ai=diag;
     // W trybie AI-first tekst prezentacyjny nie zmienia kanonicznego rejestru
     // zeznań ani wewnętrznych faktów. Historia widoczna graczowi pozostaje
     // zapisana osobno w STATE.dialogues.
+    // NPC9 canon remains authoritative; ps67/ps68 and visible dialogue
+    // are reconciled after the server-approved final wording is known.
     if(data?.serverCanonical!==true&&data?.primaryMode!==true)sync(c,answer,next);
     // Render w finally — dopiero po zatwierdzeniu odpowiedzi lub fallbacku.
    })
-   .catch(()=>{cloudRetryAt=Date.now()+90000;window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:answer});})
-   .finally(()=>{clearTimeout(timer);if(serial===requestSerial){pending=null;showBusy(false);if(STATE.activeChar===c.id&&STATE.tab==='interview')renderChat();}});
+   .catch(()=>{cloudRetryAt=Date.now()+90000;
+    if(serial===requestSerial&&STATE.dialogues[c.id]===log&&log.at(-1)===row)
+     row.ai=psAiMeta({provider:'unknown',fallbackReason:'network_response_not_confirmed'});
+    window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:answer});})
+   .finally(()=>{
+    clearTimeout(timer);
+    if(serial===requestSerial){
+     if(STATE.dialogues[c.id]===log&&log.at(-1)===row){
+      PS65_CONTEXT.finalize?.(c.id,answer,row.text,log);
+      window.PS68_MEMORY?.finalize?.(c.id,question,answer,row.text,log);
+      // A late cloud answer must also be included in local export/autosave.
+      if(typeof psSchedule==='function')psSchedule();
+     }
+     pending=null;showBusy(false);
+     if(STATE.activeChar===c.id&&STATE.tab==='interview')renderChat();
+    }
+   });
   return out;
  }
  // Całą turę, również przy naciśnięciu Enter, kierujemy do tego samego
@@ -170,5 +209,8 @@
   return result;
  };
  registerWitnessSendLayer('zai-cloud-fallback',send);
- window.PS77_AI=Object.freeze({mode:'zai_primary_semantics_v5',get busy(){return inflight;},safeRewrite,semanticGuard,context:PS65_CONTEXT.read});
+ window.PS77_AI=Object.freeze({mode:'zai_primary_semantics_v5',get busy(){return inflight;},
+  get lastDiagnostic(){const rows=STATE.dialogues[STATE.activeChar]||[];
+   return rows.slice().reverse().find(x=>x.role==='npc'&&x.ai)?.ai||null;},
+  safeRewrite,semanticGuard,context:PS65_CONTEXT.read});
 })();

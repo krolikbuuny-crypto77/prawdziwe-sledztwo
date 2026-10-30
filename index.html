@@ -96,6 +96,13 @@
 .cross3-section{margin:22px 0 25px;border:1px solid #5f5241;border-radius:8px;background:linear-gradient(135deg,#172127,#1b2022);padding:21px;min-width:0}.cross3-top{display:flex;gap:15px;flex-wrap:wrap;align-items:start;justify-content:space-between;margin-bottom:12px}.cross3-top h3{margin:6px 0 9px;font-size:22px;color:#ebd2ab}.cross3-top p{font-size:12px;color:#b7c0bb;line-height:1.7;max-width:900px}.cross3-counts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.cross3-counts span{border:1px solid #736048;border-radius:6px;color:#f0d1a0;font:11px monospace;padding:7px 10px}.cross3-cards{display:grid;gap:14px}.cross3-card{border:1px solid #39484b;border-radius:8px;padding:17px;background:#131b20;min-width:0}.cross3-card.cross3-done{border-color:#5f8266;background:#17231f}.cross3-head{display:flex;align-items:start;justify-content:space-between;flex-wrap:wrap;gap:12px}.cross3-head h3{font-size:16px;margin:5px 0 9px}.cross3-badge{color:#d4b99a;font:10px/1.4 monospace;border:1px solid #6b5542;padding:6px 8px;border-radius:5px}.cross3-done .cross3-badge{color:#b4d9ba;border-color:#6b9274}.cross3-card p{color:#c2c9c8;font-size:12px;margin:2px 0 14px}.cross3-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.cross3-grid label,.cross3-field{display:grid;gap:7px;margin:10px 0 0;color:#c5cbd0;font-size:12px;min-width:0}.cross3-grid select,.cross3-field select,.cross3-field textarea{min-width:0;width:100%;background:#0a141a;border:1px solid #40505b;border-radius:5px;color:#efe9dc;padding:10px;font:12px/1.6 system-ui,sans-serif}.cross3-field textarea{resize:vertical}.cross3-grid select:disabled,.cross3-field select:disabled,.cross3-field textarea:disabled{opacity:.73}.cross3-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:13px}.cross3-actions .btn{font-size:11px}.cross3-feedback{color:#b5c1c0;font-size:12px;line-height:1.55;flex-basis:100%}.cross3-interview{margin-top:17px;border-top:1px solid #3c4242;padding-top:14px}.cross3-interview-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid #333f43;padding:8px 0;font-size:11px;color:#c5cfce}.cross3-interview-row span:last-child{color:#d6ba92}.cross3-inline{background:#1a2429;border-left:3px solid #be9160;padding:12px 15px;margin:14px 0;color:#c7d1cf;font-size:12px}.cross3-inline strong{color:#f0d4ae}@media(max-width:700px){.cross3-grid{grid-template-columns:1fr}.cross3-section{padding:13px}.cross3-card{padding:12px}.cross3-top h3{font-size:20px}}
 :root{--gold:var(--amber)}[hidden]{display:none!important}body{overflow-x:hidden}#et2Viewer button{min-height:42px;min-width:42px}#inspection12 .et1-actions{min-width:0}#inspection12 .et1-photos{max-width:100%}#inspection12 .et1-photo-stage{touch-action:pan-y}@media(max-width:650px){#inspection12 .et1-actions{flex-direction:column;align-items:stretch}.content,.main,.sc-left,.sc-layout,.sc-inspector,.sc-notegrid,.sc-notegrid>*{min-width:0}.sc-hotspots{grid-template-columns:minmax(0,1fr)}.cv-filter,.tcms-filter-grid,.msg-filter-grid{grid-template-columns:minmax(0,1fr)}}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 .ps-resume-offer{margin:0 0 16px;border-color:#6d5a3d;display:grid;gap:9px}.ps-resume-offer .formline{gap:10px;align-items:stretch}.ps-resume-offer button{min-height:43px}.section,.surface,.charactergrid,.docgrid,.msg-grid-two,.cv-grid,.fo-grid,.tcms-bottom,.fc-grid,.ax-columns,.sc-layout,.tl-main,.dd-work{min-width:0}.listpane,.chatlog,.sc-notelist{overscroll-behavior:contain}input,textarea,select{max-width:100%}@media(max-width:550px){.ps-resume-offer .formline{display:grid;grid-template-columns:1fr}.tcms-table-box,.msg-parts,.cv-tablebox,.fo-tablewrap,.ax-scroll{max-width:100%;overflow:auto;overscroll-behavior-x:contain}.chatfoot textarea,.fc-reasons textarea,.fo-report textarea{font-size:16px}.sc-room,.sc-spot,.location,.character{min-height:44px}}@media(max-width:360px){.topbar{height:auto;min-height:58px;padding:10px 12px}.content{padding:12px}.sidebar{padding:9px}.photos{grid-template-rows:84px 84px}}
+/* 6.28 — wyboru sesji dokonuje się przed pokazaniem pustego pulpitu. */
+body.ps-resume-pending::before{content:'';position:fixed;inset:0;background:rgba(3,9,15,.96);z-index:29998;pointer-events:auto}
+body.ps-resume-pending #psResumeOffer{position:fixed!important;top:50%;left:50%;transform:translate(-50%,-50%);z-index:29999!important;width:min(92vw,560px);max-height:90vh;overflow:auto;padding:clamp(24px,4vw,44px)!important;box-shadow:0 28px 85px rgba(0,0,0,.7)!important;border:1px solid #bf9c69!important;background:#18252e!important}
+body.ps-resume-pending #psResumeOffer strong{font-size:clamp(21px,3vw,30px);font-family:Georgia,serif;color:#f6e9d1}
+body.ps-resume-pending #psResumeOffer .formline{display:flex;gap:12px;flex-wrap:wrap}
+body.ps-resume-pending #psResumeOffer .formline button{flex:1;min-width:170px}
+
 
 /* Dedukcja 2.0: audyt argumentacji offline */
 #deduction .dd2-review[hidden]{display:none!important}
@@ -5176,7 +5183,7 @@ function npc4Render(){
  const c=CONTENT.characters.find(x=>x.id===STATE.activeChar),st=c&&NPC4_STATE[c.id];
  if(!st||!document.getElementById('npc4Panel'))return;
  document.getElementById('npc4Mood').textContent='Zachowanie świadka: '+st.mood;
- document.getElementById('npc4Count').textContent=st.turns+' '+(st.turns===1?'pytanie':'pytań');
+ document.getElementById('npc4Count').textContent=st.turns+' '+psPolishCount(st.turns,'pytanie','pytania','pytań');
  document.getElementById('npc4Meters').innerHTML=[['rapport','Zaufanie',st.rapport],['tension','Napięcie',st.tension],['fatigue','Zmęczenie',st.fatigue]].map(([id,l,v])=>'<div class="npc4-metric '+id+'"><div class="npc4-label"><span>'+l+'</span><span class="npc4-value">'+Math.round(v)+'%</span></div><div class="npc4-track" role="progressbar" aria-label="'+l+'" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+Math.round(v)+'"><span style="width:'+Math.round(v)+'%"></span></div></div>').join('');
  document.querySelectorAll('[data-npc4-stance]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.npc4Stance===st.stance)));
  const hint=document.getElementById('npc4Hint');
@@ -5451,6 +5458,16 @@ const npc4EnhancedAnswer = function npc46EnhancedAnswer(c,raw,attached){
 function npc4Answer(c,raw,attached){return npc4EnhancedAnswer(c,raw,attached);}
 window.NPC46_QA={shortKind:npc46ShortKind,anchor:id=>npc46Anchor(NPC9_MEMORY[id]),version:'rozmowy kontekstowe'};
 
+// Diagnostic metadata is presentation-only: it cannot change evidence, testimony gates or verdict.
+function psAiMeta(value){
+ if(!value||typeof value!=='object'||!['zai','groq','local','unknown'].includes(value.provider))return null;
+ const clean=(v,max)=>typeof v==='string'&&/^[a-zA-Z0-9._:;/-]+$/.test(v)&&v.length<=max?v:null;
+ return {provider:value.provider,model:clean(value.model,96),fallbackReason:clean(value.fallbackReason,190),
+  requestId:typeof value.requestId==='string'&&/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value.requestId)?value.requestId:null,
+  durationMs:Number.isSafeInteger(value.durationMs)&&value.durationMs>=0&&value.durationMs<=120000?value.durationMs:null};
+}
+const psShowAiDiagnostic=new URLSearchParams(location.search).get('debugAI')==='1';
+const psAiLabel=v=>({zai:'Z.ai',groq:'Groq',local:'silnik lokalny',unknown:'nieustalony'})[v]||'nieustalony';
 const CHAT_VISIBLE=Object.create(null);
 function renderChat(){
  renderCharacterList();renderAttached();
@@ -5459,7 +5476,7 @@ function renderChat(){
  // Render only a window of messages; the full, unmodified transcript stays in STATE and in save files.
  const limit=CHAT_VISIBLE[c.id]||120,hidden=Math.max(0,msgs.length-limit);
  log.innerHTML=(hidden?'<div class="chat-history"><button type="button" class="btn alt" id="chatOlder">Pokaż wcześniejsze wiadomości ('+hidden+')</button><span class="muted small">Cała rozmowa pozostaje w zapisie gry.</span></div>':'')+
-  msgs.slice(hidden).map(m=>`<div class="bubble ${m.role==='npc'?'npc':'player'}"><span>${m.role==='npc'?esc(c.name):'Ty'}</span>${esc(m.text)}</div>`).join('');
+  msgs.slice(hidden).map(m=>`<div class="bubble ${m.role==='npc'?'npc':'player'}"><span>${m.role==='npc'?esc(c.name):'Ty'}</span>${esc(m.text)}${m.role==='npc'&&psShowAiDiagnostic&&m.ai?`<div class="small muted" style="margin-top:6px;border-top:1px solid #54616a;padding-top:3px">Dostawca: ${esc(psAiLabel(m.ai.provider))} · model: ${esc(m.ai.model||'—')} · przełączenie: ${esc(m.ai.fallbackReason||'brak')} · czas AI (API): ${esc(m.ai.durationMs==null?'—':String(m.ai.durationMs)+' ms')} · ID: ${esc(m.ai.requestId||'—')}</div>`:''}</div>`).join('');
  if(hidden)log.querySelector('#chatOlder').addEventListener('click',()=>{
    const wasHeight=log.scrollHeight,wasTop=log.scrollTop;
    CHAT_VISIBLE[c.id]=Math.min(msgs.length,limit+120);renderChat();
@@ -5478,7 +5495,7 @@ let eventSeq=1;
 $('timeAdd').addEventListener('click',()=>{const at=$('timeAt').value,text=$('timeText').value.trim(),source=$('timeSource').value.trim();if(!at||!text){toast('Wprowadź czas i opis zdarzenia.');return;}if(!validCaseTime(at)){toast('Chronologia tej sprawy obejmuje 17.11 18:00 – 18.11 06:00.');return;}if(STATE.events.length>=150){toast('Osiągnięto limit 150 własnych wpisów osi czasu. Usuń starszy wpis.');return;}STATE.events.push({id:String(eventSeq++),at,text:text.slice(0,1200),source:source.slice(0,250)});$('timeText').value='';$('timeSource').value='';renderEvents();});
 $('notes').addEventListener('input',e=>STATE.notes=e.target.value);
 function buildCoreSave(){const save={cross3:window.stage3?.export()||null,format:'PS_V7_COMPLETE_STAGE14',version:11,npc4:npc4Export(),final13:fcExport(),scene12:scExport(),timeline11:tlExport(),deduction:dedExport(),access:accessExport(),forensic:forensicExport(),cctv:cctvExport(),msg:{filters:STATE.msg.filters,selected:STATE.msg.selected,key:STATE.msg.key,chain:STATE.msg.chain,report:STATE.msg.report,attempts:STATE.msg.attempts},tcms:{bookmarks:STATE.tcms.bookmarks,report:STATE.tcms.report,attempts:STATE.tcms.attempts,filters:STATE.tcms.filters},found:[...STATE.found],notes:STATE.notes,events:STATE.events,dialogues:STATE.dialogues,npc9:Object.fromEntries(Object.entries(NPC9_MEMORY).map(([id,m])=>[id,{turn:m.turn,topics:m.topics,statements:m.statements,userClaims:m.userClaims,stress:m.stress,trust:m.trust,shown:m.shown,confronted:m.confronted,semantic:m.semantic||[],lastFocus:m.lastFocus||null,lastReferent:m.lastReferent||null,npc95:m.npc95||null}]))};return save;}
-function applyCoreSave(d){if(!d||typeof d!=='object')throw Error('Nieprawidłowy zapis.');if(!(['PS_V7_DEMO_STAGE3','PS_V7_DEMO_STAGE4','PS_V7_DEMO_STAGE5','PS_V7_DEMO_STAGE6','PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format))||![1,2,3,4,5,6,7,8,9,10,11].includes(d.version)||!Array.isArray(d.found))throw Error('Nieprawidłowy lub nieobsługiwany plik zapisu.');STATE.found=new Set([...INITIAL,...d.found.filter(id=>typeof id==='string'&&Object.prototype.hasOwnProperty.call(byId,id)&&byId[id].acquisition!=='po-mg'&&byId[id].acquisition!=='analiza')]);for(const c of CONTENT.characters){let log=d.dialogues?.[c.id];STATE.dialogues[c.id]=Array.isArray(log)?log.filter(m=>m&&typeof m==='object'&&['npc','player'].includes(m.role)&&typeof m.text==='string').slice(-1600).map(m=>({role:m.role,text:m.text.slice(0,4000)})):[{role:'npc',text:c.voice.opening}];}DD2_SOURCE_STATE.signature='';tcmsRestore(d.format!=='PS_V7_DEMO_STAGE3'?d.tcms:null);msgRestore(['PS_V7_DEMO_STAGE5','PS_V7_DEMO_STAGE6','PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.msg:null);cctvRestore(['PS_V7_DEMO_STAGE6','PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.cctv:null);forensicRestore(['PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.forensic:null);accessRestore(['PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.access:null);dedRestore(['PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.deduction:null);tlRestore(['PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.timeline11:null);scRestore(['PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.scene12:null);fcRestore(['PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.final13:null);STATE.notes=String(d.notes||'').slice(0,30000);STATE.events=Array.isArray(d.events)?d.events.filter(x=>x&&typeof x.at==='string'&&validCaseTime(x.at)&&typeof x.text==='string').slice(-100).map(x=>({id:String(x.id||'').slice(0,40),at:x.at.slice(0,16),text:x.text.slice(0,1200),source:String(x.source||'').slice(0,250)})):[];npc9Reset();
+function applyCoreSave(d){if(!d||typeof d!=='object')throw Error('Nieprawidłowy zapis.');if(!(['PS_V7_DEMO_STAGE3','PS_V7_DEMO_STAGE4','PS_V7_DEMO_STAGE5','PS_V7_DEMO_STAGE6','PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format))||![1,2,3,4,5,6,7,8,9,10,11].includes(d.version)||!Array.isArray(d.found))throw Error('Nieprawidłowy lub nieobsługiwany plik zapisu.');STATE.found=new Set([...INITIAL,...d.found.filter(id=>typeof id==='string'&&Object.prototype.hasOwnProperty.call(byId,id)&&byId[id].acquisition!=='po-mg'&&byId[id].acquisition!=='analiza')]);for(const c of CONTENT.characters){let log=d.dialogues?.[c.id];STATE.dialogues[c.id]=Array.isArray(log)?log.filter(m=>m&&typeof m==='object'&&['npc','player'].includes(m.role)&&typeof m.text==='string').slice(-1600).map(m=>({...{role:m.role,text:m.text.slice(0,4000)},...(m.role==='npc'&&psAiMeta(m.ai)?{ai:psAiMeta(m.ai)}:{})})):[{role:'npc',text:c.voice.opening}];}DD2_SOURCE_STATE.signature='';tcmsRestore(d.format!=='PS_V7_DEMO_STAGE3'?d.tcms:null);msgRestore(['PS_V7_DEMO_STAGE5','PS_V7_DEMO_STAGE6','PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.msg:null);cctvRestore(['PS_V7_DEMO_STAGE6','PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.cctv:null);forensicRestore(['PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.forensic:null);accessRestore(['PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.access:null);dedRestore(['PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.deduction:null);tlRestore(['PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.timeline11:null);scRestore(['PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.scene12:null);fcRestore(['PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.final13:null);STATE.notes=String(d.notes||'').slice(0,30000);STATE.events=Array.isArray(d.events)?d.events.filter(x=>x&&typeof x.at==='string'&&validCaseTime(x.at)&&typeof x.text==='string').slice(-100).map(x=>({id:String(x.id||'').slice(0,40),at:x.at.slice(0,16),text:x.text.slice(0,1200),source:String(x.source||'').slice(0,250)})):[];npc9Reset();
 // Rebuild only discourse history; never trust externally supplied proof/confrontation flags.
 for(const c of CONTENT.characters){const raw=d.npc9?.[c.id];if(!raw||typeof raw!=='object')continue;const m=NPC9_MEMORY[c.id];m.turn=Math.min(5000,Math.max(0,Number(raw.turn)||0));m.topics=Array.isArray(raw.topics)?raw.topics.filter(x=>typeof x==='string'&&x.length<60).slice(-200):[];m.statements=Array.isArray(raw.statements)?raw.statements.filter(x=>x&&typeof x.topic==='string'&&typeof x.text==='string'&&x.text.length<2500).slice(-200).map(x=>({...x,status:x.status==='CORRECTION_WITH_EVIDENCE'?'TESTIMONY':x.status,source_ids:[]})):[];m.userClaims=Array.isArray(raw.userClaims)?raw.userClaims.filter(x=>x&&typeof x.text==='string').slice(-150):[];m.semantic=Array.isArray(raw.semantic)?raw.semantic.filter(x=>x&&typeof x.topic==='string'&&typeof x.answer==='string'&&x.answer.length<1800).slice(-250).map(x=>({...x,source_ids:[]})):[];m.lastFocus=raw.lastFocus&&typeof raw.lastFocus.topic==='string'?raw.lastFocus:null;m.lastReferent=typeof raw.lastReferent==='string'?raw.lastReferent:null;
 if(raw.npc95&&typeof raw.npc95==='object'){
@@ -6782,7 +6799,7 @@ function scAddNote(text,kind,ref){const s=STATE.scene12;const clean=String(text|
 function scRenderNotebook(){if(!$('scNotebookList'))return;const s=STATE.scene12,$ref=$('scNoteRef');const current=$ref.value;
  const options=s.inspected.map(id=>SC_BY_SPOT[id]).filter(Boolean);
  $ref.innerHTML='<option value="">Notatka ogólna / bez obiektu</option>'+options.map(h=>`<option value="${h.id}">${esc(SC_ROOMS.find(r=>r.id===h.room).title+' — '+h.title)}</option>`).join('');if(options.some(h=>h.id===current))$ref.value=current;
- $('scNotebookCount').textContent=s.notes.length+' zapisów';
+ $('scNotebookCount').textContent=s.notes.length+' '+psPolishCount(s.notes.length,'zapis','zapisy','zapisów');
  $('scNotebookList').innerHTML=s.notes.length?s.notes.map(n=>{const h=SC_BY_SPOT[n.ref];return `<article class="sc-note"><div class="sc-note-top"><div><span class="sc-note-kind">${esc(SC_KINDS[n.kind])}</span> <strong>${esc(h?h.title:'Notatka ogólna')}</strong></div><small>#${n.id}</small></div><p>${esc(n.text)}</p>${h?`<small>${esc(SC_ROOMS.find(r=>r.id===h.room).title)}</small>`:''}<div class="formline"><button type="button" class="btn alt" data-sc-edit="${n.id}">Edytuj</button><button type="button" class="btn subtle" data-sc-remove="${n.id}">Usuń</button>${h?`<button type="button" class="btn subtle" data-sc-jump="${h.id}">Pokaż punkt</button>`:''}</div></article>`;}).join(''):'<div class="sc-empty">Brak wpisów z oględzin. Dodaj obserwację, hipotezę, pytanie lub możliwą sprzeczność.</div>';
  $('scNotebookList').querySelectorAll('[data-sc-edit]').forEach(b=>b.addEventListener('click',()=>{const n=s.notes.find(x=>x.id===Number(b.dataset.scEdit));if(!n)return;s.editNote=n.id;$('scNoteText').value=n.text;$('scNoteKind').value=n.kind;$('scNoteRef').value=n.ref;$('scNoteSave').textContent='Zapisz zmiany';$('scNoteCancel').hidden=false;$('scNoteText').focus();}));
  $('scNotebookList').querySelectorAll('[data-sc-remove]').forEach(b=>b.addEventListener('click',()=>{psAsk('Usunąć tę notatkę?',()=>{s.notes=s.notes.filter(x=>x.id!==Number(b.dataset.scRemove));scNoteCancel();scRenderNotebook();});}));
@@ -7332,9 +7349,17 @@ function psAsk(msg,yes){
  document.addEventListener('keydown',key,true);
  row.append(no,ok);box.append(p,row);w.append(box);document.body.append(w);ok.focus();
 }
-const PS_KEY='ps_detective_autosave_v2',PS_TAB=Math.random().toString(36).slice(2);let psTimer=null,psWarned=false,psSessionActive=false;
+function psPolishCount(n,one,few,many){const v=Math.abs(Number(n)||0),last=v%10,tens=v%100;return v===1?one:last>=2&&last<=4&&!(tens>=12&&tens<=14)?few:many;}
+const PS_KEY='ps_detective_autosave_v2';
+const PS_TAB=(()=>{
+ try{const k='ps_detective_tab_identity_v1',existing=sessionStorage.getItem(k);if(existing)return existing;
+ const id=globalThis.crypto?.randomUUID?.()||Math.random().toString(36).slice(2);sessionStorage.setItem(k,id);return id;}
+ catch{return Math.random().toString(36).slice(2)}
+})();
+let psTimer=null,psWarned=false,psSessionActive=false;
 let psStorageErrorNotified=false;function psSaveNow(){if(!psSessionActive)return;try{SaveManager.writeAutosave(PS_KEY,{tab:PS_TAB});psStorageErrorNotified=false;}catch(err){if(!psStorageErrorNotified){psStorageErrorNotified=true;console.warn('Automatyczny zapis nie powiódł się:',err);toast('Nie można użyć pamięci przeglądarki. Użyj przycisku „Zapisz”, aby pobrać kopię sesji.');}}}
 function psSchedule(event){
+  if(document.body.classList.contains('ps-resume-pending'))return;
   if(event?.target?.closest?.('#psResumeOffer'))return;
   psSessionActive=true;
   document.getElementById('psResumeOffer')?.remove();
@@ -7344,7 +7369,14 @@ function psClearSave(){clearTimeout(psTimer);psTimer=null;psSessionActive=false;
 ['click','input','change'].forEach(t=>document.addEventListener(t,psSchedule,{capture:true,passive:true}));
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')psSaveNow();});
 window.addEventListener('pagehide',psSaveNow);
-window.addEventListener('storage',ev=>{if(ev.key===PS_KEY&&!psWarned){psWarned=true;toast('Gra jest otwarta w innej karcie — obowiązuje ostatni zapis.');}});
+window.addEventListener('storage',ev=>{
+ // A removed key / reload / own-tab save does not prove a second active game.
+ if(ev.key!==PS_KEY||ev.storageArea!==localStorage||!ev.newValue||psWarned||!psSessionActive)return;
+ let other;try{other=JSON.parse(ev.newValue);}catch{return;}
+ if(!other||typeof other.tab!=='string'||!other.tab||other.tab===PS_TAB||
+    !Number.isSafeInteger(other.t)||Date.now()-other.t>15000)return;
+ psWarned=true;toast('Wykryto zapis z innej aktywnej karty gry — obowiązuje ostatni zapis.');
+});
 (function(){
   // Zawsze zaczynamy z czystą kartą. Poprzedni automatyczny zapis jest tylko opcją.
   try{
@@ -7358,9 +7390,15 @@ window.addEventListener('storage',ev=>{if(ev.key===PS_KEY&&!psWarned){psWarned=t
     const row=document.createElement('div');row.className='formline';
     const resume=document.createElement('button');resume.type='button';resume.className='btn';resume.textContent='Wznów poprzednią sesję';
     const discard=document.createElement('button');discard.type='button';discard.className='btn alt';discard.textContent='Nowa sesja — odrzuć zapis';
-    resume.addEventListener('click',()=>{try{const item=SaveManager.readAutosave(PS_KEY);if(!item?.save)throw Error('Brak zapisu');safeLoad(item.save);psSessionActive=true;window.PS617_SYNC?.resume?.();banner.remove();showTab('overview');toast('Wznowiono zapisaną sesję.');}catch(err){toast('Nie udało się wznowić: '+err.message);}});
-    discard.addEventListener('click',()=>{psClearSave();window.PS617_SYNC?.resetSession?.();banner.remove();toast('Rozpoczęto nową sesję.');});
-    row.append(resume,discard);banner.append(heading,hint,row);overview.insertBefore(banner,overview.firstChild);
+    resume.textContent='Kontynuuj śledztwo';discard.textContent='Nowe śledztwo';
+    resume.addEventListener('click',()=>{try{window.PS628_RESTORING=true;const item=SaveManager.readAutosave(PS_KEY);if(!item?.save)throw Error('Brak zapisu');safeLoad(item.save);psSessionActive=true;window.PS617_SYNC?.resume?.();banner.remove();document.body.classList.remove('ps-resume-pending');showTab('overview');toast('Wznowiono zapisaną sesję.');}catch(err){toast('Nie udało się wznowić: '+err.message);}finally{requestAnimationFrame(()=>{window.PS628_RESTORING=false;});}});
+    discard.addEventListener('click',()=>{psClearSave();window.PS617_SYNC?.resetSession?.();banner.remove();document.body.classList.remove('ps-resume-pending');toast('Rozpoczęto nowe śledztwo.');});
+    row.append(resume,discard);banner.append(heading,hint,row);
+    // Keep the dialog directly under body: the overview section animates with
+    // transform, which otherwise shifts fixed-position descendants offscreen.
+    banner.setAttribute('role','dialog');banner.setAttribute('aria-modal','true');
+    document.body.appendChild(banner);
+    document.body.classList.add('ps-resume-pending');resume.focus({preventScroll:true});
   }catch(err){
     console.warn('Nie udało się odczytać poprzedniej sesji:',err);
     const overview=$('overview');if(!overview)return;
@@ -8675,8 +8713,9 @@ registerSaveHook({name:"03-visual-asset-bridge-load1", apply(save){undefined;for
    const s=spot(),r=room(),done=s&&(data().inspected||[]).includes(s.id);
    const challenge=s&&typeof SC_CHALLENGES!=='undefined'?SC_CHALLENGES[s.id]:null;
    const hasMethod=s&&challenge&&data().steps?.[s.id]?.method===challenge.method;
-   const guidance=!s?'Wybierz oznaczony obszar albo dokumentację strefy.':done?'Badanie ukończone. Przejdź do zabezpieczenia materiału, notatki lub rekonstrukcji.':hasMethod?'Metoda dobrana. Teraz oceń obserwację w panelu poniżej.':'Dobierz metodę badania i oceń ustalenie — samo kliknięcie punktu nie dodaje dowodów.';
-   el.innerHTML='<span class="ci-eyebrow">KARTA MIEJSCA · PROTOKÓŁ OGLĘDZIN</span><div class="ci-focus-row"><div><div class="ci-focus-title">'+esc(s?.title||'Wybierz obiekt do zbadania')+'</div><div class="ci-focus-meta">'+esc(r?.title||'Zajezdnia')+'</div></div><span class="ci-focus-state '+(done?'done':'')+'">'+(done?'✓ Zbadano':'⌖ Do oględzin')+'</span></div><div class="ci-focus-observation">'+esc(s?.look||'Korzystaj z kadrów 4K i planu strefy, aby znaleźć materiał wymagający inspekcji.')+'</div><div class="ci-focus-action"><span>'+esc(guidance)+'</span><button type="button" id="ciGoDetail" '+(!s?'disabled':'')+'>Przejdź do procedury</button></div>';
+   const secured=!!(s?.doc&&STATE.found.has(s.doc));
+   const guidance=!s?'Wybierz oznaczony obszar albo dokumentację strefy.':done?(s.doc?(secured?'Materiał jest już zabezpieczony w aktach.':'Zbadano i oceniono obserwację. Pozostało zabezpieczenie materiału do akt.'):'Obserwacja została zbadana. Możesz dodać notatkę lub przejść dalej.'):hasMethod?'Metoda dobrana. Teraz oceń obserwację w panelu poniżej.':'Dobierz metodę badania i oceń ustalenie — samo kliknięcie punktu nie dodaje dowodów.';
+   el.innerHTML='<span class="ci-eyebrow">KARTA MIEJSCA · PROTOKÓŁ OGLĘDZIN</span><div class="ci-focus-row"><div><div class="ci-focus-title">'+esc(s?.title||'Wybierz obiekt do zbadania')+'</div><div class="ci-focus-meta">'+esc(r?.title||'Zajezdnia')+'</div></div><span class="ci-focus-state '+(done?'done':'')+'">'+(secured?'✓ Zabezpieczono':done?'✓ Zbadano · do zabezpieczenia':'⌖ Do oględzin')+'</span></div><div class="ci-focus-observation">'+esc(s?.look||'Korzystaj z kadrów 4K i planu strefy, aby znaleźć materiał wymagający inspekcji.')+'</div><div class="ci-focus-action"><span>'+esc(guidance)+'</span><button type="button" id="ciGoDetail" '+(!s?'disabled':'')+'>Przejdź do procedury</button></div>';
    el.querySelector('#ciGoDetail')?.addEventListener('click',()=>{const target=$('scDetail');if(!target)return;target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});target.querySelector('button:not(:disabled)')?.focus({preventScroll:true});});
  }
  function paint(){
@@ -9312,14 +9351,18 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   const title=document.createElement('strong');title.textContent=label(p);
   const source=document.createElement('span');source.className='ov37-source';source.textContent=(isArchive?'DOKUMENTACJA':'NA FOTOGRAFII')+' · '+m.anchor;
   const info=document.createElement('span');info.className='ov37-context';info.textContent=m.detail;
-  const state=document.createElement('span');state.className='ov37-status';state.textContent=done(p.id)?'Zbadano — otwórz ustalenia':known(p.id)?'Odkryto — kontynuuj analizę':'Otwórz i wybierz metodę badania';
+  const state=document.createElement('span');state.className='ov37-status';
+  state.textContent=done(p.id)?(SC_BY_SPOT[p.id]?.doc?(STATE.found.has(SC_BY_SPOT[p.id].doc)?'Zabezpieczono — materiał w aktach':'Zbadano — pozostało zabezpieczenie'):'Zbadano — obserwacja zakończona'):known(p.id)?'Odkryto — kontynuuj analizę':'Otwórz i wybierz metodę badania';
   body.append(title,source,info,state);c.append(icon,body);return c;
  }
  function render(){if(!root.isConnected)return;
-  const s=STATE.scene12;const key=room()+':'+frame()+':'+s.discovered.join(',')+':'+s.inspected.join(',')+':'+(s.selected||'');
+  const s=STATE.scene12;const key=room()+':'+frame()+':'+s.discovered.join(',')+':'+s.inspected.join(',')+':'+(s.selected||'')+':'+all().filter(p=>SC_BY_SPOT[p.id]?.doc&&STATE.found.has(SC_BY_SPOT[p.id].doc)).map(p=>p.id).join(',');
   if(key===drawnKey)return;drawnKey=key;
   const pp=photospots(),rr=archival(),roomSpots=all();
-  count.textContent=roomSpots.filter(p=>done(p.id)).length+' / '+roomSpots.length+' zbadanych w strefie';
+  const examined=roomSpots.filter(p=>done(p.id)).length;
+  const withDocument=roomSpots.filter(p=>SC_BY_SPOT[p.id]?.doc).length;
+  const secured=roomSpots.filter(p=>SC_BY_SPOT[p.id]?.doc&&STATE.found.has(SC_BY_SPOT[p.id].doc)).length;
+  count.textContent=examined+' / '+roomSpots.length+' zbadanych · '+secured+' / '+withDocument+' materiałów zabezpieczonych';
   markerLayer.replaceChildren();regions.replaceChildren();records.replaceChildren();
   pp.forEach((p,i)=>{
    const m=INFO[p.id];const n=i+1;
@@ -13146,12 +13189,12 @@ const PS80_TRACK_TENSE='/assets/audio/ab06358dcc3b2b510fc7d295.mp3';
  // Zdarzenia tylko po realnym pozyskaniu materiału lub weryfikacji dwóch wątków.
  doc.addEventListener('click',ev=>{
   if(!ev.isTrusted||!ev.target||typeof STATE==='undefined'||!(STATE.found instanceof Set))return;
-  const el=ev.target.closest('button,[role="button"],a');if(!el)return;
+  const el=ev.target.closest('button,[role="button"],a');if(!el||el.closest('#psResumeOffer')||document.body.classList.contains('ps-resume-pending')||window.PS628_RESTORING)return;
   const initialCount=STATE.found.size;
   const checks=!!el.closest('[data-ps53-decide]');
   const oldChapters=checks&&window.PS69_STORY?new Set(PS69_STORY.available()):null;
   setTimeout(()=>{
-    if(!allowMotion()||typeof STATE==='undefined'||!(STATE.found instanceof Set))return;
+    if(!allowMotion()||window.PS628_RESTORING||typeof STATE==='undefined'||!(STATE.found instanceof Set))return;
     if(checks&&oldChapters&&window.PS69_STORY){
       if(PS69_STORY.available().some(id=>!oldChapters.has(id))){reveal('Nowy przełom w śledztwie','Dwa niezależne ustalenia tworzą nowe powiązanie.');return;}
     }
@@ -13393,7 +13436,8 @@ const PS80_TRACK_TENSE='/assets/audio/ab06358dcc3b2b510fc7d295.mp3';
     const unresolved=visible.filter(h=>!s.inspected.includes(h.id));
     const notFound=spots.length-visible.length;
     const roomDocs=spots.filter(h=>h.doc&&STATE.found.has(h.doc)).length;
-    const recommendation = unresolved[0] ? ('W tej strefie najszybciej domkniesz postęp, jeśli sprawdzisz teraz: '+unresolved[0].title+'.') : (notFound>0 ? 'Przejrzyj kolejne kadry dokumentacji 4K i odszukaj następny punkt w tej strefie.' : 'Ta strefa jest przebadana. Możesz przejść do rekonstrukcji strefy albo zmienić pomieszczenie.');
+    const awaitingSecurity=inspected.find(h=>h.doc&&!STATE.found.has(h.doc));
+    const recommendation = awaitingSecurity ? ('Zbadano „'+awaitingSecurity.title+'”. Pozostało zabezpieczenie materiału do akt.') : unresolved[0] ? ('W tej strefie najszybciej domkniesz postęp, jeśli sprawdzisz teraz: '+unresolved[0].title+'.') : (notFound>0 ? 'Przejrzyj kolejne kadry dokumentacji 4K i odszukaj następny punkt w tej strefie.' : 'Ta strefa jest przebadana. Możesz przejść do rekonstrukcji strefy albo zmienić pomieszczenie.');
     const summary=$('sc84RoomSummary');
     if(summary) summary.innerHTML=`<div class="eyebrow">ORIENTACJA W STREFIE</div><h4>${esc(room.title)}</h4><p>${esc(recommendation)}</p><div class="sc84-inline-stats"><div><b>${visible.length}/${spots.length}</b><span>odkrytych punktów</span></div><div><b>${inspected.length}</b><span>zbadanych w tej strefie</span></div><div><b>${unresolved.length}</b><span>czeka na badanie</span></div><div><b>${roomDocs}</b><span>materiałów w aktach</span></div></div>`;
     const toggle=$('sc84TogglePending'); if(toggle){ toggle.classList.toggle('active',!!s.pendingOnly); toggle.setAttribute('aria-pressed',String(!!s.pendingOnly)); }
@@ -15095,13 +15139,15 @@ window.psDualAssess=async function(draft,sourceMap){
   .map(x=>({text:text(x.text,330),ids:x.sourceIds.filter(id=>labels.has(id)).slice(0,3)})).filter(x=>x.text&&x.ids.length):[];
  try{
   const body=JSON.stringify({kind:draft.kind,statement:draft.statement,alternative:draft.alternative,test:draft.test,links});
-  let response=await fetch('/api/evidence-review',{method:'POST',headers:{'Content-Type':'application/json'},body,signal:controller.signal});
+  let response=await fetch('/api/evidence-review',{method:'POST',headers:{'Content-Type':'application/json','X-PS-Client':'game'},credentials:'same-origin',body,signal:controller.signal});
   // Compatibility with existing Vercel sites where the new endpoint is not yet deployed.
   if(response.status===404){
    response=await fetch('/api/evaluate',{method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({kind:draft.kind,statement:draft.statement,alternative:draft.alternative,test:draft.test,
      links:links.map(({name,body,role,note})=>({name,body,role,note}))}),signal:controller.signal});
   }
+  if(response.status===403){panel.textContent='Nie wszystkie wybrane źródła zostały zatwierdzone przez serwer. Poczekaj na synchronizację zapisu lub wybierz zatwierdzone materiały.';return;}
+  if(response.status===429){panel.textContent='Osiągnięto limit analiz AI. Wróć za kilka minut; lokalna analiza nadal działa.';return;}
   if(!response.ok)throw Error('Cloudflare temporarily unavailable');
   const data=await response.json();
   if(!panel.isConnected||requestId!==psEvidenceAssessmentRequest)return;
@@ -16864,7 +16910,17 @@ const PS68_MEMORY = (() => {
  const PROTECTED=new Set(['CONFESSION','CORRECTION_WITH_EVIDENCE']);
  function checkSession(id){if(refs[id]!==STATE.dialogues[id]){data[id]=empty();refs[id]=STATE.dialogues[id];}}
  function topic(q,base=''){
-  const n=fold(q), match=TOPICS.find(([,re])=>re.test(n));
+  const n=fold(q);
+  // 6.28: Subject and affirmative intent take precedence over incidental/negated entities.
+  // 'Nie pytam o ostatnie spotkanie z Leną, tylko o TWOJE miejsce pobytu' => alibi.
+  if(/\b(?:twoj\w*|pana|pani|swoj\w*|twoje|wlasn\w*)\s+(?:miejsce\s+pobyt\w*|pobyt\w*|alibi)\b/.test(n)||
+     /\b(?:gdzie|dokad)\s+(?:ty\s+|pan\s+|pani\s+)?(?:byl\w*|przebywal\w*|znajdowal\w*\s+sie)\b/.test(n)||
+     /\b(?:gdzie\s+(?:sie\s+)?znajdowal\w*|co\s+(?:ty|pan|pani)\s+robil\w*|potwierdzi\w*\s+(?:twoj\w*|pana|pani)\s+obecnos\w*)\b/.test(n))return 'alibi';
+  const withoutRejected=n.replace(/\b(?:nie\s+(?:pytam|chodzi|mowie)\s+o|nie\s+o)\s+[^,.!?;]*(?=[,.!?;]|$)/g,' ');
+  const candidates=withoutRejected.trim()||n;
+  if(/\bmiejsce\s+pobyt\w*\b/.test(candidates)&&
+     !/\bmiejsce\s+pobyt\w*\s+(?:len\w*|rudnick\w*|ofiary|marka|kamila|tomasza|janusza)\b/.test(candidates))return 'alibi';
+  const match=TOPICS.find(([,re])=>re.test(candidates));
   if(match)return match[0];
   const known=fold(base);const same=TOPICS.find(([,re])=>re.test(known));
   return same?same[0]:'general';
@@ -16881,11 +16937,11 @@ const PS68_MEMORY = (() => {
   const last=m.episodes.at(-1);
   if(last&&last.q===q&&last.a===a&&last.dialogueLength===found.length)return;
   const turn=++m.turn,kind=status(id),t=topic(q,NPC9_MEMORY?.[id]?.lastFocus?.topic||'');
-  const row={turn,topic:t,q,a,kind,dialogueLength:found.length};
+  const row={turn,topic:t,q,a,canonical:a,kind,dialogueLength:found.length};
   m.episodes.push(row);if(m.episodes.length>80)m.episodes.splice(0,m.episodes.length-80);
   const x=m.anchors[t]||{first:null,last:null,count:0};
-  if(!x.first)x.first={turn,a,kind};
-  x.last={turn,a,kind};x.count=Math.min(1000000,x.count+1);
+  if(!x.first)x.first={turn,a,canonical:a,kind};
+  x.last={turn,a,canonical:a,kind};x.count=Math.min(1000000,x.count+1);
   m.anchors[t]=x;
   // Sprostowanie dotyczy danego zagadnienia: starsze twierdzenie nadal jest
   // historią zeznania, ale nie wolno udawać, że jest aktualnym stanowiskiem.
@@ -16920,6 +16976,9 @@ const PS68_MEMORY = (() => {
    if(!isRecall(question)&&x&&x.last.turn!==r.turn)return false;
    return r.kind!=='CONFESSION'&&(!x||x.last?.kind!=='CORRECTION_WITH_EVIDENCE'||x.last.turn===r.turn);
   });
+ }
+ function canonicalAnchors(id,question,limit=8){
+  return approvedAnchors(id,question,limit).map(x=>({...x,a:x.canonical||x.a}));
  }
  function recallReply(id,q){
   if(!isRecall(q)||sensitiveRE.test(fold(q)))return '';
@@ -16957,12 +17016,25 @@ const PS68_MEMORY = (() => {
    record(id,log.at(-2).text||q,log.at(-1).text);
   return result;
  });
+ // Reconcile the pending local draft after the async provider has replied.
+ // Keep corrections protected and never alter the game's canonical fact ledger.
+ function finalize(id,question,original,displayed,log){
+  if(!Object.prototype.hasOwnProperty.call(data,id)||refs[id]!==log)return false;
+  const m=data[id],last=m.episodes.at(-1);
+  const q=clean(question,260),oldA=clean(original,680),newA=clean(displayed,680);
+  if(!last||!newA||last.dialogueLength!==log.length||last.q!==q||last.a!==oldA)return false;
+  last.canonical=last.canonical||oldA;last.a=newA;
+  const anchor=m.anchors[last.topic];
+  if(anchor?.first?.turn===last.turn){anchor.first.canonical=anchor.first.canonical||oldA;anchor.first.a=newA;}
+  if(anchor?.last?.turn===last.turn){anchor.last.canonical=anchor.last.canonical||oldA;anchor.last.a=newA;}
+  return true;
+ }
  // Nie zmieniamy schematu SaveManager. Każda sesja posiada osobny, bounded rejestr.
  registerSaveHook({name:'stage68-long-term-memory',
   build(out){
    out.ps68={version:1,witnesses:Object.fromEntries(IDS.map(id=>{
     checkSession(id);const m=data[id];return [id,{turn:m.turn,
-     episodes:m.episodes.map(({turn,topic,q,a,kind,dialogueLength})=>({turn,topic,q,a,kind,dialogueLength})),
+     episodes:m.episodes.map(({turn,topic,q,a,canonical,kind,dialogueLength})=>({turn,topic,q,a,canonical:canonical||a,kind,dialogueLength})),
      anchors:m.anchors}];
    }))};
   },
@@ -16975,19 +17047,46 @@ const PS68_MEMORY = (() => {
        typeof r.a==='string'&&r.a.length<=680&&typeof r.topic==='string'&&['general',...TOPICS.map(x=>x[0])].includes(r.topic)&&
        ['STATEMENT','CORRECTION_WITH_EVIDENCE','CONFESSION'].includes(r.kind);
      m.episodes=(Array.isArray(v.episodes)?v.episodes:[]).slice(-80).filter(r=>valid(r)&&typeof r.q==='string'&&r.q.length<=260)
-       .map(r=>({turn:r.turn,topic:r.topic,q:clean(r.q,260),a:clean(r.a,680),kind:r.kind,dialogueLength:Math.max(0,Math.min(1000000,Number(r.dialogueLength)||0))}));
+       .map(r=>({turn:r.turn,topic:r.topic,q:clean(r.q,260),a:clean(r.a,680),canonical:clean(r.canonical||r.a,680),kind:r.kind,dialogueLength:Math.max(0,Math.min(1000000,Number(r.dialogueLength)||0))}));
      for(const [t,x] of Object.entries(v.anchors&&typeof v.anchors==='object'&&!Array.isArray(v.anchors)?v.anchors:{})){
       if(!['general',...TOPICS.map(y=>y[0])].includes(t)||!x||!valid({...x.first,topic:t})||!valid({...x.last,topic:t}))continue;
-      m.anchors[t]={first:{turn:x.first.turn,a:clean(x.first.a,680),kind:x.first.kind},
-       last:{turn:x.last.turn,a:clean(x.last.a,680),kind:x.last.kind},count:Math.max(1,Math.min(1000000,Number(x.count)||1))};
+      m.anchors[t]={first:{turn:x.first.turn,a:clean(x.first.a,680),canonical:clean(x.first.canonical||x.first.a,680),kind:x.first.kind},
+       last:{turn:x.last.turn,a:clean(x.last.a,680),canonical:clean(x.last.canonical||x.last.a,680),kind:x.last.kind},count:Math.max(1,Math.min(1000000,Number(x.count)||1))};
      }
      m.turn=Math.max(m.episodes.at(-1)?.turn||0,...Object.values(m.anchors).map(x=>x.last.turn),0);
+     // 6.28: fix older episodes attributed to 'lena' because a *negated*
+     // aside mentioned Lena. Rebuild only those affected anchors from original utterances.
+     let corrected=false;
+     for(const ep of m.episodes){
+      const resolved=topic(ep.q);
+      if(ep.topic==='lena'&&resolved==='alibi'){ep.topic='alibi';corrected=true;}
+     }
+     if(corrected){
+      m.anchors={};
+      for(const ep of m.episodes){
+       const a=m.anchors[ep.topic]||{first:null,last:null,count:0};
+       const x={turn:ep.turn,a:ep.a,canonical:ep.canonical,kind:ep.kind};
+       if(!a.first)a.first={...x};a.last={...x};a.count++;m.anchors[ep.topic]=a;
+      }
+     }
+     // Migrate v6.25 saved sessions: the dialogue already contains the displayed
+     // answer while this legacy episode could still contain the local draft.
+     const dialogue=STATE.dialogues[id]||[];
+     for(const ep of m.episodes){
+      const n=ep.dialogueLength;if(n<2||n>dialogue.length)continue;
+      const played=dialogue[n-2],spoken=dialogue[n-1];
+      if(played?.role!=='player'||spoken?.role!=='npc'||clean(played.text,260)!==ep.q)continue;
+      ep.a=clean(spoken.text,680);
+      const anchor=m.anchors[ep.topic];
+      if(anchor?.first?.turn===ep.turn)anchor.first.a=ep.a;
+      if(anchor?.last?.turn===ep.turn)anchor.last.a=ep.a;
+     }
     }
     data[id]=m;refs[id]=STATE.dialogues[id];
    }
   }
  });
- return Object.freeze({context,approvedAnchors,recallReply,inspect:()=>Object.fromEntries(IDS.map(id=>{checkSession(id);return [id,{episodes:data[id].episodes.length,topics:Object.keys(data[id].anchors).length,turn:data[id].turn}];}))});
+ return Object.freeze({context,approvedAnchors,canonicalAnchors,recallReply,finalize,inspect:()=>Object.fromEntries(IDS.map(id=>{checkSession(id);return [id,{episodes:data[id].episodes.length,topics:Object.keys(data[id].anchors).length,turn:data[id].turn}];}))});
 })();
 window.PS68_MEMORY=PS68_MEMORY;
 /* Pakiet 6.5: tylko informacje już dopuszczone przez lokalny silnik mogą trafić do AI.
@@ -17001,18 +17100,21 @@ const PS65_CONTEXT = (() => {
  // Pakiet 6.7: osobny dziennik KANONICZNYCH odpowiedzi lokalnego silnika.
  // Tekst przeredagowany przez chmurę NIE staje się automatycznie nowym faktem.
  const approved=Object.fromEntries(CONTENT.characters.map(c=>[c.id,[]]));
+ const canonicalApproved=Object.fromEntries(CONTENT.characters.map(c=>[c.id,[]]));
  const logRefs=Object.fromEntries(CONTENT.characters.map(c=>[c.id,STATE.dialogues[c.id]]));
  const trim=(s,n=900)=>clean(s,n);
  function remember(id,answer,log){
   if(!Object.prototype.hasOwnProperty.call(approved,id))return;
   // Reset rozgrywki wymienia tablice dialogów (import ma własny hook poniżej).
-  if(logRefs[id]!==log){approved[id]=[];logRefs[id]=log;}
+  if(logRefs[id]!==log){approved[id]=[];canonicalApproved[id]=[];logRefs[id]=log;}
   const text=trim(answer,1400);
   if(!text)return;
   const items=approved[id];
-  if(items.at(-1)?.text===text)return;
-  items.push({text,turn:items.length?items.at(-1).turn+1:1});
+  if(items.at(-1)?.dialogueLength===log.length)return;
+  const turn=items.length?items.at(-1).turn+1:1;
+  items.push({text,turn,dialogueLength:log.length});canonicalApproved[id].push({text,turn,dialogueLength:log.length});
   if(items.length>36)items.splice(0,items.length-36);
+  if(canonicalApproved[id].length>36)canonicalApproved[id].splice(0,canonicalApproved[id].length-36);
  }
  const certainty=text=>/\b(?:nie wiem|nie jestem pew|nie pamiętam|nie potrafię|nie mogę potwierdzić|chyba|wydaje mi się|być może|możliwe|prawdopodobnie|nie widziałem|nie widziałam)\b/i.test(text)?'qualified':'statement';
  function clauses(text){
@@ -17033,20 +17135,31 @@ const PS65_CONTEXT = (() => {
   }
   add(canonical,'current','turn');
   for(const key of ['opening','alibi','what_happened','last_seen','witness'])add(voice[key]||'','public','public-'+key);
-  // Pakiet 6.8: wcześniejsze, zatwierdzone lokalnie zeznania na temat pytania.
-  // Są to cytowane słowa świadka, nie dowody ani nowe fakty przyznane przez AI.
-  for(const x of window.PS68_MEMORY?.approvedAnchors(id,question,7)||[])add(x.a,'prior-local','journal-'+x.turn);
-  for(const x of approved[id].slice(-26).reverse())add(x.text,'prior-local','journal-'+x.turn);
+  // The canonical shadow of 6.8 episodes is never replaced by AI wording.
+  for(const x of window.PS68_MEMORY?.canonicalAnchors(id,question,7)||[])add(x.a,'prior-local','journal-'+x.turn);
+  // Only immutable local originals may become fact-bank inputs. Displayed AI
+  // testimony can be recalled, but is never elevated to a new canonical fact.
+  for(const x of canonicalApproved[id].slice(-26).reverse())add(x.text,'prior-local','journal-'+x.turn);
   return window.PS611_NLU?.rankFacts(bank,question)||bank;
  }
  // Rozszerzenie formatu zapisów bez zmiany v2 SaveManager ani starej struktury.
  registerSaveHook({name:'stage67-approved-testimony',
-  build(data){data.ps67={version:1,approved:Object.fromEntries(Object.entries(approved).map(([id,rows])=>[id,rows.slice(-36)]))};},
+  build(data){data.ps67={version:1,approved:Object.fromEntries(Object.entries(approved).map(([id,rows])=>[id,rows.slice(-36)])),
+    canonical:Object.fromEntries(Object.entries(canonicalApproved).map(([id,rows])=>[id,rows.slice(-36)]))};},
   apply(data){
    const entries=data?.ps67?.version===1?data.ps67.approved:null;
    for(const id of Object.keys(approved)){
     approved[id]=Array.isArray(entries?.[id])?entries[id].slice(-36).filter(x=>x&&typeof x.text==='string'&&Number.isSafeInteger(x.turn)&&x.turn>0)
-       .map(x=>({text:trim(x.text,1400),turn:x.turn})):[];
+       .map(x=>({text:trim(x.text,1400),turn:x.turn,dialogueLength:Number(x.dialogueLength)||0})):[];
+    const canonRows=data?.ps67?.canonical?.[id];
+    canonicalApproved[id]=Array.isArray(canonRows)?canonRows.slice(-36).filter(x=>x&&typeof x.text==='string'&&Number.isSafeInteger(x.turn)&&x.turn>0)
+     .map(x=>({text:trim(x.text,1400),turn:x.turn,dialogueLength:Number(x.dialogueLength)||0})):approved[id].map(x=>({...x}));
+    // 6.25 migration: the old approved ledger contains canonical drafts. Repair
+    // its displayed side from the actual transcript, retaining canonical originals.
+    if(!Array.isArray(canonRows)){
+     const visible=(STATE.dialogues[id]||[]).filter(x=>x.role==='npc').slice(1).slice(-approved[id].length);
+     if(visible.length===approved[id].length)approved[id]=approved[id].map((x,i)=>({...x,text:trim(visible[i].text,1400)}));
+    }
     logRefs[id]=STATE.dialogues[id];
    }
   }
@@ -17117,7 +17230,18 @@ const PS65_CONTEXT = (() => {
    request:{question:clean(question,1600),semanticPlan:window.PS611_NLU?.analyze(question)||null}
   };
  }
- return Object.freeze({read,inspect:()=>Object.fromEntries(Object.entries(approved).map(([id,rows])=>[id,rows.length]))});
+ function finalize(id,original,displayed,log){
+  if(!Object.prototype.hasOwnProperty.call(approved,id)||!Array.isArray(log))return false;
+  if(logRefs[id]!==log){approved[id]=[];canonicalApproved[id]=[];logRefs[id]=log;}
+  if(approved[id].at(-1)?.dialogueLength!==log.length)remember(id,original,log);
+  if(!approved[id]?.length)return false;
+  const row=approved[id].at(-1);
+  // A different turn or reset must never rewrite earlier testimony.
+  if(row.dialogueLength!==log.length||row.text!==trim(original,1400))return false;
+  row.text=trim(displayed,1400);
+  return true;
+ }
+ return Object.freeze({read,finalize,inspect:()=>Object.fromEntries(Object.entries(approved).map(([id,rows])=>[id,rows.length]))});
 })();
 window.PS65_CONTEXT=PS65_CONTEXT;
 /* Pakiet 6.5: Z.ai formułuje język świadka, nigdy zdarzenia ani wynik śledztwa.
@@ -17198,8 +17322,11 @@ window.PS65_CONTEXT=PS65_CONTEXT;
   if(wantsCloud)pending={id:c.id,log,start:oldLen};
   let out;try{out=previous.apply(this,arguments);}catch(error){pending=null;throw error;}
   const finishLocal=()=>{
-    if(c&&question&&!wantsCloud&&log?.length===oldLen+2&&log.at(-1)?.role==='npc'){
-      window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:log.at(-1).text});
+    if(c&&question&&log?.length===oldLen+2&&log.at(-1)?.role==='npc'){
+      const finalText=log.at(-1).text;
+      log.at(-1).ai=psAiMeta({provider:'local',model:'witness-engine-local',fallbackReason:'local_or_scripted_turn',durationMs:0});
+      PS65_CONTEXT.finalize?.(c.id,finalText,finalText,log);
+      window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:finalText});
     }
     if(pending&&pending.log===log){pending=null;if(STATE.activeChar===c?.id&&STATE.tab==='interview')renderChat();}
     return out;
@@ -17219,6 +17346,7 @@ window.PS65_CONTEXT=PS65_CONTEXT;
   fetch(URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:ctrl.signal})
    .then(r=>{if(!r.ok){
       cloudRetryAt=Date.now()+(r.status===429?3600000:r.status===404?86400000:120000);
+      row.ai=psAiMeta({provider:'local',model:'witness-engine-local',fallbackReason:'backend_http_'+r.status});
       window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:answer});
       return null;
     }return r.json();})
@@ -17252,20 +17380,55 @@ window.PS65_CONTEXT=PS65_CONTEXT;
       const grounded=(data?.decision==='answer'&&valid)?choices.map(x=>x.text).join(' '):answer;
       next=prefix+(safeRewrite(grounded,text)?text:grounded);
     }
-    if(next===answer)return;
+    // The server has already checked relevance and committed its exact reply to Supabase.
+    // A second client-side rejection here would display a DIFFERENT answer than stored on the server.
+    if(next!==answer&&data?.serverCanonical!==true&&window.PS626_INTENT){
+     const kind=window.PS626_INTENT.focus(question);
+     if(kind&&!window.PS626_INTENT.relevant(kind,next))next=answer;
+    }
+    const serverApproved=data?.serverCanonical===true&&(
+     (data.decision==='answer'&&data.semanticVerified===true&&next===text)||
+     (data.decision==='fallback'&&next===text));
+    // An HTTP error has already recorded its actual status. Preserve it instead
+    // of mislabelling an unavailable backend as an unsupported JSON response.
+    const diag=data===null&&row.ai?row.ai:serverApproved?psAiMeta(data):psAiMeta({provider:'local',model:'witness-engine-local',
+     fallbackReason:data?.serverCanonical===true?'client_could_not_apply_response':'unsupported_response',requestId:data?.requestId});
+    if(next===answer){
+     // Even identical wording may have come from Z.ai/Groq, not necessarily local fallback.
+     if(serial===requestSerial&&STATE.dialogues[c.id]===log&&log.at(-1)===row)row.ai=diag;
+     return;
+    }
     // Kontrola sceny, sesji, kolejności, oryginalnego wpisu i niezmiennego statusu.
     if(serial!==requestSerial||STATE.dialogues[c.id]!==log||log.at(-1)!==row||row.text!==answer||
       ['CONFESSION','CORRECTION_WITH_EVIDENCE'].includes(NPC9_MEMORY?.[c.id]?.semantic?.at(-1)?.status)||
       simWitness(c).blocked)return;
     row.text=next;
+    row.ai=diag;
     // W trybie AI-first tekst prezentacyjny nie zmienia kanonicznego rejestru
     // zeznań ani wewnętrznych faktów. Historia widoczna graczowi pozostaje
     // zapisana osobno w STATE.dialogues.
+    // NPC9 canon remains authoritative; ps67/ps68 and visible dialogue
+    // are reconciled after the server-approved final wording is known.
     if(data?.serverCanonical!==true&&data?.primaryMode!==true)sync(c,answer,next);
     // Render w finally — dopiero po zatwierdzeniu odpowiedzi lub fallbacku.
    })
-   .catch(()=>{cloudRetryAt=Date.now()+90000;window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:answer});})
-   .finally(()=>{clearTimeout(timer);if(serial===requestSerial){pending=null;showBusy(false);if(STATE.activeChar===c.id&&STATE.tab==='interview')renderChat();}});
+   .catch(()=>{cloudRetryAt=Date.now()+90000;
+    if(serial===requestSerial&&STATE.dialogues[c.id]===log&&log.at(-1)===row)
+     row.ai=psAiMeta({provider:'unknown',fallbackReason:'network_response_not_confirmed'});
+    window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:answer});})
+   .finally(()=>{
+    clearTimeout(timer);
+    if(serial===requestSerial){
+     if(STATE.dialogues[c.id]===log&&log.at(-1)===row){
+      PS65_CONTEXT.finalize?.(c.id,answer,row.text,log);
+      window.PS68_MEMORY?.finalize?.(c.id,question,answer,row.text,log);
+      // A late cloud answer must also be included in local export/autosave.
+      if(typeof psSchedule==='function')psSchedule();
+     }
+     pending=null;showBusy(false);
+     if(STATE.activeChar===c.id&&STATE.tab==='interview')renderChat();
+    }
+   });
   return out;
  }
  // Całą turę, również przy naciśnięciu Enter, kierujemy do tego samego
@@ -17292,7 +17455,10 @@ window.PS65_CONTEXT=PS65_CONTEXT;
   return result;
  };
  registerWitnessSendLayer('zai-cloud-fallback',send);
- window.PS77_AI=Object.freeze({mode:'zai_primary_semantics_v5',get busy(){return inflight;},safeRewrite,semanticGuard,context:PS65_CONTEXT.read});
+ window.PS77_AI=Object.freeze({mode:'zai_primary_semantics_v5',get busy(){return inflight;},
+  get lastDiagnostic(){const rows=STATE.dialogues[STATE.activeChar]||[];
+   return rows.slice().reverse().find(x=>x.role==='npc'&&x.ai)?.ai||null;},
+  safeRewrite,semanticGuard,context:PS65_CONTEXT.read});
 })();
 /* Pakiet 6.10 — pierwszeństwo znaczenia pytania przed historycznymi heurystykami.
  * Nie zmienia dowodów, przełomów, warunków procesowych ani faktów. Zawsze wykonuje
@@ -18219,7 +18385,8 @@ window.PS614_VARIETY=Object.freeze({version:'6.14',eligible:raw=>!!optionsFor(ra
  });
  // Wersja 6.18: tylko odpowiedzi gracza trafiają na serwer jako PROPOZYCJE.
  // Sam import lokalnego zapisu nie jest dowodem wykonania czynności.
- document.addEventListener('click',e=>{if(awaitingResume&&!e.target?.closest?.('#psResumeOffer'))window.PS617_SYNC?.resetSession?.();},{capture:true});
+ // Resume choice is explicit. A click outside the prompt must not reset the server session.
+
  window.addEventListener('online',()=>{disabled=false;schedule();});
  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')schedule();});
  if(!awaitingResume&&!resetPending){
@@ -18816,6 +18983,72 @@ registerWitnessAnswerLayer('82-relevance-and-voice-625',function(c,question,atta
  window.PS625_LAST={id:c.id,topic:kind,changed:true};return picked;
 });
 window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>window.PS625_LAST||null});
+})();
+/* 6.26: separate a witness's own whereabouts from Lena's last sighting;
+ * separate emergency reporting from last contact with a living victim.
+ * Local answers use ONLY existing, authored and previously admissible facts.
+ */
+(function(){
+ 'use strict';
+ if(typeof WitnessEngine==='undefined'||typeof NPC94_FACTS==='undefined')return;
+ const previous=WitnessEngine.snapshotAnswer();
+ const plain=s=>String(s||'').toLocaleLowerCase('pl').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l').replace(/[^a-z0-9: -]+/g,' ').replace(/\s+/g,' ').trim();
+ const PROTECTED=new Set(['CONFESSION','CORRECTION_WITH_EVIDENCE','PROCEDURAL_REFUSAL']);
+ function focus(raw){
+  const q=plain(raw),emergency=/(?:zglosz|zawiadom|powiadom|wezw|alarm|znalezien|znalaz|odkryc|odnalaz)/.test(q);
+  const event=/(?:len[ayie]|rudnick|ofiar|cial|pomoc|alarm|znalezien|znalaz|smierc)/.test(q);
+  const query=/(?:\bkto\b|ktorej|godzin|kiedy|komu|czy|o jakiej)/.test(q);
+  const someoneElse=/(?:gdzie\s+(?:byla|przebywala)\s+(?:lena|ona)|gdzie\s+(?:byla|przebywala)\s+ofiara)/.test(q);
+  const self=/(?:\balibi\b|twoj\w*\s+(?:pobyt|obecnosc|alibi)|swoj\w*\s+(?:pobyt|obecnosc)|\b(?:ty|pan|pani)\s+(?:byl|byla|przebywal)|\b(?:byles|bylas|przebywales|przebywalas)\b|gdzie\s+(?:byles|bylas|przebywales|przebywalas|pan|pani)|\b(?:twoje|pana|pani)\s+(?:miejsce|obecnosc)|co\s+(?:robiles|robilas)\s+(?:miedzy|od|o))/.test(q);
+  if(emergency&&event&&query)return 'alarm_report';
+  if(self&&!someoneElse)return 'self_alibi';
+  return null;
+ }
+ function relevant(kind,text){
+  const a=plain(text);
+  if(kind==='alarm_report')return /(?:alarm|zglosz|zawiadom|wezw|znalaz|znalezion|odnalaz|powiadom|02:02)/.test(a)&&
+   !(/(?:ostatni\w*\s+(?:raz|razem)|ostatni\w*\s+(?:widzial|spotkal))/.test(a)&&!/alarm|zglosz|02:02/.test(a));
+  if(kind==='self_alibi')return /(?:\balibi\b|dyzur|zmian|biur|obecnos|przebyw|miejsce|stanowisk|warsztat|zajezd|prac|dyspozytor|sluzb|sesj|nie\s+(?:wiem|pamietam|potrafie|moge)|nie\s+potwierdz|polozen)/.test(a)&&
+   !(/(?:len[ayie]|rudnick)/.test(a)&&!/(?:\bja\b|biur|zmian|dyzur|alibi|obecnosc|przebyw|miejsce|prac|polozen)/.test(a));
+  return true;
+ }
+ function pick(c,kind,m){
+  const f=NPC94_FACTS[c.id],history=(m.semantic||[]).slice(0,-1).slice(-4);
+  const previousAnswers=history.map(x=>plain(x.answer));
+  if(kind==='alarm_report'){
+   const known=c.id==='TOMASZ'?f.victim+' '+f.time:f.victim+' '+f.source;
+   if(previousAnswers.includes(plain(known)))return c.id==='TOMASZ'?f.time+' '+f.verify:f.source+' '+f.time;
+   return known;
+  }
+  const present=f.location+' '+f.alibi;
+  if(previousAnswers.includes(plain(present)))return f.alibi+' '+f.verify;
+  return present;
+ }
+ function rewrite(c,old,next,kind){
+  const mem=NPC9_MEMORY[c.id],s=NPC4_STATE[c.id],sem=mem.semantic.at(-1),st=mem.statements.at(-1);
+  if(sem.answer!==old||st.text!==old)return false;
+  sem.answer=next;st.text=next;sem.topic=kind;st.topic=kind;
+  const replace=(o,k,n)=>{if(o?.[k]===old.slice(0,n))o[k]=next.slice(0,n)};
+  const replaceNorm=(o,k,n)=>{if(o?.[k]===plain(old).slice(0,n))o[k]=plain(next).slice(0,n)};
+  replaceNorm(s.recent?.at(-1),'answer',1550);
+  replace(s.npc5?.recent?.at(-1),'answer',1400);replace(s.npc5?.anchor,'answer',1400);
+  replace(s.npc57?.episodes?.at(-1),'answer',1600);
+  replace(s.npc65?.recent?.at(-1),'answer',1300);replace(s.npc65,'lastAnswer',1300);
+  replace(s.npc68?.threads?.at(-1),'a',850);replace(s.npc89?.recent?.at(-1),'a',1200);replace(s.npc62,'a',1600);
+  return true;
+ }
+ registerWitnessAnswerLayer('83-question-focus-626',function(c,q,attached){
+  const oldConfronted=NPC9_MEMORY?.[c?.id]?.confronted?.length||0;
+  const kind=focus(q),out=previous(c,q,attached);
+  if(!kind||!c||attached||simWitness(c).blocked||!NPC94_FACTS[c.id]||relevant(kind,out))return out;
+  const mem=NPC9_MEMORY[c.id],sem=mem?.semantic?.at(-1),st=mem?.statements?.at(-1);
+  if(!sem||!st||sem.turn!==mem.turn||st.turn!==mem.turn||
+   oldConfronted!==(mem.confronted?.length||0)||PROTECTED.has(sem.status)||PROTECTED.has(st.status)||
+   sem.source_ids?.length||st.source_ids?.length||sem.answer!==out||st.text!==out)return out;
+  const next=pick(c,kind,mem);
+  return rewrite(c,out,next,kind)?next:out;
+ });
+ window.PS626_INTENT=Object.freeze({focus,relevant,version:'6.26'});
 })();
 </script>
 <!-- POPRAWKA 1 / MOBILE P1: zachowaj dostep do elementow, bez poziomego przewijania strony -->

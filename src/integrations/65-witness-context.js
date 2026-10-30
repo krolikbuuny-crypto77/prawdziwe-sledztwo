@@ -9,18 +9,21 @@ const PS65_CONTEXT = (() => {
  // Pakiet 6.7: osobny dziennik KANONICZNYCH odpowiedzi lokalnego silnika.
  // Tekst przeredagowany przez chmurę NIE staje się automatycznie nowym faktem.
  const approved=Object.fromEntries(CONTENT.characters.map(c=>[c.id,[]]));
+ const canonicalApproved=Object.fromEntries(CONTENT.characters.map(c=>[c.id,[]]));
  const logRefs=Object.fromEntries(CONTENT.characters.map(c=>[c.id,STATE.dialogues[c.id]]));
  const trim=(s,n=900)=>clean(s,n);
  function remember(id,answer,log){
   if(!Object.prototype.hasOwnProperty.call(approved,id))return;
   // Reset rozgrywki wymienia tablice dialogów (import ma własny hook poniżej).
-  if(logRefs[id]!==log){approved[id]=[];logRefs[id]=log;}
+  if(logRefs[id]!==log){approved[id]=[];canonicalApproved[id]=[];logRefs[id]=log;}
   const text=trim(answer,1400);
   if(!text)return;
   const items=approved[id];
-  if(items.at(-1)?.text===text)return;
-  items.push({text,turn:items.length?items.at(-1).turn+1:1});
+  if(items.at(-1)?.dialogueLength===log.length)return;
+  const turn=items.length?items.at(-1).turn+1:1;
+  items.push({text,turn,dialogueLength:log.length});canonicalApproved[id].push({text,turn,dialogueLength:log.length});
   if(items.length>36)items.splice(0,items.length-36);
+  if(canonicalApproved[id].length>36)canonicalApproved[id].splice(0,canonicalApproved[id].length-36);
  }
  const certainty=text=>/\b(?:nie wiem|nie jestem pew|nie pamiętam|nie potrafię|nie mogę potwierdzić|chyba|wydaje mi się|być może|możliwe|prawdopodobnie|nie widziałem|nie widziałam)\b/i.test(text)?'qualified':'statement';
  function clauses(text){
@@ -41,20 +44,31 @@ const PS65_CONTEXT = (() => {
   }
   add(canonical,'current','turn');
   for(const key of ['opening','alibi','what_happened','last_seen','witness'])add(voice[key]||'','public','public-'+key);
-  // Pakiet 6.8: wcześniejsze, zatwierdzone lokalnie zeznania na temat pytania.
-  // Są to cytowane słowa świadka, nie dowody ani nowe fakty przyznane przez AI.
-  for(const x of window.PS68_MEMORY?.approvedAnchors(id,question,7)||[])add(x.a,'prior-local','journal-'+x.turn);
-  for(const x of approved[id].slice(-26).reverse())add(x.text,'prior-local','journal-'+x.turn);
+  // The canonical shadow of 6.8 episodes is never replaced by AI wording.
+  for(const x of window.PS68_MEMORY?.canonicalAnchors(id,question,7)||[])add(x.a,'prior-local','journal-'+x.turn);
+  // Only immutable local originals may become fact-bank inputs. Displayed AI
+  // testimony can be recalled, but is never elevated to a new canonical fact.
+  for(const x of canonicalApproved[id].slice(-26).reverse())add(x.text,'prior-local','journal-'+x.turn);
   return window.PS611_NLU?.rankFacts(bank,question)||bank;
  }
  // Rozszerzenie formatu zapisów bez zmiany v2 SaveManager ani starej struktury.
  registerSaveHook({name:'stage67-approved-testimony',
-  build(data){data.ps67={version:1,approved:Object.fromEntries(Object.entries(approved).map(([id,rows])=>[id,rows.slice(-36)]))};},
+  build(data){data.ps67={version:1,approved:Object.fromEntries(Object.entries(approved).map(([id,rows])=>[id,rows.slice(-36)])),
+    canonical:Object.fromEntries(Object.entries(canonicalApproved).map(([id,rows])=>[id,rows.slice(-36)]))};},
   apply(data){
    const entries=data?.ps67?.version===1?data.ps67.approved:null;
    for(const id of Object.keys(approved)){
     approved[id]=Array.isArray(entries?.[id])?entries[id].slice(-36).filter(x=>x&&typeof x.text==='string'&&Number.isSafeInteger(x.turn)&&x.turn>0)
-       .map(x=>({text:trim(x.text,1400),turn:x.turn})):[];
+       .map(x=>({text:trim(x.text,1400),turn:x.turn,dialogueLength:Number(x.dialogueLength)||0})):[];
+    const canonRows=data?.ps67?.canonical?.[id];
+    canonicalApproved[id]=Array.isArray(canonRows)?canonRows.slice(-36).filter(x=>x&&typeof x.text==='string'&&Number.isSafeInteger(x.turn)&&x.turn>0)
+     .map(x=>({text:trim(x.text,1400),turn:x.turn,dialogueLength:Number(x.dialogueLength)||0})):approved[id].map(x=>({...x}));
+    // 6.25 migration: the old approved ledger contains canonical drafts. Repair
+    // its displayed side from the actual transcript, retaining canonical originals.
+    if(!Array.isArray(canonRows)){
+     const visible=(STATE.dialogues[id]||[]).filter(x=>x.role==='npc').slice(1).slice(-approved[id].length);
+     if(visible.length===approved[id].length)approved[id]=approved[id].map((x,i)=>({...x,text:trim(visible[i].text,1400)}));
+    }
     logRefs[id]=STATE.dialogues[id];
    }
   }
@@ -125,6 +139,17 @@ const PS65_CONTEXT = (() => {
    request:{question:clean(question,1600),semanticPlan:window.PS611_NLU?.analyze(question)||null}
   };
  }
- return Object.freeze({read,inspect:()=>Object.fromEntries(Object.entries(approved).map(([id,rows])=>[id,rows.length]))});
+ function finalize(id,original,displayed,log){
+  if(!Object.prototype.hasOwnProperty.call(approved,id)||!Array.isArray(log))return false;
+  if(logRefs[id]!==log){approved[id]=[];canonicalApproved[id]=[];logRefs[id]=log;}
+  if(approved[id].at(-1)?.dialogueLength!==log.length)remember(id,original,log);
+  if(!approved[id]?.length)return false;
+  const row=approved[id].at(-1);
+  // A different turn or reset must never rewrite earlier testimony.
+  if(row.dialogueLength!==log.length||row.text!==trim(original,1400))return false;
+  row.text=trim(displayed,1400);
+  return true;
+ }
+ return Object.freeze({read,finalize,inspect:()=>Object.fromEntries(Object.entries(approved).map(([id,rows])=>[id,rows.length]))});
 })();
 window.PS65_CONTEXT=PS65_CONTEXT;

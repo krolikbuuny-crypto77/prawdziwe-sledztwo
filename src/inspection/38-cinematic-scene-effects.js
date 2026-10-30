@@ -90,12 +90,12 @@
  // Zdarzenia tylko po realnym pozyskaniu materiału lub weryfikacji dwóch wątków.
  doc.addEventListener('click',ev=>{
   if(!ev.isTrusted||!ev.target||typeof STATE==='undefined'||!(STATE.found instanceof Set))return;
-  const el=ev.target.closest('button,[role="button"],a');if(!el)return;
+  const el=ev.target.closest('button,[role="button"],a');if(!el||el.closest('#psResumeOffer')||document.body.classList.contains('ps-resume-pending')||window.PS628_RESTORING)return;
   const initialCount=STATE.found.size;
   const checks=!!el.closest('[data-ps53-decide]');
   const oldChapters=checks&&window.PS69_STORY?new Set(PS69_STORY.available()):null;
   setTimeout(()=>{
-    if(!allowMotion()||typeof STATE==='undefined'||!(STATE.found instanceof Set))return;
+    if(!allowMotion()||window.PS628_RESTORING||typeof STATE==='undefined'||!(STATE.found instanceof Set))return;
     if(checks&&oldChapters&&window.PS69_STORY){
       if(PS69_STORY.available().some(id=>!oldChapters.has(id))){reveal('Nowy przełom w śledztwie','Dwa niezależne ustalenia tworzą nowe powiązanie.');return;}
     }

@@ -23,7 +23,7 @@
     "controller": "src/core/witness-engine.js",
     "witnessCount": 6,
     "layerCounts": {
-      "answer": 19,
+      "answer": 20,
       "export": 8,
       "restore": 8,
       "send": 9

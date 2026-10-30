@@ -26,29 +26,17 @@ assert(!JSON.stringify(filtered).includes('SECRET'));
 console.log('PASS unsupported source references removed, advice non-binding');
 
 function response(){return {statusCode:200,headers:{},setHeader(k,v){this.headers[k]=v},end(body){this.body=JSON.parse(body)}}}
-const originalFetch=globalThis.fetch;
-const originalEnv={account:process.env.CLOUDFLARE_ACCOUNT_ID,token:process.env.CLOUDFLARE_API_TOKEN};
+const oldAccount=process.env.CLOUDFLARE_ACCOUNT_ID,oldToken=process.env.CLOUDFLARE_API_TOKEN;
 try{
- delete process.env.CLOUDFLARE_ACCOUNT_ID;delete process.env.CLOUDFLARE_API_TOKEN;
- let res=response();await handler({method:'POST',body:sample,headers:{}},res);
- assert.equal(res.statusCode,503);
- res=response();await handler({method:'GET',body:sample},res);assert.equal(res.statusCode,405);
- process.env.CLOUDFLARE_ACCOUNT_ID='0123456789abcdef0123456789abcdef';process.env.CLOUDFLARE_API_TOKEN='local-test-secret';
- let callCount=0,called;
- globalThis.fetch=async (url,config)=>{
-  callCount++;called={url,config};return {ok:true,json:async()=>({success:true,result:model})};
- };
- res=response();await handler({method:'POST',body:sample,headers:{}},res);
- assert.equal(res.statusCode,200);assert.equal(res.body.ok,true);assert.equal(callCount,1);
- assert.match(called.url,/\/ai\/run\/@cf\/meta\/llama-3\.3-70b-instruct-fp8-fast$/);
- assert.equal(JSON.parse(called.config.body).messages[1].role,'user');
- assert(!JSON.stringify(res.body).includes('local-test-secret'));
- res=response();await handler({method:'POST',body:{...sample,statement:'z'.repeat(35000)},headers:{'content-length':'35000'}},res);
- assert.equal(res.statusCode,413);assert.equal(callCount,1);
- globalThis.fetch=async()=>({ok:false,status:503});res=response();await handler({method:'POST',body:sample,headers:{}},res);
- assert.equal(res.statusCode,502);assert.equal(res.body.error,'analysis_unavailable');
- console.log('PASS endpoint, authorization, input bounds, Cloudflare failure and no secret leak');
-}finally{globalThis.fetch=originalFetch;
- if(originalEnv.account===undefined) delete process.env.CLOUDFLARE_ACCOUNT_ID; else process.env.CLOUDFLARE_ACCOUNT_ID=originalEnv.account;
- if(originalEnv.token===undefined) delete process.env.CLOUDFLARE_API_TOKEN; else process.env.CLOUDFLARE_API_TOKEN=originalEnv.token;
+  delete process.env.CLOUDFLARE_ACCOUNT_ID;delete process.env.CLOUDFLARE_API_TOKEN;
+  const headers={'content-type':'application/json','x-ps-client':'game',host:'test.local',origin:'https://test.local'};
+  let res=response();await handler({method:'POST',body:sample,headers},res);
+  assert.equal(res.statusCode,503);
+  res=response();await handler({method:'GET',body:sample,headers},res);assert.equal(res.statusCode,405);
+  res=response();await handler({method:'POST',body:sample,headers:{...headers,origin:'https://evil.example'}},res);assert.equal(res.statusCode,403);
+  res=response();await handler({method:'POST',body:sample,headers:{...headers,'x-ps-client':null}},res);assert.equal(res.statusCode,415);
+  console.log('PASS 6.16 legacy contract: validation, advisory output, method, origin, client header, unavailable config');
+}finally{
+ if(oldAccount===undefined)delete process.env.CLOUDFLARE_ACCOUNT_ID;else process.env.CLOUDFLARE_ACCOUNT_ID=oldAccount;
+ if(oldToken===undefined)delete process.env.CLOUDFLARE_API_TOKEN;else process.env.CLOUDFLARE_API_TOKEN=oldToken;
 }

@@ -2170,7 +2170,7 @@ function npc4Render(){
  const c=CONTENT.characters.find(x=>x.id===STATE.activeChar),st=c&&NPC4_STATE[c.id];
  if(!st||!document.getElementById('npc4Panel'))return;
  document.getElementById('npc4Mood').textContent='Zachowanie świadka: '+st.mood;
- document.getElementById('npc4Count').textContent=st.turns+' '+(st.turns===1?'pytanie':'pytań');
+ document.getElementById('npc4Count').textContent=st.turns+' '+psPolishCount(st.turns,'pytanie','pytania','pytań');
  document.getElementById('npc4Meters').innerHTML=[['rapport','Zaufanie',st.rapport],['tension','Napięcie',st.tension],['fatigue','Zmęczenie',st.fatigue]].map(([id,l,v])=>'<div class="npc4-metric '+id+'"><div class="npc4-label"><span>'+l+'</span><span class="npc4-value">'+Math.round(v)+'%</span></div><div class="npc4-track" role="progressbar" aria-label="'+l+'" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+Math.round(v)+'"><span style="width:'+Math.round(v)+'%"></span></div></div>').join('');
  document.querySelectorAll('[data-npc4-stance]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.npc4Stance===st.stance)));
  const hint=document.getElementById('npc4Hint');
@@ -2445,6 +2445,16 @@ const npc4EnhancedAnswer = function npc46EnhancedAnswer(c,raw,attached){
 function npc4Answer(c,raw,attached){return npc4EnhancedAnswer(c,raw,attached);}
 window.NPC46_QA={shortKind:npc46ShortKind,anchor:id=>npc46Anchor(NPC9_MEMORY[id]),version:'rozmowy kontekstowe'};
 
+// Diagnostic metadata is presentation-only: it cannot change evidence, testimony gates or verdict.
+function psAiMeta(value){
+ if(!value||typeof value!=='object'||!['zai','groq','local','unknown'].includes(value.provider))return null;
+ const clean=(v,max)=>typeof v==='string'&&/^[a-zA-Z0-9._:;/-]+$/.test(v)&&v.length<=max?v:null;
+ return {provider:value.provider,model:clean(value.model,96),fallbackReason:clean(value.fallbackReason,190),
+  requestId:typeof value.requestId==='string'&&/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value.requestId)?value.requestId:null,
+  durationMs:Number.isSafeInteger(value.durationMs)&&value.durationMs>=0&&value.durationMs<=120000?value.durationMs:null};
+}
+const psShowAiDiagnostic=new URLSearchParams(location.search).get('debugAI')==='1';
+const psAiLabel=v=>({zai:'Z.ai',groq:'Groq',local:'silnik lokalny',unknown:'nieustalony'})[v]||'nieustalony';
 const CHAT_VISIBLE=Object.create(null);
 function renderChat(){
  renderCharacterList();renderAttached();
@@ -2453,7 +2463,7 @@ function renderChat(){
  // Render only a window of messages; the full, unmodified transcript stays in STATE and in save files.
  const limit=CHAT_VISIBLE[c.id]||120,hidden=Math.max(0,msgs.length-limit);
  log.innerHTML=(hidden?'<div class="chat-history"><button type="button" class="btn alt" id="chatOlder">Pokaż wcześniejsze wiadomości ('+hidden+')</button><span class="muted small">Cała rozmowa pozostaje w zapisie gry.</span></div>':'')+
-  msgs.slice(hidden).map(m=>`<div class="bubble ${m.role==='npc'?'npc':'player'}"><span>${m.role==='npc'?esc(c.name):'Ty'}</span>${esc(m.text)}</div>`).join('');
+  msgs.slice(hidden).map(m=>`<div class="bubble ${m.role==='npc'?'npc':'player'}"><span>${m.role==='npc'?esc(c.name):'Ty'}</span>${esc(m.text)}${m.role==='npc'&&psShowAiDiagnostic&&m.ai?`<div class="small muted" style="margin-top:6px;border-top:1px solid #54616a;padding-top:3px">Dostawca: ${esc(psAiLabel(m.ai.provider))} · model: ${esc(m.ai.model||'—')} · przełączenie: ${esc(m.ai.fallbackReason||'brak')} · czas AI (API): ${esc(m.ai.durationMs==null?'—':String(m.ai.durationMs)+' ms')} · ID: ${esc(m.ai.requestId||'—')}</div>`:''}</div>`).join('');
  if(hidden)log.querySelector('#chatOlder').addEventListener('click',()=>{
    const wasHeight=log.scrollHeight,wasTop=log.scrollTop;
    CHAT_VISIBLE[c.id]=Math.min(msgs.length,limit+120);renderChat();
@@ -2472,7 +2482,7 @@ let eventSeq=1;
 $('timeAdd').addEventListener('click',()=>{const at=$('timeAt').value,text=$('timeText').value.trim(),source=$('timeSource').value.trim();if(!at||!text){toast('Wprowadź czas i opis zdarzenia.');return;}if(!validCaseTime(at)){toast('Chronologia tej sprawy obejmuje 17.11 18:00 – 18.11 06:00.');return;}if(STATE.events.length>=150){toast('Osiągnięto limit 150 własnych wpisów osi czasu. Usuń starszy wpis.');return;}STATE.events.push({id:String(eventSeq++),at,text:text.slice(0,1200),source:source.slice(0,250)});$('timeText').value='';$('timeSource').value='';renderEvents();});
 $('notes').addEventListener('input',e=>STATE.notes=e.target.value);
 function buildCoreSave(){const save={cross3:window.stage3?.export()||null,format:'PS_V7_COMPLETE_STAGE14',version:11,npc4:npc4Export(),final13:fcExport(),scene12:scExport(),timeline11:tlExport(),deduction:dedExport(),access:accessExport(),forensic:forensicExport(),cctv:cctvExport(),msg:{filters:STATE.msg.filters,selected:STATE.msg.selected,key:STATE.msg.key,chain:STATE.msg.chain,report:STATE.msg.report,attempts:STATE.msg.attempts},tcms:{bookmarks:STATE.tcms.bookmarks,report:STATE.tcms.report,attempts:STATE.tcms.attempts,filters:STATE.tcms.filters},found:[...STATE.found],notes:STATE.notes,events:STATE.events,dialogues:STATE.dialogues,npc9:Object.fromEntries(Object.entries(NPC9_MEMORY).map(([id,m])=>[id,{turn:m.turn,topics:m.topics,statements:m.statements,userClaims:m.userClaims,stress:m.stress,trust:m.trust,shown:m.shown,confronted:m.confronted,semantic:m.semantic||[],lastFocus:m.lastFocus||null,lastReferent:m.lastReferent||null,npc95:m.npc95||null}]))};return save;}
-function applyCoreSave(d){if(!d||typeof d!=='object')throw Error('Nieprawidłowy zapis.');if(!(['PS_V7_DEMO_STAGE3','PS_V7_DEMO_STAGE4','PS_V7_DEMO_STAGE5','PS_V7_DEMO_STAGE6','PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format))||![1,2,3,4,5,6,7,8,9,10,11].includes(d.version)||!Array.isArray(d.found))throw Error('Nieprawidłowy lub nieobsługiwany plik zapisu.');STATE.found=new Set([...INITIAL,...d.found.filter(id=>typeof id==='string'&&Object.prototype.hasOwnProperty.call(byId,id)&&byId[id].acquisition!=='po-mg'&&byId[id].acquisition!=='analiza')]);for(const c of CONTENT.characters){let log=d.dialogues?.[c.id];STATE.dialogues[c.id]=Array.isArray(log)?log.filter(m=>m&&typeof m==='object'&&['npc','player'].includes(m.role)&&typeof m.text==='string').slice(-1600).map(m=>({role:m.role,text:m.text.slice(0,4000)})):[{role:'npc',text:c.voice.opening}];}DD2_SOURCE_STATE.signature='';tcmsRestore(d.format!=='PS_V7_DEMO_STAGE3'?d.tcms:null);msgRestore(['PS_V7_DEMO_STAGE5','PS_V7_DEMO_STAGE6','PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.msg:null);cctvRestore(['PS_V7_DEMO_STAGE6','PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.cctv:null);forensicRestore(['PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.forensic:null);accessRestore(['PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.access:null);dedRestore(['PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.deduction:null);tlRestore(['PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.timeline11:null);scRestore(['PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.scene12:null);fcRestore(['PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.final13:null);STATE.notes=String(d.notes||'').slice(0,30000);STATE.events=Array.isArray(d.events)?d.events.filter(x=>x&&typeof x.at==='string'&&validCaseTime(x.at)&&typeof x.text==='string').slice(-100).map(x=>({id:String(x.id||'').slice(0,40),at:x.at.slice(0,16),text:x.text.slice(0,1200),source:String(x.source||'').slice(0,250)})):[];npc9Reset();
+function applyCoreSave(d){if(!d||typeof d!=='object')throw Error('Nieprawidłowy zapis.');if(!(['PS_V7_DEMO_STAGE3','PS_V7_DEMO_STAGE4','PS_V7_DEMO_STAGE5','PS_V7_DEMO_STAGE6','PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format))||![1,2,3,4,5,6,7,8,9,10,11].includes(d.version)||!Array.isArray(d.found))throw Error('Nieprawidłowy lub nieobsługiwany plik zapisu.');STATE.found=new Set([...INITIAL,...d.found.filter(id=>typeof id==='string'&&Object.prototype.hasOwnProperty.call(byId,id)&&byId[id].acquisition!=='po-mg'&&byId[id].acquisition!=='analiza')]);for(const c of CONTENT.characters){let log=d.dialogues?.[c.id];STATE.dialogues[c.id]=Array.isArray(log)?log.filter(m=>m&&typeof m==='object'&&['npc','player'].includes(m.role)&&typeof m.text==='string').slice(-1600).map(m=>({...{role:m.role,text:m.text.slice(0,4000)},...(m.role==='npc'&&psAiMeta(m.ai)?{ai:psAiMeta(m.ai)}:{})})):[{role:'npc',text:c.voice.opening}];}DD2_SOURCE_STATE.signature='';tcmsRestore(d.format!=='PS_V7_DEMO_STAGE3'?d.tcms:null);msgRestore(['PS_V7_DEMO_STAGE5','PS_V7_DEMO_STAGE6','PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.msg:null);cctvRestore(['PS_V7_DEMO_STAGE6','PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.cctv:null);forensicRestore(['PS_V7_DEMO_STAGE7','PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.forensic:null);accessRestore(['PS_V7_DEMO_STAGE8','PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.access:null);dedRestore(['PS_V7_DEMO_STAGE10','PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.deduction:null);tlRestore(['PS_V7_DEMO_STAGE11','PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.timeline11:null);scRestore(['PS_V7_DEMO_STAGE12','PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.scene12:null);fcRestore(['PS_V7_DEMO_STAGE13','PS_V7_COMPLETE_STAGE14'].includes(d.format)?d.final13:null);STATE.notes=String(d.notes||'').slice(0,30000);STATE.events=Array.isArray(d.events)?d.events.filter(x=>x&&typeof x.at==='string'&&validCaseTime(x.at)&&typeof x.text==='string').slice(-100).map(x=>({id:String(x.id||'').slice(0,40),at:x.at.slice(0,16),text:x.text.slice(0,1200),source:String(x.source||'').slice(0,250)})):[];npc9Reset();
 // Rebuild only discourse history; never trust externally supplied proof/confrontation flags.
 for(const c of CONTENT.characters){const raw=d.npc9?.[c.id];if(!raw||typeof raw!=='object')continue;const m=NPC9_MEMORY[c.id];m.turn=Math.min(5000,Math.max(0,Number(raw.turn)||0));m.topics=Array.isArray(raw.topics)?raw.topics.filter(x=>typeof x==='string'&&x.length<60).slice(-200):[];m.statements=Array.isArray(raw.statements)?raw.statements.filter(x=>x&&typeof x.topic==='string'&&typeof x.text==='string'&&x.text.length<2500).slice(-200).map(x=>({...x,status:x.status==='CORRECTION_WITH_EVIDENCE'?'TESTIMONY':x.status,source_ids:[]})):[];m.userClaims=Array.isArray(raw.userClaims)?raw.userClaims.filter(x=>x&&typeof x.text==='string').slice(-150):[];m.semantic=Array.isArray(raw.semantic)?raw.semantic.filter(x=>x&&typeof x.topic==='string'&&typeof x.answer==='string'&&x.answer.length<1800).slice(-250).map(x=>({...x,source_ids:[]})):[];m.lastFocus=raw.lastFocus&&typeof raw.lastFocus.topic==='string'?raw.lastFocus:null;m.lastReferent=typeof raw.lastReferent==='string'?raw.lastReferent:null;
 if(raw.npc95&&typeof raw.npc95==='object'){
@@ -3776,7 +3786,7 @@ function scAddNote(text,kind,ref){const s=STATE.scene12;const clean=String(text|
 function scRenderNotebook(){if(!$('scNotebookList'))return;const s=STATE.scene12,$ref=$('scNoteRef');const current=$ref.value;
  const options=s.inspected.map(id=>SC_BY_SPOT[id]).filter(Boolean);
  $ref.innerHTML='<option value="">Notatka ogólna / bez obiektu</option>'+options.map(h=>`<option value="${h.id}">${esc(SC_ROOMS.find(r=>r.id===h.room).title+' — '+h.title)}</option>`).join('');if(options.some(h=>h.id===current))$ref.value=current;
- $('scNotebookCount').textContent=s.notes.length+' zapisów';
+ $('scNotebookCount').textContent=s.notes.length+' '+psPolishCount(s.notes.length,'zapis','zapisy','zapisów');
  $('scNotebookList').innerHTML=s.notes.length?s.notes.map(n=>{const h=SC_BY_SPOT[n.ref];return `<article class="sc-note"><div class="sc-note-top"><div><span class="sc-note-kind">${esc(SC_KINDS[n.kind])}</span> <strong>${esc(h?h.title:'Notatka ogólna')}</strong></div><small>#${n.id}</small></div><p>${esc(n.text)}</p>${h?`<small>${esc(SC_ROOMS.find(r=>r.id===h.room).title)}</small>`:''}<div class="formline"><button type="button" class="btn alt" data-sc-edit="${n.id}">Edytuj</button><button type="button" class="btn subtle" data-sc-remove="${n.id}">Usuń</button>${h?`<button type="button" class="btn subtle" data-sc-jump="${h.id}">Pokaż punkt</button>`:''}</div></article>`;}).join(''):'<div class="sc-empty">Brak wpisów z oględzin. Dodaj obserwację, hipotezę, pytanie lub możliwą sprzeczność.</div>';
  $('scNotebookList').querySelectorAll('[data-sc-edit]').forEach(b=>b.addEventListener('click',()=>{const n=s.notes.find(x=>x.id===Number(b.dataset.scEdit));if(!n)return;s.editNote=n.id;$('scNoteText').value=n.text;$('scNoteKind').value=n.kind;$('scNoteRef').value=n.ref;$('scNoteSave').textContent='Zapisz zmiany';$('scNoteCancel').hidden=false;$('scNoteText').focus();}));
  $('scNotebookList').querySelectorAll('[data-sc-remove]').forEach(b=>b.addEventListener('click',()=>{psAsk('Usunąć tę notatkę?',()=>{s.notes=s.notes.filter(x=>x.id!==Number(b.dataset.scRemove));scNoteCancel();scRenderNotebook();});}));
@@ -4326,9 +4336,17 @@ function psAsk(msg,yes){
  document.addEventListener('keydown',key,true);
  row.append(no,ok);box.append(p,row);w.append(box);document.body.append(w);ok.focus();
 }
-const PS_KEY='ps_detective_autosave_v2',PS_TAB=Math.random().toString(36).slice(2);let psTimer=null,psWarned=false,psSessionActive=false;
+function psPolishCount(n,one,few,many){const v=Math.abs(Number(n)||0),last=v%10,tens=v%100;return v===1?one:last>=2&&last<=4&&!(tens>=12&&tens<=14)?few:many;}
+const PS_KEY='ps_detective_autosave_v2';
+const PS_TAB=(()=>{
+ try{const k='ps_detective_tab_identity_v1',existing=sessionStorage.getItem(k);if(existing)return existing;
+ const id=globalThis.crypto?.randomUUID?.()||Math.random().toString(36).slice(2);sessionStorage.setItem(k,id);return id;}
+ catch{return Math.random().toString(36).slice(2)}
+})();
+let psTimer=null,psWarned=false,psSessionActive=false;
 let psStorageErrorNotified=false;function psSaveNow(){if(!psSessionActive)return;try{SaveManager.writeAutosave(PS_KEY,{tab:PS_TAB});psStorageErrorNotified=false;}catch(err){if(!psStorageErrorNotified){psStorageErrorNotified=true;console.warn('Automatyczny zapis nie powiódł się:',err);toast('Nie można użyć pamięci przeglądarki. Użyj przycisku „Zapisz”, aby pobrać kopię sesji.');}}}
 function psSchedule(event){
+  if(document.body.classList.contains('ps-resume-pending'))return;
   if(event?.target?.closest?.('#psResumeOffer'))return;
   psSessionActive=true;
   document.getElementById('psResumeOffer')?.remove();
@@ -4338,7 +4356,14 @@ function psClearSave(){clearTimeout(psTimer);psTimer=null;psSessionActive=false;
 ['click','input','change'].forEach(t=>document.addEventListener(t,psSchedule,{capture:true,passive:true}));
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')psSaveNow();});
 window.addEventListener('pagehide',psSaveNow);
-window.addEventListener('storage',ev=>{if(ev.key===PS_KEY&&!psWarned){psWarned=true;toast('Gra jest otwarta w innej karcie — obowiązuje ostatni zapis.');}});
+window.addEventListener('storage',ev=>{
+ // A removed key / reload / own-tab save does not prove a second active game.
+ if(ev.key!==PS_KEY||ev.storageArea!==localStorage||!ev.newValue||psWarned||!psSessionActive)return;
+ let other;try{other=JSON.parse(ev.newValue);}catch{return;}
+ if(!other||typeof other.tab!=='string'||!other.tab||other.tab===PS_TAB||
+    !Number.isSafeInteger(other.t)||Date.now()-other.t>15000)return;
+ psWarned=true;toast('Wykryto zapis z innej aktywnej karty gry — obowiązuje ostatni zapis.');
+});
 (function(){
   // Zawsze zaczynamy z czystą kartą. Poprzedni automatyczny zapis jest tylko opcją.
   try{
@@ -4352,9 +4377,15 @@ window.addEventListener('storage',ev=>{if(ev.key===PS_KEY&&!psWarned){psWarned=t
     const row=document.createElement('div');row.className='formline';
     const resume=document.createElement('button');resume.type='button';resume.className='btn';resume.textContent='Wznów poprzednią sesję';
     const discard=document.createElement('button');discard.type='button';discard.className='btn alt';discard.textContent='Nowa sesja — odrzuć zapis';
-    resume.addEventListener('click',()=>{try{const item=SaveManager.readAutosave(PS_KEY);if(!item?.save)throw Error('Brak zapisu');safeLoad(item.save);psSessionActive=true;window.PS617_SYNC?.resume?.();banner.remove();showTab('overview');toast('Wznowiono zapisaną sesję.');}catch(err){toast('Nie udało się wznowić: '+err.message);}});
-    discard.addEventListener('click',()=>{psClearSave();window.PS617_SYNC?.resetSession?.();banner.remove();toast('Rozpoczęto nową sesję.');});
-    row.append(resume,discard);banner.append(heading,hint,row);overview.insertBefore(banner,overview.firstChild);
+    resume.textContent='Kontynuuj śledztwo';discard.textContent='Nowe śledztwo';
+    resume.addEventListener('click',()=>{try{window.PS628_RESTORING=true;const item=SaveManager.readAutosave(PS_KEY);if(!item?.save)throw Error('Brak zapisu');safeLoad(item.save);psSessionActive=true;window.PS617_SYNC?.resume?.();banner.remove();document.body.classList.remove('ps-resume-pending');showTab('overview');toast('Wznowiono zapisaną sesję.');}catch(err){toast('Nie udało się wznowić: '+err.message);}finally{requestAnimationFrame(()=>{window.PS628_RESTORING=false;});}});
+    discard.addEventListener('click',()=>{psClearSave();window.PS617_SYNC?.resetSession?.();banner.remove();document.body.classList.remove('ps-resume-pending');toast('Rozpoczęto nowe śledztwo.');});
+    row.append(resume,discard);banner.append(heading,hint,row);
+    // Keep the dialog directly under body: the overview section animates with
+    // transform, which otherwise shifts fixed-position descendants offscreen.
+    banner.setAttribute('role','dialog');banner.setAttribute('aria-modal','true');
+    document.body.appendChild(banner);
+    document.body.classList.add('ps-resume-pending');resume.focus({preventScroll:true});
   }catch(err){
     console.warn('Nie udało się odczytać poprzedniej sesji:',err);
     const overview=$('overview');if(!overview)return;

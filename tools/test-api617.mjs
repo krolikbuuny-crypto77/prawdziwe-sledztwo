@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import handler,{attemptInterview} from '../api/interview.js';
 import {initialState,validateAction,rules,appendReportedTurn,approvedHistory} from '../lib/server-state.js';
 import {classifyCanonicalStatement,classifyModelReply} from '../lib/story-consistency.js';
+import {trustedScene} from '../lib/trusted-interview-624.js';
 const oldFetch=globalThis.fetch,oldZ=process.env.ZAI_API_KEY,oldG=process.env.GROQ_API_KEY;
 process.env.ZAI_API_KEY='mock-zai';process.env.GROQ_API_KEY='mock-groq';
 const canonical='Nie pamiętam dokładnej godziny spotkania.';
@@ -30,7 +31,10 @@ try{
  assert.equal(r.body.decision,'answer');assert.deepEqual(calls.map(x=>x.provider),['zai','zai','groq','groq']);
  assert.deepEqual(calls[0].body.messages[1].content,calls[2].body.messages[1].content,'identical approved context for both providers');
  calls=withMock({zai:[{decision:'answer',factIds:['secret'],text:'Zabiłam Lenę.'}],groq:[new Error('rate limit')]});r=await submit();
- assert.equal(r.body.decision,'fallback');assert.equal(r.body.text,canonical);assert.deepEqual(calls.map(x=>x.provider),['zai','groq']);
+ assert.equal(r.body.decision,'fallback');
+ assert.equal(r.body.text,trustedScene({identity:{id:'ELZBIETA'},question:'O której doszło do spotkania?',knowledge:{documentsShown:[]}},null).knowledge.currentGroundedAnswer,
+   'the safe fallback must come from the trusted server-owned canon, not the browser-supplied string');
+ assert.deepEqual(calls.map(x=>x.provider),['zai','groq']);
  const scene=initialState();assert.deepEqual(scene.approvedEvidence,rules.initial);assert.equal(scene.verdict,null);
  const id=rules.searchable.find(id=>!rules.gates[id]?.length);assert(id);
  assert.equal(validateAction(scene,{type:'collect_evidence',docId:id,origin:'area-search',area:'BAD'}).ok,false);

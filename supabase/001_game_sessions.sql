@@ -7,7 +7,7 @@ create table if not exists public.ps_game_sessions (
 );
 alter table public.ps_game_sessions enable row level security;
 revoke all on table public.ps_game_sessions from anon, authenticated;
-grant select, insert, update on table public.ps_game_sessions to service_role;
+grant select, insert, update, delete on table public.ps_game_sessions to service_role;
 create or replace function public.ps_commit_session(p_session_id uuid,p_expected_revision integer,p_approved_state jsonb)
 returns boolean language plpgsql security invoker set search_path=public as $$
 begin

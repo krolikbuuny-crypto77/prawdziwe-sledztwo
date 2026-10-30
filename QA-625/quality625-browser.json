@@ -208,7 +208,7 @@
         "id": "TOMASZ",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Nie widziałem, kto użył tej karty. Sam zapis nie pokaże mi osoby."
+        "answer": "Pracowałem w dyspozytorni. Zmieniłem dyspozycję powrotu wagonu, a później byłem przy stanowisku trzecim, gdzie znalazłem Lenę. Byłem na służbie jako dyspozytor. O 02:02 zgłosiłem alarm. To nie znaczy, że mam świadka dla każdej minuty przed alarmem."
       },
       {
         "id": "TOMASZ",
@@ -315,7 +315,7 @@
         "id": "JANUSZ",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Tego z kartą nie widziałem. Nie będę zgadywał, kto ją miał."
+        "answer": "Pracowałem przy zleceniach i kolejce napraw w warsztacie. Chodziłem też do narzędzi i wagonów, nie siedziałem cały czas w jednym miejscu. Miałem nocne obowiązki warsztatowe. Zlecenia pokazują moją pracę, ale nie rejestrują każdego kroku."
       },
       {
         "id": "JANUSZ",
@@ -529,7 +529,7 @@
         "id": "KAMIL",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Sam zapis T-17 nie mówi mi, kto trzymał kartę w chwili użycia."
+        "answer": "Zajmowałem się diagnostyką TW-217. Pracowałem przy stanowisku i czasami od niego odchodziłem. Tej nocy prowadziłem diagnostykę. Zapisy sesji pokażą jej przebieg, nie moje położenie w każdej sekundzie."
       },
       {
         "id": "KAMIL",
@@ -636,7 +636,7 @@
         "id": "MAGDALENA",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Zapis użycia karty nie pokazuje człowieka przy drzwiach. Co dokładnie ma potwierdzać?"
+        "answer": "Prowadziłam audyt dokumentacji odbiorowej. Rejestr wskazuje aktywność sesji, ale nie służy do ustalania fizycznej obecności człowieka. Według rejestru sesja audytowa była aktywna od 01:30 do 02:00. Nie twierdzę, że zapis sesji samodzielnie potwierdza moją obecność przy komputerze przez cały czas."
       },
       {
         "id": "MAGDALENA",
@@ -855,7 +855,7 @@
         "id": "TOMASZ",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Nie widziałem, kto użył tej karty. Sam zapis nie pokaże mi osoby."
+        "answer": "Pracowałem w dyspozytorni. Zmieniłem dyspozycję powrotu wagonu, a później byłem przy stanowisku trzecim, gdzie znalazłem Lenę. Byłem na służbie jako dyspozytor. O 02:02 zgłosiłem alarm. To nie znaczy, że mam świadka dla każdej minuty przed alarmem."
       },
       {
         "id": "TOMASZ",
@@ -962,7 +962,7 @@
         "id": "JANUSZ",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Tego z kartą nie widziałem. Nie będę zgadywał, kto ją miał."
+        "answer": "Pracowałem przy zleceniach i kolejce napraw w warsztacie. Chodziłem też do narzędzi i wagonów, nie siedziałem cały czas w jednym miejscu. Miałem nocne obowiązki warsztatowe. Zlecenia pokazują moją pracę, ale nie rejestrują każdego kroku."
       },
       {
         "id": "JANUSZ",
@@ -1176,7 +1176,7 @@
         "id": "KAMIL",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Sam zapis T-17 nie mówi mi, kto trzymał kartę w chwili użycia."
+        "answer": "Zajmowałem się diagnostyką TW-217. Pracowałem przy stanowisku i czasami od niego odchodziłem. Tej nocy prowadziłem diagnostykę. Zapisy sesji pokażą jej przebieg, nie moje położenie w każdej sekundzie."
       },
       {
         "id": "KAMIL",
@@ -1283,7 +1283,7 @@
         "id": "MAGDALENA",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Zapis użycia karty nie pokazuje człowieka przy drzwiach. Co dokładnie ma potwierdzać?"
+        "answer": "Prowadziłam audyt dokumentacji odbiorowej. Rejestr wskazuje aktywność sesji, ale nie służy do ustalania fizycznej obecności człowieka. Według rejestru sesja audytowa była aktywna od 01:30 do 02:00. Nie twierdzę, że zapis sesji samodzielnie potwierdza moją obecność przy komputerze przez cały czas."
       },
       {
         "id": "MAGDALENA",

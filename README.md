@@ -1,3 +1,5 @@
+**Aktualizacja 6.29 (API):** przed wdrożeniem uruchom `supabase/002_ai_review_limits.sql`, następnie przeczytaj `README-PAKIET-6.29.md`. Groq: `openai/gpt-oss-120b`; bez migracji analiza Cloudflare jest blokowana, ale lokalna gra pozostaje dostępna.
+
 # Pakiet 6.22 — animowane portrety sześciu świadków
 
 Mimika wektorowa twarzy podczas przesłuchań, ośmiu scen przełomowych i finału. Zachowana architektura 6.21, bez nowych zagadek i faktów. Raport: `RAPORT-QA-6.22.md`.
@@ -73,3 +75,16 @@ Serwer sam przygotowuje zaufany bank faktów; klient nie może autoryzować wła
 ## Pakiet 6.25
 
 Poprawa trafności lokalnych odpowiedzi na pytania o L-2/L-3, protokoły, dyspozycję i sprzeczne zeznania; sześć indywidualnych wariantów głosu. Bez zmian kanonu i zagadek. Uruchom `npm run test:relevance625`. Szczegóły w `README-PAKIET-6.25.md`.
+
+## Aktualizacja 6.26
+
+Kompletny pakiet GitHub/Vercel 6.26 opisano w `README-PAKIET-6.26.md`.
+Regresje dla pamięci i intencji pytań: `python tools/test-quality626.py` i `node tools/test-interview626.mjs`.
+
+## Aktualizacja 6.27 — diagnostyka Z.ai / Groq / lokalny i spójne zeznania
+
+Dodano `provider`, `model`, `fallbackReason`, `requestId` do `/api/interview`; metadane są widoczne w trybie `?debugAI=1`, zapisywane w `dialogues[*][].ai` i dostępne po imporcie. Odpowiedź zweryfikowana na serwerze nie jest ponownie odrzucana przez przeglądarkę po zatwierdzeniu w Supabase. Dokumentacja: `README-PAKIET-6.27.md`, `RAPORT-QA-6.27.md`.
+
+## Aktualizacja 6.28 — oględziny, pamięć świadka i wznowienie
+
+Uwzględniono sześć uwag z testów 6.27: priorytet pytania o własne alibi wobec zanegowanych wzmianek o Lenie; dwa czytelne liczniki (zbadane i zabezpieczone), zgodne karty etapów oględzin, brak ponawiania powiadomienia o odkryciu podczas wznowienia, modalny wybór zapisanej sesji oraz pomiar czasu odpowiedzi w `?debugAI=1`. Szczegóły i testy w `README-PAKIET-6.28.md`, `RAPORT-QA-6.28.md`.

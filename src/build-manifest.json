@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "81e234c841f52d391b035ef1f688790cf3029c29d09c14b751873aeddc157c3c",
+  "sourceHash": "6d58a393d99d92eedac97374c99548d429b13e06ebd75dada6ba4bcbad3ed753",
   "sections": [
     {
       "kind": "style",
@@ -76,8 +76,8 @@
         "src/styles/06-resume-session.css"
       ],
       "marker": "__PS_SOURCE_STYLE_006__",
-      "sha256": "022aefadb4d95f58c3c947b3c19264881418774c941a4003b839d4c7d09b6a6e",
-      "size": 921
+      "sha256": "760e28c52513fdb23e13719cc1e8e3785f0e4af43c223fceb02dd0d97d56d1da",
+      "size": 1747
     },
     {
       "kind": "style",
@@ -278,8 +278,8 @@
         "src/core/witness-engine.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_000__",
-      "sha256": "88fa01ea1f4478352c5116e2dd570ae3706a2f7ac282ef804bde84a5218c1b29",
-      "size": 1458098
+      "sha256": "0c613cba9a792c68eee932fa8a4acb915f17f3aeb9d44ab02f126e3d7d832f6f",
+      "size": 1461020
     },
     {
       "kind": "script",
@@ -355,8 +355,8 @@
         "src/inspection/06-cinematic-presentation.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_006__",
-      "sha256": "24f43b405dd8455a39ce6780628b5d12a1658bd0a4c07c209bd8c8ed17068a03",
-      "size": 14288
+      "sha256": "e5e771c0d8a24d80d1dea636b32455a29a7329f9b8ddfee6866d89e2a5fac2c8",
+      "size": 14521
     },
     {
       "kind": "style",
@@ -454,8 +454,8 @@
         "src/inspection/10-guided-investigation.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_010__",
-      "sha256": "9d975bd82f1d3d861d4aed7bc57d7a136078b416d1cf768b31d6e7d7171e887d",
-      "size": 14904
+      "sha256": "9961fc1258ce435dccb2d2ccd068e394410e48e35161e537b01ad4a0fb2e2469",
+      "size": 15418
     },
     {
       "kind": "style",
@@ -938,8 +938,8 @@
         "src/inspection/38-cinematic-scene-effects.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_038__",
-      "sha256": "5949a110b8e39285e4afcf216cb0c69643bc4bcc0f36f4d8175b90c726859031",
-      "size": 5657
+      "sha256": "ea780bf5e7ff3c335d7e697ac656920fd6af57813eca4fefb5e75eede62f72dc",
+      "size": 5790
     },
     {
       "kind": "style",
@@ -971,8 +971,8 @@
         "src/inspection/40-inspection-guidance.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_040__",
-      "sha256": "1a7ab0edfce3df1e8af815ffae234e23fae9bf02c330fdc8912b61c8bd2a1def",
-      "size": 16069
+      "sha256": "2f6d55029582be1d78bf338d1b8a6322fab607d6a09c601ea5634572621198fe",
+      "size": 16259
     },
     {
       "kind": "style",
@@ -1236,8 +1236,8 @@
         "src/integrations/53-vercel-ai-client.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_053__",
-      "sha256": "9eddd579ab8bfa1f69ee503d738b2d958729304f516ecf4a3017c12840412cc0",
-      "size": 4648
+      "sha256": "1dfcebe39a3cbb8c6f9ce03a428630001e4ac810d579f5139a2a4a686663b837",
+      "size": 5033
     },
     {
       "kind": "style",
@@ -1386,11 +1386,12 @@
         "src/story/79-cinematic-turns-621.js",
         "src/story/80-animated-faces-622.js",
         "src/witnesses/81-out-of-scope-624.js",
-        "src/witnesses/82-relevance-and-voice-625.js"
+        "src/witnesses/82-relevance-and-voice-625.js",
+        "src/witnesses/83-question-focus-626.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_060__",
-      "sha256": "d5729385e94854fea1e1299bd471deb22356007f476d381c9d16b7698f7c5932",
-      "size": 201852
+      "sha256": "dcf6a93ce5a33a995ad74b18439614b493c66894029e940c9bb11bee00ffdf46",
+      "size": 213790
     },
     {
       "kind": "style",

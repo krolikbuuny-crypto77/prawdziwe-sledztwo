@@ -51,7 +51,7 @@ with sync_playwright() as p:
    return {rows,stateUnchanged:JSON.stringify(before)===JSON.stringify(after),overflow:document.documentElement.scrollWidth-innerWidth,layer:PS_WITNESS_ENGINE.inspect().layers.answer.at(-1)};
   }''', {'cases':[[a,b] for a,b,_ in CASES],'cross':CROSS})
   assert result['stateUnchanged'] and result['overflow']<=2 and not errors,(result['stateUnchanged'],result['overflow'],errors)
-  assert result['layer']=='82-relevance-and-voice-625'
+  assert result['layer']=='83-question-focus-626'
   for row in result['rows']:
    assert row['answer'].strip(),(width,row)
    if row['topic']!='protected':

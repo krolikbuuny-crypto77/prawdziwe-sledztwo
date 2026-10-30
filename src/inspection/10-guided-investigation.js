@@ -44,14 +44,18 @@
   const title=document.createElement('strong');title.textContent=label(p);
   const source=document.createElement('span');source.className='ov37-source';source.textContent=(isArchive?'DOKUMENTACJA':'NA FOTOGRAFII')+' · '+m.anchor;
   const info=document.createElement('span');info.className='ov37-context';info.textContent=m.detail;
-  const state=document.createElement('span');state.className='ov37-status';state.textContent=done(p.id)?'Zbadano — otwórz ustalenia':known(p.id)?'Odkryto — kontynuuj analizę':'Otwórz i wybierz metodę badania';
+  const state=document.createElement('span');state.className='ov37-status';
+  state.textContent=done(p.id)?(SC_BY_SPOT[p.id]?.doc?(STATE.found.has(SC_BY_SPOT[p.id].doc)?'Zabezpieczono — materiał w aktach':'Zbadano — pozostało zabezpieczenie'):'Zbadano — obserwacja zakończona'):known(p.id)?'Odkryto — kontynuuj analizę':'Otwórz i wybierz metodę badania';
   body.append(title,source,info,state);c.append(icon,body);return c;
  }
  function render(){if(!root.isConnected)return;
-  const s=STATE.scene12;const key=room()+':'+frame()+':'+s.discovered.join(',')+':'+s.inspected.join(',')+':'+(s.selected||'');
+  const s=STATE.scene12;const key=room()+':'+frame()+':'+s.discovered.join(',')+':'+s.inspected.join(',')+':'+(s.selected||'')+':'+all().filter(p=>SC_BY_SPOT[p.id]?.doc&&STATE.found.has(SC_BY_SPOT[p.id].doc)).map(p=>p.id).join(',');
   if(key===drawnKey)return;drawnKey=key;
   const pp=photospots(),rr=archival(),roomSpots=all();
-  count.textContent=roomSpots.filter(p=>done(p.id)).length+' / '+roomSpots.length+' zbadanych w strefie';
+  const examined=roomSpots.filter(p=>done(p.id)).length;
+  const withDocument=roomSpots.filter(p=>SC_BY_SPOT[p.id]?.doc).length;
+  const secured=roomSpots.filter(p=>SC_BY_SPOT[p.id]?.doc&&STATE.found.has(SC_BY_SPOT[p.id].doc)).length;
+  count.textContent=examined+' / '+roomSpots.length+' zbadanych · '+secured+' / '+withDocument+' materiałów zabezpieczonych';
   markerLayer.replaceChildren();regions.replaceChildren();records.replaceChildren();
   pp.forEach((p,i)=>{
    const m=INFO[p.id];const n=i+1;

@@ -23,7 +23,17 @@ const PS68_MEMORY = (() => {
  const PROTECTED=new Set(['CONFESSION','CORRECTION_WITH_EVIDENCE']);
  function checkSession(id){if(refs[id]!==STATE.dialogues[id]){data[id]=empty();refs[id]=STATE.dialogues[id];}}
  function topic(q,base=''){
-  const n=fold(q), match=TOPICS.find(([,re])=>re.test(n));
+  const n=fold(q);
+  // 6.28: Subject and affirmative intent take precedence over incidental/negated entities.
+  // 'Nie pytam o ostatnie spotkanie z Leną, tylko o TWOJE miejsce pobytu' => alibi.
+  if(/\b(?:twoj\w*|pana|pani|swoj\w*|twoje|wlasn\w*)\s+(?:miejsce\s+pobyt\w*|pobyt\w*|alibi)\b/.test(n)||
+     /\b(?:gdzie|dokad)\s+(?:ty\s+|pan\s+|pani\s+)?(?:byl\w*|przebywal\w*|znajdowal\w*\s+sie)\b/.test(n)||
+     /\b(?:gdzie\s+(?:sie\s+)?znajdowal\w*|co\s+(?:ty|pan|pani)\s+robil\w*|potwierdzi\w*\s+(?:twoj\w*|pana|pani)\s+obecnos\w*)\b/.test(n))return 'alibi';
+  const withoutRejected=n.replace(/\b(?:nie\s+(?:pytam|chodzi|mowie)\s+o|nie\s+o)\s+[^,.!?;]*(?=[,.!?;]|$)/g,' ');
+  const candidates=withoutRejected.trim()||n;
+  if(/\bmiejsce\s+pobyt\w*\b/.test(candidates)&&
+     !/\bmiejsce\s+pobyt\w*\s+(?:len\w*|rudnick\w*|ofiary|marka|kamila|tomasza|janusza)\b/.test(candidates))return 'alibi';
+  const match=TOPICS.find(([,re])=>re.test(candidates));
   if(match)return match[0];
   const known=fold(base);const same=TOPICS.find(([,re])=>re.test(known));
   return same?same[0]:'general';
@@ -40,11 +50,11 @@ const PS68_MEMORY = (() => {
   const last=m.episodes.at(-1);
   if(last&&last.q===q&&last.a===a&&last.dialogueLength===found.length)return;
   const turn=++m.turn,kind=status(id),t=topic(q,NPC9_MEMORY?.[id]?.lastFocus?.topic||'');
-  const row={turn,topic:t,q,a,kind,dialogueLength:found.length};
+  const row={turn,topic:t,q,a,canonical:a,kind,dialogueLength:found.length};
   m.episodes.push(row);if(m.episodes.length>80)m.episodes.splice(0,m.episodes.length-80);
   const x=m.anchors[t]||{first:null,last:null,count:0};
-  if(!x.first)x.first={turn,a,kind};
-  x.last={turn,a,kind};x.count=Math.min(1000000,x.count+1);
+  if(!x.first)x.first={turn,a,canonical:a,kind};
+  x.last={turn,a,canonical:a,kind};x.count=Math.min(1000000,x.count+1);
   m.anchors[t]=x;
   // Sprostowanie dotyczy danego zagadnienia: starsze twierdzenie nadal jest
   // historią zeznania, ale nie wolno udawać, że jest aktualnym stanowiskiem.
@@ -79,6 +89,9 @@ const PS68_MEMORY = (() => {
    if(!isRecall(question)&&x&&x.last.turn!==r.turn)return false;
    return r.kind!=='CONFESSION'&&(!x||x.last?.kind!=='CORRECTION_WITH_EVIDENCE'||x.last.turn===r.turn);
   });
+ }
+ function canonicalAnchors(id,question,limit=8){
+  return approvedAnchors(id,question,limit).map(x=>({...x,a:x.canonical||x.a}));
  }
  function recallReply(id,q){
   if(!isRecall(q)||sensitiveRE.test(fold(q)))return '';
@@ -116,12 +129,25 @@ const PS68_MEMORY = (() => {
    record(id,log.at(-2).text||q,log.at(-1).text);
   return result;
  });
+ // Reconcile the pending local draft after the async provider has replied.
+ // Keep corrections protected and never alter the game's canonical fact ledger.
+ function finalize(id,question,original,displayed,log){
+  if(!Object.prototype.hasOwnProperty.call(data,id)||refs[id]!==log)return false;
+  const m=data[id],last=m.episodes.at(-1);
+  const q=clean(question,260),oldA=clean(original,680),newA=clean(displayed,680);
+  if(!last||!newA||last.dialogueLength!==log.length||last.q!==q||last.a!==oldA)return false;
+  last.canonical=last.canonical||oldA;last.a=newA;
+  const anchor=m.anchors[last.topic];
+  if(anchor?.first?.turn===last.turn){anchor.first.canonical=anchor.first.canonical||oldA;anchor.first.a=newA;}
+  if(anchor?.last?.turn===last.turn){anchor.last.canonical=anchor.last.canonical||oldA;anchor.last.a=newA;}
+  return true;
+ }
  // Nie zmieniamy schematu SaveManager. Każda sesja posiada osobny, bounded rejestr.
  registerSaveHook({name:'stage68-long-term-memory',
   build(out){
    out.ps68={version:1,witnesses:Object.fromEntries(IDS.map(id=>{
     checkSession(id);const m=data[id];return [id,{turn:m.turn,
-     episodes:m.episodes.map(({turn,topic,q,a,kind,dialogueLength})=>({turn,topic,q,a,kind,dialogueLength})),
+     episodes:m.episodes.map(({turn,topic,q,a,canonical,kind,dialogueLength})=>({turn,topic,q,a,canonical:canonical||a,kind,dialogueLength})),
      anchors:m.anchors}];
    }))};
   },
@@ -134,18 +160,45 @@ const PS68_MEMORY = (() => {
        typeof r.a==='string'&&r.a.length<=680&&typeof r.topic==='string'&&['general',...TOPICS.map(x=>x[0])].includes(r.topic)&&
        ['STATEMENT','CORRECTION_WITH_EVIDENCE','CONFESSION'].includes(r.kind);
      m.episodes=(Array.isArray(v.episodes)?v.episodes:[]).slice(-80).filter(r=>valid(r)&&typeof r.q==='string'&&r.q.length<=260)
-       .map(r=>({turn:r.turn,topic:r.topic,q:clean(r.q,260),a:clean(r.a,680),kind:r.kind,dialogueLength:Math.max(0,Math.min(1000000,Number(r.dialogueLength)||0))}));
+       .map(r=>({turn:r.turn,topic:r.topic,q:clean(r.q,260),a:clean(r.a,680),canonical:clean(r.canonical||r.a,680),kind:r.kind,dialogueLength:Math.max(0,Math.min(1000000,Number(r.dialogueLength)||0))}));
      for(const [t,x] of Object.entries(v.anchors&&typeof v.anchors==='object'&&!Array.isArray(v.anchors)?v.anchors:{})){
       if(!['general',...TOPICS.map(y=>y[0])].includes(t)||!x||!valid({...x.first,topic:t})||!valid({...x.last,topic:t}))continue;
-      m.anchors[t]={first:{turn:x.first.turn,a:clean(x.first.a,680),kind:x.first.kind},
-       last:{turn:x.last.turn,a:clean(x.last.a,680),kind:x.last.kind},count:Math.max(1,Math.min(1000000,Number(x.count)||1))};
+      m.anchors[t]={first:{turn:x.first.turn,a:clean(x.first.a,680),canonical:clean(x.first.canonical||x.first.a,680),kind:x.first.kind},
+       last:{turn:x.last.turn,a:clean(x.last.a,680),canonical:clean(x.last.canonical||x.last.a,680),kind:x.last.kind},count:Math.max(1,Math.min(1000000,Number(x.count)||1))};
      }
      m.turn=Math.max(m.episodes.at(-1)?.turn||0,...Object.values(m.anchors).map(x=>x.last.turn),0);
+     // 6.28: fix older episodes attributed to 'lena' because a *negated*
+     // aside mentioned Lena. Rebuild only those affected anchors from original utterances.
+     let corrected=false;
+     for(const ep of m.episodes){
+      const resolved=topic(ep.q);
+      if(ep.topic==='lena'&&resolved==='alibi'){ep.topic='alibi';corrected=true;}
+     }
+     if(corrected){
+      m.anchors={};
+      for(const ep of m.episodes){
+       const a=m.anchors[ep.topic]||{first:null,last:null,count:0};
+       const x={turn:ep.turn,a:ep.a,canonical:ep.canonical,kind:ep.kind};
+       if(!a.first)a.first={...x};a.last={...x};a.count++;m.anchors[ep.topic]=a;
+      }
+     }
+     // Migrate v6.25 saved sessions: the dialogue already contains the displayed
+     // answer while this legacy episode could still contain the local draft.
+     const dialogue=STATE.dialogues[id]||[];
+     for(const ep of m.episodes){
+      const n=ep.dialogueLength;if(n<2||n>dialogue.length)continue;
+      const played=dialogue[n-2],spoken=dialogue[n-1];
+      if(played?.role!=='player'||spoken?.role!=='npc'||clean(played.text,260)!==ep.q)continue;
+      ep.a=clean(spoken.text,680);
+      const anchor=m.anchors[ep.topic];
+      if(anchor?.first?.turn===ep.turn)anchor.first.a=ep.a;
+      if(anchor?.last?.turn===ep.turn)anchor.last.a=ep.a;
+     }
     }
     data[id]=m;refs[id]=STATE.dialogues[id];
    }
   }
  });
- return Object.freeze({context,approvedAnchors,recallReply,inspect:()=>Object.fromEntries(IDS.map(id=>{checkSession(id);return [id,{episodes:data[id].episodes.length,topics:Object.keys(data[id].anchors).length,turn:data[id].turn}];}))});
+ return Object.freeze({context,approvedAnchors,canonicalAnchors,recallReply,finalize,inspect:()=>Object.fromEntries(IDS.map(id=>{checkSession(id);return [id,{episodes:data[id].episodes.length,topics:Object.keys(data[id].anchors).length,turn:data[id].turn}];}))});
 })();
 window.PS68_MEMORY=PS68_MEMORY;

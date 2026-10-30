@@ -33,7 +33,8 @@
     const unresolved=visible.filter(h=>!s.inspected.includes(h.id));
     const notFound=spots.length-visible.length;
     const roomDocs=spots.filter(h=>h.doc&&STATE.found.has(h.doc)).length;
-    const recommendation = unresolved[0] ? ('W tej strefie najszybciej domkniesz postęp, jeśli sprawdzisz teraz: '+unresolved[0].title+'.') : (notFound>0 ? 'Przejrzyj kolejne kadry dokumentacji 4K i odszukaj następny punkt w tej strefie.' : 'Ta strefa jest przebadana. Możesz przejść do rekonstrukcji strefy albo zmienić pomieszczenie.');
+    const awaitingSecurity=inspected.find(h=>h.doc&&!STATE.found.has(h.doc));
+    const recommendation = awaitingSecurity ? ('Zbadano „'+awaitingSecurity.title+'”. Pozostało zabezpieczenie materiału do akt.') : unresolved[0] ? ('W tej strefie najszybciej domkniesz postęp, jeśli sprawdzisz teraz: '+unresolved[0].title+'.') : (notFound>0 ? 'Przejrzyj kolejne kadry dokumentacji 4K i odszukaj następny punkt w tej strefie.' : 'Ta strefa jest przebadana. Możesz przejść do rekonstrukcji strefy albo zmienić pomieszczenie.');
     const summary=$('sc84RoomSummary');
     if(summary) summary.innerHTML=`<div class="eyebrow">ORIENTACJA W STREFIE</div><h4>${esc(room.title)}</h4><p>${esc(recommendation)}</p><div class="sc84-inline-stats"><div><b>${visible.length}/${spots.length}</b><span>odkrytych punktów</span></div><div><b>${inspected.length}</b><span>zbadanych w tej strefie</span></div><div><b>${unresolved.length}</b><span>czeka na badanie</span></div><div><b>${roomDocs}</b><span>materiałów w aktach</span></div></div>`;
     const toggle=$('sc84TogglePending'); if(toggle){ toggle.classList.toggle('active',!!s.pendingOnly); toggle.setAttribute('aria-pressed',String(!!s.pendingOnly)); }

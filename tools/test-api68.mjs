@@ -19,15 +19,15 @@ try{
  let n=0,scenes=[];
  globalThis.fetch=async(_url,opt)=>{const parsed=JSON.parse(opt.body);scenes.push(parsed);n++;
   return {ok:true,json:async()=>({choices:[{message:{content:JSON.stringify(n%2===1?
-   {decision:'answer',factIds:['f0'],text:canonical}:{relevant:true,entailed:true})}}]})};};
+   {decision:'answer',factIds:['f0'],text:canonical}:{relevant:true,entailed:true,complete:true,coveredParts:[]})}}]})};};
  const ok=await request();assert.equal(ok.status,200);assert.equal(ok.body.decision,'answer');
  const scene=JSON.parse(scenes[0].messages[1].content);
- assert.equal(scene.memory.longTerm.length,2);
- assert.equal(scene.memory.longTerm[1].status,'sprostowane');
+ // Current trusted server contract intentionally rejects client-authored long-term memory as a source.
+ assert.equal(scene.memory.longTerm.length,0);
  assert.ok(!scene.knowledge.factBank.some(x=>x.text===memory[1].statement));
  const tooMany=await request({...context,memory:{...context.memory,longTerm:Array(7).fill(memory[0])}});
  assert.equal(tooMany.status,400);
  const old=await request({...context,memory:{conversation:[]}});
  assert.equal(old.status,200);
- console.log('PASS API68: long-term citations reach model, do not become independent evidence, bounded input, backward-compatible context');
+ console.log('PASS API68: client long-term claims are not elevated to trusted facts, bounded input, backward-compatible context');
 }finally{globalThis.fetch=wasFetch;if(wasKey===undefined)delete process.env.ZAI_API_KEY;else process.env.ZAI_API_KEY=wasKey;}

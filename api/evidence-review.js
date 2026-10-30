@@ -1,3 +1,5 @@
+import trusted from '../lib/trusted-evidence-629.js';
+import {configured,checkOrigin,sessionId,loadSession,allowEvidenceReview,approvedHistory} from '../lib/server-state.js';
 /** Pakiet 6.16 — pomocnicza analiza hipotezy przez Cloudflare Workers AI.
  * Nie uczestniczy w przesłuchaniach, nie zapisuje stanu i nie decyduje o wyniku gry.
  * Osobna trasa chroni istniejący /api/evaluate podczas aktualizacji GitHuba.
@@ -40,6 +42,30 @@ export function normalizeEvidenceRequest(raw) {
     statement, alternative: clampText(raw.alternative, 1200),
     test: clampText(raw.test, 1000), links
   };
+}
+
+// Client content is NOT a source of fact. Only server-owned sources already
+// unlocked for this session may be sent to Cloudflare.
+export function verifyEvidenceSources(draft, state){
+ if(!draft||!state||!Array.isArray(state.approvedEvidence))return null;
+ const owned=new Set(state.approvedEvidence), safe=[];
+ for(const link of draft.links){
+  if(link.id.startsWith('doc:')){
+   const docId=link.id.slice(4), doc=trusted.documents[docId];
+   if(!doc||!owned.has(docId))return null;
+   safe.push({...link,name:clampText(docId+' · '+doc.title,160),body:clampText(doc.body,1300)});
+  }else{
+   const m=/^say:(MAREK|TOMASZ|JANUSZ|ELZBIETA|KAMIL|MAGDALENA):(\d{1,6})$/.exec(link.id);
+   if(!m)return null;
+   const witness=trusted.witnesses[m[1]];
+   const said=approvedHistory(state,m[1]).filter(x=>x.role==='witness'&&x.narrativeStatus!=='offline_unverified'&&typeof x.text==='string');
+   const entry=said.find(x=>x.text.slice(0,1300).trim()===link.body.trim());
+   if(!entry&&link.body.trim()!==witness.opening.slice(0,1300).trim())return null;
+   const fromServer=entry?.text||witness.opening;
+   safe.push({...link,name:clampText(witness.name+' · zeznanie',160),body:clampText(fromServer,1300)});
+  }
+ }
+ return {...draft,links:safe};
 }
 
 const SYSTEM = `Jesteś życzliwym analitykiem materiału dowodowego w POLSKIEJ GRZE DETEKTYWISTYCZNEJ.
@@ -118,6 +144,11 @@ const send = (res, status, body) => { res.statusCode = status; res.setHeader('Co
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return send(res, 405, { ok: false, error: 'method_not_allowed' });
+  if (!checkOrigin(req)) return send(res, 403, {ok:false,error:'origin_rejected'});
+  if (req.headers?.['x-ps-client'] !== 'game' ||
+      req.headers?.['content-type']?.split(';')[0] !== 'application/json')
+    return send(res, 415, {ok:false,error:'invalid_client'});
+  if (!configured())return send(res,503,{ok:false,error:'session_store_unavailable'});
   const account = process.env.CLOUDFLARE_ACCOUNT_ID;
   const token = process.env.CLOUDFLARE_API_TOKEN || process.env.CLOUDFLARE_AUTH_TOKEN;
   if (!account || !token || !/^[a-zA-Z0-9]{16,64}$/.test(account))
@@ -130,6 +161,16 @@ export default async function handler(req, res) {
       return send(res, 413, { ok:false, error:'payload_too_large' });
     const draft = normalizeEvidenceRequest(raw);
     if (!draft) return send(res, 400, { ok:false, error:'invalid_evidence' });
+    // Authenticate with a signed, HttpOnly session and validate source provenance.
+    const id=sessionId(req,res);
+    let game;
+    try{game=await loadSession(id);}catch{return send(res,503,{ok:false,error:'session_store_unavailable'});}
+    const verified=verifyEvidenceSources(draft,game.state);
+    if(!verified)return send(res,403,{ok:false,error:'sources_not_approved'});
+    // Atomic rate control across Vercel function instances; fails closed on SQL errors.
+    let allowed;
+    try{allowed=await allowEvidenceReview(id,req);}catch{return send(res,503,{ok:false,error:'usage_guard_unavailable'});}
+    if(!allowed)return send(res,429,{ok:false,error:'analysis_rate_limited'});
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 13500);
     let result;
@@ -137,12 +178,12 @@ export default async function handler(req, res) {
       const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${account}/ai/run/${DEFAULT_MODEL}`, {
         method:'POST', signal: controller.signal,
         headers: { Authorization:`Bearer ${token}`, 'Content-Type':'application/json' },
-        body:JSON.stringify(buildCloudflareRequest(draft))
+        body:JSON.stringify(buildCloudflareRequest(verified))
       });
       if (!r.ok) throw Error(`Cloudflare HTTP ${r.status}`);
       const response = await r.json();
       if (response.success === false) throw Error('Cloudflare model failed');
-      result = filterEvidenceAssessment(response, draft);
+      result = filterEvidenceAssessment(response, verified);
     } finally { clearTimeout(timeout); }
     return send(res, 200, { ok:true, assessment:result });
   } catch (err) {

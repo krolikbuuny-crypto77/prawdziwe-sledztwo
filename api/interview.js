@@ -1,4 +1,6 @@
+import {randomUUID} from 'node:crypto';
 import {trustedScene} from '../lib/trusted-interview-624.js';
+import {relevantForQuestion} from '../lib/interview-intent-626.js';
 import {spokenStyleGuide,reviewSpokenReply} from '../lib/spoken-dialogue-623.js';
 import {styleForWitness} from '../lib/narrative-voice-619.js';
 import {dialogueContinuity} from '../lib/dialogue-continuity-620.js';
@@ -15,6 +17,29 @@ const calls=new Map();
 const scrub=(s,n=400)=>typeof s==='string'?s.replace(/[\u0000-\u001f]/g,' ').trim().slice(0,n):'';
 const fail=(res,status,message)=>res.status(status).json({ok:false,error:message});
 const fallback=(canonical)=>({ok:true,decision:'fallback',sourceIds:['turn'],sourceId:'turn',factIds:[],text:canonical,prefaceKey:0,semanticVerified:false});
+// Safe, per-request diagnostic metadata. Never send API keys, prompts, tokens or raw upstream errors.
+const configuredModel=id=>{
+ const raw=id==='zai'?(process.env.ZAI_MODEL||'glm-4.6'):(process.env.GROQ_MODEL||'openai/gpt-oss-120b');
+ // Upgrade legacy Vercel configuration without an operator changing secrets.
+ return id==='groq'&&raw==='llama-3.3-70b-versatile'?'openai/gpt-oss-120b':raw;
+};
+const providerModel=id=>{
+ if(id==='local')return 'witness-engine-local';
+ const raw=configuredModel(id);
+ return /^[A-Za-z0-9][A-Za-z0-9._:/-]{0,95}$/.test(raw)?raw:'configured-model';
+};
+const diagnostics=(provider,reason,requestId,startedAt)=>({provider,model:providerModel(provider),fallbackReason:reason||null,requestId,
+ durationMs:Math.max(0,Math.min(120000,Date.now()-startedAt))});
+const failureCode=(provider,error)=>{
+ const e=String(error?.message||'');
+ if(error?.name==='AbortError'||/abort|timeout/i.test(e))return provider+'_timeout';
+ if(e==='upstream-429')return provider+'_rate_limited';
+ if(e==='upstream-401'||e==='upstream-403')return provider+'_authorization_failed';
+ if(/^upstream-5\d\d$/.test(e))return provider+'_upstream_unavailable';
+ if(e==='provider-not-configured')return provider+'_not_configured';
+ return provider+'_request_failed';
+};
+
 function rateLimited(req){
  const raw=String(req.headers['x-forwarded-for']||req.socket?.remoteAddress||'unknown');
  const ip=raw.split(',')[0].slice(0,80),now=Date.now();
@@ -98,7 +123,8 @@ async function chat(system,scene,maxTokens=650,temperature=0.25,provider="zai"){
   if(!apiKey)throw Error('provider-not-configured');
   const response=await fetch(url,{method:'POST',signal:controller.signal,headers:{
    'Content-Type':'application/json','Authorization':`Bearer ${apiKey}`},body:JSON.stringify({
-    model:groq?(process.env.GROQ_MODEL||'llama-3.3-70b-versatile'):(process.env.ZAI_MODEL||'glm-4.6'),temperature,max_tokens:maxTokens,stream:false,
+    model:configuredModel(provider),temperature,max_tokens:groq?Math.max(maxTokens,1250):maxTokens,stream:false,
+    ...(groq?{response_format:{type:'json_object'},reasoning_effort:'low'}:{}),
     messages:[{role:'system',content:system},{role:'user',content:JSON.stringify(scene)}]
    })});
   if(!response.ok)throw Error('upstream-'+response.status);
@@ -206,7 +232,7 @@ export default async function handler(req,res){
  if(req.method!=='POST'){res.setHeader('Allow','POST');return fail(res,405,'POST required');}
  const origin=req.headers.origin;
  if(origin){try{if(new URL(origin).host!==req.headers.host)return fail(res,403,'Origin rejected');}catch{return fail(res,403,'Origin rejected');}}
- if(!process.env.ZAI_API_KEY&&!process.env.GROQ_API_KEY)return fail(res,503,'AI providers not configured');
+ // No cloud keys? The trusted server-owned local answer still works.
  if(rateLimited(req))return fail(res,429,'Rate limit');
  const raw=typeof req.body==='string'?req.body:JSON.stringify(req.body||{});
  if(Buffer.byteLength(raw,'utf8')>LIMIT)return fail(res,413,'Payload too large');
@@ -252,11 +278,14 @@ export default async function handler(req,res){
  // Tematy z zatwierdzonej historii (do 24 par), identyczne dla obu dostawców; nie są faktami.
  scene.deliveryGuide+=' '+buildThreadCue(scene.identity.id,scene.approvedThreadHistory||scene.memory.conversation,scene.question);
  // Z.ai -> Groq. Modele nie mają dostępu do narzędzi zmieniających stan gry.
+ const requestId=randomUUID(),startedAt=Date.now();
+ const reasons=[];
+ if(!process.env.ZAI_API_KEY)reasons.push('zai_not_configured');
  const providers=['zai','groq'].filter(id=>id==='zai'?!!process.env.ZAI_API_KEY:!!process.env.GROQ_API_KEY);
  for(const provider of providers){
   try{
    const result=await attemptInterview(scene,provider);
-   if(result){
+   if(result&&relevantForQuestion(scene.question,result.text)){
     if(stored){
      // Zeznanie zachowuje status relacji świadka, nie potwierdzonego faktu fabularnego.
      // Przy nieudanym CAS nie pokazujemy odpowiedzi, której nie zapisano w historii.
@@ -266,15 +295,21 @@ export default async function handler(req,res){
       appendReportedTurn(stored.state,input.witnessId,scene.question,result.text,result.factIds||[],classifyCanonicalStatement(input.witnessId,canonical,stored.state.approvedEvidence)));}
      if(!saved)return fail(res,503,'Testimony history conflict');
     }
-    return res.status(200).json({...result,serverCanonical:true});
+    const info=diagnostics(provider,reasons.join(';')||null,requestId,startedAt);
+    console.info('interview-diagnostic',JSON.stringify(info)); // No question, transcript or secrets.
+    return res.status(200).json({...result,serverCanonical:true,...info});
    }
-  }catch(error){/* Niedostępność, nieprawidłowy JSON albo niepełna odpowiedź. */}
+   reasons.push(provider+'_rejected_by_validation');
+  }catch(error){reasons.push(failureCode(provider,error));}
  }
+ if(!process.env.GROQ_API_KEY)reasons.push('groq_not_configured');
  if(stored){
   // Even when both cloud providers fail, persist the safe server-owned response.
   let saved=await commitSession(playerSession,stored.revision,appendReportedTurn(stored.state,input.witnessId,scene.question,canonical,[],'unresolved_statement'));
   if(!saved){stored=await loadSession(playerSession);saved=await commitSession(playerSession,stored.revision,appendReportedTurn(stored.state,input.witnessId,scene.question,canonical,[],'unresolved_statement'));}
   if(!saved)return fail(res,503,'Testimony history conflict');
  }
- return res.status(200).json({...fallback(canonical),serverCanonical:true});
+ const info=diagnostics('local',reasons.join(';')||'cloud_response_unavailable',requestId,startedAt);
+ console.info('interview-diagnostic',JSON.stringify(info));
+ return res.status(200).json({...fallback(canonical),serverCanonical:true,...info});
 }
