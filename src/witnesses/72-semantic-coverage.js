@@ -215,5 +215,6 @@
   window.PS612_LAST={id:c.id,parts,missing,corrected:true};
   return next;
  }
- registerWitnessAnswerLayer('72-question-coverage',answer);
+ // 6.33: retired overlapping answer hook; central 6.33 plan owns question routing.
+// retiredAnswerLayer('72-question-coverage',answer);
 })();

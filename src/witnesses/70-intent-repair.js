@@ -17,6 +17,8 @@
  const certainEntry = /\b(?:nikt|nikogo|nikt tam|nikt nie|nikt sie)\b.{0,35}\b(?:wszedl|wchodzil|wchodzil|byl|pojawil|widzial)\b/;
  function classify(question){
   const q=normalize(question); if(!q||q.length>1100)return null;
+  const k=window.PS633_INTENT?.analyzeQuestion(question);
+  if(k){return {direct_accusation:'directAccusation',direct_observation:'personalObservation',knowledge_source:'epistemicChallenge'}[k.primary]||null;}
   if(directCrime.test(q)&&!/^\s*(?:kto|co|dlaczego|skad)\b/.test(q))return 'directAccusation';
   if((noObservation.test(q)||noWitnessing.test(q))&&
      (knowledgeChallenge.test(q)||certainEntry.test(q)||/\b(?:skoro|sprzecznosc)\b/.test(q)))return 'epistemicChallenge';

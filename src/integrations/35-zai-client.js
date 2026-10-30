@@ -96,7 +96,7 @@
    question:question.slice(0,1600),context};
   // Lokalna odpowiedź jest zachowana w pamięci i będzie ujawniona tylko przy fallback.
   const serial=++requestSerial;showBusy(true);
-  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),26000);
+  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),24000);
   fetch(URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:ctrl.signal})
    .then(r=>{if(!r.ok){
       cloudRetryAt=Date.now()+(r.status===429?3600000:r.status===404?86400000:120000);

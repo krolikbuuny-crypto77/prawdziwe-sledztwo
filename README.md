@@ -1,3 +1,9 @@
+**Aktualizacja 6.33 — wspólny analizator intencji pytań dla lokalnego silnika i Vercel.** Zobacz `README-PAKIET-6.33.md` i `RAPORT-QA-6.33.md`.
+
+**Aktualizacja 6.31 — krótsze oczekiwanie na odpowiedź AI i stopniowe udostępnianie dowodów w przesłuchaniach.** Zobacz `README-PAKIET-6.31.md`.
+
+**Aktualizacja 6.30 — priorytet 1 (naturalność i pamięć przesłuchań):** przeczytaj `README-PAKIET-6.30.md` i `RAPORT-QA-6.30.md`. Bez nowych zmiennych i SQL; aktualizacja nadpisuje 6.29.1.
+
 **Aktualizacja 6.29 (API):** przed wdrożeniem uruchom `supabase/002_ai_review_limits.sql`, następnie przeczytaj `README-PAKIET-6.29.md`. Groq: `openai/gpt-oss-120b`; bez migracji analiza Cloudflare jest blokowana, ale lokalna gra pozostaje dostępna.
 
 # Pakiet 6.22 — animowane portrety sześciu świadków

@@ -145,6 +145,7 @@
   window.PS611_LAST={id:c.id,kind:topic,changed:true};
   return replacement;
  }
- registerWitnessAnswerLayer('71-expanded-local-nlu',answer);
+ // 6.33: retired overlapping answer hook; central 6.33 plan owns question routing.
+// retiredAnswerLayer('71-expanded-local-nlu',answer);
  window.PS611_NLU=Object.freeze({analyze,rankFacts,intents:ids,version:'6.11'});
 })();

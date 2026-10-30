@@ -27,7 +27,7 @@ with sync_playwright() as pw:
     r=page.evaluate('''() => {
       const info=PS_WITNESS_ENGINE.inspect(),ids=CONTENT.characters.map(c=>c.id);
       if(JSON.stringify(ids)!==JSON.stringify(info.witnesses))throw Error('Witness list mismatch');
-      if(info.layers.answer.length!==20||info.layers.export.length!==8||info.layers.restore.length!==8||info.layers.send.length!==9||!info.uiWired)throw Error('Registry mismatch');
+      if(info.layers.answer.length!==17||info.layers.export.length!==8||info.layers.restore.length!==8||info.layers.send.length!==9||!info.uiWired)throw Error('Registry mismatch');
       showTab('interview');
       const counts={};
       for(const c of CONTENT.characters){
@@ -55,7 +55,7 @@ with sync_playwright() as pw:
     }''',r['save'])
     assert state['dialogues'] and state['after']
     print('PASS 6 witnesses, 24 real UI questions (click/Enter), one reply per question, no evidence granted')
-    print('PASS registry 20 answer / 8 export / 8 restore / 9 send; witness knowledge + emotion inspection')
+    print('PASS registry 17 answer / 8 export / 8 restore / 9 send; witness knowledge + emotion inspection')
     print('PASS saved witness dialogue and memory restored with SaveManager v2')
 
     stress=page.evaluate('''() => {

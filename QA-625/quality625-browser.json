@@ -101,7 +101,7 @@
         "id": "MAREK",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Nie wiem, kto wtedy użył tej karty. Nie widziałem tego."
+        "answer": "Podczas tej zmiany kierowałem pracą zajezdni, głównie z biura. Wychodziłem też do spraw służbowych. Nadzorowałem nocną zmianę. Byłem dostępny z biura, ale nie twierdzę, że przebywałem w nim bez przerwy."
       },
       {
         "id": "MAREK",
@@ -148,7 +148,7 @@
         "id": "TOMASZ",
         "topic": "sequence",
         "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
-        "answer": "Nie potrafię z pewnością odtworzyć pełnej kolejności tych zdarzeń. Alarm zgłosiłem o 02:02. Przebieg wcześniejszej godziny trzeba odtworzyć z dyspozycji i rejestru łączności.",
+        "answer": "Nie ułożę z pamięci wszystkich minut między zmianą dyspozycji a alarmem.",
         "modified": true
       },
       {
@@ -208,7 +208,7 @@
         "id": "TOMASZ",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Pracowałem w dyspozytorni. Zmieniłem dyspozycję powrotu wagonu, a później byłem przy stanowisku trzecim, gdzie znalazłem Lenę. Byłem na służbie jako dyspozytor. O 02:02 zgłosiłem alarm. To nie znaczy, że mam świadka dla każdej minuty przed alarmem."
+        "answer": "Pracowałem w dyspozytorni. Byłem na służbie jako dyspozytor. O 02:02 zgłosiłem alarm. To nie znaczy, że mam świadka dla każdej minuty przed alarmem."
       },
       {
         "id": "TOMASZ",
@@ -369,7 +369,7 @@
         "id": "ELZBIETA",
         "topic": "routing",
         "q": "Dlaczego zmieniono dyspozycję TW-217?",
-        "answer": "Przyczyny zmiany dyspozycji TW-217 nie znam na tyle dobrze, by ją podać jako fakt.",
+        "answer": "Lena mówiła mi o ryzyku związanym z TW-217. O jej śmierci usłyszałam dopiero po alarmie.",
         "modified": true
       },
       {
@@ -422,7 +422,7 @@
         "id": "ELZBIETA",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Nie wiem, kto użył T-17. Nie byłam przy tym wejściu."
+        "answer": "Zajmowałam się zgłoszeniami BHP i rejestrem zagrożeń. Nie prowadziłam obserwacji placu przez całą noc. Wykonywałam obowiązki związane z BHP. Potrafię potwierdzić rozmowę z Leną o 21:47, ale nie całą późniejszą noc."
       },
       {
         "id": "ELZBIETA",
@@ -748,7 +748,7 @@
         "id": "MAREK",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Nie wiem, kto wtedy użył tej karty. Nie widziałem tego."
+        "answer": "Podczas tej zmiany kierowałem pracą zajezdni, głównie z biura. Wychodziłem też do spraw służbowych. Nadzorowałem nocną zmianę. Byłem dostępny z biura, ale nie twierdzę, że przebywałem w nim bez przerwy."
       },
       {
         "id": "MAREK",
@@ -795,7 +795,7 @@
         "id": "TOMASZ",
         "topic": "sequence",
         "q": "W jakiej kolejności nastąpił alarm i zmiana kursu?",
-        "answer": "Nie potrafię z pewnością odtworzyć pełnej kolejności tych zdarzeń. Alarm zgłosiłem o 02:02. Przebieg wcześniejszej godziny trzeba odtworzyć z dyspozycji i rejestru łączności.",
+        "answer": "Nie ułożę z pamięci wszystkich minut między zmianą dyspozycji a alarmem.",
         "modified": true
       },
       {
@@ -855,7 +855,7 @@
         "id": "TOMASZ",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Pracowałem w dyspozytorni. Zmieniłem dyspozycję powrotu wagonu, a później byłem przy stanowisku trzecim, gdzie znalazłem Lenę. Byłem na służbie jako dyspozytor. O 02:02 zgłosiłem alarm. To nie znaczy, że mam świadka dla każdej minuty przed alarmem."
+        "answer": "Pracowałem w dyspozytorni. Byłem na służbie jako dyspozytor. O 02:02 zgłosiłem alarm. To nie znaczy, że mam świadka dla każdej minuty przed alarmem."
       },
       {
         "id": "TOMASZ",
@@ -1016,7 +1016,7 @@
         "id": "ELZBIETA",
         "topic": "routing",
         "q": "Dlaczego zmieniono dyspozycję TW-217?",
-        "answer": "Przyczyny zmiany dyspozycji TW-217 nie znam na tyle dobrze, by ją podać jako fakt.",
+        "answer": "Lena mówiła mi o ryzyku związanym z TW-217. O jej śmierci usłyszałam dopiero po alarmie.",
         "modified": true
       },
       {
@@ -1069,7 +1069,7 @@
         "id": "ELZBIETA",
         "topic": "protected",
         "q": "Czy rejestr T-17 potwierdza alibi Magdaleny?",
-        "answer": "Nie wiem, kto użył T-17. Nie byłam przy tym wejściu."
+        "answer": "Zajmowałam się zgłoszeniami BHP i rejestrem zagrożeń. Nie prowadziłam obserwacji placu przez całą noc. Wykonywałam obowiązki związane z BHP. Potrafię potwierdzić rozmowę z Leną o 21:47, ale nie całą późniejszą noc."
       },
       {
         "id": "ELZBIETA",

@@ -37,6 +37,10 @@
     "generate:canon": "python tools/generate-trusted-canon624.py",
     "test:quality624": "python tools/test-quality624.py",
     "test:relevance625": "python tools/test-quality625.py",
-    "test:api629": "node tools/test-api629.mjs && node tools/test-api616.mjs && node tools/test-api627.mjs"
+    "test:api629": "node tools/test-api629.mjs && node tools/test-api616.mjs && node tools/test-api627.mjs",
+    "test:fast-evidence": "node tools/test-priority631.mjs",
+    "test:priority1": "node tools/test-interview630.mjs && node tools/test-interview626.mjs && node tools/test-api624-integration.mjs && node tools/test-security624.mjs && python tools/test-quality626.py",
+    "test:regression632": "python tools/test-regression632.py",
+    "test:unified633": "python tools/test-unified633.py && python tools/test-regression632.py && node tools/test-interview630.mjs && node tools/test-interview626.mjs"
   }
 }

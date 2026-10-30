@@ -225,9 +225,22 @@
       const spot=art.spots.find(x=>x.id===choice&&x.room===r);
       $('et1EvidenceTitle').textContent=spot?.label||'Badany ślad';
       detailImage.alt='Fotografia szczegółowa: '+$('et1EvidenceTitle').textContent;
+      // Caption must reflect the current scene and the source of truth (STATE.found).
+      const caption=visual.querySelector('.et1-evidence-caption small');
+      const source=typeof SC_BY_SPOT!=='undefined'?SC_BY_SPOT[choice]:null;
+      const examined=!!STATE.scene12?.inspected?.includes(choice);
+      if(caption){
+        caption.textContent=source?.doc&&STATE.found.has(source.doc)?'Fotografia szczegółowa · zabezpieczono do akt':
+          examined?(source?.doc?'Fotografia szczegółowa · zbadano, przed zabezpieczeniem':'Fotografia szczegółowa · obserwacja zbadana'):
+          'Fotografia szczegółowa · przed badaniem';
+        caption.setAttribute('aria-live','polite');
+      }
     }else{visual.hidden=true;state.chosen='';detailImage.removeAttribute('src');}
     
   }
+  document.addEventListener('click',e=>{
+    if(e.target.closest('#scSecure, [data-sc-answer], [data-sc-method]'))requestAnimationFrame(()=>updateVisual());
+  },true);
   $('et2RoomSelect').addEventListener('change',e=>{if(typeof scPickRoom==='function')scPickRoom(e.target.value);else console.warn('Nie odnaleziono nawigacji strefy');updateVisual(true);});
   $('et1PreviousFrame').addEventListener('click',()=>setYaw(state.yaw-120));
   $('et1NextFrame').addEventListener('click',()=>setYaw(state.yaw+120));

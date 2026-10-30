@@ -26,17 +26,17 @@ async function submit(question=q){const req={method:'POST',headers:{host:'test62
  await handler(req,res);assert.equal(res.statusCode,200);assert.equal(res.body.serverCanonical,true);return res.body;}
 try{
  mock([{decision:'answer',factIds:['f0'],text:safeAnswer},audit],[]);
- let result=await submit();assert.equal(result.decision,'answer');assert.equal(result.text,safeAnswer);assert.deepEqual(calls.map(x=>x.provider),['zai','zai']);
+ let result=await submit();assert.equal(result.decision,'answer');assert.equal(result.text,safeAnswer);assert.deepEqual(calls.map(x=>x.provider),['zai']);
  const first=JSON.parse(calls[0].payload.messages[1].content);assert(!JSON.stringify(first).includes(fake));assert.deepEqual(first.knowledge.factBank,safe.knowledge.factBank);
  mock([new Error('network')],[{decision:'answer',factIds:['f0'],text:safeAnswer},audit]);
- result=await submit();assert.equal(result.decision,'answer');assert.deepEqual(calls.map(x=>x.provider),['zai','groq','groq']);
+ result=await submit();assert.equal(result.decision,'answer');assert.deepEqual(calls.map(x=>x.provider),['zai','groq']);
  const scenes=calls.filter(x=>x.provider==='groq').map(x=>JSON.parse(x.payload.messages[1].content));
  assert.deepEqual(scenes[0].knowledge.factBank,first.knowledge.factBank);
- mock([{decision:'answer',factIds:['f0'],text:safeAnswer},{relevant:true,entailed:false,complete:true,coveredParts:[]}],[{decision:'answer',factIds:['f0'],text:safeAnswer},audit]);
- result=await submit();assert.equal(result.decision,'answer');assert.deepEqual(calls.map(x=>x.provider),['zai','zai','groq','groq']);
+ mock([{decision:'answer',factIds:['f0'],text:'Tak, '+safeAnswer},{relevant:true,entailed:false,complete:true,coveredParts:[]}],[{decision:'answer',factIds:['f0'],text:safeAnswer},audit]);
+ result=await submit();assert.equal(result.decision,'answer');assert.deepEqual(calls.map(x=>x.provider),['zai','zai','groq']);
  const stiff='W świetle przedstawionych materiałów pragnę wyraźnie podkreślić, że niniejszym oświadczam.';
  mock([{decision:'answer',factIds:['f0'],text:stiff}],[{decision:'answer',factIds:['f0'],text:safeAnswer},audit]);
- result=await submit();assert.equal(result.decision,'answer');assert.deepEqual(calls.map(x=>x.provider),['zai','groq','groq']);
+ result=await submit();assert.equal(result.decision,'answer');assert.deepEqual(calls.map(x=>x.provider),['zai','groq']);
  mock([{decision:'answer',factIds:['f0'],text:fake}],[new Error('offline')]);
  result=await submit();assert.equal(result.decision,'fallback');assert.equal(result.text,safeAnswer);assert.deepEqual(calls.map(x=>x.provider),['zai','groq']);
  mock([new Error('offline')],[new Error('offline')]);

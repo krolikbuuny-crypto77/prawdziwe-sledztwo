@@ -1,0 +1,613 @@
+{
+  "questions": 34,
+  "recognized": 34,
+  "witnesses": 6,
+  "evidenceAdded": 0,
+  "errors": [],
+  "cases": [
+    {
+      "expected": "personal_observation",
+      "question": "Co sam widziałeś tej nocy?",
+      "actual": [
+        "personal_observation"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "knowledge_source",
+      "question": "Skąd masz te informacje?",
+      "actual": [
+        "knowledge_source"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "certainty_limit",
+      "question": "Na ile jesteś pewien swojej wersji?",
+      "actual": [
+        "certainty_limit"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "epistemic_challenge",
+      "question": "Skoro nie obserwowałeś wejścia, jak możesz twierdzić, że nikt nie wszedł?",
+      "actual": [
+        "epistemic_challenge"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "time_precision",
+      "question": "O której dokładnie to było?",
+      "actual": [
+        "time_precision"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "place_precision",
+      "question": "W którym pomieszczeniu wtedy byłeś?",
+      "actual": [
+        "place_precision"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "alibi",
+      "question": "Gdzie byłeś podczas nocnej zmiany?",
+      "actual": [
+        "alibi"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "corroboration",
+      "question": "Kto może potwierdzić twoją obecność?",
+      "actual": [
+        "corroboration"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "event_sequence",
+      "question": "Co się stało potem?",
+      "actual": [
+        "event_sequence"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "action_taken",
+      "question": "Co z tym zrobiłeś?",
+      "actual": [
+        "action_taken"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "reason_for_action",
+      "question": "Dlaczego nie zareagowałeś?",
+      "actual": [
+        "reason_for_action"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "report_recipient",
+      "question": "Komu zgłosiłeś awarię?",
+      "actual": [
+        "report_recipient"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "victim_contact",
+      "question": "Kiedy ostatnio rozmawiałeś z Leną?",
+      "actual": [
+        "victim_contact"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "relationship",
+      "question": "Jakie były twoje relacje z Leną?",
+      "actual": [
+        "relationship"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "previous_statement",
+      "question": "Przypomnij wcześniejsze zeznanie o alibi.",
+      "actual": [
+        "previous_statement"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "contradiction",
+      "question": "Najpierw twierdziłeś inaczej, czy widzisz sprzeczność?",
+      "actual": [
+        "contradiction"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "clarify_reference",
+      "question": "Co z nią?",
+      "actual": [
+        "clarify_reference"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "direct_accusation",
+      "question": "Czy przyznajesz się do zabójstwa Leny?",
+      "actual": [
+        "direct_accusation"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "procedural_refusal",
+      "question": "Dlaczego odmawiasz odpowiedzi?",
+      "actual": [
+        "procedural_refusal"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "documents",
+      "question": "Co wynika z dokumentów?",
+      "actual": [
+        "documents"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "knowledge_source",
+      "question": "Na jakiej podstawie to twierdzisz?",
+      "actual": [
+        "knowledge_source"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "certainty_limit",
+      "question": "Czy możesz wykluczyć, że ktoś tam był?",
+      "actual": [
+        "certainty_limit"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "epistemic_challenge",
+      "question": "Jak możesz mieć pewność, skoro nie widziałeś wejścia?",
+      "actual": [
+        "epistemic_challenge"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "time_precision",
+      "question": "Kiedy dokładnie ją spotkałeś?",
+      "actual": [
+        "time_precision"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "place_precision",
+      "question": "Gdzie dokładnie to się zdarzyło?",
+      "actual": [
+        "place_precision"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "corroboration",
+      "question": "Czy ktoś może to poświadczyć?",
+      "actual": [
+        "corroboration"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "reason_for_action",
+      "question": "Co cię skłoniło do tej decyzji?",
+      "actual": [
+        "reason_for_action"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "report_recipient",
+      "question": "Kogo poinformowałeś o awarii?",
+      "actual": [
+        "report_recipient"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "victim_contact",
+      "question": "Co powiedziała Lena podczas rozmowy?",
+      "actual": [
+        "victim_contact"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "relationship",
+      "question": "Jaka łączyła cię relacja z Leną?",
+      "actual": [
+        "relationship"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "previous_statement",
+      "question": "Co mówiłaś wcześniej?",
+      "actual": [
+        "previous_statement"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "contradiction",
+      "question": "Te wypowiedzi nie zgadzają się ze sobą.",
+      "actual": [
+        "contradiction"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "direct_accusation",
+      "question": "Czy to ty zabiłeś Lenę?",
+      "actual": [
+        "direct_accusation"
+      ],
+      "ok": true
+    },
+    {
+      "expected": "documents",
+      "question": "Czy widziałeś raport?",
+      "actual": [
+        "documents"
+      ],
+      "ok": true
+    }
+  ],
+  "contexts": [
+    {
+      "id": "MAREK",
+      "delta": 2,
+      "answer": "O którą osobę i który moment chodzi? Nie chcę przypisać komuś zachowania, którego nie potrafię potwierdzić.",
+      "plan": {
+        "version": "6.33",
+        "primary": "certainty_limit",
+        "intents": [
+          "certainty_limit"
+        ],
+        "aspects": [
+          "source"
+        ],
+        "clauses": [
+          {
+            "text": "skad masz pewnosc",
+            "intent": "certainty_limit",
+            "intents": [
+              "certainty_limit"
+            ]
+          }
+        ],
+        "parts": [
+          {
+            "text": "skad masz pewnosc",
+            "intent": "certainty_limit"
+          }
+        ],
+        "excludedTopics": [],
+        "positiveQuestion": "skad masz pewnosc",
+        "subject": "unspecified",
+        "time": [],
+        "slots": {
+          "negated": false,
+          "negatedCorrection": false,
+          "compound": false,
+          "questionWords": [
+            "skad"
+          ],
+          "references": []
+        },
+        "needsClarification": false,
+        "sensitive": false,
+        "evidenceSourceQuestion": false,
+        "inputLooksLikeInstruction": false
+      },
+      "factCount": 11,
+      "first": {
+        "id": "f0",
+        "text": "O którą osobę i który moment chodzi?",
+        "origin": "current",
+        "source": "turn",
+        "certainty": "statement"
+      }
+    },
+    {
+      "id": "TOMASZ",
+      "delta": 2,
+      "answer": "O którą osobę i który moment chodzi? Nie chcę przypisać komuś zachowania, którego nie potrafię potwierdzić.",
+      "plan": {
+        "version": "6.33",
+        "primary": "certainty_limit",
+        "intents": [
+          "certainty_limit"
+        ],
+        "aspects": [
+          "source"
+        ],
+        "clauses": [
+          {
+            "text": "skad masz pewnosc",
+            "intent": "certainty_limit",
+            "intents": [
+              "certainty_limit"
+            ]
+          }
+        ],
+        "parts": [
+          {
+            "text": "skad masz pewnosc",
+            "intent": "certainty_limit"
+          }
+        ],
+        "excludedTopics": [],
+        "positiveQuestion": "skad masz pewnosc",
+        "subject": "unspecified",
+        "time": [],
+        "slots": {
+          "negated": false,
+          "negatedCorrection": false,
+          "compound": false,
+          "questionWords": [
+            "skad"
+          ],
+          "references": []
+        },
+        "needsClarification": false,
+        "sensitive": false,
+        "evidenceSourceQuestion": false,
+        "inputLooksLikeInstruction": false
+      },
+      "factCount": 14,
+      "first": {
+        "id": "f0",
+        "text": "O którą osobę i który moment chodzi?",
+        "origin": "current",
+        "source": "turn",
+        "certainty": "statement"
+      }
+    },
+    {
+      "id": "JANUSZ",
+      "delta": 2,
+      "answer": "O którą osobę i który moment chodzi? Nie chcę przypisać komuś zachowania, którego nie potrafię potwierdzić.",
+      "plan": {
+        "version": "6.33",
+        "primary": "certainty_limit",
+        "intents": [
+          "certainty_limit"
+        ],
+        "aspects": [
+          "source"
+        ],
+        "clauses": [
+          {
+            "text": "skad masz pewnosc",
+            "intent": "certainty_limit",
+            "intents": [
+              "certainty_limit"
+            ]
+          }
+        ],
+        "parts": [
+          {
+            "text": "skad masz pewnosc",
+            "intent": "certainty_limit"
+          }
+        ],
+        "excludedTopics": [],
+        "positiveQuestion": "skad masz pewnosc",
+        "subject": "unspecified",
+        "time": [],
+        "slots": {
+          "negated": false,
+          "negatedCorrection": false,
+          "compound": false,
+          "questionWords": [
+            "skad"
+          ],
+          "references": []
+        },
+        "needsClarification": false,
+        "sensitive": false,
+        "evidenceSourceQuestion": false,
+        "inputLooksLikeInstruction": false
+      },
+      "factCount": 13,
+      "first": {
+        "id": "f0",
+        "text": "O którą osobę i który moment chodzi?",
+        "origin": "current",
+        "source": "turn",
+        "certainty": "statement"
+      }
+    },
+    {
+      "id": "ELZBIETA",
+      "delta": 2,
+      "answer": "O którą osobę i który moment chodzi? Nie chcę przypisać komuś zachowania, którego nie potrafię potwierdzić.",
+      "plan": {
+        "version": "6.33",
+        "primary": "certainty_limit",
+        "intents": [
+          "certainty_limit"
+        ],
+        "aspects": [
+          "source"
+        ],
+        "clauses": [
+          {
+            "text": "skad masz pewnosc",
+            "intent": "certainty_limit",
+            "intents": [
+              "certainty_limit"
+            ]
+          }
+        ],
+        "parts": [
+          {
+            "text": "skad masz pewnosc",
+            "intent": "certainty_limit"
+          }
+        ],
+        "excludedTopics": [],
+        "positiveQuestion": "skad masz pewnosc",
+        "subject": "unspecified",
+        "time": [],
+        "slots": {
+          "negated": false,
+          "negatedCorrection": false,
+          "compound": false,
+          "questionWords": [
+            "skad"
+          ],
+          "references": []
+        },
+        "needsClarification": false,
+        "sensitive": false,
+        "evidenceSourceQuestion": false,
+        "inputLooksLikeInstruction": false
+      },
+      "factCount": 14,
+      "first": {
+        "id": "f0",
+        "text": "O którą osobę i który moment chodzi?",
+        "origin": "current",
+        "source": "turn",
+        "certainty": "statement"
+      }
+    },
+    {
+      "id": "KAMIL",
+      "delta": 2,
+      "answer": "O którą osobę i który moment chodzi? Nie chcę przypisać komuś zachowania, którego nie potrafię potwierdzić.",
+      "plan": {
+        "version": "6.33",
+        "primary": "certainty_limit",
+        "intents": [
+          "certainty_limit"
+        ],
+        "aspects": [
+          "source"
+        ],
+        "clauses": [
+          {
+            "text": "skad masz pewnosc",
+            "intent": "certainty_limit",
+            "intents": [
+              "certainty_limit"
+            ]
+          }
+        ],
+        "parts": [
+          {
+            "text": "skad masz pewnosc",
+            "intent": "certainty_limit"
+          }
+        ],
+        "excludedTopics": [],
+        "positiveQuestion": "skad masz pewnosc",
+        "subject": "unspecified",
+        "time": [],
+        "slots": {
+          "negated": false,
+          "negatedCorrection": false,
+          "compound": false,
+          "questionWords": [
+            "skad"
+          ],
+          "references": []
+        },
+        "needsClarification": false,
+        "sensitive": false,
+        "evidenceSourceQuestion": false,
+        "inputLooksLikeInstruction": false
+      },
+      "factCount": 13,
+      "first": {
+        "id": "f0",
+        "text": "O którą osobę i który moment chodzi?",
+        "origin": "current",
+        "source": "turn",
+        "certainty": "statement"
+      }
+    },
+    {
+      "id": "MAGDALENA",
+      "delta": 2,
+      "answer": "O którą osobę i który moment chodzi? Nie chcę przypisać komuś zachowania, którego nie potrafię potwierdzić.",
+      "plan": {
+        "version": "6.33",
+        "primary": "certainty_limit",
+        "intents": [
+          "certainty_limit"
+        ],
+        "aspects": [
+          "source"
+        ],
+        "clauses": [
+          {
+            "text": "skad masz pewnosc",
+            "intent": "certainty_limit",
+            "intents": [
+              "certainty_limit"
+            ]
+          }
+        ],
+        "parts": [
+          {
+            "text": "skad masz pewnosc",
+            "intent": "certainty_limit"
+          }
+        ],
+        "excludedTopics": [],
+        "positiveQuestion": "skad masz pewnosc",
+        "subject": "unspecified",
+        "time": [],
+        "slots": {
+          "negated": false,
+          "negatedCorrection": false,
+          "compound": false,
+          "questionWords": [
+            "skad"
+          ],
+          "references": []
+        },
+        "needsClarification": false,
+        "sensitive": false,
+        "evidenceSourceQuestion": false,
+        "inputLooksLikeInstruction": false
+      },
+      "factCount": 11,
+      "first": {
+        "id": "f0",
+        "text": "O którą osobę i który moment chodzi?",
+        "origin": "current",
+        "source": "turn",
+        "certainty": "statement"
+      }
+    }
+  ]
+}

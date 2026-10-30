@@ -17,13 +17,18 @@ async function run(data){let out;const req={method:'POST',headers:{host:'test.lo
  await handler(req,res);return out;}
 let calls=[];
 try{
- globalThis.fetch=async(url,opts)=>{calls.push(JSON.parse(opts.body));return {ok:true,json:async()=>({choices:[{message:{content:JSON.stringify(calls.length===1?
- {decision:'answer',factIds:['f1'],text:'Rozmawiałam z nią o 21:47.'}:
- {relevant:true,entailed:true,reason:'potwierdzone'})}}]})};};
+ globalThis.fetch=async(url,opts)=>{
+  const payload=JSON.parse(opts.body);calls.push(payload);
+  const scene=JSON.parse(payload.messages[1].content);
+  const selected=scene?.knowledge?.factBank?.find(f=>/21:47/.test(f.text))||scene?.knowledge?.factBank?.[0];
+  return {ok:true,json:async()=>({choices:[{message:{content:JSON.stringify(
+   {decision:'answer',factIds:[selected.id],text:selected.text})}}]})};
+ };
  let r=await run(base);assert.equal(r.status,200);assert.equal(r.body.decision,'answer');
- assert.equal(calls.length,2);assert.ok(calls[0].messages[1].content.includes('time_precision'));
- assert.ok(calls[1].messages[1].content.includes('questionPlan'));
+ assert.equal(calls.length,1); // Literal server-verified answer uses fast path.
+ assert.ok(calls[0].messages[1].content.includes('last_contact'));
+ assert(!calls[0].messages[1].content.includes('time_precision'));
  r=await run({...base,context:{...context,request:{semanticPlan:{...semanticPlan,intents:Array(20).fill('x')}}}});
  assert.equal(r.status,400);
- console.log('PASS API611: semantic plan passes both model and verifier; unbounded intent list rejected');
+ console.log('PASS API611: server-generated plan controls trusted facts; unbounded client plan rejected');
 }finally{globalThis.fetch=oldFetch;if(oldKey===undefined)delete process.env.ZAI_API_KEY;else process.env.ZAI_API_KEY=oldKey;}

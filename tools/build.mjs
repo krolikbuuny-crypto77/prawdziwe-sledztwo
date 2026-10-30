@@ -27,7 +27,12 @@ export function buildPage() {
       for (const file of entry.parts) {
         const resolved = path.resolve(root, file);
         if (!resolved.startsWith(root + path.sep)) throw Error(`Outside project: ${file}`);
-        code += fs.readFileSync(resolved, 'utf8');
+        const contents = fs.readFileSync(resolved, 'utf8');
+        if (file === 'lib/question-intent-633.js') {
+          // The browser and Vercel execute exactly the same parser source.
+          code += '\n(()=>{\n' + contents.replace(/\bexport\s+(?=(?:const|function)\b)/g, '') +
+            '\nwindow.PS633_INTENT=Object.freeze({analyzeQuestion,classifyQuestionPart,legacyQuestionPlan,foldQuestion,INTENT_VERSION});\n})();\n';
+        } else code += contents;
       }
       scripts.push(code);
       const occurrences = html.split(entry.marker).length - 1;

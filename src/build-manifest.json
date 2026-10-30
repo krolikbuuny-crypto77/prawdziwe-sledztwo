@@ -278,8 +278,8 @@
         "src/core/witness-engine.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_000__",
-      "sha256": "0c613cba9a792c68eee932fa8a4acb915f17f3aeb9d44ab02f126e3d7d832f6f",
-      "size": 1461020
+      "sha256": "ae0f96052fcd37ae9f32980bcd6baed0cf8a15678aee3857b728439da60c3782",
+      "size": 1462369
     },
     {
       "kind": "script",
@@ -311,8 +311,8 @@
         "src/inspection/03-visual-asset-bridge.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_003__",
-      "sha256": "a329326c9e78f305f64b1dd8f9eaa0efced0f5030ace15c27630f814a7e2f038",
-      "size": 26992
+      "sha256": "1635d533e349f9df910793a47f9dfc965edd79dbacd1479e0223ba8245afb019",
+      "size": 27863
     },
     {
       "kind": "script",
@@ -1374,10 +1374,12 @@
         "src/integrations/68-long-term-memory.js",
         "src/integrations/65-witness-context.js",
         "src/integrations/35-zai-client.js",
+        "lib/question-intent-633.js",
         "src/witnesses/70-intent-repair.js",
         "src/witnesses/71-expanded-local-nlu.js",
         "src/witnesses/72-semantic-coverage.js",
         "src/witnesses/73-semantic-intent-robustness.js",
+        "src/witnesses/73b-central-plan-633.js",
         "src/witnesses/74-grounded-response-variety.js",
         "src/integrations/75-verified-state-sync.js",
         "src/story/76-narrative-depth-619.js",
@@ -1387,11 +1389,11 @@
         "src/story/80-animated-faces-622.js",
         "src/witnesses/81-out-of-scope-624.js",
         "src/witnesses/82-relevance-and-voice-625.js",
-        "src/witnesses/83-question-focus-626.js"
+        "src/witnesses/85-unified-response-633.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_060__",
-      "sha256": "dcf6a93ce5a33a995ad74b18439614b493c66894029e940c9bb11bee00ffdf46",
-      "size": 213790
+      "sha256": "4c7b086f7a4ba38418c044d1b1696835c8117917b7f093371dfc4544cb852700",
+      "size": 225317
     },
     {
       "kind": "style",

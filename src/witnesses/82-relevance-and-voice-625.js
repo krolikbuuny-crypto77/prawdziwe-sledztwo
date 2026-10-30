@@ -122,7 +122,10 @@ function select(c,kind,question){
 }
 registerWitnessAnswerLayer('82-relevance-and-voice-625',function(c,question,attached){
  const oldConfronted=NPC9_MEMORY?.[c?.id]?.confronted?.length||0;
- const kind=detect(question),answer=before(c,question,attached);
+ const plan=window.PS633_INTENT?.analyzeQuestion(question);
+ const kind=plan && (plan.sensitive||plan.slots.compound||
+  ['self_alibi','alarm_report','last_contact','workshop_missing_entry','bhp_sent','test_authorization'].includes(plan.primary))?null:detect(question);
+ const answer=before(c,question,attached);
  if(!kind||!profiles[c?.id]||!permitted(c,answer,attached,oldConfronted)||!isOffTopic(kind,answer))return answer;
  const picked=select(c,kind,question);
  if(!picked||picked===answer||!rewrite(c,answer,picked,kind))return answer;

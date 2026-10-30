@@ -192,7 +192,8 @@ function answer(c,question,attached){
  window.PS613_LAST={witness:c.id,topic:kind,replaced:true};
  return response;
 }
-registerWitnessAnswerLayer('73-robust-intent-grounded',answer);
+// 6.33: retired overlapping answer hook; central 6.33 plan owns question routing.
+// retiredAnswerLayer('73-robust-intent-grounded',answer);
 window.PS611_NLU=Object.freeze({...prior,analyze,version:'6.13'});
 window.PS613_NLU=window.PS611_NLU;
 })();
