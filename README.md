@@ -1,5 +1,9 @@
-Prawdziwe Śledztwo — wersja testowa **6.36-AI-UNDERSTANDING-RC3**.
+Prawdziwe Śledztwo — wersja testowa **6.36-AI-FOLLOWUP-RC4**.
 
-Instrukcja: `README-6.36-AI-UNDERSTANDING-RC3.md`. Raport: `RAPORT-QA-6.36-AI-UNDERSTANDING-RC3.md`.
+Pełna wersja obejmuje wszystkie zmiany RC3 oraz poprawkę pytania uzupełniającego o potwierdzenie alibi, naturalne rozdzielanie zdań i diagnostykę błędów HTTP 503.
 
-**Nie aktualizuj produkcyjnego `main` przed migracją Supabase `003` i testami Vercel Preview.**
+Instrukcja: `README-6.36-AI-FOLLOWUP-RC4.md`. Raport: `RAPORT-QA-6.36-AI-FOLLOWUP-RC4.md`.
+
+## Aktualny wariant — 6.36 Witness Knowledge RC5
+
+Przed wdrożeniem przeczytaj `README-6.36-WITNESS-KNOWLEDGE-RC5.md` oraz `RAPORT-QA-6.36-WITNESS-KNOWLEDGE-RC5.md`. RC5 rozbudowuje tylko serwerowe kartoteki wiedzy świadków. Nie zastępuje wymogu migracji Supabase `003` i nie oznacza, że błąd 503 na Vercel został naprawiony.

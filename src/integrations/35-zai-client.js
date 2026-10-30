@@ -212,10 +212,22 @@
    }
    return fetch(URL,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify(payload),signal:ctrl.signal});
   })()
-   .then(r=>{if(!r.ok){
-      unavailable(r.status===409?'Dowód nie jest jeszcze zatwierdzony. Ponów pytanie po synchronizacji.':
-       r.status===429?'Serwer AI jest chwilowo przeciążony. Ponów pytanie.':
-       'AI jest chwilowo niedostępne (HTTP '+r.status+'). Ponów pytanie.');
+   .then(async r=>{if(!r.ok){
+      let detail=null;
+      try{detail=await r.json();}catch{} // No raw upstream content is ever displayed.
+      const error=String(detail?.error||'');
+      const reasons=String(detail?.fallbackReason||'').split(';').filter(x=>/^(?:zai|groq)_(?:timeout|rate_limited|authorization_failed|upstream_unavailable|not_configured|request_failed|rejected_by_validation|budget_exhausted)$/.test(x));
+      const labels={zai:'Z.ai',groq:'Groq',timeout:'przekroczony czas',rate_limited:'limit dostawcy',authorization_failed:'brak autoryzacji',upstream_unavailable:'błąd dostawcy',not_configured:'brak konfiguracji',request_failed:'błąd żądania',rejected_by_validation:'odrzucona odpowiedź',budget_exhausted:'brak czasu na próbę'};
+      const providerStatus=reasons.map(x=>{const sep=x.indexOf('_');return labels[x.slice(0,sep)]+': '+labels[x.slice(sep+1)];}).join(', ');
+      const message=r.status===409?'Dowód nie jest jeszcze zatwierdzony. Ponów pytanie po synchronizacji.':
+       r.status===429?'Limit zapytań przesłuchań został osiągnięty. Ponów później.':
+       error==='Shared rate limiter unavailable'?'Limit zapytań Supabase jest niedostępny. Sprawdź migrację SQL 003 i ustawienia serwera.':
+       error==='Server session not configured'?'Sesja Supabase nie jest skonfigurowana na Vercel.':
+       error==='Server testimony history unavailable'?'Serwer nie może odczytać historii przesłuchań z Supabase.':
+       error==='Testimony history conflict'?'Nie udało się zapisać odpowiedzi w Supabase. Ponów pytanie.':
+       r.status===503&&providerStatus?'AI nie zwróciło zatwierdzonej odpowiedzi. '+providerStatus+'. Ponów pytanie.':
+       'AI jest chwilowo niedostępne (HTTP '+r.status+'). Ponów pytanie.';
+      unavailable(message);
       return null;
     }return r.json();})
    .then(data=>{
