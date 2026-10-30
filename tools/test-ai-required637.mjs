@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {INTERVIEW_BUDGET,phaseTimeout} from '../lib/interview-budget-636.js';
 assert.equal(INTERVIEW_BUDGET.totalMs,46000);
 assert.equal(INTERVIEW_BUDGET.zaiWindowMs,25000);
-assert.equal(phaseTimeout({provider:'zai',phase:'generate',now:0,turnDeadline:46000,providerDeadline:25000}),18000);
+assert.equal(phaseTimeout({provider:'zai',phase:'generate',now:0,turnDeadline:46000,providerDeadline:25000}),22000);
 const old={fetch:globalThis.fetch,info:console.info};
 const prior=Object.fromEntries(['ZAI_API_KEY','GROQ_API_KEY','GAME_SESSION_SECRET','SUPABASE_URL','SUPABASE_SERVICE_ROLE_KEY'].map(k=>[k,process.env[k]]));
 process.env.ZAI_API_KEY='dummy-zai';process.env.GROQ_API_KEY='dummy-groq';

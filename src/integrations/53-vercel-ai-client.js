@@ -1,5 +1,5 @@
-/* Pakiet 6.16: Cloudflare Workers AI opiniuje TYLKO tablicę dedukcyjną.
- * Z.ai pozostaje jedynym modelem prowadzącym przesłuchania.
+/* Pakiet 6.16: Groq GPT-OSS opiniuje TYLKO tablicę dedukcyjną.
+ * Gemini 3.8 Flash prowadzi przesłuchania i zwraca emocje do portretów.
  * Lokalny ReasoningEngine zachowuje wyłączną władzę nad wynikiem gry.
  */
 let psEvidenceAssessmentRequest=0;
@@ -43,15 +43,9 @@ window.psDualAssess=async function(draft,sourceMap){
    }
   }
   let response=await fetch('/api/evidence-review',{method:'POST',headers:{'Content-Type':'application/json','X-PS-Client':'game'},credentials:'same-origin',body,signal:controller.signal});
-  // Compatibility with existing Vercel sites where the new endpoint is not yet deployed.
-  if(response.status===404){
-   response=await fetch('/api/evaluate',{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({kind:draft.kind,statement:draft.statement,alternative:draft.alternative,test:draft.test,
-     links:links.map(({name,body,role,note})=>({name,body,role,note}))}),signal:controller.signal});
-  }
   if(response.status===403){panel.textContent=localSummary+'\n\nNie wszystkie wybrane źródła zostały zatwierdzone przez serwer. Poczekaj na synchronizację zapisu lub wybierz zatwierdzone materiały.';return;}
   if(response.status===429){panel.textContent='Osiągnięto limit analiz AI. Wróć za kilka minut; lokalna analiza nadal działa.';return;}
-  if(!response.ok)throw Error('Cloudflare temporarily unavailable');
+  if(!response.ok)throw Error('Groq temporarily unavailable');
   const data=await response.json();
   if(!panel.isConnected||requestId!==psEvidenceAssessmentRequest)return;
   const a=data?.assessment;if(data.ok!==true||!a||typeof a!=='object')throw Error('No AI assessment');

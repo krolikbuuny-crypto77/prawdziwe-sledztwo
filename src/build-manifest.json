@@ -1236,8 +1236,8 @@
         "src/integrations/53-vercel-ai-client.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_053__",
-      "sha256": "9a0b44304796f3a8e2023f8d612a45926714c93ecf0162efa490046b7fdbbcf1",
-      "size": 6242
+      "sha256": "a39773d2bcd278ed6e777b37084bbef30ac4df3c1a67a9cede645cad109b2168",
+      "size": 5801
     },
     {
       "kind": "style",
@@ -1389,11 +1389,12 @@
         "src/story/80-animated-faces-622.js",
         "src/witnesses/81-out-of-scope-624.js",
         "src/witnesses/82-relevance-and-voice-625.js",
-        "src/witnesses/85-unified-response-633.js"
+        "src/witnesses/85-unified-response-633.js",
+        "src/integrations/90-specialized-ai-rc7.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_060__",
-      "sha256": "dac80f63e62ba77c4214f76b96faf385c76361f3c991e0a74262e4a611c18152",
-      "size": 237156
+      "sha256": "badce91614d154f9a32c4eca44e76a0630c8c32809e2fe66b997321147f87f56",
+      "size": 243592
     },
     {
       "kind": "style",

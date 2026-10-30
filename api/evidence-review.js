@@ -1,6 +1,7 @@
 import trusted from '../lib/trusted-evidence-629.js';
+import {askGroq,models} from '../lib/ai-providers-rc7.js';
 import {configured,checkOrigin,sessionId,loadSession,allowEvidenceReview,approvedHistory} from '../lib/server-state.js';
-/** Pakiet 6.16 — pomocnicza analiza hipotezy przez Cloudflare Workers AI.
+/** Pakiet 6.16 — pomocnicza analiza hipotezy przez Groq Cloud AI.
  * Nie uczestniczy w przesłuchaniach, nie zapisuje stanu i nie decyduje o wyniku gry.
  * Osobna trasa chroni istniejący /api/evaluate podczas aktualizacji GitHuba.
  */
@@ -45,7 +46,7 @@ export function normalizeEvidenceRequest(raw) {
 }
 
 // Client content is NOT a source of fact. Only server-owned sources already
-// unlocked for this session may be sent to Cloudflare.
+// unlocked for this session may be sent to Groq.
 export function verifyEvidenceSources(draft, state){
  if(!draft||!state||!Array.isArray(state.approvedEvidence))return null;
  const owned=new Set(state.approvedEvidence), safe=[];
@@ -81,7 +82,7 @@ Jeśli nie ma pewnych ustaleń, confirmed może być pustą listą. Nie zmuszaj 
 W 'nextStep' podaj maksymalnie jedno proste, OPCJONALNE działanie odnoszące się do JUŻ połączonych źródeł lub istniejącego planu gracza. Nie wymagaj nowej minigry.
 Odpowiedz wyłącznie jako JSON zgodny ze schematem. Każde stwierdzenie może wykorzystywać tylko źródła w danych wejściowych.`;
 
-export function buildCloudflareRequest(draft) {
+export function buildGroqRequest(draft) {
   return {
     messages: [
       { role: 'system', content: SYSTEM },
@@ -95,7 +96,7 @@ export function buildCloudflareRequest(draft) {
 }
 
 function extractResponse(payload) {
-  let response = payload?.result?.response ?? payload?.response ?? payload?.result;
+  let response = payload?.result?.response ?? payload?.response ?? payload?.result ?? payload;
   if (typeof response === 'object' && response && Array.isArray(response.choices)) response = response.choices[0]?.message?.content;
   if (typeof response === 'string') {
     let cleaned = response.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
@@ -149,10 +150,7 @@ export default async function handler(req, res) {
       req.headers?.['content-type']?.split(';')[0] !== 'application/json')
     return send(res, 415, {ok:false,error:'invalid_client'});
   if (!configured())return send(res,503,{ok:false,error:'session_store_unavailable'});
-  const account = process.env.CLOUDFLARE_ACCOUNT_ID;
-  const token = process.env.CLOUDFLARE_API_TOKEN || process.env.CLOUDFLARE_AUTH_TOKEN;
-  if (!account || !token || !/^[a-zA-Z0-9]{16,64}$/.test(account))
-    return send(res, 503, { ok: false, error: 'cloudflare_not_configured' });
+  if(!process.env.GROQ_API_KEY)return send(res,503,{ok:false,error:'groq_not_configured'});
   try {
     if (req.headers?.['content-length'] && Number(req.headers['content-length']) > MAX_BODY)
       return send(res, 413, { ok:false, error:'payload_too_large' });
@@ -171,20 +169,17 @@ export default async function handler(req, res) {
     let allowed;
     try{allowed=await allowEvidenceReview(id,req);}catch{return send(res,503,{ok:false,error:'usage_guard_unavailable'});}
     if(!allowed)return send(res,429,{ok:false,error:'analysis_rate_limited'});
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 13500);
-    let result;
-    try {
-      const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${account}/ai/run/${DEFAULT_MODEL}`, {
-        method:'POST', signal: controller.signal,
-        headers: { Authorization:`Bearer ${token}`, 'Content-Type':'application/json' },
-        body:JSON.stringify(buildCloudflareRequest(verified))
-      });
-      if (!r.ok) throw Error(`Cloudflare HTTP ${r.status}`);
-      const response = await r.json();
-      if (response.success === false) throw Error('Cloudflare model failed');
-      result = filterEvidenceAssessment(response, verified);
-    } finally { clearTimeout(timeout); }
+    // Use GPT-OSS 120B as primary and GPT-OSS 20B as an independent model-level reserve.
+    let answer=null, last=null;
+    const candidates=[...new Set([models().deduction,models().deductionBackup])];
+    for(const model of candidates){
+      try{
+        answer=await askGroq({system:SYSTEM,payload:verified,model,timeoutMs:13500,maxTokens:1100,temperature:0.12,role:'deduction'});
+        break;
+      }catch(error){last=error;}
+    }
+    if(!answer)throw last||Error('groq_unavailable');
+    const result=filterEvidenceAssessment(answer,verified);
     return send(res, 200, { ok:true, assessment:result });
   } catch (err) {
     const status = err?.status || (err instanceof SyntaxError ? 400 : 502);

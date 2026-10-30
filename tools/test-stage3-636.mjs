@@ -4,7 +4,7 @@ import {INTERVIEW_BUDGET,phaseTimeout} from '../lib/interview-budget-636.js';
 
 const now=1_000;
 assert.equal(INTERVIEW_BUDGET.totalMs,46000);
-assert.equal(phaseTimeout({provider:'zai',phase:'generate',now,turnDeadline:now+46000,providerDeadline:now+25000}),18000);
+assert.equal(phaseTimeout({provider:'zai',phase:'generate',now,turnDeadline:now+46000,providerDeadline:now+25000}),22000);
 assert.equal(phaseTimeout({provider:'zai',phase:'semantic-audit',now:23500,turnDeadline:47000,providerDeadline:26000}),2500);
 assert.equal(phaseTimeout({provider:'zai',phase:'semantic-audit',now:25600,turnDeadline:47000,providerDeadline:26000}),0);
 assert.equal(phaseTimeout({provider:'groq',phase:'generate',now:26300,turnDeadline:47000,providerDeadline:45500}),13000);

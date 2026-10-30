@@ -1,4 +1,5 @@
 import {randomUUID} from 'node:crypto';
+import {askGemini,models} from '../lib/ai-providers-rc7.js';
 import {trustedScene} from '../lib/trusted-interview-624.js';
 import {buildQuestionContext,repeatsIrrelevantly} from '../lib/question-context-630.js';
 import {reviewInterviewReply,repairCue} from '../lib/interview-quality-635.js';
@@ -14,32 +15,23 @@ import {configured,sessionId,loadSession,commitSession,appendReportedTurn,approv
 /* Pakiet 6.7: rozumienie intencji -> dobór udostępnionych faktów -> wypowiedź -> niezależna ocena semantyczna.
  * Stan fabuły i bramki pozostają w silniku lokalnym. Model NIE ma narzędzi do ich modyfikacji.
  * ZAI_API_KEY jest wyłącznie zmienną środowiskową Vercel. */
-const ENDPOINT='https://api.z.ai/api/paas/v4/chat/completions';
 const IDS=new Set(['MAREK','TOMASZ','JANUSZ','ELZBIETA','KAMIL','MAGDALENA']);
 const LIMIT=23_000;
 const scrub=(s,n=400)=>typeof s==='string'?s.replace(/[\u0000-\u001f]/g,' ').trim().slice(0,n):'';
 const fail=(res,status,message)=>res.status(status).json({ok:false,error:message});
 // Free-form interviews require a verified cloud response. Never accept an environment flag to restore local testimony.
 // Safe, per-request diagnostic metadata. Never send API keys, prompts, tokens or raw upstream errors.
-const configuredModel=id=>{
- const raw=id==='zai'?(process.env.ZAI_MODEL||'glm-4.6'):(process.env.GROQ_MODEL||'openai/gpt-oss-120b');
- // Upgrade legacy Vercel configuration without an operator changing secrets.
- return id==='groq'&&raw==='llama-3.3-70b-versatile'?'openai/gpt-oss-120b':raw;
-};
-const providerModel=id=>{
- if(id==='local')return 'witness-engine-local';
- if(id==='unavailable')return 'none';
- const raw=configuredModel(id);
- return /^[A-Za-z0-9][A-Za-z0-9._:/-]{0,95}$/.test(raw)?raw:'configured-model';
-};
+const providerModel=id=>id==='gemini'?models().interview:id==='unavailable'?'none':id;
 const diagnostics=(provider,reason,requestId,startedAt)=>({provider,model:providerModel(provider),fallbackReason:reason||null,requestId,
  durationMs:Math.max(0,Math.min(120000,Date.now()-startedAt))});
 const failureCode=(provider,error)=>{
  const e=String(error?.message||'');
  if(error?.name==='AbortError'||/abort|timeout/i.test(e))return provider+'_timeout';
- if(e==='upstream-429')return provider+'_rate_limited';
- if(e==='upstream-401'||e==='upstream-403')return provider+'_authorization_failed';
+ if(e==='upstream-429'||e==='upstream_rate_limit')return provider+'_rate_limited';
+ if(e==='upstream_authorization'||e==='upstream-401'||e==='upstream-403')return provider+'_authorization_failed';
  if(/^upstream-5\d\d$/.test(e))return provider+'_upstream_unavailable';
+ if(e==='gemini_not_configured')return provider+'_not_configured';
+  if(e==='model_not_available')return provider+'_model_not_available';
  if(e==='provider-not-configured')return provider+'_not_configured';
  return provider+'_request_failed';
 };
@@ -113,35 +105,15 @@ function validated(input){
   question:scrub(input.question,1600),questionPlan,questionParts,presentedEvidenceId
  };
 }
-async function chat(system,scene,maxTokens=650,temperature=0.25,provider="zai",phase='generate'){
- // The audit payload previously had no global deadline. Keep every request
- // (generation, single rewrite, independent audit) under the SAME limits.
- const timeout=phaseTimeout({provider,phase,turnDeadline:scene?._responseDeadline,
-  providerDeadline:scene?._providerDeadline});
+async function chat(system,scene,maxTokens=650,temperature=0.25,provider='gemini',phase='generate'){
+ const timeout=phaseTimeout({provider:'gemini',phase,turnDeadline:scene?._responseDeadline,providerDeadline:scene?._providerDeadline});
  if(!timeout)throw Error('timeout-budget');
- const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeout);
- // Avoid sending the approved transcript twice; in factBank mode the legacy
- // groundedOptions and alreadySaid are duplicate descriptions, not extra facts.
  const modelScene=scene?.knowledge?.factBank?{
   ...scene,_responseDeadline:undefined,_providerDeadline:undefined,approvedThreadHistory:undefined,
   knowledge:{...scene.knowledge,groundedOptions:undefined,alreadySaid:undefined}
  }:{...scene,_responseDeadline:undefined,_providerDeadline:undefined};
- try{
-  const groq=provider==='groq';
-  const url=groq?'https://api.groq.com/openai/v1/chat/completions':ENDPOINT;
-  const apiKey=groq?process.env.GROQ_API_KEY:process.env.ZAI_API_KEY;
-  if(!apiKey)throw Error('provider-not-configured');
-  const response=await fetch(url,{method:'POST',signal:controller.signal,headers:{
-   'Content-Type':'application/json','Authorization':`Bearer ${apiKey}`},body:JSON.stringify({
-    model:configuredModel(provider),temperature,max_tokens:groq?Math.max(maxTokens,880):maxTokens,stream:false,
-    ...(groq?{response_format:{type:'json_object'},reasoning_effort:'low'}:{}),
-    messages:[{role:'system',content:system},{role:'user',content:JSON.stringify(modelScene)}]
-   })});
-  if(!response.ok)throw Error('upstream-'+response.status);
-  const data=await response.json();const raw=data?.choices?.[0]?.message?.content;
-  if(typeof raw!=='string')throw Error('invalid-model-reply');
-  return JSON.parse(raw.replace(/^```(?:json)?\s*|\s*```$/g,''));
- }finally{clearTimeout(timer)}
+ return askGemini({system,payload:modelScene,maxTokens,temperature,model:models().interview,
+   timeoutMs:timeout,thinkingLevel:phase==='semantic-audit'?'medium':'high'});
 }
 function anchors(text){return [...text.matchAll(/\b\d+(?::\d+)?(?:[.,]\d+)?\b/g)].map(x=>x[0]).sort();}
 const uncertainty=/\b(?:nie wiem|nie pamiętam|nie jestem pew|nie mogę potwierdzić|nie potrafię|chyba|może|możliwe|wydaje mi się|prawdopodobnie|według|podobno)\b/i;
@@ -154,8 +126,10 @@ function hardGuard(sourceText,text){
  // Każda liczba wypowiedziana przez model MUSI jednak pochodzić z dozwolonego tekstu.
  const available=new Map();for(const n of nums)available.set(n,(available.get(n)||0)+1);
  for(const n of next){const left=available.get(n)||0;if(!left)return false;available.set(n,left-1);}
- if(uncertainty.test(sourceText)&&!uncertainty.test(text))return false;
- if(negation.test(sourceText)&&!negation.test(text))return false;
+ // Polarity and uncertainty must be verified *in context* by the independent
+ // semantic audit. Merely omitting a lexical negation from an unrelated sentence
+ // is not proof of a false claim. Literal excerpts may skip AI audit ONLY if
+ // they retain the selected source's negation/uncertainty (see fast path below).
  if(confession.test(text)&&!confession.test(sourceText))return false;
  return true;
 }
@@ -207,7 +181,7 @@ const answerSystem=[
  'Gdy gracz pyta «Kto to może potwierdzić?» po alibi, rozpoznaj nawiązanie do alibi. Oddziel człowieka, który faktycznie widział świadka, od połączeń i rejestrów. Nie wymyślaj nazwisk; jeśli brak osobowego świadka całego dyżuru, przyznaj to wprost i wskaż dozwolone źródła częściowej weryfikacji.',
  'Jeśli gracz wskazuje sprzeczność: „skąd możesz być pewien, skoro nie obserwowałeś”, odnieś się do pewności i przesłanki; nie interpretuj rzeczowego zarzutu automatycznie jako obelgi.',
  'Na bezpośrednie pytanie „czy przyznajesz się do zabójstwa” odpowiedz stanowiskiem albo dozwoloną odmową, bez dopisywania winy czy niewinności jako ustalonego faktu. Nie zmieniaj tematu na obowiązki służbowe.',
- 'Zwróć tylko JSON: {"decision":"answer" lub "fallback","understanding":{"referent":"kogo dotyczy pytanie","requestedInformation":"o co naprawdę pyta gracz"},"factIds":["f0"],"text":"wypowiedź"}. Understanding jest diagnostyczne; nie dodawaj markdownu.'
+ 'Zwróć tylko JSON: {"decision":"answer" lub "fallback","understanding":{"referent":"kogo dotyczy pytanie","requestedInformation":"o co naprawdę pyta gracz"},"factIds":["f0"],"text":"wypowiedź","emotion":"neutral|focused|uncertain|tense|guarded|surprised|sad|relieved|controlled|irritated"}. Emotion steruje wyłącznie mimiką SVG i nie zmienia zaufania, dowodów ani stanu fabuły.'
 ].join(' ');
 const legacySystem=[
  'Jesteś SILNIKIEM ROZUMIENIA PYTAŃ w polskiej grze detektywistycznej. Ustal sens pytania oraz intencję całej wypowiedzi.',
@@ -257,8 +231,13 @@ export async function attemptInterview(scene,provider,invoke=chat,trace=null){
   }
  };
  const reject=(reason)=>{trace?.add(provider,'quality','rejected',0,reason);return null;};
+ const reviseOrReject=(reason,proposal,revision)=>{
+  trace?.add(provider,'quality','rejected',0,reason);
+  if(revision===0){priorDraft=String(proposal||'');repairReason=reason;return true;}
+  return false;
+ };
  if(!scene.knowledge.factBank){
-  const answer=await run(legacySystem,scene,650,0.25,'generate');
+  const answer=await run(legacySystem,scene,2200,0.25,'generate');
   const ids=Array.isArray(answer.sourceIds)?answer.sourceIds:typeof answer.sourceId==='string'?[answer.sourceId]:[];
   const chosen=ids.map(id=>scene.knowledge.groundedOptions.find(x=>x.id===id));
   if(answer.decision!=='answer'||ids.length<1||ids.length>2||chosen.some(x=>!x)||new Set(ids).size!==ids.length)return reject('bad_fact_ids');
@@ -268,26 +247,41 @@ export async function attemptInterview(scene,provider,invoke=chat,trace=null){
   return {ok:true,decision:'answer',sourceIds:ids,sourceId:ids[0],factIds:[],text:proposed,prefaceKey:0,semanticVerified:false};
  }
  const previousDistinct=priorDistinctAnswers(scene.dialogueMemory,scene.question);
+ const allowedEmotions=new Set(['neutral','focused','uncertain','tense','guarded','surprised','sad','relieved','controlled','irritated']);
+ const readEmotion=response=>allowedEmotions.has(response?.emotion)?response.emotion:'neutral';
  let priorDraft='';let repairReason='';
  for(let revision=0;revision<2;revision++){
   const response=await run(answerSystem,revision?{...scene,repairInstruction:repairCue(scene,priorDraft,repairReason)}:scene,
-   560,0.35,revision?'rewrite':'generate');
+   2200,0.35,revision?'rewrite':'generate');
   const ids=Array.isArray(response?.factIds)?response.factIds:[];
   const selected=ids.map(id=>scene.knowledge.factBank.find(f=>f.id===id));
-  if(response?.decision!=='answer'||ids.length<1||ids.length>4||selected.some(x=>!x)||new Set(ids).size!==ids.length)return reject('bad_fact_ids');
-  const proposal=normalizeWitnessSpeech(scrub(response.text,1650));
-  if(!proposal||!reviewSpokenReply(proposal,{compound:scene.questionParts.length>1}).ok)return reject('poor_style');
-  const quality=reviewInterviewReply(scene,proposal,selected);
-  if(!quality.ok){
-   trace?.add(provider,'quality','rejected',0,quality.reason);
-   if(!revision){priorDraft=proposal;repairReason=quality.reason;continue;}
+  if(response?.decision!=='answer'||ids.length<1||ids.length>4||selected.some(x=>!x)||new Set(ids).size!==ids.length){
+   if(reviseOrReject('bad_fact_ids',response?.text,revision))continue;
    return null;
   }
-  if(!hardGuard(selected.map(f=>f.text).join(' '),proposal))return reject('hard_guard');
-  if(fastVerbatimEntailment(scene,selected,proposal)){
+  const proposal=normalizeWitnessSpeech(scrub(response.text,1650));
+  if(!proposal||!reviewSpokenReply(proposal,{compound:scene.questionParts.length>1}).ok){
+   if(reviseOrReject('poor_style',proposal,revision))continue;
+   return null;
+  }
+  const quality=reviewInterviewReply(scene,proposal,selected);
+  if(!quality.ok){
+   if(reviseOrReject(quality.reason,proposal,revision))continue;
+   return null;
+  }
+  const grounded=selected.map(f=>f.text).join(' ');
+  if(!hardGuard(grounded,proposal)){
+   if(reviseOrReject('hard_guard',proposal,revision))continue;
+   return null;
+  }
+  // A verbatim *positive fragment* from a statement containing a negation can
+  // misleadingly hide its qualification. Such excerpts require semantic audit.
+  const polarityPreserved=(!uncertainty.test(grounded)||uncertainty.test(proposal))&&
+   (!negation.test(grounded)||negation.test(proposal));
+  if(polarityPreserved&&fastVerbatimEntailment(scene,selected,proposal)){
    trace?.add(provider,'quality','ok',0,'accepted');
    return {ok:true,decision:'answer',primaryMode:scene.primaryMode,
-    factIds:ids,sourceIds:[],sourceId:'turn',text:proposal,semanticVerified:true,prefaceKey:0};
+    factIds:ids,sourceIds:[],sourceId:'turn',text:proposal,emotion:readEmotion(response),semanticVerified:true,prefaceKey:0};
   }
   const audit=await run(semanticSystem,{
    question:scene.question,questionParts:scene.questionParts,
@@ -296,20 +290,26 @@ export async function attemptInterview(scene,provider,invoke=chat,trace=null){
    priorReplies:previousDistinct,
    selectedFacts:selected.map(f=>({text:f.text,certainty:f.certainty,origin:f.origin,source:f.source})),
    proposedAnswer:proposal
-  },230,0.15,'semantic-audit');
+  },1100,0.15,'semantic-audit');
   const partsOk=scene.questionParts.length<2||(Array.isArray(audit?.coveredParts)&&
     audit.coveredParts.length===scene.questionParts.length&&audit.coveredParts.every(x=>x===true));
   const semanticallyRepeated=previousDistinct.length>0&&audit?.semanticRepeat===true;
   if(semanticallyRepeated){
-   trace?.add(provider,'quality','rejected',0,'semantic_repetition');
-   if(!revision){priorDraft=proposal;repairReason='semantic_repetition';continue;}
+   if(reviseOrReject('semantic_repetition',proposal,revision))continue;
    return null;
   }
-  if(!partsOk)return reject('missing_question_part');
-  if(classifyModelReply(audit,true)!=='grounded_reply')return reject(audit?.entailed===false?'not_entailed':audit?.relevant===false?'not_relevant':'not_complete');
+  if(!partsOk){
+   if(reviseOrReject('missing_question_part',proposal,revision))continue;
+   return null;
+  }
+  if(classifyModelReply(audit,true)!=='grounded_reply'){
+   const reason=audit?.entailed===false?'not_entailed':audit?.relevant===false?'not_relevant':'not_complete';
+   if(reviseOrReject(reason,proposal,revision))continue;
+   return null;
+  }
   trace?.add(provider,'quality','ok',0,'accepted');
   return {ok:true,decision:'answer',primaryMode:scene.primaryMode,
-   factIds:ids,sourceIds:[],sourceId:'turn',text:proposal,semanticVerified:true,prefaceKey:0};
+   factIds:ids,sourceIds:[],sourceId:'turn',text:proposal,emotion:readEmotion(response),semanticVerified:true,prefaceKey:0};
  }
  return null;
 }
@@ -333,7 +333,7 @@ function findInterviewTurn(state,turnId){
  return null;
 }
 function replayInterview(prior,turnId){
- if(!['zai','groq'].includes(prior.provider)||typeof prior.text!=='string')return {ok:false,error:'Stored turn not reusable'};
+ if(!['gemini','zai','groq'].includes(prior.provider)||typeof prior.text!=='string')return {ok:false,error:'Stored turn not reusable'};
  return {ok:true,decision:'answer',primaryMode:true,serverCanonical:true,semanticVerified:true,
   sourceIds:[],sourceId:'turn',factIds:prior.factIds,text:prior.text,prefaceKey:0,
   provider:prior.provider,model:prior.model||providerModel(prior.provider),turnId,replayed:true,
@@ -415,14 +415,12 @@ export default async function handler(req,res){
  scene._responseDeadline=startedAt+INTERVIEW_BUDGET.totalMs;
  const reasons=[];
  const trace=makeInterviewTrace();
- if(!process.env.ZAI_API_KEY)reasons.push('zai_not_configured');
- const providers=['zai','groq'].filter(id=>id==='zai'?!!process.env.ZAI_API_KEY:!!process.env.GROQ_API_KEY);
+ if(!(process.env.GEMINI_API_KEY||process.env.GOOGLE_AI_STUDIO_API_KEY))reasons.push('gemini_not_configured');
+ const providers=(process.env.GEMINI_API_KEY||process.env.GOOGLE_AI_STUDIO_API_KEY)?['gemini']:[];
  for(const provider of providers){
   // Give the primary model one bounded window. The remainder stays available
   // for the backup provider and for committing the accepted answer.
-  scene._providerDeadline=provider==='zai'
-   ?Math.min(scene._responseDeadline-INTERVIEW_BUDGET.commitReserveMs,startedAt+INTERVIEW_BUDGET.zaiWindowMs)
-   :scene._responseDeadline-INTERVIEW_BUDGET.commitReserveMs;
+   scene._providerDeadline=scene._responseDeadline-INTERVIEW_BUDGET.commitReserveMs;
   if(Date.now()+INTERVIEW_BUDGET.minCallMs>=scene._providerDeadline){
    reasons.push(provider+'_budget_exhausted');trace.add(provider,'generate','skipped',0,'no_retry_budget');continue;
   }
@@ -460,7 +458,7 @@ export default async function handler(req,res){
    reasons.push(provider+'_rejected_by_validation');
   }catch(error){reasons.push(failureCode(provider,error));}
  }
- if(!process.env.GROQ_API_KEY)reasons.push('groq_not_configured');
+
  const info={...diagnostics('unavailable',reasons.join(';')||'cloud_response_unavailable',requestId,startedAt),qualityDiagnostics:trace.summary()};
  console.info('interview-diagnostic',JSON.stringify(info));
  return res.status(503).json({ok:false,error:'AI chwilowo niedostępne. Ponów pytanie.',retryable:true,...info});

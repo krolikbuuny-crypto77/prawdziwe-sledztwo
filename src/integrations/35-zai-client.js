@@ -216,9 +216,15 @@
       let detail=null;
       try{detail=await r.json();}catch{} // No raw upstream content is ever displayed.
       const error=String(detail?.error||'');
-      const reasons=String(detail?.fallbackReason||'').split(';').filter(x=>/^(?:zai|groq)_(?:timeout|rate_limited|authorization_failed|upstream_unavailable|not_configured|request_failed|rejected_by_validation|budget_exhausted)$/.test(x));
-      const labels={zai:'Z.ai',groq:'Groq',timeout:'przekroczony czas',rate_limited:'limit dostawcy',authorization_failed:'brak autoryzacji',upstream_unavailable:'błąd dostawcy',not_configured:'brak konfiguracji',request_failed:'błąd żądania',rejected_by_validation:'odrzucona odpowiedź',budget_exhausted:'brak czasu na próbę'};
-      const providerStatus=reasons.map(x=>{const sep=x.indexOf('_');return labels[x.slice(0,sep)]+': '+labels[x.slice(sep+1)];}).join(', ');
+      const reasons=String(detail?.fallbackReason||'').split(';').filter(x=>/^(?:gemini|zai|groq)_(?:timeout|rate_limited|authorization_failed|upstream_unavailable|not_configured|request_failed|rejected_by_validation|budget_exhausted|model_not_available)$/.test(x));
+      const labels={model_not_available:'model niedostępny',gemini:'Gemini Flash',zai:'Z.ai',groq:'Groq',timeout:'przekroczony czas',rate_limited:'limit dostawcy',authorization_failed:'brak autoryzacji',upstream_unavailable:'błąd dostawcy',not_configured:'brak konfiguracji',request_failed:'błąd żądania',rejected_by_validation:'odrzucona odpowiedź',budget_exhausted:'brak czasu na próbę'};
+      // Show a safe, finite reason code; no questions, prompts or private data.
+      const attempts=Array.isArray(detail?.qualityDiagnostics?.attempts)?detail.qualityDiagnostics.attempts:[];
+      const rejected=attempts.filter(x=>x&&x.provider==='gemini'&&x.result==='rejected');
+      const lastCode=String(rejected.at(-1)?.code||'');
+      const reasonLabels={bad_fact_ids:'zły wybór faktów',poor_style:'niewłaściwa forma',hard_guard:'niezgodność ze źródłem',not_entailed:'niepotwierdzona treść',not_relevant:'odpowiedź nie na temat',not_complete:'niepełna odpowiedź',missing_question_part:'pominięta część pytania',semantic_repetition:'powtórzenie wcześniejszej odpowiedzi',repeated_previous_reply:'powtórzenie',presented_evidence_ignored:'pominięty dowód',server_guard:'niezgodność końcowa'};
+      const providerStatus=reasons.map(x=>{const sep=x.indexOf('_');const k=x.slice(sep+1);
+       return labels[x.slice(0,sep)]+': '+labels[k]+(x.startsWith('gemini_rejected_by_validation')&&reasonLabels[lastCode]?' ('+reasonLabels[lastCode]+')':'');}).join(', ');
       const message=r.status===409?'Dowód nie jest jeszcze zatwierdzony. Ponów pytanie po synchronizacji.':
        r.status===429?'Limit zapytań przesłuchań został osiągnięty. Ponów później.':
        error==='Shared rate limiter unavailable'?'Limit zapytań Supabase jest niedostępny. Sprawdź migrację SQL 003 i ustawienia serwera.':
@@ -237,7 +243,7 @@
     }
     const text=typeof data?.text==='string'?data.text.trim():'';
     const serverApproved=data.serverCanonical===true&&data.decision==='answer'&&
-     data.semanticVerified===true&&['zai','groq'].includes(data.provider)&&
+     data.semanticVerified===true&&(['gemini'].includes(data.provider)||data.replayed===true&&['zai','groq'].includes(data.provider))&&
      data.turnId===turnId&&text.length>=12&&text.length<=1650&&
      !/[<>\u0000-\u0008\u000e-\u001f]/.test(text);
     if(!serverApproved){unavailable('Odrzucono nieprawidłową odpowiedź AI. Ponów pytanie.');return;}
@@ -247,6 +253,16 @@
     }
     row.text=text;
     row.ai=psAiMeta(data);
+    // Gemini controls only visual expression, never approved gameplay stress/trust.
+    const face=document.querySelector('#witnessStage .wp-stage');
+    if(face&&STATE.activeChar===c.id&&/^(neutral|focused|uncertain|tense|guarded|surprised|sad|relieved|controlled|irritated)$/.test(data.emotion||'')){
+      face.dataset.ps637AiEmotion=data.emotion;
+      face.dataset.ps622Emotion=data.emotion;
+      face.querySelectorAll('.wp-mouth-curve').forEach(path=>{
+       const mouth={neutral:'M143 192Q159 191 176 192',focused:'M144 193Q159 191 175 193',uncertain:'M144 193Q159 197 175 193',tense:'M145 193Q159 190 174 193',guarded:'M143 193Q159 193 175 192',surprised:'M149 193Q160 200 171 193',sad:'M144 194Q159 199 176 194',relieved:'M144 192Q159 197 175 192',controlled:'M145 193Q159 192 174 193',irritated:'M146 192Q159 190 173 192'};
+       path.setAttribute('d',mouth[data.emotion]);
+      });
+    }
     PS65_CONTEXT.read(c.id,answer,question,oldLen);
     window.PS68_MEMORY?.recordApproved?.(c.id,question,answer);
     cloudAccepted=true;
@@ -299,7 +315,7 @@
  };
  by('chatInput')?.setAttribute('maxlength','1600');
  registerWitnessSendLayer('zai-cloud-fallback',send);
- window.PS77_AI=Object.freeze({mode:'ai_required_zai_then_groq_v636_hardened',get busy(){return inflight;},
+ window.PS77_AI=Object.freeze({mode:'ai_required_gemini_rc7',get busy(){return inflight;},
   get lastDiagnostic(){const rows=STATE.dialogues[STATE.activeChar]||[];
    return rows.slice().reverse().find(x=>x.role==='npc'&&x.ai)?.ai||null;},
   safeRewrite,semanticGuard,context:PS65_CONTEXT.read});

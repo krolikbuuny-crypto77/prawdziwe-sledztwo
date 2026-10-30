@@ -41,6 +41,15 @@
   "functions": {
     "api/interview.js": {
       "maxDuration": 60
+    },
+    "api/defense-objections.js": {
+      "maxDuration": 60
+    },
+    "api/evidence-review.js": {
+      "maxDuration": 45
+    },
+    "api/lab-narrative.js": {
+      "maxDuration": 30
     }
   }
 }
