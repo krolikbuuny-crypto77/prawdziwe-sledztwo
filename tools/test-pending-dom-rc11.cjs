@@ -55,6 +55,24 @@ const assert=require('node:assert/strict');
   assert(accepted.text.includes('Jestem kierownikiem zajezdni i odpowiadam'));assert(!accepted.text.includes('Formułuje odpowiedź'));
   assert.deepEqual(errors,[]);
   await page.evaluate(()=>{
+   window.testCooldownCalls=0;
+   document.getElementById('chatInput').value='Kto może potwierdzić pana obecność?';
+   window.fetch=async url=>{
+    if(url==='/api/game-state')return {ok:true,status:200};
+    window.testCooldownCalls++;
+    return {ok:false,status:503,json:async()=>({fallbackReason:'gemini_invalid_request;groq_rate_limited',retryAfterSeconds:1})};
+   };
+   document.getElementById('chatSend').click();
+  });
+  await page.waitForFunction(()=>!PS77_AI.busy);
+  assert(await page.evaluate(()=>document.getElementById('chatSend').disabled));
+  assert.match(await page.locator('#ps77-response-wait').innerText(),/odczekać 1 s/);
+  await page.evaluate(()=>{showTab('files');showTab('interview');document.getElementById('chatSend').click();});
+  assert.equal(await page.evaluate(()=>window.testCooldownCalls),1);
+  await page.waitForFunction(()=>!document.getElementById('chatSend').disabled);
+  assert.equal(await page.evaluate(()=>window.testCooldownCalls),1);
+  assert.deepEqual(errors,[]);
+  await page.evaluate(()=>{
    window.testFailedLength=STATE.dialogues.MAREK.length;
    window.fetch=async url=>url==='/api/game-state'?{ok:true,status:200}:{ok:false,status:503,json:async()=>({fallbackReason:'gemini_timeout;groq_rate_limited'})};
    document.getElementById('chatInput').value='Kto może potwierdzić pana obecność?';document.getElementById('chatSend').click();

@@ -28,7 +28,7 @@ try {
  assert.equal(calls.length,3);
  let code,body;
  status({method:'GET'},{setHeader(){},status(x){code=x;return this;},json(x){body=x;}});
- assert.equal(code,200);assert.equal(body.release,'6.37-MEDIUM-RC12');
+ assert.equal(code,200);assert.equal(body.release,'6.37-DIAGNOSTICS-RC13');
  assert.deepEqual(body.providers,['gemini','groq']);
  delete process.env.GROQ_API_KEY;
  await assert.rejects(()=>askGroq({system:'Brak klucza',payload:{}},transport),e=>e.code==='groq_not_configured');

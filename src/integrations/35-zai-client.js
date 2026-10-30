@@ -52,6 +52,7 @@
  status.style.cssText='font-size:12px;color:#a8afb1;padding:2px 4px;display:none';
  by('chatInput')?.closest('.chatfoot')?.appendChild(status);
  let inflight=false,requestSerial=0,cloudFailure='';
+ let retryNotBefore=0,retryTimer=null;
  let retryTurn=null;
  const TURN_STORAGE='ps_ai_retry_turn_v636';
  const copy=v=>v===undefined?undefined:JSON.parse(JSON.stringify(v));
@@ -92,10 +93,10 @@
   if(st?.npc68?.threads?.length&&st.npc68.threads.at(-1).a===before.slice(0,850))st.npc68.threads.at(-1).a=after.slice(0,850);
  };
  function showBusy(value){inflight=value;status.style.display=(value||!!cloudFailure)?'block':'none';status.textContent=value?'Świadek przygotowuje odpowiedź przez AI…':cloudFailure;
-  const send=by('chatSend'),input=by('chatInput');if(send)send.disabled=value;if(input)input.disabled=value;
+  const send=by('chatSend'),input=by('chatInput');if(send)send.disabled=value||Date.now()<retryNotBefore;if(input)input.disabled=value;
  }
  function send(){
-  if(inflight)return;
+  if(inflight||Date.now()<retryNotBefore)return;
   const c=CONTENT.characters.find(x=>x.id===STATE.activeChar),input=by('chatInput');
   const question=String(input?.value||'').trim(),attached=by('attachedDoc')?.value||'';
   const log=c?STATE.dialogues[c.id]:null,oldLen=log?.length||0;
@@ -216,8 +217,14 @@
       let detail=null;
       try{detail=await r.json();}catch{} // No raw upstream content is ever displayed.
       const error=String(detail?.error||'');
-      const reasons=String(detail?.fallbackReason||'').split(';').filter(x=>/^(?:gemini|zai|groq)_(?:timeout|rate_limited|authorization_failed|upstream_unavailable|not_configured|request_failed|rejected_by_validation|budget_exhausted|model_not_available)$/.test(x));
-      const labels={model_not_available:'model niedostępny',gemini:'Gemini Flash',zai:'Z.ai',groq:'Groq',timeout:'przekroczony czas',rate_limited:'limit dostawcy',authorization_failed:'brak autoryzacji',upstream_unavailable:'błąd dostawcy',not_configured:'brak konfiguracji',request_failed:'błąd żądania',rejected_by_validation:'odrzucona odpowiedź',budget_exhausted:'brak czasu na próbę'};
+      const wait=Number(detail?.retryAfterSeconds);
+      if(Number.isFinite(wait)&&wait>0&&wait<=604800){
+       retryNotBefore=Date.now()+Math.ceil(wait)*1000;
+       clearTimeout(retryTimer);
+       retryTimer=setTimeout(()=>{retryNotBefore=0;cloudFailure='Możesz teraz ponowić pytanie.';showBusy(inflight);},Math.ceil(wait)*1000);
+      }
+      const reasons=String(detail?.fallbackReason||'').split(';').filter(x=>/^(?:gemini|zai|groq)_(?:timeout|rate_limited|authorization_failed|upstream_unavailable|not_configured|request_failed|invalid_request|rejected_by_validation|budget_exhausted|model_not_available)$/.test(x));
+      const labels={invalid_request:'nieprawidłowe parametry żądania',model_not_available:'model niedostępny',gemini:'Gemini Flash',zai:'Z.ai',groq:'Groq',timeout:'przekroczony czas',rate_limited:'limit dostawcy',authorization_failed:'brak autoryzacji',upstream_unavailable:'błąd dostawcy',not_configured:'brak konfiguracji',request_failed:'błąd żądania',rejected_by_validation:'odrzucona odpowiedź',budget_exhausted:'brak czasu na próbę'};
       // Show a safe, finite reason code; no questions, prompts or private data.
       const attempts=Array.isArray(detail?.qualityDiagnostics?.attempts)?detail.qualityDiagnostics.attempts:[];
       const rejected=attempts.filter(x=>x&&x.provider==='gemini'&&x.result==='rejected');
@@ -233,7 +240,8 @@
        error==='Testimony history conflict'?'Nie udało się zapisać odpowiedzi w Supabase. Ponów pytanie.':
        r.status===503&&providerStatus?'AI nie zwróciło zatwierdzonej odpowiedzi. '+providerStatus+'. Ponów pytanie.':
        'AI jest chwilowo niedostępne (HTTP '+r.status+'). Ponów pytanie.';
-      unavailable(message);
+      const waiting=Date.now()<retryNotBefore;
+      unavailable(waiting?message.replace(/Ponów pytanie\./g,'').trim()+' Dostawca zaleca odczekać '+Math.ceil((retryNotBefore-Date.now())/1000)+' s przed ponowieniem.':message);
       return null;
     }return r.json();})
    .then(data=>{

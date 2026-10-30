@@ -30,6 +30,7 @@ globalThis.fetch=async(url,opts)=>{
  const provider=name.includes('groq.com')?'groq':'gemini';calls.push(provider);
  if(!pool)throw Error('upstream-503');
  const value=pool[provider].shift();if(value instanceof Error)throw value;
+ if(value?.http)return {ok:false,status:value.http,headers:{get:()=>value.retry||null},json:async()=>({error:value.error})};
  return {ok:true,status:200,json:async()=>provider==='gemini'?{candidates:[{content:{parts:[{text:JSON.stringify(value)}]}}]}:{choices:[{message:{content:JSON.stringify(value)}}]}};
 };
 async function submit(){
@@ -57,6 +58,16 @@ try{
  delete process.env.GEMINI_API_KEY;state=initialState();revision=0;calls=[];
  pool={groq:[{decision:'answer',factIds:['f0'],text:canonical},{relevant:true,entailed:true,complete:true,coveredParts:[]}]};
  result=await submit();assert.equal(result.status,200,JSON.stringify(result));assert.deepEqual(calls,['groq','groq']);
+ process.env.GEMINI_API_KEY='dummy-gemini';state=initialState();revision=0;calls=[];
+ pool={gemini:[{http:400,error:{status:'INVALID_ARGUMENT',message:'thinking private-question secret-test-key'}}],
+  groq:[{http:429,retry:'60',error:{code:'rate_limit_exceeded',message:'tokens per minute (TPM) secret-test-key'}}]};
+ result=await submit();assert.equal(result.status,503);assert.equal(result.body.retryAfterSeconds,60);
+ assert.equal(result.body.providerFailures[0].upstreamStatus,400);
+ assert.equal(result.body.providerFailures[0].upstreamCode,'INVALID_ARGUMENT');
+ assert.equal(result.body.providerFailures[1].quotaKind,'tokens_per_minute');
+ assert.equal(result.body.providerFailures[1].phase,'generate');
+ assert.match(result.body.fallbackReason,/gemini_invalid_request;groq_rate_limited/);
+ assert(!JSON.stringify(result).includes('secret-test-key'));assert(records.every(x=>!x.includes('secret-test-key')&&!x.includes('private-question')));
  assert(records.every(x=>!x.includes('dummy-zai')&&!x.includes('dummy-groq')&&!x.includes(canonical)));
  console.log('PASS AI required: no local after both failures, Groq takeover, shared session/quota and bounded AI, safe logs');
 }finally{

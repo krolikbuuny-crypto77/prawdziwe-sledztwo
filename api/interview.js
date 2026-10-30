@@ -32,6 +32,7 @@ const failureCode=(provider,error)=>{
  if(/^upstream-5\d\d$/.test(e))return provider+'_upstream_unavailable';
  if(e===provider+'_not_configured')return provider+'_not_configured';
  if(e==='upstream_unavailable')return provider+'_upstream_unavailable';
+ if(e==='upstream_invalid_request')return provider+'_invalid_request';
   if(e==='model_not_available')return provider+'_model_not_available';
  if(e==='provider-not-configured')return provider+'_not_configured';
  return provider+'_request_failed';
@@ -229,6 +230,7 @@ export async function attemptInterview(scene,provider,invoke=chat,trace=null){
    trace?.add(provider,phase,'ok',Date.now()-started,'accepted');
    return answer;
   }catch(e){
+   if(e&&typeof e==='object')e.interviewPhase=phase;
    trace?.add(provider,phase,'error',Date.now()-started,/timeout|abort/i.test(String(e?.message||''))?'timeout':'provider_error');
    throw e;
   }
@@ -416,7 +418,7 @@ export default async function handler(req,res){
  // Z.ai -> Groq. Modele nie mają dostępu do narzędzi zmieniających stan gry.
  const requestId=randomUUID(),startedAt=Date.now();
  scene._responseDeadline=startedAt+INTERVIEW_BUDGET.totalMs;
- const reasons=[];
+ const reasons=[],providerFailures=[];
  const trace=makeInterviewTrace();
  if(!(process.env.GEMINI_API_KEY||process.env.GOOGLE_AI_STUDIO_API_KEY))reasons.push('gemini_not_configured');
  if(!process.env.GROQ_API_KEY)reasons.push('groq_not_configured');
@@ -457,16 +459,23 @@ export default async function handler(req,res){
      }
      if(!saved)return fail(res,503,'Testimony history conflict');
     }
-    const info={...diagnostics(provider,reasons.join(';')||null,requestId,startedAt),qualityDiagnostics:trace.summary()};
+    const info={...diagnostics(provider,reasons.join(';')||null,requestId,startedAt),providerFailures,qualityDiagnostics:trace.summary()};
     console.info('interview-diagnostic',JSON.stringify(info)); // No question, transcript or secrets.
     return res.status(200).json({...result,serverCanonical:true,turnId:clientTurnId,...info});
    }
    trace.add(provider,'post-check','rejected',0,'server_guard');
    reasons.push(provider+'_rejected_by_validation');
-  }catch(error){reasons.push(failureCode(provider,error));}
+  }catch(error){
+   const code=failureCode(provider,error);reasons.push(code);
+   providerFailures.push({provider,model:providerModel(provider),code,phase:error?.interviewPhase||'unknown',
+    ...(error?.diagnostic||{})});
+  }
  }
 
- const info={...diagnostics('unavailable',reasons.join(';')||'cloud_response_unavailable',requestId,startedAt),qualityDiagnostics:trace.summary()};
+ const retryAfterSeconds=Math.max(0,...providerFailures.map(x=>x.retryAfterSeconds||0));
+ if(retryAfterSeconds)res.setHeader('Retry-After',String(retryAfterSeconds));
+ const info={...diagnostics('unavailable',reasons.join(';')||'cloud_response_unavailable',requestId,startedAt),providerFailures,
+  retryAfterSeconds:retryAfterSeconds||null,qualityDiagnostics:trace.summary()};
  console.info('interview-diagnostic',JSON.stringify(info));
  return res.status(503).json({ok:false,error:'AI chwilowo niedostępne. Ponów pytanie.',retryable:true,...info});
 }
