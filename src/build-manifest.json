@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "6d58a393d99d92eedac97374c99548d429b13e06ebd75dada6ba4bcbad3ed753",
+  "sourceHash": "0d877bdaa2a1a5b244468a9e99301aca5abf6760c8336e559365a87b0b2b0376",
   "sections": [
     {
       "kind": "style",
@@ -278,8 +278,8 @@
         "src/core/witness-engine.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_000__",
-      "sha256": "ae0f96052fcd37ae9f32980bcd6baed0cf8a15678aee3857b728439da60c3782",
-      "size": 1462369
+      "sha256": "403a5320f2dc953e9131ca22c15f086ad38478d3f03ba67db93a0733e5060695",
+      "size": 1464657
     },
     {
       "kind": "script",
@@ -432,8 +432,8 @@
         "src/laboratory/09-multi-stage-puzzles.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_009__",
-      "sha256": "f35b93f425ca940ccda8561997b0337263ce60e35d3b0deb44f3bca7e6573a9f",
-      "size": 30221
+      "sha256": "0963441efeff163fd55f59ab647149cd2f6670ce8d5e8e56d1159490077fbdc5",
+      "size": 31607
     },
     {
       "kind": "style",
@@ -520,8 +520,8 @@
         "src/witnesses/13-psychological-interrogations.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_013__",
-      "sha256": "b50649fb88ab4500500de5af2596fddfae2ea4965f10737ea44699304ea0acf2",
-      "size": 45409
+      "sha256": "a234fcd346bb5c273024f4a062e7ac562ea4bad1a7788e879f1d7e00d827f477",
+      "size": 46323
     },
     {
       "kind": "script",
@@ -531,8 +531,8 @@
         "src/finale/14-adversarial-trial.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_014__",
-      "sha256": "c94fa0caa827136426ad108422416d00a9f826ccf785fac468e1fb563b1afa61",
-      "size": 26692
+      "sha256": "f57042f0aef18200f92fa6ceca847842fe2c18ecd58159ffb2c1ceac12e86dcb",
+      "size": 26730
     },
     {
       "kind": "script",
@@ -1104,8 +1104,8 @@
         "src/navigation/46-first-steps-introduction.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_046__",
-      "sha256": "45f186d41fba6eda246bf5487bd087c5aefa2781d422a30fc9f84b4cbffa68ee",
-      "size": 7524
+      "sha256": "80235a76d674e4dd9598578f77d28cd0408c6a0d032e0fb07f3d7f0647f5c591",
+      "size": 7670
     },
     {
       "kind": "style",
@@ -1148,8 +1148,8 @@
         "src/deduction/48-step-by-step-workshop.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_048__",
-      "sha256": "8bd91c2ffee224520c12b5a7c6d9b2319c53e73b17c4a4615e30d26be312f506",
-      "size": 8212
+      "sha256": "b2b9c3d33f52b2b7f20125d17e5252f6f7275b772fc11c139e89ed71d99e7b62",
+      "size": 8306
     },
     {
       "kind": "style",
@@ -1203,8 +1203,8 @@
         "src/styles/57-inspection-shortcuts.css"
       ],
       "marker": "__PS_SOURCE_STYLE_057__",
-      "sha256": "b64bc7fb2623588d32e7350a2e848edf45fdb55fe8f4d3046b9e63181825f1da",
-      "size": 2460
+      "sha256": "e99e7b86a3f3c1468d8c9f70bcd6a7fabd914efde63c5ae1cb7dbd1613fe0005",
+      "size": 2658
     },
     {
       "kind": "script",
@@ -1214,8 +1214,8 @@
         "src/inspection/51-inspection-usability.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_051__",
-      "sha256": "49220a8323bbc22aec84e5bd92c280c91a21f481ee0cf802d62fac14c3a1658d",
-      "size": 7376
+      "sha256": "aa1d2d1df3202a417019a5046c54ee1ced0d6c31edd6298ef139f2ef6ad8b1fe",
+      "size": 7340
     },
     {
       "kind": "script",
@@ -1236,8 +1236,8 @@
         "src/integrations/53-vercel-ai-client.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_053__",
-      "sha256": "1dfcebe39a3cbb8c6f9ce03a428630001e4ac810d579f5139a2a4a686663b837",
-      "size": 5033
+      "sha256": "9a0b44304796f3a8e2023f8d612a45926714c93ecf0162efa490046b7fdbbcf1",
+      "size": 6242
     },
     {
       "kind": "style",
@@ -1280,8 +1280,8 @@
         "src/deduction/55-mentor-and-red-thread.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_055__",
-      "sha256": "10024a0982467eda9489bf6777d3037a32d6bc7620539c9aaf21e37dadaef275",
-      "size": 24480
+      "sha256": "e1e54b18579a5778304edaa61174b6e7eb451a6015d38a48c0d746b098bd67be",
+      "size": 24545
     },
     {
       "kind": "script",
@@ -1302,8 +1302,8 @@
         "src/finale/57-indictment-variants-and-epilogue.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_057__",
-      "sha256": "e49286c44a031f0b2bc4f0758245e7308b4c52f97b639354762a81005cfe49d3",
-      "size": 24527
+      "sha256": "7b05b202d89b8b381c8a448c7518b155c6ee150b0b877e4d738742ce1d203824",
+      "size": 24686
     },
     {
       "kind": "style",
@@ -1392,8 +1392,8 @@
         "src/witnesses/85-unified-response-633.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_060__",
-      "sha256": "4c7b086f7a4ba38418c044d1b1696835c8117917b7f093371dfc4544cb852700",
-      "size": 225317
+      "sha256": "de658e091bca83bdf800af7e6a178178c27ac5c37a4e87f86501f41e2ac5e676",
+      "size": 235127
     },
     {
       "kind": "style",

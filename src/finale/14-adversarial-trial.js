@@ -137,7 +137,7 @@ function ps54Trial(){if(!STATE.final13.submitted)return toast('Najpierw złóż 
   simRenderHearing();return;
  }
  const pre=ps54Review(),s=STATE.final13;
- const wrong=s.culprit&&s.culprit!=='MAGDALENA';
+ const wrong=s.culprit&&window.PS617_SYNC?.actorStatusFor?.(s.culprit,s)==='rejected';
  const badAlibi=['card_proves','remote_proves','console_proves','no_need'].includes(s.alibi);
  const deliberate=choice==='suppress',ignored=STATE.sim.ignoredTimeline;
  const miscarriage=!!wrong&&deliberate&&ignored&&(pre.assessment.timelineIssues.length>0||badAlibi||!pre.assessment.cs.identity.ready);

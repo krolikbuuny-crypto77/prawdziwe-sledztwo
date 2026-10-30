@@ -41,6 +41,14 @@
     "test:fast-evidence": "node tools/test-priority631.mjs",
     "test:priority1": "node tools/test-interview630.mjs && node tools/test-interview626.mjs && node tools/test-api624-integration.mjs && node tools/test-security624.mjs && python tools/test-quality626.py",
     "test:regression632": "python tools/test-regression632.py",
-    "test:unified633": "python tools/test-unified633.py && python tools/test-regression632.py && node tools/test-interview630.mjs && node tools/test-interview626.mjs"
+    "test:unified633": "python tools/test-unified633.py && python tools/test-regression632.py && node tools/test-interview630.mjs && node tools/test-interview626.mjs",
+    "test:dialogue635": "node tools/test-dialogue635.mjs && python tools/test-cloud-evidence635.py && python tools/test-audit634.py",
+    "test:stage1-636": "node tools/test-stage1-636.mjs && node tools/test-dialogue635.mjs && python tools/test-cloud-evidence635.py && node tools/test-stage1-diagnostics636.mjs",
+    "test:stage2-636": "node tools/test-stage2-636.mjs && python tools/test-stage2-sync636.py && npm run test:stage1-636 && npm run test:api629 && npm run test:fast-evidence",
+    "test:stage3-636": "node tools/test-stage3-636.mjs && npm run test:stage2-636",
+    "test:stage4-636": "npm run test:pre-github",
+    "test:ai-first-hardening": "node tools/test-pre-github636.mjs && python tools/test-pre-github-browser636.py && node tools/test-ai-required637.mjs && python tools/test-ai-required-browser637.py && npm run test:release-candidate",
+    "test:pre-github": "npm run check && npm run test:ai-first-hardening && node tools/test-stage1-636.mjs && node tools/test-stage1-diagnostics636.mjs && node tools/test-stage2-636.mjs && node tools/test-stage3-636.mjs && node tools/test-dialogue635.mjs && python tools/test-cloud-evidence635.py && python tools/test-stage2-sync636.py && python tools/test-stage4-636.py && python tools/test-saves.py && python tools/test-navigation.py && python tools/test-audit634.py && python tools/test-witnesses.py",
+    "test:release-candidate": "node tools/test-release-candidate636.mjs && python tools/test-transaction636.py"
   }
 }

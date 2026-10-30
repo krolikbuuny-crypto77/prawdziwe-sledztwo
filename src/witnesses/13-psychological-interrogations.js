@@ -121,7 +121,19 @@ function ps52Ask(){const input=$('chatInput'),q=input.value.trim().slice(0,2000)
   input.value='';renderChat();simRenderHearing();return;
  }
  // The existing NPC engine still owns factual answers, context and the provenance checks.
- const answer=npc4Answer(c,q,attached);const profile=PS52_PROFILE[c.id];
+ let answer=npc4Answer(c,q,attached);
+ // Specific photo-confrontation correction. No claim about the scene before
+ // emergency services; no modification of author-gated contradictions.
+ if(c.id==='MAREK'&&attached==='VIS-02'&&!matched.length&&
+    /oslon|nisz|ratown|przyjazd/.test(qnorm)&&!specificAccusation){
+   const m=NPC9_MEMORY?.[c.id],sem=m?.semantic?.at(-1),st=m?.statements?.at(-1);
+   if(sem?.answer&&(sem.answer===answer||answer.includes(sem.answer))&&st?.text===sem.answer&&!sem.source_ids?.length&&!st.source_ids?.length&&
+      !['CONFESSION','CORRECTION_WITH_EVIDENCE','PROCEDURAL_REFUSAL'].includes(sem.status)){
+    const precise='To fotografia miejsca ujawnienia Leny, nie wydruk godzin. Nie potrafię na podstawie tego zdjęcia potwierdzić, jak wyglądała osłona przed przyjazdem ratowników. Trzeba porównać czas fotografii i kartę czynności ratowniczych.';
+    sem.answer=precise;st.text=precise;answer=precise;
+   }
+  }
+ const profile=PS52_PROFILE[c.id];
  const evidencePressure=attached?(tactic==='confront'?11:tactic==='precise'?6:4):0;
  const badTone=hostile?Math.round(10*profile.sensitivity):0;
  const rapportChange=hostile?-Math.round(7*profile.sensitivity):tactic==='free'&&!attached?2:tactic==='precise'&&!attached?1:attached?-3:0;

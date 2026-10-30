@@ -5,6 +5,7 @@ const AREAS=[{id:'med',title:'Dokumentacja medyczna',desc:'Oględziny i materia�
 const STATE={found:new Set(INITIAL),reviewedEvidence:new Set(),notes:'',events:[],dialogues:{},activeChar:CONTENT.characters[0].id,area:'admin',tab:'overview'};
 for(const c of CONTENT.characters){STATE.dialogues[c.id]=[{role:'npc',text:c.voice.opening}];}
 const $=id=>document.getElementById(id);
+function psCount(n,one,few,many){const v=Math.abs(Number(n)||0),last=v%10,last2=v%100;return v+' '+(v===1?one:(last>=2&&last<=4&&(last2<12||last2>14)?few:many));}
 function esc(s){return String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
 function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l').replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim();}
 const STOP=new Set('i a o u z ze na do od po za dla co kto jak czy jest sa byl byla gdzie kiedy teraz sie jego jej pan pani moje moja swoja tym ten ta te oraz przez przy gdy ktory jakie jaki wie jest zostal'.split(' '));
@@ -354,7 +355,13 @@ function inferTopics(q){const s=norm(q);let result=[];const add=(topic,rx)=>{if(
 function makeAnswer(c,q,evid){const voice=c.voice,tone=inferTone(q),topics=inferTopics(q);let prefix='',responses=[];
 if(tone==='apology')prefix=voice.apology+' ';else if(tone==='pressure')prefix=voice.pressure+' ';else if(tone==='empathy'&&!topics.includes('empathy'))prefix=voice.empathy+' ';
 let gate=null;if(evid&&STATE.found.has(evid))for(const g of CONTENT.gates){if(g.character===c.name&&g.needs.includes(evid)&&g.needs.every(x=>STATE.found.has(x))&&new Set(g.needs.map(x=>(byId[x]||{}).family).filter(Boolean)).size>=g.families){gate=g;break;}}
-if(evid){responses.push(gate?voice.evidence_strong:voice.evidence_weak);if(gate)return responses[0];}
+if(evid){
+ const displayed=byId[evid];
+ const photo=!!displayed&&(/fotografi|zdjecie|kadr/.test(norm(displayed.title))||/wizualne/i.test(displayed.category||''));
+ const photoScope='To jest fotografia: „'+docName(evid)+'”. Pokazuje stan z chwili wykonania zdjęcia; bez dodatkowej chronologii nie przesądza stanu sprzed przyjazdu ratowników ani tożsamości osoby.';
+ responses.push(gate?voice.evidence_strong:photo?photoScope:voice.evidence_weak);
+ if(gate)return responses[0];
+}
 for(const topic of topics){if(voice[topic]&&!responses.includes(voice[topic]))responses.push(voice[topic]);}
 if(!responses.length){if(tone==='apology'||tone==='pressure'||tone==='empathy')return prefix.trim();return voice.unclear;}
 const result=(prefix+responses.join(' ')).trim();return result.length?result:voice.unclear;
@@ -2460,7 +2467,19 @@ function psAiMeta(value){
  const clean=(v,max)=>typeof v==='string'&&/^[a-zA-Z0-9._:;/-]+$/.test(v)&&v.length<=max?v:null;
  return {provider:value.provider,model:clean(value.model,96),fallbackReason:clean(value.fallbackReason,190),
   requestId:typeof value.requestId==='string'&&/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value.requestId)?value.requestId:null,
-  durationMs:Number.isSafeInteger(value.durationMs)&&value.durationMs>=0&&value.durationMs<=120000?value.durationMs:null};
+  durationMs:Number.isSafeInteger(value.durationMs)&&value.durationMs>=0&&value.durationMs<=120000?value.durationMs:null,
+  qualityDiagnostics:value.qualityDiagnostics?.version==='6.36-I'?{
+   version:'6.36-I',providerCalls:Number(value.qualityDiagnostics.providerCalls)||0,
+   correctiveCalls:Number(value.qualityDiagnostics.correctiveCalls)||0,
+   rejectedChecks:Number(value.qualityDiagnostics.rejectedChecks)||0,
+   attempts:Array.isArray(value.qualityDiagnostics.attempts)?value.qualityDiagnostics.attempts.slice(0,24).filter(x=>
+     ['zai','groq','local','server'].includes(x?.provider)&&
+     ['generate','quality','rewrite','semantic-audit','post-check','save'].includes(x?.phase)&&
+     ['ok','rejected','error','skipped'].includes(x?.result)&&
+     typeof x.code==='string'&&/^[a-z_]+$/.test(x.code)&&x.code.length<42&&
+     Number.isInteger(x.durationMs)&&x.durationMs>=0&&x.durationMs<=120000)
+    .map(x=>({provider:x.provider,phase:x.phase,result:x.result,code:x.code,durationMs:x.durationMs})):[]
+  }:null};
 }
 const psShowAiDiagnostic=new URLSearchParams(location.search).get('debugAI')==='1';
 const psAiLabel=v=>({zai:'Z.ai',groq:'Groq',local:'silnik lokalny',unknown:'nieustalony'})[v]||'nieustalony';
@@ -2472,7 +2491,7 @@ function renderChat(){
  // Render only a window of messages; the full, unmodified transcript stays in STATE and in save files.
  const limit=CHAT_VISIBLE[c.id]||120,hidden=Math.max(0,msgs.length-limit);
  log.innerHTML=(hidden?'<div class="chat-history"><button type="button" class="btn alt" id="chatOlder">Pokaż wcześniejsze wiadomości ('+hidden+')</button><span class="muted small">Cała rozmowa pozostaje w zapisie gry.</span></div>':'')+
-  msgs.slice(hidden).map(m=>`<div class="bubble ${m.role==='npc'?'npc':'player'}"><span>${m.role==='npc'?esc(c.name):'Ty'}</span>${esc(m.text)}${m.role==='npc'&&psShowAiDiagnostic&&m.ai?`<div class="small muted" style="margin-top:6px;border-top:1px solid #54616a;padding-top:3px">Dostawca: ${esc(psAiLabel(m.ai.provider))} · model: ${esc(m.ai.model||'—')} · przełączenie: ${esc(m.ai.fallbackReason||'brak')} · czas AI (API): ${esc(m.ai.durationMs==null?'—':String(m.ai.durationMs)+' ms')} · ID: ${esc(m.ai.requestId||'—')}</div>`:''}</div>`).join('');
+  msgs.slice(hidden).map(m=>`<div class="bubble ${m.role==='npc'?'npc':'player'}"><span>${m.role==='npc'?esc(c.name):'Ty'}</span>${esc(m.text)}${m.role==='npc'&&psShowAiDiagnostic&&m.ai?`<div class="small muted" style="margin-top:6px;border-top:1px solid #54616a;padding-top:3px">Dostawca: ${esc(psAiLabel(m.ai.provider))} · model: ${esc(m.ai.model||'—')} · przełączenie: ${esc(m.ai.fallbackReason||'brak')} · czas AI (API): ${esc(m.ai.durationMs==null?'—':String(m.ai.durationMs)+' ms')} · ID: ${esc(m.ai.requestId||'—')}${m.ai.qualityDiagnostics?`<div style="margin-top:3px">Etapy: ${m.ai.qualityDiagnostics.attempts.map(x=>`${esc(x.provider)} / ${esc(x.phase)} / ${esc(x.result)}${x.result==='rejected'?` (${esc(x.code)})`:''}: ${x.durationMs} ms`).join(' · ')}</div>`:''}</div>`:''}</div>`).join('');
  if(hidden)log.querySelector('#chatOlder').addEventListener('click',()=>{
    const wasHeight=log.scrollHeight,wasTop=log.scrollTop;
    CHAT_VISIBLE[c.id]=Math.min(msgs.length,limit+120);renderChat();
@@ -2484,7 +2503,7 @@ function renderChat(){
 }
 
 function sendChat(){const input=$('chatInput'),q=input.value.trim().slice(0,2000);if(!q)return;const c=CONTENT.characters.find(c=>c.id===STATE.activeChar);const attached=$('attachedDoc').value;const log=STATE.dialogues[c.id];log.push({role:'player',text:q+(attached?'\n[Okazano: '+attached+']':'')});log.push({role:'npc',text:npc4Answer(c,q,attached)});if(log.length>1600)log.splice(0,log.length-1600);if(window.stage3)window.stage3.onQuestion(c.id,q,attached);input.value='';renderChat();}
-$('chatInput').maxLength=2000;$('chatSend').addEventListener('click',sendChat);$('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}});
+$('chatInput').maxLength=1600;$('chatSend').addEventListener('click',sendChat);$('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}});
 function validCaseTime(v){return typeof v==='string'&&/^2026-11-(?:17|18)T(?:[01]\d|2[0-3]):[0-5]\d$/.test(v)&&v>='2026-11-17T18:00'&&v<='2026-11-18T06:00';}
 function renderEvents(){const list=[...STATE.events].sort((a,b)=>a.at.localeCompare(b.at));$('tlCount').textContent=list.length+' własnych wpisów';$('eventList').innerHTML=list.length?list.map(e=>`<div class="eventrow"><div class="mono t">${esc(e.at.slice(5,10))}<br>${esc(e.at.slice(11,16))}</div><div style="flex:1"><b>${esc(e.text)}</b><div class="small muted">Źródło: ${esc(e.source||'nie podano')}</div></div><button class="btn subtle" data-remove-event="${esc(e.id)}" aria-label="Usuń wpis">Usuń</button></div>`).join(''):'<div class="muted small">Nie dodałeś jeszcze własnych ustaleń czasowych.</div>';$('eventList').querySelectorAll('[data-remove-event]').forEach(b=>b.addEventListener('click',()=>{STATE.events=STATE.events.filter(e=>e.id!==b.dataset.removeEvent);renderEvents()}));}
 let eventSeq=1;
@@ -3355,9 +3374,10 @@ function tlIsOpen(e){return e.sources.some(id=>STATE.found.has(id));}
 function tlSources(e){return e.sources.filter(id=>STATE.found.has(id)&&byId[id]);}
 function tlBlank(){return {at:'',to:'',place:'unknown',actor:'',sourceIds:[],reason:''};}
 function tlCleanEntry(e,x){if(!x||typeof x!=='object')return null;
- const isDate=v=>typeof v==='string'&&/^2026-11-(17|18)T\d\d:\d\d$/.test(v)&&v>=TL_BASE&&v<=TL_END;
+ const minute=v=>typeof v==='string'&&/^2026-11-(17|18)T\d\d:\d\d(?::[0-5]\d)?$/.test(v)?v.slice(0,16):'';
+ const isDate=v=>!!v&&v>=TL_BASE&&v<=TL_END;
  const sources=tlSources(e);const unique=[...new Set(Array.isArray(x.sourceIds)?x.sourceIds:[])].filter(id=>sources.includes(id)).slice(0,8);
- return {at:isDate(x.at)?x.at:'',to:isDate(x.to)?x.to:'',place:Object.hasOwn(TL_PLACES,x.place)?x.place:'unknown',actor:Object.hasOwn(TL_ACTORS,x.actor)?x.actor:'',sourceIds:unique,reason:String(x.reason||'').slice(0,1500)};
+ return {at:isDate(minute(x.at))?minute(x.at):'',to:isDate(minute(x.to))?minute(x.to):'',place:Object.hasOwn(TL_PLACES,x.place)?x.place:'unknown',actor:Object.hasOwn(TL_ACTORS,x.actor)?x.actor:'',sourceIds:unique,reason:String(x.reason||'').slice(0,1500)};
 }
 function tlExport(){return {entries:Object.fromEntries(Object.entries(STATE.timeline11.entries).map(([id,x])=>[id,{at:x.at,to:x.to,place:x.place,actor:x.actor,sourceIds:x.sourceIds,reason:x.reason}]))};}
 function tlRestore(data){const next=tlDefault();if(data?.entries&&typeof data.entries==='object')for(const e of TL_EVENTS){if(!tlIsOpen(e))continue;const x=tlCleanEntry(e,data.entries[e.id]);if(x)next.entries[e.id]=x;}STATE.timeline11=next;}
@@ -3380,9 +3400,9 @@ function tlOpts(obj,val){return Object.entries(obj).map(([k,v])=>`<option value=
 function tlForm(){const st=STATE.timeline11,e=TL_MAP.get(st.selected),el=$('tlEditor');if(!e||!tlIsOpen(e)){el.innerHTML='<div class="tl-locked-msg">Wybierz odkryty punkt rekonstrukcji. Zawartość pozostałych punktów jest ukryta do czasu zdobycia odpowiednich dokumentów.</div>';return;}
  const x=st.entries[e.id]||tlBlank(),res=tlAssessment(e,x),possible=tlSources(e);
  el.innerHTML=`<div class="formline" style="justify-content:space-between;margin:10px 0"><b>${esc(e.title)}</b><span class="tl-badge">Odkryta karta</span></div><p class="muted small">Zapisz własne ustalenie. Pola nie uzupełniają się automatycznie z kanonu.</p>
- <div class="tl-fields"><label class="tl-field">Od / znacznik czasu<input type="datetime-local" id="tlAt" min="${TL_BASE}" max="${TL_END}" value="${esc(x.at)}"></label><label class="tl-field">Do (tylko gdy źródło podaje zakres)<input type="datetime-local" id="tlTo" min="${TL_BASE}" max="${TL_END}" value="${esc(x.to)}"></label><label class="tl-field tl-wide">Miejsce zdarzenia lub pochodzenie zapisu<select id="tlPlace">${tlOpts(TL_PLACES,x.place)}</select></label><label class="tl-field tl-wide">Osoba wiązana z wydarzeniem (opcjonalna hipoteza)<select id="tlActor">${tlOpts(TL_ACTORS,x.actor)}</select></label></div>
- <div class="tl-form-help">Powiązanie konta lub użycia karty z osobą jest hipotezą wymagającą niezależnego dowodu. Nie traktuj go jako stwierdzonej obecności.</div>
- <div style="margin-top:13px"><b class="small">Powiązane zdobyte źródła</b>${possible.map(id=>`<label class="tl-source-check"><input type="checkbox" data-tl-source="${esc(id)}" ${x.sourceIds.includes(id)?'checked':''}><span><b>${esc(docName(id))}</b> · ${esc(byId[id].title)}</span></label>`).join('')}</div>
+ <div class="tl-fields"><label class="tl-field">Od / znacznik czasu<input type="datetime-local" id="tlAt" step="60" min="${TL_BASE}" max="${TL_END}" value="${esc(x.at)}"></label><label class="tl-field">Do (tylko gdy źródło podaje zakres)<input type="datetime-local" id="tlTo" step="60" min="${TL_BASE}" max="${TL_END}" value="${esc(x.to)}"></label><label class="tl-field tl-wide">Miejsce zdarzenia lub pochodzenie zapisu<select id="tlPlace">${tlOpts(TL_PLACES,x.place)}</select></label><label class="tl-field tl-wide">Osoba wiązana z wydarzeniem (opcjonalna hipoteza)<select id="tlActor">${tlOpts(TL_ACTORS,x.actor)}</select></label></div>
+ <div class="tl-form-help">Wpisuj godzinę z dokładnością do minuty (GG:MM). Jeżeli źródło podaje sekundy, zachowaj je w uzasadnieniu. Powiązanie konta lub użycia karty z osobą jest hipotezą wymagającą niezależnego dowodu. Nie traktuj go jako stwierdzonej obecności.</div>
+ <div style="margin-top:13px"><b class="small">Powiązane zdobyte źródła</b>${possible.map(id=>`<label class="tl-source-check"><input type="checkbox" data-tl-source="${esc(id)}" ${x.sourceIds.includes(id)?'checked':''}><span><b>${esc(evDisplayRef(byId[id]))}</b> · ${esc(byId[id].title)}</span></label>`).join('')}</div>
  <label class="tl-field tl-wide" style="margin-top:14px">Uzasadnienie i ograniczenia źródła<textarea id="tlReason" maxlength="1500" placeholder="Co dokładnie ustala ten zapis, a czego nie potwierdza?">${esc(x.reason)}</textarea></label>
  <div class="tl-actions"><button class="btn" id="tlSave">Zapisz ustalenie</button><button class="btn alt" id="tlCheck">Sprawdź tę kartę</button><button class="btn subtle" id="tlClear">Wyczyść kartę</button></div><div class="tl-results" id="tlCardResult" role="status" aria-live="polite">${esc(e.caution)}${x.at?'\n\n'+esc(tlAssessmentText(res)):''}</div>`;
  $('tlSave').addEventListener('click',()=>tlSubmit(true));$('tlCheck').addEventListener('click',()=>tlSubmit(false));$('tlClear').addEventListener('click',()=>{psAsk('Wyczyścić ustalenia tego punktu?',()=>{delete st.entries[e.id];tlRender();});});
@@ -3391,7 +3411,7 @@ function tlAssessmentText(res){if(res.state==='unplaced')return 'Nie określono 
  return 'Ocena: '+(res.state==='bad'?'SPRZECZNOŚĆ ZE ŹRÓDŁEM':res.state==='warn'?'DO WERYFIKACJI':'ZGODNE Z DOKUMENTAMI')+'\n'+[...res.bad.map(s=>'✕ '+s),...res.warn.map(s=>'! '+s),...res.good.map(s=>'✓ '+s)].join('\n');}
 function tlSubmit(save){const st=STATE.timeline11,e=TL_MAP.get(st.selected);if(!e||!tlIsOpen(e))return;
  const raw={at:$('tlAt').value,to:$('tlTo').value,place:$('tlPlace').value,actor:$('tlActor').value,sourceIds:[...$('tlEditor').querySelectorAll('[data-tl-source]:checked')].map(n=>n.dataset.tlSource),reason:$('tlReason').value};
- const entry=tlCleanEntry(e,raw);if(!entry?.at){toast('Wybierz datę i godzinę w zakresie 12 godzin.');return;}
+ const entry=tlCleanEntry(e,raw);if(!entry?.at){toast('Podaj poprawny czas od 17.11 godz. 18:00 do 18.11 godz. 06:00 (dokładność do minuty).');return;}
  const assessment=tlAssessment(e,entry);if(save){st.entries[e.id]=entry;if(assessment.state==='ok')window.PS617_SYNC?.enqueue?.({type:'verify_timeline',eventId:e.id,entry:{...entry}});tlRender();PS_EVENTS.timeline(e.id,assessment);toast('Zapisano punkt rekonstrukcji.');}else{$('tlCardResult').textContent=e.caution+'\n\n'+tlAssessmentText(assessment);} }
 function tlRenderChoices(){const st=STATE.timeline11;let items=TL_SHUFFLE.map(id=>TL_MAP.get(id));
  items=items.filter(e=>{const o=tlIsOpen(e),x=st.entries[e.id],r=tlAssessment(e,x);return st.filter==='all'||st.filter==='available'&&o||st.filter==='unplaced'&&o&&!x?.at||st.filter==='review'&&o&&x?.at&&r.state!=='ok';});
@@ -3414,8 +3434,8 @@ const TL_TRAVEL={
 };
 function tlGlobalFindings(){const findings=[];let entries=TL_EVENTS.filter(e=>tlIsOpen(e)&&STATE.timeline11.entries[e.id]?.at).map(e=>({e,x:STATE.timeline11.entries[e.id],r:tlAssessment(e,STATE.timeline11.entries[e.id])}));
  let nErr=entries.filter(z=>z.r.state==='bad').length,nWarn=entries.filter(z=>z.r.state==='warn').length;
- if(nErr)findings.push({kind:'bad',message:`${nErr} kart ma czas lub źródła sprzeczne z dokumentami. Popraw je przed zatwierdzeniem chronologii.`});
- if(nWarn)findings.push({kind:'warn',message:`${nWarn} kart wymaga doprecyzowania miejsca, przedziału, źródeł, przypisanej osoby lub uzasadnienia.`});
+ if(nErr)findings.push({kind:'bad',message:`${psCount(nErr,'karta','karty','kart')} ${nErr===1?'ma':'mają'} czas lub źródła sprzeczne z dokumentami. Popraw je przed zatwierdzeniem chronologii.`});
+ if(nWarn)findings.push({kind:'warn',message:`${psCount(nWarn,'karta','karty','kart')} wymaga doprecyzowania miejsca, przedziału, źródeł, przypisanej osoby lub uzasadnienia.`});
  // Compare only events whose canonical time windows do not overlap. Death interval and sensor 01:44 are intentionally excluded.
  const swapped=[];
  for(let i=0;i<entries.length;i++)for(let j=i+1;j<entries.length;j++){
@@ -3921,7 +3941,8 @@ function fcChargeAssessment(){
   errors.push('Wybrany kluczowy dowód powiąż także z tezą o osobie.');
   if(STATE.found.has(s.keystone)){const mismatch=explainAccusedPersonLink(s.keystone);if(mismatch)errors.push(mismatch);}
  }
- if(s.culprit&&s.culprit!=='MAGDALENA')errors.push('Wskazana osoba nie wynika z pełnego zestawienia materiałów. Przemyśl konkurencyjne wyjaśnienia.');
+ // Tożsamość sprawcy rozstrzyga wyłącznie niezależny serwerowy werdykt.
+ // Nie zdradzaj poprawnej odpowiedzi w przeglądarkowym walidatorze aktu.
  if(s.method&&s.method!=='two_stage')errors.push('Wybrany mechanizm nie wyjaśnia jednocześnie obu grup obrażeń.');
  if(s.keystone&&STATE.found.has(s.keystone)&&!['EVID_MESSAGE_THREAD_RECOVERED','EVID_MESSAGE_DEVICE_METADATA'].includes(s.keystone))errors.push('Kluczowy dowód nie łączy jeszcze dostatecznie osoby ze zdarzeniem; odróżnij motyw od czynu.');
  if(s.alibi&&s.alibi!=='remote_not_presence')errors.push('Rozumowanie o alibi przecenia pojedynczy zapis systemowy lub pomija trasę.');
@@ -3996,7 +4017,7 @@ function explainAccusedPersonLink(evidenceId){
 function explainDefenseRouteUnavailable(route){
  const missing=route.docs.filter(id=>!STATE.found.has(id));
  const unverified=route.docs.filter(id=>STATE.found.has(id)&&!ps54Good(id));
- if(missing.length)return 'W wybranym zestawie brakuje '+missing.length+' '+(missing.length===1?'materiału':'materiałów')+'. Wróć do zdobywania źródeł; samo wybranie wariantu nie zastępuje ich zabezpieczenia.';
+ if(missing.length)return 'W wybranym zestawie brakuje '+psCount(missing.length,'materiału','materiałów','materiałów')+'. Wróć do zdobywania źródeł; samo wybranie wariantu nie zastępuje ich zabezpieczenia.';
  if(unverified.length)return 'Zebrano potrzebne materiały, ale '+unverified.length+' wymaga dalszej kontroli wiarygodności. Sprawdź audyt źródeł i niezależne potwierdzenia przed przedstawieniem odpowiedzi.';
  if(!route.independent)return 'Wybrane materiały nie są dostatecznie niezależne. Dwa odczyty pochodzące z tego samego systemu mogą powtarzać jeden błąd.';
  return 'Zestaw nie spełnia jeszcze wymagań jakości. '+ 'Ustal ograniczenia wiarygodności i sprawdź zgodność niezależnych źródeł.';
@@ -4043,7 +4064,7 @@ function fcNotice(el,msg,ok=false){el.textContent=msg;el.className='fc-feedback'
 function fcRefreshSide(){const checks=fcChecks();$('fcChecklist').innerHTML=checks.map(x=>`<div class="fc-check ${x.ok?'ok':'missing'}"><b>${x.ok?'✓':'○'} ${esc(x.label)}</b><span>${esc(x.ok?'Warunek spełniony.':x.help)}</span></div>`).join('');
  const cards=STATE.deduction.cards.filter(c=>c.links.length>0).slice(0,7);$('fcBoardHints').innerHTML=cards.length?cards.map(c=>`<div><b>${esc(c.title)}</b><div>${esc(c.kind)} • ${c.links.length} połączeń</div></div>`).join(''):'<p class="fc-empty">Nie zapisano jeszcze hipotez. Przejdź do tablicy i połącz źródła.</p>';
 }
-function fcRenderLinks(){const s=STATE.final13;$('fcLinks').innerHTML=s.links.length?s.links.map((l,i)=>`<div class="fc-proof"><span><b>${esc(FC_ROLES[l.role])}</b> · ${esc(l.id)}</span><button type="button" data-fc-remove="${i}" aria-label="Usuń powiązanie ${esc(l.id)}">×</button></div>`).join(''):'<div class="fc-empty">Brak powiązanych źródeł. Wybierz dowód i jego rolę.</div>';
+function fcRenderLinks(){const s=STATE.final13;$('fcLinks').innerHTML=s.links.length?s.links.map((l,i)=>`<div class="fc-proof"><span><b>${esc(FC_ROLES[l.role])}</b> · ${esc(docName(l.id))}</span><button type="button" data-fc-remove="${i}" aria-label="Usuń powiązanie ${esc(l.id)}">×</button></div>`).join(''):'<div class="fc-empty">Brak powiązanych źródeł. Wybierz dowód i jego rolę.</div>';
  $('fcLinks').querySelectorAll('[data-fc-remove]').forEach(btn=>btn.addEventListener('click',()=>{const i=Number(btn.dataset.fcRemove);if(i>=0&&i<s.links.length){s.links.splice(i,1);fcInvalidate();fcRender();}}));
 }
 function fcRenderProgress(){const done=fcDefenseDone(),s=STATE.final13;const verdict=fcCompletion();$('fcProgress').innerHTML=[
@@ -4085,7 +4106,9 @@ function fcCheckChallenge(id){const q=FC_CHALLENGES.find(x=>x.id===id);if(!q||!S
  fcRenderProgress();$('fcDefenseCount').textContent=fcDefenseDone()+' / '+FC_CHALLENGES.length;
 }
 function fcRenderVerdict(){const s=STATE.final13,c=CONTENT.characters.find(x=>x.id===s.culprit),div=$('fcVerdictPanel');
- div.innerHTML=`<div class="eyebrow">PODSUMOWANIE POSTĘPOWANIA</div><h3>Akt obroniony przed sześcioma kontrargumentami</h3><p>Zebrano odrębne podstawy wnioskowania o mechanizmie, konflikcie, kontakcie i trasie. Odpowiedzi nie traktowały karty, zapisu sesji ani podobieństwa materiałowego jako bezspornego rozpoznania osoby.</p><div class="fc-final-summary"><div><b>Oskarżona osoba:</b> ${esc(c?.name||'—')}</div><div><b>Przedstawiona rekonstrukcja:</b> ${esc(FC_METHODS[s.method]||'—')}</div><div><b>Dowód osiowy:</b> ${esc(s.keystone)} · ${esc(byId[s.keystone]?.title||'')}</div><div><b>Alibi:</b> ${esc(FC_ALIBIS[s.alibi]||'—')}</div><div><b>Zastosowane źródła:</b> ${fcAllDocs().length} odrębnych materiałów; argumenty obronne: ${FC_CHALLENGES.length}/${FC_CHALLENGES.length}</div></div><p><b>Granica ustaleń:</b> to rozstrzygnięcie scenariusza gry, nie bezsporny zapis zdarzenia. Nawet prawidłowo połączone poszlaki mają ograniczenia i nie zastępują rzeczywistego postępowania dowodowego.</p><div class="fc-actions"><button type="button" class="btn alt" id="fcExportFinal">Zapisz akta sprawy</button></div>`;
+ // Ocena proceduralna nie potwierdza osoby; tylko wynik zatwierdzony przez serwer.
+
+ div.innerHTML=`<div class="eyebrow">PODSUMOWANIE POSTĘPOWANIA</div><h3>Lokalna kontrola argumentacji zakończona</h3><p>Zebrano odrębne podstawy wnioskowania o mechanizmie, konflikcie, kontakcie i trasie. Odpowiedzi nie traktowały karty, zapisu sesji ani podobieństwa materiałowego jako bezspornego rozpoznania osoby.</p><div class="fc-final-summary"><div><b>Oskarżona osoba:</b> ${esc(c?.name||'—')}</div><div><b>Przedstawiona rekonstrukcja:</b> ${esc(FC_METHODS[s.method]||'—')}</div><div><b>Dowód osiowy:</b> ${esc(s.keystone)} · ${esc(byId[s.keystone]?.title||'')}</div><div><b>Alibi:</b> ${esc(FC_ALIBIS[s.alibi]||'—')}</div><div><b>Zastosowane źródła:</b> ${fcAllDocs().length} odrębnych materiałów; argumenty obronne: ${FC_CHALLENGES.length}/${FC_CHALLENGES.length}</div></div><p><b>Uwaga:</b> to lokalna kontrola warsztatu i przedstawionych źródeł. Nie potwierdza prawidłowego wskazania osoby; końcowy wynik wymaga zatwierdzenia na serwerze. Nawet prawidłowo połączone poszlaki mają ograniczenia i nie zastępują rzeczywistego postępowania dowodowego.</p><div class="fc-actions"><button type="button" class="btn alt" id="fcExportFinal">Zapisz akta sprawy</button></div>`;
  $('fcExportFinal').addEventListener('click',exportSave);
 }
 // Zachowuj rozpoczęte odpowiedzi na pozostałe zarzuty również po przerysowaniu pojedynczej karty.
@@ -4680,7 +4703,7 @@ function simTimelineIssues(){try{return tlGlobalFindings().filter(x=>x.kind==='b
 function simCaseAssessment(){const s=STATE.final13,cs=simConfidence(),reasons=Object.values(s.reasons),allUsed=new Set(Object.values(STATE.sim.links).flatMap(a=>a.filter(l=>l.role==='supports').map(l=>l.id))),chargeDocs=fcAllDocs(),unique=new Set([...allUsed,...chargeDocs]);
  const validity=['meeting','mechanism','alibi','identity','chronology'].map(id=>cs[id].ready);
  const complete=validity.every(Boolean)&&cs.conceal.score>=70;
- const coherence=s.culprit==='MAGDALENA'&&s.method==='two_stage'&&s.alibi==='remote_not_presence';
+ const coherence=window.PS617_SYNC?.actorStatusFor?.(s.culprit,s)==='confirmed'&&s.method==='two_stage'&&s.alibi==='remote_not_presence';
  const invalidReason=reasons.some(r=>r.startsWith('trap-'))||reasons.some(r=>!r.trim());
  const contradictory=STATE.sim.ignoredTimeline||s.alibi==='card_proves'||s.alibi==='remote_proves'||s.alibi==='console_proves';
  const graphQuality=Math.round(validity.reduce((sum,ok,i)=>sum+cs[['meeting','mechanism','alibi','identity','chronology'][i]].score,0)/validity.length);
@@ -4728,7 +4751,7 @@ function simSubmit(){fcOnCharge();const s=STATE.final13;s.attempts++;s.submitted
 function simTrial(){const s=STATE.final13,assessment=simCaseAssessment(),defense=simDefendEvaluation();
  if(!s.submitted)return toast('Najpierw złóż projekt aktu do kontroli.');
  if(defense.responses.some(x=>['shortcut','skip'].includes(x.method))){simError('Pominięto zarzut obrony lub przeceniono pojedynczy dowód.',3,4);}else simTime(2,0,'Kontrola kontradyktoryjna w fikcyjnej rozprawie');
- const differentPerson=!!s.culprit&&s.culprit!=='MAGDALENA';
+ const differentPerson=!!s.culprit&&window.PS617_SYNC?.actorStatusFor?.(s.culprit,s)==='rejected';
  const miscarriage=differentPerson&&STATE.sim.ignoredTimeline&&(assessment.timelineIssues.length>0||['card_proves','remote_proves','console_proves'].includes(s.alibi));
  const solid=assessment.complete&&assessment.rolesReady&&assessment.keyLinked&&assessment.coherence&&assessment.strength>80&&STATE.sim.trust>=35&&!assessment.badKey&&defense.all&&!assessment.contradictory&&!assessment.timelineIssues.length;
  let result;

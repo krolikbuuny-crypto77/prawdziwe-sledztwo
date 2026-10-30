@@ -20,7 +20,20 @@ const safe=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'
 const fresh=()=>Object.fromEntries(KEYS.map(k=>[k,{step:0,stages:[],sequence:[],form:{},attempts:0,feedback:'',failed:false}]));
 let data=fresh();
 let stateObjects=null;
-const done=k=>data[k].stages.length===3;
+// Eligibility is identical to the visible laboratory workflow, not a second
+// source of puzzle-specific secrets. Every path must check it before rendering
+// records, evaluating answers, crediting stages or exposing saved progress.
+const canAnalyze=k=>{
+ const owned=STATE?.found;
+ if(!owned||typeof owned.has!=='function')return false;
+ if(k==='tcms')return TCMS_INPUT.filter(id=>owned.has(id)).length>=2;
+ if(k==='msg')return MSG_INPUT.filter(id=>owned.has(id)).length>=2;
+ if(k==='cctv')return CCTV_INPUT.every(id=>owned.has(id));
+ if(k==='forensic')return FO_INPUT.filter(id=>owned.has(id)).length>=2;
+ if(k==='access')return ACCESS_SECRET.gate_inputs.filter(id=>owned.has(id)).length>=2;
+ return false;
+};
+const done=k=>canAnalyze(k)&&data[k].stages.length===3;
 const choices=(id,items,placeholder='— Wybierz uzasadnioną odpowiedź —')=>`<label class="p3-field">${safe(id)}<select data-p3-input="${safe(id)}"><option value="">${safe(placeholder)}</option>${items.map(([v,l])=>`<option value="${safe(v)}">${safe(l)}</option>`).join('')}</select></label>`;
 
 /* Każdy finał etapu 3 wymaga jednej z pięciu interpretacji, nie pisemnego eseju. */
@@ -118,6 +131,12 @@ function evaluate(k,s,d){
 function render(k){
  const holder=$('p3-'+k);if(!holder)return;
  const d=data[k],s=d.stages.length;
+ if(!canAnalyze(k)){
+  holder.innerHTML='<div class="p3-head"><div><span class="eyebrow">ANALIZA KROK PO KROKU</span><h3>'+safe(NAME[k])+'</h3></div></div>'+ 
+    '<div class="p3-task p3-locked" role="status"><h4>Analiza niedostępna</h4><p>Zdobądź wymagane materiały źródłowe, aby zobaczyć dane sprawy i rozpocząć etapy. Możesz już teraz zapoznać się z ogólną metodą badania.</p>'+ 
+    '<p>'+safe(METHOD[k][0])+'</p></div>';
+  return;
+ }
  const panels=Array.from({length:3},(_,i)=>`<div class="p3-milestone ${i<s?'done':i===s?'current':''}"><b>${i<s?'✓':i+1}</b><span>Etap ${i+1}</span></div>`).join('');
  holder.innerHTML=`<div class="p3-head"><div><span class="eyebrow">ANALIZA KROK PO KROKU</span><h3>${NAME[k]}</h3><p>Odtwórz przebieg zdarzeń, zweryfikuj sprzeczne wskazówki i wybierz najlepiej uzasadniony wniosek.</p></div><strong class="p3-counter">${s}/3</strong></div><div class="p3-milestones">${panels}</div>
  ${s===3?'<div class="p3-success"><b>Analiza ukończona.</b><p>Możesz teraz przedstawić raport końcowy, jeśli masz wszystkie wymagane materiały.</p></div>':`<div class="p3-task"><h4 tabindex="-1">Etap ${s+1} / 3</h4>${points(safe(caption(k,s)))}${stageUI(k,s)}<details class="p63-method"><summary>Jak zweryfikować dane (bez rozwiązania)</summary><p>${safe(METHOD[k][s])}</p></details><div class="p3-actions"><button type="button" class="btn" data-p3-submit="${k}">Sprawdź etap ${s+1}</button></div></div>`}
@@ -126,6 +145,7 @@ function render(k){
 }
 function mount(k){const root=$(ROOT[k]);if(!root||!root.children.length)return;let div=$('p3-'+k);if(!div){div=document.createElement('section');div.id='p3-'+k;div.className='p3-panel';div.setAttribute('aria-label','Analiza szczegółowa: '+NAME[k]);root.appendChild(div);render(k);}}
 function check(k){
+ if(!canAnalyze(k)){render(k);return;}
  const d=data[k],idx=d.stages.length;if(idx>=3)return;
  const holder=$('p3-'+k);
  if(holder)holder.querySelectorAll('[data-p3-input]').forEach(el=>{if(el.type!=='radio'||el.checked)d.form[el.dataset.p3Input]=el.value;});
@@ -145,23 +165,23 @@ function check(k){
  const next=$('p3-'+k);
  (issue?next?.querySelector('.p3-feedback'):next?.querySelector('.p3-task h4,.p3-success'))?.focus({preventScroll:true});
 }
-function sync(){for(const k of KEYS){const panel=$(`${k}Panel`);if(panel&&!panel.hidden)mount(k);}}
+function sync(){for(const k of KEYS){const panel=$(`${k}Panel`);if(panel&&!panel.hidden){mount(k);render(k);}}}
 const refs=()=>KEYS.map(k=>STATE[k]);
 function clearIfReset(){if(!stateObjects){stateObjects=refs();return;}const next=refs();if(next.some((r,i)=>r!==stateObjects[i])){data=fresh();stateObjects=next;for(const k of KEYS)render(k);}}
-function restore(raw){const newData=fresh();if(raw&&typeof raw==='object')for(const k of KEYS){const q=raw[k];if(!q||typeof q!=='object')continue;const stages=Array.isArray(q.stages)?q.stages:[];const length=Math.min(3,stages.length);if(stages.slice(0,length).every((x,i)=>x&&x.phase===i&&x.accepted===true))newData[k].stages=stages.slice(0,length).map((x,i)=>({phase:i,accepted:true}));newData[k].attempts=Math.max(0,Math.min(9999,Number(q.attempts)||0));}data=newData;stateObjects=refs();for(const k of KEYS)render(k);}
+function restore(raw){const newData=fresh();if(raw&&typeof raw==='object')for(const k of KEYS){const q=raw[k];if(!q||typeof q!=='object')continue;const stages=Array.isArray(q.stages)?q.stages:[];const length=Math.min(3,stages.length);if((canAnalyze(k)||STATE[k]?.solved)&&stages.slice(0,length).every((x,i)=>x&&x.phase===i&&x.accepted===true))newData[k].stages=stages.slice(0,length).map((x,i)=>({phase:i,accepted:true}));newData[k].attempts=Math.max(0,Math.min(9999,Number(q.attempts)||0));}data=newData;stateObjects=refs();for(const k of KEYS)render(k);}
 function exportData(){return Object.fromEntries(KEYS.map(k=>[k,{stages:data[k].stages,attempts:data[k].attempts}]))}
 function wire(){
  stateObjects=refs();
  const submitIds={tcmsSubmit:'tcms',msgSubmit:'msg',cvSubmit:'cctv',foSubmit:'forensic',axSubmit:'access'};
  // Domyślnie gry zachowują dotychczasowy stan dowodowy; nowe kontrole są wymagane tylko dla nieukończonych minigier.
  document.addEventListener('click',e=>{
-  const b=e.target.closest?.('button');const k=submitIds[b?.id];if(!k||STATE[k]?.solved||done(k))return;
+  const b=e.target.closest?.('button');const k=submitIds[b?.id];if(!k||STATE[k]?.solved||(done(k)&&canAnalyze(k)))return;
   e.preventDefault();e.stopImmediatePropagation();mount(k);const d=data[k];d.failed=true;d.feedback='Aby przedstawić raport, ukończ trzy etapy analizy.';render(k);$('p3-'+k)?.scrollIntoView({block:'center',behavior:'auto'});
  },true);
  document.addEventListener('click',e=>{
   const button=e.target.closest?.('button');if(!button)return;
   const area=button.closest('.p3-panel');if(!area)return;
-  const k=area.id.replace('p3-','');if(!KEYS.includes(k)||done(k))return;
+  const k=area.id.replace('p3-','');if(!KEYS.includes(k)||!canAnalyze(k)||done(k))return;
   const d=data[k],s=d.stages.length;
   if(button.hasAttribute('data-p3-pick')){
    const length=k==='tcms'?4:k==='msg'?5:k==='cctv'?3:5,id=button.dataset.p3Pick;
@@ -189,7 +209,7 @@ registerSaveHook({name:"09-multi-stage-puzzles-load1", apply(value){undefined;re
  // Różne pracownie są renderowane dopiero przy ich wybraniu; nie renderujemy ich w pętli animacji.
  for(const k of KEYS){const root=$(ROOT[k]);if(!root)continue;const observer=new MutationObserver(rs=>{if(rs.some(r=>[...r.addedNodes].some(n=>n.nodeType===1&&!n.classList?.contains('p3-panel')))){queueMicrotask(()=>mount(k));}});observer.observe(root,{childList:true});}
  sync();
- window.PS_MG3_QA={status:()=>Object.fromEntries(KEYS.map(k=>[k,data[k].stages.length])),validate:(k,s)=>KEYS.includes(k)?evaluate(k,s,data[k]):'nieznana minigra',refresh:sync,reset:()=>{restore(null);sync();}};
+ window.PS_MG3_QA={status:()=>Object.fromEntries(KEYS.map(k=>[k,canAnalyze(k)?data[k].stages.length:0])),validate:(k,s)=>!KEYS.includes(k)?'nieznana minigra':!canAnalyze(k)?'Brakuje wymaganych materiałów':evaluate(k,s,data[k]),ready:canAnalyze,refresh:sync,reset:()=>{restore(null);sync();}};
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wire,{once:true});else wire();
 })();

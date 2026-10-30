@@ -2,9 +2,9 @@
 /* Naprawa P1: minimalna wysokość aktywnej ścieżki, nie poziomu trudności. */
 #p1InspectionNow{display:none}
 #inspection12 .p1-inspection-extras{margin:8px 0 12px;border:1px solid #40545f;border-radius:9px;background:#15242c}
-#inspection12 .p1-inspection-extras>summary{display:none}
+#inspection12 .p1-inspection-extras>summary{display:list-item;cursor:pointer;min-height:42px;padding:10px 12px;color:#dfc9a3;font-size:13px;font-weight:700}
 #inspection12 .p1-inspection-extras>*:not(summary){margin:0}
-@media(min-width:701px){#inspection12 .p1-inspection-extras{display:contents;border:0;padding:0;margin:0;background:transparent}#inspection12 .p1-inspection-extras>summary{display:none}}
+@media(min-width:701px){#inspection12 .p1-inspection-extras{display:contents;border:0;padding:0;margin:0;background:transparent}#inspection12 .p1-inspection-extras>summary{display:list-item;cursor:pointer;min-height:42px;padding:10px 12px;color:#dfc9a3;font-size:13px;font-weight:700}}
 @media(max-width:700px){
  #p1InspectionNow{display:grid;gap:8px;position:relative;scroll-margin-top:78px;padding:11px 12px;margin:9px 0 12px;background:linear-gradient(145deg,#2c302b,#142632);border:1px solid #8a7550;border-radius:10px}
  #p1InspectionNow .p1-stage{color:#e8c694;font-weight:750;font-size:11px;letter-spacing:.06em}

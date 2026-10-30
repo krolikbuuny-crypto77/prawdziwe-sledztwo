@@ -5,7 +5,7 @@
  'use strict';
  const K='ps617-pending-actions';
  let queue=[];let rev=null;let busy=false;let disabled=false;let timer=0;let retryDelay=1200;let rejectedCount=0;
- let verifiedVerdict=null;let awaitingResume=!!document.getElementById('psResumeOffer');let resetPending=false;
+ let approvedEvidence=new Set();let verifiedVerdict=null;let verifiedIndictment=null;let awaitingResume=!!document.getElementById('psResumeOffer');let resetPending=false;
  try{resetPending=localStorage.getItem('ps617-reset-pending')==='1';}catch{}
  try{queue=JSON.parse(localStorage.getItem(K)||'[]');if(!Array.isArray(queue))queue=[];}catch{queue=[];}
  queue=queue.filter(x=>x&&typeof x.id==='string'&&x.action&&typeof x.action==='object').slice(-100);
@@ -21,8 +21,8 @@
   let node=panel.querySelector('.ps618-confirmation');
   if(!node){node=document.createElement('p');node.className='ps618-confirmation small muted';panel.appendChild(node);}
   node.textContent=verifiedVerdict?.serverApproved?
-   'Zatwierdzenie serwera: '+String(verifiedVerdict.label||verifiedVerdict.kind||'sprawa oceniona')+'.':
-   'To rozstrzygnięcie lokalne. Zatwierdzenie serwera nastąpi po synchronizacji poprawnych czynności.';
+   'Wynik zatwierdzony na serwerze (rozstrzygający): '+String(verifiedVerdict.label||verifiedVerdict.kind||'sprawa oceniona')+'. Lokalna symulacja ma wyłącznie charakter pomocniczy.':
+   'To tylko symulacja lokalna. Wskazanie osoby i końcowy werdykt wymagają zatwierdzenia na serwerze.';
  }
 
  const key=()=>String(Date.now())+'-'+Math.random().toString(16).slice(2);
@@ -43,7 +43,7 @@
    let r=await fetch('/api/game-state',{credentials:'same-origin',cache:'no-store'});
    if(r.status===404||r.status===503){status('Postęp lokalny — serwer nie jest skonfigurowany');disabled=r.status===404;return;}
    if(!r.ok)throw Error('state-read');
-   let data=await r.json();if(!data.ok)throw Error('state-error');rev=data.revision;verifiedVerdict=data.state?.verdict||null;renderServerVerdict();
+   let data=await r.json();if(!data.ok)throw Error('state-error');rev=data.revision;approvedEvidence=new Set(data.state?.approvedEvidence||[]);verifiedVerdict=data.state?.verdict||null;verifiedIndictment=data.state?.indictment||null;renderServerVerdict();
    if(!queue.length){status(rejectedCount?'Część wcześniejszych działań pozostała lokalna (wymaga weryfikacji)':'Postęp serwerowy aktywny · zapis lokalny dostępny');retryDelay=1200;return;}
    const batch=[];let bytes=90;
    for(const item of queue.slice(0,20)){
@@ -55,7 +55,7 @@
     body:JSON.stringify({revision:rev,actions:batch})});
    if(r.status===409){status('Synchronizacja ponawiana…');retryDelay=1500;return;}
    if(!r.ok)throw Error('state-write');
-   data=await r.json();if(!data.ok)throw Error('state-error');rev=data.revision;verifiedVerdict=data.state?.verdict||null;renderServerVerdict();
+   data=await r.json();if(!data.ok)throw Error('state-error');rev=data.revision;approvedEvidence=new Set(data.state?.approvedEvidence||[]);verifiedVerdict=data.state?.verdict||null;verifiedIndictment=data.state?.indictment||null;renderServerVerdict();
    const processed=new Set(batch.map(x=>x.id));
    const retryable=new Set(['puzzle_evidence_prerequisite_missing','stage_out_of_order','indictment_not_approved','timeline_anchors_missing']);
    const retryItems=batch.filter((x,i)=>!data.decisions[i]?.ok&&retryable.has(data.decisions[i]?.reason)&&Number(x.retries||0)<100).map(x=>({...x,retries:Number(x.retries||0)+1}));
@@ -95,11 +95,42 @@
    renderServerVerdict();
   },0);
  });
+ // Zapytania AI o NOWO zdobyty dowód czekają krótko na serwerowe
+ // zatwierdzenie. Nie twórz pozornego uprawnienia na podstawie STATE.found.
+ async function ensureEvidence(id,timeoutMs=3000){
+  if(typeof id!=='string'||!id||awaitingResume||resetPending||!navigator.onLine||disabled)return false;
+  if(approvedEvidence.has(id))return true;
+  const deadline=Date.now()+Math.max(250,Math.min(4000,timeoutMs));
+  // W jednym cyklu przesyłamy do Supabase wszystkie oczekujące czynności
+  // z ustaloną wcześniej kolejnością, a potem sprawdzamy approvedEvidence.
+  while(Date.now()<deadline){
+   if(!busy)await sync();
+   if(approvedEvidence.has(id))return true;
+   if(!queue.some(item=>item.action?.type==='collect_evidence'&&item.action.docId===id))return false;
+   await new Promise(resolve=>setTimeout(resolve,120));
+  }
+  return approvedEvidence.has(id);
+ }
+ // A local hypothesis is not a certified identification. Only a verdict
+ // matching the current, server-stored indictment may state actor correctness.
+ function actorStatusFor(person,local){
+  if(!verifiedVerdict?.serverApproved||!verifiedIndictment||!local||!person)return 'pending';
+  if(verifiedIndictment.culprit!==person||verifiedVerdict.assessedPerson!==person||
+   verifiedIndictment.method!==local.method||verifiedIndictment.alibi!==local.alibi||
+   verifiedIndictment.keystone!==local.keystone||
+   verifiedIndictment.qualification!==(local.qualification||'intentional'))return 'pending';
+  // Do not reuse an old approval after changing source links or explanations.
+  const normalizeLinks=items=>JSON.stringify((Array.isArray(items)?items:[]).map(x=>[x.role,x.id]).sort((a,b)=>a.join('|').localeCompare(b.join('|'))));
+  if(normalizeLinks(verifiedIndictment.links)!==normalizeLinks(local.links))return 'pending';
+  if(['person','method','proof','alibi'].some(k=>String(verifiedIndictment.reasons?.[k]||'')!==String(local.reasons?.[k]||'')))return 'pending';
+  return verifiedVerdict.review?.correctPerson===true?'confirmed':'rejected';
+ }
  window.PS617_SYNC=Object.freeze({
+  ensureEvidence,actorStatusFor,isEvidenceApproved:id=>approvedEvidence.has(id),
   enqueue,get approvedVerdict(){return verifiedVerdict;},get pending(){return queue.length;},get enabled(){return !disabled;},get rejected(){return rejectedCount;},
   resume(){awaitingResume=false;disabled=false;schedule();},
   resetSession(){
-   awaitingResume=false;queue=[];save();resetPending=true;rev=null;verifiedVerdict=null;disabled=false;
+   awaitingResume=false;queue=[];save();resetPending=true;rev=null;approvedEvidence.clear();verifiedVerdict=null;verifiedIndictment=null;disabled=false;
    try{localStorage.setItem('ps617-reset-pending','1');}catch{}
    status('Nowa sesja lokalna — reset serwera po połączeniu');schedule();
   },retry:sync

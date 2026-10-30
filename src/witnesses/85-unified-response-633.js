@@ -12,11 +12,12 @@
  // Only one parser decides the active intention. No parallel scope regexes.
  function classify(id,raw){
   const p=window.PS633_INTENT.analyzeQuestion(raw);
-  if(!p.positiveQuestion||p.sensitive||p.inputLooksLikeInstruction||p.slots.compound)return null;
+  if(!p.positiveQuestion||p.sensitive||p.inputLooksLikeInstruction)return null;
+  if(p.slots.compound&&!(p.primary==='self_departure'&&p.intents.every(x=>['self_departure','person'].includes(x))))return null;
   if(!NPC94_FACTS[id])return null;
-  const allowed={JANUSZ:['workshop_missing_entry','self_alibi'],ELZBIETA:['bhp_sent','self_alibi'],
-   KAMIL:['test_authorization','self_alibi'],TOMASZ:['self_alibi','alarm_report'],
-   MAREK:['self_alibi'],MAGDALENA:['self_alibi']};
+  const allowed={JANUSZ:['workshop_missing_entry','self_alibi'],ELZBIETA:['bhp_sent','bhp_hazard','last_contact','self_alibi'],
+   KAMIL:['test_authorization','account_identity','self_alibi'],TOMASZ:['self_alibi','alarm_report'],
+   MAREK:['self_alibi','self_departure'],MAGDALENA:['self_alibi']};
   return (Array.isArray(allowed[id])?allowed[id].includes(p.primary):allowed[id]===p.primary)?p.primary:null;
  }
  const activeQuestion=input=>window.PS633_INTENT.analyzeQuestion(input).positiveQuestion;
@@ -25,6 +26,10 @@
   if(kind==='workshop_missing_entry')return 'Nie wiem, dlaczego tego wpisu brakuje. '+f.verify+' '+f.responsibility;
   if(kind==='bhp_sent')return 'Nie mogę potwierdzić, że zgłoszenie BHP zostało wysłane. '+f.verify;
   if(kind==='test_authorization')return 'Autoryzację testu trzeba sprawdzić w dokumentacji zgody na test, zestawiając numer sesji z surowymi logami. Sam wpis techniczny nie potwierdza, kto fizycznie był przy urządzeniu.';
+  if(kind==='self_departure')return 'Wychodziłem z biura w sprawach służbowych. Nie wskażę z pamięci wszystkich miejsc ani osób, które mogły mnie wtedy widzieć. Trzeba porównać rejestr wejść i połączenia.';
+  if(kind==='bhp_hazard')return 'Lena mówiła mi o ryzyku związanym z TW-217. Rozmawiałyśmy o tym o 21:47. Szczegóły zgłoszenia i jego obieg trzeba sprawdzić w dokumentach.';
+  if(kind==='last_contact')return f.last+' '+f.time;
+  if(kind==='account_identity')return 'Użycie konta lub aktywna sesja potwierdzają zapis systemowy, a nie fizyczną obecność konkretnego człowieka. To trzeba zweryfikować niezależnym źródłem.';
   if(kind==='self_alibi')return c.id==='TOMASZ'?'Pracowałem w dyspozytorni. '+f.alibi:f.location+' '+f.alibi;
   if(kind==='alarm_report')return f.victim+' '+f.time;
   return '';

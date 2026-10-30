@@ -72,6 +72,8 @@
   const ds=evFilteredDocs(),idx=ds.findIndex(d=>d.id===activeDoc),next=ds[idx+Number(b.dataset.evDir)];
   if(next)captureRead(next.id);
  });
+ const chatLog=document.getElementById('chatLog');
+ if(chatLog)new MutationObserver(queueRender).observe(chatLog,{childList:true,subtree:false});
  document.getElementById('chatSend')?.addEventListener('click',()=>queueRender());
  document.getElementById('chatInput')?.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey)queueRender();});
  document.getElementById('inspection12')?.addEventListener('click',queueRender);

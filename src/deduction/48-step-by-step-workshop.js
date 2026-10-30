@@ -41,8 +41,8 @@
    actions.hidden=step!==3;get('dedFeedback').hidden=step!==3;get('dd2Review').hidden=step!==3||get('dd2Review').innerHTML==='';
    get('ux4StepHelp').textContent=explain[step];
    const draft=STATE.deduction?.draft||{links:[]};
-   get('ux4DraftCount').textContent=(draft.links||[]).length+' źródeł w hipotezie';
-   get('ux4BoardCount').textContent=(STATE.deduction?.cards||[]).length+' kart';
+   get('ux4DraftCount').textContent=psCount((draft.links||[]).length,'źródło','źródła','źródeł')+' w hipotezie';
+   get('ux4BoardCount').textContent=psCount((STATE.deduction?.cards||[]).length,'karta','karty','kart');
    guide.querySelectorAll('[data-ux4-step]').forEach(b=>{const a=Number(b.dataset.ux4Step)===step;b.setAttribute('aria-current',a?'step':'false');b.setAttribute('aria-pressed',String(a));});
    get('ux4TopNav').innerHTML=navHTML();navBottom.innerHTML=navHTML();
  }
@@ -64,7 +64,7 @@
  dedSelect=function(id){earlierSelect(id);selectStep(1);};
  const earlierAdd=dedAddSource;
  dedAddSource=function(key){earlierAdd(key);refresh();};
- root.addEventListener('input',e=>{if(e.target.closest('.dd-editor-panel'))get('ux4DraftCount').textContent=(STATE.deduction?.draft?.links||[]).length+' źródeł w hipotezie';});
+ root.addEventListener('input',e=>{if(e.target.closest('.dd-editor-panel'))get('ux4DraftCount').textContent=psCount((STATE.deduction?.draft?.links||[]).length,'źródło','źródła','źródeł')+' w hipotezie';});
  get('dedSave').addEventListener('click',()=>{if(STATE.deduction.selected&&!STATE.deduction.dirty){board.open=true;refresh();}},false);
  // Otwierając zapisany wniosek, gracz trafia do jego pierwszego kroku.
  root.addEventListener('click',e=>{if(e.target.closest('[data-dd-edit]'))selectStep(1);},false);

@@ -151,7 +151,7 @@ function threadRender(){if(!boardEl)return;const sources=boardSources(),cards=bo
   node.append(handle,title,sub,excerpt);sourceEl.append(node);
  }
  if(!sourceEl.children.length){sourceEl.append(make('p','thread-empty',sources.length?'Pokaż więcej materiałów, aby zobaczyć dopasowanie.':'Brak zdobytych źródeł pasujących do filtra.'));}
- const count=by('threadSourceCount');count.textContent=`${Math.min(sources.length,T.more)} / ${sources.length} źródeł`;by('threadMore').hidden=sources.length<=T.more;
+ const count=by('threadSourceCount');count.textContent=`${Math.min(sources.length,T.more)} / ${psCount(sources.length,'źródło','źródła','źródeł')}`;by('threadMore').hidden=sources.length<=T.more;
  for(const c of cards){
   const node=make('article','thread-paper thread-hypothesis');node.dataset.threadCard=c.id;
   const h=make('div','thread-hyp-top');h.append(make('small','',c.id+' · '+(DD_KINDS[c.kind]||c.kind)));
@@ -165,7 +165,7 @@ function threadRender(){if(!boardEl)return;const sources=boardSources(),cards=bo
  }
  if(!cardEl.children.length){const empty=make('div','thread-empty');empty.append(make('strong','',cards.length?'Brak wyników filtra hipotez':'Zacznij od własnej hipotezy.'),make('p','',cards.length?'Zmień wyszukiwane hasło.':'Utwórz kartę hipotezy w warsztacie. Potem połącz ją z dokumentem lub zapisanym zeznaniem.'));
   const button=make('button','thread-create','+ Utwórz hipotezę');button.type='button';button.addEventListener('click',()=>{by('dedNew').click();by('dedTitle').scrollIntoView({behavior:'smooth',block:'center'});});empty.append(button);cardEl.append(empty);}
- by('threadCardCount').textContent=cards.length+' hipotez';updateSelection();requestAnimationFrame(drawLines);window.PS_CORRELATIONS?.scheduleApply();
+ by('threadCardCount').textContent=psCount(cards.length,'hipoteza','hipotezy','hipotez');updateSelection();requestAnimationFrame(drawLines);window.PS_CORRELATIONS?.scheduleApply();
 }
 function openLinkDialog(sourceKey,cardId){const source=dedAvailable().get(sourceKey),card=STATE.deduction.cards.find(c=>c.id===cardId);if(!source||!card)return;
  if(STATE.deduction.dirty){by('threadStatus').textContent='Najpierw zapisz lub odrzuć niezapisane zmiany w edytorze hipotezy.';return;}

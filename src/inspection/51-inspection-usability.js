@@ -37,8 +37,8 @@
  wrap(by('scRoomCase'),'p1RoomCase','Rekonstrukcja i opis strefy');
  const journal=by('scActivity')?.closest('.surface.padded');
  wrap(journal,'p1Journal','Dziennik czynności oględzin');
- function resize(){for(const el of compact){if(!mobile())el.open=true;else if(!el.dataset.p1Touched)el.open=false;}}
- for(const el of compact)el.addEventListener('toggle',()=>{if(mobile()&&el.open)el.dataset.p1Touched='1';});
+ function resize(){for(const el of compact)if(!el.dataset.p1Touched)el.open=false;}
+ for(const el of compact)el.addEventListener('toggle',()=>{if(el.isConnected)el.dataset.p1Touched='1';});
  window.addEventListener('resize',resize,{passive:true});resize();
  const roomBox=by('scRooms').closest('.surface');
  const card=document.createElement('div');card.id='p1InspectionNow';card.setAttribute('aria-label','Bieżący etap oględzin');card.innerHTML='<div class="p1-stage">BIEŻĄCE BADANIE</div><label class="p1-room-label">Wybierz strefę oględzin<select id="p1RoomSelect" aria-label="Wybierz strefę oględzin"></select></label><div class="p1-active" id="p1Active">Wybierz punkt oględzin</div><div class="p1-steps" id="p1Steps"></div><div class="p1-actions"><button id="p1Go" type="button">Otwórz punkt badania</button></div><div class="p1-sub" id="p1Tip">Metoda → Ocena → Zabezpieczenie. Dowód trafi do akt dopiero po osobnym zabezpieczeniu.</div>';

@@ -64,7 +64,8 @@ function decide(){
  const actorDocs=(MAPPING[person]||[]).filter(has);
  const actorFit=actorDocs.length>=2;
  const roleDocs=new Set(typeof fcAllDocs==='function'?fcAllDocs():[]);
- const validActor=person==='MAGDALENA'&&ready(a,'identity')&&ready(a,'meeting');
+ const serverActorStatus=window.PS617_SYNC?.actorStatusFor?.(person,STATE.final13)||'pending';
+ const validActor=serverActorStatus==='confirmed'&&ready(a,'identity')&&ready(a,'meeting');
  const mechanistic=method==='two_stage'&&trauma&&ready(a,'mechanism');
  const core=validActor&&mechanistic&&ready(a,'chronology')&&ready(a,'alibi')&&timelineOK;
  const rightProof=typeof fcFamilies==='function'&&roleDocs.size>=6&&fcFamilies([...roleDocs])>=4;
@@ -78,12 +79,12 @@ function decide(){
  if(branch==='intentional'||branch==='planned'){
   charge=branch==='planned'?'Zabójstwo z uprzednio powziętym zamiarem':'Umyślne pozbawienie życia';
   addPositive(contact,'Zweryfikowane źródło wiadomości i treść propozycji spotkania');
-  addPositive(ready(a,'identity')&&person==='MAGDALENA','Niezależne powiązanie wskazanej osoby z kontaktem i trasą');
+  addPositive(ready(a,'identity')&&serverActorStatus==='confirmed','Niezależne powiązanie wskazanej osoby z kontaktem i trasą');
   addPositive(mechanistic,'Medyczna i techniczna rekonstrukcja dwóch faz obrażeń');
   addPositive(ready(a,'chronology')&&timelineOK,'Zgodna oś czasu po kontroli znaczników');
   addPositive(ready(a,'alibi'),'Niezależna kontrola ograniczeń alibi');
   addPositive(rightProof,'Źródła przypisane do ról oskarżenia');
-  score=Math.max(0,Math.min(100,Math.round(grade(pscore(a,'identity'),pscore(a,'meeting'),pscore(a,'mechanism'),pscore(a,'chronology'),pscore(a,'alibi'))*.73+defenseGrade*18+(trustOK?8:0)-(rightProof?0:12)-(timelineOK?0:18)-(person==='MAGDALENA'?0:25))));
+  score=Math.max(0,Math.min(100,Math.round(grade(pscore(a,'identity'),pscore(a,'meeting'),pscore(a,'mechanism'),pscore(a,'chronology'),pscore(a,'alibi'))*.73+defenseGrade*18+(trustOK?8:0)-(rightProof?0:12)-(timelineOK?0:18)-(serverActorStatus==='confirmed'?0:25))));
   if(branch==='planned'){
    const preparation=defect&&contact&&ready(a,'conceal');
    addPositive(preparation,'Łańcuch źródeł o przygotowaniu spotkania i interesie w ukryciu niezgodności');
@@ -92,7 +93,7 @@ function decide(){
    if(core&&passed>=5&&trustOK&&!poorProcedure&&rightProof){kind='returned';verdict='Rekwalifikacja — zamiar uprzedni nieudowodniony';title='Mocne ustalenia w sprawie przemocy, brak podstaw do premedytacji';text='Kontrola odmawia utrzymania zarzutu z góry powziętego zamiaru. Materiały mogą wspierać odrębną tezę umyślnego pozbawienia życia, lecz konieczna jest decyzja o zmianie kwalifikacji.';}
    else{kind='weak';verdict='Odmowa utrzymania zarzutu';title='Teza o premedytacji nie wytrzymała kontroli';text='Brakuje niezależnego, kompletnego łańcucha łączącego osobę, mechanizm i zamiar. Nie wolno zastąpić go samym motywem.';}
   }else if(core&&passed>=5&&trustOK&&!poorProcedure&&rightProof&&score>=76){kind='solid';verdict='Symulowany wyrok skazujący — oskarżenie utrzymane';title='Skazanie po odparciu istotnych zarzutów obrony';text='Niezależne źródła wiążą kontakt, przebieg zdarzenia i obrażenia. Obrona nie podważyła decydujących ogniw rozumowania. To fikcyjne rozstrzygnięcie, a nie gwarancja wyniku rzeczywistego procesu.';}
-  else if(person!=='MAGDALENA'&&s.ignoredTimeline&&a.timelineIssues.length){kind='miscarriage';verdict='Błędne skazanie w symulacji';title='Ostrzeżenie: zignorowano dowody odciążające';text='Wariant ostrzegawczy: oskarżenie nieprawidłowej osoby zostało oparte na pominiętych sprzecznościach. Takie rozstrzygnięcie nie oznacza, że poszlaki rzeczywiście dowodzą winy.';}
+  else if(serverActorStatus==='rejected'&&s.ignoredTimeline&&a.timelineIssues.length){kind='miscarriage';verdict='Błędne skazanie w symulacji';title='Ostrzeżenie: zignorowano dowody odciążające';text='Wariant ostrzegawczy: oskarżenie nieprawidłowej osoby zostało oparte na pominiętych sprzecznościach. Takie rozstrzygnięcie nie oznacza, że poszlaki rzeczywiście dowodzą winy.';}
   else if(passed>=2&&score>=48){kind='returned';verdict='Zwrot aktu do uzupełnienia';title='Niepełne powiązanie osoby i mechanizmu';text='Prokurator wymaga dalszego ustalenia brakujących ogniw. Obrona wykazała słabości, których nie można zastąpić większą liczbą niepowiązanych dokumentów.';}
   else{kind='acquittal';verdict='Brak podstaw do utrzymania oskarżenia';title='Oskarżenie nie osiągnęło progu wiarygodności';text='Zgromadzony materiał nie pozwala przypisać odpowiedzialności za śmierć w sposób dostatecznie spójny.';}
  } else if(branch==='negligence'){
@@ -110,7 +111,7 @@ function decide(){
  } else if(branch==='sabotage'){
   charge='Świadome ukrywanie niezgodności w dokumentacji odbioru';
   const pattern=every('EVID_SERIAL_PHOTO','EVID_ACCEPTANCE_RECORD')&&any('TEC-09','EVID_SERVICE_FORM_GAPS');
-  const signature=person==='MAGDALENA'&&has('EVID_ACCEPTANCE_RECORD');
+  const signature=serverActorStatus==='confirmed'&&has('EVID_ACCEPTANCE_RECORD');
   addPositive(pattern,'Niezależne porównanie oznaczeń L-2 i L-3');
   addPositive(signature,'Powiązanie zatwierdzenia protokołu ze wskazaną osobą');
   addPositive(ready(a,'conceal'),'Zweryfikowana teza o zatajaniu rozbieżności');
@@ -141,7 +142,7 @@ function decide(){
   text='Śledczy nie forsuje orzeczenia, lecz zwraca materiał do dalszych czynności. Wniosek może zostać ponowiony po uzupełnieniu źródeł.';
  }else if(disclosure==='suppress'){
   gaps.push('Świadomie nie ujawniono materiałów odciążających, naruszając warunki rzetelnej oceny.');
-  const wrong=person&&person!=='MAGDALENA';
+  const wrong=person&&serverActorStatus==='rejected';
   kind=wrong&&(!timelineOK||['card_proves','remote_proves','console_proves'].includes(STATE.final13.alibi))?'miscarriage':'excluded';
   verdict=kind==='miscarriage'?'Błąd wymiaru sprawiedliwości':'Istotne uchybienie proceduralne';
   title=kind==='miscarriage'?'Błędne rozstrzygnięcie na podstawie zatajonych wątpliwości':'Akt nie został utrzymany po zatajeniu materiałów';

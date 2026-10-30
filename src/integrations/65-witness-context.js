@@ -74,6 +74,12 @@ const PS65_CONTEXT = (() => {
   }
  });
 
+ function discardUnanswered(id, dialogueLength){
+  // A provisional local draft is not an actual witness testimony when cloud AI fails.
+  if(!Object.prototype.hasOwnProperty.call(approved,id))return;
+  approved[id]=approved[id].filter(x=>x.dialogueLength!==dialogueLength);
+  canonicalApproved[id]=canonicalApproved[id].filter(x=>x.dialogueLength!==dialogueLength);
+ }
  function read(id, canonical, question, previousTurns){
   const c=people[id], p=NPC9_PROFILES[id], s=NPC4_STATE[id], m=NPC9_MEMORY[id];
   if(!c||!p||!s||!m||typeof canonical!=='string')return null;
@@ -150,6 +156,6 @@ const PS65_CONTEXT = (() => {
   row.text=trim(displayed,1400);
   return true;
  }
- return Object.freeze({read,finalize,inspect:()=>Object.fromEntries(Object.entries(approved).map(([id,rows])=>[id,rows.length]))});
+ return Object.freeze({read,finalize,discardUnanswered,inspect:()=>Object.fromEntries(Object.entries(approved).map(([id,rows])=>[id,rows.length]))});
 })();
 window.PS65_CONTEXT=PS65_CONTEXT;

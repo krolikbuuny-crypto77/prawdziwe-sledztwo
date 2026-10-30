@@ -129,6 +129,20 @@ const PS68_MEMORY = (() => {
    record(id,log.at(-2).text||q,log.at(-1).text);
   return result;
  });
+ function discardUnanswered(id, dialogueLength){
+  checkSession(id);
+  const m=data[id];if(!m)return;
+  const before=m.episodes.length;
+  m.episodes=m.episodes.filter(x=>x.dialogueLength!==dialogueLength);
+  if(before===m.episodes.length)return;
+  m.anchors={};
+  for(const ep of m.episodes){
+   const a=m.anchors[ep.topic]||{first:null,last:null,count:0};
+   const x={turn:ep.turn,a:ep.a,canonical:ep.canonical,kind:ep.kind};
+   if(!a.first)a.first={...x};a.last={...x};a.count++;m.anchors[ep.topic]=a;
+  }
+  m.turn=m.episodes.at(-1)?.turn||0;
+ }
  // Reconcile the pending local draft after the async provider has replied.
  // Keep corrections protected and never alter the game's canonical fact ledger.
  function finalize(id,question,original,displayed,log){
@@ -199,6 +213,6 @@ const PS68_MEMORY = (() => {
    }
   }
  });
- return Object.freeze({context,approvedAnchors,canonicalAnchors,recallReply,finalize,inspect:()=>Object.fromEntries(IDS.map(id=>{checkSession(id);return [id,{episodes:data[id].episodes.length,topics:Object.keys(data[id].anchors).length,turn:data[id].turn}];}))});
+ return Object.freeze({recordApproved:record,context,approvedAnchors,canonicalAnchors,recallReply,finalize,discardUnanswered,inspect:()=>Object.fromEntries(IDS.map(id=>{checkSession(id);return [id,{episodes:data[id].episodes.length,topics:Object.keys(data[id].anchors).length,turn:data[id].turn}];}))});
 })();
 window.PS68_MEMORY=PS68_MEMORY;

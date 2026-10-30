@@ -127,7 +127,7 @@ with sync_playwright() as playwright:
     page.set_content(HTML,wait_until='domcontentloaded',timeout=60000)
     assert page.evaluate('STATE.notes')==''
     assert page.locator('#psResumeOffer').is_visible()
-    page.get_by_text('Wznów poprzednią sesję',exact=True).click()
+    page.get_by_role('button',name='Kontynuuj śledztwo',exact=True).click()
     assert page.evaluate('STATE.notes')=='Autosave proof ńą'
     print('PASS autosave, new-game clean start, explicit resume')
 

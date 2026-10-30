@@ -51,7 +51,36 @@
  const status=document.createElement('div');status.id='ps77-response-wait';status.setAttribute('aria-live','polite');
  status.style.cssText='font-size:12px;color:#a8afb1;padding:2px 4px;display:none';
  by('chatInput')?.closest('.chatfoot')?.appendChild(status);
- let inflight=false,cloudRetryAt=0,requestSerial=0;
+ let inflight=false,requestSerial=0,cloudFailure='';
+ let retryTurn=null;
+ const TURN_STORAGE='ps_ai_retry_turn_v636';
+ const copy=v=>v===undefined?undefined:JSON.parse(JSON.stringify(v));
+ const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+ const uuid=()=>window.crypto?.randomUUID?.()||'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{
+  const b=window.crypto?.getRandomValues?.(new Uint8Array(1))?.[0]??Math.floor(Math.random()*256);
+  return (c==='x'?b%16:(b%4+8)).toString(16);
+ });
+ function restoreDraftObject(target,before,after){
+  if(!target||!before||!after)return;
+  for(const key of new Set([...Object.keys(before),...Object.keys(after)])){
+   if(equal(before[key],after[key])||!equal(target[key],after[key]))continue;
+   if(Object.prototype.hasOwnProperty.call(before,key))target[key]=copy(before[key]);else delete target[key];
+  }
+ }
+ function takeDraft(c){return {n4:copy(NPC4_STATE?.[c.id]),n9:copy(NPC9_MEMORY?.[c.id]),
+  sim:copy(STATE.sim),events:copy(STATE.events),stage:copy(window.stage3?.export?.())};}
+ function rollbackDraft(c,before,after){
+  restoreDraftObject(NPC4_STATE?.[c.id],before.n4,after.n4);
+  restoreDraftObject(NPC9_MEMORY?.[c.id],before.n9,after.n9);
+  restoreDraftObject(STATE.sim,before.sim,after.sim);
+  if(equal(STATE.events,after.events)&&!equal(before.events,after.events))STATE.events=copy(before.events);
+  if(window.stage3?.restore&&equal(window.stage3.export?.(),after.stage)&&!equal(before.stage,after.stage))window.stage3.restore(before.stage);
+  if(typeof simRenderInterrogation==='function')simRenderInterrogation();
+  if(typeof simRenderTop==='function')simRenderTop();
+ }
+ function loadRetry(){try{const x=JSON.parse(sessionStorage.getItem(TURN_STORAGE)||'null');return x&&typeof x.question==='string'&&typeof x.id==='string'?x:null;}catch{return null;}}
+ function saveRetry(x){retryTurn=x;try{if(x)sessionStorage.setItem(TURN_STORAGE,JSON.stringify(x));else sessionStorage.removeItem(TURN_STORAGE);}catch(_){}}
+ retryTurn=loadRetry();
  const sync=function(c,before,after){
   const m=NPC9_MEMORY?.[c.id],st=NPC4_STATE?.[c.id];
   const semantic=m?.semantic?.slice().reverse().find(x=>x.answer===before);
@@ -62,7 +91,7 @@
   if(st?.npc65?.lastAnswer===before)st.npc65.lastAnswer=after.slice(0,1300);
   if(st?.npc68?.threads?.length&&st.npc68.threads.at(-1).a===before.slice(0,850))st.npc68.threads.at(-1).a=after.slice(0,850);
  };
- function showBusy(value){inflight=value;status.style.display=value?'block':'none';status.textContent=value?'Świadek przygotowuje odpowiedź…':'';
+ function showBusy(value){inflight=value;status.style.display=(value||!!cloudFailure)?'block':'none';status.textContent=value?'Świadek przygotowuje odpowiedź przez AI…':cloudFailure;
   const send=by('chatSend'),input=by('chatInput');if(send)send.disabled=value;if(input)input.disabled=value;
  }
  function send(){
@@ -72,9 +101,24 @@
   const log=c?STATE.dialogues[c.id]:null,oldLen=log?.length||0;
   // Lokalny silnik rozstrzyga stan gry, lecz jego odpowiedź pozostaje ukryta
   // do zakończenia analizy Z.ai. Dzięki temu gracz nie widzi dwóch różnych zeznań.
-  const wantsCloud=!!(c&&question&&!attached&&online&&navigator.onLine&&Date.now()>=cloudRetryAt);
+  // Cloud may interpret an already verified presented document, but never
+  // an unsupported exhibit or a scripted breakthrough/correction.
+  const attachmentOK=!attached||(STATE.found.has(attached)&&
+   (typeof simIsVerified!=='function'||simIsVerified(attached))&&
+   STATE.sim.auditJudgments?.[attached]?.status!=='overclaim');
+  cloudFailure='';
+  if(question.length>1600){cloudFailure='Pytanie jest za długie (maksymalnie 1600 znaków). Skróć je, nie zostanie ucięte automatycznie.';showBusy(false);return;}
+  if(!online||!navigator.onLine){cloudFailure='Połącz z internetem, aby przesłuchać świadka przez AI.';showBusy(false);return;}
+  if(!attachmentOK){cloudFailure='Materiał musi być pozyskany i zweryfikowany przed konfrontacją.';showBusy(false);return;}
+  const wantsCloud=!!(c&&question&&attachmentOK&&online&&navigator.onLine);
   if(wantsCloud)pending={id:c.id,log,start:oldLen};
+  const beforeDraft=c?takeDraft(c):null;
   let out;try{out=previous.apply(this,arguments);}catch(error){pending=null;throw error;}
+  const afterDraft=c?takeDraft(c):null;
+  const procedural=!!(c&&(simWitness(c).blocked||
+   emergency.test(norm(log?.at(-1)?.text||''))||
+   ['CONFESSION','CORRECTION_WITH_EVIDENCE','PROCEDURAL_REFUSAL'].includes(NPC9_MEMORY?.[c.id]?.semantic?.at(-1)?.status)||
+   window.PS_BREAKTHROUGH?.shouldKeepCanonical?.(c.id,question,attached)));
   const finishLocal=()=>{
     if(c&&question&&log?.length===oldLen+2&&log.at(-1)?.role==='npc'){
       const finalText=log.at(-1).text;
@@ -85,95 +129,128 @@
     if(pending&&pending.log===log){pending=null;if(STATE.activeChar===c?.id&&STATE.tab==='interview')renderChat();}
     return out;
   };
-  if(!wantsCloud||!log||log.length!==oldLen+2)return finishLocal();
+  if(!wantsCloud||!log||log.length!==oldLen+2){
+   if(procedural||!question)return finishLocal();
+   if(log?.length>=oldLen+2)log.splice(oldLen,log.length-oldLen);
+   rollbackDraft(c,beforeDraft,afterDraft);PS65_CONTEXT?.discardUnanswered?.(c.id,oldLen+2);
+   window.PS68_MEMORY?.discardUnanswered?.(c.id,oldLen+2);
+   if(input)input.value=question;
+   cloudFailure='Nie można rozpocząć tej rozmowy przez AI. Ponów pytanie.';pending=null;showBusy(false);
+   if(typeof renderChat==='function')renderChat();return out;
+  }
   const row=log.at(-1),answer=row?.text,mem=NPC9_MEMORY?.[c.id];
-  if(!row||row.role!=='npc'||typeof answer!=='string'||answer.length<12||simWitness(c).blocked)return finishLocal();
-  if(emergency.test(norm(answer))||['CONFESSION','CORRECTION_WITH_EVIDENCE'].includes(mem?.semantic?.at(-1)?.status))return finishLocal();
-  if(window.PS_BREAKTHROUGH?.shouldKeepCanonical?.(c.id,question,attached))return finishLocal();
+  if(procedural)return finishLocal();
+  if(!row||row.role!=='npc'||typeof answer!=='string'||answer.length<12){
+   log.splice(oldLen,2);rollbackDraft(c,beforeDraft,afterDraft);
+   PS65_CONTEXT?.discardUnanswered?.(c.id,oldLen+2);window.PS68_MEMORY?.discardUnanswered?.(c.id,oldLen+2);
+   if(input)input.value=question;pending=null;
+   cloudFailure='Brak bezpiecznej podstawy odpowiedzi AI. Ponów pytanie.';
+   showBusy(false);renderChat();return out;
+  }
   const context=PS65_CONTEXT.read(c.id,answer,question,oldLen);
-  if(!context)return finishLocal();
+  if(!context){
+   log.splice(oldLen,2);rollbackDraft(c,beforeDraft,afterDraft);PS65_CONTEXT?.discardUnanswered?.(c.id,oldLen+2);
+   window.PS68_MEMORY?.discardUnanswered?.(c.id,oldLen+2);
+   if(input)input.value=question;pending=null;
+   cloudFailure='Nie udało się przygotować bezpiecznego kontekstu dla AI. Ponów pytanie.';showBusy(false);renderChat();return out;
+  }
+  // The synchronous legacy engine runs only in a speculative sandbox. Capture
+  // its facts and proposed effects, then discard ALL provisional progression
+  // before the network request starts. Only an accepted cloud answer commits.
+  const playerDraft=log.at(-2);
+  log.splice(oldLen,2);
+  rollbackDraft(c,beforeDraft,afterDraft);
+  PS65_CONTEXT?.discardUnanswered?.(c.id,oldLen+2);
+  window.PS68_MEMORY?.discardUnanswered?.(c.id,oldLen+2);
+  if(typeof psSchedule==='function')psSchedule();
+  const unchanged=()=>log.length===oldLen&&
+   equal(NPC4_STATE?.[c.id],beforeDraft.n4)&&equal(NPC9_MEMORY?.[c.id],beforeDraft.n9)&&
+   equal(STATE.sim,beforeDraft.sim)&&equal(STATE.events,beforeDraft.events)&&
+   equal(window.stage3?.export?.(),beforeDraft.stage);
+  const commitDraft=()=>{
+   if(!unchanged())return false;
+   restoreDraftObject(NPC4_STATE?.[c.id],afterDraft.n4,beforeDraft.n4);
+   restoreDraftObject(NPC9_MEMORY?.[c.id],afterDraft.n9,beforeDraft.n9);
+   restoreDraftObject(STATE.sim,afterDraft.sim,beforeDraft.sim);
+   if(!equal(beforeDraft.events,afterDraft.events))STATE.events=copy(afterDraft.events);
+   if(window.stage3?.restore&&!equal(beforeDraft.stage,afterDraft.stage))window.stage3.restore(afterDraft.stage);
+   log.push(playerDraft,row);
+   return true;
+  };
+  const prior=retryTurn&&retryTurn.witnessId===c.id&&retryTurn.question===question&&retryTurn.evidenceId===attached?retryTurn:null;
+  const turnId=prior?.id||uuid();
+  saveRetry({id:turnId,witnessId:c.id,question,evidenceId:attached});
   const payload={version:3,witnessId:c.id,name:c.name,role:c.role,canonical:answer.slice(0,1900),
-   question:question.slice(0,1600),context};
-  // Lokalna odpowiedź jest zachowana w pamięci i będzie ujawniona tylko przy fallback.
+   question,presentedEvidenceId:attached||null,context,turnId};
+  // Local draft is provisional only; it must never be displayed as a free-form reply.
   const serial=++requestSerial;showBusy(true);
-  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),24000);
-  fetch(URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:ctrl.signal})
+  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),54000);
+  let cloudAccepted=false;
+  const unavailable=(message)=>{
+   if(serial!==requestSerial||STATE.dialogues[c.id]!==log)return;
+   // No provisional response is in STATE or the transcript while awaiting AI.
+   // On rejected responses, keep the initial state and restore the input.
+   if(log.length===oldLen+2&&log.at(-1)===row){
+    log.splice(oldLen,2);rollbackDraft(c,beforeDraft,afterDraft);
+    PS65_CONTEXT?.discardUnanswered?.(c.id,oldLen+2);
+    window.PS68_MEMORY?.discardUnanswered?.(c.id,oldLen+2);
+   }
+   if(input)input.value=question;
+   cloudFailure=message||'AI nie odpowiedziało. Ponów pytanie.';
+   if(typeof psSchedule==='function')psSchedule();
+  };
+  // Newly obtained evidence must be approved by Supabase before a cloud confrontation.
+  (async()=>{
+   // Establish the signed Supabase session cookie BEFORE sending a payable AI
+   // request. If the POST response is lost, the next retry still uses the same
+   // session and durable turnId. Do not spend AI tokens without a handshake.
+   const handshake=await fetch('/api/game-state',{method:'GET',credentials:'same-origin',cache:'no-store',signal:ctrl.signal});
+   if(!handshake.ok)throw Object.assign(Error('session_not_ready'),{sessionNotReady:true});
+   if(attached&&window.PS617_SYNC?.ensureEvidence){
+    const approved=await window.PS617_SYNC.ensureEvidence(attached,3000);
+    if(!approved)throw Object.assign(Error('evidence_not_yet_approved'),{localOnly:true});
+   }
+   return fetch(URL,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify(payload),signal:ctrl.signal});
+  })()
    .then(r=>{if(!r.ok){
-      cloudRetryAt=Date.now()+(r.status===429?3600000:r.status===404?86400000:120000);
-      row.ai=psAiMeta({provider:'local',model:'witness-engine-local',fallbackReason:'backend_http_'+r.status});
-      window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:answer});
+      unavailable(r.status===409?'Dowód nie jest jeszcze zatwierdzony. Ponów pytanie po synchronizacji.':
+       r.status===429?'Serwer AI jest chwilowo przeciążony. Ponów pytanie.':
+       'AI jest chwilowo niedostępne (HTTP '+r.status+'). Ponów pytanie.');
       return null;
     }return r.json();})
    .then(data=>{
+    if(!data)return;
+    if(data?.decision!=='answer'||data?.serverCanonical!==true||data?.semanticVerified!==true){
+     unavailable('Nie otrzymano zatwierdzonej odpowiedzi AI. Ponów pytanie.');return;
+    }
     const text=typeof data?.text==='string'?data.text.trim():'';
-    let next=answer;
-    if(data?.serverCanonical===true){
-      // Server-side authorisation is based on an independent bank of facts.
-      // Client IDs no longer have to match server-owned fact IDs.
-      if(data.decision==='answer'&&data.semanticVerified===true&&text&&
-         !/[<>]/.test(text)&&text.length<=1650)next=text;
-      else if(data.decision==='fallback'&&text&&text.length<=1650)next=text;
-      // Server fallback and displayed testimony now match on successful HTTP calls.
-    }else if(Array.isArray(data?.factIds)&&data.factIds.length){
-      const ids=data.factIds,bank=context.knowledge.factBank||[];
-      const picked=ids.map(id=>bank.find(f=>f.id===id));
-      const valid=ids.length<=4&&picked.every(Boolean)&&new Set(ids).size===ids.length;
-      if(data?.decision==='answer'&&valid){
-       const grounded=picked.map(x=>x.text).join(' ');
-       // Serwer musi potwierdzić niezależną ocenę SEMANTYCZNĄ,
-       // inaczej wyświetlamy wyłącznie dokładne, wcześniej dopuszczone fakty.
-       next=data.semanticVerified===true&&semanticGuard(grounded,text)?text:grounded;
-      }
-    }else{
-      // Zgodność ze starszym API 6.6 (gdy backend i frontend są aktualizowane oddzielnie).
-      const key=Number.isInteger(data?.prefaceKey)?data.prefaceKey:0;
-      const prefix=(prefaces[c.id]||[''])[key]||'';
-      const ids=Array.isArray(data?.sourceIds)?data.sourceIds:[data?.sourceId];
-      const choices=ids.map(id=>context.knowledge.groundedOptions.find(x=>x.id===id));
-      const valid=ids.length>0&&ids.length<=2&&choices.every(Boolean)&&new Set(ids).size===ids.length;
-      const grounded=(data?.decision==='answer'&&valid)?choices.map(x=>x.text).join(' '):answer;
-      next=prefix+(safeRewrite(grounded,text)?text:grounded);
+    const serverApproved=data.serverCanonical===true&&data.decision==='answer'&&
+     data.semanticVerified===true&&['zai','groq'].includes(data.provider)&&
+     data.turnId===turnId&&text.length>=12&&text.length<=1650&&
+     !/[<>\u0000-\u0008\u000e-\u001f]/.test(text);
+    if(!serverApproved){unavailable('Odrzucono nieprawidłową odpowiedź AI. Ponów pytanie.');return;}
+    if(serial!==requestSerial||STATE.dialogues[c.id]!==log||row.text!==answer||
+       !commitDraft()){
+     unavailable('Stan przesłuchania zmienił się podczas odpowiedzi AI. Ponów pytanie.');return;
     }
-    // The server has already checked relevance and committed its exact reply to Supabase.
-    // A second client-side rejection here would display a DIFFERENT answer than stored on the server.
-    if(next!==answer&&data?.serverCanonical!==true&&window.PS626_INTENT){
-     const kind=window.PS626_INTENT.focus(question);
-     if(kind&&!window.PS626_INTENT.relevant(kind,next))next=answer;
-    }
-    const serverApproved=data?.serverCanonical===true&&(
-     (data.decision==='answer'&&data.semanticVerified===true&&next===text)||
-     (data.decision==='fallback'&&next===text));
-    // An HTTP error has already recorded its actual status. Preserve it instead
-    // of mislabelling an unavailable backend as an unsupported JSON response.
-    const diag=data===null&&row.ai?row.ai:serverApproved?psAiMeta(data):psAiMeta({provider:'local',model:'witness-engine-local',
-     fallbackReason:data?.serverCanonical===true?'client_could_not_apply_response':'unsupported_response',requestId:data?.requestId});
-    if(next===answer){
-     // Even identical wording may have come from Z.ai/Groq, not necessarily local fallback.
-     if(serial===requestSerial&&STATE.dialogues[c.id]===log&&log.at(-1)===row)row.ai=diag;
-     return;
-    }
-    // Kontrola sceny, sesji, kolejności, oryginalnego wpisu i niezmiennego statusu.
-    if(serial!==requestSerial||STATE.dialogues[c.id]!==log||log.at(-1)!==row||row.text!==answer||
-      ['CONFESSION','CORRECTION_WITH_EVIDENCE'].includes(NPC9_MEMORY?.[c.id]?.semantic?.at(-1)?.status)||
-      simWitness(c).blocked)return;
-    row.text=next;
-    row.ai=diag;
-    // W trybie AI-first tekst prezentacyjny nie zmienia kanonicznego rejestru
-    // zeznań ani wewnętrznych faktów. Historia widoczna graczowi pozostaje
-    // zapisana osobno w STATE.dialogues.
-    // NPC9 canon remains authoritative; ps67/ps68 and visible dialogue
-    // are reconciled after the server-approved final wording is known.
-    if(data?.serverCanonical!==true&&data?.primaryMode!==true)sync(c,answer,next);
+    row.text=text;
+    row.ai=psAiMeta(data);
+    PS65_CONTEXT.read(c.id,answer,question,oldLen);
+    window.PS68_MEMORY?.recordApproved?.(c.id,question,answer);
+    cloudAccepted=true;
+    saveRetry(null);
+    // The server owns the exact wording and has already checked semantics.
+    // Never silently substitute the provisional local testimony.
     // Render w finally — dopiero po zatwierdzeniu odpowiedzi lub fallbacku.
    })
-   .catch(()=>{cloudRetryAt=Date.now()+90000;
-    if(serial===requestSerial&&STATE.dialogues[c.id]===log&&log.at(-1)===row)
-     row.ai=psAiMeta({provider:'unknown',fallbackReason:'network_response_not_confirmed'});
-    window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:answer});})
+   .catch(error=>{
+    unavailable(error?.sessionNotReady?'Sesja serwerowa nie jest gotowa. Ponów pytanie.':error?.localOnly?'Dowód oczekuje na zatwierdzenie przez serwer. Ponów pytanie.':
+     'Połączenie z AI zostało przerwane. Ponów pytanie.');
+   })
    .finally(()=>{
     clearTimeout(timer);
     if(serial===requestSerial){
-     if(STATE.dialogues[c.id]===log&&log.at(-1)===row){
+     if(cloudAccepted&&STATE.dialogues[c.id]===log&&log.at(-1)===row){
       PS65_CONTEXT.finalize?.(c.id,answer,row.text,log);
       window.PS68_MEMORY?.finalize?.(c.id,question,answer,row.text,log);
       // A late cloud answer must also be included in local export/autosave.
@@ -208,8 +285,9 @@
   }
   return result;
  };
+ by('chatInput')?.setAttribute('maxlength','1600');
  registerWitnessSendLayer('zai-cloud-fallback',send);
- window.PS77_AI=Object.freeze({mode:'zai_primary_semantics_v5',get busy(){return inflight;},
+ window.PS77_AI=Object.freeze({mode:'ai_required_zai_then_groq_v636_hardened',get busy(){return inflight;},
   get lastDiagnostic(){const rows=STATE.dialogues[STATE.activeChar]||[];
    return rows.slice().reverse().find(x=>x.role==='npc'&&x.ai)?.ai||null;},
   safeRewrite,semanticGuard,context:PS65_CONTEXT.read});
