@@ -1,5 +1,5 @@
 import {randomUUID} from 'node:crypto';
-import {askGemini,models} from '../lib/ai-providers-rc7.js';
+import {askGemini,askGroq,models} from '../lib/ai-providers-rc7.js';
 import {trustedScene} from '../lib/trusted-interview-624.js';
 import {buildQuestionContext,repeatsIrrelevantly} from '../lib/question-context-630.js';
 import {reviewInterviewReply,repairCue} from '../lib/interview-quality-635.js';
@@ -21,7 +21,7 @@ const scrub=(s,n=400)=>typeof s==='string'?s.replace(/[\u0000-\u001f]/g,' ').tri
 const fail=(res,status,message)=>res.status(status).json({ok:false,error:message});
 // Free-form interviews require a verified cloud response. Never accept an environment flag to restore local testimony.
 // Safe, per-request diagnostic metadata. Never send API keys, prompts, tokens or raw upstream errors.
-const providerModel=id=>id==='gemini'?models().interview:id==='unavailable'?'none':id;
+const providerModel=id=>id==='gemini'?models().interview:id==='groq'?models().deductionBackup:id==='unavailable'?'none':id;
 const diagnostics=(provider,reason,requestId,startedAt)=>({provider,model:providerModel(provider),fallbackReason:reason||null,requestId,
  durationMs:Math.max(0,Math.min(120000,Date.now()-startedAt))});
 const failureCode=(provider,error)=>{
@@ -30,7 +30,8 @@ const failureCode=(provider,error)=>{
  if(e==='upstream-429'||e==='upstream_rate_limit')return provider+'_rate_limited';
  if(e==='upstream_authorization'||e==='upstream-401'||e==='upstream-403')return provider+'_authorization_failed';
  if(/^upstream-5\d\d$/.test(e))return provider+'_upstream_unavailable';
- if(e==='gemini_not_configured')return provider+'_not_configured';
+ if(e===provider+'_not_configured')return provider+'_not_configured';
+ if(e==='upstream_unavailable')return provider+'_upstream_unavailable';
   if(e==='model_not_available')return provider+'_model_not_available';
  if(e==='provider-not-configured')return provider+'_not_configured';
  return provider+'_request_failed';
@@ -106,14 +107,16 @@ function validated(input){
  };
 }
 async function chat(system,scene,maxTokens=650,temperature=0.25,provider='gemini',phase='generate'){
- const timeout=phaseTimeout({provider:'gemini',phase,turnDeadline:scene?._responseDeadline,providerDeadline:scene?._providerDeadline});
+ const timeout=phaseTimeout({provider,phase,turnDeadline:scene?._responseDeadline,providerDeadline:scene?._providerDeadline});
  if(!timeout)throw Error('timeout-budget');
  const modelScene=scene?.knowledge?.factBank?{
   ...scene,_responseDeadline:undefined,_providerDeadline:undefined,approvedThreadHistory:undefined,
   knowledge:{...scene.knowledge,groundedOptions:undefined,alreadySaid:undefined}
  }:{...scene,_responseDeadline:undefined,_providerDeadline:undefined};
+ if(provider==='groq')return askGroq({system,payload:modelScene,maxTokens,temperature,
+   model:models().deductionBackup,timeoutMs:timeout,role:'deduction'});
  return askGemini({system,payload:modelScene,maxTokens,temperature,model:models().interview,
-   timeoutMs:timeout,thinkingLevel:phase==='semantic-audit'?'medium':'high'});
+   timeoutMs:timeout,thinkingLevel:'medium'});
 }
 function anchors(text){return [...text.matchAll(/\b\d+(?::\d+)?(?:[.,]\d+)?\b/g)].map(x=>x[0]).sort();}
 const uncertainty=/\b(?:nie wiem|nie pamiętam|nie jestem pew|nie mogę potwierdzić|nie potrafię|chyba|może|możliwe|wydaje mi się|prawdopodobnie|według|podobno)\b/i;
@@ -416,11 +419,15 @@ export default async function handler(req,res){
  const reasons=[];
  const trace=makeInterviewTrace();
  if(!(process.env.GEMINI_API_KEY||process.env.GOOGLE_AI_STUDIO_API_KEY))reasons.push('gemini_not_configured');
- const providers=(process.env.GEMINI_API_KEY||process.env.GOOGLE_AI_STUDIO_API_KEY)?['gemini']:[];
+ if(!process.env.GROQ_API_KEY)reasons.push('groq_not_configured');
+ const providers=[...(process.env.GEMINI_API_KEY||process.env.GOOGLE_AI_STUDIO_API_KEY?['gemini']:[]),
+  ...(process.env.GROQ_API_KEY?['groq']:[])];
  for(const provider of providers){
   // Give the primary model one bounded window. The remainder stays available
   // for the backup provider and for committing the accepted answer.
-   scene._providerDeadline=scene._responseDeadline-INTERVIEW_BUDGET.commitReserveMs;
+   scene._providerDeadline=provider==='gemini'&&providers.includes('groq')
+    ?Math.min(startedAt+28000,scene._responseDeadline-INTERVIEW_BUDGET.commitReserveMs)
+    :scene._responseDeadline-INTERVIEW_BUDGET.commitReserveMs;
   if(Date.now()+INTERVIEW_BUDGET.minCallMs>=scene._providerDeadline){
    reasons.push(provider+'_budget_exhausted');trace.add(provider,'generate','skipped',0,'no_retry_budget');continue;
   }

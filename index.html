@@ -17475,7 +17475,7 @@ window.PS65_CONTEXT=PS65_CONTEXT;
   if(!online||!navigator.onLine){cloudFailure='Połącz z internetem, aby przesłuchać świadka przez AI.';showBusy(false);return;}
   if(!attachmentOK){cloudFailure='Materiał musi być pozyskany i zweryfikowany przed konfrontacją.';showBusy(false);return;}
   const wantsCloud=!!(c&&question&&attachmentOK&&online&&navigator.onLine);
-  if(wantsCloud)pending={id:c.id,log,start:oldLen};
+  if(wantsCloud)pending={id:c.id,log,start:oldLen,question};
   const beforeDraft=c?takeDraft(c):null;
   let out;try{out=previous.apply(this,arguments);}catch(error){pending=null;throw error;}
   const afterDraft=c?takeDraft(c):null;
@@ -17547,8 +17547,8 @@ window.PS65_CONTEXT=PS65_CONTEXT;
   const payload={version:3,witnessId:c.id,name:c.name,role:c.role,canonical:answer.slice(0,1900),
    question,presentedEvidenceId:attached||null,context,turnId};
   // Local draft is provisional only; it must never be displayed as a free-form reply.
-  const serial=++requestSerial;showBusy(true);
-  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),54000);
+  const serial=++requestSerial;showBusy(true);renderChat();
+  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),60000);
   let cloudAccepted=false;
   const unavailable=(message)=>{
    if(serial!==requestSerial||STATE.dialogues[c.id]!==log)return;
@@ -17607,7 +17607,7 @@ window.PS65_CONTEXT=PS65_CONTEXT;
     }
     const text=typeof data?.text==='string'?data.text.trim():'';
     const serverApproved=data.serverCanonical===true&&data.decision==='answer'&&
-     data.semanticVerified===true&&(['gemini'].includes(data.provider)||data.replayed===true&&['zai','groq'].includes(data.provider))&&
+     data.semanticVerified===true&&(['gemini','groq'].includes(data.provider)||data.replayed===true&&data.provider==='zai')&&
      data.turnId===turnId&&text.length>=12&&text.length<=1650&&
      !/[<>\u0000-\u0008\u000e-\u001f]/.test(text);
     if(!serverApproved){unavailable('Odrzucono nieprawidłową odpowiedź AI. Ponów pytanie.');return;}
@@ -17649,7 +17649,10 @@ window.PS65_CONTEXT=PS65_CONTEXT;
       if(typeof psSchedule==='function')psSchedule();
      }
      pending=null;showBusy(false);
-     if(STATE.activeChar===c.id&&STATE.tab==='interview')renderChat();
+     if(STATE.activeChar===c.id&&STATE.tab==='interview'){
+      if(typeof simRenderInterrogation==='function')simRenderInterrogation();
+      renderChat();
+     }
     }
    });
   return out;
@@ -17665,6 +17668,19 @@ window.PS65_CONTEXT=PS65_CONTEXT;
  const originalRender=renderChat;
  renderChat=function(){
   const result=originalRender.apply(this,arguments);
+  if(inflight&&pending&&STATE.activeChar===pending.id&&STATE.dialogues[pending.id]===pending.log&&
+     pending.log.length===pending.start){
+   const host=by('chatLog');
+   if(host){
+    const player=document.createElement('div');player.className='bubble player';
+    const who=document.createElement('span');who.textContent='Ty';
+    player.append(who,document.createTextNode(pending.question));
+    const bubble=document.createElement('div');bubble.className='bubble npc';bubble.setAttribute('aria-busy','true');
+    const label=document.createElement('span');label.textContent=CONTENT.characters.find(c=>c.id===pending.id)?.name||'Świadek';
+    const message=document.createElement('em');message.textContent='Formułuje odpowiedź…';
+    bubble.append(label,message);host.append(player,bubble);host.scrollTop=host.scrollHeight;
+   }
+  }
   if(pending&&STATE.activeChar===pending.id&&STATE.dialogues[pending.id]===pending.log&&
      pending.log.length>=pending.start+2&&pending.log.at(-1)?.role==='npc'){
    const bubble=by('chatLog')?.querySelector('.bubble.npc:last-child');
@@ -17675,6 +17691,7 @@ window.PS65_CONTEXT=PS65_CONTEXT;
     bubble.replaceChildren(label,message);bubble.setAttribute('aria-busy','true');
    }
   }
+  showBusy(inflight);
   return result;
  };
  by('chatInput')?.setAttribute('maxlength','1600');
