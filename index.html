@@ -19968,7 +19968,29 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
    form.addEventListener('submit',ev=>{ev.preventDefault();formValue=field.value;join();});root.appendChild(form);
   }
  }
- function frame(){return {save:window.PS_SAVE_MANAGER.build(),view:window.PS_COOP_VIEW.capture()};}
+ // RC35.6: Postgres jsonb reorders keys of nested objects. SaveManager's legacy
+ // checksum uses JSON.stringify insertion order. Keep the *exact serialized*
+ // signed save as an opaque string inside the room JSONB; do not disable checks.
+ function frame(){return {saveJson:JSON.stringify(window.PS_SAVE_MANAGER.build()),view:window.PS_COOP_VIEW.capture()};}
+ function snapshotFromFrame(shared){
+  if(typeof shared?.saveJson==='string'&&shared.saveJson.length<1700000){
+   const parsed=JSON.parse(shared.saveJson);
+   window.PS_SAVE_MANAGER.verify(parsed);
+   return parsed;
+  }
+  if(shared?.save&&typeof shared.save==='object'){
+   // Legacy RC35.5 frames already stored as JSONB cannot be verified reliably.
+   // Never re-sign or bypass a failed checksum on the observing client.
+   window.PS_SAVE_MANAGER.verify(shared.save);
+   return shared.save;
+  }
+  throw Error('Brak poprawnej migawki wspólnej gry.');
+ }
+ function applyRoomFrame(shared){
+  const save=snapshotFromFrame(shared);
+  window.PS_SAVE_MANAGER.apply(save);
+  window.PS_COOP_VIEW.apply(shared.view);
+ }
  async function call(action,fields={}){
   const res=await fetch(endpoint,{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json','X-PS-Client':'game'},body:JSON.stringify({action,...fields})});
   const data=await res.json().catch(()=>({ok:false,error:'invalid_response'}));
@@ -19983,19 +20005,24 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
   if(wasActive&&incomingVersion<version)return;
   active=true;controller=!!data.controller;owner=!!data.owner;players=data.players||1;
   const changed=incomingVersion!==version;version=incomingVersion;
-  if(!controller&&changed&&data.frame?.save&&!applying){
+  if(!controller&&changed&&(data.frame?.saveJson||data.frame?.save)&&!applying){
    applying=true;
-   try{window.PS_SAVE_MANAGER.apply(data.frame.save);window.PS_COOP_VIEW.apply(data.frame.view);dirty=false;}
-   catch(err){notify('Nie można odtworzyć widoku: '+safe(err.message));}
+   try{applyRoomFrame(data.frame);dirty=false;notify('');}
+   catch(err){notify(data.frame?.save&&!data.frame?.saveJson?
+    'Starszy format migawki pokoju: osoba sterująca powinna opublikować nową aktualizację.':
+    'Nie można odtworzyć widoku: '+safe(err.message));}
    finally{applying=false;}
   }
-  if(!wasController&&controller&&data.frame?.save){
+  if(!wasController&&controller&&(data.frame?.saveJson||data.frame?.save)){
    // Do not overwrite the last controller's progress on a control handoff.
    applying=true;
-   try{window.PS_SAVE_MANAGER.apply(data.frame.save);window.PS_COOP_VIEW.apply(data.frame.view);}
-   catch(error){notify('Sterowanie przekazano. Widok odśwież za chwilę: '+safe(error.message));}
+   try{applyRoomFrame(data.frame);notify('');}
+   catch(error){notify('Sterowanie przekazano, ale trzeba odświeżyć migawkę. '+safe(error.message));dirty=true;}
    finally{applying=false;}
   }
+  // Recover an already-open room created on RC35.5: the *current controller*
+  // republishes a fresh signed JSON string. Observers must never re-sign it.
+  if(controller&&data.frame?.save&&!data.frame?.saveJson)dirty=true;
   if(!wasActive){resetChat();void pollChat();}
   redraw();
  }

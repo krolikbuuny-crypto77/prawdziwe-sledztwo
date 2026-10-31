@@ -5,10 +5,24 @@ import crypto from 'node:crypto';
 import {configured,sessionId,loadSession,commitSession,checkOrigin} from '../lib/server-state.js';
 import {assertCoopAccess,hasCoopCookie,setCoopCookie,clearCoopCookie,coopRest,roomById,roomByCode,patchRoom,makeCode,codeHash} from '../lib/coop-session-rc35.js';
 const reply=(res,status,obj)=>{res.setHeader('Cache-Control','no-store');return res.status(status).json(obj);};
-const validFrame=frame=>frame&&typeof frame==='object'&&!Array.isArray(frame)&&
- frame.save&&typeof frame.save==='object'&&frame.save.format==='PS_V7_COMPLETE_STAGE14'&&
- typeof frame.save.saveMeta?.checksum==='string'&&/^[a-f0-9]{64}$/.test(frame.save.saveMeta.checksum)&&
- typeof frame.view?.tab==='string'&&/^[a-zA-Z0-9_-]{1,30}$/.test(frame.view.tab);
+// The signed save must survive Postgres JSONB, which reorders nested object keys.
+// New clients transmit a string with exact JSON bytes; legacy objects are read-only
+// compatible until the controller upgrades that room on the next frame publish.
+function signedSaveOf(frame){
+ if(typeof frame?.saveJson==='string'){
+  if(frame.saveJson.length>1650000)return null;
+  try{return JSON.parse(frame.saveJson);}catch{return null;}
+ }
+ if(frame?.save&&typeof frame.save==='object')return frame.save;
+ return null;
+}
+const validFrame=frame=>{
+ if(!frame||typeof frame!=='object'||Array.isArray(frame))return false;
+ const save=signedSaveOf(frame);
+ return !!save&&save.format==='PS_V7_COMPLETE_STAGE14'&&
+  typeof save.saveMeta?.checksum==='string'&&/^[a-f0-9]{64}$/.test(save.saveMeta.checksum)&&
+  typeof frame.view?.tab==='string'&&/^[a-zA-Z0-9_-]{1,30}$/.test(frame.view.tab);
+};
 const sanitizeRoom=(room,identity)=>({roomId:room.room_id,version:Number(room.version),owner:room.owner_member===identity.memberId,
  controller:room.controller_member===identity.memberId,players:room.guest_member?2:1,frame:room.frame||null});
 function bodyOf(req){const raw=typeof req.body==='string'?req.body:JSON.stringify(req.body||{});

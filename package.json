@@ -58,6 +58,7 @@
     "test:rc341": "node tools/test-rc341-history-40.mjs && python tools/test-rc341-browser-40.py && node tools/test-rc34-history-sync.mjs && python tools/test-rc34-browser-sync.py && npm run test:rc33",
     "test:rc351": "node tools/test-rc351-chat.mjs && python tools/test-rc351-chat-browser.py && node tools/test-rc35-coop.mjs",
     "test:rc353": "python tools/test-rc353-mentor-layout.py && python tools/test-navigation.py && node tools/test-rc35-coop.mjs && node tools/test-rc351-chat.mjs && python tools/test-rc351-chat-browser.py",
-    "test:rc354": "node tools/test-rc35-coop.mjs && node tools/test-rc351-chat.mjs && python tools/test-rc35-browser.py && python tools/test-rc351-chat-browser.py && python tools/test-navigation.py"
+    "test:rc354": "node tools/test-rc35-coop.mjs && node tools/test-rc351-chat.mjs && python tools/test-rc35-browser.py && python tools/test-rc351-chat-browser.py && python tools/test-navigation.py",
+    "test:rc356": "python tools/test-rc356-jsonb-integrity.py && node tools/test-rc35-coop.mjs && python tools/test-rc355-bottom-handoff.py && python tools/test-rc355-slow-refresh.py && python tools/test-rc355-chat-browser.py"
   }
 }
