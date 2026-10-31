@@ -2,8 +2,8 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {askGemini,models} from '../lib/ai-providers-rc7.js';
 const src=readFileSync(new URL('../api/interview.js',import.meta.url),'utf8');
-assert.match(src,/thinkingLevel:phase==='semantic-audit'\?'medium':'low'/);
-assert.doesNotMatch(src,/thinkingLevel:'high'/);
+assert.match(src,/thinkingLevel:phase==='semantic-audit'\?'medium':'high'/);
+assert.doesNotMatch(src,/thinkingLevel:phase==='semantic-audit'\?'medium':'low'/);
 const defense=readFileSync(new URL('../api/defense-objections.js',import.meta.url),'utf8');
 assert.match(defense,/thinkingLevel:'high'/);
 process.env.GEMINI_API_KEY='mock-only';
@@ -20,4 +20,4 @@ for(const level of ['high','medium']){
   assert.equal(seen.at(-1).body.generationConfig.responseMimeType,'application/json');
 }
 assert.equal(seen.length,2);
-console.log('PASS RC9: przesłuchania thinking low, audyt medium; finał high bez zmian');
+console.log('PASS RC9: przesłuchania thinking high, audyt medium; finał high bez zmian');

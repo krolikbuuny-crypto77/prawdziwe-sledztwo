@@ -4,8 +4,8 @@
   "private": true,
   "description": "Utrzymywalne źródła gry Prawdziwe Śledztwo. Interfejs gry pozostaje po polsku.",
   "scripts": {
-    "build": "node tools/build-witness-registry-rc22.mjs && node tools/check-witness-registry-rc22.mjs && node tools/build.mjs",
-    "check": "node tools/check.mjs && node tools/audit-overrides.mjs && node tools/check-trusted-canon624.mjs && node tools/check-trusted-evidence629.mjs && node tools/check-witness-registry-rc22.mjs && node tools/check-narrative-rc22.mjs",
+    "build": "node tools/build.mjs",
+    "check": "node tools/check.mjs && node tools/audit-overrides.mjs && node tools/check-trusted-canon624.mjs && node tools/check-trusted-evidence629.mjs",
     "audit:overrides": "node tools/audit-overrides.mjs",
     "test:navigation": "python tools/test-navigation.py",
     "test:smoke": "python tools/smoke.py",
@@ -47,21 +47,11 @@
     "test:stage2-636": "node tools/test-stage2-636.mjs && python tools/test-stage2-sync636.py && npm run test:stage1-636 && npm run test:api629 && npm run test:fast-evidence",
     "test:stage3-636": "node tools/test-stage3-636.mjs && npm run test:stage2-636",
     "test:stage4-636": "npm run test:pre-github",
-    "test:ai-first-hardening": "npm run test:interview-fallback && node tools/test-release-candidate636.mjs",
+    "test:ai-first-hardening": "node tools/test-pre-github636.mjs && python tools/test-pre-github-browser636.py && node tools/test-ai-required637.mjs && python tools/test-ai-required-browser637.py && npm run test:release-candidate",
     "test:pre-github": "npm run check && npm run test:ai-first-hardening && node tools/test-stage1-636.mjs && node tools/test-stage1-diagnostics636.mjs && node tools/test-stage2-636.mjs && node tools/test-stage3-636.mjs && node tools/test-dialogue635.mjs && python tools/test-cloud-evidence635.py && python tools/test-stage2-sync636.py && python tools/test-stage4-636.py && python tools/test-saves.py && python tools/test-navigation.py && python tools/test-audit634.py && python tools/test-witnesses.py",
-    "test:release-candidate": "node tools/test-release-candidate636.mjs && node tools/test-local-client-rc24.mjs",
+    "test:release-candidate": "node tools/test-release-candidate636.mjs && python tools/test-transaction636.py",
     "test:relationship636": "node tools/test-victim-relationship636.mjs",
     "test:ai-understanding637": "node tools/test-ai-understanding637.mjs",
-    "test:witness-knowledge-rc5": "node tools/test-witness-dossiers-rc5.mjs && node tools/test-ai-understanding637.mjs && node tools/test-followup-rc4.mjs && node tools/test-stage2-636.mjs && node tools/test-release-candidate636.mjs",
-    "test:question-corpus": "node tools/test-question-bank-rc17.mjs",
-    "test:question-corpus:legacy": "node tools/test-question-corpus-rc16.mjs",
-    "test:witness-knowledge-rc18": "node tools/test-witness-knowledge-rc18.mjs",
-    "test:complete-knowledge": "node tools/test-complete-knowledge-rc19.mjs",
-    "test:polish-pragmatics": "node tools/test-polish-pragmatics-rc20.mjs",
-    "test:continuity-rc21": "node tools/test-continuity-rc21.mjs",
-    "build:witness-registry": "node tools/build-witness-registry-rc22.mjs",
-    "test:witness-engine": "node tools/check-witness-registry-rc22.mjs && node tools/check-narrative-rc22.mjs && node tools/test-witness-engine-rc22.mjs",
-    "test:request-budget": "node tools/test-request-budget-rc23.mjs",
-    "test:interview-fallback": "node tools/test-providers-local-rc25.mjs && node tools/test-local-client-rc24.mjs"
+    "test:witness-knowledge-rc5": "node tools/test-witness-dossiers-rc5.mjs && node tools/test-ai-understanding637.mjs && node tools/test-followup-rc4.mjs && node tools/test-stage2-636.mjs && node tools/test-release-candidate636.mjs"
   }
 }

@@ -5477,7 +5477,7 @@ window.NPC46_QA={shortKind:npc46ShortKind,anchor:id=>npc46Anchor(NPC9_MEMORY[id]
 
 // Diagnostic metadata is presentation-only: it cannot change evidence, testimony gates or verdict.
 function psAiMeta(value){
- if(!value||typeof value!=='object'||!['gemini','zai','mistral','groq','apinex-luna','apinex-glm','apinex-deepseek','local','unknown'].includes(value.provider))return null;
+ if(!value||typeof value!=='object'||!['zai','groq','local','unknown'].includes(value.provider))return null;
  const clean=(v,max)=>typeof v==='string'&&/^[a-zA-Z0-9._:;/-]+$/.test(v)&&v.length<=max?v:null;
  return {provider:value.provider,model:clean(value.model,96),fallbackReason:clean(value.fallbackReason,190),
   requestId:typeof value.requestId==='string'&&/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value.requestId)?value.requestId:null,
@@ -5487,7 +5487,7 @@ function psAiMeta(value){
    correctiveCalls:Number(value.qualityDiagnostics.correctiveCalls)||0,
    rejectedChecks:Number(value.qualityDiagnostics.rejectedChecks)||0,
    attempts:Array.isArray(value.qualityDiagnostics.attempts)?value.qualityDiagnostics.attempts.slice(0,24).filter(x=>
-     ['gemini','zai','mistral','groq','apinex-luna','apinex-glm','apinex-deepseek','local','server'].includes(x?.provider)&&
+     ['zai','groq','local','server'].includes(x?.provider)&&
      ['generate','quality','rewrite','semantic-audit','post-check','save'].includes(x?.phase)&&
      ['ok','rejected','error','skipped'].includes(x?.result)&&
      typeof x.code==='string'&&/^[a-z_]+$/.test(x.code)&&x.code.length<42&&
@@ -5496,7 +5496,7 @@ function psAiMeta(value){
   }:null};
 }
 const psShowAiDiagnostic=new URLSearchParams(location.search).get('debugAI')==='1';
-const psAiLabel=v=>({'apinex-luna':'APINEX Luna','apinex-glm':'APINEX GLM','apinex-deepseek':'APINEX DeepSeek',gemini:'Gemini',zai:'Z.ai',mistral:'Mistral',groq:'Groq',local:'silnik lokalny',unknown:'nieustalony'})[v]||'nieustalony';
+const psAiLabel=v=>({zai:'Z.ai',groq:'Groq',local:'silnik lokalny',unknown:'nieustalony'})[v]||'nieustalony';
 const CHAT_VISIBLE=Object.create(null);
 function renderChat(){
  renderCharacterList();renderAttached();
@@ -15198,8 +15198,8 @@ window.P2_QA=Object.freeze({version:'P2-2026-10',redFlags:p2RedFlags,similarity:
  deduction:(d)=>({score:dd2Audit(d).score,redFlags:p2RedFlags(d),ready:dd7Reasoning(d).ok})});
 })();
 </script>
-<script>/* Pakiet 6.16: Groq GPT-OSS opiniuje TYLKO tablicę dedukcyjną.
- * Gemini 3.8 Flash prowadzi przesłuchania i zwraca emocje do portretów.
+<script>/* Pakiet 6.16: OpenRouter DeepSeek opiniuje TYLKO tablicę dedukcyjną.
+ * Z.ai pozostaje jedynym modelem prowadzącym przesłuchania.
  * Lokalny ReasoningEngine zachowuje wyłączną władzę nad wynikiem gry.
  */
 let psEvidenceAssessmentRequest=0;
@@ -15245,7 +15245,7 @@ window.psDualAssess=async function(draft,sourceMap){
   let response=await fetch('/api/evidence-review',{method:'POST',headers:{'Content-Type':'application/json','X-PS-Client':'game'},credentials:'same-origin',body,signal:controller.signal});
   if(response.status===403){panel.textContent=localSummary+'\n\nNie wszystkie wybrane źródła zostały zatwierdzone przez serwer. Poczekaj na synchronizację zapisu lub wybierz zatwierdzone materiały.';return;}
   if(response.status===429){panel.textContent='Osiągnięto limit analiz AI. Wróć za kilka minut; lokalna analiza nadal działa.';return;}
-  if(!response.ok)throw Error('Groq temporarily unavailable');
+  if(!response.ok)throw Error('OpenRouter temporarily unavailable');
   const data=await response.json();
   if(!panel.isConnected||requestId!==psEvidenceAssessmentRequest)return;
   const a=data?.assessment;if(data.ok!==true||!a||typeof a!=='object')throw Error('No AI assessment');
@@ -17416,7 +17416,6 @@ window.PS65_CONTEXT=PS65_CONTEXT;
  status.style.cssText='font-size:12px;color:#a8afb1;padding:2px 4px;display:none';
  by('chatInput')?.closest('.chatfoot')?.appendChild(status);
  let inflight=false,requestSerial=0,cloudFailure='';
- let retryNotBefore=0,retryTimer=null;
  let retryTurn=null;
  const TURN_STORAGE='ps_ai_retry_turn_v636';
  const copy=v=>v===undefined?undefined:JSON.parse(JSON.stringify(v));
@@ -17457,10 +17456,10 @@ window.PS65_CONTEXT=PS65_CONTEXT;
   if(st?.npc68?.threads?.length&&st.npc68.threads.at(-1).a===before.slice(0,850))st.npc68.threads.at(-1).a=after.slice(0,850);
  };
  function showBusy(value){inflight=value;status.style.display=(value||!!cloudFailure)?'block':'none';status.textContent=value?'Świadek przygotowuje odpowiedź przez AI…':cloudFailure;
-  const send=by('chatSend'),input=by('chatInput');if(send)send.disabled=value||Date.now()<retryNotBefore;if(input)input.disabled=value;
+  const send=by('chatSend'),input=by('chatInput');if(send)send.disabled=value;if(input)input.disabled=value;
  }
  function send(){
-  if(inflight||Date.now()<retryNotBefore)return;
+  if(inflight)return;
   const c=CONTENT.characters.find(x=>x.id===STATE.activeChar),input=by('chatInput');
   const question=String(input?.value||'').trim(),attached=by('attachedDoc')?.value||'';
   const log=c?STATE.dialogues[c.id]:null,oldLen=log?.length||0;
@@ -17473,17 +17472,10 @@ window.PS65_CONTEXT=PS65_CONTEXT;
    STATE.sim.auditJudgments?.[attached]?.status!=='overclaim');
   cloudFailure='';
   if(question.length>1600){cloudFailure='Pytanie jest za długie (maksymalnie 1600 znaków). Skróć je, nie zostanie ucięte automatycznie.';showBusy(false);return;}
-  if((!online||!navigator.onLine)&&c&&question&&attachmentOK){
-   const text='Proszę doprecyzować pytanie i wskazać jedną konkretną okoliczność. Nie chcę zgadywać.';
-   log.push({role:'player',text:question},{role:'npc',text,ai:psAiMeta({provider:'local',model:'offline-clarification',fallbackReason:'network_unavailable'})});
-   if(input)input.value='';
-   window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:text});
-   cloudFailure='Brak połączenia — świadek może teraz tylko poprosić o doprecyzowanie.';
-   if(typeof psSchedule==='function')psSchedule();renderChat();showBusy(false);return;
-  }
+  if(!online||!navigator.onLine){cloudFailure='Połącz z internetem, aby przesłuchać świadka przez AI.';showBusy(false);return;}
   if(!attachmentOK){cloudFailure='Materiał musi być pozyskany i zweryfikowany przed konfrontacją.';showBusy(false);return;}
   const wantsCloud=!!(c&&question&&attachmentOK&&online&&navigator.onLine);
-  if(wantsCloud)pending={id:c.id,log,start:oldLen,question};
+  if(wantsCloud)pending={id:c.id,log,start:oldLen};
   const beforeDraft=c?takeDraft(c):null;
   let out;try{out=previous.apply(this,arguments);}catch(error){pending=null;throw error;}
   const afterDraft=c?takeDraft(c):null;
@@ -17539,9 +17531,8 @@ window.PS65_CONTEXT=PS65_CONTEXT;
    equal(NPC4_STATE?.[c.id],beforeDraft.n4)&&equal(NPC9_MEMORY?.[c.id],beforeDraft.n9)&&
    equal(STATE.sim,beforeDraft.sim)&&equal(STATE.events,beforeDraft.events)&&
    equal(window.stage3?.export?.(),beforeDraft.stage);
-  const commitDraft=(local=false)=>{
+  const commitDraft=()=>{
    if(!unchanged())return false;
-   if(local){log.push(playerDraft,row);return true;}
    restoreDraftObject(NPC4_STATE?.[c.id],afterDraft.n4,beforeDraft.n4);
    restoreDraftObject(NPC9_MEMORY?.[c.id],afterDraft.n9,beforeDraft.n9);
    restoreDraftObject(STATE.sim,afterDraft.sim,beforeDraft.sim);
@@ -17556,9 +17547,8 @@ window.PS65_CONTEXT=PS65_CONTEXT;
   const payload={version:3,witnessId:c.id,name:c.name,role:c.role,canonical:answer.slice(0,1900),
    question,presentedEvidenceId:attached||null,context,turnId};
   // Local draft is provisional only; it must never be displayed as a free-form reply.
-  const serial=++requestSerial;showBusy(true);renderChat();
-  const responseDeadline=Date.now()+90000;
-  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),82000);
+  const serial=++requestSerial;showBusy(true);
+  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),54000);
   let cloudAccepted=false;
   const unavailable=(message)=>{
    if(serial!==requestSerial||STATE.dialogues[c.id]!==log)return;
@@ -17573,25 +17563,6 @@ window.PS65_CONTEXT=PS65_CONTEXT;
    cloudFailure=message||'AI nie odpowiedziało. Ponów pytanie.';
    if(typeof psSchedule==='function')psSchedule();
   };
-  let localRequested=false;
-  const requestLocal=async()=>{
-   localRequested=true;
-   const remaining=Math.min(8000,responseDeadline-Date.now());
-   if(remaining<=0)throw Error('local_fallback_deadline');
-   const fallbackController=new AbortController();let fallbackTimer;
-   const timeout=new Promise((_,reject)=>{fallbackTimer=setTimeout(()=>{
-    fallbackController.abort();reject(Error('local_fallback_deadline'));
-   },remaining);});
-   const request=(async()=>{
-    const response=await fetch(URL,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',
-     body:JSON.stringify({...payload,localOnly:true}),signal:fallbackController.signal});
-    const data=await response.json(); // The same deadline includes reading the body.
-    return {ok:response.ok,status:response.status,json:async()=>data};
-   })();
-   try{return await Promise.race([request,timeout]);}
-   finally{clearTimeout(fallbackTimer);}
-
-  };
   // Newly obtained evidence must be approved by Supabase before a cloud confrontation.
   (async()=>{
    // Establish the signed Supabase session cookie BEFORE sending a payable AI
@@ -17605,24 +17576,12 @@ window.PS65_CONTEXT=PS65_CONTEXT;
    }
    return fetch(URL,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify(payload),signal:ctrl.signal});
   })()
-   .catch(error=>{
-    if(error?.sessionNotReady||error?.localOnly)throw error;
-    return requestLocal();
-   })
-   .then(async r=>{
-    if(!r.ok&&r.status>=500&&!localRequested)r=await requestLocal();
-    if(!r.ok){
+   .then(async r=>{if(!r.ok){
       let detail=null;
       try{detail=await r.json();}catch{} // No raw upstream content is ever displayed.
       const error=String(detail?.error||'');
-      const wait=Number(detail?.retryAfterSeconds);
-      if(Number.isFinite(wait)&&wait>0&&wait<=604800){
-       retryNotBefore=Date.now()+Math.ceil(wait)*1000;
-       clearTimeout(retryTimer);
-       retryTimer=setTimeout(()=>{retryNotBefore=0;cloudFailure='Możesz teraz ponowić pytanie.';showBusy(inflight);},Math.ceil(wait)*1000);
-      }
-      const reasons=String(detail?.fallbackReason||'').split(';').filter(x=>/^(?:gemini|zai|groq|mistral|apinex-luna|apinex-glm|apinex-deepseek)_(?:timeout|payment_required|rate_limited|request_too_large|authorization_failed|upstream_unavailable|not_configured|request_failed|invalid_request|rejected_by_validation|budget_exhausted|model_not_available)$/.test(x));
-      const labels={'apinex-luna':'APINEX Luna','apinex-glm':'APINEX GLM','apinex-deepseek':'APINEX DeepSeek',payment_required:'wymagane płatne uprawnienia',request_too_large:'żądanie przekracza limit rozmiaru lub tokenów',invalid_request:'nieprawidłowe parametry żądania',model_not_available:'model niedostępny',gemini:'Gemini Flash',zai:'Z.ai',mistral:'Mistral',groq:'Groq',timeout:'przekroczony czas',rate_limited:'limit dostawcy',authorization_failed:'brak autoryzacji',upstream_unavailable:'błąd dostawcy',not_configured:'brak konfiguracji',request_failed:'błąd żądania',rejected_by_validation:'odrzucona odpowiedź',budget_exhausted:'brak czasu na próbę'};
+      const reasons=String(detail?.fallbackReason||'').split(';').filter(x=>/^(?:gemini|zai|groq)_(?:timeout|rate_limited|authorization_failed|upstream_unavailable|not_configured|request_failed|rejected_by_validation|budget_exhausted|model_not_available)$/.test(x));
+      const labels={model_not_available:'model niedostępny',gemini:'Gemini Flash',zai:'Z.ai',groq:'Groq',timeout:'przekroczony czas',rate_limited:'limit dostawcy',authorization_failed:'brak autoryzacji',upstream_unavailable:'błąd dostawcy',not_configured:'brak konfiguracji',request_failed:'błąd żądania',rejected_by_validation:'odrzucona odpowiedź',budget_exhausted:'brak czasu na próbę'};
       // Show a safe, finite reason code; no questions, prompts or private data.
       const attempts=Array.isArray(detail?.qualityDiagnostics?.attempts)?detail.qualityDiagnostics.attempts:[];
       const rejected=attempts.filter(x=>x&&x.provider==='gemini'&&x.result==='rejected');
@@ -17638,29 +17597,26 @@ window.PS65_CONTEXT=PS65_CONTEXT;
        error==='Testimony history conflict'?'Nie udało się zapisać odpowiedzi w Supabase. Ponów pytanie.':
        r.status===503&&providerStatus?'AI nie zwróciło zatwierdzonej odpowiedzi. '+providerStatus+'. Ponów pytanie.':
        'AI jest chwilowo niedostępne (HTTP '+r.status+'). Ponów pytanie.';
-      const waiting=Date.now()<retryNotBefore;
-      unavailable(waiting?message.replace(/Ponów pytanie\./g,'').trim()+' Dostawca zaleca odczekać '+Math.ceil((retryNotBefore-Date.now())/1000)+' s przed ponowieniem.':message);
+      unavailable(message);
       return null;
     }return r.json();})
    .then(data=>{
     if(!data)return;
-    if(data?.decision!=='answer'||data?.serverCanonical!==true||(data?.semanticVerified!==true&&!(data?.provider==='local'&&data?.localVerified===true))){
+    if(data?.decision!=='answer'||data?.serverCanonical!==true||data?.semanticVerified!==true){
      unavailable('Nie otrzymano zatwierdzonej odpowiedzi AI. Ponów pytanie.');return;
     }
     const text=typeof data?.text==='string'?data.text.trim():'';
     const serverApproved=data.serverCanonical===true&&data.decision==='answer'&&
-     ((data.semanticVerified===true&&['gemini','groq','zai','mistral','apinex-luna','apinex-glm','apinex-deepseek'].includes(data.provider))||
-      (data.provider==='local'&&data.localVerified===true))&&
+     data.semanticVerified===true&&(['gemini'].includes(data.provider)||data.replayed===true&&['zai','groq'].includes(data.provider))&&
      data.turnId===turnId&&text.length>=12&&text.length<=1650&&
      !/[<>\u0000-\u0008\u000e-\u001f]/.test(text);
     if(!serverApproved){unavailable('Odrzucono nieprawidłową odpowiedź AI. Ponów pytanie.');return;}
     if(serial!==requestSerial||STATE.dialogues[c.id]!==log||row.text!==answer||
-       !commitDraft(data.provider==='local')){
+       !commitDraft()){
      unavailable('Stan przesłuchania zmienił się podczas odpowiedzi AI. Ponów pytanie.');return;
     }
     row.text=text;
     row.ai=psAiMeta(data);
-    if(data.provider==='local'){cloudFailure='Odpowiedź z lokalnej bazy świadka.';retryNotBefore=0;clearTimeout(retryTimer);}
     // Gemini controls only visual expression, never approved gameplay stress/trust.
     const face=document.querySelector('#witnessStage .wp-stage');
     if(face&&STATE.activeChar===c.id&&/^(neutral|focused|uncertain|tense|guarded|surprised|sad|relieved|controlled|irritated)$/.test(data.emotion||'')){
@@ -17671,8 +17627,8 @@ window.PS65_CONTEXT=PS65_CONTEXT;
        path.setAttribute('d',mouth[data.emotion]);
       });
     }
-    PS65_CONTEXT.read(c.id,text,question,oldLen);
-    window.PS68_MEMORY?.recordApproved?.(c.id,question,text);
+    PS65_CONTEXT.read(c.id,answer,question,oldLen);
+    window.PS68_MEMORY?.recordApproved?.(c.id,question,answer);
     cloudAccepted=true;
     saveRetry(null);
     // The server owns the exact wording and has already checked semantics.
@@ -17680,14 +17636,6 @@ window.PS65_CONTEXT=PS65_CONTEXT;
     // Render w finally — dopiero po zatwierdzeniu odpowiedzi lub fallbacku.
    })
    .catch(error=>{
-    if(!error?.sessionNotReady&&!error?.localOnly&&serial===requestSerial&&STATE.dialogues[c.id]===log&&unchanged()){
-     const text='Proszę doprecyzować pytanie i wskazać jedną konkretną okoliczność. Nie chcę zgadywać.';
-     row.text=text;row.ai=psAiMeta({provider:'local',model:'offline-clarification',fallbackReason:'server_unreachable'});
-     log.push(playerDraft,row);saveRetry(null);
-     window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:text});
-     cloudFailure='Brak połączenia z bazą — świadek poprosił o doprecyzowanie.';
-     if(typeof psSchedule==='function')psSchedule();return;
-    }
     unavailable(error?.sessionNotReady?'Sesja serwerowa nie jest gotowa. Ponów pytanie.':error?.localOnly?'Dowód oczekuje na zatwierdzenie przez serwer. Ponów pytanie.':
      'Połączenie z AI zostało przerwane. Ponów pytanie.');
    })
@@ -17701,10 +17649,7 @@ window.PS65_CONTEXT=PS65_CONTEXT;
       if(typeof psSchedule==='function')psSchedule();
      }
      pending=null;showBusy(false);
-     if(STATE.activeChar===c.id&&STATE.tab==='interview'){
-      if(typeof simRenderInterrogation==='function')simRenderInterrogation();
-      renderChat();
-     }
+     if(STATE.activeChar===c.id&&STATE.tab==='interview')renderChat();
     }
    });
   return out;
@@ -17720,19 +17665,6 @@ window.PS65_CONTEXT=PS65_CONTEXT;
  const originalRender=renderChat;
  renderChat=function(){
   const result=originalRender.apply(this,arguments);
-  if(inflight&&pending&&STATE.activeChar===pending.id&&STATE.dialogues[pending.id]===pending.log&&
-     pending.log.length===pending.start){
-   const host=by('chatLog');
-   if(host){
-    const player=document.createElement('div');player.className='bubble player';
-    const who=document.createElement('span');who.textContent='Ty';
-    player.append(who,document.createTextNode(pending.question));
-    const bubble=document.createElement('div');bubble.className='bubble npc';bubble.setAttribute('aria-busy','true');
-    const label=document.createElement('span');label.textContent=CONTENT.characters.find(c=>c.id===pending.id)?.name||'Świadek';
-    const message=document.createElement('em');message.textContent='Formułuje odpowiedź…';
-    bubble.append(label,message);host.append(player,bubble);host.scrollTop=host.scrollHeight;
-   }
-  }
   if(pending&&STATE.activeChar===pending.id&&STATE.dialogues[pending.id]===pending.log&&
      pending.log.length>=pending.start+2&&pending.log.at(-1)?.role==='npc'){
    const bubble=by('chatLog')?.querySelector('.bubble.npc:last-child');
@@ -17743,12 +17675,11 @@ window.PS65_CONTEXT=PS65_CONTEXT;
     bubble.replaceChildren(label,message);bubble.setAttribute('aria-busy','true');
    }
   }
-  showBusy(inflight);
   return result;
  };
  by('chatInput')?.setAttribute('maxlength','1600');
  registerWitnessSendLayer('zai-cloud-fallback',send);
- window.PS77_AI=Object.freeze({mode:'apinex_zai_local_rc26',get busy(){return inflight;},
+ window.PS77_AI=Object.freeze({mode:'ai_required_gemini_rc7',get busy(){return inflight;},
   get lastDiagnostic(){const rows=STATE.dialogues[STATE.activeChar]||[];
    return rows.slice().reverse().find(x=>x.role==='npc'&&x.ai)?.ai||null;},
   safeRewrite,semanticGuard,context:PS65_CONTEXT.read});
@@ -19539,7 +19470,7 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
  const addLab=()=>{
   const root=$('ux5Hub')||$('labs');if(!root||root.querySelector('#psR7LabAI'))return;
   const section=make('section');section.id='psR7LabAI';section.className='notice';
-  const head=make('h3','Notatka techniczna AI — Groq');
+  const head=make('h3','Notatka techniczna AI — Cerebras');
   const hint=make('p','Model komentuje wyłącznie zatwierdzone źródła. Nie tworzy nowych pomiarów ani nie zalicza zadań.');hint.className='small muted';
   const select=make('select');select.setAttribute('aria-label','Pracownia do analizy');
   for(const [key,value] of Object.entries(labs)){const option=make('option',value);option.value=key;select.append(option);}
@@ -19547,7 +19478,7 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
   const result=make('div');result.id='psR7LabResult';result.setAttribute('role','status');result.style.cssText='white-space:pre-wrap;line-height:1.6;margin-top:12px';
   section.append(head,hint,select,button,result);root.append(section);
   button.addEventListener('click',async()=>{
-   button.disabled=true;warn(result,'Analiza zatwierdzonych materiałów przez Groq…');
+   button.disabled=true;warn(result,'Analiza zatwierdzonych materiałów przez Cerebras…');
    try{
     const response=await fetch('/api/lab-narrative',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json','X-PS-Client':'game'},body:JSON.stringify({lab:select.value})});
     const data=await response.json();
@@ -19561,7 +19492,7 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
  const addDefense=()=>{
   const root=$('ps54Hearing');if(!root||root.querySelector('#psR7DefenseAI')||!STATE?.final13?.submitted)return;
   const section=make('section');section.id='psR7DefenseAI';section.className='notice';
-  const head=make('h3','Obrońca AI — Gemini 3.8 Flash');
+  const head=make('h3','Obrońca AI — Gemini Pro');
   const hint=make('p','Sześć dodatkowych zarzutów do zatwierdzonego aktu. Opinia AI nie zmienia werdyktu ani wyniku procedury.');hint.className='small muted';
   const button=make('button','Wygeneruj 6 zarzutów obrony');button.type='button';button.className='btn alt';
   const result=make('div');result.setAttribute('role','status');result.style.cssText='white-space:pre-wrap;line-height:1.6;margin-top:12px';

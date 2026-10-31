@@ -34,13 +34,13 @@
       "status": 404
     },
     {
-      "src": "^/(README[^/]*|RAPORT[^/]*|BAZA[^/]*|AUDYT[^/]*|PAKIET[^/]*|ARCHITEKTURA[^/]*|GITHUB[^/]*|ASSET_MANIFEST\\.json|package(-lock)?\\.json|\\.env[^/]*|\\.gitignore|vercel\\.json)$",
+      "src": "^/(README[^/]*|RAPORT[^/]*|PAKIET[^/]*|ARCHITEKTURA[^/]*|GITHUB[^/]*|ASSET_MANIFEST\\.json|package(-lock)?\\.json|\\.env[^/]*|\\.gitignore|vercel\\.json)$",
       "status": 404
     }
   ],
   "functions": {
     "api/interview.js": {
-      "maxDuration": 90
+      "maxDuration": 60
     },
     "api/defense-objections.js": {
       "maxDuration": 60

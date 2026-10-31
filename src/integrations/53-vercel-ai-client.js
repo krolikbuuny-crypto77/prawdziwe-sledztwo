@@ -1,5 +1,5 @@
-/* Pakiet 6.16: Groq GPT-OSS opiniuje TYLKO tablicę dedukcyjną.
- * Gemini 3.8 Flash prowadzi przesłuchania i zwraca emocje do portretów.
+/* Pakiet 6.16: OpenRouter DeepSeek opiniuje TYLKO tablicę dedukcyjną.
+ * Z.ai pozostaje jedynym modelem prowadzącym przesłuchania.
  * Lokalny ReasoningEngine zachowuje wyłączną władzę nad wynikiem gry.
  */
 let psEvidenceAssessmentRequest=0;
@@ -45,7 +45,7 @@ window.psDualAssess=async function(draft,sourceMap){
   let response=await fetch('/api/evidence-review',{method:'POST',headers:{'Content-Type':'application/json','X-PS-Client':'game'},credentials:'same-origin',body,signal:controller.signal});
   if(response.status===403){panel.textContent=localSummary+'\n\nNie wszystkie wybrane źródła zostały zatwierdzone przez serwer. Poczekaj na synchronizację zapisu lub wybierz zatwierdzone materiały.';return;}
   if(response.status===429){panel.textContent='Osiągnięto limit analiz AI. Wróć za kilka minut; lokalna analiza nadal działa.';return;}
-  if(!response.ok)throw Error('Groq temporarily unavailable');
+  if(!response.ok)throw Error('OpenRouter temporarily unavailable');
   const data=await response.json();
   if(!panel.isConnected||requestId!==psEvidenceAssessmentRequest)return;
   const a=data?.assessment;if(data.ok!==true||!a||typeof a!=='object')throw Error('No AI assessment');

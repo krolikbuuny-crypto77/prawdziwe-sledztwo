@@ -52,7 +52,6 @@
  status.style.cssText='font-size:12px;color:#a8afb1;padding:2px 4px;display:none';
  by('chatInput')?.closest('.chatfoot')?.appendChild(status);
  let inflight=false,requestSerial=0,cloudFailure='';
- let retryNotBefore=0,retryTimer=null;
  let retryTurn=null;
  const TURN_STORAGE='ps_ai_retry_turn_v636';
  const copy=v=>v===undefined?undefined:JSON.parse(JSON.stringify(v));
@@ -93,10 +92,10 @@
   if(st?.npc68?.threads?.length&&st.npc68.threads.at(-1).a===before.slice(0,850))st.npc68.threads.at(-1).a=after.slice(0,850);
  };
  function showBusy(value){inflight=value;status.style.display=(value||!!cloudFailure)?'block':'none';status.textContent=value?'Świadek przygotowuje odpowiedź przez AI…':cloudFailure;
-  const send=by('chatSend'),input=by('chatInput');if(send)send.disabled=value||Date.now()<retryNotBefore;if(input)input.disabled=value;
+  const send=by('chatSend'),input=by('chatInput');if(send)send.disabled=value;if(input)input.disabled=value;
  }
  function send(){
-  if(inflight||Date.now()<retryNotBefore)return;
+  if(inflight)return;
   const c=CONTENT.characters.find(x=>x.id===STATE.activeChar),input=by('chatInput');
   const question=String(input?.value||'').trim(),attached=by('attachedDoc')?.value||'';
   const log=c?STATE.dialogues[c.id]:null,oldLen=log?.length||0;
@@ -109,17 +108,10 @@
    STATE.sim.auditJudgments?.[attached]?.status!=='overclaim');
   cloudFailure='';
   if(question.length>1600){cloudFailure='Pytanie jest za długie (maksymalnie 1600 znaków). Skróć je, nie zostanie ucięte automatycznie.';showBusy(false);return;}
-  if((!online||!navigator.onLine)&&c&&question&&attachmentOK){
-   const text='Proszę doprecyzować pytanie i wskazać jedną konkretną okoliczność. Nie chcę zgadywać.';
-   log.push({role:'player',text:question},{role:'npc',text,ai:psAiMeta({provider:'local',model:'offline-clarification',fallbackReason:'network_unavailable'})});
-   if(input)input.value='';
-   window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:text});
-   cloudFailure='Brak połączenia — świadek może teraz tylko poprosić o doprecyzowanie.';
-   if(typeof psSchedule==='function')psSchedule();renderChat();showBusy(false);return;
-  }
+  if(!online||!navigator.onLine){cloudFailure='Połącz z internetem, aby przesłuchać świadka przez AI.';showBusy(false);return;}
   if(!attachmentOK){cloudFailure='Materiał musi być pozyskany i zweryfikowany przed konfrontacją.';showBusy(false);return;}
   const wantsCloud=!!(c&&question&&attachmentOK&&online&&navigator.onLine);
-  if(wantsCloud)pending={id:c.id,log,start:oldLen,question};
+  if(wantsCloud)pending={id:c.id,log,start:oldLen};
   const beforeDraft=c?takeDraft(c):null;
   let out;try{out=previous.apply(this,arguments);}catch(error){pending=null;throw error;}
   const afterDraft=c?takeDraft(c):null;
@@ -175,9 +167,8 @@
    equal(NPC4_STATE?.[c.id],beforeDraft.n4)&&equal(NPC9_MEMORY?.[c.id],beforeDraft.n9)&&
    equal(STATE.sim,beforeDraft.sim)&&equal(STATE.events,beforeDraft.events)&&
    equal(window.stage3?.export?.(),beforeDraft.stage);
-  const commitDraft=(local=false)=>{
+  const commitDraft=()=>{
    if(!unchanged())return false;
-   if(local){log.push(playerDraft,row);return true;}
    restoreDraftObject(NPC4_STATE?.[c.id],afterDraft.n4,beforeDraft.n4);
    restoreDraftObject(NPC9_MEMORY?.[c.id],afterDraft.n9,beforeDraft.n9);
    restoreDraftObject(STATE.sim,afterDraft.sim,beforeDraft.sim);
@@ -192,9 +183,8 @@
   const payload={version:3,witnessId:c.id,name:c.name,role:c.role,canonical:answer.slice(0,1900),
    question,presentedEvidenceId:attached||null,context,turnId};
   // Local draft is provisional only; it must never be displayed as a free-form reply.
-  const serial=++requestSerial;showBusy(true);renderChat();
-  const responseDeadline=Date.now()+90000;
-  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),82000);
+  const serial=++requestSerial;showBusy(true);
+  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),54000);
   let cloudAccepted=false;
   const unavailable=(message)=>{
    if(serial!==requestSerial||STATE.dialogues[c.id]!==log)return;
@@ -209,25 +199,6 @@
    cloudFailure=message||'AI nie odpowiedziało. Ponów pytanie.';
    if(typeof psSchedule==='function')psSchedule();
   };
-  let localRequested=false;
-  const requestLocal=async()=>{
-   localRequested=true;
-   const remaining=Math.min(8000,responseDeadline-Date.now());
-   if(remaining<=0)throw Error('local_fallback_deadline');
-   const fallbackController=new AbortController();let fallbackTimer;
-   const timeout=new Promise((_,reject)=>{fallbackTimer=setTimeout(()=>{
-    fallbackController.abort();reject(Error('local_fallback_deadline'));
-   },remaining);});
-   const request=(async()=>{
-    const response=await fetch(URL,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',
-     body:JSON.stringify({...payload,localOnly:true}),signal:fallbackController.signal});
-    const data=await response.json(); // The same deadline includes reading the body.
-    return {ok:response.ok,status:response.status,json:async()=>data};
-   })();
-   try{return await Promise.race([request,timeout]);}
-   finally{clearTimeout(fallbackTimer);}
-
-  };
   // Newly obtained evidence must be approved by Supabase before a cloud confrontation.
   (async()=>{
    // Establish the signed Supabase session cookie BEFORE sending a payable AI
@@ -241,24 +212,12 @@
    }
    return fetch(URL,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify(payload),signal:ctrl.signal});
   })()
-   .catch(error=>{
-    if(error?.sessionNotReady||error?.localOnly)throw error;
-    return requestLocal();
-   })
-   .then(async r=>{
-    if(!r.ok&&r.status>=500&&!localRequested)r=await requestLocal();
-    if(!r.ok){
+   .then(async r=>{if(!r.ok){
       let detail=null;
       try{detail=await r.json();}catch{} // No raw upstream content is ever displayed.
       const error=String(detail?.error||'');
-      const wait=Number(detail?.retryAfterSeconds);
-      if(Number.isFinite(wait)&&wait>0&&wait<=604800){
-       retryNotBefore=Date.now()+Math.ceil(wait)*1000;
-       clearTimeout(retryTimer);
-       retryTimer=setTimeout(()=>{retryNotBefore=0;cloudFailure='Możesz teraz ponowić pytanie.';showBusy(inflight);},Math.ceil(wait)*1000);
-      }
-      const reasons=String(detail?.fallbackReason||'').split(';').filter(x=>/^(?:gemini|zai|groq|mistral|apinex-luna|apinex-glm|apinex-deepseek)_(?:timeout|payment_required|rate_limited|request_too_large|authorization_failed|upstream_unavailable|not_configured|request_failed|invalid_request|rejected_by_validation|budget_exhausted|model_not_available)$/.test(x));
-      const labels={'apinex-luna':'APINEX Luna','apinex-glm':'APINEX GLM','apinex-deepseek':'APINEX DeepSeek',payment_required:'wymagane płatne uprawnienia',request_too_large:'żądanie przekracza limit rozmiaru lub tokenów',invalid_request:'nieprawidłowe parametry żądania',model_not_available:'model niedostępny',gemini:'Gemini Flash',zai:'Z.ai',mistral:'Mistral',groq:'Groq',timeout:'przekroczony czas',rate_limited:'limit dostawcy',authorization_failed:'brak autoryzacji',upstream_unavailable:'błąd dostawcy',not_configured:'brak konfiguracji',request_failed:'błąd żądania',rejected_by_validation:'odrzucona odpowiedź',budget_exhausted:'brak czasu na próbę'};
+      const reasons=String(detail?.fallbackReason||'').split(';').filter(x=>/^(?:gemini|zai|groq)_(?:timeout|rate_limited|authorization_failed|upstream_unavailable|not_configured|request_failed|rejected_by_validation|budget_exhausted|model_not_available)$/.test(x));
+      const labels={model_not_available:'model niedostępny',gemini:'Gemini Flash',zai:'Z.ai',groq:'Groq',timeout:'przekroczony czas',rate_limited:'limit dostawcy',authorization_failed:'brak autoryzacji',upstream_unavailable:'błąd dostawcy',not_configured:'brak konfiguracji',request_failed:'błąd żądania',rejected_by_validation:'odrzucona odpowiedź',budget_exhausted:'brak czasu na próbę'};
       // Show a safe, finite reason code; no questions, prompts or private data.
       const attempts=Array.isArray(detail?.qualityDiagnostics?.attempts)?detail.qualityDiagnostics.attempts:[];
       const rejected=attempts.filter(x=>x&&x.provider==='gemini'&&x.result==='rejected');
@@ -274,29 +233,26 @@
        error==='Testimony history conflict'?'Nie udało się zapisać odpowiedzi w Supabase. Ponów pytanie.':
        r.status===503&&providerStatus?'AI nie zwróciło zatwierdzonej odpowiedzi. '+providerStatus+'. Ponów pytanie.':
        'AI jest chwilowo niedostępne (HTTP '+r.status+'). Ponów pytanie.';
-      const waiting=Date.now()<retryNotBefore;
-      unavailable(waiting?message.replace(/Ponów pytanie\./g,'').trim()+' Dostawca zaleca odczekać '+Math.ceil((retryNotBefore-Date.now())/1000)+' s przed ponowieniem.':message);
+      unavailable(message);
       return null;
     }return r.json();})
    .then(data=>{
     if(!data)return;
-    if(data?.decision!=='answer'||data?.serverCanonical!==true||(data?.semanticVerified!==true&&!(data?.provider==='local'&&data?.localVerified===true))){
+    if(data?.decision!=='answer'||data?.serverCanonical!==true||data?.semanticVerified!==true){
      unavailable('Nie otrzymano zatwierdzonej odpowiedzi AI. Ponów pytanie.');return;
     }
     const text=typeof data?.text==='string'?data.text.trim():'';
     const serverApproved=data.serverCanonical===true&&data.decision==='answer'&&
-     ((data.semanticVerified===true&&['gemini','groq','zai','mistral','apinex-luna','apinex-glm','apinex-deepseek'].includes(data.provider))||
-      (data.provider==='local'&&data.localVerified===true))&&
+     data.semanticVerified===true&&(['gemini'].includes(data.provider)||data.replayed===true&&['zai','groq'].includes(data.provider))&&
      data.turnId===turnId&&text.length>=12&&text.length<=1650&&
      !/[<>\u0000-\u0008\u000e-\u001f]/.test(text);
     if(!serverApproved){unavailable('Odrzucono nieprawidłową odpowiedź AI. Ponów pytanie.');return;}
     if(serial!==requestSerial||STATE.dialogues[c.id]!==log||row.text!==answer||
-       !commitDraft(data.provider==='local')){
+       !commitDraft()){
      unavailable('Stan przesłuchania zmienił się podczas odpowiedzi AI. Ponów pytanie.');return;
     }
     row.text=text;
     row.ai=psAiMeta(data);
-    if(data.provider==='local'){cloudFailure='Odpowiedź z lokalnej bazy świadka.';retryNotBefore=0;clearTimeout(retryTimer);}
     // Gemini controls only visual expression, never approved gameplay stress/trust.
     const face=document.querySelector('#witnessStage .wp-stage');
     if(face&&STATE.activeChar===c.id&&/^(neutral|focused|uncertain|tense|guarded|surprised|sad|relieved|controlled|irritated)$/.test(data.emotion||'')){
@@ -307,8 +263,8 @@
        path.setAttribute('d',mouth[data.emotion]);
       });
     }
-    PS65_CONTEXT.read(c.id,text,question,oldLen);
-    window.PS68_MEMORY?.recordApproved?.(c.id,question,text);
+    PS65_CONTEXT.read(c.id,answer,question,oldLen);
+    window.PS68_MEMORY?.recordApproved?.(c.id,question,answer);
     cloudAccepted=true;
     saveRetry(null);
     // The server owns the exact wording and has already checked semantics.
@@ -316,14 +272,6 @@
     // Render w finally — dopiero po zatwierdzeniu odpowiedzi lub fallbacku.
    })
    .catch(error=>{
-    if(!error?.sessionNotReady&&!error?.localOnly&&serial===requestSerial&&STATE.dialogues[c.id]===log&&unchanged()){
-     const text='Proszę doprecyzować pytanie i wskazać jedną konkretną okoliczność. Nie chcę zgadywać.';
-     row.text=text;row.ai=psAiMeta({provider:'local',model:'offline-clarification',fallbackReason:'server_unreachable'});
-     log.push(playerDraft,row);saveRetry(null);
-     window.PS617_SYNC?.enqueue?.({type:'record_local_turn',witnessId:c.id,question,response:text});
-     cloudFailure='Brak połączenia z bazą — świadek poprosił o doprecyzowanie.';
-     if(typeof psSchedule==='function')psSchedule();return;
-    }
     unavailable(error?.sessionNotReady?'Sesja serwerowa nie jest gotowa. Ponów pytanie.':error?.localOnly?'Dowód oczekuje na zatwierdzenie przez serwer. Ponów pytanie.':
      'Połączenie z AI zostało przerwane. Ponów pytanie.');
    })
@@ -337,10 +285,7 @@
       if(typeof psSchedule==='function')psSchedule();
      }
      pending=null;showBusy(false);
-     if(STATE.activeChar===c.id&&STATE.tab==='interview'){
-      if(typeof simRenderInterrogation==='function')simRenderInterrogation();
-      renderChat();
-     }
+     if(STATE.activeChar===c.id&&STATE.tab==='interview')renderChat();
     }
    });
   return out;
@@ -356,19 +301,6 @@
  const originalRender=renderChat;
  renderChat=function(){
   const result=originalRender.apply(this,arguments);
-  if(inflight&&pending&&STATE.activeChar===pending.id&&STATE.dialogues[pending.id]===pending.log&&
-     pending.log.length===pending.start){
-   const host=by('chatLog');
-   if(host){
-    const player=document.createElement('div');player.className='bubble player';
-    const who=document.createElement('span');who.textContent='Ty';
-    player.append(who,document.createTextNode(pending.question));
-    const bubble=document.createElement('div');bubble.className='bubble npc';bubble.setAttribute('aria-busy','true');
-    const label=document.createElement('span');label.textContent=CONTENT.characters.find(c=>c.id===pending.id)?.name||'Świadek';
-    const message=document.createElement('em');message.textContent='Formułuje odpowiedź…';
-    bubble.append(label,message);host.append(player,bubble);host.scrollTop=host.scrollHeight;
-   }
-  }
   if(pending&&STATE.activeChar===pending.id&&STATE.dialogues[pending.id]===pending.log&&
      pending.log.length>=pending.start+2&&pending.log.at(-1)?.role==='npc'){
    const bubble=by('chatLog')?.querySelector('.bubble.npc:last-child');
@@ -379,12 +311,11 @@
     bubble.replaceChildren(label,message);bubble.setAttribute('aria-busy','true');
    }
   }
-  showBusy(inflight);
   return result;
  };
  by('chatInput')?.setAttribute('maxlength','1600');
  registerWitnessSendLayer('zai-cloud-fallback',send);
- window.PS77_AI=Object.freeze({mode:'apinex_zai_local_rc26',get busy(){return inflight;},
+ window.PS77_AI=Object.freeze({mode:'ai_required_gemini_rc7',get busy(){return inflight;},
   get lastDiagnostic(){const rows=STATE.dialogues[STATE.activeChar]||[];
    return rows.slice().reverse().find(x=>x.role==='npc'&&x.ai)?.ai||null;},
   safeRewrite,semanticGuard,context:PS65_CONTEXT.read});

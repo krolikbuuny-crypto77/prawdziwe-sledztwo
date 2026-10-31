@@ -1,6 +1,6 @@
 import {askInterviewProvider,interviewModels} from '../lib/interview-providers-rc24.js';
 import {localInterviewReply} from '../lib/interview-local-rc24.js';
-import {interviewWirePayload,interviewAnswerSystem,interviewAuditSystem} from '../lib/interview-wire-rc23.js';
+import {interviewWirePayload,interviewAnswerSystem,interviewAuditSystem,reviewNaturalSpeech,RC28_REPAIR_INSTRUCTION} from '../lib/interview-naturalness-rc28.js';
 import {registry} from '../lib/witness-engine-rc22.js';
 import {chooseWitnessStrategy} from '../lib/witness-strategy-rc22.js';
 import {ledgerContext,witnessRevisionSignature} from '../lib/witness-ledger-rc22.js';
@@ -230,7 +230,9 @@ export async function attemptInterview(scene,provider,invoke=chat,trace=null){
   const allowedFactIds=scene.knowledge.factBank.map(f=>f.id);
   const contract=''; // The complete contract is maintained once in interviewAnswerSystem.
   const response=await run(answerSystem+contract,{...scene,allowedFactIds,
-   ...(revision?{repairInstruction:{...repairCue(scene,priorDraft,repairReason),contractIssue:repairReason,allowedFactIds}}:{})},
+   ...(revision?{repairInstruction:{...repairCue(scene,priorDraft,repairReason),
+    ...(repairReason==='robotic_dialogue'?{reason:repairReason,instruction:RC28_REPAIR_INSTRUCTION}:{}),
+    contractIssue:repairReason,allowedFactIds}}:{})},
    2200,0.35,revision?'rewrite':'generate');
   const ids=Array.isArray(response?.factIds)?response.factIds:[];
   const selected=ids.map(id=>scene.knowledge.factBank.find(f=>f.id===id));
@@ -254,6 +256,13 @@ export async function attemptInterview(scene,provider,invoke=chat,trace=null){
   if(!hardGuard(grounded,proposal)){
    if(reviseOrReject('hard_guard',proposal,revision))continue;
    return null;
+  }
+  // RC28: jedna próba stylistycznej poprawki; nie omijaj kontroli faktów ani audytu.
+  // Jeśli po poprawce nadal brzmi sztywno, nie odrzucaj zgodnej z faktami
+  // odpowiedzi tylko z powodu stylu (lokalna rezerwa bywa mniej naturalna).
+  const naturalness=reviewNaturalSpeech(scene,proposal);
+  if(!naturalness.ok&&revision===0){
+   if(reviseOrReject('robotic_dialogue',proposal,revision))continue;
   }
   // A verbatim *positive fragment* from a statement containing a negation can
   // misleadingly hide its qualification. Such excerpts require semantic audit.

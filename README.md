@@ -1,3 +1,5 @@
+> **RC27:** kontrola zakresu alibi i niepopartej wyłączności źródeł. [RAPORT-RC27.md](RAPORT-RC27.md).
+
 > **RC26:** limit oczekiwania na pytanie 90 s, wspólny dla wszystkich modeli i lokalnej rezerwy. Wdrożenie: [RAPORT-RC26.md](RAPORT-RC26.md).
 
 > **Aktualizacja RC25:** przesłuchania: APINEX Luna → GLM Flash → DeepSeek Flash → Z.ai → lokalny rejestr. Aktualna instrukcja: [RAPORT-RC25.md](RAPORT-RC25.md).

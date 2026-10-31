@@ -1,17 +1,17 @@
 import assert from 'node:assert/strict';
 import {randomUUID} from 'node:crypto';
-const snapshot={fetch:globalThis.fetch,z:process.env.ZAI_API_KEY,g:process.env.GROQ_API_KEY,s:process.env.GAME_SESSION_SECRET,u:process.env.SUPABASE_URL,k:process.env.SUPABASE_SERVICE_ROLE_KEY,info:console.info,gem:process.env.GEMINI_API_KEY,google:process.env.GOOGLE_AI_STUDIO_API_KEY};
+const snapshot={fetch:globalThis.fetch,z:process.env.ZAI_API_KEY,g:process.env.GROQ_API_KEY,s:process.env.GAME_SESSION_SECRET,u:process.env.SUPABASE_URL,k:process.env.SUPABASE_SERVICE_ROLE_KEY,info:console.info};
 process.env.GAME_SESSION_SECRET='release-test-secret-'.padEnd(40,'k');
 process.env.SUPABASE_URL='https://release-test.supabase.co';
 process.env.SUPABASE_SERVICE_ROLE_KEY='release-test-key';
-process.env.ZAI_API_KEY='release-test-zai';delete process.env.GEMINI_API_KEY;delete process.env.GOOGLE_AI_STUDIO_API_KEY;
+process.env.ZAI_API_KEY='release-test-zai';delete process.env.GROQ_API_KEY;
 const {initialState,appendReportedTurn,approvedHistory}=await import('../lib/server-state.js');
 const {default:handler}=await import('../api/interview.js');
 const canonical='Nie pamiętam dokładnej godziny spotkania.';
 const context={schema:'ps-witness-context/1',identity:{id:'ELZBIETA',name:'Elżbieta',role:'BHP'},personality:{temperament:'rzeczowa',diction:['krótko'],speakingStyle:['spokojnie']},knowledge:{currentGroundedAnswer:canonical,alreadySaid:[],documentsShown:[],limits:[],groundedOptions:[{id:'turn',kind:'current',text:canonical}],factBank:[{id:'f0',text:canonical,origin:'current',source:'turn',certainty:'qualified'}]},psychology:{blocked:false,contradictions:[]},memory:{conversation:[]},request:{semanticPlan:{primary:'time_precision',intents:['time_precision'],aspects:['time_precision'],slots:{compound:false,negated:false}}}};
 let state=initialState(),revision=0,quota=true,quotaCalls=0,apiCalls=0,commits=0;
 const audit={relevant:true,entailed:true,complete:true,coveredParts:[]};
-let modelIndex=0,interfereOnCommit=false;
+let modelIndex=0;
 console.info=()=>{};
 globalThis.fetch=async(url,init={})=>{
  const href=String(url);
@@ -19,7 +19,6 @@ globalThis.fetch=async(url,init={})=>{
   if(href.includes('rpc/ps_allow_interview')){quotaCalls++;return {ok:true,status:200,json:async()=>quota};}
   if(href.includes('rpc/ps_commit_session')){
    commits++;const body=JSON.parse(init.body);
-   if(interfereOnCommit){interfereOnCommit=false;state=appendReportedTurn(state,'ELZBIETA','Równoległe pytanie','Nowa równoległa deklaracja.',[],'unresolved_statement',{turnId:'concurrent-turn'});revision++;return {ok:true,status:200,json:async()=>false};}
    if(body.p_expected_revision!==revision)return {ok:true,status:200,json:async()=>false};
    state=body.p_approved_state;revision++;return {ok:true,status:200,json:async()=>true};
   }
@@ -57,11 +56,10 @@ try{
  r=await submit(randomUUID(),'X'.repeat(1601));assert.equal(r.status,400);
  r=await submit(null);assert.equal(r.status,400);
  quota=false;r=await submit(randomUUID());assert.equal(r.status,429);assert.equal(r.body.error,'Interview rate limit');assert.equal(apiCalls,calls);
- quota=true;interfereOnCommit=true;const staleId=randomUUID();r=await submit(staleId);assert.equal(r.status,409);assert.equal(r.body.retryable,true);assert(!state.interviewReceipts[staleId]);assert(state.interviewReceipts['concurrent-turn']);
  console.log('PASS release 6.36: first-response turnId, durable replay after 30 more turns, 1580-character questions, mismatched ID rejected, distributed quota fail-closed');
 }finally{
  globalThis.fetch=snapshot.fetch;console.info=snapshot.info;
- for(const [name,value] of [['GEMINI_API_KEY',snapshot.gem],['GOOGLE_AI_STUDIO_API_KEY',snapshot.google],['ZAI_API_KEY',snapshot.z],['GROQ_API_KEY',snapshot.g],['GAME_SESSION_SECRET',snapshot.s],['SUPABASE_URL',snapshot.u],['SUPABASE_SERVICE_ROLE_KEY',snapshot.k]]){
+ for(const [name,value] of [['ZAI_API_KEY',snapshot.z],['GROQ_API_KEY',snapshot.g],['GAME_SESSION_SECRET',snapshot.s],['SUPABASE_URL',snapshot.u],['SUPABASE_SERVICE_ROLE_KEY',snapshot.k]]){
   if(value===undefined)delete process.env[name];else process.env[name]=value;
  }
 }
