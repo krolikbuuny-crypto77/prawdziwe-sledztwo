@@ -2612,6 +2612,68 @@ body.ps-coop-observer .content,body.ps-coop-observer .sidebar{cursor:not-allowed
 .ps-coop-chat-input{flex:1;min-width:0;max-height:125px;resize:vertical;background:#0d1821;color:white;border:1px solid #607589;border-radius:6px;padding:8px;font:12px/1.4 system-ui,sans-serif}
 .ps-coop-chat-form button{align-self:stretch}
 @media(max-width:640px){.ps-coop-chat-panel{width:100%;max-width:100%;margin-top:7px}.ps-coop-chat-form{flex-wrap:wrap}.ps-coop-chat-input{flex:1 1 100%;min-height:76px}.ps-coop-chat-form .ps-coop-btn{width:100%;min-height:38px}}
+/* RC35.3 — guidance belongs to navigation, never a fixed floating overlay. */
+#ui14Sidebar #seniorFab.senior-fab,
+#ps76Tools #seniorFab.senior-fab{
+ position:static!important;inset:auto!important;top:auto!important;right:auto!important;
+ bottom:auto!important;left:auto!important;transform:none!important;z-index:auto!important;
+ box-shadow:none!important;display:flex!important;align-items:center!important;
+ justify-content:flex-start!important;gap:9px!important;
+ width:100%!important;max-width:100%!important;height:auto!important;
+ min-height:44px!important;min-width:0!important;margin:0!important;
+ padding:9px 12px!important;border-radius:8px!important;
+ border:1px solid #8b7557!important;background:#262c30!important;color:#f3d7a8!important;
+ font:700 12px/1.35 system-ui,sans-serif!important;letter-spacing:normal!important;
+ text-align:left!important;white-space:normal!important;
+}
+#ui14Sidebar #seniorFab:hover{background:#3a3530!important}
+#ui14Sidebar #seniorFab span:last-child{display:inline!important;font-size:12px!important}
+#ui14Sidebar #seniorFab .senior-fab-symbol{width:25px;height:25px;flex:0 0 25px;font-size:19px}
+#ui14Sidebar #seniorFab[hidden]{display:none!important}
+#ps76Tools{display:grid!important;gap:7px!important;min-width:0!important}
+/* Progress help is never allowed to float out of navigation during startup. */
+#ui14Sidebar #psFab{position:static!important;inset:auto!important;box-shadow:none!important;max-width:100%!important}
+/* On narrow screens the sidebar is opened intentionally, not as a floating overlay. */
+@media(max-width:950px){
+ body #ps76Tools{display:grid!important}
+ #ui14Sidebar #seniorFab.senior-fab{min-height:44px!important}
+}
+/* Open mentor deliberately as a dismissible centered dialog; closed state covers nothing. */
+#seniorPanel.senior-panel{z-index:180;max-height:min(650px,calc(100dvh - 32px));}
+#seniorPanel[hidden]{display:none!important}
+@media(max-width:770px){
+ #seniorPanel.senior-panel{position:fixed;inset:auto 8px 8px 8px!important;
+  width:auto!important;max-width:none!important;max-height:calc(100dvh - 16px)!important;}
+}
+/* On phones the sidebar itself is hidden; put the same controls in normal document flow. */
+.main > #ps76Tools.ps353-mobile-tools{
+ position:relative!important;inset:auto!important;z-index:5!important;
+ width:auto!important;max-width:1430px!important;
+ margin:0 clamp(10px,2.5vw,40px) 5px!important;
+ padding:8px 11px!important;border:1px solid #526271!important;border-radius:9px!important;
+ background:#17232b!important;box-shadow:none!important;
+ display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:7px!important;
+}
+.main > #ps76Tools.ps353-mobile-tools .ps76-caption{
+ flex:1 1 100%!important;font-size:10px!important;line-height:1.3!important;
+}
+.main > #ps76Tools.ps353-mobile-tools #seniorFab.senior-fab,
+.main > #ps76Tools.ps353-mobile-tools #psFab{
+ position:static!important;inset:auto!important;transform:none!important;
+ width:auto!important;max-width:100%!important;min-width:0!important;
+ flex:1 1 150px!important;min-height:40px!important;
+ display:flex!important;justify-content:center!important;align-items:center!important;
+ padding:7px 9px!important;border-radius:7px!important;box-shadow:none!important;
+ white-space:normal!important;text-align:center!important;
+ font:700 12px/1.35 system-ui,sans-serif!important;
+}
+.main > #ps76Tools.ps353-mobile-tools #seniorFab span:last-child{display:inline!important;font-size:12px!important}
+.main > #ps76Tools.ps353-mobile-tools #seniorFab[hidden]{display:none!important}
+@media(max-width:450px){
+ .main > #ps76Tools.ps353-mobile-tools{margin:0 10px 5px!important;padding:8px!important}
+ .main > #ps76Tools.ps353-mobile-tools #seniorFab.senior-fab,
+ .main > #ps76Tools.ps353-mobile-tools #psFab{flex:1 1 100%!important}
+}
 </style>
 
 
@@ -7441,7 +7503,15 @@ function psHint(){
  if(psHL<3){psHL++;PS.hints++;}
  return ps95HintText(step,psHL);
 }
-function psRender(){let f=document.getElementById('psFab');if(!f){f=document.createElement('button');f.id='psFab';f.type='button';f.setAttribute('aria-haspopup','dialog');document.body.append(f);const p=document.createElement('div');p.id='psPanel';p.hidden=true;p.setAttribute('role','dialog');p.setAttribute('aria-label','Postęp i wskazówki');document.body.append(p);f.addEventListener('click',()=>{psOpenFlag=!psOpenFlag;psRender();});p.addEventListener('click',ev=>{const a=ev.target&&ev.target.dataset&&ev.target.dataset.psAct;if(!a)return;if(a==='close'){PS.seen=true;psOpenFlag=false;}else if(a==='hint'){p.dataset.hint=psHint();}else if(a==='overview'){psOpenFlag=false;showTab('overview');}else if(a==='follow'){ps95FollowHint();}psRender();});document.addEventListener('keydown',ev=>{if(ev.key==='Escape'&&psOpenFlag){psOpenFlag=false;psRender();}});}
+function psRender(){let f=document.getElementById('psFab');if(!f){f=document.createElement('button');f.id='psFab';f.type='button';f.setAttribute('aria-haspopup','dialog');// RC35.3: mount directly in navigation; never flash a floating button on start.
+const sidebar=document.getElementById('ui14Sidebar');
+let tools=document.getElementById('ps76Tools');
+if(sidebar&&!tools){
+ tools=document.createElement('div');tools.id='ps76Tools';tools.className='ps76-tools';
+ const caption=document.createElement('div');caption.className='ps76-caption';caption.textContent='POSTĘP I WSKAZÓWKI';
+ tools.append(caption);sidebar.append(tools);
+}
+(tools||document.body).append(f);const p=document.createElement('div');p.id='psPanel';p.hidden=true;p.setAttribute('role','dialog');p.setAttribute('aria-label','Postęp i wskazówki');document.body.append(p);f.addEventListener('click',()=>{psOpenFlag=!psOpenFlag;psRender();});p.addEventListener('click',ev=>{const a=ev.target&&ev.target.dataset&&ev.target.dataset.psAct;if(!a)return;if(a==='close'){PS.seen=true;psOpenFlag=false;}else if(a==='hint'){p.dataset.hint=psHint();}else if(a==='overview'){psOpenFlag=false;showTab('overview');}else if(a==='follow'){ps95FollowHint();}psRender();});document.addEventListener('keydown',ev=>{if(ev.key==='Escape'&&psOpenFlag){psOpenFlag=false;psRender();}});}
 const s=psStats(),pr=ui15Status();f.textContent=pr.complete?'🔎 Zakończono':'🔎 Etap '+(pr.charge?'3/3':pr.done===pr.checks.length?'2/3':'1/3');const p=document.getElementById('psPanel');if(ps95Route&&ps95Route.key!==ps95Select().key){p.dataset.hint='';ps95Route=null;psHL=0;}if(!PS.seen&&!f.dataset.shown){f.dataset.shown='1';}p.hidden=!psOpenFlag;if(!psOpenFlag)return;
 const caption=pr.complete?'Śledztwo zakończone':pr.charge?'Akt przyjęty – obrona '+pr.defended+'/'+FC_CHALLENGES.length:pr.done===pr.checks.length?'Gotowe warunki wstępne – opracuj akt oskarżenia':'Warunki przygotowania: '+pr.done+' / '+pr.checks.length;
 p.innerHTML='<div class="ps-card"><div class="eyebrow">ETAPY DOCHODZENIA</div><p class="small"><b>'+esc(caption)+'</b></p><p class="small muted">Zebrano '+s.n+' z '+s.t+' materiałów. Nie musisz odkryć wszystkich, aby zakończyć sprawę.</p><div class="formline"><button type="button" class="btn alt" data-ps-act="overview">Pokaż plan śledztwa</button><button type="button" class="btn" data-ps-act="hint">Wskazówka</button></div><p class="ps-hint" aria-live="polite">'+esc(p.dataset.hint||'Wskazówki dotyczą brakujących ustaleń. Korzystanie z nich może wpłynąć na końcową ocenę dochodzenia.')+'</p>'+(p.dataset.hint?'<button type="button" class="btn alt ps95-follow" data-ps-act="follow">Przejdź do wskazanego etapu</button>':'')+'<details'+(PS.seen?'':' open')+'><summary>Jak grać</summary><ol class="small"><li><b>Materiały</b> — czytaj akta i szukaj w archiwach; ślady na miejscu zabezpieczaj w Oględzinach.</li><li><b>Przesłuchania</b> — pytaj, pokazuj dowody i sprawdzaj sprzeczności.</li><li><b>Laboratorium</b> — zatwierdzone analizy odblokowują nowe materiały.</li><li><b>Oś czasu i dedukcja</b> — potwierdzaj chronologię i porównuj niezależne źródła.</li><li><b>Finał</b> — uzasadnij oskarżenie i obroń je przed kontrargumentami.</li></ol></details><div class="formline"><button type="button" class="btn subtle" data-ps-act="close">'+(PS.seen?'Zamknij':'Zaczynam')+'</button></div></div>';}
@@ -14100,10 +14170,11 @@ if(final&&audit){
 const helpButton=by('ps603HelpBtn'),fab=by('psFab');
 if(helpButton&&fab){
  const syncHelpLocation=()=>{
-  const mobile=window.innerWidth<=950;
-  document.body.classList.toggle('ps88-help-mobile',mobile);
-  if(mobile){if(fab.parentElement!==document.body)document.body.append(fab);}
-  else{const tools=by('ps76Tools');if(tools&&fab.parentElement!==tools)tools.append(fab);}
+  // RC35.3: do not pull the progress button out of the sidebar on mobile.
+  // The phone has a menu button, so the help controls stay in one predictable place.
+  document.body.classList.remove('ps88-help-mobile');
+  const tools=by('ps76Tools');
+  if(tools&&fab.parentElement!==tools)tools.append(fab);
  };
  syncHelpLocation();document.addEventListener('DOMContentLoaded',syncHelpLocation,{once:true});window.addEventListener('resize',syncHelpLocation);
  fab.setAttribute('aria-label','Plan śledztwa i wskazówki');
@@ -15467,7 +15538,9 @@ function diagnose(){
   'Jeżeli procedura oględzin dobiegła końca, upewnij się, że materiał zabezpieczono do akt.'
  ]};
 }
-function openMentor(){if(!memo.enabled)return;memo.open=true;by('seniorPanel').hidden=false;by('seniorFab').setAttribute('aria-expanded','true');drawMentor();}
+function openMentor(){if(!memo.enabled)return;
+ if(document.body.classList.contains('ui14-nav-open'))document.getElementById('ui14Close')?.click();
+ memo.open=true;by('seniorPanel').hidden=false;by('seniorFab').setAttribute('aria-expanded','true');drawMentor();}
 function closeMentor(){memo.open=false;by('seniorPanel').hidden=true;by('seniorFab').setAttribute('aria-expanded','false');}
 function drawMentor(){if(!memo.open)return;const d=diagnose();if(d.key!==memo.key){memo.key=d.key;memo.step=0;}
  by('seniorContext').textContent=d.label;
@@ -15479,7 +15552,11 @@ function drawMentor(){if(!memo.open)return;const d=diagnose();if(d.key!==memo.ke
 function setupMentor(){
  const fab=document.createElement('button');fab.id='seniorFab';fab.type='button';fab.className='senior-fab';fab.setAttribute('aria-label','Starszy Śledczy — opcjonalne wskazówki');fab.setAttribute('aria-controls','seniorPanel');fab.setAttribute('aria-expanded','false');fab.innerHTML='<span class="senior-fab-symbol" aria-hidden="true">⌕</span><span>Starszy Śledczy</span>';
  const panel=document.createElement('section');panel.id='seniorPanel';panel.className='senior-panel';panel.hidden=true;panel.setAttribute('aria-label','Pomoc Starszego Śledczego');panel.innerHTML='<header><span class="senior-avatar" aria-hidden="true">SŚ</span><span><strong>Starszy Śledczy</strong><small>Opcjonalny konsultant proceduralny</small></span><button type="button" id="seniorClose" aria-label="Zamknij konsultację">×</button></header><div class="senior-content"><span class="senior-kicker">DIAGNOZA AKTUALNEGO POSTĘPU</span><h3 id="seniorContext"></h3><p id="seniorAdvice" aria-live="polite"></p><span id="seniorLevel" class="senior-level"></span><button type="button" id="seniorAsk" class="senior-action"></button><button type="button" id="seniorGo" class="senior-go"></button><p class="senior-disclaimer">Wskazówki nie dodają dowodów, nie zaliczają zadań i nie zdradzają sprawcy.</p><label class="senior-opt"><input type="checkbox" checked id="seniorToggle"> Włącz Starszego Śledczego</label></div>';
- document.body.append(fab,panel);
+ // RC35.3: keep the mentor button inside navigation, not fixed over gameplay.
+ const sidebar=document.getElementById('ui14Sidebar');
+ const tools=document.getElementById('ps76Tools')||sidebar;
+ if(tools)tools.append(fab);else document.body.append(fab);
+ document.body.append(panel);
  fab.addEventListener('click',()=>memo.open?closeMentor():openMentor());
  by('seniorClose').addEventListener('click',closeMentor);
  by('seniorAsk').addEventListener('click',()=>{if(memo.step<3){memo.step++;if(typeof PS!=='undefined')PS.hints=(PS.hints||0)+1;}drawMentor();});
@@ -19946,6 +20023,27 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
  setInterval(()=>{if(document.hidden||connecting)return;if(!busy&&active){if(controller&&dirty)publish();else refresh();}},1500);
  setInterval(()=>{if(active&&!document.hidden&&chatOpen)void pollChat();},2000);
  setInterval(()=>{if(active&&!document.hidden&&!chatOpen)void pollChat();},6500);
+})();
+/* RC35.3: show guidance controls inline on mobile; never use a floating helper. */
+(()=>{
+ 'use strict';
+ const tools=document.getElementById('ps76Tools');
+ const sidebar=document.getElementById('ui14Sidebar');
+ const main=document.querySelector('.main');
+ if(!tools||!sidebar||!main)return;
+ const move=()=>{
+  if(window.innerWidth<=1000){
+   const coop=main.querySelector('.ps-coop-bar');
+   const anchor=coop||main.querySelector('.topbar');
+   if(anchor&&tools.previousElementSibling!==anchor)anchor.insertAdjacentElement('afterend',tools);
+   tools.classList.add('ps353-mobile-tools');
+  }else{
+   if(tools.parentElement!==sidebar)sidebar.append(tools);
+   tools.classList.remove('ps353-mobile-tools');
+  }
+ };
+ move();
+ window.addEventListener('resize',move,{passive:true});
 })();
 </script>
 <!-- POPRAWKA 1 / MOBILE P1: zachowaj dostep do elementow, bez poziomego przewijania strony -->
