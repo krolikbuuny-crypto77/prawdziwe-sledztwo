@@ -17602,13 +17602,21 @@ window.PS65_CONTEXT=PS65_CONTEXT;
     }return r.json();})
    .then(data=>{
     if(!data)return;
-    if(data?.decision!=='answer'||data?.serverCanonical!==true||data?.semanticVerified!==true){
+    // RC29: the browser must accept the SAME server-approved providers as
+    // /api/interview, not only the historical Gemini provider. Never trust a
+    // provider name alone: require the server's canonical/verification flags,
+    // the exact turn ID and the existing text-safety checks.
+    const auditedProviders=new Set(['gemini','zai','groq','mistral','apinex-luna','apinex-glm','apinex-deepseek']);
+    const isAudited=auditedProviders.has(data?.provider)&&data?.semanticVerified===true;
+    // Server-authored local fallback is a separate, explicitly marked type.
+    // It is not misrepresented as having passed the cloud semantic audit.
+    const isLocalAuthored=data?.provider==='local'&&data?.localVerified===true&&data?.semanticVerified===false;
+    if(data?.decision!=='answer'||data?.serverCanonical!==true||(!isAudited&&!isLocalAuthored)){
      unavailable('Nie otrzymano zatwierdzonej odpowiedzi AI. Ponów pytanie.');return;
     }
     const text=typeof data?.text==='string'?data.text.trim():'';
     const serverApproved=data.serverCanonical===true&&data.decision==='answer'&&
-     data.semanticVerified===true&&(['gemini'].includes(data.provider)||data.replayed===true&&['zai','groq'].includes(data.provider))&&
-     data.turnId===turnId&&text.length>=12&&text.length<=1650&&
+     (isAudited||isLocalAuthored)&&data.turnId===turnId&&text.length>=12&&text.length<=1650&&
      !/[<>\u0000-\u0008\u000e-\u001f]/.test(text);
     if(!serverApproved){unavailable('Odrzucono nieprawidłową odpowiedź AI. Ponów pytanie.');return;}
     if(serial!==requestSerial||STATE.dialogues[c.id]!==log||row.text!==answer||
