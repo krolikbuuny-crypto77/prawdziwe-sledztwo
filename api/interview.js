@@ -1,4 +1,4 @@
-import {askInterviewProvider,interviewModels} from '../lib/interview-providers-rc24.js';
+import {askInterviewProvider,interviewModels,INTERVIEW_CHAIN} from '../lib/interview-providers-rc24.js';
 import {localInterviewReply} from '../lib/interview-local-rc24.js';
 import {interviewWirePayload,interviewAnswerSystem,interviewAuditSystem} from '../lib/interview-naturalness-rc28.js';
 import {registry} from '../lib/witness-engine-rc22.js';
@@ -7,6 +7,7 @@ import {ledgerContext,witnessRevisionSignature} from '../lib/witness-ledger-rc22
 import {buildConversationState} from '../lib/conversation-state-rc21.js';
 import {buildPolishPragmatics} from '../lib/polish-pragmatics-rc20.js';
 import {randomUUID} from 'node:crypto';
+import {signInterviewExcerpt} from '../lib/interview-restore-proof-rc34.js';
 import {compactInterviewPayload} from '../lib/interview-payload-rc15.js';
 import {factContractIssue} from '../lib/interview-fact-contract-rc14.js';
 import {trustedScene} from '../lib/trusted-interview-624.js';
@@ -19,6 +20,7 @@ import {spokenStyleGuide,reviewSpokenReply,normalizeWitnessSpeech} from '../lib/
 import {styleForWitness} from '../lib/narrative-voice-619.js';
 import {dialogueContinuity} from '../lib/dialogue-continuity-620.js';
 import {buildThreadCue} from '../lib/dialogue-threads-621.js';
+import {dialogueDirection} from '../lib/dialogue-direction-rc32.js';
 import {classifyModelReply} from '../lib/story-consistency.js';
 import {configured,sessionId,loadSession,commitSession,appendReportedTurn,approvedHistory,allowInterview} from '../lib/server-state.js';
 /* Pakiet 6.7: rozumienie intencji -> dobór udostępnionych faktów -> wypowiedź -> niezależna ocena semantyczna.
@@ -32,7 +34,7 @@ const fail=(res,status,message)=>res.status(status).json({ok:false,error:message
 // Safe, per-request diagnostic metadata. Never send API keys, prompts, tokens or raw upstream errors.
 const providerModel=id=>interviewModels[id]||(id==='unavailable'?'none':id);
 const diagnostics=(provider,reason,requestId,startedAt)=>({provider,model:providerModel(provider),fallbackReason:reason||null,requestId,
- durationMs:Math.max(0,Math.min(120000,Date.now()-startedAt))});
+ durationMs:Math.max(0,Math.min(300000,Date.now()-startedAt))});
 const failureCode=(provider,error)=>{
  const e=String(error?.message||'');
  if(error?.name==='AbortError'||/abort|timeout/i.test(e))return provider+'_timeout';
@@ -272,7 +274,7 @@ export async function attemptInterview(scene,provider,invoke=chat,trace=null){
   const audit=await run(semanticSystem,{
    question:scene.question,questionParts:scene.questionParts,polishPragmatics:scene.polishPragmatics,conversationState:scene.conversationState,declarationLedger:scene.declarationLedger,witnessStrategy:scene.witnessStrategy,
    conversation:scene.memory.conversation.slice(-5),dialogueFocus:scene.dialogueFocus,
-   presentedEvidence:scene.presentedEvidence,
+   presentedEvidence:scene.presentedEvidence,dialogueDynamics:scene.dialogueDynamics,
    priorReplies:previousDistinct,
    selectedFacts:selected.map(f=>({text:f.text,certainty:f.certainty,origin:f.origin,source:f.source,kind:f.knowledgeKind})),
    proposedAnswer:proposal
@@ -319,11 +321,12 @@ function findInterviewTurn(state,turnId){
  return null;
 }
 function replayInterview(prior,turnId){
- if(!['gemini','zai','groq','mistral','apinex-luna','apinex-glm','apinex-deepseek','local'].includes(prior.provider)||typeof prior.text!=='string')return {ok:false,error:'Stored turn not reusable'};
+ if(!(Object.hasOwn(interviewModels,prior.provider)||['gemini','groq','mistral'].includes(prior.provider))||typeof prior.text!=='string')return {ok:false,error:'Stored turn not reusable'};
  return {ok:true,decision:'answer',primaryMode:true,serverCanonical:true,semanticVerified:prior.provider!=='local',localVerified:prior.provider==='local',
   sourceIds:[],sourceId:'turn',factIds:prior.factIds,text:prior.text,prefaceKey:0,
   provider:prior.provider,model:prior.model||providerModel(prior.provider),turnId,replayed:true,
-  fallbackReason:null,requestId:randomUUID(),durationMs:0};
+  fallbackReason:null,requestId:randomUUID(),durationMs:0,
+  turnProof:signInterviewExcerpt({...prior,turnId})};
 }
 
 export default async function handler(req,res){
@@ -382,6 +385,8 @@ export default async function handler(req,res){
  scene.dialogueMemory=buildDialogueMemory(scene.approvedThreadHistory||[],scene.question);
  scene.declarationLedger=ledgerContext(stored?.state||{},input.witnessId,scene.question);
  scene.witnessStrategy=chooseWitnessStrategy(input.witnessId,stored?.state||null,scene.declarationLedger,scene.question,scene.presentedEvidence);
+ // RC32: ton i kierunek rozmowy wyłącznie z pytania i zatwierdzonej historii.
+ scene.dialogueDynamics=dialogueDirection(scene);
  const canonical=scene.knowledge.currentGroundedAnswer;
  // Zmiana tonu wynika z dialogu, ale nie z autorytatywnych dowodów ani ze stanu postępu.
  // Po włączeniu Supabase korzysta z zatwierdzonej historii, nie z treści dopisanej w przeglądarce.
@@ -396,7 +401,7 @@ export default async function handler(req,res){
  scene.deliveryGuide+=' '+style+(repeats?' Śledczy wrócił do wcześniejszego pytania: wolno to zauważyć, nie wolno zmieniać zeznania bez podstaw.':'');
  // Odrębna reżyseria zachowania; tylko zatwierdzona historia, nigdy nowy dowód.
  scene.deliveryGuide+=' '+dialogueContinuity(scene.identity.id,scene.memory.conversation);
- // Tematy z zatwierdzonej historii (do 24 par), identyczne dla obu dostawców; nie są faktami.
+ // Tematy z zatwierdzonej historii (do 40 par), identyczne dla obu dostawców; nie są faktami.
  scene.deliveryGuide+=' '+buildThreadCue(scene.identity.id,scene.approvedThreadHistory||scene.memory.conversation,scene.question);
  if(scene.dialogueFocus){scene.deliveryGuide+=' Zwróć uwagę, że śledczy nawiązuje do ostatniej odpowiedzi. Odnieś się do pytania uzupełniającego, nie powtarzaj mechanicznie wcześniejszej wypowiedzi. Nie traktuj tej wypowiedzi jako ustalonego faktu.';}
  // APINEX Luna -> GLM -> DeepSeek -> Z.ai -> authorised local registry. Modele nie mają dostępu do narzędzi zmieniających stan gry.
@@ -407,15 +412,19 @@ export default async function handler(req,res){
  const trace=makeInterviewTrace();
  if(!process.env.APINEX_API_KEY)reasons.push('apinex_not_configured');
  if(!process.env.ZAI_API_KEY)reasons.push('zai_not_configured');
- const providers=input.localOnly===true?['local']:[...(process.env.APINEX_API_KEY?['apinex-luna','apinex-glm','apinex-deepseek']:[]),...(process.env.ZAI_API_KEY?['zai']:[]),'local'];
+ const providers=input.localOnly===true?['local']:INTERVIEW_CHAIN.filter(id=>id==='local'||(id==='zai'?!!process.env.ZAI_API_KEY:!!process.env.APINEX_API_KEY));
  if(input.localOnly===true)reasons.push('client_requested_local_fallback');
- let apinexBlocked=false;
+ let apinexBlocked=false,apinexOutages=0;
  for(const provider of providers){
   if(provider.startsWith('apinex-')&&apinexBlocked){
    trace.add(provider,'generate','skipped',0,'shared_provider_limit');continue;
   }
+  // Fixed APINEX deadline from REQUEST start: do not extend the window on each attempt.
+  // Every provider also has its own ceiling, preventing one slow model from
+  // consuming all remaining retries. Last 25s belongs to local reply + Supabase CAS.
   scene._providerDeadline=provider.startsWith('apinex-')
-   ?Math.min(Date.now()+INTERVIEW_BUDGET.apinexWindowMs,scene._responseDeadline-INTERVIEW_BUDGET.commitReserveMs)
+   ?Math.min(startedAt+INTERVIEW_BUDGET.apinexWindowMs,Date.now()+INTERVIEW_BUDGET.perApinexMs)
+   :provider==='zai'?Math.min(startedAt+INTERVIEW_BUDGET.apinexWindowMs+INTERVIEW_BUDGET.zaiWindowMs,Date.now()+INTERVIEW_BUDGET.perZaiMs)
    :scene._responseDeadline-INTERVIEW_BUDGET.commitReserveMs;
   if(provider!=='local'&&Date.now()+INTERVIEW_BUDGET.minCallMs>=scene._providerDeadline){
    reasons.push(provider+'_budget_exhausted');trace.add(provider,'generate','skipped',0,'no_retry_budget');continue;
@@ -452,15 +461,19 @@ export default async function handler(req,res){
     }
     const info={...diagnostics(provider,reasons.join(';')||null,requestId,startedAt),providerFailures,qualityDiagnostics:trace.summary()};
     console.info('interview-diagnostic',JSON.stringify(info)); // No question, transcript or secrets.
-    return res.status(200).json({...result,serverCanonical:true,turnId:clientTurnId,...info});
+    return res.status(200).json({...result,serverCanonical:true,turnId:clientTurnId,
+     turnProof:signInterviewExcerpt({witnessId:input.witnessId,question:scene.question,text:result.text,turnId:clientTurnId,provider,model:providerModel(provider),evidenceId:incoming.presentedEvidenceId||null}),...info});
    }
    trace.add(provider,'post-check','rejected',0,'server_guard');
    reasons.push(provider+'_rejected_by_validation');
   }catch(error){
    const code=failureCode(provider,error);reasons.push(code);
-   // APINEX account quotas and credentials are shared by all three models.
+   // APINEX account quotas and credentials are shared by all ten models.
    // A quota/payment/auth failure cannot be repaired by selecting another model.
-   if(provider.startsWith('apinex-')&&(['upstream_rate_limit','upstream_authorization','upstream_payment_required'].includes(error?.code)||[401,402,403,429].includes(error?.diagnostic?.upstreamStatus)))apinexBlocked=true;
+   if(provider.startsWith('apinex-')){
+    if(['upstream_rate_limit','upstream_authorization','upstream_payment_required'].includes(error?.code)||[401,402,403,429].includes(error?.diagnostic?.upstreamStatus))apinexBlocked=true;
+    else if(error?.code==='upstream_unavailable'&&++apinexOutages>=2)apinexBlocked=true;
+   }
    providerFailures.push({provider,model:providerModel(provider),code,phase:error?.interviewPhase||'unknown',
     ...(error?.diagnostic||{})});
   }

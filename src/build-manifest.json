@@ -278,8 +278,8 @@
         "src/core/witness-engine.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_000__",
-      "sha256": "403a5320f2dc953e9131ca22c15f086ad38478d3f03ba67db93a0733e5060695",
-      "size": 1464657
+      "sha256": "a05272a269f72bdb139712e22181cee4ae3227cc0240ac304c82dec7ea4680b6",
+      "size": 1465964
     },
     {
       "kind": "script",
@@ -1236,7 +1236,7 @@
         "src/integrations/53-vercel-ai-client.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_053__",
-      "sha256": "68135b6703e832e0f4551356a74ff22546ea5a3624f72f40e2cfdf3ba09fc508",
+      "sha256": "4d1c42324e0fce42e88e0274381e50897a7ed674ef05e1ee7ae354f54ad1ef78",
       "size": 5802
     },
     {
@@ -1393,8 +1393,8 @@
         "src/integrations/90-specialized-ai-rc7.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_060__",
-      "sha256": "75475e001602851c6eb8aedf866e088a55c50ba485297ec4a97911d88bd32844",
-      "size": 244252
+      "sha256": "aa4bf3ebca9615d28b121874f0cc3376b1fc0355dade3847aa920797b63137fd",
+      "size": 250088
     },
     {
       "kind": "style",

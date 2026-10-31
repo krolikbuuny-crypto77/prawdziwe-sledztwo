@@ -52,6 +52,9 @@
     "test:release-candidate": "node tools/test-release-candidate636.mjs && python tools/test-transaction636.py",
     "test:relationship636": "node tools/test-victim-relationship636.mjs",
     "test:ai-understanding637": "node tools/test-ai-understanding637.mjs",
-    "test:witness-knowledge-rc5": "node tools/test-witness-dossiers-rc5.mjs && node tools/test-ai-understanding637.mjs && node tools/test-followup-rc4.mjs && node tools/test-stage2-636.mjs && node tools/test-release-candidate636.mjs"
+    "test:witness-knowledge-rc5": "node tools/test-witness-dossiers-rc5.mjs && node tools/test-ai-understanding637.mjs && node tools/test-followup-rc4.mjs && node tools/test-stage2-636.mjs && node tools/test-release-candidate636.mjs",
+    "test:rc33": "node tools/test-rc33-models.mjs && node tools/test-rc32-dialogue.mjs && node tools/test-rc31-immersive.mjs && node tools/test-rc30-nonblocking-naturalness.mjs && python tools/test-provider-acceptance-rc29.py",
+    "test:rc34": "node tools/test-rc34-history-sync.mjs && python tools/test-rc34-browser-sync.py && npm run test:rc33 && python tools/test-saves.py && python tools/test-navigation.py",
+    "test:rc341": "node tools/test-rc341-history-40.mjs && python tools/test-rc341-browser-40.py && node tools/test-rc34-history-sync.mjs && python tools/test-rc34-browser-sync.py && npm run test:rc33"
   }
 }

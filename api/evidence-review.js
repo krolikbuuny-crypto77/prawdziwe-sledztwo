@@ -1,5 +1,5 @@
 import trusted from '../lib/trusted-evidence-629.js';
-import {askGroq,models} from '../lib/ai-providers-rc7.js';
+import {runSpecializedChain,configuredProvider} from '../lib/specialized-router-rc33.js';
 import {configured,checkOrigin,sessionId,loadSession,allowEvidenceReview,approvedHistory} from '../lib/server-state.js';
 /** Pakiet 6.16 — pomocnicza analiza hipotezy przez Groq Cloud AI.
  * Nie uczestniczy w przesłuchaniach, nie zapisuje stanu i nie decyduje o wyniku gry.
@@ -150,7 +150,7 @@ export default async function handler(req, res) {
       req.headers?.['content-type']?.split(';')[0] !== 'application/json')
     return send(res, 415, {ok:false,error:'invalid_client'});
   if (!configured())return send(res,503,{ok:false,error:'session_store_unavailable'});
-  if(!process.env.GROQ_API_KEY)return send(res,503,{ok:false,error:'groq_not_configured'});
+  if(!configuredProvider('groq')&&!configuredProvider('apinex'))return send(res,503,{ok:false,error:'analysis_providers_not_configured'});
   try {
     if (req.headers?.['content-length'] && Number(req.headers['content-length']) > MAX_BODY)
       return send(res, 413, { ok:false, error:'payload_too_large' });
@@ -169,18 +169,12 @@ export default async function handler(req, res) {
     let allowed;
     try{allowed=await allowEvidenceReview(id,req);}catch{return send(res,503,{ok:false,error:'usage_guard_unavailable'});}
     if(!allowed)return send(res,429,{ok:false,error:'analysis_rate_limited'});
-    // Use GPT-OSS 120B as primary and GPT-OSS 20B as an independent model-level reserve.
-    let answer=null, last=null;
-    const candidates=[...new Set([models().deduction,models().deductionBackup])];
-    for(const model of candidates){
-      try{
-        answer=await askGroq({system:SYSTEM,payload:verified,model,timeoutMs:13500,maxTokens:1100,temperature:0.12,role:'deduction'});
-        break;
-      }catch(error){last=error;}
-    }
-    if(!answer)throw last||Error('groq_unavailable');
-    const result=filterEvidenceAssessment(answer,verified);
-    return send(res, 200, { ok:true, assessment:result });
+    // RC33: APINEX GLM -> DeepSeek -> independent Groq 120B/Qwen/20B.
+    // Local rules and source authorization remain authoritative.
+    const routed=await runSpecializedChain({task:'evidence',system:SYSTEM,payload:verified,
+      totalMs:70000,attemptMs:13500,maxTokens:1100,temperature:0.12,
+      validate:raw=>{try{return filterEvidenceAssessment(raw,verified);}catch{return null;}}});
+    return send(res, 200, {ok:true,assessment:routed.result});
   } catch (err) {
     const status = err?.status || (err instanceof SyntaxError ? 400 : 502);
     return send(res, status, { ok:false, error: status===400?'invalid_json':status===413?'payload_too_large':'analysis_unavailable' });

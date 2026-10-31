@@ -91,11 +91,15 @@
   if(st?.npc65?.lastAnswer===before)st.npc65.lastAnswer=after.slice(0,1300);
   if(st?.npc68?.threads?.length&&st.npc68.threads.at(-1).a===before.slice(0,850))st.npc68.threads.at(-1).a=after.slice(0,850);
  };
- function showBusy(value){inflight=value;status.style.display=(value||!!cloudFailure)?'block':'none';status.textContent=value?'Świadek przygotowuje odpowiedź przez AI…':cloudFailure;
+ // W trakcie przesłuchania nie pokazuj graczowi informacji o silniku AI.
+ // Czekanie sygnalizuje wyłącznie neutralna wypowiedź w dymku rozmowy.
+ // Komunikaty błędów pozostają widoczne, aby nie ukrywać problemów technicznych.
+ function showBusy(value){inflight=value;status.style.display=(!value&&!!cloudFailure)?'block':'none';status.textContent=value?'':cloudFailure;
   const send=by('chatSend'),input=by('chatInput');if(send)send.disabled=value;if(input)input.disabled=value;
  }
  function send(){
   if(inflight)return;
+  if(window.PS617_SYNC?.restoring){cloudFailure='Trwa przywracanie wcześniejszych rozmów. Spróbuj ponownie po synchronizacji.';showBusy(false);return;}
   const c=CONTENT.characters.find(x=>x.id===STATE.activeChar),input=by('chatInput');
   const question=String(input?.value||'').trim(),attached=by('attachedDoc')?.value||'';
   const log=c?STATE.dialogues[c.id]:null,oldLen=log?.length||0;
@@ -184,7 +188,7 @@
    question,presentedEvidenceId:attached||null,context,turnId};
   // Local draft is provisional only; it must never be displayed as a free-form reply.
   const serial=++requestSerial;showBusy(true);
-  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),54000);
+  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),290000);
   let cloudAccepted=false;
   const unavailable=(message)=>{
    if(serial!==requestSerial||STATE.dialogues[c.id]!==log)return;
@@ -242,7 +246,7 @@
     // /api/interview, not only the historical Gemini provider. Never trust a
     // provider name alone: require the server's canonical/verification flags,
     // the exact turn ID and the existing text-safety checks.
-    const auditedProviders=new Set(['gemini','zai','groq','mistral','apinex-luna','apinex-glm','apinex-deepseek']);
+    const auditedProviders=new Set(['gemini','groq','mistral','zai','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro']);
     const isAudited=auditedProviders.has(data?.provider)&&data?.semanticVerified===true;
     // Server-authored local fallback is a separate, explicitly marked type.
     // It is not misrepresented as having passed the cloud semantic audit.

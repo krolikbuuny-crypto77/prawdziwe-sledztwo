@@ -4,7 +4,7 @@
 (()=>{
  'use strict';
  const K='ps617-pending-actions';
- let queue=[];let rev=null;let busy=false;let disabled=false;let timer=0;let retryDelay=1200;let rejectedCount=0;
+ let queue=[];let rev=null;let busy=false;let restoring=false;let pendingRestore=null;let disabled=false;let timer=0;let retryDelay=1200;let rejectedCount=0;
  let approvedEvidence=new Set();let verifiedVerdict=null;let verifiedIndictment=null;let awaitingResume=!!document.getElementById('psResumeOffer');let resetPending=false;
  try{resetPending=localStorage.getItem('ps617-reset-pending')==='1';}catch{}
  try{queue=JSON.parse(localStorage.getItem(K)||'[]');if(!Array.isArray(queue))queue=[];}catch{queue=[];}
@@ -30,8 +30,8 @@
   queue.push({id:key(),action});queue=queue.slice(-100);save();schedule();
  }
  function schedule(delay=650){clearTimeout(timer);timer=setTimeout(sync,delay);}
- async function sync(){
-  if(awaitingResume||busy||disabled||!navigator.onLine||!/^https?:$/.test(location.protocol))return;
+ async function sync(force=false){
+  if((restoring&&!force)||awaitingResume||busy||disabled||!navigator.onLine||!/^https?:$/.test(location.protocol))return;
   busy=true;
   try{
    if(resetPending){
@@ -80,7 +80,7 @@
  // Sam import lokalnego zapisu nie jest dowodem wykonania czynności.
  // Resume choice is explicit. A click outside the prompt must not reset the server session.
 
- window.addEventListener('online',()=>{disabled=false;schedule();});
+ window.addEventListener('online',()=>{disabled=false;if(pendingRestore&&!restoring)restoreTranscript(pendingRestore.saved,{fresh:pendingRestore.fresh});else schedule();});
  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')schedule();});
  if(!awaitingResume&&!resetPending){
   // Gra bez wybranego zapisu zaczyna NOWĄ sesję również w Supabase.
@@ -125,8 +125,114 @@
   if(['person','method','proof','alibi'].some(k=>String(verifiedIndictment.reasons?.[k]||'')!==String(local.reasons?.[k]||'')))return 'pending';
   return verifiedVerdict.review?.correctPerson===true?'confirmed':'rejected';
  }
+
+ // RC34: an imported save contains *quotes*, not server-certified case facts.
+ // Only server HMAC receipts elevate a quote to a server-authenticated utterance.
+ const witnessIds=['MAREK','TOMASZ','JANUSZ','ELZBIETA','KAMIL','MAGDALENA'];
+ const safeQuote=s=>typeof s==='string'&&s.length>=2&&!/[<>\u0000-\u0008\u000e-\u001f]/.test(s);
+ function extractDialogue(saved){
+  const groups=[];
+  for(const id of witnessIds){
+   const rows=saved?.dialogues?.[id];if(!Array.isArray(rows))continue;
+   const pairs=[];
+   for(let i=1;i<rows.length;i++){
+    const q=rows[i-1],a=rows[i];
+    if(q?.role!=='player'||a?.role!=='npc'||!safeQuote(q.text)||!safeQuote(a.text))continue;
+    const attached=q.text.match(/\n\[Okazano: ([A-Za-z0-9_-]{2,65})\]$/);
+    const question=(attached?q.text.slice(0,-attached[0].length):q.text).replace(/[\u0000-\u001f]/g,' ').trim().slice(0,1600);
+    const response=a.text.trim();
+    if(!safeQuote(question)||question.length>1600||!safeQuote(response)||response.length>1450)continue;
+    const ai=a.ai||{};
+    pairs.push({question,text:response,provider:ai.provider||'unknown',model:ai.model||null,
+     turnId:ai.turnId||null,turnProof:ai.turnProof||null,evidenceId:attached?.[1]||null});
+   }
+   // The server retains up to 40 question-and-answer pairs per witness.
+   if(pairs.length)groups.push({witnessId:id,turns:pairs.slice(-40)});
+  }
+  return groups;
+ }
+ function restoreLabel(restored,verified,skipped,unverified){
+  status('Pamięć rozmów: '+restored+' przywrócono ('+verified+' podpisanych, '+unverified+' niezweryfikowanych), '+skipped+' duplikatów');
+ }
+ async function restoreTranscript(saved,{fresh=false}={}){
+  if(!saved||typeof saved!=='object')return {ok:false,reason:'invalid_save'};
+  pendingRestore={saved,fresh};
+  if(restoring)return {ok:false,reason:'restore_busy'};
+  if(!navigator.onLine||!/^https?:$/.test(location.protocol)){
+   status('Historia lokalna · pamięć AI czeka na połączenie');
+   return {ok:false,reason:'offline'};
+  }
+  restoring=true;
+  let resetCompleted=!fresh;
+  let restored=0,verified=0,unverified=0,skipped=0;
+  try{
+   awaitingResume=false;disabled=false;
+   // Avoid racing the queued state writer during the import/reset.
+   for(let tries=0;busy&&tries<100;tries++)await new Promise(r=>setTimeout(r,100));
+   if(busy)throw Error('server_sync_busy');
+   if(fresh){
+    // If this is the SAME server session, retain the originally verified
+    // testimony and progress. A different case must not inherit its evidence.
+    const groups=extractDialogue(saved);
+    let keep=false;
+    const current=await fetch('/api/game-state',{credentials:'same-origin',cache:'no-store'});
+    if(current.ok){
+     const data=await current.json();
+     const serverRows=data?.state?.witnesses||{};
+     keep=groups.some(group=>group.turns.some(t=>{
+      const history=serverRows[group.witnessId]||[];
+      return history.some((r,i)=>r?.role==='witness'&&r.text===t.text&&history[i-1]?.role==='player'&&history[i-1]?.text===t.question);
+     }));
+    }
+    if(keep){
+     resetPending=false;
+     try{localStorage.removeItem('ps617-reset-pending');}catch{}
+    }
+    if(!keep){
+     // A different case must start with new server-owned progress, rather than
+     // accidentally inheriting old approvals from the previous cookie session.
+     window.PS617_SYNC.resetSession();
+     await sync(true);
+     if(resetPending)throw Error('server_reset_unavailable');
+    }
+    resetCompleted=true;
+   }else if(resetPending){
+    await sync(true);
+    if(resetPending)throw Error('server_reset_unavailable');
+   }
+   const groups=extractDialogue(saved);
+   for(const {witnessId,turns} of groups){
+    for(let i=0;i<turns.length;i+=8){
+     let batch=turns.slice(i,i+8);
+     // Keep the JSON body below the server's 36 KB UTF-8 limit.
+     while(batch.length>1&&new TextEncoder().encode(JSON.stringify({witnessId,turns:batch})).length>29000)batch=batch.slice(0,-1);
+     i+=batch.length-8;
+     let done=false;
+     for(let attempt=0;attempt<3;attempt++){
+      const result=await fetch('/api/interview-restore',{method:'POST',credentials:'same-origin',
+       headers:{'Content-Type':'application/json','X-PS-Client':'game'},
+       body:JSON.stringify({witnessId,turns:batch})});
+      if(result.status===409)continue;
+      if(!result.ok)throw Error('history_restore_http_'+result.status);
+      const data=await result.json();if(!data.ok)throw Error('history_restore_rejected');
+      restored+=Number(data.restored)||0;verified+=Number(data.verified)||0;
+      unverified+=Number(data.unverified)||0;skipped+=Number(data.skipped)||0;
+      done=true;break;
+     }
+     if(!done)throw Error('history_restore_conflict');
+    }
+   }
+   pendingRestore=null;restoreLabel(restored,verified,skipped,unverified);
+   schedule();return {ok:true,restored,verified,unverified,skipped};
+  }catch(err){
+   // Keep the save available for an explicit retry or when connection returns.
+   status('Historia lokalna · synchronizacja pamięci AI nieukończona');
+   pendingRestore={saved,fresh:!resetCompleted};
+   return {ok:false,reason:String(err.message||'restore_failed'),restored};
+  }finally{restoring=false;}
+ }
  window.PS617_SYNC=Object.freeze({
-  ensureEvidence,actorStatusFor,isEvidenceApproved:id=>approvedEvidence.has(id),
+  ensureEvidence,actorStatusFor,restoreTranscript,get restoring(){return restoring;},isEvidenceApproved:id=>approvedEvidence.has(id),
   enqueue,get approvedVerdict(){return verifiedVerdict;},get pending(){return queue.length;},get enabled(){return !disabled;},get rejected(){return rejectedCount;},
   resume(){awaitingResume=false;disabled=false;schedule();},
   resetSession(){

@@ -21,7 +21,7 @@ window.psDualAssess=async function(draft,sourceMap){
    role:link.role,note:String(link.note||'').slice(0,550)};
  }).filter(Boolean);
  if(!links.length){panel.textContent='Do dodatkowej analizy AI potrzebny jest co najmniej jeden zdobyty dokument lub zapis zeznania połączony z hipotezą.';return;}
- const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),16000);
+ const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),85000);
  // AI nie zmienia punktów przyznanych przez lokalny audyt. Pokazujemy
  // dwie niezależne osie: jakość uzasadnienia i interpretację posiadanych akt.
  const localSummary=localAssessment?
