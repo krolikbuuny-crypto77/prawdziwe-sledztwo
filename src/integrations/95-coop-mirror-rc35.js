@@ -9,10 +9,18 @@
  const safe=s=>String(s||'').slice(0,180);
  let active=false,connecting=true,controller=false,owner=false,players=0,version=0,code='',busy=false,applying=false,dirty=false,lastPublish=0;
  let nextPoll=0,formOpen=false,formValue='',pendingOps=false;
+ let lastRenderKey='';
  const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
  const root=el('aside','ps-coop-bar');root.setAttribute('aria-label','Wspólna gra dwóch śledczych');
  const toolbar=el('div','ps-coop-toolbar');root.appendChild(toolbar);
- const shield=el('div','ps-coop-shield');shield.setAttribute('aria-hidden','true');document.body.append(shield,root);
+ // RC35.2: the existing document capture guards restrict the observer.
+ // A full-screen shield would also cover the in-flow chat/room controls.
+ // RC35.2: mount the controls INSIDE the normal layout, below the sticky header.
+ // They now reserve their own space instead of hiding navigation and game panels.
+ const main=document.querySelector('.layout > .main');
+ const content=main?.querySelector('#mainContent');
+ if(main&&content){main.insertBefore(root,content);}else{document.body.prepend(root);}
+ 
  const label=el('span','ps-coop-info');const actions=el('div','ps-coop-actions');const message=el('span','ps-coop-message');
  toolbar.append(label,actions,message);
  const button=(text,callback,secondary=false)=>{const b=el('button',secondary?'ps-coop-btn secondary':'ps-coop-btn',text);b.type='button';b.addEventListener('click',callback);return b;};
@@ -20,7 +28,7 @@
  const chatUuid=()=>typeof crypto.randomUUID==='function'?crypto.randomUUID():
   'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,x=>{const n=crypto.getRandomValues(new Uint8Array(1))[0]&15;return (x==='x'?n:(n&3)|8).toString(16);});
  // RC35.1: private, token-free player chat, fully separate from game/AI history.
- const chatPanel=el('section','ps-coop-chat-panel');chatPanel.hidden=true;
+ const chatPanel=el('section','ps-coop-chat-panel');chatPanel.hidden=true;chatPanel.id='ps-coop-chat-panel';
  const chatTitle=el('div','ps-coop-chat-title','Rozmowa graczy · tylko dla tego pokoju');
  const chatItems=el('div','ps-coop-chat-items');chatItems.setAttribute('role','log');chatItems.setAttribute('aria-live','polite');
  const chatStatus=el('div','ps-coop-chat-status');chatStatus.setAttribute('role','status');
@@ -69,12 +77,16 @@
  chatForm.addEventListener('submit',sendChat);
  chatField.addEventListener('keydown',ev=>{if(ev.key==='Enter'&&!ev.shiftKey){ev.preventDefault();chatForm.requestSubmit();}});
  function redraw(){
-  toolbar.classList.toggle('ps-coop-active',active);shield.style.display=active&&!controller?'block':'none';
+  document.body.classList.toggle('ps-coop-observer',active&&!controller);
+  const key=[active,connecting,controller,owner,players,code,chatOpen,chatUnread,formOpen].join('|');
+  if(key===lastRenderKey)return;
+  lastRenderKey=key;
+  toolbar.classList.toggle('ps-coop-active',active);
   label.textContent=connecting?'Pokój: sprawdzanie…':active?`Wspólna gra · ${players}/2 · ${controller?'sterujesz':'oglądasz ekran'}`:'Wspólna gra (2 osoby)';
   actions.replaceChildren();
   if(!active){actions.append(button('Utwórz pokój',create),button('Dołącz',()=>{formOpen=!formOpen;redraw();},true));}
   else{
-   actions.append(button('Czat'+(chatUnread?' ('+chatUnread+')':''),showChat,true));
+   const chatToggle=button('Czat'+(chatUnread?' ('+chatUnread+')':''),showChat,true);chatToggle.setAttribute('aria-expanded',String(chatOpen));chatToggle.setAttribute('aria-controls','ps-coop-chat-panel');actions.append(chatToggle);
    if(code&&owner)actions.append(button('Kod: '+code,()=>navigator.clipboard?.writeText(code).then(()=>notify('Kod skopiowany')).catch(()=>notify('Kod: '+code)),true));
    if(!controller)actions.append(button('Przejmij sterowanie',take));
    actions.append(button(owner?'Zamknij pokój':'Opuść pokój',leave,true));
@@ -156,7 +168,7 @@
   busy=true;
   try{const response=await fetch(endpoint+'?since='+version,{credentials:'same-origin',cache:'no-store'});
    const data=await response.json().catch(()=>null);
-   if(response.status===401||response.status===403||response.status===404){active=false;controller=false;dirty=false;shield.style.display='none';notify('Pokój zamknięty. Odśwież stronę.');redraw();return;}
+   if(response.status===401||response.status===403||response.status===404){active=false;controller=false;dirty=false;document.body.classList.remove('ps-coop-observer');notify('Pokój zamknięty. Odśwież stronę.');redraw();return;}
    if(data?.ok)accept(data);else notify('Serwer pokoju chwilowo niedostępny.');
   }catch{notify('Trwa oczekiwanie na połączenie…');}finally{busy=false;}
  }

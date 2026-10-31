@@ -1394,8 +1394,8 @@
         "src/integrations/95-coop-mirror-rc35.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_060__",
-      "sha256": "ef2e9e14e53cc8d0f42b21607138b70e9dbaa1a6102e40f81fa0981d9328d0da",
-      "size": 265104
+      "sha256": "c75e94afc93591d4f15e2d04c407c918e668912c1fad060eb90c6c1acc377b72",
+      "size": 265895
     },
     {
       "kind": "style",
@@ -1412,8 +1412,8 @@
         "src/styles/95-coop-mirror-rc35.css"
       ],
       "marker": "__PS_SOURCE_STYLE_063__",
-      "sha256": "f1f1af0a5aaed049dac7fe6f4b52d522d4e1e3b3bcbfc337f5c42ab1aaad29a2",
-      "size": 18858
+      "sha256": "fdc21e4a34702dd9d00a361d911b5a139b86735f2002a371053b32070f9f69d3",
+      "size": 19739
     }
   ]
 }

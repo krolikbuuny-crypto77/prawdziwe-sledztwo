@@ -73,7 +73,7 @@ with sync_playwright() as pw:
  except Exception as err:
   print('DEBUG',{'room':room,'a':a.evaluate('({active:PS_COOP.active,controller:PS_COOP.controller,tab:STATE.tab,notes:STATE.notes,version:document.querySelector(".ps-coop-info")?.textContent,msg:document.querySelector(".ps-coop-message")?.textContent})'),'b':b.evaluate('({active:PS_COOP.active,controller:PS_COOP.controller,tab:STATE.tab,notes:STATE.notes,version:document.querySelector(".ps-coop-info")?.textContent,msg:document.querySelector(".ps-coop-message")?.textContent})'),'errors':errors})
   raise
- assert b.evaluate('document.querySelector(".ps-coop-shield").style.display')=='block'
+ assert b.evaluate("document.body.classList.contains('ps-coop-observer')")
  b.get_by_role('button',name='Przejmij sterowanie').click()
  b.wait_for_function('window.PS_COOP.controller',timeout=10000)
  a.wait_for_function('window.PS_COOP.active && !window.PS_COOP.controller',timeout=10000)

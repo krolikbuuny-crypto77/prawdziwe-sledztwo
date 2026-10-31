@@ -97,7 +97,7 @@ with sync_playwright() as pw:
  a.evaluate("document.querySelector('.ps-coop-chat-form').requestSubmit()")
  b.wait_for_function("document.querySelector('.ps-coop-chat-items')?.textContent.includes('<img src=x')",timeout=11000)
  assert b.locator('.ps-coop-chat-items img').count()==0
- assert b.evaluate("document.querySelector('.ps-coop-shield').style.display")=='block'
+ assert b.evaluate("document.body.classList.contains('ps-coop-observer')")
  a.evaluate("() => {STATE.notes='Wspólna notatka';document.getElementById('notes').value=STATE.notes;STATE.activeChar='JANUSZ';PS_NAV.open('interview');PS_COOP.mark();}")
  a.evaluate('async()=>{await PS_COOP.flush()}')
  b.evaluate('async()=>{await PS_COOP.refresh()}')
@@ -106,7 +106,7 @@ with sync_playwright() as pw:
  except Exception as err:
   print('DEBUG',{'room':room,'a':a.evaluate('({active:PS_COOP.active,controller:PS_COOP.controller,tab:STATE.tab,notes:STATE.notes,version:document.querySelector(".ps-coop-info")?.textContent,msg:document.querySelector(".ps-coop-message")?.textContent})'),'b':b.evaluate('({active:PS_COOP.active,controller:PS_COOP.controller,tab:STATE.tab,notes:STATE.notes,version:document.querySelector(".ps-coop-info")?.textContent,msg:document.querySelector(".ps-coop-message")?.textContent})'),'errors':errors,'events':a.evaluate("({observed:window.chatSubmitObserved,html:document.querySelector('.ps-coop-chat-form')?.outerHTML,panel:document.querySelector('.ps-coop-chat-panel')?.hidden})")})
   raise
- assert b.evaluate('document.querySelector(".ps-coop-shield").style.display')=='block'
+ assert b.evaluate("document.body.classList.contains('ps-coop-observer')")
  b.get_by_role('button',name='Przejmij sterowanie').click()
  b.wait_for_function('window.PS_COOP.controller',timeout=10000)
  a.wait_for_function('window.PS_COOP.active && !window.PS_COOP.controller',timeout=10000)

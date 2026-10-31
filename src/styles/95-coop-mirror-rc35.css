@@ -1,18 +1,41 @@
-/* RC35: fixed shared-room controls above the existing game, no extra style elements. */
-.ps-coop-bar{position:fixed;top:5px;right:8px;z-index:10000001;max-width:min(95vw,670px);font:12px/1.4 system-ui,-apple-system,sans-serif;color:#fafafa;pointer-events:auto}
-.ps-coop-toolbar{background:#16202b;border:1px solid #556273;box-shadow:0 2px 17px #0008;border-radius:10px;padding:6px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+/* RC35.2: cooperative controls are INLINE between the topbar and game content.
+ * No fixed overlay for the room controls, join form or chat. */
+.ps-coop-bar{position:relative;inset:auto;z-index:20;box-sizing:border-box;
+ width:100%;max-width:100%;min-width:0;display:flex;flex-direction:column;align-items:stretch;
+ padding:10px clamp(14px,2.8vw,42px) 0;margin:0;
+ font:12px/1.4 system-ui,-apple-system,sans-serif;color:#fafafa;pointer-events:auto}
+.ps-coop-bar *, .ps-coop-bar *::before, .ps-coop-bar *::after{box-sizing:border-box}
+.ps-coop-toolbar{width:100%;min-width:0;max-width:1430px;margin:0 auto;
+ background:#16202b;border:1px solid #556273;box-shadow:0 2px 10px #0005;
+ border-radius:10px;padding:9px 12px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 .ps-coop-toolbar.ps-coop-active{border-color:#367d92}
-.ps-coop-info{font-weight:600;white-space:nowrap}.ps-coop-actions{display:flex;gap:4px;flex-wrap:wrap}.ps-coop-message{font-size:10px;opacity:.8;max-width:240px}
-.ps-coop-btn{color:#fff;background:#23657b;border:1px solid #538ea0;border-radius:6px;padding:5px 8px;cursor:pointer;font:inherit}.ps-coop-btn.secondary{background:#2b3748;border-color:#526275}.ps-coop-btn:focus-visible{outline:2px solid #b3e1ff}
-.ps-coop-join{background:#182230;color:#fff;border:1px solid #627689;border-radius:8px;padding:8px;display:flex;gap:5px;justify-content:flex-end}.ps-coop-input{background:#fff;color:#111;padding:6px;border-radius:5px;border:0;min-width:140px}
-.ps-coop-shield{position:fixed;inset:0;z-index:10000000;display:none;cursor:not-allowed;background:transparent}
-@media(max-width:640px){.ps-coop-bar{left:5px;right:5px;max-width:none}.ps-coop-toolbar{justify-content:center}.ps-coop-message{max-width:none}}
+.ps-coop-info{font-weight:600;min-width:0;white-space:normal;overflow-wrap:anywhere}
+.ps-coop-actions{display:flex;gap:6px;flex-wrap:wrap;align-items:center;min-width:0}
+.ps-coop-message{font-size:11px;opacity:.85;max-width:100%;overflow-wrap:anywhere}
+.ps-coop-btn{color:#fff;background:#23657b;border:1px solid #538ea0;border-radius:6px;
+ padding:6px 10px;cursor:pointer;font:inherit;min-height:34px}
+.ps-coop-btn.secondary{background:#2b3748;border-color:#526275}
+.ps-coop-btn:focus-visible{outline:2px solid #b3e1ff}
+.ps-coop-join{width:min(100%,540px);max-width:100%;align-self:flex-end;
+ margin:7px 0 0;background:#182230;color:#fff;border:1px solid #627689;border-radius:8px;
+ padding:9px;display:flex;gap:8px;justify-content:flex-end;align-items:center;flex-wrap:wrap}
+.ps-coop-input{background:#fff;color:#111;padding:7px;border-radius:5px;border:1px solid #7f8a96;min-width:0;flex:1 1 150px}
+body.ps-coop-observer .content,body.ps-coop-observer .sidebar{cursor:not-allowed}
+@media(max-width:640px){
+ .ps-coop-bar{padding:7px 10px 0}
+ .ps-coop-toolbar{justify-content:flex-start;gap:7px;padding:9px}
+ .ps-coop-info{flex:1 1 100%}
+ .ps-coop-actions{flex:1 1 auto}
+ .ps-coop-actions>.ps-coop-btn{flex:1 1 auto}
+ .ps-coop-message:not(:empty){flex:1 1 100%}
+ .ps-coop-join{width:100%;align-self:stretch}
+}
 
 /* RC35.1: in-room two-person text chat; accessible even while observing. */
-.ps-coop-chat-panel{margin-top:5px;margin-left:auto;width:min(410px,calc(100vw - 16px));background:#15202a;border:1px solid #637687;border-radius:10px;box-shadow:0 12px 40px #000a;padding:10px;display:grid;gap:8px}
+.ps-coop-chat-panel{margin:8px 0 0 auto;width:min(100%,520px);max-width:100%;background:#15202a;border:1px solid #637687;border-radius:10px;box-shadow:0 12px 40px #000a;padding:10px;display:grid;gap:8px}
 .ps-coop-chat-panel[hidden]{display:none!important}
 .ps-coop-chat-title{color:#e7cda1;font-weight:700}
-.ps-coop-chat-items{height:min(38vh,280px);min-height:140px;overflow:auto;overscroll-behavior:contain;background:#101923;border:1px solid #3a4b5b;border-radius:6px;padding:7px;display:flex;flex-direction:column;gap:7px}
+.ps-coop-chat-items{height:min(34vh,260px);min-height:115px;overflow:auto;overscroll-behavior:contain;background:#101923;border:1px solid #3a4b5b;border-radius:6px;padding:7px;display:flex;flex-direction:column;gap:7px}
 .ps-coop-chat-row{padding:7px 9px;border:1px solid #354c5b;background:#1c303e;border-radius:8px;max-width:95%;align-self:flex-start;overflow-wrap:anywhere}
 .ps-coop-chat-row.mine{align-self:flex-end;background:#29382c;border-color:#527660}
 .ps-coop-chat-meta{font-size:10px;color:#c4d0d7;margin-bottom:3px}
@@ -21,4 +44,4 @@
 .ps-coop-chat-form{display:flex;gap:6px;align-items:stretch}
 .ps-coop-chat-input{flex:1;min-width:0;max-height:125px;resize:vertical;background:#0d1821;color:white;border:1px solid #607589;border-radius:6px;padding:8px;font:12px/1.4 system-ui,sans-serif}
 .ps-coop-chat-form button{align-self:stretch}
-@media(max-width:640px){.ps-coop-chat-panel{width:100%;max-width:none}}
+@media(max-width:640px){.ps-coop-chat-panel{width:100%;max-width:100%;margin-top:7px}.ps-coop-chat-form{flex-wrap:wrap}.ps-coop-chat-input{flex:1 1 100%;min-height:76px}.ps-coop-chat-form .ps-coop-btn{width:100%;min-height:38px}}
