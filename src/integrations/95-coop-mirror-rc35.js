@@ -8,7 +8,7 @@
  const endpoint='/api/coop';
  const safe=s=>String(s||'').slice(0,180);
  let active=false,connecting=true,controller=false,owner=false,players=0,version=0,code='',busy=false,applying=false,dirty=false,lastPublish=0;
- let nextPoll=0,formOpen=false,formValue='',pendingOps=false;
+ let nextPoll=0,formOpen=false,formValue='',pendingOps=false,taking=false;
  let lastRenderKey='';
  const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
  const root=el('aside','ps-coop-bar');root.setAttribute('aria-label','Wspólna gra dwóch śledczych');
@@ -24,10 +24,24 @@
  const label=el('span','ps-coop-info');const actions=el('div','ps-coop-actions');const message=el('span','ps-coop-message');
  toolbar.append(label,actions,message);
  const button=(text,callback,secondary=false)=>{const b=el('button',secondary?'ps-coop-btn secondary':'ps-coop-btn',text);b.type='button';b.addEventListener('click',callback);return b;};
- const notify=(text)=>{message.textContent=text;};
+ let controlStatus;
+ const notify=(text)=>{message.textContent=text;if(controlStatus)controlStatus.textContent=text;};
  const chatUuid=()=>typeof crypto.randomUUID==='function'?crypto.randomUUID():
   'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,x=>{const n=crypto.getRandomValues(new Uint8Array(1))[0]&15;return (x==='x'?n:(n&3)|8).toString(16);});
  // RC35.1: private, token-free player chat, fully separate from game/AI history.
+ // RC35.5: persistent bottom dock, separate from the page-top room/join controls.
+ // It never becomes part of the mirrored gameplay snapshot.
+ const bottomDock=el('div','ps-coop-bottom-dock');bottomDock.hidden=true;
+ const controlDock=el('div','ps-coop-control-dock');
+ const controlInfo=el('span','ps-coop-control-info');
+ const controlActions=el('div','ps-coop-control-actions');
+ controlStatus=el('span','ps-coop-control-status');controlStatus.setAttribute('role','status');
+ controlDock.append(controlInfo,controlActions,controlStatus);
+ const chatDock=el('div','ps-coop-chat-dock');
+ const chatDockToggle=button('Czat graczy',showChat,true);chatDockToggle.classList.add('ps-coop-chat-toggle');
+ chatDockToggle.setAttribute('aria-controls','ps-coop-chat-panel');
+ chatDock.append(chatDockToggle);
+ bottomDock.append(controlDock,chatDock);document.body.append(bottomDock);
  const chatPanel=el('section','ps-coop-chat-panel');chatPanel.hidden=true;chatPanel.id='ps-coop-chat-panel';
  const chatTitle=el('div','ps-coop-chat-title','Rozmowa graczy · tylko dla tego pokoju');
  const chatItems=el('div','ps-coop-chat-items');chatItems.setAttribute('role','log');chatItems.setAttribute('aria-live','polite');
@@ -36,10 +50,10 @@
  const chatField=el('textarea','ps-coop-chat-input');chatField.setAttribute('aria-label','Wiadomość do drugiego gracza');
  chatField.placeholder='Napisz do drugiego śledczego…';chatField.maxLength=600;chatField.rows=2;
  const chatSend=el('button','ps-coop-btn','Wyślij');chatSend.type='submit';
- chatForm.append(chatField,chatSend);chatPanel.append(chatTitle,chatItems,chatStatus,chatForm);root.append(chatPanel);
+ chatForm.append(chatField,chatSend);chatPanel.append(chatTitle,chatItems,chatStatus,chatForm);chatDock.insertBefore(chatPanel,chatDockToggle);
  let chatOpen=false,chatBusy=false,chatSending=false,lastChatId=0,chatUnread=0,chatIds=new Set();
  function resetChat(){lastChatId=0;chatUnread=0;chatIds.clear();chatItems.replaceChildren();chatStatus.textContent='';}
- function showChat(){chatOpen=!chatOpen;chatPanel.hidden=!active||!chatOpen;if(chatOpen){chatUnread=0;chatItems.scrollTop=chatItems.scrollHeight;chatField.focus();void pollChat();}redraw();}
+ function showChat(){chatOpen=!chatOpen;chatPanel.hidden=!active||!chatOpen;if(chatOpen){chatUnread=0;chatItems.scrollTop=chatItems.scrollHeight;chatField.focus();void pollChat();}lastRenderKey='';redraw();}
  function addChatRow(m){
   if(!m||!Number.isSafeInteger(m.id)||m.id<=0||chatIds.has(m.id)||typeof m.text!=='string')return;
   chatIds.add(m.id);if(chatIds.size>240){const old=chatIds.values().next().value;chatIds.delete(old);}
@@ -58,7 +72,7 @@
    const data=await response.json().catch(()=>null);
    if(!response.ok||!data?.ok)throw Error(data?.error||'chat_offline');
    (data.messages||[]).forEach(addChatRow);chatStatus.textContent='';
-   if(!chatOpen&&data.messages?.length)redraw();
+   if(!chatOpen&&data.messages?.length){lastRenderKey='';redraw();}
   }catch(err){chatStatus.textContent=err.message==='chat_storage_unavailable'?'Czat wymaga migracji SQL 005 lub połączenia z bazą.':'Nie można odświeżyć czatu.';}
   finally{chatBusy=false;}
  }
@@ -78,17 +92,24 @@
  chatField.addEventListener('keydown',ev=>{if(ev.key==='Enter'&&!ev.shiftKey){ev.preventDefault();chatForm.requestSubmit();}});
  function redraw(){
   document.body.classList.toggle('ps-coop-observer',active&&!controller);
+  document.body.classList.toggle('ps-coop-chat-open',active&&chatOpen);
   const key=[active,connecting,controller,owner,players,code,chatOpen,chatUnread,formOpen].join('|');
   if(key===lastRenderKey)return;
   lastRenderKey=key;
   toolbar.classList.toggle('ps-coop-active',active);
+  bottomDock.hidden=!active;controlDock.hidden=!active;
+  controlInfo.textContent=players===1?'Pokój: oczekiwanie na drugiego gracza':controller?'Sterujesz wspólną grą':'Steruje drugi gracz';
+  controlActions.replaceChildren();
+  if(!controller&&active){const takeBtn=button(taking?'Przejmowanie…':'Przejmij sterowanie',take);takeBtn.disabled=taking;takeBtn.classList.add('ps-coop-take-action');controlActions.append(takeBtn);}
+  chatDockToggle.textContent='Czat graczy'+(chatUnread?' ('+chatUnread+')':'')+(chatOpen?' ▲':' ▼');
+  chatDockToggle.setAttribute('aria-expanded',String(chatOpen));
   label.textContent=connecting?'Pokój: sprawdzanie…':active?`Wspólna gra · ${players}/2 · ${controller?'sterujesz':'oglądasz ekran'}`:'Wspólna gra (2 osoby)';
   actions.replaceChildren();
   if(!active){actions.append(button('Utwórz pokój',create),button('Dołącz',()=>{formOpen=!formOpen;redraw();},true));}
   else{
-   const chatToggle=button('Czat'+(chatUnread?' ('+chatUnread+')':''),showChat,true);chatToggle.setAttribute('aria-expanded',String(chatOpen));chatToggle.setAttribute('aria-controls','ps-coop-chat-panel');actions.append(chatToggle);
+   // Chat and takeover live in persistent bottom controls.
    if(code&&owner)actions.append(button('Kod: '+code,()=>navigator.clipboard?.writeText(code).then(()=>notify('Kod skopiowany')).catch(()=>notify('Kod: '+code)),true));
-   if(!controller)actions.append(button('Przejmij sterowanie',take));
+   // The bottom dock is the single visible controller switch.
    actions.append(button(owner?'Zamknij pokój':'Opuść pokój',leave,true));
   }
   chatPanel.hidden=!active||!chatOpen;
@@ -109,8 +130,11 @@
  function accept(data){
   if(!data?.ok)return;
   const wasController=controller,wasActive=active;
+  const incomingVersion=Number(data.version)||0;
+  // Out-of-order polling must not revoke control that was just transferred.
+  if(wasActive&&incomingVersion<version)return;
   active=true;controller=!!data.controller;owner=!!data.owner;players=data.players||1;
-  const changed=Number(data.version)!==version;version=Number(data.version)||0;
+  const changed=incomingVersion!==version;version=incomingVersion;
   if(!controller&&changed&&data.frame?.save&&!applying){
    applying=true;
    try{window.PS_SAVE_MANAGER.apply(data.frame.save);window.PS_COOP_VIEW.apply(data.frame.view);dirty=false;}
@@ -121,6 +145,7 @@
    // Do not overwrite the last controller's progress on a control handoff.
    applying=true;
    try{window.PS_SAVE_MANAGER.apply(data.frame.save);window.PS_COOP_VIEW.apply(data.frame.view);}
+   catch(error){notify('Sterowanie przekazano. Widok odśwież za chwilę: '+safe(error.message));}
    finally{applying=false;}
   }
   if(!wasActive){resetChat();void pollChat();}
@@ -149,9 +174,22 @@
   catch(err){notify('Nie dołączono: '+safe(err.message));}finally{busy=false;}
  }
  async function take(){
-  if(busy)return;busy=true;
-  try{const data=await call('take');accept(data);dirty=false;notify('Masz teraz sterowanie.');}
-  catch(err){notify(err.status===423?'Trwa przesłuchanie. Sterowanie będzie dostępne po odpowiedzi AI.':'Nie udało się przejąć: '+safe(err.message));}finally{busy=false;}
+  if(!active||controller||taking)return;
+  taking=true;lastRenderKey='';redraw();notify('Przejmowanie sterowania…');
+  try{
+   // Manual control actions must not silently disappear while a background poll runs.
+   for(let attempt=0;attempt<4;attempt++){
+    try{
+     const data=await call('take');accept(data);dirty=false;
+     notify('Sterowanie zostało przekazane. Możesz działać.');return;
+    }catch(error){
+     if(error.status===423){notify('Trwa odpowiedź AI. Przejmowanie będzie dostępne po jej zakończeniu.');return;}
+     if(error.status!==409||attempt===3)throw error;
+     await new Promise(resolve=>setTimeout(resolve,250*(attempt+1)));
+    }
+   }
+  }catch(error){notify('Nie udało się przejąć sterowania: '+safe(error.message));}
+  finally{taking=false;lastRenderKey='';redraw();}
  }
  async function leave(){
   if(busy||!confirm(owner?'Zamknąć pokój dla obojga graczy?':'Opuścić wspólną grę?'))return;
@@ -207,12 +245,12 @@
  // Prevent spectator-origin gameplay mutations, including hidden form submits.
  for(const type of ['click','pointerdown','keydown','input','change','submit']){
   document.addEventListener(type,event=>{
-   if(!active||controller||root.contains(event.target))return;
+   if(!active||controller||root.contains(event.target)||bottomDock.contains(event.target))return;
    if(type==='keydown'&&['Tab','Escape','Shift','Control','Alt','Meta'].includes(event.key))return;
    event.preventDefault();event.stopImmediatePropagation();event.stopPropagation();
   },true);
  }
- for(const type of ['click','input','change','keyup'])document.addEventListener(type,event=>{if(root.contains(event.target))return;mark();},true);
+ for(const type of ['click','input','change','keyup'])document.addEventListener(type,event=>{if(root.contains(event.target)||bottomDock.contains(event.target))return;mark();},true);
  window.addEventListener('scroll',mark,{passive:true});
  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&active)refresh();});
  // Existing navigation and post-AI rendering pass through these named hooks.

@@ -45,3 +45,51 @@ body.ps-coop-observer .content,body.ps-coop-observer .sidebar{cursor:not-allowed
 .ps-coop-chat-input{flex:1;min-width:0;max-height:125px;resize:vertical;background:#0d1821;color:white;border:1px solid #607589;border-radius:6px;padding:8px;font:12px/1.4 system-ui,sans-serif}
 .ps-coop-chat-form button{align-self:stretch}
 @media(max-width:640px){.ps-coop-chat-panel{width:100%;max-width:100%;margin-top:7px}.ps-coop-chat-form{flex-wrap:wrap}.ps-coop-chat-input{flex:1 1 100%;min-height:76px}.ps-coop-chat-form .ps-coop-btn{width:100%;min-height:38px}}
+
+
+/* RC35.5: persistent bottom controls; chat is no longer placed at the top. */
+.ps-coop-bottom-dock{position:fixed!important;inset:auto 12px 10px 12px!important;z-index:80!important;
+ display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
+ pointer-events:none;font:12px/1.4 system-ui,-apple-system,sans-serif;color:#fafafa;
+ max-width:calc(100vw - 24px)}
+.ps-coop-bottom-dock[hidden]{display:none!important}
+.ps-coop-bottom-dock *{box-sizing:border-box}
+.ps-coop-control-dock{pointer-events:auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+ border:1px solid #527b91;background:#122636;color:#f7f2e8;padding:10px 12px;
+ border-radius:11px;box-shadow:0 4px 24px #0009;max-width:min(390px,calc(100vw - 130px));min-height:48px}
+.ps-coop-control-dock[hidden]{display:none!important}
+.ps-coop-control-info{font-weight:650;white-space:normal}
+.ps-coop-control-actions{display:flex;gap:7px;align-items:center}
+.ps-coop-take-action{min-height:40px!important;background:#286b72!important;border-color:#69b0ae!important;
+ font-size:12px!important;font-weight:700!important}
+.ps-coop-chat-dock{pointer-events:auto;display:flex;flex-direction:column;align-items:stretch;
+ min-width:0;width:min(380px,calc(100vw - 24px));max-width:100%;gap:8px}
+.ps-coop-chat-toggle{align-self:flex-end;min-height:44px!important;min-width:135px!important;
+ box-shadow:0 3px 18px #0009;background:#264557!important;font-weight:700!important}
+.ps-coop-bottom-dock .ps-coop-chat-panel{position:static!important;inset:auto!important;
+ width:100%!important;max-width:100%!important;margin:0!important;box-shadow:0 9px 33px #000b;
+ max-height:min(68dvh,560px);overflow:hidden}
+.ps-coop-bottom-dock .ps-coop-chat-panel[hidden]{display:none!important}
+.ps-coop-bottom-dock .ps-coop-chat-items{height:min(35dvh,270px);min-height:100px}
+/* Reserve scrollable space so fixed controls do not conceal the end of a case file. */
+body:has(.ps-coop-bottom-dock:not([hidden])) .layout>.main{padding-bottom:76px!important}
+body.ps-coop-chat-open .layout>.main{padding-bottom:min(75dvh,620px)!important}
+@media(max-width:720px){
+ .ps-coop-bottom-dock{inset:auto 7px max(6px,env(safe-area-inset-bottom)) 7px!important;
+  max-width:calc(100vw - 14px);gap:6px;align-items:flex-end}
+ .ps-coop-control-dock{padding:6px 8px;max-width:calc(100vw - 133px);min-height:44px;gap:4px;
+  flex:1 1 auto;border-radius:8px}
+ .ps-coop-control-info{font-size:10px}
+ .ps-coop-control-dock .ps-coop-btn{min-height:36px!important;font-size:11px!important;padding:4px 7px!important}
+ .ps-coop-chat-dock{width:auto;flex:0 1 128px;min-width:120px;max-width:calc(100vw - 14px)}
+ .ps-coop-chat-toggle{min-width:120px!important;padding:6px!important}
+ .ps-coop-bottom-dock:has(.ps-coop-chat-panel:not([hidden])) .ps-coop-chat-dock{
+  position:absolute;right:0;bottom:calc(100% + 7px);width:min(380px,calc(100vw - 14px));min-width:0;flex:none}
+ .ps-coop-bottom-dock:has(.ps-coop-chat-panel:not([hidden])) .ps-coop-control-dock{visibility:visible}
+ .ps-coop-bottom-dock .ps-coop-chat-panel{max-height:min(65dvh,520px)}
+ .ps-coop-bottom-dock .ps-coop-chat-items{height:min(28dvh,195px);min-height:85px}
+ body.ps-coop-chat-open .layout>.main{padding-bottom:min(72dvh,580px)!important}
+}
+
+.ps-coop-control-status{font-size:10px;color:#edc993;max-width:300px;overflow-wrap:anywhere}
+.ps-coop-control-status:empty{display:none}

@@ -73,12 +73,24 @@ export default async function handler(req,res){
    return reply(res,200,{ok:true,...sanitizeRoom(updated,identity)});
   }
   if(action==='take'){
-   const busyView=room.frame?.view;
-   if(busyView?.aiBusy===true&&Number.isFinite(Number(busyView.busyAt))&&
-    Date.now()-Number(busyView.busyAt)<300000)return reply(res,423,{ok:false,error:'interview_in_progress'});
-   const updated=await patchRoom(room,{controller_member:identity.memberId});
-   if(!updated)return reply(res,409,{ok:false,error:'version_conflict'});
-   return reply(res,200,{ok:true,...sanitizeRoom(updated,identity)});
+   // Polling or frame updates can race a handoff. Retry the CAS against the
+   // latest room revision and revalidate the chat/AI lock on every attempt.
+   let candidate=room;
+   for(let attempt=0;attempt<4;attempt++){
+    if(!candidate||candidate.session_id!==identity.sessionId||
+       ![candidate.owner_member,candidate.guest_member].includes(identity.memberId))
+     return reply(res,403,{ok:false,error:'coop_membership_revoked'});
+    const busyView=candidate.frame?.view;
+    if(busyView?.aiBusy===true&&Number.isFinite(Number(busyView.busyAt))&&
+       Date.now()-Number(busyView.busyAt)<300000)
+     return reply(res,423,{ok:false,error:'interview_in_progress'});
+    if(candidate.controller_member===identity.memberId)
+     return reply(res,200,{ok:true,...sanitizeRoom(candidate,identity)});
+    const updated=await patchRoom(candidate,{controller_member:identity.memberId});
+    if(updated)return reply(res,200,{ok:true,...sanitizeRoom(updated,identity)});
+    candidate=await roomById(room.room_id,true);
+   }
+   return reply(res,409,{ok:false,error:'version_conflict'});
   }
   if(action==='leave'){
    if(identity.memberId===room.owner_member){
