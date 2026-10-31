@@ -1,0 +1,45 @@
+{
+  "schema": "ps-registry-audit/1",
+  "profiles": {
+    "MAREK": {
+      "registered": 88,
+      "covered_excerpts": 8
+    },
+    "TOMASZ": {
+      "registered": 84,
+      "covered_excerpts": 7
+    },
+    "JANUSZ": {
+      "registered": 96,
+      "covered_excerpts": 8
+    },
+    "ELZBIETA": {
+      "registered": 85,
+      "covered_excerpts": 8
+    },
+    "KAMIL": {
+      "registered": 95,
+      "covered_excerpts": 7
+    },
+    "MAGDALENA": {
+      "registered": 81,
+      "covered_excerpts": 7
+    }
+  },
+  "documents": 78,
+  "sourceHashes": {
+    "lib/trusted-witness-canon-624.json": "e795c41906e0ddc7fbcf369e2580092d33785350ff82fd51f00c7f387e6048fe",
+    "lib/witness-bible-rc19.json": "4607ac2dee06e1c1013bb814b516501c72f3668e3df4114f5d14a214f7f8e871",
+    "lib/witness-knowledge-rc18.json": "895923b84511725589d4a1cf59c171e3c3c3dde77921f27205236913b113b3bd",
+    "lib/approved-rules.js": "ae46eb91459611ed59d43e4d0a90b9db86ce9cbd47e181c3966e03aeef9e61cc",
+    "tools/legacy-scene-source-rc21.mjs": "d6d342a0449d77141780a8e257b4787522625cb07a20a548ee352d60805c5ea0",
+    "lib/witness-bible-rc19.js": "6b49e63efc61341cf67743c8ad56b7ca882e63fff7624a04beb1aadb3a750d53",
+    "lib/witness-knowledge-rc18.js": "a1b1816f83c58a09dcb30d6615fdc4413ee365568a00c5a0beee84aa04e03a3b",
+    "lib/witness-dossiers-rc5.js": "2a960ecd7a9936ce47ec9990ce0d0982420085fb46826d18e720a9d5ce7dad0c",
+    "lib/question-context-630.js": "21558a0a4c43cac9e0375ac332d907a308d5d1bd2881496d36a3ba66493b4d5f",
+    "lib/question-intent-633.js": "f23272a0280c2f8919276eed0ef15027e3342f171d95c6b381cc8267766c73dd",
+    "lib/interview-question-bank-rc17.json": "a62e1af3f0a58d2ee8dea1b0fda17596ea8a130fe01ed2c878e8298aac3c62ad",
+    "tools/build-witness-registry-rc22.mjs": "45df07d52fa7746fe63bc50f9c0d43b54a9809f93a18965f69298388fe339dc0"
+  },
+  "liveAPI": "not_run"
+}

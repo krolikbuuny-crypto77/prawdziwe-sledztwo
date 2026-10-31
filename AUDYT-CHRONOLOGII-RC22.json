@@ -1,0 +1,186 @@
+{
+  "version": "RC22",
+  "events": [
+    {
+      "id": "shift",
+      "document": "ADM-01",
+      "anchor": "18:00",
+      "start": 1080,
+      "end": 1080
+    },
+    {
+      "id": "course",
+      "document": "TEC-02",
+      "anchor": "18:26",
+      "start": 1106,
+      "end": 1106
+    },
+    {
+      "id": "warning",
+      "document": "TEC-03",
+      "anchor": "19:11",
+      "start": 1151,
+      "end": 1151
+    },
+    {
+      "id": "order",
+      "document": "TEC-04",
+      "anchor": "19:46",
+      "start": 1186,
+      "end": 1186
+    },
+    {
+      "id": "work",
+      "document": "EVID_WORK_ORDER_RAW",
+      "anchor": "20:54",
+      "start": 1254,
+      "end": 1254
+    },
+    {
+      "id": "bhp-contact",
+      "document": "DIG-01",
+      "anchor": "21:47",
+      "start": 1307,
+      "end": 1307
+    },
+    {
+      "id": "dispatch",
+      "document": "EVID_DISPATCH_REVISION",
+      "anchor": "23:14",
+      "start": 1394,
+      "end": 1394
+    },
+    {
+      "id": "card-issued",
+      "document": "ADM-07",
+      "anchor": "00:16",
+      "start": 1456,
+      "end": 1456
+    },
+    {
+      "id": "card-handover",
+      "document": "EVID_RESOURCE_HANDOVER",
+      "anchor": "00:39",
+      "start": 1479,
+      "end": 1479
+    },
+    {
+      "id": "test-start",
+      "document": "EVID_TCMS_SESSION",
+      "anchor": "01:06",
+      "start": 1506,
+      "end": 1506
+    },
+    {
+      "id": "test-end",
+      "document": "EVID_TCMS_SESSION",
+      "anchor": "01:24",
+      "start": 1524,
+      "end": 1524
+    },
+    {
+      "id": "audit-session",
+      "document": "EVID_CONFERENCE_SESSION",
+      "anchor": "01:30",
+      "start": 1530,
+      "end": 1560
+    },
+    {
+      "id": "message",
+      "document": "EVID_MESSAGE_THREAD_RECOVERED",
+      "anchor": "01:32",
+      "start": 1532,
+      "end": 1532
+    },
+    {
+      "id": "death-window",
+      "document": "MED-03",
+      "anchor": "01:41–01:49",
+      "start": 1541,
+      "end": 1549
+    },
+    {
+      "id": "impact",
+      "document": "TEC-14",
+      "anchor": "01:44",
+      "start": 1544,
+      "end": 1544
+    },
+    {
+      "id": "alarm",
+      "document": "MED-01",
+      "anchor": "02:02:11",
+      "start": 1562.1833333333334,
+      "end": 1562.1833333333334
+    },
+    {
+      "id": "securing",
+      "document": "ADM-13",
+      "anchor": "03:14",
+      "start": 1634,
+      "end": 1634
+    },
+    {
+      "id": "deposit",
+      "document": "ADM-13",
+      "anchor": "05:41",
+      "start": 1781,
+      "end": 1781
+    }
+  ],
+  "before": [
+    [
+      "shift",
+      "course"
+    ],
+    [
+      "warning",
+      "order"
+    ],
+    [
+      "order",
+      "work"
+    ],
+    [
+      "card-issued",
+      "card-handover"
+    ],
+    [
+      "card-handover",
+      "test-start"
+    ],
+    [
+      "test-start",
+      "test-end"
+    ],
+    [
+      "test-end",
+      "death-window"
+    ],
+    [
+      "message",
+      "death-window"
+    ],
+    [
+      "death-window",
+      "alarm"
+    ],
+    [
+      "alarm",
+      "securing"
+    ],
+    [
+      "securing",
+      "deposit"
+    ]
+  ],
+  "interpretation": [
+    "Temporal ordering is not causation.",
+    "The medical death interval is not reduced to the sensor minute.",
+    "A work conversation before midnight or before diagnostics does not establish continuous presence during the critical interval."
+  ],
+  "remainingLimits": [
+    "Automated temporal/source checks do not prove every narrative statement semantically consistent.",
+    "No new independent evidence was added to corroborate the authored mutual conversations."
+  ]
+}

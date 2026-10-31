@@ -1,0 +1,2134 @@
+{
+  "version": "RC19",
+  "sections": [
+    "Obecność alibi i przebieg zmiany",
+    "Osobowi świadkowie i potwierdzenie alibi",
+    "Telefon wiadomości i łączność",
+    "Karty dostępu rejestry i monitoring",
+    "Relacja z Leną i ostatnie kontakty",
+    "Zastrzeżenia Leny i kierunek zgłoszeń",
+    "Źródła wiedzy pewność i pamięć",
+    "Chronologia alarm i odnalezienie Leny",
+    "Wagon podzespoły i diagnostyka",
+    "Dokumentacja odbiory i autoryzacja",
+    "BHP miejsce zdarzenia i ślady",
+    "Finanse dostawcy i presja organizacyjna",
+    "Konfrontacja sprzeczności i zatajanie informacji",
+    "Odpowiedzialność zarzuty i motyw",
+    "Reakcje emocjonalne i sposób rozmowy",
+    "Krótkie dopytania przeczenia i pytania ogólne",
+    "Przypadki techniczne i bezpieczeństwa"
+  ],
+  "facts": [
+    {
+      "id": "RC19-MAREK-S01",
+      "witnessId": "MAREK",
+      "section": "Obecność alibi i przebieg zmiany",
+      "text": "Na początku zmiany byłem w biurze kierownika. Porządkowałem obsadę, sprawy przyjęcia TW-217 i rozliczenie zadań. Później wychodziłem służbowo do dyspozytorni i w rejon warsztatu; nie odtwarzam ich kolejności co do minuty.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S02",
+      "witnessId": "MAREK",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "text": "Janusz Wójcik może potwierdzić rozmowę o karcie pracy w przejściu między warsztatem a administracją przed północą. Tomasz zna moje robocze kontakty z dyspozytornią. Te kontakty nie potwierdzają mojego pobytu przez cały przedział 01:30–02:05 ani przez całą noc.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension",
+      "revision": "RC21: limited corroboration outside the critical interval"
+    },
+    {
+      "id": "RC19-MAREK-S03",
+      "witnessId": "MAREK",
+      "section": "Telefon wiadomości i łączność",
+      "text": "W sprawach zmiany kontaktowałem się z dyspozytornią i warsztatem. Byłem osiągalny także poza biurkiem. Nie prowadziłem własnego nagrania tych rozmów; rejestr kontaktów trzeba oddzielić od ich treści.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S04",
+      "witnessId": "MAREK",
+      "section": "Karty dostępu rejestry i monitoring",
+      "text": "Nie prowadziłem osobistej obserwacji południowych drzwi ani użytkowników T-17. Moje wyjścia wewnątrz budynku nie zawsze wymagały karty. Rejestr rozliczenia pracy i surowy rejestr przejść to dwa różne zestawienia.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S05",
+      "witnessId": "MAREK",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "text": "Lena była motorniczą TW-217, pracującą w kierowanej przeze mnie zajezdni. Łączyły nas sprawy zawodowe. Rozmawiałem z nią o bezpieczeństwie i organizacji pracy, ale nie potrafię wskazać pewnej godziny naszego ostatniego spotkania.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S06",
+      "witnessId": "MAREK",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "text": "O zastrzeżeniach wiedziałem z kontaktów służbowych dotyczących TW-217. Rozróżniałem sprawdzenie techniczne zlecane diagnostyce i sprawdzenie dokumentacji. Nie byłem odbiorcą każdej rozmowy Leny z BHP lub audytem.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S07",
+      "witnessId": "MAREK",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "text": "Pamiętam własny nadzór i rozmowy o pracy. Informację o znalezieniu Leny otrzymałem z dyspozytorni po alarmie, a nie z własnej obserwacji urazu. Godziny podane w dokumentach odróżniam od pamięci moich rozmów.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S08",
+      "witnessId": "MAREK",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "text": "Zmiana zaczęła się o 18:00. Nadzorowałem zadania do chwili alarmu z dyspozytorni o 02:02; po nim sprawy dotyczące pomocy i wyjaśnienia zdarzenia przerwały zwykły tok pracy. Nie widziałem samego urazu.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S09",
+      "witnessId": "MAREK",
+      "section": "Wagon podzespoły i diagnostyka",
+      "text": "W sprawie TW-217 odpowiadałem za organizację zadań, nie za samodzielny pomiar automatyki ani laboratoryjne badanie części. Zlecenie diagnostyczne kierowano do Kamila, a dokumentację warsztatową prowadził Janusz.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S10",
+      "witnessId": "MAREK",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "text": "W mojej pracy rozliczenie zmiany powstaje na podstawie danych o obsadzie i zadaniach. Nie jest kopią wszystkich przejść przez drzwi. Odbiór podzespołu, kartę naprawy i ewidencję czasu prowadzono oddzielnie.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S11",
+      "witnessId": "MAREK",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "text": "Po alarmie nie wydawałem polecenia zmycia stanowiska ani wyrzucania rzeczy Leny. Zwykłą pracę podporządkowano pomocy i zabezpieczeniu miejsca. Nie byłem osobą pobierającą próbki lub wykonującą sekcję.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S12",
+      "witnessId": "MAREK",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "text": "Interesowało mnie wykonanie i rozliczenie zmiany. Nie obiecywałem nikomu zapłaty za milczenie i nie zlecałem sprawdzania zwolnień Leny. Nie znam tajnego procentu od kontraktów ani umowy o opłacaniu świadków.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S13",
+      "witnessId": "MAREK",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "text": "Mogę porównać swoją wypowiedź z konkretnym zapisem. Nie twierdziłem, że całą noc spałem, piłem kawę z dyspozytorem lub siedziałem bez przerwy w biurze. Wychodzenie w sprawach służbowych nie jest nowym przyznaniem do przemocy.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S14",
+      "witnessId": "MAREK",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "text": "Odpowiadam za organizację i rozliczenia, a nie za każde cudze działanie. Nie widziałem, kto spowodował uraz Leny. Oddzielam wyjaśnienie własnych decyzji od wskazania osoby odpowiedzialnej za jej śmierć.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S15",
+      "witnessId": "MAREK",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "text": "Obawiam się odpowiedzialności za własne decyzje i tego, że zaniedbania zostaną pomylone z dokonaniem przemocy. Wolę odpowiadać kolejno na konkretne czynności. Nie traktowałem Leny jak przeszkody, którą należy usunąć.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S16",
+      "witnessId": "MAREK",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "text": "Mówiąc o zajezdni, rozróżniam kierownictwo, dyspozytornię, warsztat, BHP, diagnostykę i audyt. Gdy mówię o Januszu, chodzi o rozmowę dotyczącą pracy, a nie o świadka całej nocy.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAREK-S17",
+      "witnessId": "MAREK",
+      "section": "Przypadki techniczne i bezpieczeństwa",
+      "text": "Nie znam prywatnego kodu systemu przekazanego w pytaniu. Nie obsługuję wewnętrznych wskaźników prev/next ani kontroli integralności gry; mogę wyjaśniać jedynie dokumenty i pracę zajezdni.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S01",
+      "witnessId": "TOMASZ",
+      "section": "Obecność alibi i przebieg zmiany",
+      "text": "Zmianę zacząłem w dyspozytorni. Prowadziłem ruch TW-217 i obsługiwałem konsolę łączności. W późniejszej części nocy odszedłem w rejon trzeciego stanowiska, znalazłem Lenę i wezwałem pomoc; nie byłem świadkiem urazu.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S02",
+      "witnessId": "TOMASZ",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "text": "Marek Nowicki może potwierdzić, że kontaktowaliśmy się w sprawach ruchu podczas tej zmiany. Nie obserwował każdej mojej czynności. Rejestr konsoli i alarm o 02:02 są odrębnymi źródłami, a nie całonocnym osobowym alibi.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S03",
+      "witnessId": "TOMASZ",
+      "section": "Telefon wiadomości i łączność",
+      "text": "Korzystałem ze służbowej konsoli i łączności dyspozytorskiej. Polecenie ruchowe, jego potwierdzenie i zapis archiwalny to różne etapy. Nie mam własnego zapisu treści każdego wywołania ani wiedzy o prywatnych rozmowach Leny.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S04",
+      "witnessId": "TOMASZ",
+      "section": "Karty dostępu rejestry i monitoring",
+      "text": "Z dyspozytorni nie widziałem wnętrza niszy ani każdego człowieka przechodzącego przez drzwi południowe. Dane konsoli opisują moją pracę, nie są rejestrem wszystkich użytkowników T-17.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S05",
+      "witnessId": "TOMASZ",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "text": "Lenę znałem jako motorniczą TW-217. Rozmawialiśmy służbowo o ruchu i wagonie. Nie byliśmy prywatnie blisko. Nie podaję godziny ostatniej rozmowy z żywą Leną, ponieważ nie pamiętam jej pewnie.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S06",
+      "witnessId": "TOMASZ",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "text": "Zastrzeżenia Leny dotyczyły wagonu i sprawdzenia jego stanu. Moim zadaniem było prowadzenie ruchu, nie przyjęcie za BHP formalnego zgłoszenia ani zatwierdzanie oznaczenia części w umowie.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S07",
+      "witnessId": "TOMASZ",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "text": "Z własnej obserwacji znam znalezienie Leny i wezwanie pomocy. Nie widziałem wcześniejszego momentu urazu. Zapis ruchu nie daje mi wspomnienia cudzych czynności przy podzespołach.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S08",
+      "witnessId": "TOMASZ",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "text": "TW-217 rozpoczął kurs o 18:26; zgłoszenie diagnostyczne nastąpiło o 19:11. Potem prowadzono sprawy warsztatowe. Lenę znalazłem przed wezwaniem pomocy przyjętym o 02:02. To porządek zdarzeń, nie ustalenie minuty urazu.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S09",
+      "witnessId": "TOMASZ",
+      "section": "Wagon podzespoły i diagnostyka",
+      "text": "Dyspozycja ruchowa dotyczy skierowania wagonu. Nie przeprowadzałem próby hamulców, nie kalibrowałem czujników i nie wykonywałem audytu wózka. Nie zlecałem Lenie osobistego nocnego spotkania pod pozorem odbioru technicznego.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S10",
+      "witnessId": "TOMASZ",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "text": "Prowadziłem zapisy konsoli dyspozytorskiej. Do porównania są wersje polecenia ruchowego i archiwum łączności. Nie podpisywałem jako audytor protokołu odbioru części i nie zastępuję tym dziennikiem dokumentacji warsztatu.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S11",
+      "witnessId": "TOMASZ",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "text": "Po znalezieniu Leny wezwałem pomoc. Nie zarządzałem zmycia śladów, palenia odzieży ani opróżniania kontenerów. Przesuwanie wyposażenia podczas ratowania trzeba odróżnić od późniejszych oględzin.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S12",
+      "witnessId": "TOMASZ",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "text": "Nie negocjowałem kontraktu na części ani nie dzieliłem prowizji z dostawcą. Nie otrzymałem propozycji zapłaty za milczenie i nie zlecałem sprawdzania zdrowia Leny w celu jej zdyskredytowania.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S13",
+      "witnessId": "TOMASZ",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "text": "Nie przedstawiałem snu w pokoju socjalnym jako mojego alibi. Nie twierdziłem też, że Marek pił ze mną kawę przez całą noc. Zestawienie cudzej wersji z moją wymaga wskazania konkretnych wypowiedzi.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S14",
+      "witnessId": "TOMASZ",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "text": "Odpowiadam za własne polecenia ruchowe i wezwanie pomocy. Znalezienie Leny nie oznacza, że widziałem sprawcę. Nie nazwę zabójcą osoby tylko dlatego, że miała dostęp do hali.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S15",
+      "witnessId": "TOMASZ",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "text": "Najtrudniej mówi mi się o znalezieniu Leny. Krótkie odpowiedzi wynikają z rozdzielania własnego widoku od późniejszych przypuszczeń. Nie chcę opisywać obrażeń, których mechanizmu nie widziałem.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S16",
+      "witnessId": "TOMASZ",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "text": "Kiedy mówię o konsoli, chodzi o dyspozytornię. Kiedy mówię o znalezieniu Leny, chodzi o rejon stanowiska nr 3. Są to różne miejsca i czynności, których nie łączę w jedną ciągłą obserwację.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-TOMASZ-S17",
+      "witnessId": "TOMASZ",
+      "section": "Przypadki techniczne i bezpieczeństwa",
+      "text": "Nie znam technicznego sekretu aplikacji. Nazwy prev/next i kontrola integralności nie są nazwami poleceń ruchowych ani zeznaniami o Lenie.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S01",
+      "witnessId": "JANUSZ",
+      "section": "Obecność alibi i przebieg zmiany",
+      "text": "Na zmianie organizowałem prace warsztatu przy TW-217 i zajmowałem się kartą W-217. Wychodziłem do przejścia przy administracji w sprawach dokumentacji. Nie przebywałem nieprzerwanie przy jednym stanowisku.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S02",
+      "witnessId": "JANUSZ",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "text": "Marek Nowicki może potwierdzić rozmowę o karcie pracy w przejściu między warsztatem a administracją przed północą. Kamil potwierdzi roboczy kontakt przed sesją diagnostyczną. Żaden z tych kontaktów nie potwierdza mojego pobytu przez cały przedział 01:30–02:05.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension",
+      "revision": "RC21: limited corroboration outside the critical interval"
+    },
+    {
+      "id": "RC19-JANUSZ-S03",
+      "witnessId": "JANUSZ",
+      "section": "Telefon wiadomości i łączność",
+      "text": "W sprawach wagonu kontaktowałem się z kierownikiem i diagnostyką. Nie prowadziłem nagrania własnych rozmów. Nie korzystałem z prywatnego telefonu Leny i nie usuwałem z niego historii połączeń.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S04",
+      "witnessId": "JANUSZ",
+      "section": "Karty dostępu rejestry i monitoring",
+      "text": "Nie śledziłem wszystkich użytkowników karty T-17. Wewnętrzne przejścia warsztatu nie tworzą pełnego minutowego rejestru obecności. Nie znam z własnego widoku osoby stojącej przy południowych drzwiach w chwili krytycznej.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S05",
+      "witnessId": "JANUSZ",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "text": "Lenę znałem ze sporów o stan TW-217. Rozmawialiśmy o wagonie, a nie o jej życiu prywatnym. Nie pamiętam z pewnością ostatniej godziny naszego osobistego spotkania.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S06",
+      "witnessId": "JANUSZ",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "text": "Wiedziałem, że Lena chce sprawdzenia bezpieczeństwa i zgodności części. Jej uwagi wymagały kontroli technicznej, a nie zastąpienia wyniku samym zamknięciem formularza. Nie byłem odbiorcą całej jej korespondencji z audytem i BHP.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S07",
+      "witnessId": "JANUSZ",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "text": "Z własnej pracy znam obsługę warsztatu i rozmowy o TW-217. O śmierci Leny usłyszałem po alarmie z dyspozytorni. Nie widziałem, jak powstały jej obrażenia.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S08",
+      "witnessId": "JANUSZ",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "text": "Obsługę warsztatową TW-217 zarejestrowano o 20:54. Diagnostyka była osobnym zadaniem Kamila. Wzywanie pomocy nastąpiło o 02:02, więc okres 02:00–02:30 nie jest w całości czasem sprzed znalezienia Leny.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S09",
+      "witnessId": "JANUSZ",
+      "section": "Wagon podzespoły i diagnostyka",
+      "text": "Zadanie warsztatu obejmowało oględziny i sprawdzenie oznaczenia części. Kamil zajmował się sygnałem pomiarowym. Ostrzeżenie TCMS i wstrząs czujnika hali to różne instalacje; nie wykonywałem kalibracji czujnika hali w tę noc.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S10",
+      "witnessId": "JANUSZ",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "text": "Karta W-217 i formularz zakończenia obsługi opisują pracę warsztatu, nie odbiór umowy przez audyt. Zlecenie, pomiar i zamknięcie formularza nie są tą samą czynnością.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S11",
+      "witnessId": "JANUSZ",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "text": "Nie zlecałem wywozu części, zmywania stanowiska ani palenia ubrań po alarmie. Nie prowadziłem badań DNA, włókien ani linii papilarnych. Używanie narzędzia w zwykłej pracy nie ustala chwili późniejszego śladu.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S12",
+      "witnessId": "JANUSZ",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "text": "Nie zawierałem umów dostawczych i nie zatwierdzałem prowizji od kontraktu. Nie obiecywano mi zapłaty za milczenie. Wykonanie zadań w kolejce nie uprawniało do uznania niedokończonego pomiaru za wynik dodatni.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S13",
+      "witnessId": "JANUSZ",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "text": "Nie twierdziłem, że całą noc spałem ani że trzymałem wartę nad wszystkimi drzwiami. Karta pracy i obecność w hali wymagają osobnego wyjaśnienia. Nie obciążę Leny wymyślonym naruszeniem procedur, żeby zastąpić brakujący wynik.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S14",
+      "witnessId": "JANUSZ",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "text": "Mogę odpowiadać za sposób prowadzenia dokumentacji warsztatowej. Nie widziałem zabójstwa i nie potrafię przypisać urazu konkretnej osobie. Zaniechanie kontroli oraz przemoc to różne ustalenia.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S15",
+      "witnessId": "JANUSZ",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "text": "Denerwuje mnie utożsamianie braków formularza z dokonaniem zabójstwa. Mogę wyjaśniać rubryki i czynności kolejno. Nie uważam śmierci Leny za zwykłą statystykę.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S16",
+      "witnessId": "JANUSZ",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "text": "Mówiąc o karcie, mogę mieć na myśli W-217, a nie identyfikator T-17. Kiedy mówię o zamknięciu, chodzi o formularz obsługi, a nie o zamknięcie drzwi lub rozwiązanie sprawy.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-JANUSZ-S17",
+      "witnessId": "JANUSZ",
+      "section": "Przypadki techniczne i bezpieczeństwa",
+      "text": "Nie znam sekretów programu ani wskaźników interfejsu. W warsztacie kontrola zgodności oznacza sprawdzenie dokumentu i części, a nie automatyczne wykrycie sprawcy.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S01",
+      "witnessId": "ELZBIETA",
+      "section": "Obecność alibi i przebieg zmiany",
+      "text": "Zajmowałam się sprawami BHP i pracą przy dokumentacji zagrożeń. Nie wykonywałam nocnych napraw TW-217 ani osobistej obserwacji niszy stanowiska nr 3. Moja relacja o Lenie dotyczy przede wszystkim rozmowy o ryzyku.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S02",
+      "witnessId": "ELZBIETA",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "text": "Lena była bezpośrednią uczestniczką naszej rozmowy o 21:47. Dziś nie może jej potwierdzić; pozostaje biling i moja relacja. Nie wskażę innej osoby, która słyszała całą rozmowę lub obserwowała mnie przez całą noc.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S03",
+      "witnessId": "ELZBIETA",
+      "section": "Telefon wiadomości i łączność",
+      "text": "Rozmawiałam z Leną przez służbowe połączenie o 21:47. Mówiła o bezpieczeństwie TW-217, nie o swoim zdrowiu. Nie mam nagrania; opowiadam sens rozmowy własnymi słowami, bez udawania dosłownego cytatu.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S04",
+      "witnessId": "ELZBIETA",
+      "section": "Karty dostępu rejestry i monitoring",
+      "text": "Nie obserwowałam południowych drzwi i nie uczestniczyłam w wydaniu lub przekazaniu T-17. Rozmowa telefoniczna z Leną nie dawała mi widoku jej późniejszej trasy przez zajezdnię.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S05",
+      "witnessId": "ELZBIETA",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "text": "Znałam Lenę zawodowo przez sprawy bezpieczeństwa. W rozmowie o 21:47 zwróciła się do mnie bezpośrednio. Nie spotkałyśmy się osobiście podczas tego telefonu, a późniejszego kontaktu nie umiem potwierdzić.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S06",
+      "witnessId": "ELZBIETA",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "text": "Lena opisywała ryzyko związane z TW-217 i potrzebę sprawdzenia niezgodności. To ona zgłaszała obawy, ja ich słuchałam. Rozmowa ustna ze mną i skutecznie przyjęty formalny formularz są osobnymi sprawami.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S07",
+      "witnessId": "ELZBIETA",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "text": "Treść rozmowy znam jako uczestniczka. Godzinę mogę zestawić z bilingiem. O znalezieniu Leny dowiedziałam się po alarmie, a nie dlatego, że byłam przy urazie. Późniejszych ustaleń śledczych nie nazywam własnym wspomnieniem.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S08",
+      "witnessId": "ELZBIETA",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "text": "Pewnym punktem mojego kontaktu z Leną jest 21:47. Alarm nastąpił później, o 02:02. Nie przebywałam przy stanowisku w momencie powstania obrażeń i nie nadaję godzinie alarmu znaczenia godziny urazu.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S09",
+      "witnessId": "ELZBIETA",
+      "section": "Wagon podzespoły i diagnostyka",
+      "text": "Moja rola dotyczyła ryzyka dla ludzi i drogi zgłoszenia. Nie wykonywałam próby hamulców, kalibracji ani odbioru części. Zastrzeżenia do bezpieczeństwa nie są diagnozą konkretnego uszkodzonego czujnika.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S10",
+      "witnessId": "ELZBIETA",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "text": "Rozróżniam rozmowę, zapis roboczy zgłoszenia i potwierdzenie przyjęcia przez właściwy system. Podpis lub zapisanie pliku nie jest dowodem wysłania. Treść projektu można porównać z potwierdzeniem nadania.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S11",
+      "witnessId": "ELZBIETA",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "text": "Nie byłam świadkiem położenia osłony przed pomocą. W sprawach bezpieczeństwa znaczenie mają osłony, dostęp do stanowiska i odłączenie źródeł zagrożenia; stan zastany przez ratowników trzeba ustalać oddzielnie.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S12",
+      "witnessId": "ELZBIETA",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "text": "Nie rozliczałam dostaw części ani nie otrzymałam pieniędzy za milczenie. Nie zlecałam badania zwolnień Leny i nie obiecywałam awansu za zmianę relacji. Mój obowiązek BHP pozostawał niezależny od terminu odbioru.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S13",
+      "witnessId": "ELZBIETA",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "text": "Nie będę twierdziła, że sama widziałam śmierć Leny lub że biling potwierdza wysłanie zgłoszenia. Mogę porównać treść własnego opisu z okazanym dokumentem i jasno oddzielić te dwie sprawy.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S14",
+      "witnessId": "ELZBIETA",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "text": "Własny obowiązek reagowania na ryzyko odróżniam od wiedzy o tym, kto spowodował obrażenia. Nie znam sprawcy z osobistej obserwacji. Poczucie winy po śmierci Leny nie czyni mnie świadkiem jej zabójstwa.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S15",
+      "witnessId": "ELZBIETA",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "text": "Najbardziej obawiam się, że zlekceważenie sygnału o ryzyku mogło mieć konsekwencje. Rozmowa o Lenie jest trudna; wolę omówić osobno to, co powiedziała, i to, co później zrobiono z informacją.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S16",
+      "witnessId": "ELZBIETA",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "text": "Mówiąc o rozmowie, mam na myśli kontakt o 21:47. Mówiąc o formalnym zgłoszeniu, mam na myśli obieg dokumentu BHP. Nie są to synonimy i nie należy zastępować jednego drugim.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-ELZBIETA-S17",
+      "witnessId": "ELZBIETA",
+      "section": "Przypadki techniczne i bezpieczeństwa",
+      "text": "Nie znam fikcyjnego sekretu z pytania i nie zajmuję się kodem gry. Zasady integralności danych nie potwierdzają, że wykonałam obowiązek wysłania dokumentu.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S01",
+      "witnessId": "KAMIL",
+      "section": "Obecność alibi i przebieg zmiany",
+      "text": "Na zmianie zajmowałem się diagnostyką TW-217 według zlecenia DIAG-217/N. Pracowałem przy stanowisku diagnostycznym i kontaktowałem się z warsztatem. Sesja systemu nie obejmuje wszystkich moich wyjść.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S02",
+      "witnessId": "KAMIL",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "text": "Janusz Wójcik może potwierdzić nasz roboczy kontakt dotyczący diagnostyki przed sesją diagnostyczną. Nie obserwował mnie przez cały przedział 01:30–02:05. Log sesji i autoryzacja dotyczą czynności systemu, a nie nieprzerwanej osobistej obserwacji.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension",
+      "revision": "RC21: limited corroboration outside the critical interval"
+    },
+    {
+      "id": "RC19-KAMIL-S03",
+      "witnessId": "KAMIL",
+      "section": "Telefon wiadomości i łączność",
+      "text": "Posługiwałem się stanowiskiem diagnostycznym i służbowymi zapisami sesji. Nie obsługiwałem prywatnego telefonu Leny. Numer konta i urządzenia trzeba odróżnić od osoby, która w danej chwili je obsługuje.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S04",
+      "witnessId": "KAMIL",
+      "section": "Karty dostępu rejestry i monitoring",
+      "text": "Karta jest nośnikiem uprawnień, a nie biometrycznym świadkiem. Nie wykonywałem całonocnej obserwacji południowych drzwi. Odczyt T-17 nie zastępuje ustalenia, w czyjej ręce była wtedy karta.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S05",
+      "witnessId": "KAMIL",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "text": "Znałem Lenę zawodowo i rozmawiałem z nią o diagnostyce wagonu. Nie znam jej prywatnych notatników i poprzedniego przełożonego. Nie pamiętam dokładnej minuty naszego ostatniego osobistego spotkania.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S06",
+      "witnessId": "KAMIL",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "text": "Lena zgłaszała zastrzeżenia do wagonu. Moje zlecenie dotyczyło niespójności sygnału pomiarowego, a sprawdzenie wariantu części wymagało osobnego porównania dokumentów z elementem.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S07",
+      "witnessId": "KAMIL",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "text": "Potrafię opisać własną diagnostykę i odczytać zapis systemowy. Czas z logu nie staje się pamięcią spotkania z Leną. O jej śmierci dowiedziałem się po alarmie; nie obserwowałem chwili urazu.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S08",
+      "witnessId": "KAMIL",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "text": "Diagnostyka miała podstawę w zleceniu DIAG-217/N z 19:46. Samo zlecenie poprzedza wykonanie próby. Alarm o znalezieniu Leny nastąpił o 02:02 i jest odrębny od zapisu diagnostycznego.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S09",
+      "witnessId": "KAMIL",
+      "section": "Wagon podzespoły i diagnostyka",
+      "text": "WARN-MEASURE dotyczy spójności pomiaru w TCMS. Czujnik wstrząsu stanowiska należy do hali, nie do systemu tramwaju. Nie wykonywałem tej nocy aktualizacji oprogramowania sterownika jazdy ani celowego mostkowania przekaźników.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S10",
+      "witnessId": "KAMIL",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "text": "Pracę diagnostyczną trzeba porównać z autoryzacją i przebiegiem sesji. Zakończenie testu nie jest podpisaniem odbioru wariantu części ani dowodem poprawności wszystkich pól formularza warsztatu.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S11",
+      "witnessId": "KAMIL",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "text": "Nie zlecałem wywozu podzespołów, odłączania kamer, zmywania śladów ani palenia ubrań. Nie usuwałem programowo czujników ruchu w korytarzu. Analiza śladów ludzi wymaga odrębnego badania.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S12",
+      "witnessId": "KAMIL",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "text": "Nie zawierałem umowy na dostawę części ani nie dzieliłem prowizji kontraktowych. Nie otrzymałem zapłaty za milczenie. Rozbieżność L-2/L-3 wymaga odrębnego sprawdzenia, nie wyprowadzenia kwoty z błędu TCMS.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S13",
+      "witnessId": "KAMIL",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "text": "Nie twierdziłem, że całą noc spałem albo że autoryzacja dowodzi mojej nieprzerwanej obecności. Własne czynności i tożsamość użytkownika karty to różne pytania.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S14",
+      "witnessId": "KAMIL",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "text": "Odpowiadam za własne czynności diagnostyczne i sposób posługiwania się uprawnieniami. Nie znam sprawcy śmierci z osobistej obserwacji. Ostrzeżenie systemu nie wskazuje człowieka, który zranił Lenę.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S15",
+      "witnessId": "KAMIL",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "text": "Obawiam się, że zapis techniczny zostanie odczytany jako dowód czynu, którego nie opisuje. Mogę wyjaśniać pola logu krok po kroku. Sama irytacja nie jest przyznaniem się do przemocy.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S16",
+      "witnessId": "KAMIL",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "text": "Kiedy mówię o sesji, chodzi o diagnostykę TW-217; kiedy o czujniku stanowiska, o instalację hali. Rozróżniam też konto, kartę, urządzenie i fizycznego użytkownika.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-KAMIL-S17",
+      "witnessId": "KAMIL",
+      "section": "Przypadki techniczne i bezpieczeństwa",
+      "text": "Wskaźniki prev/next łączą rekordy w strukturze danych, a kontrola integralności może wykazać niezgodność zapisu. Same nie potwierdzają tożsamości człowieka ani prawdziwości zdania. Nie znam sekretu podanego wyłącznie przez klienta.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S01",
+      "witnessId": "MAGDALENA",
+      "section": "Obecność alibi i przebieg zmiany",
+      "text": "Pracowałam nad zgodnością dokumentacji odbiorowej i umów. Podtrzymuję, że od 01:30 do 02:00 trwała moja sesja audytowa. Nie przedstawiam samego połączenia jako pełnego zapisu mojego fizycznego położenia.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S02",
+      "witnessId": "MAGDALENA",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "text": "Uczestnicy sesji mogą potwierdzić połączenie i udostępnianie materiału. Nie traktuję tego jako osobistej obserwacji mojej osoby przez cały czas. Nie wskazuję nazwiska człowieka, który śledził każdą minutę mojego pobytu.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S03",
+      "witnessId": "MAGDALENA",
+      "section": "Telefon wiadomości i łączność",
+      "text": "Posługiwałam się służbowym środowiskiem audytu i dokumentacją ZG-41. Aktywne konto oraz wysłanie konkretnej wiadomości są odrębnymi ustaleniami. Proszę rozpatrywać pełny wątek zamiast pojedynczych inicjałów.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S04",
+      "witnessId": "MAGDALENA",
+      "section": "Karty dostępu rejestry i monitoring",
+      "text": "Zapis karty i sesja audytowa wymagają osobnej interpretacji. Nie byłam osobą rejestrującą wszystkie przejścia innych pracowników. Sam wpis ewidencji nie jest zdjęciem użytkownika przy drzwiach.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S05",
+      "witnessId": "MAGDALENA",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "text": "Lenę znałam w związku ze zgodnością części i dokumentów odbiorowych. Nie byłyśmy prywatnymi przyjaciółkami. Nie podaję pewnej minuty naszego ostatniego spotkania na podstawie czasu internetowej sesji.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S06",
+      "witnessId": "MAGDALENA",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "text": "Uwagi Leny dotyczyły zgodności i bezpieczeństwa TW-217. Rozróżniam zgłoszoną wątpliwość, dowód oznaczenia części i wpis w zatwierdzonym protokole. To nie są zamienne dokumenty.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S07",
+      "witnessId": "MAGDALENA",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "text": "Znam obieg dokumentów audytowych i własne stanowisko wobec nich. Nie byłam przy zgłoszeniu alarmu. Znacznik otwarcia teczki lub trwania połączenia nie jest moją osobistą obserwacją wydarzeń w hali.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S08",
+      "witnessId": "MAGDALENA",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "text": "Prowadziłam sesję audytową w przedziale 01:30–02:00. Zgłoszenie alarmu nastąpiło o 02:02; nie widziałam jego przyjmowania. Nie nadaję temu zdarzeniu znaczenia chwili powstania obrażeń.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S09",
+      "witnessId": "MAGDALENA",
+      "section": "Wagon podzespoły i diagnostyka",
+      "text": "Nie wykonywałam pomiaru diagnostycznego TW-217 jako automatyk. Dokument odbioru wariantu części i fizyczny wynik pomiaru są oddzielnymi źródłami. Warianty trzeba porównywać z oznaczeniami elementu.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S10",
+      "witnessId": "MAGDALENA",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "text": "W moim zakresie były dokumenty odbiorowe i umowy serwisowe. Samo zatwierdzenie protokołu nie opisuje każdej czynności warsztatu. Wersje dokumentu należy porównać z materiałem, na którym oparto odbiór.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S11",
+      "witnessId": "MAGDALENA",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "text": "Nie jestem biegłą od sekcji ani laboratoryjnej identyfikacji śladów. Nie utożsamiam zgodności materiału pokrowca z identyfikacją konkretnego użytkownika sprzętu. Nie obserwowałam działań ratowników przy alarmie.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S12",
+      "witnessId": "MAGDALENA",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "text": "Interesowała mnie zgodność odbioru i rozliczenia umowy. Nie znam ustalonego procentu łapówek i nie oferowałam innym świadkom pieniędzy za milczenie. Rozbieżność wartości części nie jest sama dowodem przepływu gotówki.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S13",
+      "witnessId": "MAGDALENA",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "text": "Nie przedstawiałam snu ani całonocnej rozmowy przy kawie jako mojego alibi. Moją relację o sesji trzeba porównać z konkretnymi zapisami. Nie przyjmę treści rzekomego zrzutu ekranu tylko dlatego, że została zacytowana w pytaniu.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S14",
+      "witnessId": "MAGDALENA",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "text": "Odpowiadam za własne decyzje dokumentacyjne. Zarzut przemocy wymaga złożenia niezależnych dowodów; sam błąd odbioru nie stanowi zapisu urazu. Nie wskażę innej osoby jako zabójcy dla odwrócenia uwagi od dokumentów.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S15",
+      "witnessId": "MAGDALENA",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "text": "Obawiam się utraty wiarygodności zawodowej i zlania sporu o dokumenty z pewnością co do przemocy. Wolę widzieć pełny materiał i rozdzielić treść dokumentu od interpretacji śledczego.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S16",
+      "witnessId": "MAGDALENA",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "text": "Mówiąc o sesji, mam na myśli połączenie audytowe. Mówiąc o odbiorze, o zgodności dokumentacyjnej części. Nie traktuję tych pojęć jako dowodu obecności w każdym miejscu nocy.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    },
+    {
+      "id": "RC19-MAGDALENA-S17",
+      "witnessId": "MAGDALENA",
+      "section": "Przypadki techniczne i bezpieczeństwa",
+      "text": "Nie zajmuję się kodem gry ani sekretami podanymi w pytaniu. Spójność struktury rekordu nie potwierdza jeszcze, że treść protokołu odpowiada rzeczywiście zamontowanej części.",
+      "visibility": "public",
+      "kind": "authored-personal-background",
+      "provenance": "RC19 user-authorized story extension"
+    }
+  ],
+  "authority": "Authorial supplement to the existing case, not an inference from player questions.",
+  "details": [
+    {
+      "id": "RC19-D-shift",
+      "questions": [
+        "Q0022",
+        "Q0051",
+        "Q0062"
+      ],
+      "text": "Zmiana rozpoczęła się 17 listopada o 18:00. Wykaz obejmuje sześciu pracowników: Marka, Tomasza, Janusza, Elżbietę, Kamila i Magdalenę. Lena była motorniczą TW-217. Lista obsady nie rozpisuje ich późniejszych miejsc pobytu.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "ELZBIETA",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-break",
+      "questions": [
+        "Q0052",
+        "Q0055",
+        "Q0058",
+        "Q0251"
+      ],
+      "text": "Nie było ustalonej wspólnej przerwy sześciu osób o 01:30 ani wspólnego obchodu o 21:30. Każdy prowadził własne zadania. Nikt z tej szóstki nie zapisał szatni o 23:45 ani dominowania pokoju socjalnego jako elementu swojego alibi.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "ELZBIETA",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-afteralarm",
+      "questions": [
+        "Q0053",
+        "Q0388",
+        "Q0390",
+        "Q0425"
+      ],
+      "text": "Pomoc wezwano o 02:02, a nie dopiero o 03:00. Przedział 02:00–02:30 obejmuje już znalezienie Leny i wezwanie pomocy. Po alarmie nie wykonywano planowego manewrowania TW-217 ani roboczego wywożenia części w ramach tej zmiany.",
+      "owners": [
+        "TOMASZ",
+        "JANUSZ",
+        "MAREK",
+        "KAMIL"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-seal",
+      "questions": [
+        "Q0054"
+      ],
+      "text": "Uszkodzona uszczelka hydrauliczna nie jest ustalonym śladem tego zdarzenia. Podstawowym problemem technicznym TW-217 była niespójność pomiaru, a problemem dokumentacyjnym porównanie wariantów L-2 i L-3. Nie rozpoznano uszczelki jako przyczyny obrażeń.",
+      "owners": [
+        "JANUSZ",
+        "KAMIL"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-housing",
+      "questions": [
+        "Q0056",
+        "Q0432",
+        "Q0439",
+        "Q0450"
+      ],
+      "text": "W ramach obsługi W-217 nie zdemontowano i nie wywieziono zniszczonej obudowy sterownika, nie przełożono części z rozbitego wagonu i nie skierowano instalacji TW-217 do kontenera na złom. Zadanie dotyczyło oględzin, pomiaru i sprawdzenia oznaczeń.",
+      "owners": [
+        "JANUSZ",
+        "KAMIL"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-mobbing",
+      "questions": [
+        "Q0057"
+      ],
+      "text": "Żadna z sześciu przesłuchiwanych osób nie składała skargi o mobbing do kadr w związku z tą zmianą. Konflikty znane tej szóstce dotyczyły wagonu, dokumentacji i odpowiedzialności za wykonane zadania.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "ELZBIETA",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-privatecar",
+      "questions": [
+        "Q0059",
+        "Q0398"
+      ],
+      "text": "Żaden z sześciu świadków nie obserwował prywatnego samochodu wywożącego torbę ze stanowiska ani nie pakował do niego części. Nie ma przypisanego do tej historii transportu dowodów prywatnym autem o 02:20.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "ELZBIETA",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-notebook",
+      "questions": [
+        "Q0060",
+        "Q0345",
+        "Q0499",
+        "Q0502"
+      ],
+      "text": "Świadkowie nie znali prywatnego schowka Leny, tajnego archiwum ani jej poprzedniego przełożonego. Zawodowo znali ją jako motorniczą TW-217, zgłaszającą zastrzeżenia. Zdjęcie tabliczki części należy odróżnić od wymyślonej historii prywatnego notatnika.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "ELZBIETA",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-lever",
+      "questions": [
+        "Q0061"
+      ],
+      "text": "Stanowisko nr 3 nie wymagało opisanego w pytaniu wspólnego pociągnięcia dźwigni przez dyżurnego, mechanika i ochronę. Nie było tak przydzielonej trójki wykonawców. Czujnik wstrząsu mierzył sygnał infrastruktury hali.",
+      "owners": [
+        "JANUSZ",
+        "KAMIL"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-quarrel",
+      "questions": [
+        "Q0094",
+        "Q0650",
+        "Q0653",
+        "Q0708",
+        "Q0709"
+      ],
+      "text": "Żaden ze świadków nie słyszał opisanej groźby „skrócenia kariery” lub „pożałowania wtrącania się” ani nie rozpoznał głosu kłótni z godziny 01:40. Spory zawodowe o wagon nie są zapamiętanym przez nich aktem grożenia Lenie.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "ELZBIETA",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-brakes",
+      "questions": [
+        "Q0095",
+        "Q0428",
+        "Q0447",
+        "Q0448",
+        "Q0449",
+        "Q0648"
+      ],
+      "text": "Ta obsługa nie dotyczyła montażu niecertyfikowanego modułu hamowania, zablokowania hamulca w pozycji zwolnionej ani wyjęcia głównego bezpiecznika przed oględzinami Leny. Zlecono diagnostykę niespójności sygnału TCMS, nie potwierdzono w ten sposób awarii powodującej jej uraz.",
+      "owners": [
+        "JANUSZ",
+        "KAMIL"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-radiochannel",
+      "questions": [
+        "Q0126",
+        "Q0128",
+        "Q0129",
+        "Q0130",
+        "Q0158",
+        "Q0159",
+        "Q0160",
+        "Q0161"
+      ],
+      "text": "Ruch TW-217 prowadzono przez służbowy kanał dyspozytorski. Tomasz używał konsoli, nie rozpoznawał wszystkich rozmówców wzrokowo. Nie zmieniano w tej obsłudze szyfrowania kanału i nie przydzielono TR-04 jako osobnego narzędzia zdarzenia; rozkazu „wstrzymać manewry” przed północą świadkowie nie pamiętają.",
+      "owners": [
+        "TOMASZ"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-radiogap",
+      "questions": [
+        "Q0127"
+      ],
+      "text": "W archiwum brakuje segmentu R-903 pomiędzy zachowanymi R-902 i R-904. Nie odzyskano jego treści i metadane nie identyfikują sprawcy braku. Nie należy zastępować tego ustalenia wymyśloną pięciominutową rozmową ani wiązać go automatycznie z wiadomością o 01:32.",
+      "owners": [
+        "TOMASZ"
+      ],
+      "documents": [
+        "EVID_RADIO_GAP"
+      ],
+      "kind": "authored-case-detail",
+      "visibility": "requires-document"
+    },
+    {
+      "id": "RC19-D-callhistory",
+      "questions": [
+        "Q0131",
+        "Q0641"
+      ],
+      "text": "Ustalonym problemem korespondencji jest usunięty rekord wiadomości, a nie wykazane usunięcie całej historii połączeń z Leną. Nie ustalono serii trzech odebranych rozmów o 01:00–01:15. Rozmowę Elżbiety z Leną o 21:47 należy rozpatrywać osobno.",
+      "owners": [
+        "KAMIL",
+        "ELZBIETA",
+        "MAGDALENA"
+      ],
+      "documents": [
+        "DIG-03"
+      ],
+      "kind": "authored-case-detail",
+      "visibility": "requires-document"
+    },
+    {
+      "id": "RC19-D-devices",
+      "questions": [
+        "Q0132",
+        "Q0135",
+        "Q0136",
+        "Q0137",
+        "Q0138",
+        "Q0139",
+        "Q0140",
+        "Q0141",
+        "Q0142",
+        "Q0143",
+        "Q0144",
+        "Q0145",
+        "Q0146",
+        "Q0147",
+        "Q0148",
+        "Q0149",
+        "Q0150",
+        "Q0151",
+        "Q0152",
+        "Q0153",
+        "Q0154",
+        "Q0155",
+        "Q0156",
+        "Q0157",
+        "Q0162",
+        "Q0163",
+        "Q0275"
+      ],
+      "text": "Dla służbowej łączności podstawą są rejestry centrali i urządzeń. Nie było wspólnego nagrania wszystkich rozmów, wspólnego prywatnego telefonu sześciu osób ani uzgodnionego przekazywania ich haseł. Żaden świadek nie opiera alibi na zestawie słuchawkowym lub połączeniu z numeru zastrzeżonego po zmianie.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "ELZBIETA",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-cameras",
+      "questions": [
+        "Q0191",
+        "Q0193",
+        "Q0195",
+        "Q0208",
+        "Q0209",
+        "Q0210",
+        "Q0211",
+        "Q0442"
+      ],
+      "text": "Obszar opisują kamery A, B i C. Wnętrze niszy stanowiska nr 3 pozostaje poza ich polem widzenia; to ograniczenie ustawienia, nie ustalona awaria „kamery nr 4”. Nie zmieniono na tę noc ich kąta o 30 stopni ani nie wyłączono programowo korytarzowych czujników na polecenie któregoś świadka.",
+      "owners": [
+        "KAMIL",
+        "MAREK",
+        "JANUSZ"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-gate",
+      "questions": [
+        "Q0192",
+        "Q0196",
+        "Q0197",
+        "Q0204",
+        "Q0205",
+        "Q0206",
+        "Q0207",
+        "Q0212",
+        "Q0213",
+        "Q0395",
+        "Q0637",
+        "Q0638",
+        "Q0639",
+        "Q0667"
+      ],
+      "text": "Nie ma osobnego ustalonego wejścia przez podstację o 00:40 ani logowania administratora bramek o 02:10. Badana trasa prowadzi przez południowy korytarz i drzwi. Samo wpisanie godziny lub nazwy przejścia do pytania nie czyni z niej autentycznego logu ani obserwacji osoby.",
+      "owners": [
+        "KAMIL",
+        "MAREK"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-doorpolicy",
+      "questions": [
+        "Q0200",
+        "Q0202",
+        "Q0203",
+        "Q0637",
+        "Q0638",
+        "Q0667"
+      ],
+      "text": "Rejestr wejść, ewidencja wydania karty i rozliczenie czasu pracy powstają oddzielnie. Para godzin 01:15–01:45 nie jest zatwierdzonym odcinkiem pobytu żadnego z sześciu świadków. Nie należy dopisywać trzydziestominutowego ukrywania się między nimi.",
+      "owners": [
+        "MAREK",
+        "KAMIL"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-phone0010",
+      "questions": [
+        "Q0252"
+      ],
+      "text": "Potwierdzona rozmowa Leny z Elżbietą odbyła się o 21:47. W tej historii nie ustalono osobnej rozmowy przez telefon stacjonarny z rozpoznanym rozmówcą o 00:10. Żaden świadek nie ma takiego osobistego wspomnienia.",
+      "owners": [
+        "ELZBIETA",
+        "TOMASZ"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-collusion",
+      "questions": [
+        "Q0256",
+        "Q0112",
+        "Q0610",
+        "Q0748"
+      ],
+      "text": "Świadkowie nie ustalali wspólnej wersji zeznań po przesłuchaniu i nie uzgadniali wynagrodzenia za zmianę relacji. Ich wcześniejsze robocze kontakty dotyczyły zadań zmiany. Nie było umowy sześciu osób o wspólnej ochronie sprawcy.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "ELZBIETA",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-diagnosticorder",
+      "questions": [
+        "Q0276",
+        "Q0277",
+        "Q0278",
+        "Q0279",
+        "Q0280",
+        "Q0299",
+        "Q0300",
+        "Q0301",
+        "Q0302",
+        "Q0303",
+        "Q0304",
+        "Q0305",
+        "Q0306",
+        "Q0307",
+        "Q0308",
+        "Q0309",
+        "Q0310",
+        "Q0311",
+        "Q0312",
+        "Q0313",
+        "Q0394"
+      ],
+      "text": "Sprawdzenie niespójności pomiaru zlecono Kamilowi w DIAG-217/N o 19:46. Dokument zlecał serwisowy odczyt i opis przebiegu, nie spotkanie Leny przy stanowisku. Zastrzeżenia o bezpieczeństwie i porównanie wariantu części nie zostały tym samym automatycznie zamknięte.",
+      "owners": [
+        "MAREK",
+        "JANUSZ",
+        "KAMIL"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-riskroute",
+      "questions": [
+        "Q0281",
+        "Q0282",
+        "Q0283",
+        "Q0284",
+        "Q0285",
+        "Q0286",
+        "Q0287",
+        "Q0288",
+        "Q0289",
+        "Q0290",
+        "Q0291",
+        "Q0292",
+        "Q0293",
+        "Q0294",
+        "Q0295",
+        "Q0296",
+        "Q0297",
+        "Q0298",
+        "Q0339",
+        "Q0340",
+        "Q0341"
+      ],
+      "text": "Lena bezpośrednio rozmawiała z Elżbietą o ryzyku o 21:47. Elżbieta jest źródłem relacji o treści tej rozmowy; centrala potwierdza połączenie. Nie sporządzono wspólnego nagrania ani podpisanego przez wszystkie sześć osób protokołu tej rozmowy.",
+      "owners": [
+        "ELZBIETA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-riskunsent",
+      "questions": [
+        "Q0293",
+        "Q0294",
+        "Q0295",
+        "Q0296",
+        "Q0297",
+        "Q0298",
+        "Q0299",
+        "Q0300",
+        "Q0301",
+        "Q0302",
+        "Q0303",
+        "Q0304",
+        "Q0305",
+        "Q0306",
+        "Q0307",
+        "Q0308",
+        "Q0313",
+        "Q0320"
+      ],
+      "text": "Projekt zgłoszenia pozostał niewysłany. W dzienniku przyjęć brak odpowiadającego mu potwierdzenia, mimo przyjmowania innych przesyłek. Nie był to formalnie odebrany alarm BHP i brak wysyłki nie wynika z potwierdzonej ogólnej awarii systemu.",
+      "owners": [
+        "ELZBIETA"
+      ],
+      "documents": [
+        "EVID_BHP_DRAFT",
+        "EVID_OUTBOX_MISSING_SUBMISSION"
+      ],
+      "kind": "authored-case-detail",
+      "visibility": "requires-document"
+    },
+    {
+      "id": "RC19-D-keys",
+      "questions": [
+        "Q0382",
+        "Q0500",
+        "Q0514",
+        "Q0544",
+        "Q0645",
+        "Q0657"
+      ],
+      "text": "Nie było w tej historii udokumentowanego dorabiania kluczy magazynowych, zgłoszonego zaginięcia klucza do szafy tydzień przed zmianą ani fałszywej karty pobrania narzędzi przypisanej świadkowi. Klucz pasujący do zamka nie rejestruje osoby używającej go tej nocy.",
+      "owners": [
+        "MAREK",
+        "JANUSZ"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-returntime",
+      "questions": [
+        "Q0383",
+        "Q0384",
+        "Q0385",
+        "Q0392"
+      ],
+      "text": "Dziennik potwierdza rozpoczęcie kursu o 18:26, zgłoszenie diagnostyczne o 19:11 i wpis warsztatowy o 20:54. Nie oznacza to powrotu bez zgłoszenia o 20:00, nakazu o 20:45 ani potwierdzonego przenoszenia rzeczy przez Lenę o 19:15.",
+      "owners": [
+        "TOMASZ",
+        "MAREK",
+        "JANUSZ"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-dispatch",
+      "questions": [
+        "Q0003",
+        "Q0178",
+        "Q0374",
+        "Q0580"
+      ],
+      "text": "Polecenie TD-217 zmieniono o 23:14 ze standardowego przyjęcia na niestandardowe skierowanie. Dotyczyło trasy tramwaju. Nie zawierało zaproszenia Leny do osobistego spotkania przy stanowisku nr 3.",
+      "owners": [
+        "TOMASZ"
+      ],
+      "documents": [
+        "EVID_DISPATCH_REVISION"
+      ],
+      "kind": "authored-case-detail",
+      "visibility": "requires-document"
+    },
+    {
+      "id": "RC19-D-lights",
+      "questions": [
+        "Q0386",
+        "Q0387",
+        "Q0389",
+        "Q0399",
+        "Q0403",
+        "Q0443",
+        "Q0547",
+        "Q0549"
+      ],
+      "text": "W tej historii nie doszło do ustalonego zaniku zasilania hali o 01:15, ręcznego resetu o 01:18 ani zatrzymania zegara o 02:14. Nie zidentyfikowano tajemniczego poboru 50 kW. Świadkowie nie opisują niesprawnych od tygodnia świateł awaryjnych i przeterminowanych gaśnic jako tła tej zmiany.",
+      "owners": [
+        "KAMIL",
+        "JANUSZ",
+        "ELZBIETA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-hotwork",
+      "questions": [
+        "Q0391",
+        "Q0396",
+        "Q0397"
+      ],
+      "text": "Do obsługi TW-217 nie zamawiano nocnego palnika ani wizyty oznaczonej „Serwis Zewnętrzny” o 23:10. Sześciu świadków nie otrzymało zadania obchodu podstacji o 01:00. Ich zadania dotyczyły ruchu, warsztatu, BHP, diagnostyki i audytu.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "KAMIL"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-software",
+      "questions": [
+        "Q0393",
+        "Q0400",
+        "Q0430",
+        "Q0451",
+        "Q0519",
+        "Q0522"
+      ],
+      "text": "TCMS-217/N zapisuje niespójność pomiaru. W ramach tej obsługi nie instalowano nowego sterownika, nie wykonywano zdalnej aktualizacji jazdy i nie zgłoszono błędów sum kontrolnych terminalu. SCADA oraz wymiana całego systemu rejestracji usterek nie są odrębnymi ustalonymi awariami tej sprawy.",
+      "owners": [
+        "KAMIL",
+        "JANUSZ"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-tools",
+      "questions": [
+        "Q0405",
+        "Q0536",
+        "Q0537",
+        "Q0543",
+        "Q0554",
+        "Q0652"
+      ],
+      "text": "Żadnemu świadkowi nie przypisano indywidualnie rozpoznanego śrubokręta, klucza dynamometrycznego lub odcisku dłoni jako dowodu urazu Leny. Narzędzia warsztatowe bywały współużytkowane. Ślad materiału wymaga porównania, a nie obietnicy wyniku przyszłego badania DNA.",
+      "owners": [
+        "JANUSZ",
+        "KAMIL"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-inspections",
+      "questions": [
+        "Q0406",
+        "Q0429",
+        "Q0433",
+        "Q0440",
+        "Q0444",
+        "Q0445",
+        "Q0446",
+        "Q0509",
+        "Q0515",
+        "Q0516",
+        "Q0517",
+        "Q0542",
+        "Q0550",
+        "Q0551",
+        "Q0552",
+        "Q0553"
+      ],
+      "text": "W tej sprawie nie wprowadzono skrócenia przeglądu z ośmiu godzin do 45 minut, nocnej kalibracji pneumatyki ani zdjęcia instrukcji awaryjnej. Nie ustalono uszkodzonej plomby zastąpionej taśmą, wygasłego certyfikatu falownika lub fałszywego odczytu niesprawnego manometru.",
+      "owners": [
+        "JANUSZ",
+        "KAMIL",
+        "ELZBIETA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-variants",
+      "questions": [
+        "Q0027",
+        "Q0178",
+        "Q0416",
+        "Q0417",
+        "Q0418",
+        "Q0419",
+        "Q0420",
+        "Q0426",
+        "Q0427",
+        "Q0434",
+        "Q0435",
+        "Q0436",
+        "Q0438",
+        "Q0454",
+        "Q0455",
+        "Q0456",
+        "Q0457",
+        "Q0458",
+        "Q0459",
+        "Q0460",
+        "Q0461",
+        "Q0462",
+        "Q0463"
+      ],
+      "text": "L-2 i L-3 oznaczają warianty podzespołu, a nie dwa niezależnie udowodnione sabotaże. Różnią się dopuszczeniem i wartością. Problemem jest porównanie oznaczenia fizycznej części z dokumentacją, nie ustalona historia falownika pochodzącego z rozbiórki.",
+      "owners": [
+        "JANUSZ",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-physicall2",
+      "questions": [
+        "Q0426",
+        "Q0457",
+        "Q0458",
+        "Q0499",
+        "Q0502",
+        "Q0505",
+        "Q0524"
+      ],
+      "text": "Ewidencja magazynowa i fotografia tabliczki wskazują L-2. Podpisany przez Magdalenę protokół wpisuje L-3. To konkretna rozbieżność wariantu i odbioru; nie ustalono na tej podstawie tajnego rejestru Leny ani kwoty defraudacji.",
+      "owners": [
+        "JANUSZ",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [
+        "TEC-07",
+        "EVID_SERIAL_PHOTO",
+        "EVID_ACCEPTANCE_RECORD"
+      ],
+      "kind": "authored-case-detail",
+      "visibility": "requires-document"
+    },
+    {
+      "id": "RC19-D-bayplan",
+      "questions": [
+        "Q0437",
+        "Q0369"
+      ],
+      "text": "Plan stanowiska nr 3 rozróżnia niszę N-3, pomieszczenie pomiarowe P-3, stanowisko S-3 i południowy korytarz K-P. Nie wskazuje osobnego potwierdzonego miejsca wyjęcia bezpiecznika. Przebiegu drogi nie należy zastępować wymyślonym przejściem podziemnym.",
+      "owners": [
+        "JANUSZ",
+        "KAMIL"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-previousaccident",
+      "questions": [
+        "Q0452",
+        "Q0498",
+        "Q0510",
+        "Q0518"
+      ],
+      "text": "Nie przypisano tej historii zatajenia podobnego śmiertelnego wypadku sześć miesięcy wcześniej, zakleszczenia drzwi, brakującego przeglądu z poprzedniego tygodnia ani dymisji poprzedniego dyrektora. Spór tej zmiany dotyczył TW-217 i dokumentów ZG-41.",
+      "owners": [
+        "MAREK",
+        "JANUSZ",
+        "ELZBIETA",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-paper",
+      "questions": [
+        "Q0497",
+        "Q0501",
+        "Q0503",
+        "Q0504",
+        "Q0505",
+        "Q0506",
+        "Q0507",
+        "Q0508",
+        "Q0511",
+        "Q0512",
+        "Q0513",
+        "Q0514",
+        "Q0520",
+        "Q0521",
+        "Q0523",
+        "Q0525",
+        "Q0526",
+        "Q0527"
+      ],
+      "text": "Nie było ustalonego polecenia zjedzenia lub zniszczenia papierowych dokumentów, porzuconych przez trzy dni palet ani aneksu zezwalającego na pracę samotną. Dokumenty odbiorowe, warsztatowe i płacowe mają różne podpisy i wersje. Rzekomą różnicę 40 minut trzeba najpierw powiązać z dwoma konkretnymi zapisami.",
+      "owners": [
+        "MAREK",
+        "JANUSZ",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-evidencecare",
+      "questions": [
+        "Q0535",
+        "Q0538",
+        "Q0539",
+        "Q0540",
+        "Q0541",
+        "Q0545",
+        "Q0546",
+        "Q0548",
+        "Q0555",
+        "Q0556",
+        "Q0557",
+        "Q0558",
+        "Q0559",
+        "Q0560",
+        "Q0561",
+        "Q0562",
+        "Q0563",
+        "Q0564",
+        "Q0565",
+        "Q0566",
+        "Q0567",
+        "Q0568",
+        "Q0569",
+        "Q0570",
+        "Q0571",
+        "Q0572",
+        "Q0573",
+        "Q0574",
+        "Q0575",
+        "Q0576",
+        "Q0577"
+      ],
+      "text": "Nie stwierdzono w tej historii celowego rozszczelnienia płynu hamulcowego, mostkowania przekaźników, szlifowania tabliczki silnika ani palenia ubrań. Stan osłony i ślady trzeba ustalać z oględzin; smar nie jest indywidualną identyfikacją osoby.",
+      "owners": [
+        "JANUSZ",
+        "KAMIL",
+        "ELZBIETA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-securedbay",
+      "questions": [
+        "Q0367",
+        "Q0370",
+        "Q0538",
+        "Q0555",
+        "Q0556",
+        "Q0557",
+        "Q0558",
+        "Q0559",
+        "Q0560",
+        "Q0561",
+        "Q0563",
+        "Q0564",
+        "Q0565",
+        "Q0566",
+        "Q0567"
+      ],
+      "text": "Ratownicy odsunęli wyposażenie, by dotrzeć do Leny. Formalne zabezpieczanie rozpoczęto o 03:14, a o 05:41 potwierdzono przekazanie zaplombowanej kopii danych. Późniejsza fotografia nie jest automatycznie obrazem stanu sprzed udzielania pomocy.",
+      "owners": [
+        "ELZBIETA",
+        "JANUSZ",
+        "TOMASZ"
+      ],
+      "documents": [
+        "ADM-13"
+      ],
+      "kind": "authored-case-detail",
+      "visibility": "requires-document"
+    },
+    {
+      "id": "RC19-D-money",
+      "questions": [
+        "Q0581",
+        "Q0583",
+        "Q0584",
+        "Q0588",
+        "Q0591",
+        "Q0592",
+        "Q0593",
+        "Q0594",
+        "Q0595",
+        "Q0596",
+        "Q0597",
+        "Q0600",
+        "Q0601",
+        "Q0602",
+        "Q0603",
+        "Q0604",
+        "Q0605",
+        "Q0606",
+        "Q0607",
+        "Q0612",
+        "Q0613",
+        "Q0614",
+        "Q0615",
+        "Q0616",
+        "Q0617",
+        "Q0618",
+        "Q0619",
+        "Q0620",
+        "Q0621",
+        "Q0622",
+        "Q0623",
+        "Q0624",
+        "Q0625",
+        "Q0626",
+        "Q0627"
+      ],
+      "text": "W tle tej sprawy nie ustalono tajnego procentu prowizji, powiązań kapitałowych rady nadzorczej, wyborczego terminu odbioru, opłaconego doradztwa ani premii za milczenie. Znaczenie finansowe ma różna wartość wariantów L-2 i L-3 oraz wiarygodność zatwierdzonego odbioru.",
+      "owners": [
+        "MAREK",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-orders",
+      "questions": [
+        "Q0582",
+        "Q0585",
+        "Q0586",
+        "Q0587",
+        "Q0589",
+        "Q0590",
+        "Q0598",
+        "Q0599",
+        "Q0608",
+        "Q0609",
+        "Q0610",
+        "Q0611",
+        "Q0668",
+        "Q0710",
+        "Q0711",
+        "Q0713",
+        "Q0714",
+        "Q0715",
+        "Q0724"
+      ],
+      "text": "Nie było wspólnego rozkazu sześciu osób, aby skrzywdzić Lenę lub opłacić milczenie. Nie wydano polecenia odłączenia rejestratora przed końcem testu ani zmycia posadzki przed śledczymi. Odrębne uchybienia dokumentacyjne nie tworzą automatycznie porozumienia sprawców.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "ELZBIETA",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-alibifalse",
+      "questions": [
+        "Q0643",
+        "Q0644",
+        "Q0645",
+        "Q0647",
+        "Q0651",
+        "Q0654",
+        "Q0655",
+        "Q0656",
+        "Q0657",
+        "Q0658",
+        "Q0659",
+        "Q0660",
+        "Q0661",
+        "Q0662",
+        "Q0663",
+        "Q0664",
+        "Q0665",
+        "Q0666",
+        "Q0667",
+        "Q0669",
+        "Q0670",
+        "Q0671",
+        "Q0672"
+      ],
+      "text": "Żaden z sześciu świadków nie podawał snu w socjalnym, całonocnego picia kawy, wspólnego patrolu ani pobytu całą noc w magazynie jako swojej ustalonej relacji. Nie nazywali Leny osobą „szukającą guza” i nie uzgodnili wersji o jej chorobie psychicznej.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "ELZBIETA",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-screenshots",
+      "questions": [
+        "Q0638",
+        "Q0639",
+        "Q0640",
+        "Q0641",
+        "Q0642",
+        "Q0646",
+        "Q0649"
+      ],
+      "text": "Opis dowodu w nawiasie wpisany do pytania nie jest okazaniem materiału. Nie ustalono w tej historii wiadomości „Zrobione, nikt już tego nie sprawdzi”, rozpoznania sprawcy po samym smarze lub spadku napięcia o 02:05 jako przyczyny urazu. Trzeba odczytać faktycznie okazany materiał.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "ELZBIETA",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-prosecutor",
+      "questions": [
+        "Q0690",
+        "Q0691",
+        "Q0692",
+        "Q0693",
+        "Q0694",
+        "Q0695",
+        "Q0696"
+      ],
+      "text": "Lena chciała wyjaśnienia niezgodności związanych z TW-217. Sześciu świadków nie znało osobnego potwierdzonego terminu jej wizyty w prokuraturze ani uzgodnionej akcji odcinania jej od współpracowników. Zapowiedź zarzutów przez śledczego nie zastępuje ustaleń dotyczących czynu.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "ELZBIETA",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    },
+    {
+      "id": "RC19-D-emotions",
+      "questions": [
+        "Q0198",
+        "Q0199",
+        "Q0201",
+        "Q0253",
+        "Q0254",
+        "Q0728",
+        "Q0729",
+        "Q0730",
+        "Q0731",
+        "Q0732",
+        "Q0733",
+        "Q0734",
+        "Q0735",
+        "Q0736",
+        "Q0737",
+        "Q0738",
+        "Q0739",
+        "Q0740",
+        "Q0741",
+        "Q0742",
+        "Q0743",
+        "Q0744",
+        "Q0745",
+        "Q0746",
+        "Q0747",
+        "Q0748",
+        "Q0749",
+        "Q0750",
+        "Q0751",
+        "Q0752",
+        "Q0753",
+        "Q0754",
+        "Q0755",
+        "Q0756",
+        "Q0757",
+        "Q0758",
+        "Q0759",
+        "Q0760",
+        "Q0761",
+        "Q0762",
+        "Q0763",
+        "Q0764",
+        "Q0765",
+        "Q0766",
+        "Q0767",
+        "Q0768",
+        "Q0769",
+        "Q0770",
+        "Q0771",
+        "Q0772",
+        "Q0773",
+        "Q0774",
+        "Q0775",
+        "Q0776",
+        "Q0777"
+      ],
+      "text": "Świadkowie nie otrzymali zapłaty za milczenie i nie ustalali wspólnego zachowania na przesłuchaniu. Mogą odczuwać lęk, złość lub żal, ale powód emocji wynika z indywidualnej relacji oraz bieżącej rozmowy, nie z automatycznego przyznania do sugerowanego czynu.",
+      "owners": [
+        "MAREK",
+        "TOMASZ",
+        "JANUSZ",
+        "ELZBIETA",
+        "KAMIL",
+        "MAGDALENA"
+      ],
+      "documents": [],
+      "kind": "authored-case-detail",
+      "visibility": "public"
+    }
+  ],
+  "secrets": {
+    "MAREK": {
+      "text": "Korekta ewidencji czasu pracy została wykonana z mojego konta kierowniczego. Powinienem był od razu oddzielić ją od surowego rejestru wejść.",
+      "gates": [
+        [
+          "EVID_PAYROLL_MANUAL_EDIT",
+          "EVID_RAW_ENTRY_TIMES"
+        ]
+      ]
+    },
+    "TOMASZ": {
+      "text": "W archiwum łączności jest luka, której nie zgłosiłem. Zmiana dyspozycji dotyczyła trasy TW-217, nie zaproszenia Leny na osobiste spotkanie.",
+      "gates": [
+        [
+          "EVID_RADIO_GAP",
+          "EVID_DISPATCH_REVISION"
+        ]
+      ]
+    },
+    "JANUSZ": {
+      "text": "Formularz zamknięto mimo brakującego wyniku pomiaru i potwierdzenia oznaczenia części. Nie powinienem był przedstawiać karty jako kompletnej.",
+      "gates": [
+        [
+          "EVID_WORK_ORDER_RAW",
+          "EVID_SERVICE_FORM_GAPS",
+          "EVID_TEST_AUTHORIZATION"
+        ]
+      ]
+    },
+    "ELZBIETA": {
+      "text": "Nie wysłałam projektu zgłoszenia BHP. Dokument pozostał w wersji roboczej i nie uzyskał potwierdzenia przyjęcia. To był mój błąd.",
+      "gates": [
+        [
+          "EVID_BHP_DRAFT",
+          "EVID_OUTBOX_MISSING_SUBMISSION"
+        ]
+      ]
+    },
+    "KAMIL": {
+      "text": "Kartę T-17 przekazałem Magdalenie o 00:39 przy stanowisku dokumentacyjnym do dostępu do dokumentacji audytowej. Nie powinienem był tego ukrywać.",
+      "gates": [
+        [
+          "EVID_RESOURCE_HANDOVER",
+          "EVID_T17_DOOR_EVENT"
+        ],
+        [
+          "EVID_TCMS_SESSION",
+          "EVID_TEST_AUTHORIZATION"
+        ]
+      ]
+    },
+    "MAGDALENA": {
+      "text": "Dokumenty wymagają wyjaśnienia osobno: sesja połączenia nie dowodzi mojej stałej obecności, a podpisany odbiór trzeba porównać z oznaczeniem części. Nie uznaję pojedynczego fragmentu nagrania za pełną rekonstrukcję.",
+      "gates": [
+        [
+          "EVID_CONFERENCE_SESSION",
+          "EVID_CCTV_SYNC",
+          "EVID_T17_DOOR_EVENT"
+        ],
+        [
+          "EVID_MESSAGE_THREAD_RECOVERED",
+          "EVID_MESSAGE_DEVICE_METADATA"
+        ],
+        [
+          "EVID_SERIAL_PHOTO",
+          "EVID_ACCEPTANCE_RECORD"
+        ]
+      ]
+    }
+  }
+}

@@ -34,7 +34,7 @@
       "status": 404
     },
     {
-      "src": "^/(README[^/]*|RAPORT[^/]*|PAKIET[^/]*|ARCHITEKTURA[^/]*|GITHUB[^/]*|ASSET_MANIFEST\\.json|package(-lock)?\\.json|\\.env[^/]*|\\.gitignore|vercel\\.json)$",
+      "src": "^/(README[^/]*|RAPORT[^/]*|BAZA[^/]*|AUDYT[^/]*|PAKIET[^/]*|ARCHITEKTURA[^/]*|GITHUB[^/]*|ASSET_MANIFEST\\.json|package(-lock)?\\.json|\\.env[^/]*|\\.gitignore|vercel\\.json)$",
       "status": 404
     }
   ],

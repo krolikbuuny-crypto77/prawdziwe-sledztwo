@@ -1,0 +1,426 @@
+{
+  "schema": "ps-polish-language-regression/1",
+  "purpose": "semantic_review_rubrics_not_answer_templates",
+  "cases": [
+    {
+      "id": "PL20-001",
+      "category": "multiple_requests",
+      "question": "Gdzie byłeś, kto cię widział i dlaczego wyszedłeś?",
+      "rubric": "Odpowiedz na wszystkie niezależne żądania; skoryguj błędną przesłankę bez pomijania reszty.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-002",
+      "category": "multiple_requests",
+      "question": "Co robiłeś po północy? Kto to potwierdzi? Skąd znasz tę godzinę?",
+      "rubric": "Odpowiedz na wszystkie niezależne żądania; skoryguj błędną przesłankę bez pomijania reszty.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-003",
+      "category": "multiple_requests",
+      "question": "Znałeś Lenę i komu przekazałeś jej uwagi?",
+      "rubric": "Odpowiedz na wszystkie niezależne żądania; skoryguj błędną przesłankę bez pomijania reszty.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-004",
+      "category": "multiple_requests",
+      "question": "Kto miał kartę, kiedy ją dostał i co właściwie pokazuje czytnik?",
+      "rubric": "Odpowiedz na wszystkie niezależne żądania; skoryguj błędną przesłankę bez pomijania reszty.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-005",
+      "category": "multiple_requests",
+      "question": "Czy to ty podpisałeś odbiór? Czy widziałeś część? Dlaczego brakuje pomiaru?",
+      "rubric": "Odpowiedz na wszystkie niezależne żądania; skoryguj błędną przesłankę bez pomijania reszty.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-006",
+      "category": "multiple_requests",
+      "question": "Nie pytam o Lenę, tylko gdzie ty byłeś i kto cię widział?",
+      "rubric": "Odpowiedz na wszystkie niezależne żądania; skoryguj błędną przesłankę bez pomijania reszty.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-007",
+      "category": "multiple_requests",
+      "question": "Co potwierdza telefon, a co rejestr i czego nie potwierdza żaden?",
+      "rubric": "Odpowiedz na wszystkie niezależne żądania; skoryguj błędną przesłankę bez pomijania reszty.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-008",
+      "category": "multiple_requests",
+      "question": "Kiedy ją znalazłeś? Co zobaczyłeś? Kogo wezwałeś?",
+      "rubric": "Odpowiedz na wszystkie niezależne żądania; skoryguj błędną przesłankę bez pomijania reszty.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-009",
+      "category": "multiple_requests",
+      "question": "Co powiedziała Lena i co z tym zrobiłaś?",
+      "rubric": "Odpowiedz na wszystkie niezależne żądania; skoryguj błędną przesłankę bez pomijania reszty.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-010",
+      "category": "multiple_requests",
+      "question": "Masz alibi? Na cały czas czy na fragment? Osoba czy tylko log?",
+      "rubric": "Odpowiedz na wszystkie niezależne żądania; skoryguj błędną przesłankę bez pomijania reszty.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-011",
+      "category": "multiple_requests",
+      "question": "Kto wydał zgodę; kto wykonał test; kto odczytał wynik?",
+      "rubric": "Odpowiedz na wszystkie niezależne żądania; skoryguj błędną przesłankę bez pomijania reszty.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-012",
+      "category": "multiple_requests",
+      "question": "Gdzie byłeś? Kto cię widział? Kiedy? Dlaczego? Skąd wiesz? Co zrobiłeś? Kogo zawiadomiłeś? Co potem? I kto to sprawdził?",
+      "rubric": "Odpowiedz na wszystkie niezależne żądania; skoryguj błędną przesłankę bez pomijania reszty.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-013",
+      "category": "references",
+      "question": "A on to widział?",
+      "rubric": "Rozważ kilka par historii. Przy równorzędnych odniesieniach dopytaj o konkretną osobę/rzecz; nie twórz nowej.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-014",
+      "category": "references",
+      "question": "To kto mu ją dał?",
+      "rubric": "Rozważ kilka par historii. Przy równorzędnych odniesieniach dopytaj o konkretną osobę/rzecz; nie twórz nowej.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-015",
+      "category": "references",
+      "question": "A ta druga osoba?",
+      "rubric": "Rozważ kilka par historii. Przy równorzędnych odniesieniach dopytaj o konkretną osobę/rzecz; nie twórz nowej.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-016",
+      "category": "references",
+      "question": "Skąd to wiesz?",
+      "rubric": "Rozważ kilka par historii. Przy równorzędnych odniesieniach dopytaj o konkretną osobę/rzecz; nie twórz nowej.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-017",
+      "category": "references",
+      "question": "A tamta godzina?",
+      "rubric": "Rozważ kilka par historii. Przy równorzędnych odniesieniach dopytaj o konkretną osobę/rzecz; nie twórz nowej.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-018",
+      "category": "references",
+      "question": "I co z tym zrobiłeś?",
+      "rubric": "Rozważ kilka par historii. Przy równorzędnych odniesieniach dopytaj o konkretną osobę/rzecz; nie twórz nowej.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-019",
+      "category": "references",
+      "question": "To było przed tym czy po tym?",
+      "rubric": "Rozważ kilka par historii. Przy równorzędnych odniesieniach dopytaj o konkretną osobę/rzecz; nie twórz nowej.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-020",
+      "category": "references",
+      "question": "Czy ona mówiła o nim, czy o tym drugim?",
+      "rubric": "Rozważ kilka par historii. Przy równorzędnych odniesieniach dopytaj o konkretną osobę/rzecz; nie twórz nowej.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-021",
+      "category": "references",
+      "question": "Kto z nich tam poszedł?",
+      "rubric": "Rozważ kilka par historii. Przy równorzędnych odniesieniach dopytaj o konkretną osobę/rzecz; nie twórz nowej.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-022",
+      "category": "references",
+      "question": "Osobiście?",
+      "rubric": "Rozważ kilka par historii. Przy równorzędnych odniesieniach dopytaj o konkretną osobę/rzecz; nie twórz nowej.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-023",
+      "category": "references",
+      "question": "Który z tych dwóch zapisów masz na myśli?",
+      "rubric": "Rozważ kilka par historii. Przy równorzędnych odniesieniach dopytaj o konkretną osobę/rzecz; nie twórz nowej.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-024",
+      "category": "references",
+      "question": "A jej kto powiedział?",
+      "rubric": "Rozważ kilka par historii. Przy równorzędnych odniesieniach dopytaj o konkretną osobę/rzecz; nie twórz nowej.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-025",
+      "category": "premises_negation",
+      "question": "Skoro usunąłeś nagranie, dlaczego wróciłeś do biura?",
+      "rubric": "Oddziel zarzut od faktu i zachowaj zakres negacji. Nie przyjmuj winy, zapłaty lub tożsamości karty jako danych.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-026",
+      "category": "premises_negation",
+      "question": "Przecież siedziałeś tam całą noc, choć przed chwilą powiedziałeś, że wychodziłeś.",
+      "rubric": "Oddziel zarzut od faktu i zachowaj zakres negacji. Nie przyjmuj winy, zapłaty lub tożsamości karty jako danych.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-027",
+      "category": "premises_negation",
+      "question": "Dlaczego zabiłeś Lenę i kto ci za to zapłacił?",
+      "rubric": "Oddziel zarzut od faktu i zachowaj zakres negacji. Nie przyjmuj winy, zapłaty lub tożsamości karty jako danych.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-028",
+      "category": "premises_negation",
+      "question": "Nie mówię, że nie wyszedłeś. Pytam, kto cię widział.",
+      "rubric": "Oddziel zarzut od faktu i zachowaj zakres negacji. Nie przyjmuj winy, zapłaty lub tożsamości karty jako danych.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-029",
+      "category": "premises_negation",
+      "question": "Nie twierdzę, że kłamiesz, tylko pytam o źródło tej godziny.",
+      "rubric": "Oddziel zarzut od faktu i zachowaj zakres negacji. Nie przyjmuj winy, zapłaty lub tożsamości karty jako danych.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-030",
+      "category": "premises_negation",
+      "question": "Czy brak dowodu, że wyszedłeś, jest dowodem, że zostałeś?",
+      "rubric": "Oddziel zarzut od faktu i zachowaj zakres negacji. Nie przyjmuj winy, zapłaty lub tożsamości karty jako danych.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-031",
+      "category": "premises_negation",
+      "question": "Nie zaprzeczasz, że nie widziałeś Leny?",
+      "rubric": "Oddziel zarzut od faktu i zachowaj zakres negacji. Nie przyjmuj winy, zapłaty lub tożsamości karty jako danych.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-032",
+      "category": "premises_negation",
+      "question": "Twierdzisz, że nie byłeś w hali, ale mówisz, że widziałeś osłonę. Skąd?",
+      "rubric": "Oddziel zarzut od faktu i zachowaj zakres negacji. Nie przyjmuj winy, zapłaty lub tożsamości karty jako danych.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-033",
+      "category": "premises_negation",
+      "question": "Dlaczego sfalsyfikowałeś dokument, skoro go nawet nie podpisywałeś?",
+      "rubric": "Oddziel zarzut od faktu i zachowaj zakres negacji. Nie przyjmuj winy, zapłaty lub tożsamości karty jako danych.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-034",
+      "category": "premises_negation",
+      "question": "Czy nie jest nieprawdą, że to Lena zgłaszała zastrzeżenia?",
+      "rubric": "Oddziel zarzut od faktu i zachowaj zakres negacji. Nie przyjmuj winy, zapłaty lub tożsamości karty jako danych.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-035",
+      "category": "premises_negation",
+      "question": "Nie o to, kto zadzwonił. O to, kto widział ją żywą.",
+      "rubric": "Oddziel zarzut od faktu i zachowaj zakres negacji. Nie przyjmuj winy, zapłaty lub tożsamości karty jako danych.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-036",
+      "category": "premises_negation",
+      "question": "Skoro karta to twoja obecność, to czemu twierdzisz, że nie wiesz kto wszedł?",
+      "rubric": "Oddziel zarzut od faktu i zachowaj zakres negacji. Nie przyjmuj winy, zapłaty lub tożsamości karty jako danych.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-037",
+      "category": "irony_sarcasm",
+      "question": "No jasne, karta sama poszła na spacer.",
+      "rubric": "Oceń kontekst: możliwa ironia lub szczere podziękowanie. Odpowiedz na treść, nie na pozorną pochwałę; bez dosłownych duchów.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-038",
+      "category": "irony_sarcasm",
+      "question": "Brawo, pełne alibi z jednego telefonu. A kto cię widział?",
+      "rubric": "Oceń kontekst: możliwa ironia lub szczere podziękowanie. Odpowiedz na treść, nie na pozorną pochwałę; bez dosłownych duchów.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-039",
+      "category": "irony_sarcasm",
+      "question": "Ta jasne, niewiniątko. To kto podpisał ten protokół?",
+      "rubric": "Oceń kontekst: możliwa ironia lub szczere podziękowanie. Odpowiedz na treść, nie na pozorną pochwałę; bez dosłownych duchów.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-040",
+      "category": "irony_sarcasm",
+      "question": "Gratuluję, dokument sam się podpisał, tak?",
+      "rubric": "Oceń kontekst: możliwa ironia lub szczere podziękowanie. Odpowiedz na treść, nie na pozorną pochwałę; bez dosłownych duchów.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-041",
+      "category": "irony_sarcasm",
+      "question": "Pewnie duch skasował zapis. Kto miał dostęp?",
+      "rubric": "Oceń kontekst: możliwa ironia lub szczere podziękowanie. Odpowiedz na treść, nie na pozorną pochwałę; bez dosłownych duchów.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-042",
+      "category": "irony_sarcasm",
+      "question": "Dobre sobie. Log widział cię na własne oczy?",
+      "rubric": "Oceń kontekst: możliwa ironia lub szczere podziękowanie. Odpowiedz na treść, nie na pozorną pochwałę; bez dosłownych duchów.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-043",
+      "category": "irony_sarcasm",
+      "question": "No tak, Lena na pewno wymyśliła ten wagon. Co zgłaszała?",
+      "rubric": "Oceń kontekst: możliwa ironia lub szczere podziękowanie. Odpowiedz na treść, nie na pozorną pochwałę; bez dosłownych duchów.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-044",
+      "category": "irony_sarcasm",
+      "question": "Akurat uwierzę, że niczego nie pamiętasz. Co pamiętasz na pewno?",
+      "rubric": "Oceń kontekst: możliwa ironia lub szczere podziękowanie. Odpowiedz na treść, nie na pozorną pochwałę; bez dosłownych duchów.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-045",
+      "category": "irony_sarcasm",
+      "question": "Święty człowiek z pana. A po co te korekty?",
+      "rubric": "Oceń kontekst: możliwa ironia lub szczere podziękowanie. Odpowiedz na treść, nie na pozorną pochwałę; bez dosłownych duchów.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-046",
+      "category": "irony_sarcasm",
+      "question": "Geniusz. Nie ma wpisu, więc nikt nie wyszedł?",
+      "rubric": "Oceń kontekst: możliwa ironia lub szczere podziękowanie. Odpowiedz na treść, nie na pozorną pochwałę; bez dosłownych duchów.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-047",
+      "category": "irony_sarcasm",
+      "question": "Brawo, teraz rozumiem różnicę między kontem a osobą. Co z kartą?",
+      "rubric": "Oceń kontekst: możliwa ironia lub szczere podziękowanie. Odpowiedz na treść, nie na pozorną pochwałę; bez dosłownych duchów.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-048",
+      "category": "irony_sarcasm",
+      "question": "No jasne. Dziękuję za wyjaśnienie. Kiedy ruszyła zmiana?",
+      "rubric": "Oceń kontekst: możliwa ironia lub szczere podziękowanie. Odpowiedz na treść, nie na pozorną pochwałę; bez dosłownych duchów.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-049",
+      "category": "colloquial_polish",
+      "question": "Nie ściemniaj, kto cię tam widział?",
+      "rubric": "Zachowaj oryginał. Odczytaj potoczne znaczenie w kontekście; nie przypisuj metafory literalnemu pokrętłu ani nie karz pytania za wulgaryzm.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-050",
+      "category": "colloquial_polish",
+      "question": "Bez kitu, gdzie siedziałeś po północy?",
+      "rubric": "Zachowaj oryginał. Odczytaj potoczne znaczenie w kontekście; nie przypisuj metafory literalnemu pokrętłu ani nie karz pytania za wulgaryzm.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-051",
+      "category": "colloquial_polish",
+      "question": "Coś mi się to nie klei. Jak było po kolei?",
+      "rubric": "Zachowaj oryginał. Odczytaj potoczne znaczenie w kontekście; nie przypisuj metafory literalnemu pokrętłu ani nie karz pytania za wulgaryzm.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-052",
+      "category": "colloquial_polish",
+      "question": "Kto to klepnął?",
+      "rubric": "Zachowaj oryginał. Odczytaj potoczne znaczenie w kontekście; nie przypisuj metafory literalnemu pokrętłu ani nie karz pytania za wulgaryzm.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-053",
+      "category": "colloquial_polish",
+      "question": "Kto dał zielone światło na ten test?",
+      "rubric": "Zachowaj oryginał. Odczytaj potoczne znaczenie w kontekście; nie przypisuj metafory literalnemu pokrętłu ani nie karz pytania za wulgaryzm.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-054",
+      "category": "colloquial_polish",
+      "question": "No gadaj po ludzku, co ten log pokazuje?",
+      "rubric": "Zachowaj oryginał. Odczytaj potoczne znaczenie w kontekście; nie przypisuj metafory literalnemu pokrętłu ani nie karz pytania za wulgaryzm.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-055",
+      "category": "colloquial_polish",
+      "question": "Nie rób mnie w balona. Telefon to nie zdjęcie, nie?",
+      "rubric": "Zachowaj oryginał. Odczytaj potoczne znaczenie w kontekście; nie przypisuj metafory literalnemu pokrętłu ani nie karz pytania za wulgaryzm.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-056",
+      "category": "colloquial_polish",
+      "question": "Co ty kombinowałeś przy tym wagonie?",
+      "rubric": "Zachowaj oryginał. Odczytaj potoczne znaczenie w kontekście; nie przypisuj metafory literalnemu pokrętłu ani nie karz pytania za wulgaryzm.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-057",
+      "category": "colloquial_polish",
+      "question": "co ty pierdolisz kto to niby potwierdzi",
+      "rubric": "Zachowaj oryginał. Odczytaj potoczne znaczenie w kontekście; nie przypisuj metafory literalnemu pokrętłu ani nie karz pytania za wulgaryzm.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-058",
+      "category": "colloquial_polish",
+      "question": "kto cie widzial i skad ta godzina bez lania wody",
+      "rubric": "Zachowaj oryginał. Odczytaj potoczne znaczenie w kontekście; nie przypisuj metafory literalnemu pokrętłu ani nie karz pytania za wulgaryzm.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-059",
+      "category": "colloquial_polish",
+      "question": "Puścił ktoś parę czy tylko zgadujesz?",
+      "rubric": "Zachowaj oryginał. Odczytaj potoczne znaczenie w kontekście; nie przypisuj metafory literalnemu pokrętłu ani nie karz pytania za wulgaryzm.",
+      "liveResult": "not_run"
+    },
+    {
+      "id": "PL20-060",
+      "category": "colloquial_polish",
+      "question": "Kręci pan tym pokrętłem w prawo czy w lewo?",
+      "rubric": "Zachowaj oryginał. Odczytaj potoczne znaczenie w kontekście; nie przypisuj metafory literalnemu pokrętłu ani nie karz pytania za wulgaryzm.",
+      "liveResult": "not_run"
+    }
+  ]
+}

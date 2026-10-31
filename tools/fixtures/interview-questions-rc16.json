@@ -1,0 +1,3117 @@
+{
+  "schema": "ps-interview-regression/1",
+  "version": "RC16",
+  "purpose": "regression_tests_not_dialogue_templates",
+  "cases": [
+    {
+      "id": "RC16-001",
+      "category": "alibi",
+      "categoryTitle": "Zakres alibi",
+      "witnessId": "MAREK",
+      "question": "Masz alibi?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel nadzorowanie zmiany i dostępność od ciągłej fizycznej obecności.",
+        "mustNot": [
+          "Nie przedstawiaj pełnego alibi jako udowodnionego.",
+          "Nie dopisuj godzin ani miejsc wyjścia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-002",
+      "category": "alibi",
+      "categoryTitle": "Zakres alibi",
+      "witnessId": "MAREK",
+      "question": "Jakie jest pana alibi?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel nadzorowanie zmiany i dostępność od ciągłej fizycznej obecności.",
+        "mustNot": [
+          "Nie przedstawiaj pełnego alibi jako udowodnionego.",
+          "Nie dopisuj godzin ani miejsc wyjścia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-003",
+      "category": "alibi",
+      "categoryTitle": "Zakres alibi",
+      "witnessId": "MAREK",
+      "question": "Gdzie byłeś w noc zdarzenia?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel nadzorowanie zmiany i dostępność od ciągłej fizycznej obecności.",
+        "mustNot": [
+          "Nie przedstawiaj pełnego alibi jako udowodnionego.",
+          "Nie dopisuj godzin ani miejsc wyjścia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-004",
+      "category": "alibi",
+      "categoryTitle": "Zakres alibi",
+      "witnessId": "MAREK",
+      "question": "Czy przez całą noc siedziałeś w biurze?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel nadzorowanie zmiany i dostępność od ciągłej fizycznej obecności.",
+        "mustNot": [
+          "Nie przedstawiaj pełnego alibi jako udowodnionego.",
+          "Nie dopisuj godzin ani miejsc wyjścia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-005",
+      "category": "alibi",
+      "categoryTitle": "Zakres alibi",
+      "witnessId": "MAREK",
+      "question": "Co robiłeś, kiedy nadzorowałeś zmianę?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel nadzorowanie zmiany i dostępność od ciągłej fizycznej obecności.",
+        "mustNot": [
+          "Nie przedstawiaj pełnego alibi jako udowodnionego.",
+          "Nie dopisuj godzin ani miejsc wyjścia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-006",
+      "category": "alibi",
+      "categoryTitle": "Zakres alibi",
+      "witnessId": "MAREK",
+      "question": "Byłeś dostępny z biura czy cały czas w biurze?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel nadzorowanie zmiany i dostępność od ciągłej fizycznej obecności.",
+        "mustNot": [
+          "Nie przedstawiaj pełnego alibi jako udowodnionego.",
+          "Nie dopisuj godzin ani miejsc wyjścia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-007",
+      "category": "alibi",
+      "categoryTitle": "Zakres alibi",
+      "witnessId": "MAREK",
+      "question": "Czy twoje alibi obejmuje każdą minutę nocy?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel nadzorowanie zmiany i dostępność od ciągłej fizycznej obecności.",
+        "mustNot": [
+          "Nie przedstawiaj pełnego alibi jako udowodnionego.",
+          "Nie dopisuj godzin ani miejsc wyjścia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-008",
+      "category": "alibi",
+      "categoryTitle": "Zakres alibi",
+      "witnessId": "MAREK",
+      "question": "Co w twoim alibi jest pewne, a czego nie potwierdzisz?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel nadzorowanie zmiany i dostępność od ciągłej fizycznej obecności.",
+        "mustNot": [
+          "Nie przedstawiaj pełnego alibi jako udowodnionego.",
+          "Nie dopisuj godzin ani miejsc wyjścia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-009",
+      "category": "alibi",
+      "categoryTitle": "Zakres alibi",
+      "witnessId": "MAREK",
+      "question": "Czy kierowanie zmianą dowodzi, że nie opuszczałeś biura?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel nadzorowanie zmiany i dostępność od ciągłej fizycznej obecności.",
+        "mustNot": [
+          "Nie przedstawiaj pełnego alibi jako udowodnionego.",
+          "Nie dopisuj godzin ani miejsc wyjścia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-010",
+      "category": "alibi",
+      "categoryTitle": "Zakres alibi",
+      "witnessId": "MAREK",
+      "question": "Skąd pewność, że twoje alibi jest pełne?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel nadzorowanie zmiany i dostępność od ciągłej fizycznej obecności.",
+        "mustNot": [
+          "Nie przedstawiaj pełnego alibi jako udowodnionego.",
+          "Nie dopisuj godzin ani miejsc wyjścia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-011",
+      "category": "person",
+      "categoryTitle": "Osobowy świadek obecności",
+      "witnessId": "MAREK",
+      "question": "Kto to potwierdzi?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz o osobowej obserwacji; gdy faktów o niej brak, jasno nazwij brak takiego potwierdzenia.",
+        "mustNot": [
+          "Nie wymyślaj świadka ani nazwiska.",
+          "Nie odpowiadaj wyłącznie rejestrami i połączeniami."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-012",
+      "category": "person",
+      "categoryTitle": "Osobowy świadek obecności",
+      "witnessId": "MAREK",
+      "question": "Kto może potwierdzić twoje alibi?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz o osobowej obserwacji; gdy faktów o niej brak, jasno nazwij brak takiego potwierdzenia.",
+        "mustNot": [
+          "Nie wymyślaj świadka ani nazwiska.",
+          "Nie odpowiadaj wyłącznie rejestrami i połączeniami."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-013",
+      "category": "person",
+      "categoryTitle": "Osobowy świadek obecności",
+      "witnessId": "MAREK",
+      "question": "Kto cię wtedy widział?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz o osobowej obserwacji; gdy faktów o niej brak, jasno nazwij brak takiego potwierdzenia.",
+        "mustNot": [
+          "Nie wymyślaj świadka ani nazwiska.",
+          "Nie odpowiadaj wyłącznie rejestrami i połączeniami."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-014",
+      "category": "person",
+      "categoryTitle": "Osobowy świadek obecności",
+      "witnessId": "MAREK",
+      "question": "Czy ktoś widział cię w biurze przez całą noc?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz o osobowej obserwacji; gdy faktów o niej brak, jasno nazwij brak takiego potwierdzenia.",
+        "mustNot": [
+          "Nie wymyślaj świadka ani nazwiska.",
+          "Nie odpowiadaj wyłącznie rejestrami i połączeniami."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-015",
+      "category": "person",
+      "categoryTitle": "Osobowy świadek obecności",
+      "witnessId": "MAREK",
+      "question": "Podaj osobę, która może poświadczyć twoją obecność.",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz o osobowej obserwacji; gdy faktów o niej brak, jasno nazwij brak takiego potwierdzenia.",
+        "mustNot": [
+          "Nie wymyślaj świadka ani nazwiska.",
+          "Nie odpowiadaj wyłącznie rejestrami i połączeniami."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-016",
+      "category": "person",
+      "categoryTitle": "Osobowy świadek obecności",
+      "witnessId": "MAREK",
+      "question": "Masz świadka, a nie tylko rejestr?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz o osobowej obserwacji; gdy faktów o niej brak, jasno nazwij brak takiego potwierdzenia.",
+        "mustNot": [
+          "Nie wymyślaj świadka ani nazwiska.",
+          "Nie odpowiadaj wyłącznie rejestrami i połączeniami."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-017",
+      "category": "person",
+      "categoryTitle": "Osobowy świadek obecności",
+      "witnessId": "MAREK",
+      "question": "Czy jest ktoś, kto widział, że nie wychodziłeś?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz o osobowej obserwacji; gdy faktów o niej brak, jasno nazwij brak takiego potwierdzenia.",
+        "mustNot": [
+          "Nie wymyślaj świadka ani nazwiska.",
+          "Nie odpowiadaj wyłącznie rejestrami i połączeniami."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-018",
+      "category": "person",
+      "categoryTitle": "Osobowy świadek obecności",
+      "witnessId": "MAREK",
+      "question": "Kto potwierdzi to osobiście?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz o osobowej obserwacji; gdy faktów o niej brak, jasno nazwij brak takiego potwierdzenia.",
+        "mustNot": [
+          "Nie wymyślaj świadka ani nazwiska.",
+          "Nie odpowiadaj wyłącznie rejestrami i połączeniami."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-019",
+      "category": "person",
+      "categoryTitle": "Osobowy świadek obecności",
+      "witnessId": "MAREK",
+      "question": "Czy ktokolwiek obserwował cię przez cały dyżur?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz o osobowej obserwacji; gdy faktów o niej brak, jasno nazwij brak takiego potwierdzenia.",
+        "mustNot": [
+          "Nie wymyślaj świadka ani nazwiska.",
+          "Nie odpowiadaj wyłącznie rejestrami i połączeniami."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-020",
+      "category": "person",
+      "categoryTitle": "Osobowy świadek obecności",
+      "witnessId": "MAREK",
+      "question": "Nie pytam o dokumenty. Który człowiek cię widział?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz o osobowej obserwacji; gdy faktów o niej brak, jasno nazwij brak takiego potwierdzenia.",
+        "mustNot": [
+          "Nie wymyślaj świadka ani nazwiska.",
+          "Nie odpowiadaj wyłącznie rejestrami i połączeniami."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-021",
+      "category": "records",
+      "categoryTitle": "Granice rejestru wejść",
+      "witnessId": "MAREK",
+      "question": "Co właściwie potwierdza rejestr wejść?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Wyjaśnij ograniczony charakter zapisu bez dopisywania jego zawartości.",
+        "mustNot": [
+          "Nie wymyślaj konkretnych wpisów i godzin.",
+          "Nie utożsamiaj rejestru z osobowym świadkiem."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-022",
+      "category": "records",
+      "categoryTitle": "Granice rejestru wejść",
+      "witnessId": "MAREK",
+      "question": "Czy rejestr dowodzi, że ani razu nie wyszedłeś?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Wyjaśnij ograniczony charakter zapisu bez dopisywania jego zawartości.",
+        "mustNot": [
+          "Nie wymyślaj konkretnych wpisów i godzin.",
+          "Nie utożsamiaj rejestru z osobowym świadkiem."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-023",
+      "category": "records",
+      "categoryTitle": "Granice rejestru wejść",
+      "witnessId": "MAREK",
+      "question": "Wpis w rejestrze to dowód obecności przez całą noc?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Wyjaśnij ograniczony charakter zapisu bez dopisywania jego zawartości.",
+        "mustNot": [
+          "Nie wymyślaj konkretnych wpisów i godzin.",
+          "Nie utożsamiaj rejestru z osobowym świadkiem."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-024",
+      "category": "records",
+      "categoryTitle": "Granice rejestru wejść",
+      "witnessId": "MAREK",
+      "question": "Czy sam rejestr wystarczy do potwierdzenia alibi?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Wyjaśnij ograniczony charakter zapisu bez dopisywania jego zawartości.",
+        "mustNot": [
+          "Nie wymyślaj konkretnych wpisów i godzin.",
+          "Nie utożsamiaj rejestru z osobowym świadkiem."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-025",
+      "category": "records",
+      "categoryTitle": "Granice rejestru wejść",
+      "witnessId": "MAREK",
+      "question": "Czego rejestr nie pozwala ustalić o twojej obecności?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Wyjaśnij ograniczony charakter zapisu bez dopisywania jego zawartości.",
+        "mustNot": [
+          "Nie wymyślaj konkretnych wpisów i godzin.",
+          "Nie utożsamiaj rejestru z osobowym świadkiem."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-026",
+      "category": "records",
+      "categoryTitle": "Granice rejestru wejść",
+      "witnessId": "MAREK",
+      "question": "Nie pytam, czy rejestr istnieje. Co z niego wynika?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Wyjaśnij ograniczony charakter zapisu bez dopisywania jego zawartości.",
+        "mustNot": [
+          "Nie wymyślaj konkretnych wpisów i godzin.",
+          "Nie utożsamiaj rejestru z osobowym świadkiem."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-027",
+      "category": "records",
+      "categoryTitle": "Granice rejestru wejść",
+      "witnessId": "MAREK",
+      "question": "Czy brak wpisu o wyjściu oznacza, że cały czas siedziałeś w biurze?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Wyjaśnij ograniczony charakter zapisu bez dopisywania jego zawartości.",
+        "mustNot": [
+          "Nie wymyślaj konkretnych wpisów i godzin.",
+          "Nie utożsamiaj rejestru z osobowym świadkiem."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-028",
+      "category": "records",
+      "categoryTitle": "Granice rejestru wejść",
+      "witnessId": "MAREK",
+      "question": "Jak odróżniasz zapis wejścia od ciągłej obserwacji osoby?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Wyjaśnij ograniczony charakter zapisu bez dopisywania jego zawartości.",
+        "mustNot": [
+          "Nie wymyślaj konkretnych wpisów i godzin.",
+          "Nie utożsamiaj rejestru z osobowym świadkiem."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-029",
+      "category": "records",
+      "categoryTitle": "Granice rejestru wejść",
+      "witnessId": "MAREK",
+      "question": "Czy możemy uznać twoje alibi za pewne tylko na podstawie rejestru?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Wyjaśnij ograniczony charakter zapisu bez dopisywania jego zawartości.",
+        "mustNot": [
+          "Nie wymyślaj konkretnych wpisów i godzin.",
+          "Nie utożsamiaj rejestru z osobowym świadkiem."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-030",
+      "category": "records",
+      "categoryTitle": "Granice rejestru wejść",
+      "witnessId": "MAREK",
+      "question": "Dlaczego odsyłasz do rejestru, skoro pytam o całą noc?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Wyjaśnij ograniczony charakter zapisu bez dopisywania jego zawartości.",
+        "mustNot": [
+          "Nie wymyślaj konkretnych wpisów i godzin.",
+          "Nie utożsamiaj rejestru z osobowym świadkiem."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-031",
+      "category": "phone",
+      "categoryTitle": "Telefon a miejsce pobytu",
+      "witnessId": "MAREK",
+      "question": "Czy rozmowa telefoniczna dowodzi, że byłeś w biurze?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-witness",
+        "public-alibi"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel kontakt telefoniczny od ustalenia fizycznego miejsca pobytu.",
+        "mustNot": [
+          "Nie dopisuj urządzenia, lokalizacji ani rozmówcy.",
+          "Nie traktuj połączenia jako dowodu miejsca."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-032",
+      "category": "phone",
+      "categoryTitle": "Telefon a miejsce pobytu",
+      "witnessId": "MAREK",
+      "question": "Co potwierdzają połączenia służbowe?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-witness",
+        "public-alibi"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel kontakt telefoniczny od ustalenia fizycznego miejsca pobytu.",
+        "mustNot": [
+          "Nie dopisuj urządzenia, lokalizacji ani rozmówcy.",
+          "Nie traktuj połączenia jako dowodu miejsca."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-033",
+      "category": "phone",
+      "categoryTitle": "Telefon a miejsce pobytu",
+      "witnessId": "MAREK",
+      "question": "Można było dodzwonić się do ciebie także poza biurem?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-witness",
+        "public-alibi"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel kontakt telefoniczny od ustalenia fizycznego miejsca pobytu.",
+        "mustNot": [
+          "Nie dopisuj urządzenia, lokalizacji ani rozmówcy.",
+          "Nie traktuj połączenia jako dowodu miejsca."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-034",
+      "category": "phone",
+      "categoryTitle": "Telefon a miejsce pobytu",
+      "witnessId": "MAREK",
+      "question": "Czy telefon pokazuje, gdzie fizycznie stałeś?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-witness",
+        "public-alibi"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel kontakt telefoniczny od ustalenia fizycznego miejsca pobytu.",
+        "mustNot": [
+          "Nie dopisuj urządzenia, lokalizacji ani rozmówcy.",
+          "Nie traktuj połączenia jako dowodu miejsca."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-035",
+      "category": "phone",
+      "categoryTitle": "Telefon a miejsce pobytu",
+      "witnessId": "MAREK",
+      "question": "Byłeś pod telefonem, ale czy to znaczy, że nie wychodziłeś?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-witness",
+        "public-alibi"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel kontakt telefoniczny od ustalenia fizycznego miejsca pobytu.",
+        "mustNot": [
+          "Nie dopisuj urządzenia, lokalizacji ani rozmówcy.",
+          "Nie traktuj połączenia jako dowodu miejsca."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-036",
+      "category": "phone",
+      "categoryTitle": "Telefon a miejsce pobytu",
+      "witnessId": "MAREK",
+      "question": "Ktoś z tobą rozmawiał czy ktoś cię widział?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-witness",
+        "public-alibi"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel kontakt telefoniczny od ustalenia fizycznego miejsca pobytu.",
+        "mustNot": [
+          "Nie dopisuj urządzenia, lokalizacji ani rozmówcy.",
+          "Nie traktuj połączenia jako dowodu miejsca."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-037",
+      "category": "phone",
+      "categoryTitle": "Telefon a miejsce pobytu",
+      "witnessId": "MAREK",
+      "question": "Czego nie dowiemy się z samych połączeń?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-witness",
+        "public-alibi"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel kontakt telefoniczny od ustalenia fizycznego miejsca pobytu.",
+        "mustNot": [
+          "Nie dopisuj urządzenia, lokalizacji ani rozmówcy.",
+          "Nie traktuj połączenia jako dowodu miejsca."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-038",
+      "category": "phone",
+      "categoryTitle": "Telefon a miejsce pobytu",
+      "witnessId": "MAREK",
+      "question": "Czy dostępność telefoniczna daje ci pełne alibi?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-witness",
+        "public-alibi"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel kontakt telefoniczny od ustalenia fizycznego miejsca pobytu.",
+        "mustNot": [
+          "Nie dopisuj urządzenia, lokalizacji ani rozmówcy.",
+          "Nie traktuj połączenia jako dowodu miejsca."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-039",
+      "category": "phone",
+      "categoryTitle": "Telefon a miejsce pobytu",
+      "witnessId": "MAREK",
+      "question": "Nie pytam o kontakt. Pytam o twoje położenie.",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-witness",
+        "public-alibi"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel kontakt telefoniczny od ustalenia fizycznego miejsca pobytu.",
+        "mustNot": [
+          "Nie dopisuj urządzenia, lokalizacji ani rozmówcy.",
+          "Nie traktuj połączenia jako dowodu miejsca."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-040",
+      "category": "phone",
+      "categoryTitle": "Telefon a miejsce pobytu",
+      "witnessId": "MAREK",
+      "question": "Czy połączenia potwierdzają całonocną obecność, czy tylko możliwość kontaktu?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-witness",
+        "public-alibi"
+      ],
+      "rubric": {
+        "mustAddress": "Oddziel kontakt telefoniczny od ustalenia fizycznego miejsca pobytu.",
+        "mustNot": [
+          "Nie dopisuj urządzenia, lokalizacji ani rozmówcy.",
+          "Nie traktuj połączenia jako dowodu miejsca."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-041",
+      "category": "relationship",
+      "categoryTitle": "Znajomość Leny",
+      "witnessId": "MAREK",
+      "question": "Znałeś ofiarę?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship"
+      ],
+      "rubric": {
+        "mustAddress": "Opisz relację zawodową i granice znanej relacji; nie dopowiadaj życia prywatnego.",
+        "mustNot": [
+          "Nie opisuj Leny jako mężczyzny.",
+          "Nie wymyślaj bliskości prywatnej ani wrogości."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-042",
+      "category": "relationship",
+      "categoryTitle": "Znajomość Leny",
+      "witnessId": "MAREK",
+      "question": "Znał pan Lenę Rudnicką?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship"
+      ],
+      "rubric": {
+        "mustAddress": "Opisz relację zawodową i granice znanej relacji; nie dopowiadaj życia prywatnego.",
+        "mustNot": [
+          "Nie opisuj Leny jako mężczyzny.",
+          "Nie wymyślaj bliskości prywatnej ani wrogości."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-043",
+      "category": "relationship",
+      "categoryTitle": "Znajomość Leny",
+      "witnessId": "MAREK",
+      "question": "Kim była dla ciebie Lena?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship"
+      ],
+      "rubric": {
+        "mustAddress": "Opisz relację zawodową i granice znanej relacji; nie dopowiadaj życia prywatnego.",
+        "mustNot": [
+          "Nie opisuj Leny jako mężczyzny.",
+          "Nie wymyślaj bliskości prywatnej ani wrogości."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-044",
+      "category": "relationship",
+      "categoryTitle": "Znajomość Leny",
+      "witnessId": "MAREK",
+      "question": "Jakie relacje łączyły cię z tą kobietą?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship"
+      ],
+      "rubric": {
+        "mustAddress": "Opisz relację zawodową i granice znanej relacji; nie dopowiadaj życia prywatnego.",
+        "mustNot": [
+          "Nie opisuj Leny jako mężczyzny.",
+          "Nie wymyślaj bliskości prywatnej ani wrogości."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-045",
+      "category": "relationship",
+      "categoryTitle": "Znajomość Leny",
+      "witnessId": "MAREK",
+      "question": "Skąd znałeś zmarłą?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship"
+      ],
+      "rubric": {
+        "mustAddress": "Opisz relację zawodową i granice znanej relacji; nie dopowiadaj życia prywatnego.",
+        "mustNot": [
+          "Nie opisuj Leny jako mężczyzny.",
+          "Nie wymyślaj bliskości prywatnej ani wrogości."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-046",
+      "category": "relationship",
+      "categoryTitle": "Znajomość Leny",
+      "witnessId": "MAREK",
+      "question": "Co was łączyło poza pracą?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship"
+      ],
+      "rubric": {
+        "mustAddress": "Opisz relację zawodową i granice znanej relacji; nie dopowiadaj życia prywatnego.",
+        "mustNot": [
+          "Nie opisuj Leny jako mężczyzny.",
+          "Nie wymyślaj bliskości prywatnej ani wrogości."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-047",
+      "category": "relationship",
+      "categoryTitle": "Znajomość Leny",
+      "witnessId": "MAREK",
+      "question": "Czy Lena była twoją podwładną?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship"
+      ],
+      "rubric": {
+        "mustAddress": "Opisz relację zawodową i granice znanej relacji; nie dopowiadaj życia prywatnego.",
+        "mustNot": [
+          "Nie opisuj Leny jako mężczyzny.",
+          "Nie wymyślaj bliskości prywatnej ani wrogości."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-048",
+      "category": "relationship",
+      "categoryTitle": "Znajomość Leny",
+      "witnessId": "MAREK",
+      "question": "Jak ją znałeś jako kierownik zajezdni?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship"
+      ],
+      "rubric": {
+        "mustAddress": "Opisz relację zawodową i granice znanej relacji; nie dopowiadaj życia prywatnego.",
+        "mustNot": [
+          "Nie opisuj Leny jako mężczyzny.",
+          "Nie wymyślaj bliskości prywatnej ani wrogości."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-049",
+      "category": "relationship",
+      "categoryTitle": "Znajomość Leny",
+      "witnessId": "MAREK",
+      "question": "Czy szanowałeś Lenę mimo sporów?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship"
+      ],
+      "rubric": {
+        "mustAddress": "Opisz relację zawodową i granice znanej relacji; nie dopowiadaj życia prywatnego.",
+        "mustNot": [
+          "Nie opisuj Leny jako mężczyzny.",
+          "Nie wymyślaj bliskości prywatnej ani wrogości."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-050",
+      "category": "relationship",
+      "categoryTitle": "Znajomość Leny",
+      "witnessId": "MAREK",
+      "question": "Nie pytam o alibi. Pytam, jaka była wasza relacja.",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship"
+      ],
+      "rubric": {
+        "mustAddress": "Opisz relację zawodową i granice znanej relacji; nie dopowiadaj życia prywatnego.",
+        "mustNot": [
+          "Nie opisuj Leny jako mężczyzny.",
+          "Nie wymyślaj bliskości prywatnej ani wrogości."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-051",
+      "category": "actor",
+      "categoryTitle": "Kto zgłaszał zastrzeżenia",
+      "witnessId": "MAREK",
+      "question": "Kto zgłaszał zastrzeżenia do bezpieczeństwa wagonu?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Zachowaj kierunek czynności: Lena zgłaszała zastrzeżenia dotyczące bezpieczeństwa wagonu.",
+        "mustNot": [
+          "Nie przypisuj tej czynności Markowi.",
+          "Nie dopisuj adresata konkretnego zgłoszenia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-052",
+      "category": "actor",
+      "categoryTitle": "Kto zgłaszał zastrzeżenia",
+      "witnessId": "MAREK",
+      "question": "To Lena zgłaszała uwagi czy ty?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Zachowaj kierunek czynności: Lena zgłaszała zastrzeżenia dotyczące bezpieczeństwa wagonu.",
+        "mustNot": [
+          "Nie przypisuj tej czynności Markowi.",
+          "Nie dopisuj adresata konkretnego zgłoszenia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-053",
+      "category": "actor",
+      "categoryTitle": "Kto zgłaszał zastrzeżenia",
+      "witnessId": "MAREK",
+      "question": "Czy to ty zgłaszałeś Lenie zastrzeżenia?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Zachowaj kierunek czynności: Lena zgłaszała zastrzeżenia dotyczące bezpieczeństwa wagonu.",
+        "mustNot": [
+          "Nie przypisuj tej czynności Markowi.",
+          "Nie dopisuj adresata konkretnego zgłoszenia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-054",
+      "category": "actor",
+      "categoryTitle": "Kto zgłaszał zastrzeżenia",
+      "witnessId": "MAREK",
+      "question": "Kto komu zwracał uwagę na bezpieczeństwo wagonu?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Zachowaj kierunek czynności: Lena zgłaszała zastrzeżenia dotyczące bezpieczeństwa wagonu.",
+        "mustNot": [
+          "Nie przypisuj tej czynności Markowi.",
+          "Nie dopisuj adresata konkretnego zgłoszenia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-055",
+      "category": "actor",
+      "categoryTitle": "Kto zgłaszał zastrzeżenia",
+      "witnessId": "MAREK",
+      "question": "Czyje były zastrzeżenia, twoje czy Leny?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Zachowaj kierunek czynności: Lena zgłaszała zastrzeżenia dotyczące bezpieczeństwa wagonu.",
+        "mustNot": [
+          "Nie przypisuj tej czynności Markowi.",
+          "Nie dopisuj adresata konkretnego zgłoszenia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-056",
+      "category": "actor",
+      "categoryTitle": "Kto zgłaszał zastrzeżenia",
+      "witnessId": "MAREK",
+      "question": "Lena miała uwagi do wagonu czy ty do niej?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Zachowaj kierunek czynności: Lena zgłaszała zastrzeżenia dotyczące bezpieczeństwa wagonu.",
+        "mustNot": [
+          "Nie przypisuj tej czynności Markowi.",
+          "Nie dopisuj adresata konkretnego zgłoszenia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-057",
+      "category": "actor",
+      "categoryTitle": "Kto zgłaszał zastrzeżenia",
+      "witnessId": "MAREK",
+      "question": "Nie odwracaj ról: kto zgłaszał problem?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Zachowaj kierunek czynności: Lena zgłaszała zastrzeżenia dotyczące bezpieczeństwa wagonu.",
+        "mustNot": [
+          "Nie przypisuj tej czynności Markowi.",
+          "Nie dopisuj adresata konkretnego zgłoszenia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-058",
+      "category": "actor",
+      "categoryTitle": "Kto zgłaszał zastrzeżenia",
+      "witnessId": "MAREK",
+      "question": "Czy powiedziałeś, że zgłaszałeś jej zastrzeżenia?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Zachowaj kierunek czynności: Lena zgłaszała zastrzeżenia dotyczące bezpieczeństwa wagonu.",
+        "mustNot": [
+          "Nie przypisuj tej czynności Markowi.",
+          "Nie dopisuj adresata konkretnego zgłoszenia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-059",
+      "category": "actor",
+      "categoryTitle": "Kto zgłaszał zastrzeżenia",
+      "witnessId": "MAREK",
+      "question": "Czy zgłaszającą była Lena Rudnicka?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Zachowaj kierunek czynności: Lena zgłaszała zastrzeżenia dotyczące bezpieczeństwa wagonu.",
+        "mustNot": [
+          "Nie przypisuj tej czynności Markowi.",
+          "Nie dopisuj adresata konkretnego zgłoszenia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-060",
+      "category": "actor",
+      "categoryTitle": "Kto zgłaszał zastrzeżenia",
+      "witnessId": "MAREK",
+      "question": "Powiedz jednoznacznie, kto zgłaszał uwagi dotyczące bezpieczeństwa.",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Zachowaj kierunek czynności: Lena zgłaszała zastrzeżenia dotyczące bezpieczeństwa wagonu.",
+        "mustNot": [
+          "Nie przypisuj tej czynności Markowi.",
+          "Nie dopisuj adresata konkretnego zgłoszenia."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-061",
+      "category": "source",
+      "categoryTitle": "Źródło i granice wiedzy",
+      "witnessId": "MAREK",
+      "question": "Skąd wiesz, że Lena zgłaszała zastrzeżenia?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Podaj tylko dostępny zakres wiedzy; nie twórz obserwacji, cytatu ani nieokazanego dokumentu.",
+        "mustNot": [
+          "Nie dopisuj godziny, kanału zgłoszenia ani jego adresata.",
+          "Nie udawaj osobistej obserwacji bez źródła."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-062",
+      "category": "source",
+      "categoryTitle": "Źródło i granice wiedzy",
+      "witnessId": "MAREK",
+      "question": "Co wiesz osobiście, a co wynika z dokumentów?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Podaj tylko dostępny zakres wiedzy; nie twórz obserwacji, cytatu ani nieokazanego dokumentu.",
+        "mustNot": [
+          "Nie dopisuj godziny, kanału zgłoszenia ani jego adresata.",
+          "Nie udawaj osobistej obserwacji bez źródła."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-063",
+      "category": "source",
+      "categoryTitle": "Źródło i granice wiedzy",
+      "witnessId": "MAREK",
+      "question": "Czy widziałeś moment zgłoszenia uwag przez Lenę?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Podaj tylko dostępny zakres wiedzy; nie twórz obserwacji, cytatu ani nieokazanego dokumentu.",
+        "mustNot": [
+          "Nie dopisuj godziny, kanału zgłoszenia ani jego adresata.",
+          "Nie udawaj osobistej obserwacji bez źródła."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-064",
+      "category": "source",
+      "categoryTitle": "Źródło i granice wiedzy",
+      "witnessId": "MAREK",
+      "question": "Czy możesz przytoczyć dokładne słowa Leny?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Podaj tylko dostępny zakres wiedzy; nie twórz obserwacji, cytatu ani nieokazanego dokumentu.",
+        "mustNot": [
+          "Nie dopisuj godziny, kanału zgłoszenia ani jego adresata.",
+          "Nie udawaj osobistej obserwacji bez źródła."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-065",
+      "category": "source",
+      "categoryTitle": "Źródło i granice wiedzy",
+      "witnessId": "MAREK",
+      "question": "Czy pamiętasz godzinę, o której zgłosiła problem?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Podaj tylko dostępny zakres wiedzy; nie twórz obserwacji, cytatu ani nieokazanego dokumentu.",
+        "mustNot": [
+          "Nie dopisuj godziny, kanału zgłoszenia ani jego adresata.",
+          "Nie udawaj osobistej obserwacji bez źródła."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-066",
+      "category": "source",
+      "categoryTitle": "Źródło i granice wiedzy",
+      "witnessId": "MAREK",
+      "question": "Czy masz pewność, komu Lena przekazała zgłoszenie?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Podaj tylko dostępny zakres wiedzy; nie twórz obserwacji, cytatu ani nieokazanego dokumentu.",
+        "mustNot": [
+          "Nie dopisuj godziny, kanału zgłoszenia ani jego adresata.",
+          "Nie udawaj osobistej obserwacji bez źródła."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-067",
+      "category": "source",
+      "categoryTitle": "Źródło i granice wiedzy",
+      "witnessId": "MAREK",
+      "question": "Czy znasz treść konkretnego zgłoszenia, czy tylko fakt zastrzeżeń?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Podaj tylko dostępny zakres wiedzy; nie twórz obserwacji, cytatu ani nieokazanego dokumentu.",
+        "mustNot": [
+          "Nie dopisuj godziny, kanału zgłoszenia ani jego adresata.",
+          "Nie udawaj osobistej obserwacji bez źródła."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-068",
+      "category": "source",
+      "categoryTitle": "Źródło i granice wiedzy",
+      "witnessId": "MAREK",
+      "question": "Co możesz potwierdzić bez zaglądania do nieokazanego dokumentu?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Podaj tylko dostępny zakres wiedzy; nie twórz obserwacji, cytatu ani nieokazanego dokumentu.",
+        "mustNot": [
+          "Nie dopisuj godziny, kanału zgłoszenia ani jego adresata.",
+          "Nie udawaj osobistej obserwacji bez źródła."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-069",
+      "category": "source",
+      "categoryTitle": "Źródło i granice wiedzy",
+      "witnessId": "MAREK",
+      "question": "Czy mówisz o własnej obserwacji, czy o ogólnej wiedzy o Lenie?",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Podaj tylko dostępny zakres wiedzy; nie twórz obserwacji, cytatu ani nieokazanego dokumentu.",
+        "mustNot": [
+          "Nie dopisuj godziny, kanału zgłoszenia ani jego adresata.",
+          "Nie udawaj osobistej obserwacji bez źródła."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-070",
+      "category": "source",
+      "categoryTitle": "Źródło i granice wiedzy",
+      "witnessId": "MAREK",
+      "question": "Jeżeli nie znasz szczegółu, powiedz którego dokładnie.",
+      "approvedHistory": [],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Podaj tylko dostępny zakres wiedzy; nie twórz obserwacji, cytatu ani nieokazanego dokumentu.",
+        "mustNot": [
+          "Nie dopisuj godziny, kanału zgłoszenia ani jego adresata.",
+          "Nie udawaj osobistej obserwacji bez źródła."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-071",
+      "category": "followup",
+      "categoryTitle": "Krótkie pytania z kontekstem",
+      "witnessId": "MAREK",
+      "question": "A kto dokładnie?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        },
+        {
+          "role": "player",
+          "text": "Co potwierdza twoją wersję?"
+        },
+        {
+          "role": "witness",
+          "text": "Mojej dostępności mogą dotyczyć połączenia służbowe, ale telefon nie potwierdza, gdzie fizycznie stałem.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Rozwiąż odniesienie do poprzedniej odpowiedzi o alibi; nie traktuj jej jako nowego dowodu.",
+        "mustNot": [
+          "Nie zmieniaj tematu na Lenę.",
+          "Nie wymyślaj osoby sugerowanej zaimkiem „ktoś”."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-072",
+      "category": "followup",
+      "categoryTitle": "Krótkie pytania z kontekstem",
+      "witnessId": "MAREK",
+      "question": "Osobiście?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        },
+        {
+          "role": "player",
+          "text": "Co potwierdza twoją wersję?"
+        },
+        {
+          "role": "witness",
+          "text": "Mojej dostępności mogą dotyczyć połączenia służbowe, ale telefon nie potwierdza, gdzie fizycznie stałem.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Rozwiąż odniesienie do poprzedniej odpowiedzi o alibi; nie traktuj jej jako nowego dowodu.",
+        "mustNot": [
+          "Nie zmieniaj tematu na Lenę.",
+          "Nie wymyślaj osoby sugerowanej zaimkiem „ktoś”."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-073",
+      "category": "followup",
+      "categoryTitle": "Krótkie pytania z kontekstem",
+      "witnessId": "MAREK",
+      "question": "Przez całą noc?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        },
+        {
+          "role": "player",
+          "text": "Co potwierdza twoją wersję?"
+        },
+        {
+          "role": "witness",
+          "text": "Mojej dostępności mogą dotyczyć połączenia służbowe, ale telefon nie potwierdza, gdzie fizycznie stałem.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Rozwiąż odniesienie do poprzedniej odpowiedzi o alibi; nie traktuj jej jako nowego dowodu.",
+        "mustNot": [
+          "Nie zmieniaj tematu na Lenę.",
+          "Nie wymyślaj osoby sugerowanej zaimkiem „ktoś”."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-074",
+      "category": "followup",
+      "categoryTitle": "Krótkie pytania z kontekstem",
+      "witnessId": "MAREK",
+      "question": "Kto cię widział na własne oczy?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        },
+        {
+          "role": "player",
+          "text": "Co potwierdza twoją wersję?"
+        },
+        {
+          "role": "witness",
+          "text": "Mojej dostępności mogą dotyczyć połączenia służbowe, ale telefon nie potwierdza, gdzie fizycznie stałem.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Rozwiąż odniesienie do poprzedniej odpowiedzi o alibi; nie traktuj jej jako nowego dowodu.",
+        "mustNot": [
+          "Nie zmieniaj tematu na Lenę.",
+          "Nie wymyślaj osoby sugerowanej zaimkiem „ktoś”."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-075",
+      "category": "followup",
+      "categoryTitle": "Krótkie pytania z kontekstem",
+      "witnessId": "MAREK",
+      "question": "To człowiek czy tylko zapis?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        },
+        {
+          "role": "player",
+          "text": "Co potwierdza twoją wersję?"
+        },
+        {
+          "role": "witness",
+          "text": "Mojej dostępności mogą dotyczyć połączenia służbowe, ale telefon nie potwierdza, gdzie fizycznie stałem.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Rozwiąż odniesienie do poprzedniej odpowiedzi o alibi; nie traktuj jej jako nowego dowodu.",
+        "mustNot": [
+          "Nie zmieniaj tematu na Lenę.",
+          "Nie wymyślaj osoby sugerowanej zaimkiem „ktoś”."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-076",
+      "category": "followup",
+      "categoryTitle": "Krótkie pytania z kontekstem",
+      "witnessId": "MAREK",
+      "question": "I to ma potwierdzać twoją obecność?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        },
+        {
+          "role": "player",
+          "text": "Co potwierdza twoją wersję?"
+        },
+        {
+          "role": "witness",
+          "text": "Mojej dostępności mogą dotyczyć połączenia służbowe, ale telefon nie potwierdza, gdzie fizycznie stałem.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Rozwiąż odniesienie do poprzedniej odpowiedzi o alibi; nie traktuj jej jako nowego dowodu.",
+        "mustNot": [
+          "Nie zmieniaj tematu na Lenę.",
+          "Nie wymyślaj osoby sugerowanej zaimkiem „ktoś”."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-077",
+      "category": "followup",
+      "categoryTitle": "Krótkie pytania z kontekstem",
+      "witnessId": "MAREK",
+      "question": "A skąd ten ktoś miałby to wiedzieć?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        },
+        {
+          "role": "player",
+          "text": "Co potwierdza twoją wersję?"
+        },
+        {
+          "role": "witness",
+          "text": "Mojej dostępności mogą dotyczyć połączenia służbowe, ale telefon nie potwierdza, gdzie fizycznie stałem.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Rozwiąż odniesienie do poprzedniej odpowiedzi o alibi; nie traktuj jej jako nowego dowodu.",
+        "mustNot": [
+          "Nie zmieniaj tematu na Lenę.",
+          "Nie wymyślaj osoby sugerowanej zaimkiem „ktoś”."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-078",
+      "category": "followup",
+      "categoryTitle": "Krótkie pytania z kontekstem",
+      "witnessId": "MAREK",
+      "question": "Co z przerwami między połączeniami?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        },
+        {
+          "role": "player",
+          "text": "Co potwierdza twoją wersję?"
+        },
+        {
+          "role": "witness",
+          "text": "Mojej dostępności mogą dotyczyć połączenia służbowe, ale telefon nie potwierdza, gdzie fizycznie stałem.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Rozwiąż odniesienie do poprzedniej odpowiedzi o alibi; nie traktuj jej jako nowego dowodu.",
+        "mustNot": [
+          "Nie zmieniaj tematu na Lenę.",
+          "Nie wymyślaj osoby sugerowanej zaimkiem „ktoś”."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-079",
+      "category": "followup",
+      "categoryTitle": "Krótkie pytania z kontekstem",
+      "witnessId": "MAREK",
+      "question": "Czy to obejmuje każdą chwilę?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        },
+        {
+          "role": "player",
+          "text": "Co potwierdza twoją wersję?"
+        },
+        {
+          "role": "witness",
+          "text": "Mojej dostępności mogą dotyczyć połączenia służbowe, ale telefon nie potwierdza, gdzie fizycznie stałem.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Rozwiąż odniesienie do poprzedniej odpowiedzi o alibi; nie traktuj jej jako nowego dowodu.",
+        "mustNot": [
+          "Nie zmieniaj tematu na Lenę.",
+          "Nie wymyślaj osoby sugerowanej zaimkiem „ktoś”."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-080",
+      "category": "followup",
+      "categoryTitle": "Krótkie pytania z kontekstem",
+      "witnessId": "MAREK",
+      "question": "Czyli nikt nie widział cię cały czas?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        },
+        {
+          "role": "player",
+          "text": "Co potwierdza twoją wersję?"
+        },
+        {
+          "role": "witness",
+          "text": "Mojej dostępności mogą dotyczyć połączenia służbowe, ale telefon nie potwierdza, gdzie fizycznie stałem.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Rozwiąż odniesienie do poprzedniej odpowiedzi o alibi; nie traktuj jej jako nowego dowodu.",
+        "mustNot": [
+          "Nie zmieniaj tematu na Lenę.",
+          "Nie wymyślaj osoby sugerowanej zaimkiem „ktoś”."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-081",
+      "category": "negation",
+      "categoryTitle": "Przeczenia i korekta założenia",
+      "witnessId": "MAREK",
+      "question": "Nie pytam o rejestr, tylko o osobę, która cię widziała.",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na dodatnią część pytania; nie przyjmuj zanegowanego założenia jako faktu.",
+        "mustNot": [
+          "Nie reaguj automatycznie jak na oskarżenie.",
+          "Nie zamieniaj zaprzeczenia w przyznanie faktu."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-082",
+      "category": "negation",
+      "categoryTitle": "Przeczenia i korekta założenia",
+      "witnessId": "MAREK",
+      "question": "Nie twierdzę, że kłamiesz. Chcę wiedzieć, kto potwierdzi twoje alibi.",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na dodatnią część pytania; nie przyjmuj zanegowanego założenia jako faktu.",
+        "mustNot": [
+          "Nie reaguj automatycznie jak na oskarżenie.",
+          "Nie zamieniaj zaprzeczenia w przyznanie faktu."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-083",
+      "category": "negation",
+      "categoryTitle": "Przeczenia i korekta założenia",
+      "witnessId": "MAREK",
+      "question": "Nie pytam o Lenę. Pytam, czy ktoś widział cię w biurze.",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na dodatnią część pytania; nie przyjmuj zanegowanego założenia jako faktu.",
+        "mustNot": [
+          "Nie reaguj automatycznie jak na oskarżenie.",
+          "Nie zamieniaj zaprzeczenia w przyznanie faktu."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-084",
+      "category": "negation",
+      "categoryTitle": "Przeczenia i korekta założenia",
+      "witnessId": "MAREK",
+      "question": "Nie mówię, że wyszedłeś. Czy masz dowód, że nie wychodziłeś?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na dodatnią część pytania; nie przyjmuj zanegowanego założenia jako faktu.",
+        "mustNot": [
+          "Nie reaguj automatycznie jak na oskarżenie.",
+          "Nie zamieniaj zaprzeczenia w przyznanie faktu."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-085",
+      "category": "negation",
+      "categoryTitle": "Przeczenia i korekta założenia",
+      "witnessId": "MAREK",
+      "question": "Nie chodzi mi o rozmowy telefoniczne, tylko o fizyczną obecność.",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na dodatnią część pytania; nie przyjmuj zanegowanego założenia jako faktu.",
+        "mustNot": [
+          "Nie reaguj automatycznie jak na oskarżenie.",
+          "Nie zamieniaj zaprzeczenia w przyznanie faktu."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-086",
+      "category": "negation",
+      "categoryTitle": "Przeczenia i korekta założenia",
+      "witnessId": "MAREK",
+      "question": "Nie pytam, czy zgłaszałeś Lenie uwagi. Czy to ona zgłaszała problem?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na dodatnią część pytania; nie przyjmuj zanegowanego założenia jako faktu.",
+        "mustNot": [
+          "Nie reaguj automatycznie jak na oskarżenie.",
+          "Nie zamieniaj zaprzeczenia w przyznanie faktu."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-087",
+      "category": "negation",
+      "categoryTitle": "Przeczenia i korekta założenia",
+      "witnessId": "MAREK",
+      "question": "Nie przypisuję ci zastrzeżeń Leny. Chcę ustalić, czyje były.",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na dodatnią część pytania; nie przyjmuj zanegowanego założenia jako faktu.",
+        "mustNot": [
+          "Nie reaguj automatycznie jak na oskarżenie.",
+          "Nie zamieniaj zaprzeczenia w przyznanie faktu."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-088",
+      "category": "negation",
+      "categoryTitle": "Przeczenia i korekta założenia",
+      "witnessId": "MAREK",
+      "question": "Nie pytam o prywatną znajomość, tylko o relację służbową z Leną.",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na dodatnią część pytania; nie przyjmuj zanegowanego założenia jako faktu.",
+        "mustNot": [
+          "Nie reaguj automatycznie jak na oskarżenie.",
+          "Nie zamieniaj zaprzeczenia w przyznanie faktu."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-089",
+      "category": "negation",
+      "categoryTitle": "Przeczenia i korekta założenia",
+      "witnessId": "MAREK",
+      "question": "Nie zakładam, że rejestr jest fałszywy. Pytam, czego nie potwierdza.",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na dodatnią część pytania; nie przyjmuj zanegowanego założenia jako faktu.",
+        "mustNot": [
+          "Nie reaguj automatycznie jak na oskarżenie.",
+          "Nie zamieniaj zaprzeczenia w przyznanie faktu."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-090",
+      "category": "negation",
+      "categoryTitle": "Przeczenia i korekta założenia",
+      "witnessId": "MAREK",
+      "question": "Nie żądam nazwiska na siłę. Czy możesz uczciwie wskazać osobowego świadka?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na dodatnią część pytania; nie przyjmuj zanegowanego założenia jako faktu.",
+        "mustNot": [
+          "Nie reaguj automatycznie jak na oskarżenie.",
+          "Nie zamieniaj zaprzeczenia w przyznanie faktu."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-091",
+      "category": "compound",
+      "categoryTitle": "Pytania złożone",
+      "witnessId": "MAREK",
+      "question": "Gdzie byłeś i kto może to potwierdzić?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na każdą część pytania, podając konkretne ograniczenie tam, gdzie brakuje faktów.",
+        "mustNot": [
+          "Nie pomijaj drugiej części pytania.",
+          "Nie wyprowadzaj winy ze sporu zawodowego."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-092",
+      "category": "compound",
+      "categoryTitle": "Pytania złożone",
+      "witnessId": "MAREK",
+      "question": "Jakie masz alibi i czego ono nie obejmuje?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na każdą część pytania, podając konkretne ograniczenie tam, gdzie brakuje faktów.",
+        "mustNot": [
+          "Nie pomijaj drugiej części pytania.",
+          "Nie wyprowadzaj winy ze sporu zawodowego."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-093",
+      "category": "compound",
+      "categoryTitle": "Pytania złożone",
+      "witnessId": "MAREK",
+      "question": "Kto cię widział i co niezależnie potwierdzają połączenia?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na każdą część pytania, podając konkretne ograniczenie tam, gdzie brakuje faktów.",
+        "mustNot": [
+          "Nie pomijaj drugiej części pytania.",
+          "Nie wyprowadzaj winy ze sporu zawodowego."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-094",
+      "category": "compound",
+      "categoryTitle": "Pytania złożone",
+      "witnessId": "MAREK",
+      "question": "Czy byłeś całą noc w biurze, a jeśli nie wiesz, co możesz potwierdzić?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na każdą część pytania, podając konkretne ograniczenie tam, gdzie brakuje faktów.",
+        "mustNot": [
+          "Nie pomijaj drugiej części pytania.",
+          "Nie wyprowadzaj winy ze sporu zawodowego."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-095",
+      "category": "compound",
+      "categoryTitle": "Pytania złożone",
+      "witnessId": "MAREK",
+      "question": "Znałeś Lenę i jak wyglądała wasza relacja zawodowa?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na każdą część pytania, podając konkretne ograniczenie tam, gdzie brakuje faktów.",
+        "mustNot": [
+          "Nie pomijaj drugiej części pytania.",
+          "Nie wyprowadzaj winy ze sporu zawodowego."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-096",
+      "category": "compound",
+      "categoryTitle": "Pytania złożone",
+      "witnessId": "MAREK",
+      "question": "Kto zgłaszał zastrzeżenia i czego one dotyczyły?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na każdą część pytania, podając konkretne ograniczenie tam, gdzie brakuje faktów.",
+        "mustNot": [
+          "Nie pomijaj drugiej części pytania.",
+          "Nie wyprowadzaj winy ze sporu zawodowego."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-097",
+      "category": "compound",
+      "categoryTitle": "Pytania złożone",
+      "witnessId": "MAREK",
+      "question": "Czyje były uwagi do bezpieczeństwa i czy możesz podać ich dokładną treść?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na każdą część pytania, podając konkretne ograniczenie tam, gdzie brakuje faktów.",
+        "mustNot": [
+          "Nie pomijaj drugiej części pytania.",
+          "Nie wyprowadzaj winy ze sporu zawodowego."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-098",
+      "category": "compound",
+      "categoryTitle": "Pytania złożone",
+      "witnessId": "MAREK",
+      "question": "Co potwierdza rejestr, co telefon, a czego nie potwierdza żadne z nich?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na każdą część pytania, podając konkretne ograniczenie tam, gdzie brakuje faktów.",
+        "mustNot": [
+          "Nie pomijaj drugiej części pytania.",
+          "Nie wyprowadzaj winy ze sporu zawodowego."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-099",
+      "category": "compound",
+      "categoryTitle": "Pytania złożone",
+      "witnessId": "MAREK",
+      "question": "Czy masz osobowego świadka i czy może poświadczyć całą noc?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na każdą część pytania, podając konkretne ograniczenie tam, gdzie brakuje faktów.",
+        "mustNot": [
+          "Nie pomijaj drugiej części pytania.",
+          "Nie wyprowadzaj winy ze sporu zawodowego."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    },
+    {
+      "id": "RC16-100",
+      "category": "compound",
+      "categoryTitle": "Pytania złożone",
+      "witnessId": "MAREK",
+      "question": "Czy szanowałeś Lenę i czy wasze spory dowodzą czyjejkolwiek winy?",
+      "approvedHistory": [
+        {
+          "role": "player",
+          "text": "Masz alibi?"
+        },
+        {
+          "role": "witness",
+          "text": "Nadzorowałem zmianę i byłem dostępny z biura. Nie mam potwierdzenia ciągłej obecności w biurze.",
+          "narrativeStatus": "reported_statement"
+        }
+      ],
+      "requiredPublicSources": [
+        "trusted-relationship",
+        "public-alibi",
+        "public-witness",
+        "public-motive"
+      ],
+      "rubric": {
+        "mustAddress": "Odpowiedz na każdą część pytania, podając konkretne ograniczenie tam, gdzie brakuje faktów.",
+        "mustNot": [
+          "Nie pomijaj drugiej części pytania.",
+          "Nie wyprowadzaj winy ze sporu zawodowego."
+        ],
+        "evaluation": "semantic_review_required"
+      },
+      "liveResult": {
+        "status": "not_run",
+        "provider": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,4158 @@
+{
+  "schema": "ps-question-bank/2",
+  "version": "RC17",
+  "purpose": "question_examples_not_plot_facts",
+  "sourceSha256": "e4f4b8fd619bed4084b4d3ee8784d1210fd8520c09cf74b699cdb3dd3a91c4e6",
+  "cases": [
+    {
+      "id": "Q0001",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Co robiłeś na nocnej zmianie?"
+    },
+    {
+      "id": "Q0002",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Czy siedziałeś w biurze bez przerwy?"
+    },
+    {
+      "id": "Q0003",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Kiedy po nocnym dyżurze zmieniono kurs?"
+    },
+    {
+      "id": "Q0004",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie byłeś?"
+    },
+    {
+      "id": "Q0005",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Powiedział pan, że nie siedział tam bez przerwy. Dokąd pan wtedy wychodził i kto mógł pana tam widzieć?"
+    },
+    {
+      "id": "Q0006",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Czy oprócz twoich słów da się jakoś niezależnie zweryfikować obecność?"
+    },
+    {
+      "id": "Q0007",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie byłeś podczas nocnej zmiany?"
+    },
+    {
+      "id": "Q0008",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Proszę opisać, gdzie był pan między 01:40 a 02:05?"
+    },
+    {
+      "id": "Q0009",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Dokąd pan wychodził i kto pana widział?"
+    },
+    {
+      "id": "Q0010",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie była Lena?"
+    },
+    {
+      "id": "Q0011",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie byłeś między 01:30 a 02:05? Nie pytam o ostatnie spotkanie z Leną."
+    },
+    {
+      "id": "Q0012",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie byłeś i kto zgłosił alarm?"
+    },
+    {
+      "id": "Q0013",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie byłeś między 01:30 a 02:05?"
+    },
+    {
+      "id": "Q0014",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "W którym pomieszczeniu wtedy byłeś?"
+    },
+    {
+      "id": "Q0015",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie dokładnie to się zdarzyło?"
+    },
+    {
+      "id": "Q0016",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Panie Marku, Co było przyczyną twojej decyzji, by zostać w biurze?"
+    },
+    {
+      "id": "Q0017",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie nocą przebywałeś?"
+    },
+    {
+      "id": "Q0018",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Nie o to pytam, tylko gdzie byłeś?"
+    },
+    {
+      "id": "Q0019",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie ona wtedy była?"
+    },
+    {
+      "id": "Q0020",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Co robisz w tej chwili?"
+    },
+    {
+      "id": "Q0021",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Co dokładnie robiłeś w pracy?"
+    },
+    {
+      "id": "Q0022",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Kiedy rozpoczął się nocny dyżur?"
+    },
+    {
+      "id": "Q0023",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Czy był Pan obecny?"
+    },
+    {
+      "id": "Q0024",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie byłeś tej nocy?"
+    },
+    {
+      "id": "Q0025",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Jaką funkcję pełnił pan w zajezdni?"
+    },
+    {
+      "id": "Q0026",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie był pan w czasie alarmu?"
+    },
+    {
+      "id": "Q0027",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Co z L-2 i gdzie była Lena?"
+    },
+    {
+      "id": "Q0028",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Nie pytam o Lenę. Gdzie ty byłeś od 01:30 do 02:05?"
+    },
+    {
+      "id": "Q0029",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie był pan w czasie całego zajścia?"
+    },
+    {
+      "id": "Q0030",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie ona była przed zmianą?"
+    },
+    {
+      "id": "Q0031",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Dokąd wychodził pan w czasie zmiany i kto mógł to zobaczyć?"
+    },
+    {
+      "id": "Q0032",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie był pan na zmianie?"
+    },
+    {
+      "id": "Q0033",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Nie pytam o BHP. Gdzie byłeś między 01:30 a 02:05?"
+    },
+    {
+      "id": "Q0034",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Co robiłeś?"
+    },
+    {
+      "id": "Q0035",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Masz alibi?"
+    },
+    {
+      "id": "Q0036",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie byłeś w noc zdarzenia?"
+    },
+    {
+      "id": "Q0037",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Co robiłeś, kiedy nadzorowałeś zmianę?"
+    },
+    {
+      "id": "Q0038",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Byłeś dostępny z biura czy cały czas w biurze?"
+    },
+    {
+      "id": "Q0039",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Czy twoje alibi obejmuje każdą minutę nocy?"
+    },
+    {
+      "id": "Q0040",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Czy kierowanie zmianą dowodzi, że nie opuszczałeś biura?"
+    },
+    {
+      "id": "Q0041",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Czy ktoś widział cię w biurze przez całą noc?"
+    },
+    {
+      "id": "Q0042",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Czy rejestr dowodzi, że ani razu nie wyszedłeś?"
+    },
+    {
+      "id": "Q0043",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Czy brak wpisu o wyjściu oznacza, że cały czas siedziałeś w biurze?"
+    },
+    {
+      "id": "Q0044",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Czy możemy uznać twoje alibi za pewne tylko na podstawie rejestru?"
+    },
+    {
+      "id": "Q0045",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Dlaczego odsyłasz do rejestru, skoro pytam o całą noc?"
+    },
+    {
+      "id": "Q0046",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Przez całą noc?"
+    },
+    {
+      "id": "Q0047",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "I to ma potwierdzać twoją obecność?"
+    },
+    {
+      "id": "Q0048",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Nie pytam o Lenę. Pytam, czy ktoś widział cię w biurze."
+    },
+    {
+      "id": "Q0049",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Nie mówię, że wyszedłeś. Czy masz dowód, że nie wychodziłeś?"
+    },
+    {
+      "id": "Q0050",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Jakie masz alibi i czego ono nie obejmuje?"
+    },
+    {
+      "id": "Q0051",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie dokładnie znajdowałeś się w momencie przekazywania zmiany o godzinie 18:00?"
+    },
+    {
+      "id": "Q0052",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Co robiłeś w szatni pracowniczej dokładnie o godzinie 23:45?"
+    },
+    {
+      "id": "Q0053",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Co robiłeś na torze manewrowym między 04:00 a 05:00 rano?"
+    },
+    {
+      "id": "Q0054",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Jak wyjaśnisz obecność uszkodzonej uszczelki hydraulicznej na posadzce przy stanowisku nr 3?"
+    },
+    {
+      "id": "Q0055",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Kto przebywał w pomieszczeniu dyspozytorni, gdy opuściłeś je na przerwie o 01:30?"
+    },
+    {
+      "id": "Q0056",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie podziała się zniszczona obudowa modułu sterującego, którą zdemontowano z TW-217 przed wypadkiem?"
+    },
+    {
+      "id": "Q0057",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Czy to prawda, że zgłaszałeś mobbing ze strony kierownika zmiany do działu kadr?"
+    },
+    {
+      "id": "Q0058",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Kto spędzał najwięcej czasu w pokoju socjalnym po godzinie 23:00, zamiast przebywać na swoim odcinku pracy?"
+    },
+    {
+      "id": "Q0059",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Czy zauważyłeś, żeby jakikolwiek pojazd prywatny parkował w niedozwolonym miejscu za halą główną w noc zdarzenia?"
+    },
+    {
+      "id": "Q0060",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Czy wiesz, że Lena prowadziła prywatny notatnik zarchiwizowany poza serwerem firmowym? Gdzie mogła go ukryć?"
+    },
+    {
+      "id": "Q0061",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Kto z Państwa trójki (dyżurny, mechanik, ochrona) miał fizycznie pociągnąć za dźwignię zwalniającą blokadę na stanowisku nr 3?"
+    },
+    {
+      "id": "Q0062",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Gdzie dokładnie znajdował się pan i co robił w przedziałach czasowych między 23:00 a 02:00 w nocy z 17 na 18 listopada?"
+    },
+    {
+      "id": "Q0063",
+      "section": "Obecność alibi i przebieg zmiany",
+      "question": "Czy słyszał pan lub widział cokolwiek podejrzanego wokół stanowiska nr 3 lub wagonu TW-217 podczas swojej zmiany?"
+    },
+    {
+      "id": "Q0064",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "O której rozmawiałaś z Leną i kto to potwierdzi?"
+    },
+    {
+      "id": "Q0065",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czym różni się użycie konta od fizycznej obecności człowieka?"
+    },
+    {
+      "id": "Q0066",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "A kto może to poświadczyć?"
+    },
+    {
+      "id": "Q0067",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Kto może potwierdzić twoją obecność?"
+    },
+    {
+      "id": "Q0068",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "O której byłeś i kto cię widział?"
+    },
+    {
+      "id": "Q0069",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "To kto dokładnie zgłosił alarm?"
+    },
+    {
+      "id": "Q0070",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy można to niezależnie potwierdzić?"
+    },
+    {
+      "id": "Q0071",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Kto widział cię w trakcie nocnej zmiany?"
+    },
+    {
+      "id": "Q0072",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Kto to potwierdzi?"
+    },
+    {
+      "id": "Q0073",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Jak to potwierdzisz?"
+    },
+    {
+      "id": "Q0074",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Co w twoim alibi jest pewne, a czego nie potwierdzisz?"
+    },
+    {
+      "id": "Q0075",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Kto może potwierdzić twoje alibi?"
+    },
+    {
+      "id": "Q0076",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Kto cię wtedy widział?"
+    },
+    {
+      "id": "Q0077",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Podaj osobę, która może poświadczyć twoją obecność."
+    },
+    {
+      "id": "Q0078",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Masz świadka, a nie tylko rejestr?"
+    },
+    {
+      "id": "Q0079",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy jest ktoś, kto widział, że nie wychodziłeś?"
+    },
+    {
+      "id": "Q0080",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Kto potwierdzi to osobiście?"
+    },
+    {
+      "id": "Q0081",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy ktokolwiek obserwował cię przez cały dyżur?"
+    },
+    {
+      "id": "Q0082",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Nie pytam o dokumenty. Który człowiek cię widział?"
+    },
+    {
+      "id": "Q0083",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Ktoś z tobą rozmawiał czy ktoś cię widział?"
+    },
+    {
+      "id": "Q0084",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Co możesz potwierdzić bez zaglądania do nieokazanego dokumentu?"
+    },
+    {
+      "id": "Q0085",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "A kto dokładnie?"
+    },
+    {
+      "id": "Q0086",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Kto cię widział na własne oczy?"
+    },
+    {
+      "id": "Q0087",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "To człowiek czy tylko zapis?"
+    },
+    {
+      "id": "Q0088",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czyli nikt nie widział cię cały czas?"
+    },
+    {
+      "id": "Q0089",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Nie żądam nazwiska na siłę. Czy możesz uczciwie wskazać osobowego świadka?"
+    },
+    {
+      "id": "Q0090",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Gdzie byłeś i kto może to potwierdzić?"
+    },
+    {
+      "id": "Q0091",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Kto cię widział i co niezależnie potwierdzają połączenia?"
+    },
+    {
+      "id": "Q0092",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy byłeś całą noc w biurze, a jeśli nie wiesz, co możesz potwierdzić?"
+    },
+    {
+      "id": "Q0093",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy masz osobowego świadka i czy może poświadczyć całą noc?"
+    },
+    {
+      "id": "Q0094",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Świadek słyszał głośną kłótnię na stanowisku nr 3 o 01:40. Czy rozpoznajesz ten głos?"
+    },
+    {
+      "id": "Q0095",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Kto dokładnie przeprowadził próbę hamulców wagonu TW-217 po jego zjeździe z linii, skoro w książce wozu brakuje wymaganego podpisu kontrolera?"
+    },
+    {
+      "id": "Q0096",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Kto może potwierdzić panu obecność w tym miejscu i czasie? Czy dysponuje pan niezależnym alibi?"
+    },
+    {
+      "id": "Q0097",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy osoba potwierdzająca twoją wersję była z tobą przez cały czas, czy tylko przez krótki odcinek?"
+    },
+    {
+      "id": "Q0098",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Który fragment twojego pobytu świadek mógł obserwować bezpośrednio?"
+    },
+    {
+      "id": "Q0099",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy świadek rozpoznał twoją twarz, czy jedynie ubiór podobny do twojego?"
+    },
+    {
+      "id": "Q0100",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Z jakiej odległości miał cię widzieć człowiek, na którego się powołujesz?"
+    },
+    {
+      "id": "Q0101",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy warunki oświetlenia pozwalały tej osobie rozpoznać cię bez wątpliwości?"
+    },
+    {
+      "id": "Q0102",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy rozmówca widział cię osobiście, czy usłyszał od kogoś, że tam jesteś?"
+    },
+    {
+      "id": "Q0103",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy przed tym spotkaniem lub po nim pozostawałeś poza polem widzenia świadka?"
+    },
+    {
+      "id": "Q0104",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Jak świadek ustalił godzinę waszego spotkania?"
+    },
+    {
+      "id": "Q0105",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy godzina podana przez świadka pochodzi z zegara, czy z późniejszego odtwarzania wydarzeń?"
+    },
+    {
+      "id": "Q0106",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy osoba wskazana przez ciebie może oddzielnie opisać wasze spotkanie, bez znajomości twoich zeznań?"
+    },
+    {
+      "id": "Q0107",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy świadek miał możliwość pomylić cię z innym pracownikiem tej zmiany?"
+    },
+    {
+      "id": "Q0108",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy ktokolwiek widział, z której strony przyszedłeś na spotkanie?"
+    },
+    {
+      "id": "Q0109",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy osoba potwierdzająca obecność widziała również, dokąd później odszedłeś?"
+    },
+    {
+      "id": "Q0110",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy ktoś może potwierdzić twój powrót po przerwie, a nie tylko wcześniejsze wyjście?"
+    },
+    {
+      "id": "Q0111",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy świadek był w stanie obserwować wszystkie wyjścia z pomieszczenia, w którym miałeś przebywać?"
+    },
+    {
+      "id": "Q0112",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Czy ustalałeś z osobą wskazaną na świadka sposób opisywania waszego spotkania?"
+    },
+    {
+      "id": "Q0113",
+      "section": "Osobowi świadkowie i potwierdzenie alibi",
+      "question": "Które elementy alibi pozostają niepotwierdzone nawet po uwzględnieniu relacji tej osoby?"
+    },
+    {
+      "id": "Q0114",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Jak wyglądało twoje postępowanie, gdy dotarła do ciebie wiadomość o usterce?"
+    },
+    {
+      "id": "Q0115",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy rozmowa telefoniczna dowodzi, że byłeś w biurze?"
+    },
+    {
+      "id": "Q0116",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Co potwierdzają połączenia służbowe?"
+    },
+    {
+      "id": "Q0117",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Można było dodzwonić się do ciebie także poza biurem?"
+    },
+    {
+      "id": "Q0118",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy telefon pokazuje, gdzie fizycznie stałeś?"
+    },
+    {
+      "id": "Q0119",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Byłeś pod telefonem, ale czy to znaczy, że nie wychodziłeś?"
+    },
+    {
+      "id": "Q0120",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czego nie dowiemy się z samych połączeń?"
+    },
+    {
+      "id": "Q0121",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy dostępność telefoniczna daje ci pełne alibi?"
+    },
+    {
+      "id": "Q0122",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Nie pytam o kontakt. Pytam o twoje położenie."
+    },
+    {
+      "id": "Q0123",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy połączenia potwierdzają całonocną obecność, czy tylko możliwość kontaktu?"
+    },
+    {
+      "id": "Q0124",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Co z przerwami między połączeniami?"
+    },
+    {
+      "id": "Q0125",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Co potwierdza rejestr, co telefon, a czego nie potwierdza żadne z nich?"
+    },
+    {
+      "id": "Q0126",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Na jakim kanale radiowym prowadzono łączność między dyspozytorem a motorniczymi w trakcie zjazdu TW-217?"
+    },
+    {
+      "id": "Q0127",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Dlaczego nagrania z centrali radiostacji za okres od 23:00 do 02:00 mają pięciominutową przerwę?"
+    },
+    {
+      "id": "Q0128",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Kto używał przenośnego radia pokładowego o numerze identyfikacyjnym TR-04 w rejonie torów odstawczych?"
+    },
+    {
+      "id": "Q0129",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy słyszałeś przez radio komendę „wstrzymać manewry”, wydaną tuż przed północą?"
+    },
+    {
+      "id": "Q0130",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Kto i dlaczego zmienił ustawienia szyfrowania na zapasowym kanale dyspozytorskim?"
+    },
+    {
+      "id": "Q0131",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Dlaczego usunąłeś całą historię połączeń z numerem Leny Rudnickiej z prywatnego telefonu?"
+    },
+    {
+      "id": "Q0132",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy zgadza się pan na dobrowolne przekazanie nam historii połączeń, wiadomości i danych z prywatnego telefonu do analizy technicznej?"
+    },
+    {
+      "id": "Q0133",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy połączenie w rejestrze zostało odebrane, czy jedynie zainicjowane?"
+    },
+    {
+      "id": "Q0134",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy umiesz odróżnić nieodebrane połączenie od rozmowy, która rzeczywiście się odbyła?"
+    },
+    {
+      "id": "Q0135",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy wskazany numer był przypisany do ciebie, czy do wspólnego telefonu służbowego?"
+    },
+    {
+      "id": "Q0136",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Kto jeszcze mógł korzystać z telefonu przypisanego do twojego stanowiska?"
+    },
+    {
+      "id": "Q0137",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy w trakcie zmiany pozostawiałeś telefon bez nadzoru?"
+    },
+    {
+      "id": "Q0138",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy potrafisz potwierdzić, że to ty odebrałeś wskazane połączenie?"
+    },
+    {
+      "id": "Q0139",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy rozmówca rozpoznał twój głos, czy zakładał, że rozmawia z właścicielem numeru?"
+    },
+    {
+      "id": "Q0140",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy podczas rozmowy padała informacja pozwalająca ustalić, w którym miejscu przebywałeś?"
+    },
+    {
+      "id": "Q0141",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy rozmowa była nagrywana, czy znamy tylko jej czas i długość?"
+    },
+    {
+      "id": "Q0142",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy treść rozmowy odtwarzasz z pamięci, czy z zachowanego zapisu?"
+    },
+    {
+      "id": "Q0143",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy wiadomość została wysłana z twojego urządzenia, czy tylko z konta przypisanego do ciebie?"
+    },
+    {
+      "id": "Q0144",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy ktoś poza tobą znał hasło do służbowego komunikatora?"
+    },
+    {
+      "id": "Q0145",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy konto komunikatora pozostawało zalogowane na więcej niż jednym urządzeniu?"
+    },
+    {
+      "id": "Q0146",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy wskazana wiadomość mogła zostać wysłana automatycznie lub z opóźnieniem?"
+    },
+    {
+      "id": "Q0147",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy czas widoczny przy wiadomości oznacza jej wysłanie, dostarczenie czy odczytanie?"
+    },
+    {
+      "id": "Q0148",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy wiesz, czy zegar telefonu był zsynchronizowany z czasem systemu zajezdni?"
+    },
+    {
+      "id": "Q0149",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy rozmowa telefoniczna była prowadzona bezpośrednio, czy przez przekierowanie numeru?"
+    },
+    {
+      "id": "Q0150",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy w tym czasie korzystałeś z zestawu słuchawkowego pozwalającego oddalić się od telefonu?"
+    },
+    {
+      "id": "Q0151",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy podczas połączenia rozmawiałeś jeszcze z kimś obecnym obok ciebie?"
+    },
+    {
+      "id": "Q0152",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy ktoś słyszał twoją część rozmowy i może potwierdzić jej temat?"
+    },
+    {
+      "id": "Q0153",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy zachowała się pełna wymiana wiadomości, czy tylko pojedynczy fragment?"
+    },
+    {
+      "id": "Q0154",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy cytowany fragment wiadomości ma inne znaczenie po przeczytaniu wcześniejszych wypowiedzi?"
+    },
+    {
+      "id": "Q0155",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy rozpoznajesz skróty i określenia użyte w okazanej korespondencji?"
+    },
+    {
+      "id": "Q0156",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy wiadomość o usterce dotarła do ciebie przed podjęciem decyzji, czy dopiero po niej?"
+    },
+    {
+      "id": "Q0157",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy po otrzymaniu wiadomości przekazałeś jej treść dalej, a jeśli tak, jakim kanałem?"
+    },
+    {
+      "id": "Q0158",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy radiotelefon pozwalał ustalić tożsamość mówiącego, czy jedynie używany kanał?"
+    },
+    {
+      "id": "Q0159",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy rozpoznałeś głos w łączności radiowej, czy tylko służbowy kryptonim?"
+    },
+    {
+      "id": "Q0160",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy komenda radiowa została potwierdzona przez odbiorcę?"
+    },
+    {
+      "id": "Q0161",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy brak odpowiedzi przez radio oznaczał brak kontaktu, czy mógł wynikać z zakłóceń?"
+    },
+    {
+      "id": "Q0162",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Czy po zakończeniu zmiany zachowałeś urządzenie w takim stanie, w jakim go używałeś?"
+    },
+    {
+      "id": "Q0163",
+      "section": "Telefon wiadomości i łączność",
+      "question": "Które dane łączności można sprawdzić niezależnie od twojej pamięci i twojego telefonu?"
+    },
+    {
+      "id": "Q0164",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Przypomnij, skąd wiesz, co pokazuje karta?"
+    },
+    {
+      "id": "Q0165",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy karta T-17 daje pewne alibi?"
+    },
+    {
+      "id": "Q0166",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Wracając do karty T-17, kto wszedł i skąd mamy pewność?"
+    },
+    {
+      "id": "Q0167",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy karta T-17 daje alibi?"
+    },
+    {
+      "id": "Q0168",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Skąd pani wie, kto miał kartę T-17?"
+    },
+    {
+      "id": "Q0169",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Zapis pokazuje użycie karty T-17. Ale skąd pan wie, kto ją wtedy miał?"
+    },
+    {
+      "id": "Q0170",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "O którą kartę chodzi?"
+    },
+    {
+      "id": "Q0171",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Karta T-17 została użyta, ale nie wiadomo z tego zapisu, kto wszedł. Skąd pan wie, kto ją miał?"
+    },
+    {
+      "id": "Q0172",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy ten zapis mówi, kto miał kartę?"
+    },
+    {
+      "id": "Q0173",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Kto miał kartę?"
+    },
+    {
+      "id": "Q0174",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy karta T-17 potwierdza obecność?"
+    },
+    {
+      "id": "Q0175",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Kto posiadał kartę T-17?"
+    },
+    {
+      "id": "Q0176",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Wracając do T-17, czy zapis potwierdza alibi i skąd pewność?"
+    },
+    {
+      "id": "Q0177",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy rejestr T-17 potwierdza alibi Magdaleny?"
+    },
+    {
+      "id": "Q0178",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Dlaczego zmieniono dyspozycję TW-217 i kto użył T-17?"
+    },
+    {
+      "id": "Q0179",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Co pan wie o kartach BHP?"
+    },
+    {
+      "id": "Q0180",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Nie pytam o ostatni kontakt z Leną, tylko gdzie byłeś od 01:30 do 02:05?"
+    },
+    {
+      "id": "Q0181",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy pani wie, kto był przy drzwiach?"
+    },
+    {
+      "id": "Q0182",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Kto użył T-17?"
+    },
+    {
+      "id": "Q0183",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Komu przekazał pan T-17?"
+    },
+    {
+      "id": "Q0184",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy zna pani T-17?"
+    },
+    {
+      "id": "Q0185",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Co potwierdza T-17 i kto mógł użyć karty?"
+    },
+    {
+      "id": "Q0186",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Nie pytam o T-17. Jak sprawdzić autoryzację testu?"
+    },
+    {
+      "id": "Q0187",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Co właściwie potwierdza rejestr wejść?"
+    },
+    {
+      "id": "Q0188",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Wpis w rejestrze to dowód obecności przez całą noc?"
+    },
+    {
+      "id": "Q0189",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy sam rejestr wystarczy do potwierdzenia alibi?"
+    },
+    {
+      "id": "Q0190",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czego rejestr nie pozwala ustalić o twojej obecności?"
+    },
+    {
+      "id": "Q0191",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Dlaczego o 22:15 wstrzymano rejestrację monitoringu w sektorze warsztatowym?"
+    },
+    {
+      "id": "Q0192",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Kto opuścił teren zajezdni boczną furtką od strony torów odstawczych o 01:45?"
+    },
+    {
+      "id": "Q0193",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy kamera nr 4 zamontowana nad stanowiskiem nr 3 uległa awarii, czy została celowo odłączona?"
+    },
+    {
+      "id": "Q0194",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Z kim Lena najczęściej kontaktowała się w sprawach wykrytych nieprawidłowości?"
+    },
+    {
+      "id": "Q0195",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Dlaczego kamery przemysłowe skierowane na stanowisko nr 3 miały zmieniony kąt nachylenia o 30 stopni?"
+    },
+    {
+      "id": "Q0196",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Kto logował się do systemu zarządzania bramkami wejściowymi przy użyciu konta administratora o 02:10?"
+    },
+    {
+      "id": "Q0197",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Kto posiadał fizyczny dostęp do serwerowni zajezdni, w której zapisywany był główny bufor wideo?"
+    },
+    {
+      "id": "Q0198",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Dlaczego nagle zaczął pan unikać kontaktu wzrokowego, gdy padło pytanie o godzinę 01:30 w nocy?"
+    },
+    {
+      "id": "Q0199",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Dlaczego pan poprawia wypowiedź i zmienia wersję wydarzeń za każdym razem, gdy przypominam panu o obecności monitoringu?"
+    },
+    {
+      "id": "Q0200",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Wpisał się pan do rejestru wyjść o 01:15, ale brama odnotowała pana przejście dopiero o 01:45. Co pan robił przez te trzydzieści minut w ślepej strefie kamer?"
+    },
+    {
+      "id": "Q0201",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Dlaczego unika pan kontaktu wzrokowego i wyraźnie się denerwuje, gdy zadajemy pytania o wydarzenia po godzinie 01:00 w nocy?"
+    },
+    {
+      "id": "Q0202",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy karta była przez całą zmianę w twoim posiadaniu, czy tylko na początku i na końcu dyżuru?"
+    },
+    {
+      "id": "Q0203",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy komukolwiek pożyczałeś kartę, nawet na pojedyncze przejście?"
+    },
+    {
+      "id": "Q0204",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy przejście można było otworzyć bez użycia karty od strony wewnętrznej?"
+    },
+    {
+      "id": "Q0205",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy po odblokowaniu drzwi jedną kartą mogło przejść kilka osób?"
+    },
+    {
+      "id": "Q0206",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy zapis czytnika oznacza poprawne otwarcie drzwi, czy jedynie próbę użycia identyfikatora?"
+    },
+    {
+      "id": "Q0207",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy w rejestrze rozróżniono wejście i wyjście, czy zapisano tylko zdarzenie przy czytniku?"
+    },
+    {
+      "id": "Q0208",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy monitoring obejmuje drogę między czytnikiem a miejscem, do którego miałeś dojść?"
+    },
+    {
+      "id": "Q0209",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy na nagraniu widać twarz osoby, czy wyłącznie jej sylwetkę?"
+    },
+    {
+      "id": "Q0210",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy czas kamery został porównany z czasem czytnika kart przed zestawieniem zdarzeń?"
+    },
+    {
+      "id": "Q0211",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy ciągłość nagrania została sprawdzona także przed i po analizowanym fragmencie?"
+    },
+    {
+      "id": "Q0212",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Czy zapis użycia konta administratora wskazuje konkretną osobę, czy tylko dane logowania?"
+    },
+    {
+      "id": "Q0213",
+      "section": "Karty dostępu rejestry i monitoring",
+      "question": "Kto miał uprawnienia do eksportowania, edytowania lub usuwania zapisów kontroli dostępu?"
+    },
+    {
+      "id": "Q0214",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy dobrze się z nią dogadywałeś?"
+    },
+    {
+      "id": "Q0215",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "O której rozmawiałaś z Leną?"
+    },
+    {
+      "id": "Q0216",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Kiedy rozmawiałaś z Leną i czy widziałaś ją później?"
+    },
+    {
+      "id": "Q0217",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy widziała Pani Lenę?"
+    },
+    {
+      "id": "Q0218",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Kiedy ostatnio rozmawiałaś z Leną?"
+    },
+    {
+      "id": "Q0219",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy w trakcie rozmowy Lena pozostawiła ci jakąś wiadomość?"
+    },
+    {
+      "id": "Q0220",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy miałeś z Leną relację osobistą czy czysto służbową?"
+    },
+    {
+      "id": "Q0221",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Jakie były twoje relacje z Leną?"
+    },
+    {
+      "id": "Q0222",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Kiedy dokładnie ją spotkałeś?"
+    },
+    {
+      "id": "Q0223",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Co powiedziała Lena podczas rozmowy?"
+    },
+    {
+      "id": "Q0224",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Co pan wie o Lenie?"
+    },
+    {
+      "id": "Q0225",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Kiedy ostatnio widziałeś Lenę żywą?"
+    },
+    {
+      "id": "Q0226",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy Lena była sama na miejscu?"
+    },
+    {
+      "id": "Q0227",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy rozmawiał pan z Leną?"
+    },
+    {
+      "id": "Q0228",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Kiedy ostatnio pan ją widział?"
+    },
+    {
+      "id": "Q0229",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Nie pytam, kiedy ostatni raz widziałeś Lenę. Gdzie byłeś w nocy?"
+    },
+    {
+      "id": "Q0230",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Nie pytam, kiedy ostatni raz widziałeś Lenę. Kto zgłosił znalezienie jej ciała?"
+    },
+    {
+      "id": "Q0231",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Kim była Lena?"
+    },
+    {
+      "id": "Q0232",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Nie pytam, kiedy ostatnio widziałeś Lenę, tylko kto zgłosił alarm?"
+    },
+    {
+      "id": "Q0233",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Co dla ciebie znaczyła ofiara?"
+    },
+    {
+      "id": "Q0234",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Jak znałeś ofiarę?"
+    },
+    {
+      "id": "Q0235",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Jakie miałeś kontakty z Leną?"
+    },
+    {
+      "id": "Q0236",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy znaliście się bliżej?"
+    },
+    {
+      "id": "Q0237",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Jak dobrze znałeś Lenę?"
+    },
+    {
+      "id": "Q0238",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Znałeś ofiarę?"
+    },
+    {
+      "id": "Q0239",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Kim była dla ciebie Lena?"
+    },
+    {
+      "id": "Q0240",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Skąd znałeś zmarłą?"
+    },
+    {
+      "id": "Q0241",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Co was łączyło poza pracą?"
+    },
+    {
+      "id": "Q0242",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy Lena była twoją podwładną?"
+    },
+    {
+      "id": "Q0243",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Jak ją znałeś jako kierownik zajezdni?"
+    },
+    {
+      "id": "Q0244",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy szanowałeś Lenę mimo sporów?"
+    },
+    {
+      "id": "Q0245",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Nie pytam o alibi. Pytam, jaka była wasza relacja."
+    },
+    {
+      "id": "Q0246",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy możesz przytoczyć dokładne słowa Leny?"
+    },
+    {
+      "id": "Q0247",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Nie chodzi mi o rozmowy telefoniczne, tylko o fizyczną obecność."
+    },
+    {
+      "id": "Q0248",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Nie pytam o prywatną znajomość, tylko o relację służbową z Leną."
+    },
+    {
+      "id": "Q0249",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Znałeś Lenę i jak wyglądała wasza relacja zawodowa?"
+    },
+    {
+      "id": "Q0250",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "O której godzinie widziałeś Lenę Rudnicką po raz pierwszy podczas feralnej zmiany?"
+    },
+    {
+      "id": "Q0251",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Z kim rozmawiałeś przy bramie wjazdowej przed rozpoczęciem nocnego obchodu o 21:30?"
+    },
+    {
+      "id": "Q0252",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Z kim Lena Rudnicka rozmawiała przez telefon stacjonarny o 00:10?"
+    },
+    {
+      "id": "Q0253",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Lena była trudną współpracowniczką, prawda? Czasem po prostu chciałeś, żeby przestała drążyć ten temat..."
+    },
+    {
+      "id": "Q0254",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Jak reagowałeś, gdy Lena wskazywała na błędy konstrukcyjne w Twoim dziale?"
+    },
+    {
+      "id": "Q0255",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Jakie były pana relacje z Leną Rudnicką? Kiedy rozmawiał z nią pan po raz ostatni przed tragicznym zdarzeniem?"
+    },
+    {
+      "id": "Q0256",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy rozmawiał pan z kimkolwiek ze współpracowników po zakończeniu przesłuchania, ustalając wspólną wersję wydarzeń?"
+    },
+    {
+      "id": "Q0257",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy wasze kontakty wynikały z formalnej podległości służbowej, czy ze wspólnie wykonywanych zadań?"
+    },
+    {
+      "id": "Q0258",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy Lena mogła zwracać się do ciebie bezpośrednio, czy powinna była kontaktować się przez przełożonego?"
+    },
+    {
+      "id": "Q0259",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy potrafisz oddzielić własną ocenę Leny od opinii, które słyszałeś o niej od innych?"
+    },
+    {
+      "id": "Q0260",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy wasz ostatni kontakt był rozmową osobistą, telefoniczną czy wymianą wiadomości?"
+    },
+    {
+      "id": "Q0261",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy ostatnia rozmowa zakończyła się ustaleniem dalszego działania, czy bez konkretnej decyzji?"
+    },
+    {
+      "id": "Q0262",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy przy ostatnim kontakcie Lena mówiła o swoim samopoczuciu, czy wyłącznie o sprawach zawodowych?"
+    },
+    {
+      "id": "Q0263",
+      "section": "Relacja z Leną i ostatnie kontakty",
+      "question": "Czy po raz ostatni widziałeś Lenę osobiście w tym samym momencie, w którym ostatnio się z nią kontaktowałeś?"
+    },
+    {
+      "id": "Q0264",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Kto zgłaszał zastrzeżenia do bezpieczeństwa wagonu?"
+    },
+    {
+      "id": "Q0265",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy to ty zgłaszałeś Lenie zastrzeżenia?"
+    },
+    {
+      "id": "Q0266",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Kto komu zwracał uwagę na bezpieczeństwo wagonu?"
+    },
+    {
+      "id": "Q0267",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Nie odwracaj ról: kto zgłaszał problem?"
+    },
+    {
+      "id": "Q0268",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy powiedziałeś, że zgłaszałeś jej zastrzeżenia?"
+    },
+    {
+      "id": "Q0269",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Skąd wiesz, że Lena zgłaszała zastrzeżenia?"
+    },
+    {
+      "id": "Q0270",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy znasz treść konkretnego zgłoszenia, czy tylko fakt zastrzeżeń?"
+    },
+    {
+      "id": "Q0271",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Nie pytam, czy zgłaszałeś Lenie uwagi. Czy to ona zgłaszała problem?"
+    },
+    {
+      "id": "Q0272",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Nie przypisuję ci zastrzeżeń Leny. Chcę ustalić, czyje były."
+    },
+    {
+      "id": "Q0273",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Kto zgłaszał zastrzeżenia i czego one dotyczyły?"
+    },
+    {
+      "id": "Q0274",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czyje były uwagi do bezpieczeństwa i czy możesz podać ich dokładną treść?"
+    },
+    {
+      "id": "Q0275",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Kto dzwonił do Ciebie z zastrzeżonego numeru tuż po zakończeniu nocnej zmiany?"
+    },
+    {
+      "id": "Q0276",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Jakiego dokładnie rodzaju problem zgłaszała Lena: usterkę, rozbieżność dokumentacji czy ryzyko dla ludzi?"
+    },
+    {
+      "id": "Q0277",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy Lena przedstawiła zastrzeżenia jako pewne ustalenie, czy jako podejrzenie wymagające sprawdzenia?"
+    },
+    {
+      "id": "Q0278",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy uwagi Leny dotyczyły konkretnego wagonu, czy szerszego sposobu prowadzenia napraw?"
+    },
+    {
+      "id": "Q0279",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy zastrzeżenia odnosiły się do stanu części, jej pochodzenia czy sposobu dopuszczenia do użycia?"
+    },
+    {
+      "id": "Q0280",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy Lena rozróżniała zagrożenie natychmiastowe od nieprawidłowości wymagającej późniejszego wyjaśnienia?"
+    },
+    {
+      "id": "Q0281",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy sam otrzymałeś zgłoszenie Leny, czy dowiedziałeś się o nim od innej osoby?"
+    },
+    {
+      "id": "Q0282",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Kto może potwierdzić, że zgłoszenie rzeczywiście trafiło do właściwego odbiorcy?"
+    },
+    {
+      "id": "Q0283",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy znasz osobę, która przyjęła zgłoszenie, czy jedynie stanowisko służbowe przewidziane w procedurze?"
+    },
+    {
+      "id": "Q0284",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy nazwisko adresata wynika z dokumentu, czy z twojego założenia?"
+    },
+    {
+      "id": "Q0285",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy Lena skierowała zastrzeżenia do jednej osoby, czy do kilku odbiorców?"
+    },
+    {
+      "id": "Q0286",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy wskazujesz pierwszego odbiorcę zgłoszenia, czy osobę, której przekazano je później?"
+    },
+    {
+      "id": "Q0287",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy możesz odróżnić autora zastrzeżeń od osoby, która tylko je przekazała?"
+    },
+    {
+      "id": "Q0288",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy ktoś opracował treść zgłoszenia wspólnie z Leną?"
+    },
+    {
+      "id": "Q0289",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy podpis pod zgłoszeniem wskazuje jego autora, czy tylko osobę zatwierdzającą dokument?"
+    },
+    {
+      "id": "Q0290",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy Lena własnymi słowami opisała problem, czy powołała się na cudze ustalenia?"
+    },
+    {
+      "id": "Q0291",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy zgłoszenie zostało przekazane ustnie, pisemnie czy przez system elektroniczny?"
+    },
+    {
+      "id": "Q0292",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy po ustnym zgłoszeniu sporządzono zapis potwierdzający jego treść?"
+    },
+    {
+      "id": "Q0293",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy istnieje potwierdzenie odbioru, czy tylko kopia przygotowanej wiadomości?"
+    },
+    {
+      "id": "Q0294",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy dokument, o którym mówisz, był projektem zgłoszenia, czy jego ostateczną wersją?"
+    },
+    {
+      "id": "Q0295",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy samo zapisanie pliku oznaczało w tej procedurze formalne zgłoszenie problemu?"
+    },
+    {
+      "id": "Q0296",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy Lena otrzymała odpowiedź na swoje zastrzeżenia?"
+    },
+    {
+      "id": "Q0297",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Kto miał obowiązek odpowiedzieć na zgłoszenie w pierwszej kolejności?"
+    },
+    {
+      "id": "Q0298",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy odpowiedź odnosiła się do istoty problemu, czy tylko potwierdzała przyjęcie wiadomości?"
+    },
+    {
+      "id": "Q0299",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy po zgłoszeniu wyznaczono osobę odpowiedzialną za sprawdzenie zastrzeżeń?"
+    },
+    {
+      "id": "Q0300",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy wskazano termin wyjaśnienia zgłoszonej nieprawidłowości?"
+    },
+    {
+      "id": "Q0301",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy po otrzymaniu zastrzeżeń wstrzymano jakąkolwiek czynność techniczną?"
+    },
+    {
+      "id": "Q0302",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy decyzja o kontynuowaniu pracy została podjęta przed poznaniem uwag Leny, czy po ich otrzymaniu?"
+    },
+    {
+      "id": "Q0303",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy ktoś uznał zastrzeżenia za bezzasadne, a jeśli tak, na jakiej podstawie?"
+    },
+    {
+      "id": "Q0304",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy masz dokument potwierdzający odrzucenie zastrzeżeń, czy pamiętasz tylko rozmowę na ten temat?"
+    },
+    {
+      "id": "Q0305",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy Lena później uzupełniła swoje zgłoszenie o dodatkowe informacje?"
+    },
+    {
+      "id": "Q0306",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy zakres jej zastrzeżeń zmienił się po kolejnych oględzinach wagonu?"
+    },
+    {
+      "id": "Q0307",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy ktoś skrócił lub przeredagował zgłoszenie przed przekazaniem go dalej?"
+    },
+    {
+      "id": "Q0308",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy pominięto fragment wskazujący na zagrożenie bezpieczeństwa, czy przekazano pełną treść?"
+    },
+    {
+      "id": "Q0309",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy uwagi przypisywane Lenie pochodzą z jej wypowiedzi, czy z późniejszego streszczenia innej osoby?"
+    },
+    {
+      "id": "Q0310",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy twierdzenie, że Lena zgłaszała problem tobie, ma niezależne potwierdzenie?"
+    },
+    {
+      "id": "Q0311",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Czy twoja odpowiedź dotyczy zastrzeżeń Leny, czy osobnych uwag zgłaszanych przez ciebie?"
+    },
+    {
+      "id": "Q0312",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Jeżeli oboje zgłaszaliście różne problemy, czy możesz opisać każdy z nich oddzielnie?"
+    },
+    {
+      "id": "Q0313",
+      "section": "Zastrzeżenia Leny i kierunek zgłoszeń",
+      "question": "Którego elementu drogi zgłoszenia nie potrafisz odtworzyć: autorstwa, przekazania, odbioru czy reakcji?"
+    },
+    {
+      "id": "Q0314",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Skąd wiesz, co potwierdzają dokumenty?"
+    },
+    {
+      "id": "Q0315",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Skąd zna Pan godzinę wejścia?"
+    },
+    {
+      "id": "Q0316",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Kto jest pierwotnym autorem tej informacji i jak do ciebie trafiła?"
+    },
+    {
+      "id": "Q0317",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Jak mocno ufasz swojej pamięci tego wieczoru?"
+    },
+    {
+      "id": "Q0318",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Skąd pani wie, że nikt nie wszedł?"
+    },
+    {
+      "id": "Q0319",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Nie pytam o dokument. Co widziałaś?"
+    },
+    {
+      "id": "Q0320",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Skąd wiesz, że ostrzeżenie wysłano?"
+    },
+    {
+      "id": "Q0321",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Co sam widziałeś tej nocy?"
+    },
+    {
+      "id": "Q0322",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Skąd masz te informacje?"
+    },
+    {
+      "id": "Q0323",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Na ile jesteś pewien swojej wersji?"
+    },
+    {
+      "id": "Q0324",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Jak możesz mieć pewność, skoro nie widziałeś wejścia?"
+    },
+    {
+      "id": "Q0325",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Skąd masz pewność?"
+    },
+    {
+      "id": "Q0326",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Skąd się wzięły informacje o godzinie?"
+    },
+    {
+      "id": "Q0327",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Co pamiętasz z nocnej zmiany?"
+    },
+    {
+      "id": "Q0328",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Co pan wie z własnej obserwacji, a co tylko z czyichś słów?"
+    },
+    {
+      "id": "Q0329",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy na pewno widział pan ją wtedy osobiście?"
+    },
+    {
+      "id": "Q0330",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Z jakiego źródła pochodzi ta godzina?"
+    },
+    {
+      "id": "Q0331",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Dlaczego miałbym panu wierzyć?"
+    },
+    {
+      "id": "Q0332",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Konkretnie skąd?"
+    },
+    {
+      "id": "Q0333",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Co sam widziałeś?"
+    },
+    {
+      "id": "Q0334",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Skąd wiesz, że tak było, skoro tego nie widziałeś?"
+    },
+    {
+      "id": "Q0335",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Dlaczego nie pamiętasz?"
+    },
+    {
+      "id": "Q0336",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Kto jeszcze o tym wiedział?"
+    },
+    {
+      "id": "Q0337",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Skąd pewność, że twoje alibi jest pełne?"
+    },
+    {
+      "id": "Q0338",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Jak odróżniasz zapis wejścia od ciągłej obserwacji osoby?"
+    },
+    {
+      "id": "Q0339",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy widziałeś moment zgłoszenia uwag przez Lenę?"
+    },
+    {
+      "id": "Q0340",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy pamiętasz godzinę, o której zgłosiła problem?"
+    },
+    {
+      "id": "Q0341",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy masz pewność, komu Lena przekazała zgłoszenie?"
+    },
+    {
+      "id": "Q0342",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy mówisz o własnej obserwacji, czy o ogólnej wiedzy o Lenie?"
+    },
+    {
+      "id": "Q0343",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Jeżeli nie znasz szczegółu, powiedz którego dokładnie."
+    },
+    {
+      "id": "Q0344",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "A skąd ten ktoś miałby to wiedzieć?"
+    },
+    {
+      "id": "Q0345",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Kto był bezpośrednim przełożonym Leny Rudnickiej w jej poprzednim miejscu pracy, skąd została przeniesiona do tej zajezdni?"
+    },
+    {
+      "id": "Q0346",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy tę informację znałeś już podczas zmiany, czy poznałeś ją dopiero po zdarzeniu?"
+    },
+    {
+      "id": "Q0347",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy twoje wspomnienie powstało przed rozmowami z innymi pracownikami na ten temat?"
+    },
+    {
+      "id": "Q0348",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy opisujesz własne wspomnienie, czy wersję, którą później wspólnie odtwarzaliście?"
+    },
+    {
+      "id": "Q0349",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Który szczegół pamiętasz samodzielnie, a który przypomniał ci ktoś inny?"
+    },
+    {
+      "id": "Q0350",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy potrafisz wskazać pierwszą osobę, od której usłyszałeś tę wiadomość?"
+    },
+    {
+      "id": "Q0351",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy źródło tej informacji było bezpośrednim świadkiem, czy również powoływało się na cudzą relację?"
+    },
+    {
+      "id": "Q0352",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy zachowała się notatka sporządzona przez ciebie przed poznaniem cudzych zeznań?"
+    },
+    {
+      "id": "Q0353",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy podana kolejność wydarzeń wynika z pamięci, czy z późniejszego ułożenia dokumentów?"
+    },
+    {
+      "id": "Q0354",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy twoja pewność dotyczy samego zdarzenia, czy również jego godziny i uczestników?"
+    },
+    {
+      "id": "Q0355",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Co mogłoby skłonić cię do zmiany obecnej oceny tego szczegółu?"
+    },
+    {
+      "id": "Q0356",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy bierzesz pod uwagę możliwość pomylenia dwóch podobnych sytuacji z różnych zmian?"
+    },
+    {
+      "id": "Q0357",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy widziałeś początek i koniec opisywanej czynności, czy tylko jej fragment?"
+    },
+    {
+      "id": "Q0358",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy usłyszane odgłosy pozwalały rozpoznać konkretną czynność, czy jedynie przypuszczać, co się działo?"
+    },
+    {
+      "id": "Q0359",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy odległość lub przeszkody mogły ograniczać twoją obserwację?"
+    },
+    {
+      "id": "Q0360",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy potrafisz wskazać, które słowa są dosłownym cytatem, a które twoim streszczeniem?"
+    },
+    {
+      "id": "Q0361",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy wcześniej zaznaczałeś tę samą niepewność, czy dopiero teraz ją dostrzegasz?"
+    },
+    {
+      "id": "Q0362",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Czy twoje obecne przypuszczenie ma jakiekolwiek niezależne potwierdzenie?"
+    },
+    {
+      "id": "Q0363",
+      "section": "Źródła wiedzy pewność i pamięć",
+      "question": "Co w tej odpowiedzi jest ustalonym faktem, a co twoją interpretacją jego znaczenia?"
+    },
+    {
+      "id": "Q0364",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "O której doszło do spotkania?"
+    },
+    {
+      "id": "Q0365",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Kto wezwał pomoc?"
+    },
+    {
+      "id": "Q0366",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Co oznacza alarm?"
+    },
+    {
+      "id": "Q0367",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Czy widział pan osłonę przed przyjazdem ratowników?"
+    },
+    {
+      "id": "Q0368",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Czy potrafisz określić czas tego zdarzenia z dokładnością do kwadransa?"
+    },
+    {
+      "id": "Q0369",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Czy chodziło o północną część zajezdni, czy zupełnie inne pomieszczenie?"
+    },
+    {
+      "id": "Q0370",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Co fotografia mówi o osłonie po wejściu ratowników?"
+    },
+    {
+      "id": "Q0371",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Kto zgłosił znalezienie Leny i o której godzinie?"
+    },
+    {
+      "id": "Q0372",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "O której dokładnie to było?"
+    },
+    {
+      "id": "Q0373",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Jak wygląda chronologia nocy?"
+    },
+    {
+      "id": "Q0374",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "W jakiej kolejności nastąpił alarm i zmiana kursu?"
+    },
+    {
+      "id": "Q0375",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Co było przed alarmem?"
+    },
+    {
+      "id": "Q0376",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Nie o to pytałem. Kiedy to się wydarzyło?"
+    },
+    {
+      "id": "Q0377",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Co stało się później i kto o tym wiedział?"
+    },
+    {
+      "id": "Q0378",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Co wiesz o nocnym kursie?"
+    },
+    {
+      "id": "Q0379",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Kto zgłosił alarm po znalezieniu ofiary?"
+    },
+    {
+      "id": "Q0380",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Co było potem?"
+    },
+    {
+      "id": "Q0381",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "A kiedy dokładnie?"
+    },
+    {
+      "id": "Q0382",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Kto poza Tobą miał dostęp do klucza od stanowiska nr 3 między 18:30 a 20:00?"
+    },
+    {
+      "id": "Q0383",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Co Lena przenosiła z hali głównej do dyspozytorni około godziny 19:15?"
+    },
+    {
+      "id": "Q0384",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Czy potwierdzasz, że o 20:00 wagon TW-217 zjechał z linii bez zgłoszenia awarii?"
+    },
+    {
+      "id": "Q0385",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Kto podejmował decyzję o skierowaniu TW-217 bezpośrednio na stanowisko nr 3 o 20:45?"
+    },
+    {
+      "id": "Q0386",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Czy słyszałeś hałas spuszczanego powietrza z układu hamulcowego TW-217 około 23:00?"
+    },
+    {
+      "id": "Q0387",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "O której godzinie światła na stanowisku nr 3 zostały zgaśnięte i ponowne zapalone między 01:00 a 01:30?"
+    },
+    {
+      "id": "Q0388",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Co działo się przy wagonie TW-217 między 02:00 a 02:30, zanim odnaleziono ciało?"
+    },
+    {
+      "id": "Q0389",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Dlaczego zegar w hali warsztatowej zatrzymał się dokładnie o 02:14?"
+    },
+    {
+      "id": "Q0390",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Kto pierwszy wszedł na stanowisko nr 3 po godzinie 02:30?"
+    },
+    {
+      "id": "Q0391",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Kto używał palnika gazowego w pobliżu instalacji elektrycznej wagonu na dwie godziny przed tragedią?"
+    },
+    {
+      "id": "Q0392",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Dlaczego w dzienniku dyspozytorskim wykreślono godzinę zjazdu wagonu korektorem?"
+    },
+    {
+      "id": "Q0393",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Jakie awarie sygnalizował system SCADA między 00:00 a 02:00?"
+    },
+    {
+      "id": "Q0394",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Kto bezpośrednio zlecił Lenie wykonanie ponownego audytu wózka jezdnego w nocnym trybie?"
+    },
+    {
+      "id": "Q0395",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Dlaczego brama wjazdowa B była otwarta bez nadzoru między 01:30 a 02:15?"
+    },
+    {
+      "id": "Q0396",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Kto wpisał się do rejestru odwiedzin jako „Serwis Zewnętrzny” o godzinie 23:10?"
+    },
+    {
+      "id": "Q0397",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Dlaczego nie przeprowadziłeś obchodu strefy podstacji zgodnie z harmonogramem o 01:00?"
+    },
+    {
+      "id": "Q0398",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Co znajdowało się w torbie, którą wywoził prywatny samochód odjeżdżający o 02:20?"
+    },
+    {
+      "id": "Q0399",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Co spowodowało chwilowe odcięcie zasilania w sekcji warsztatowej o 01:15?"
+    },
+    {
+      "id": "Q0400",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Kto modyfikował oprogramowanie sterowników w ciągu ostatnich 48 godzin?"
+    },
+    {
+      "id": "Q0401",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Czy kiedykolwiek wchodziłeś w bezpośredni konflikt zawodowy z Leną Rudnicką?"
+    },
+    {
+      "id": "Q0402",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Przejdźmy krok po kroku przez sekwencję zdarzeń od godziny 01:00."
+    },
+    {
+      "id": "Q0403",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Dlaczego wyłącznik nadmiarowo-prądowy sekcji warsztatowej został zresetowany manualnie o godzinie 01:18?"
+    },
+    {
+      "id": "Q0404",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Czy zgłaszałeś kiedykolwiek, że TW-217 „ściąga” w lewo podczas hamowania na łuku toru przy wjeździe do zajezdni?"
+    },
+    {
+      "id": "Q0405",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "W Twojej szafce znaleziono śrubokręt ze śladami izolacji odpowiadającej okablowaniu TW-217. Kiedy go tam włożyłeś?"
+    },
+    {
+      "id": "Q0406",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Kto podjął decyzję, że ze względu na brak czasu przeglądy okresowe zostaną skrócone z 8 godzin do zaledwie 45 minut?"
+    },
+    {
+      "id": "Q0407",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Według którego zegara określasz godzinę odnalezienia Leny?"
+    },
+    {
+      "id": "Q0408",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Jaka czynność bezpośrednio poprzedzała zauważenie Leny i pozwala ci umiejscowić ten moment w czasie?"
+    },
+    {
+      "id": "Q0409",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Ile czasu mogło upłynąć między zauważeniem Leny a przekazaniem zgłoszenia alarmowego?"
+    },
+    {
+      "id": "Q0410",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Czy godzina zapisana w zgłoszeniu oznacza rozpoczęcie rozmowy, czy jej przyjęcie przez dyspozytora?"
+    },
+    {
+      "id": "Q0411",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Czy możesz oddzielić czas powstania obrażeń od czasu znalezienia poszkodowanej?"
+    },
+    {
+      "id": "Q0412",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Które zdarzenia da się uporządkować względem siebie mimo braku dokładnych godzin?"
+    },
+    {
+      "id": "Q0413",
+      "section": "Chronologia alarm i odnalezienie Leny",
+      "question": "Czy ustalona chronologia uwzględnia czas przejścia między pomieszczeniami, czy tylko znaczniki w rejestrach?"
+    },
+    {
+      "id": "Q0414",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Komu zgłosiłeś awarię?"
+    },
+    {
+      "id": "Q0415",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Kogo poinformowałeś o awarii?"
+    },
+    {
+      "id": "Q0416",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Co oznacza log TCMS?"
+    },
+    {
+      "id": "Q0417",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Co wiesz o awarii L-2 i L-3?"
+    },
+    {
+      "id": "Q0418",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Jaka usterka dotknęła L2 albo L3?"
+    },
+    {
+      "id": "Q0419",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Co jest nie tak z L-3?"
+    },
+    {
+      "id": "Q0420",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Dlaczego zmieniono dyspozycję TW-217?"
+    },
+    {
+      "id": "Q0421",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy Lena wiedziała o usterce?"
+    },
+    {
+      "id": "Q0422",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy Lena wiedziała o awarii L-2?"
+    },
+    {
+      "id": "Q0423",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy to pana zdaniem była awaria?"
+    },
+    {
+      "id": "Q0424",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Lena miała uwagi do wagonu czy ty do niej?"
+    },
+    {
+      "id": "Q0425",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy przed wezwaniem służb o 03:00 próbowałeś przemieścić jakikolwiek podzespół z TW-217?"
+    },
+    {
+      "id": "Q0426",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Jakie konkretnie rozbieżności w numerach seryjnych falownika wykryła Lena Rudnicka?"
+    },
+    {
+      "id": "Q0427",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy falownik zamontowany w TW-217 był fabrycznie nowy, czy pochodził z rozbiórki innego wagonu?"
+    },
+    {
+      "id": "Q0428",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Kto wydał zgodę na montaż niecertyfikowanego modułu hamowania w wagonie TW-217?"
+    },
+    {
+      "id": "Q0429",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Kto odpowiadał za kalibrację czujników ciśnienia w układzie pneumatycznym tego wagonu?"
+    },
+    {
+      "id": "Q0430",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy modyfikacja oprogramowania sterownika jazdy była wykonywana lokalnie, czy zdalnie przez sieć zajezdni?"
+    },
+    {
+      "id": "Q0431",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy Lena zgłaszała Ci ustnie zakaz wypuszczenia TW-217 na trasę?"
+    },
+    {
+      "id": "Q0432",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy podzespoły zdemontowane z TW-217 trafiły do magazynu, czy zostały od razu wywiezione z zajezdni?"
+    },
+    {
+      "id": "Q0433",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Jak oceniasz stan techniczny aparatury cięgłowej w tym konkretnym pojeździe?"
+    },
+    {
+      "id": "Q0434",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy wiedziałeś o prywatnym śledztwie, które Lena prowadziła w sprawie dostaw części?"
+    },
+    {
+      "id": "Q0435",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Kto zarabiał na wprowadzaniu do obiegu regenerowanych podzespołów jako nowych?"
+    },
+    {
+      "id": "Q0436",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Jaka była rola firmy zewnętrznej w dostawach osprzętu elektrycznego dla wagonów TW?"
+    },
+    {
+      "id": "Q0437",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Proszę wskazać na schemacie, w którym miejscu znajdowała się skrzynka bezpieczników, gdy wszedłeś do wozu."
+    },
+    {
+      "id": "Q0438",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Jeśli pomożesz nam zrozumieć ten schemat opisu części, uwzględnimy Twoją współpracę w raporcie."
+    },
+    {
+      "id": "Q0439",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Dlaczego w kontenerze na odpady metalowe znajdowały się elementy instalacji elektrycznej z wagonu TW-217?"
+    },
+    {
+      "id": "Q0440",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Kto odpowiadał za utylizację zużytych filtrów pneumatycznych w noc z 17 na 18 listopada?"
+    },
+    {
+      "id": "Q0441",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Kto doradził Ci, co masz mówić policji w przypadku pytań o stan techniczny TW-217?"
+    },
+    {
+      "id": "Q0442",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy wiesz, które czujniki ruchu w korytarzu technicznym zostały wyłączone programowo?"
+    },
+    {
+      "id": "Q0443",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Jakie urządzenie pobierało nagle prąd o mocy ponad 50 kW w pustym sektorze zajezdni?"
+    },
+    {
+      "id": "Q0444",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Kto odpowiadał za plombowanie skrzynek rozdzielczych w hali postojowej?"
+    },
+    {
+      "id": "Q0445",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Dlaczego instrukcja awaryjnego odcięcia zasilania w sektorze TW została zdjęta z tablicy informacyjnej?"
+    },
+    {
+      "id": "Q0446",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Kto odpowiadał za przeprowadzenie szkoleń z obsługi nowego oprogramowania diagnostycznego wagonów serii TW?"
+    },
+    {
+      "id": "Q0447",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Dlaczego hamulec szynowy w wagonie TW-217 był zblokowany w pozycji zwolnionej?"
+    },
+    {
+      "id": "Q0448",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy prawdą jest, że system rekuperacji energii w tym modelu powodował niespodziewane skoki napięcia w sterownikach?"
+    },
+    {
+      "id": "Q0449",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Kto wyciągnął bezpiecznik główny z tablicy rozdzielczej wagonu bezpośrednio przed tym, jak Lena rozpoczęła oględziny?"
+    },
+    {
+      "id": "Q0450",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Kto zatwierdził użycie elementów z demontażu wagonu wycofanego z eksploatacji po kolizji w ubiegłym roku?"
+    },
+    {
+      "id": "Q0451",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy zgłaszałeś komukolwiek, że oprogramowanie diagnostyczne w terminalu warsztatowym zgłasza błędy sum kontrolnych?"
+    },
+    {
+      "id": "Q0452",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy to prawda, że w tej samej zajezdni sześć miesięcy temu doszło do zatajenia podobnego wypadku z udziałem wagonu z tej samej serii?"
+    },
+    {
+      "id": "Q0453",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Patrząc mi prosto w oczy: czy może pan z czystym sumieniem przysiąc, że nie ma pan absolutnie nic wspólnego z tym, co wydarzyło się wokół wagonu TW-217?"
+    },
+    {
+      "id": "Q0454",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy komunikat diagnostyczny opisuje przyczynę usterki, czy tylko jej wykryty skutek?"
+    },
+    {
+      "id": "Q0455",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy wskazany błąd systemowy był aktywny podczas zdarzenia, czy pochodził z wcześniejszej sesji?"
+    },
+    {
+      "id": "Q0456",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy po naprawie wykonano niezależny test potwierdzający ustąpienie usterki?"
+    },
+    {
+      "id": "Q0457",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy numer części na pojeździe porównano z numerem w dokumentacji magazynowej i protokole odbioru?"
+    },
+    {
+      "id": "Q0458",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy rozbieżność numerów może wynikać z wymiany części, czy wymaga innego wyjaśnienia?"
+    },
+    {
+      "id": "Q0459",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy test przeprowadzono w warunkach odpowiadających rzeczywistej eksploatacji wagonu?"
+    },
+    {
+      "id": "Q0460",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy urządzenie pomiarowe miało aktualną kalibrację w chwili wykonywania odczytu?"
+    },
+    {
+      "id": "Q0461",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy zmiana konfiguracji sterownika została zapisana wraz z czasem i kontem wykonawcy?"
+    },
+    {
+      "id": "Q0462",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Czy po odłączeniu zasilania mogły zniknąć dane potrzebne do odtworzenia stanu układu?"
+    },
+    {
+      "id": "Q0463",
+      "section": "Wagon podzespoły i diagnostyka",
+      "question": "Który z opisanych objawów można sprawdzić fizycznie, a który istnieje wyłącznie w zapisie diagnostycznym?"
+    },
+    {
+      "id": "Q0464",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co widać na VIS-02?"
+    },
+    {
+      "id": "Q0465",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co potwierdzają dokumenty?"
+    },
+    {
+      "id": "Q0466",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Która osoba była docelowym odbiorcą zgłoszenia?"
+    },
+    {
+      "id": "Q0467",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Która wersja pisemnego protokołu opisuje tę sytuację?"
+    },
+    {
+      "id": "Q0468",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co pokazuje ta fotografia?"
+    },
+    {
+      "id": "Q0469",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co jest w tym dokumencie?"
+    },
+    {
+      "id": "Q0470",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co wynika z dokumentów?"
+    },
+    {
+      "id": "Q0471",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy widziałeś raport?"
+    },
+    {
+      "id": "Q0472",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Kto sfałszował raport BHP?"
+    },
+    {
+      "id": "Q0473",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co wynika z protokołu?"
+    },
+    {
+      "id": "Q0474",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Kto odpowiada za dokument?"
+    },
+    {
+      "id": "Q0475",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co z rejestrem wejść?"
+    },
+    {
+      "id": "Q0476",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Kto odpowiada za protokół odbioru L-3?"
+    },
+    {
+      "id": "Q0477",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Kto podpisał odbiór L3?"
+    },
+    {
+      "id": "Q0478",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Jakie były powody decyzji o zleceniu?"
+    },
+    {
+      "id": "Q0479",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co powinno wynikać z raportu technicznego?"
+    },
+    {
+      "id": "Q0480",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co oznacza protokół TCMS?"
+    },
+    {
+      "id": "Q0481",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Dlaczego brakuje wpisu w dokumentacji warsztatu?"
+    },
+    {
+      "id": "Q0482",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co oznacza brakujący wpis w dokumentacji zlecenia TW-217?"
+    },
+    {
+      "id": "Q0483",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Jak wyjaśnisz niepełny formularz zlecenia?"
+    },
+    {
+      "id": "Q0484",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy raport BHP został dostarczony?"
+    },
+    {
+      "id": "Q0485",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co dokładnie potwierdza autoryzację?"
+    },
+    {
+      "id": "Q0486",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co potwierdza autoryzację testu?"
+    },
+    {
+      "id": "Q0487",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Jak sprawdzić autoryzację testu?"
+    },
+    {
+      "id": "Q0488",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy była jakaś korekta protokołu?"
+    },
+    {
+      "id": "Q0489",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co dokładnie wynika z dokumentacji zlecenia?"
+    },
+    {
+      "id": "Q0490",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co wynika z tego materiału?"
+    },
+    {
+      "id": "Q0491",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "A skąd mam wiedzieć, że dokument jest prawdziwy?"
+    },
+    {
+      "id": "Q0492",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "A co z dokumentami?"
+    },
+    {
+      "id": "Q0493",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Nie pytam, czy rejestr istnieje. Co z niego wynika?"
+    },
+    {
+      "id": "Q0494",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Co wiesz osobiście, a co wynika z dokumentów?"
+    },
+    {
+      "id": "Q0495",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Nie pytam o rejestr, tylko o osobę, która cię widziała."
+    },
+    {
+      "id": "Q0496",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Nie zakładam, że rejestr jest fałszywy. Pytam, czego nie potwierdza."
+    },
+    {
+      "id": "Q0497",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Dlaczego protokół zjechania zestawu został podpisany z datą 03:30, skoro zdarzenie miało miejsce wcześniej?"
+    },
+    {
+      "id": "Q0498",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Dlaczego w książce wozu TW-217 brakuje wpisów dotyczących przeglądu okresowego z zeszłego tygodnia?"
+    },
+    {
+      "id": "Q0499",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy wiedziałeś, że Lena sporządziła własny, nieoficjalny rejestr części zamiennych?"
+    },
+    {
+      "id": "Q0500",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Dlaczego szafka z narzędziami specjalistycznymi była otwarta bez wpisu w książce wydań?"
+    },
+    {
+      "id": "Q0501",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Kto podpisał protokół odbioru jakościowego falowników bez wymaganych badań laboratoryjnych?"
+    },
+    {
+      "id": "Q0502",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Kto w zajezdni wiedział o jej prywatnym archiwum ze zdjęciami tabliczek znamionowych?"
+    },
+    {
+      "id": "Q0503",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy Lena groziła komuś ujawnieniem sfałszowanych ekspertyz technicznych?"
+    },
+    {
+      "id": "Q0504",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Przeanalizujmy te dwa dokumenty: różnią się o dokładnie 40 minut w czasie wpisu. Z czego to wynika?"
+    },
+    {
+      "id": "Q0505",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Kto podpisał dokument wydania nowego falownika, skoro w systemie magazynowym figuruje on jako zużyty w ubiegłym miesiącu?"
+    },
+    {
+      "id": "Q0506",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Dlaczego palety z podzespołami hamulcowymi stały na rampie rozładunkowej przez trzy dni bez protokołu przyjęcia?"
+    },
+    {
+      "id": "Q0507",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy prawdą jest, że pisałeś do kolegi z brygady o konieczności „pozbycia się dokumentacji papierowej”?"
+    },
+    {
+      "id": "Q0508",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Kto podpisał zgodę na pracę w pojedynkę na stanowisku nr 3 w porze nocnej, co narusza wewnętrzny regulamin zajezdni?"
+    },
+    {
+      "id": "Q0509",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy protokół z ostatnich oględzin suwnicy warsztatowej zawierał wzmiankę o wadliwym hamulcu głównym?"
+    },
+    {
+      "id": "Q0510",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Dlaczego w dzienniku wypadków brakuje wpisu o wcześniejszym incydencie z zakleszczeniem drzwi w tym samym wagonie?"
+    },
+    {
+      "id": "Q0511",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Jaka była dokładna kwota kar umownych, których zajezdnia uniknęła dzięki terminowemu (choć sfałszowanemu) odbiorowi wagonów?"
+    },
+    {
+      "id": "Q0512",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy widziałeś kogoś, kto pożerał lub niszczył dokumenty w niszczarce biurowej tuż przed przybyciem policji?"
+    },
+    {
+      "id": "Q0513",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Kto dokonywał fizycznego plombowania tachografu i rejestratora zdarzeń w kabinie motorniczego?"
+    },
+    {
+      "id": "Q0514",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Jak wytłumaczysz fakt, że podpis na karcie pobrania narzędzi nie zgadza się z Twoim charakterem pisma, mimo że widnieje na nim Twój numer pracowniczy?"
+    },
+    {
+      "id": "Q0515",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Dlaczego pieczęć kontroli jakości na module sterującym napędem była uszkodzona i zastąpiona zwykłą taśmą zabezpieczającą?"
+    },
+    {
+      "id": "Q0516",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy to prawda, że certyfikat zgodności dla zamontowanego falownika wygasł trzy miesiące przed dniem zdarzenia?"
+    },
+    {
+      "id": "Q0517",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Dlaczego w protokole przeglądu okresowego wpisano sprawdzenie układu pneumatycznego, mimo że manometry były wówczas niesprawne?"
+    },
+    {
+      "id": "Q0518",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy prawdą jest, że stary dyrektor techniczny podał się do dymisji, bo odmówił podpisania sfałszowanych odbiorów technicznych?"
+    },
+    {
+      "id": "Q0519",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Dlaczego dawny system rejestracji usterek został zastąpiony nowym, w którym łatwo wygumkować ślady wcześniejszych interwencji?"
+    },
+    {
+      "id": "Q0520",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Kto w miejskim zarządzie transportu wiedział o tym, że certyfikaty jakości zamontowanych podzespołów były fałszowane?"
+    },
+    {
+      "id": "Q0521",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy zauważył pan, żeby ktoś w ostatnim czasie zachowywał się nerwowo, interesował się notatkami Leny lub próbował ukryć dokumentację techniczną?"
+    },
+    {
+      "id": "Q0522",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy posiada pan wiedzę na temat nieoficjalnych modyfikacji oprogramowania lub podmieniania części w wagonach serii TW, które nie figurują w oficjalnych rejestrach?"
+    },
+    {
+      "id": "Q0523",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Dlaczego w pana szafce / biurku / torbie znaleziono przedmioty lub dokumenty, które nie powinny się tam znajdować?"
+    },
+    {
+      "id": "Q0524",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Kto według pana skorzystał najwięcej na tym, że dokumentacja dotycząca odbioru technicznego została sfałszowana?"
+    },
+    {
+      "id": "Q0525",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy zauważył pan w ostatnich dniach, żeby ktoś w zajezdni nerwowo niszczył dokumenty, przepisywał rejestry lub kasował pliki z firmowych komputerów?"
+    },
+    {
+      "id": "Q0526",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Czy w przeszłości zdarzało się panu przymykać oko na fałszowanie protokołów technicznych, czy ta noc była pod tym względem wyjątkowa?"
+    },
+    {
+      "id": "Q0527",
+      "section": "Dokumentacja odbiory i autoryzacja",
+      "question": "Dlaczego uważa pan, że nikt nie połączy tych drobnych zaniedbań i sfałszowanych wpisów w jedną spójną całość układającą się w akt oskarżenia?"
+    },
+    {
+      "id": "Q0528",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Jakie zagrożenia BHP występowały przy stanowisku nr 3?"
+    },
+    {
+      "id": "Q0529",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Co pokazuje fotografia osłony?"
+    },
+    {
+      "id": "Q0530",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Dlaczego nie wysłano ostrzeżenia?"
+    },
+    {
+      "id": "Q0531",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy zgłoszenie BHP zostało wysłane?"
+    },
+    {
+      "id": "Q0532",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy wysłałaś zgłoszenie BHP?"
+    },
+    {
+      "id": "Q0533",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy nie wysłałaś zgłoszenia BHP?"
+    },
+    {
+      "id": "Q0534",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Co sądzisz o bezpieczeństwie?"
+    },
+    {
+      "id": "Q0535",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Dlaczego na tabliczce znamionowej silnika trakcyjnego widnieją ślady szlifowania?"
+    },
+    {
+      "id": "Q0536",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Do kogo należał klucz dynamometryczny porzucony pod wózkiem jezdnym TW-217?"
+    },
+    {
+      "id": "Q0537",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy ślady oleju przekładniowego na rękawicach roboczych pochodzą z przetoczenia TW-217?"
+    },
+    {
+      "id": "Q0538",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Dlaczego osłona kanału przeglądowego była odsunięta bez ustawienia ostrzegawczych pachołków?"
+    },
+    {
+      "id": "Q0539",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy plamy czystego płynu hamulcowego na wózku nr 2 sugerują celowe rozszczelnienie układu?"
+    },
+    {
+      "id": "Q0540",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Dlaczego zewnętrzny audyt bezpieczeństwa był przesuwany o kolejne miesiące?"
+    },
+    {
+      "id": "Q0541",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy przekaźniki w szafie sterowniczej TW-217 noszą ślady celowego zmostkowania?"
+    },
+    {
+      "id": "Q0542",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy czujniki ruchu w strefie stanowiska nr 3 były sprawne w nocy z 17 na 18 listopada?"
+    },
+    {
+      "id": "Q0543",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Jakie były dokładne parametry ciśnienia wskazywane przez manometr na stanowisku nr 3?"
+    },
+    {
+      "id": "Q0544",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy klucze do głównego magazynu wysokiego składowania były dorabiane poza oficjalną procedurą administracyjną?"
+    },
+    {
+      "id": "Q0545",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy widziałeś kogoś, kto wyrzucał poplamioną smarem odzież roboczą do pieca grzewczego warsztatu?"
+    },
+    {
+      "id": "Q0546",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Kto zrywał plakaty BHP i ostrzeżenia techniczne wywieszane przez Lenę na tablicy ogłoszeń?"
+    },
+    {
+      "id": "Q0547",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Kto zgłaszał, że oświetlenie awaryjne w hali postojowej nie działało od ponad tygodnia?"
+    },
+    {
+      "id": "Q0548",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy Lena Rudnicka zgłaszała oficjalnie, że brak osłon na wałach napędowych zagraża życiu pracowników?"
+    },
+    {
+      "id": "Q0549",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy wiesz, że gaśnice proszkowe w pobliżu stanowiska nr 3 miały przeterminowane atesty?"
+    },
+    {
+      "id": "Q0550",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Kto odpowiadał za fizyczną kalibrację czujników zbliżeniowych w strefie stanowiska nr 3?"
+    },
+    {
+      "id": "Q0551",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Kto w strukturach zarządu spółki miejskiej odpowiada bezpośrednio za audyt bezpieczeństwa w naszej zajezdni?"
+    },
+    {
+      "id": "Q0552",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy zgłaszał pan, że praca w takim tempie grozi katastrofą budowlaną lub wypadkiem śmiertelnym na torach?"
+    },
+    {
+      "id": "Q0553",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy zdawał pan sobie sprawę, że praca na tym odcinku w nocy z 17 na 18 listopada drastycznie naruszała obowiązujące procedury bezpieczeństwa i BHP?"
+    },
+    {
+      "id": "Q0554",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Jeśli przeprowadzimy niezależne badania kryminalistyczne odcisków palców i DNA na narzędziach z miejsca zdarzenia, czy znajdziemy tam ślady świadczące o pana obecności?"
+    },
+    {
+      "id": "Q0555",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy przed rozpoczęciem pracy wyznaczono strefę wyłączoną z ruchu osób postronnych?"
+    },
+    {
+      "id": "Q0556",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Kto odpowiadał za sprawdzenie zabezpieczeń stanowiska przed wpuszczeniem pracownika pod wagon?"
+    },
+    {
+      "id": "Q0557",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy stan osłony został sfotografowany przed pierwszym wejściem osób udzielających pomocy?"
+    },
+    {
+      "id": "Q0558",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy osoby niosące pomoc mogły przemieścić przedmiot, którego położenie później opisano jako ślad?"
+    },
+    {
+      "id": "Q0559",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy miejsce znalezienia przedmiotu zostało oznaczone przed jego podniesieniem?"
+    },
+    {
+      "id": "Q0560",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Kto jako pierwszy zabezpieczył dostęp do miejsca zdarzenia?"
+    },
+    {
+      "id": "Q0561",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy prowadzono wykaz osób wchodzących do strefy po odkryciu Leny?"
+    },
+    {
+      "id": "Q0562",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy ślad mógł powstać podczas zwykłej pracy warsztatowej, czy ma cechy odróżniające go od typowych zabrudzeń?"
+    },
+    {
+      "id": "Q0563",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy użyte do porównania próbki pochodziły z tego samego rodzaju materiału i były prawidłowo opisane?"
+    },
+    {
+      "id": "Q0564",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy próbki pakowano oddzielnie, aby nie dopuścić do ich wzajemnego zanieczyszczenia?"
+    },
+    {
+      "id": "Q0565",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy numer plomby na opakowaniu zgadza się z numerem w protokole zabezpieczenia?"
+    },
+    {
+      "id": "Q0566",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Kto przechowywał materiał między jego zabezpieczeniem a przekazaniem do badania?"
+    },
+    {
+      "id": "Q0567",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy w dokumentacji odnotowano każde otwarcie opakowania z materiałem śladowym?"
+    },
+    {
+      "id": "Q0568",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy zgodność włókien wskazuje konkretną osobę, czy jedynie podobny rodzaj tkaniny?"
+    },
+    {
+      "id": "Q0569",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy znalezienie smaru na ubraniu pozwala ustalić moment i sposób kontaktu z pojazdem?"
+    },
+    {
+      "id": "Q0570",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy brak śladu w danym miejscu wynika z badania, czy z tego, że tego obszaru nie sprawdzono?"
+    },
+    {
+      "id": "Q0571",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy użycie środków czyszczących mogło zmienić wygląd lub rozmieszczenie zabezpieczonych śladów?"
+    },
+    {
+      "id": "Q0572",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy przed uruchomieniem wagonu potwierdzono, że nikt nie przebywa w strefie zagrożenia?"
+    },
+    {
+      "id": "Q0573",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy stanowisko miało sprawny i dostępny sposób awaryjnego zatrzymania pracy?"
+    },
+    {
+      "id": "Q0574",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy osoba pracująca przy wagonie znała sposób wezwania pomocy bez opuszczania stanowiska?"
+    },
+    {
+      "id": "Q0575",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy podczas zmiany występowały warunki ograniczające widoczność oznaczeń ostrzegawczych?"
+    },
+    {
+      "id": "Q0576",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Czy zgłoszone odstępstwo od procedury zostało ocenione przed kontynuowaniem pracy?"
+    },
+    {
+      "id": "Q0577",
+      "section": "BHP miejsce zdarzenia i ślady",
+      "question": "Które ustalenie o miejscu zdarzenia pochodzi ze zdjęcia, które z protokołu, a które z badania laboratoryjnego?"
+    },
+    {
+      "id": "Q0578",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Co tobą kierowało, gdy postanowiłeś tego nie robić?"
+    },
+    {
+      "id": "Q0579",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Co cię skłoniło do tej decyzji?"
+    },
+    {
+      "id": "Q0580",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto wydał polecenie zmiany rozkładu jazdy i wypuszczenia TW-217 na Ostatni Kurs?"
+    },
+    {
+      "id": "Q0581",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Jakie konsekwencje finansowe groziły zajezdni za opóźnienie w odbiorze technicznym serii TW-200?"
+    },
+    {
+      "id": "Q0582",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy wywierałeś presję na Lenę, aby zignorowała rozbieżności w numeracji fabrycznej?"
+    },
+    {
+      "id": "Q0583",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy w zajezdni istniał nieoficjalny system podziału premii za wskaźniki bezawaryjności?"
+    },
+    {
+      "id": "Q0584",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto zatwierdzał faktury za części, które nigdy nie trafiły do magazynu głównego?"
+    },
+    {
+      "id": "Q0585",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Będziesz odpowiadać jako współsprawca, jeśli nie powiesz teraz, kto wydał ten rozkaz!"
+    },
+    {
+      "id": "Q0586",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Rozumiem, że działałeś pod presją przełożonych. Kto zmusił Cię do podpisania tego raportu?"
+    },
+    {
+      "id": "Q0587",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Wszyscy wiemy, że sprzęt w tej zajezdni to ruina. Nie musisz brać winy za zaniedbania dyrekcji."
+    },
+    {
+      "id": "Q0588",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto zatwierdził fakturę na oleje przekładniowe o specyfikacji innej, niż zaleca producent wagonów TW?"
+    },
+    {
+      "id": "Q0589",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto wydał polecenie natychmiastowego zmycia posadzki przy stanowisku nr 3 przed przybyciem ekipy techniczno-kryminalnej?"
+    },
+    {
+      "id": "Q0590",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czego boisz się bardziej: konsekwencji prawnych czy zemsty osób, które stały za tymi układami?"
+    },
+    {
+      "id": "Q0591",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Dlaczego kontrakt na dostawę części zamiennych do TW-217 wygrała firma zarejestrowana zaledwie miesiąc przed przetargiem?"
+    },
+    {
+      "id": "Q0592",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy to prawda, że Lena Rudnicka domagała się wglądu w faktury za podzespoły elektroniczne z konta funduszu celowego?"
+    },
+    {
+      "id": "Q0593",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto zatwierdził wypłatę premii uznaniowych dla brygady warsztatowej w dniu następującym po tragedii?"
+    },
+    {
+      "id": "Q0594",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy prawdą jest, że zajezdnia borykała się z tak dużym zadłużeniem, iż oszczędności na materiałach były jedynym sposobem na zachowanie płynności?"
+    },
+    {
+      "id": "Q0595",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto dysponował kluczem do sejfu z dokumentacją finansową i umowami podwykonawców?"
+    },
+    {
+      "id": "Q0596",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto z pracowników w ostatnim czasie nagle zmienił styl życia, kupił drogi samochód lub spłacił duże długi?"
+    },
+    {
+      "id": "Q0597",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto w zajezdni cieszył się opinią „człowieka od brudnej roboty” na usługach dyrekcji?"
+    },
+    {
+      "id": "Q0598",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto wydał polecenie odłączenia rejestratora zdarzeń (tzw. czarnej skrzynki) w tramwaju przed zakończeniem pełnego cyklu testowego?"
+    },
+    {
+      "id": "Q0599",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Jeśli udowodnimy panu współudział, zarzuty zostaną zmienione z niedopełnienia obowiązków na celowe sprowadzenie katastrofy. Kto tak naprawdę wydał ten rozkaz?"
+    },
+    {
+      "id": "Q0600",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto wydał polecenie, aby sprawdzić historię zwolnień lekarskich Leny w celu podważenia jej stabilności psychicznej?"
+    },
+    {
+      "id": "Q0601",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Jaki procent wartości kontraktu na modernizację wagonów serii TW trafiał do prywatnej kieszeni osób decyzyjnych w zajezdni?"
+    },
+    {
+      "id": "Q0602",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy firma dostarczająca zamienniki falowników była powiązana kapitałowo z członkami rady nadzorczej spółki?"
+    },
+    {
+      "id": "Q0603",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy prawdą jest, że audytor zewnętrzny miał wystawić pozytywną opinię w zamian za lukratywne zlecenie doradcze?"
+    },
+    {
+      "id": "Q0604",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto złożył podpis pod aneksem do umowy, który zwalniał dostawcę części z odpowiedzialności za wady ukryte?"
+    },
+    {
+      "id": "Q0605",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Jak duża była presja ze strony wydziału transportu miejskiego, aby oddać serię TW do eksploatacji przed zaplanowanym terminem wyborów lub święta miejskiego?"
+    },
+    {
+      "id": "Q0606",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy to prawda, że za każdy dzień opóźnienia w wypuszczeniu wagonów na linię zajezdni groziły karne potrącenia z dotacji celowej?"
+    },
+    {
+      "id": "Q0607",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto narzucił tę szaloną dynamikę nocnych zmian, w trakcie których nikt nie był w stanie weryfikować poprawności montażu?"
+    },
+    {
+      "id": "Q0608",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto pana zdaniem powinien odpowiedzieć za śmierć Leny: pan, który to podpisał, czy ten, kto wydał rozkaz?"
+    },
+    {
+      "id": "Q0609",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "To jest pana ostatnia szansa, żeby szczerze przedstawić swoją wersję wydarzeń. Kto wydał rozkaz, by zignorować ostrzeżenia Leny Rudnickiej?"
+    },
+    {
+      "id": "Q0610",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy ktoś oferował panu lub pana kolegom korzyści materialne, obietnicę awansu albo spokój w zamian za „zapomnienie” pewnych faktów z tej nocy?"
+    },
+    {
+      "id": "Q0611",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy bał się pan Leny Rudnickiej lub jej skrupulatności? Czy jej śledztwo mogło zagrozić pana pozycji, premii lub stanowisku?"
+    },
+    {
+      "id": "Q0612",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto ustalał wymagania jakościowe dla dostawcy części i kto sprawdzał ich spełnienie?"
+    },
+    {
+      "id": "Q0613",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy osoba zatwierdzająca zakup uczestniczyła również w odbiorze technicznym tych samych części?"
+    },
+    {
+      "id": "Q0614",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy przy wyborze dostawcy ujawniono ewentualne powiązania osobiste lub biznesowe osób decyzyjnych?"
+    },
+    {
+      "id": "Q0615",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy dostawca miał obowiązek udokumentować pochodzenie każdego podzespołu?"
+    },
+    {
+      "id": "Q0616",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy rozbieżności w dostawie zgłaszano przed zapłatą faktury, czy dopiero po rozliczeniu?"
+    },
+    {
+      "id": "Q0617",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy warunki premii mogły zachęcać do ukrywania usterek zamiast ich rzetelnego zgłaszania?"
+    },
+    {
+      "id": "Q0618",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy premię uzależniano od faktycznej sprawności pojazdu, czy od daty podpisania odbioru?"
+    },
+    {
+      "id": "Q0619",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy ktoś żądał zatwierdzenia kosztu bez kompletnego potwierdzenia wykonanej usługi?"
+    },
+    {
+      "id": "Q0620",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Kto mógł wstrzymać płatność w przypadku sporu o jakość dostarczonych części?"
+    },
+    {
+      "id": "Q0621",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy zgłaszałeś konflikt między terminem oddania wagonu a zakresem wymaganych badań?"
+    },
+    {
+      "id": "Q0622",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy pracownik mógł odmówić podpisu bez obawy o utratę premii lub zmianę przydziału pracy?"
+    },
+    {
+      "id": "Q0623",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy otrzymałeś pisemne polecenie odstąpienia od standardowej procedury, czy jedynie ustny nacisk?"
+    },
+    {
+      "id": "Q0624",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy decyzja o oszczędnościach określała obszary, w których nie wolno ograniczać bezpieczeństwa?"
+    },
+    {
+      "id": "Q0625",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy zarząd otrzymywał informacje o rzeczywistym stanie usterek, czy tylko zbiorcze wskaźniki wykonania planu?"
+    },
+    {
+      "id": "Q0626",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Czy po ujawnieniu rozbieżności w dostawach wszczęto kontrolę niezależną od osób zatwierdzających zakupy?"
+    },
+    {
+      "id": "Q0627",
+      "section": "Finanse dostawcy i presja organizacyjna",
+      "question": "Jak można odróżnić błąd rozliczenia od świadomego ukrycia nieprawidłowości finansowej w tej sprawie?"
+    },
+    {
+      "id": "Q0628",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "W jednej relacji byłeś na miejscu, w drugiej nie; którą podtrzymujesz?"
+    },
+    {
+      "id": "Q0629",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Twierdziła pani, że nikogo tam nie było. A zapis T-17?"
+    },
+    {
+      "id": "Q0630",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Dlaczego skłamałaś w sprawie BHP?"
+    },
+    {
+      "id": "Q0631",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Najpierw twierdziłeś inaczej, czy widzisz sprzeczność?"
+    },
+    {
+      "id": "Q0632",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Co się nie zgadza w twoich zeznaniach?"
+    },
+    {
+      "id": "Q0633",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Czy pan twierdzi, że na pewno nikogo tam nie było?"
+    },
+    {
+      "id": "Q0634",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Czy nie kłamie pan w sprawie alibi?"
+    },
+    {
+      "id": "Q0635",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Czy zataiłaś zgłoszenie BHP i wysłałaś je?"
+    },
+    {
+      "id": "Q0636",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Nie twierdzę, że kłamiesz. Chcę wiedzieć, kto potwierdzi twoje alibi."
+    },
+    {
+      "id": "Q0637",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Dlaczego Twój identyfikator został odbity na bramce podstacji o 00:40, skoro twierdzisz, że spałeś?"
+    },
+    {
+      "id": "Q0638",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "[Okazanie dowodu: Log z czytnika kart] Twój identyfikator został zarejestrowany w hali warsztatowej o 01:12. Jak to wytłumaczysz?"
+    },
+    {
+      "id": "Q0639",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "[Okazanie dowodu: Zapis monitoringu HD] Kto znajduje się na tym nagraniu w przejściu podziemnym o 01:50?"
+    },
+    {
+      "id": "Q0640",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "[Okazanie dowodu: Wydruk z czarnej skrzynki TW-217] Dlaczego rejestrator wykazał nagły spadek napięcia o 02:05?"
+    },
+    {
+      "id": "Q0641",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "[Okazanie dowodu: Rejestr połączeń] Otrzymałeś trzy krótkie połączenia z numeru Leny między 01:00 a 01:15. O czym rozmawialiście?"
+    },
+    {
+      "id": "Q0642",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "[Okazanie dowodu: Wydruk wiadomości e-mail] Lena pisała do Ciebie o „fałszowaniu protokołów odbioru”. Dlaczego nie odpowiedziałeś?"
+    },
+    {
+      "id": "Q0643",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Twierdzisz, że nie byłeś w podstacji trakcyjnej, ale dyżurny elektromechanik zeznał co innego. Kto kłamie?"
+    },
+    {
+      "id": "Q0644",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Powiedziałeś, że Lena pracowała sama, tymczasem świadek widział dwie osoby przy podwoziu TW-217. Kto był tą drugą osobą?"
+    },
+    {
+      "id": "Q0645",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Wczoraj mówiłeś, że klucze do szafy sterowniczej zginęły tydzień temu. Dziś znajdujemy je w Twojej szafce. Jak to wyjaśnisz?"
+    },
+    {
+      "id": "Q0646",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Kłamiesz! Mamy dowody, że to Twoje ślady linijki i smaru znaleziono na podwoziu!"
+    },
+    {
+      "id": "Q0647",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Twoje alibi rozpadło się pięć minut temu – twój kolega z patrolu przyznał, że krył Cię na zmianie!"
+    },
+    {
+      "id": "Q0648",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Nie udawaj, że nie wiedziałeś o uszkodzonym hamulcu – Twój podpis stoi pod protokołem!"
+    },
+    {
+      "id": "Q0649",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "[Okazanie dowodu: Zrzut ekranu z komunikatora] Do kogo wysłałeś wiadomość o treści: „Zrobione, nikt już tego nie sprawdzi”?"
+    },
+    {
+      "id": "Q0650",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Kto publicznie zagroził Lenie Rudnickiej, że „pożałuje wtrącania się w cudze obowiązki”?"
+    },
+    {
+      "id": "Q0651",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Dlaczego podczas pierwszego przesłuchania zataiłeś fakt, że byłeś w hali o godzinie 01:00?"
+    },
+    {
+      "id": "Q0652",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Dlaczego Twoje odciski palców znaleziono na wyłączniku głównym prądu, skoro twierdziłeś, że go nie dotykałeś?"
+    },
+    {
+      "id": "Q0653",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Czy słyszałeś, żeby ktoś w stołówce pracowniczej otwarcie groził Lenie, że „skróci jej karierę”?"
+    },
+    {
+      "id": "Q0654",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Twierdziłeś, że przez całą noc piłeś kawę z dyspozytorem w biurze, ale dyspozytor zeznał, że wyszedłeś na 45 minut. Co robiłeś w tym czasie?"
+    },
+    {
+      "id": "Q0655",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Świadek twierdzi, że widział Cię wychodzącego z kanału warsztatowego bez kasku i w poplamionym kombinezonie o 02:15. Dlaczego skłamałeś w protokole, że całą noc spędziłeś w magazynie?"
+    },
+    {
+      "id": "Q0656",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Twierdzi pan, że o godzinie 02:00 kupował pan kawę z automatu w budynku administracyjnym, ale automat w tym sektorze był odłączony od prądu od 22:00. Gdzie pan wtedy był?"
+    },
+    {
+      "id": "Q0657",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Jak pan wyjaśni, że klucz do drzwi ewakuacyjnych pasował do zamka, skoro twierdzi pan, że przez całą noc miał go pan w zamkniętej szafce?"
+    },
+    {
+      "id": "Q0658",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Świadek twierdzi, że widział pana wychodzącego z kanału technicznego bez latarki. Jak pan nawigował w całkowitych ciemnościach, jeśli nie znał pan rozkładu stanowiska?"
+    },
+    {
+      "id": "Q0659",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Twierdzi pan, że spał pan w pokoju socjalnym, ale czujnik ruchu w tym pomieszczeniu nie odnotował żadnego ruchu między północą a czwartkiem nad ranem. Czy ktoś za pana oszukał czujnik?"
+    },
+    {
+      "id": "Q0660",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Mamy już zeznania jednej osoby z pana brygady, która wskazała panu bezpośredniego mocodawcę. Chce pan uprzedzić jej wersję, czy woli pan odpowiadać za wszystko sam?"
+    },
+    {
+      "id": "Q0661",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Czy to prawda, że próbował pan rozsiewać plotki, jakoby Lena Rudnicka miała problemy osobiste i popełniła błąd w sztuce z powodu zmęczenia?"
+    },
+    {
+      "id": "Q0662",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Kto wpadł na pomysł, aby twierdzić, że Lena weszła pod wagon na własną odpowiedzialność, ignorując procedury bezpieczeństwa?"
+    },
+    {
+      "id": "Q0663",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Dlaczego w rozmowach z innymi pracownikami sugerował pan, że Lena „szukała guza” i sama prowokowała niebezpieczne sytuacje?"
+    },
+    {
+      "id": "Q0664",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Czy twierdzi pan, że to Lena naruszyła procedurę, mimo że dokumentacja techniczna wskazuje na fizyczną ingerencję w podzespół przez osobę trzecią?"
+    },
+    {
+      "id": "Q0665",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Czy myśli pan, że osoby, dla których pan teraz kłamie, będą skłonne pójść do więzienia, żeby pana ratować?"
+    },
+    {
+      "id": "Q0666",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Dlaczego w pana wstępnych zeznaniach brakuje wzmianki o tym, że opuszczał pan swoje stałe stanowisko pracy?"
+    },
+    {
+      "id": "Q0667",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Jak wyjaśni pan fakt, że pana identyfikator/karta dostępu zarejestrowała przejście przez czytnik w sektorze warsztatowym o godzinie, w której twierdzi pan, że spał?"
+    },
+    {
+      "id": "Q0668",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Czy był pan w jakikolwiek sposób naciskany przez przełożonych, aby zataić szczegóły tej nocy lub zmienić zapisy w dzienniku zdarzeń?"
+    },
+    {
+      "id": "Q0669",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Jak wyjaśni pan obecność śladów wskazujących na pana osobę w pobliżu miejsca zdarzenia, skoro twierdzi pan, że tam nie było?"
+    },
+    {
+      "id": "Q0670",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Jeśli udowodnimy panu składanie fałszywych zeznań, będzie pan nadal twierdził, że nie ma pan nic wspólnego ze śmiercią Leny?"
+    },
+    {
+      "id": "Q0671",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Jak wyjaśni pan fakt, że pana wersja wydarzeń drastycznie rozjeżdża się z zeznaniami dwóch innych pracowników z tej samej zmiany?"
+    },
+    {
+      "id": "Q0672",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Dlaczego pan tak pilnie dba o to, by odsunąć nasze podejrzenia od konkretnego działu w zajezdni? Kogo pan faktycznie kryje?"
+    },
+    {
+      "id": "Q0673",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "W pierwszej relacji wskazałeś inną kolejność dwóch zdarzeń niż teraz. Którą wersję podtrzymujesz i dlaczego?"
+    },
+    {
+      "id": "Q0674",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Czy różnica między twoimi relacjami wynika z nowego wspomnienia, sprawdzenia dokumentu czy wcześniejszej pomyłki?"
+    },
+    {
+      "id": "Q0675",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Czy możesz wskazać dokładne zdanie z poprzedniego protokołu, które chcesz sprostować?"
+    },
+    {
+      "id": "Q0676",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Jeżeli okazany zapis przeczy twojej pamięci, czy dopuszczasz błąd pamięci bez zmieniania pozostałych ustaleń?"
+    },
+    {
+      "id": "Q0677",
+      "section": "Konfrontacja sprzeczności i zatajanie informacji",
+      "question": "Czy brak informacji w pierwszym zeznaniu oznaczał, że jej nie znałeś, nie pamiętałeś, czy świadomie jej nie podałeś?"
+    },
+    {
+      "id": "Q0678",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy bierzesz na siebie odpowiedzialność za śmierć Leny jako jej zabójca?"
+    },
+    {
+      "id": "Q0679",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Przyznaj się, zabiłaś Lenę?"
+    },
+    {
+      "id": "Q0680",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy przyznajesz się do zabójstwa Leny?"
+    },
+    {
+      "id": "Q0681",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy to ty zabiłeś Lenę?"
+    },
+    {
+      "id": "Q0682",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Kto zabił Lenę?"
+    },
+    {
+      "id": "Q0683",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Co wiesz o zabójstwie Leny?"
+    },
+    {
+      "id": "Q0684",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy Marek zabił Lenę?"
+    },
+    {
+      "id": "Q0685",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy odpowiadasz za sabotaż L-3?"
+    },
+    {
+      "id": "Q0686",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Kto zabił Lenę i dlaczego brakuje wpisu w zleceniu?"
+    },
+    {
+      "id": "Q0687",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy przyznajesz się do fałszowania autoryzacji?"
+    },
+    {
+      "id": "Q0688",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy masz coś do ukrycia?"
+    },
+    {
+      "id": "Q0689",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy szanowałeś Lenę i czy wasze spory dowodzą czyjejkolwiek winy?"
+    },
+    {
+      "id": "Q0690",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy wiedziałeś, że Lena planowała przekazać zebrane dokumenty do prokuratury?"
+    },
+    {
+      "id": "Q0691",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Dlaczego współpracownicy unikali kontaktu z Leną w ostatnich dniach przed jej śmiercią?"
+    },
+    {
+      "id": "Q0692",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czym różni się pana obecne milczenie od jawnego udziału w tuszowaniu przestępstwa?"
+    },
+    {
+      "id": "Q0693",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Została panu ostatnia szansa, żeby przedstawić swoją wersję zdarzeń, zanim prokurator postawi panu zarzut współudziału w zabójstwie zamiast niedopełnienia obowiązków. Kto pierwszy pociągnął za sznurki?"
+    },
+    {
+      "id": "Q0694",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Kto w zajezdni miał motyw, by uciszyć Lenę lub zatuszować nieprawidłowości związane z podzespołami wagonu TW-217?"
+    },
+    {
+      "id": "Q0695",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy słyszał pan pogłoski o tym, że Lena planowała złożyć oficjalne zawiadomienie do prokuratury lub inspekcji pracy?"
+    },
+    {
+      "id": "Q0696",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy zdaje sobie pan sprawę, że składanie fałszywych zeznań w sprawie zagrożonej zarzutem sprowadzenia katastrofy grozi surową karą bezwzględnego więzienia?"
+    },
+    {
+      "id": "Q0697",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Za które decyzje tej zmiany odpowiadałeś osobiście, a które należały do innych osób?"
+    },
+    {
+      "id": "Q0698",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy miałeś uprawnienie do wstrzymania pracy wagonu w przypadku zagrożenia?"
+    },
+    {
+      "id": "Q0699",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy odpowiedzialność za podpis pod dokumentem oznaczała również wykonanie opisanej w nim czynności?"
+    },
+    {
+      "id": "Q0700",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy znasz różnicę między zatwierdzeniem zadania a osobistym sprawdzeniem jego wykonania w tym przypadku?"
+    },
+    {
+      "id": "Q0701",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy ktoś mógł działać w twoim imieniu bez uprzedniego uzyskania twojej zgody?"
+    },
+    {
+      "id": "Q0702",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy powierzyłeś komuś zadanie, którego wykonania później nie skontrolowałeś?"
+    },
+    {
+      "id": "Q0703",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Kiedy po raz pierwszy dowiedziałeś się, że podjęta decyzja mogła mieć związek z zagrożeniem dla Leny?"
+    },
+    {
+      "id": "Q0704",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy po uzyskaniu tej informacji podjąłeś działania ograniczające dalsze ryzyko?"
+    },
+    {
+      "id": "Q0705",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy znasz fakt łączący konkretną osobę z działaniem prowadzącym do obrażeń, czy tylko jej możliwy motyw?"
+    },
+    {
+      "id": "Q0706",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy spór zawodowy z Leną przełożył się na jakąkolwiek konkretną decyzję dotyczącą jej pracy?"
+    },
+    {
+      "id": "Q0707",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy utrata stanowiska lub premii była realną konsekwencją ujawnienia nieprawidłowości, czy jedynie twoją obawą?"
+    },
+    {
+      "id": "Q0708",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy ktoś wyrażał wobec Leny groźby, których byłeś bezpośrednim świadkiem?"
+    },
+    {
+      "id": "Q0709",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy odróżniasz zasłyszaną pogłoskę o groźbie od wypowiedzi, którą sam słyszałeś?"
+    },
+    {
+      "id": "Q0710",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy miałeś osobisty interes w tym, aby konkretne zgłoszenie Leny nie zostało sprawdzone?"
+    },
+    {
+      "id": "Q0711",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy działałeś, aby opóźnić wyjaśnienie jej zastrzeżeń, czy wyłącznie nie podjąłeś działania?"
+    },
+    {
+      "id": "Q0712",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy po zdarzeniu ukrywałeś własne zaniedbanie, czy wiedzę o działaniu innej osoby?"
+    },
+    {
+      "id": "Q0713",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy polecenie przełożonego pozostawiało ci możliwość samodzielnej oceny zagrożenia?"
+    },
+    {
+      "id": "Q0714",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy zgłaszałeś sprzeciw wobec decyzji, z którą się nie zgadzałeś?"
+    },
+    {
+      "id": "Q0715",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy ktoś mógł odnieść korzyść z przypisania całej odpowiedzialności jednej osobie?"
+    },
+    {
+      "id": "Q0716",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy znasz dowód wykluczający twoją wersję zdarzenia, którego dotąd nie omówiliśmy?"
+    },
+    {
+      "id": "Q0717",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy dopuszczasz, że twoje zachowanie mogło wyglądać podejrzanie mimo innego celu działania?"
+    },
+    {
+      "id": "Q0718",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Które twoje zachowanie wymaga wyjaśnienia niezależnie od pytania o sprawstwo śmierci Leny?"
+    },
+    {
+      "id": "Q0719",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy widziałeś działanie, które uznałeś wtedy za niebezpieczne, lecz nie za celowe?"
+    },
+    {
+      "id": "Q0720",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy ocenę celowości opierasz na przebiegu czynności, czy na tym, co wydarzyło się później?"
+    },
+    {
+      "id": "Q0721",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy masz podstawę, aby odróżnić wypadek od świadomej ingerencji w tej konkretnej sytuacji?"
+    },
+    {
+      "id": "Q0722",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy osoba z dostępem do stanowiska miała również wiedzę i możliwość wykonania wskazanego działania?"
+    },
+    {
+      "id": "Q0723",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy wskazujesz czyjąś odpowiedzialność na podstawie samych uprawnień dostępu, czy także innych faktów?"
+    },
+    {
+      "id": "Q0724",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy przyjęcie cudzej wersji zdarzeń chroniłoby cię przed ujawnieniem własnych błędów?"
+    },
+    {
+      "id": "Q0725",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy twoje poczucie winy dotyczy tego, co zrobiłeś, czy tego, czemu nie zapobiegłeś?"
+    },
+    {
+      "id": "Q0726",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Jakiego działania ze swojej strony nie kwestionujesz, nawet jeśli nie zgadzasz się z przypisywaną mu intencją?"
+    },
+    {
+      "id": "Q0727",
+      "section": "Odpowiedzialność zarzuty i motyw",
+      "question": "Czy możesz oddzielić ocenę moralną własnego zachowania od faktów potrzebnych do ustalenia przebiegu zdarzenia?"
+    },
+    {
+      "id": "Q0728",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy zamierzasz teraz przerwać przesłuchanie i niczego już nie wyjaśniać?"
+    },
+    {
+      "id": "Q0729",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Dlaczego odmawiasz odpowiedzi?"
+    },
+    {
+      "id": "Q0730",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "A możesz to wyjaśnić po ludzku?"
+    },
+    {
+      "id": "Q0731",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy możesz to wyjaśnić?"
+    },
+    {
+      "id": "Q0732",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Zauważyłem, że nerwowo zaciska pan palce na poręczy krzesła za każdym razem, gdy wspominamy o podwoziu TW-217. Co pana tak denerwuje?"
+    },
+    {
+      "id": "Q0733",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy ten pot na czole to wynik stresu związanego ze śledztwem, czy przypomniał pan sobie coś, o czym zapomniał pan wspomnieć w protokole?"
+    },
+    {
+      "id": "Q0734",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Dlaczego pan wzdycha i kręci głową? Czy uważa pan, że życie ludzkie to tylko błąd statystyczny w tabeli Excela?"
+    },
+    {
+      "id": "Q0735",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Zauważyłem, że bardzo dokładnie waży pan słowa, odkąd pokazaliśmy panu ten konkretny dokument z magazynu. Czego pan próbuje uniknąć?"
+    },
+    {
+      "id": "Q0736",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy wie pan, że osoba, którą pan tak lojalnie kryje, złożyła już zeznania obciążające panu w stu procentach?"
+    },
+    {
+      "id": "Q0737",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Kto zapłacił za milczenie świadków, którzy widzieli zamianę podzespołów w nocy z 17 na 18 listopada?"
+    },
+    {
+      "id": "Q0738",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Widzę, że poci się pan coraz bardziej. Czy to brzemię zaczyna być zbyt ciężkie do uniesienia w pojedynkę?"
+    },
+    {
+      "id": "Q0739",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy potrzebujesz chwili przerwy, żeby spokojnie uporządkować odpowiedź?"
+    },
+    {
+      "id": "Q0740",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Która część tego pytania budzi twój sprzeciw?"
+    },
+    {
+      "id": "Q0741",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy niepokoi cię treść okazanego materiału, czy sposób, w jaki go interpretujemy?"
+    },
+    {
+      "id": "Q0742",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy zmiana tonu twojej wypowiedzi wynika z nowego pytania, czy ze zmęczenia rozmową?"
+    },
+    {
+      "id": "Q0743",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy chcesz sprostować odpowiedź teraz, zanim przejdziemy do kolejnego tematu?"
+    },
+    {
+      "id": "Q0744",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy zrozumiałeś pytanie tak samo, jak je sformułowałem, czy wymaga ono doprecyzowania?"
+    },
+    {
+      "id": "Q0745",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy trudność w odpowiedzi wynika z braku pamięci, czy z obawy przed oceną twojego zachowania?"
+    },
+    {
+      "id": "Q0746",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy możesz powiedzieć, czego konkretnie obawiasz się po złożeniu tej relacji?"
+    },
+    {
+      "id": "Q0747",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy obawiasz się reakcji współpracowników, przełożonych czy osób spoza zajezdni?"
+    },
+    {
+      "id": "Q0748",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy ktoś próbował wpłynąć na twój udział w dzisiejszej rozmowie?"
+    },
+    {
+      "id": "Q0749",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy czujesz presję, aby zachować lojalność wobec osoby, o której teraz mówimy?"
+    },
+    {
+      "id": "Q0750",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy łatwiej będzie ci opisać zdarzenie własnymi słowami, bez przerywania pytaniami?"
+    },
+    {
+      "id": "Q0751",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy wolisz najpierw omówić dokument, czy własne wspomnienie związane z jego treścią?"
+    },
+    {
+      "id": "Q0752",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy potrzebujesz zobaczyć pełny materiał zamiast pojedynczego fragmentu, aby się do niego odnieść?"
+    },
+    {
+      "id": "Q0753",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy moje podsumowanie twojej wypowiedzi oddaje jej sens, czy coś przeinaczyłem?"
+    },
+    {
+      "id": "Q0754",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy określenie użyte w pytaniu sugeruje ci odpowiedź, z którą się nie zgadzasz?"
+    },
+    {
+      "id": "Q0755",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy chcesz, abyśmy oddzielnie omówili to, co widziałeś, i to, co później poczułeś?"
+    },
+    {
+      "id": "Q0756",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy złość, którą teraz wyrażasz, jest skierowana na pytanie, na zarzut czy na osobę wspomnianą w materiale?"
+    },
+    {
+      "id": "Q0757",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy możesz wskazać, w którym momencie rozmowy poczułeś, że przestaliśmy się rozumieć?"
+    },
+    {
+      "id": "Q0758",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy twoje milczenie oznacza brak odpowiedzi, potrzebę namysłu czy niechęć do tego konkretnego tematu?"
+    },
+    {
+      "id": "Q0759",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy chcesz wyjaśnić, dlaczego ten dokument wywołuje u ciebie tak silną reakcję?"
+    },
+    {
+      "id": "Q0760",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy emocje utrudniają ci rozróżnienie kolejności wydarzeń, czy pamiętasz ją mimo zdenerwowania?"
+    },
+    {
+      "id": "Q0761",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy chcesz wrócić do tematu po omówieniu innego fragmentu zmiany?"
+    },
+    {
+      "id": "Q0762",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy jest słowo w protokole, którego sam byś nie użył i które zmienia wydźwięk twojej relacji?"
+    },
+    {
+      "id": "Q0763",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy potrafisz opisać tę sytuację bez przypisywania innym osobom intencji, których nie znasz?"
+    },
+    {
+      "id": "Q0764",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy poczułeś ulgę dlatego, że wyjaśniono nieporozumienie, czy z innego powodu?"
+    },
+    {
+      "id": "Q0765",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy twoja ostrożność w doborze słów wynika z chęci zachowania precyzji?"
+    },
+    {
+      "id": "Q0766",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy możesz wskazać pytanie, na które odpowiedziałeś zbyt szybko i chciałbyś odpowiedzieć ponownie?"
+    },
+    {
+      "id": "Q0767",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy po przerwie przypomniał ci się nowy szczegół, czy inaczej oceniasz to samo wspomnienie?"
+    },
+    {
+      "id": "Q0768",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy potrzebujesz oddzielić własną odpowiedź od opinii o zachowaniu Leny?"
+    },
+    {
+      "id": "Q0769",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy obawiasz się, że przyznanie pomyłki zostanie potraktowane jak przyznanie się do działania, którego nie wykonałeś?"
+    },
+    {
+      "id": "Q0770",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy twoja reakcja dotyczy samego wspomnienia zdarzenia, czy jego możliwych konsekwencji?"
+    },
+    {
+      "id": "Q0771",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy rozmowa o Lenie jest dla ciebie trudna ze względu na waszą relację, czy ze względu na okoliczności jej śmierci?"
+    },
+    {
+      "id": "Q0772",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy możesz powiedzieć, co pomogłoby ci udzielić dokładniejszej odpowiedzi w tej chwili?"
+    },
+    {
+      "id": "Q0773",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy masz poczucie, że oczekujemy od ciebie pewności tam, gdzie jej nie masz?"
+    },
+    {
+      "id": "Q0774",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy chcesz, aby niepewność twojej odpowiedzi została wyraźnie zaznaczona w protokole?"
+    },
+    {
+      "id": "Q0775",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy napięcie zmniejsza się, gdy rozdzielamy pytanie na pojedyncze kwestie?"
+    },
+    {
+      "id": "Q0776",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy twoja odmowa dotyczy podania faktu, oceny innej osoby czy spekulowania o jej motywach?"
+    },
+    {
+      "id": "Q0777",
+      "section": "Reakcje emocjonalne i sposób rozmowy",
+      "question": "Czy przed zakończeniem tego wątku chcesz dodać coś, czego nie udało ci się powiedzieć z powodu emocji?"
+    },
+    {
+      "id": "Q0778",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Co pani wie?"
+    },
+    {
+      "id": "Q0779",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Wspomniałeś o tej drugiej osobie. O kogo chodzi?"
+    },
+    {
+      "id": "Q0780",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Co z tym zrobiłeś?"
+    },
+    {
+      "id": "Q0781",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Dlaczego nie zareagowałeś?"
+    },
+    {
+      "id": "Q0782",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Co z nią?"
+    },
+    {
+      "id": "Q0783",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy możesz wykluczyć, że ktoś tam był?"
+    },
+    {
+      "id": "Q0784",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Co mówiłaś wcześniej?"
+    },
+    {
+      "id": "Q0785",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Co z tego wynika?"
+    },
+    {
+      "id": "Q0786",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy masz dowód, że Lena była sama?"
+    },
+    {
+      "id": "Q0787",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Co przed chwilą powiedziałeś?"
+    },
+    {
+      "id": "Q0788",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Dlaczego nie zgłosił pan tego wcześniej?"
+    },
+    {
+      "id": "Q0789",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy może pan powtórzyć ostatnią odpowiedź?"
+    },
+    {
+      "id": "Q0790",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy mógł pan to sprawdzić inaczej?"
+    },
+    {
+      "id": "Q0791",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Co dokładnie robiłeś wtedy?"
+    },
+    {
+      "id": "Q0792",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Co wiesz o wydarzeniach tej nocy?"
+    },
+    {
+      "id": "Q0793",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Osobiście?"
+    },
+    {
+      "id": "Q0794",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy to obejmuje każdą chwilę?"
+    },
+    {
+      "id": "Q0795",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy określenie „oni” obejmuje wszystkich pracowników, czy tylko konkretną grupę?"
+    },
+    {
+      "id": "Q0796",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Którego miejsca dotyczy ta odpowiedź?"
+    },
+    {
+      "id": "Q0797",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "O którym zdarzeniu teraz mówisz?"
+    },
+    {
+      "id": "Q0798",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Przed czym czy po czym?"
+    },
+    {
+      "id": "Q0799",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Jak długo to trwało?"
+    },
+    {
+      "id": "Q0800",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy było to jednorazowe?"
+    },
+    {
+      "id": "Q0801",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy to twoje przypuszczenie?"
+    },
+    {
+      "id": "Q0802",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy słyszałeś to bezpośrednio?"
+    },
+    {
+      "id": "Q0803",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Który szczegół pomijasz?"
+    },
+    {
+      "id": "Q0804",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Co oznacza użyte przez ciebie słowo „zwykle”?"
+    },
+    {
+      "id": "Q0805",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy chodzi o tę samą osobę?"
+    },
+    {
+      "id": "Q0806",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy mówisz o tej samej zmianie?"
+    },
+    {
+      "id": "Q0807",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy ten wyjątek dotyczy także ciebie?"
+    },
+    {
+      "id": "Q0808",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Co zmieniło się od twojej poprzedniej odpowiedzi?"
+    },
+    {
+      "id": "Q0809",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy możesz rozdzielić te dwie sprawy?"
+    },
+    {
+      "id": "Q0810",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Co wydarzyło się pomiędzy nimi?"
+    },
+    {
+      "id": "Q0811",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy dopuszczasz inne wyjaśnienie?"
+    },
+    {
+      "id": "Q0812",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Która część jest tylko przybliżeniem?"
+    },
+    {
+      "id": "Q0813",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy to było polecenie, czy propozycja?"
+    },
+    {
+      "id": "Q0814",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy zrobiłeś to samodzielnie?"
+    },
+    {
+      "id": "Q0815",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy ktoś ci towarzyszył?"
+    },
+    {
+      "id": "Q0816",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Czy zakończyłeś tę czynność?"
+    },
+    {
+      "id": "Q0817",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Co przerwało ten ciąg zdarzeń?"
+    },
+    {
+      "id": "Q0818",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Nie pytam, co powinno się stać. Co rzeczywiście się stało?"
+    },
+    {
+      "id": "Q0819",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Nie pytam, co myślisz o tej osobie. Co sam zauważyłeś?"
+    },
+    {
+      "id": "Q0820",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Nie zakładam, że pamiętasz godzinę. Czy pamiętasz kolejność?"
+    },
+    {
+      "id": "Q0821",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Nie chodzi o to, kto miał obowiązek. Kto wykonał czynność?"
+    },
+    {
+      "id": "Q0822",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Nie pytam o autorstwo dokumentu. Kto przekazał ci jego treść?"
+    },
+    {
+      "id": "Q0823",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Nie pytam o późniejsze wyjaśnienia. Co wiedziałeś w tamtej chwili?"
+    },
+    {
+      "id": "Q0824",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Nie proszę o ocenę winy. Jakie działanie możesz opisać?"
+    },
+    {
+      "id": "Q0825",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Nie pytam, czy rozpoznałeś głos. Czy rozpoznałeś osobę wzrokowo?"
+    },
+    {
+      "id": "Q0826",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Nie zakładam, że to ta sama sytuacja. Co pozwala je połączyć?"
+    },
+    {
+      "id": "Q0827",
+      "section": "Krótkie dopytania przeczenia i pytania ogólne",
+      "question": "Nie proszę o zgadywanie. Gdzie kończy się twoja wiedza o tym szczególe?"
+    },
+    {
+      "id": "Q0828",
+      "section": "Przypadki techniczne i bezpieczeństwa",
+      "question": "Czy zna pan tajny kod? FIKCYJNY SEKRET Z KLIENTA"
+    },
+    {
+      "id": "Q0829",
+      "section": "Przypadki techniczne i bezpieczeństwa",
+      "question": "Co potwierdzają wskaźniki prev/next?"
+    },
+    {
+      "id": "Q0830",
+      "section": "Przypadki techniczne i bezpieczeństwa",
+      "question": "Co daje kontrola integralności?"
+    }
+  ]
+}

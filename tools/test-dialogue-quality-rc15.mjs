@@ -1,0 +1,31 @@
+import assert from 'node:assert/strict';
+import {trustedScene} from '../lib/trusted-interview-624.js';
+import {reviewInterviewReply} from '../lib/interview-quality-635.js';
+import {compactInterviewPayload} from '../lib/interview-payload-rc15.js';
+const scene=trustedScene({identity:{id:'MAREK'},question:'Znałeś ofiarę?',knowledge:{documentsShown:[]}},null);
+scene.memory.conversation=[];
+const relationship=scene.knowledge.factBank.find(f=>f.source==='trusted-relationship');
+const wrong='Tak, znałem Lenę Rudnicką, której zgłaszałem zastrzeżenia do bezpieczeństwa wagonu.';
+assert.equal(reviewInterviewReply(scene,wrong,[relationship]).reason,'relationship_actor_reversed');
+assert.equal(reviewInterviewReply(scene,'Tak, znany mi był pracownik zajezdni, Lena Rudnicka.',[relationship]).reason,'victim_gender_mismatch');
+assert(reviewInterviewReply(scene,relationship.text,[relationship]).ok);
+for(const question of ['Kto to potwierdzi?','Kto może poświadczyć moje alibi?','Czy ktoś cię wtedy widział?']){
+ scene.question=question;
+ assert.equal(reviewInterviewReply(scene,'Rejestr wejść i połączenia służbowe potwierdzają, a dostęp do nich mają odpowiednie służby biurowe.',[]).reason,'corroboration_nonanswer');
+ assert(reviewInterviewReply(scene,'Nie mogę wskazać osoby, która widziała mnie przez całą noc. Rejestr i połączenia potwierdzają tylko część mojej wersji.',[]).ok);
+}
+const q='Jakie masz alibi?',a='Byłem dostępny z biura.';
+scene.memory.conversation=[{role:'śledczy',text:q},{role:'świadek',text:a}];
+scene.dialogueMemory={previousPairs:[{question:q,answer:a}],earlierRelated:{question:'Dawny wątek',answer:'Dawna relacja'},corrections:[{answer:'Sprostowanie'}]};
+const original=JSON.stringify(scene);
+const packed=compactInterviewPayload(scene);
+assert.deepEqual(packed.knowledge.factBank,scene.knowledge.factBank);
+assert.deepEqual(packed.memory.conversation,scene.memory.conversation);
+assert.deepEqual(packed.dialogueMemory.corrections,scene.dialogueMemory.corrections);
+assert.deepEqual(packed.dialogueMemory.earlierRelated,scene.dialogueMemory.earlierRelated);
+assert.equal(packed.dialogueMemory.previousPairs,undefined);
+assert.equal(JSON.stringify(scene),original,'Packing must not mutate approved state');
+assert(JSON.stringify(packed).length<original.length);
+const unmatched=compactInterviewPayload({...scene,memory:{conversation:[]}});
+assert.deepEqual(unmatched.dialogueMemory.previousPairs,scene.dialogueMemory.previousPairs);
+console.log('PASS RC15: supplied bad replies rejected, correct limitation accepted, actor direction and gender checked; smaller payload preserves all facts, history and corrections');

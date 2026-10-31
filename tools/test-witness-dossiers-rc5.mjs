@@ -1,3 +1,4 @@
+import {reviewInterviewReply} from '../lib/interview-quality-635.js';
 import assert from 'node:assert/strict';
 import canon from '../lib/trusted-witness-canon-624.json' with {type:'json'};
 import rules from '../lib/approved-rules.js';
@@ -59,9 +60,11 @@ for (const id of ids){
     return {decision:'answer',factIds:[target.id],text:target.text};
    }
    if(phase==='semantic-audit')return {entailed:true,relevant:true,complete:true,coveredParts:[],semanticRepeat:false};
+   if(phase==='rewrite')return {decision:'fallback'};
    throw Error(`unexpected phase ${phase}`);
   });
-  assert.equal(answer?.ok,true,`${id}: ${q} => ${JSON.stringify(answer)}`);
+  if(reviewInterviewReply(scene,target.text,[target]).ok)assert.equal(answer?.ok,true,`${id}: ${q} => ${JSON.stringify(answer)}`);
+  else assert.equal(answer,null,'A generic alibi must not pass as personal corroboration');
   assert(calls.includes('generate'));
  }
 }

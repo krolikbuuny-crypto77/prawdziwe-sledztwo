@@ -1,0 +1,743 @@
+{
+  "schema": "ps-authored-witness-knowledge/1",
+  "version": "RC18",
+  "authority": "author_extension_requested_by_user",
+  "scope": "Public professional knowledge and non-dispositive personal background; no new crime, witness name, timeline event or evidence",
+  "profiles": {
+    "MAREK": [
+      {
+        "id": "MAREK-01",
+        "topic": "role",
+        "text": "Nadzoruję organizację zmiany i rozliczenie pracy. Zlecenie zadania nie oznacza, że osobiście obserwuję każdy etap jego wykonania.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-02",
+        "topic": "role",
+        "text": "Sprawy ruchu omawiam z dyspozytornią, wykonania napraw z warsztatem, a zagrożeń ze specjalistką BHP. To różne zakresy odpowiedzialności.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-03",
+        "topic": "alibi",
+        "text": "Moje wyjścia służbowe przerywały ciągły pobyt w biurze. Nie mogę odtworzyć wszystkich odcinków nocy z pamięci ani nadać im teraz dokładnych godzin.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-04",
+        "topic": "witness",
+        "text": "Osoba rozmawiająca ze mną przez telefon mogła potwierdzić rozmowę, ale nie widziała przez to, gdzie stałem. Nie wskażę świadka obserwującego mnie przez całą noc.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-05",
+        "topic": "relationship",
+        "text": "Lenę znałem przez pracę w zajezdni. W rozmowach interesowały mnie zgłaszane przez nią sprawy bezpieczeństwa i ich wpływ na pracę zmiany.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-06",
+        "topic": "report",
+        "text": "W zastrzeżeniach Leny rozróżniam sam sygnał o zagrożeniu, jego dokładną treść i formalne przekazanie. Wiedza o zastrzeżeniach nie potwierdza adresata każdego zgłoszenia.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-07",
+        "topic": "records",
+        "text": "Rozliczenie zmiany zestawia czas i wykonane zadania. Nie zastępuje zapisu każdej trasy pracownika ani osobistej obserwacji jego pobytu.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-08",
+        "topic": "authorization",
+        "text": "Moje polecenie organizacyjne nie jest samo w sobie technicznym odbiorem wagonu. Wykonanie i sprawdzenie pracy trzeba potwierdzić odrębnymi zapisami.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-09",
+        "topic": "finance",
+        "text": "Potrafię wyjaśnić organizację rozliczeń zmiany. Nie ustalę z samej wysokości premii, kto wykonał konkretną czynność przy wagonie.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-10",
+        "topic": "pressure",
+        "text": "Oczekiwanie wykonania pracy w terminie nie pozwala pomijać sprawdzenia bezpieczeństwa. Nie potwierdzam przez to, że ktoś tej nocy wydał taki nakaz.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-11",
+        "topic": "responsibility",
+        "text": "Odpowiadam za własne decyzje kierownicze. Ustalenie mojego zaniedbania i ustalenie, kto spowodował obrażenia Leny, wymagają różnych faktów.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-12",
+        "topic": "memory",
+        "text": "Nie prowadzę w pamięci minutowego rejestru kontaktów. Gdy nie umiem przypisać spotkania do godziny, wolę porównać dokumenty niż zgadywać.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-13",
+        "topic": "emotion",
+        "text": "Rzeczowy sposób mówienia pomaga mi uporządkować decyzje. Nie oznacza, że śmierć Leny jest mi obojętna.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-14",
+        "topic": "alarm",
+        "text": "O samym zdarzeniu dowiedziałem się po alarmie. Informacji przekazanej mi później nie przedstawię jako tego, co sam widziałem przy stanowisku.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAREK-15",
+        "topic": "identity",
+        "text": "Powiązanie wpisu z moim kontem i ustalenie, kto wykonał konkretną operację, to osobne pytania. Trzeba porównać zapis operacji z warunkami dostępu.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      }
+    ],
+    "TOMASZ": [
+      {
+        "id": "TOMASZ-01",
+        "topic": "role",
+        "text": "Zajmuję się prowadzeniem ruchu i przekazywaniem poleceń ruchowych. Nie wykonuję z tego tytułu technicznego odbioru podzespołów.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-02",
+        "topic": "role",
+        "text": "Rozróżniam przyjazd wagonu, skierowanie go na stanowisko i zakończenie pracy warsztatowej. To nie jest jedna czynność jednego pracownika.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-03",
+        "topic": "alibi",
+        "text": "Zgłoszenie alarmu o 02:02 jest konkretnym punktem mojej relacji. Nie dowodzi, że przez całą wcześniejszą godzinę nie odchodziłem od konsoli.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-04",
+        "topic": "alarm",
+        "text": "Sam znalazłem Lenę przy trzecim stanowisku i wezwałem pomoc. Nie widziałem momentu, w którym powstały jej obrażenia.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-05",
+        "topic": "alarm",
+        "text": "Znalezienie poszkodowanej i chwila powstania obrażeń to różne momenty. Nie ustalę czasu urazu wyłącznie z własnego wezwania pomocy.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-06",
+        "topic": "phone",
+        "text": "W łączności rozróżniam próbę wywołania, odebranie komunikatu i potwierdzenie jego wykonania. Sam zapis połączenia nie zawiera całej treści rozmowy.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-07",
+        "topic": "records",
+        "text": "Dziennik ruchu służy ustalaniu kolejności poleceń i przejazdów. Sam wpis nie potwierdza, że osobiście widziałem wykonanie każdego polecenia.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-08",
+        "topic": "relationship",
+        "text": "Z Leną stykałem się w sprawach zajezdni i wagonu. Sporu o wagon nie traktuję jako dowodu, że rozmówca chciał jej śmierci.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-09",
+        "topic": "report",
+        "text": "O zastrzeżeniach dotyczących wagonu można mówić osobno od tego, kto je formalnie odebrał. Nie podam konkretnego adresata bez podstawy.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-10",
+        "topic": "witness",
+        "text": "Zapis połączeń może pomóc odtworzyć kontakt z konsolą. Osobowy świadek musiałby opisać własne spotkanie ze mną, a nie tylko pracę urządzenia.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-11",
+        "topic": "authorization",
+        "text": "Polecenie skierowania wagonu nie zastępuje zgody na test ani podpisu osoby dokonującej odbioru technicznego.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-12",
+        "topic": "memory",
+        "text": "Nie potrafię wskazać pewnej godziny ostatniego spotkania żywej Leny. Godziny alarmu nie przeniosę na wcześniejsze spotkanie.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-13",
+        "topic": "safety",
+        "text": "Moje wezwanie pomocy nie daje mi wiedzy o wszystkich późniejszych czynnościach ratowników i zespołu zabezpieczającego ślady.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-14",
+        "topic": "responsibility",
+        "text": "Mogę wyjaśnić własne polecenia ruchowe. Wykonanie prac przy podzespołach i ich odbiór trzeba ustalać u wykonawców oraz w dokumentacji.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "TOMASZ-15",
+        "topic": "emotion",
+        "text": "Przy pytaniach o znalezienie Leny mówię krótko, bo rozdzielam to, co widziałem, od tego, czego nie potrafię odtworzyć.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      }
+    ],
+    "JANUSZ": [
+      {
+        "id": "JANUSZ-01",
+        "topic": "role",
+        "text": "Organizuję kolejkę prac warsztatowych i dokumentację napraw. Przydzielenie pracy, wykonanie i odbiór wymagają rozróżnienia.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-02",
+        "topic": "alibi",
+        "text": "Byłem na zmianie w warsztacie. Z karty pracy można ustalać zlecenia, ale nie każdą minutę mojego pobytu przy stanowisku.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-03",
+        "topic": "witness",
+        "text": "Koledzy mogą opisać wspólnie wykonywane zlecenia. Nie znaczy to, że któryś z nich obserwował mnie nieprzerwanie przez całą noc.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-04",
+        "topic": "relationship",
+        "text": "Z Leną rozmawiałem o wagonie i spieraliśmy się o jego stan. Taki spór zawodowy nie opisuje sam w sobie żadnej przemocy.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-05",
+        "topic": "workshop",
+        "text": "Objaw usterki, rozpoznana przyczyna i wynik naprawy to różne informacje. Kod błędu sam nie zastępuje oględzin ani sprawdzenia po naprawie.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-06",
+        "topic": "workshop",
+        "text": "Przy wymianie części znaczenie mają oznaczenie elementu, pochodzenie i zapis wykonania pracy. Numer w karcie trzeba porównać z częścią, a nie przyjmować go bez sprawdzenia.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-07",
+        "topic": "workshop",
+        "text": "Test po naprawie może potwierdzać usunięcie sprawdzanego objawu. Nie dowodzi sprawności całego wagonu w każdych warunkach.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-08",
+        "topic": "authorization",
+        "text": "Podpis pod odbiorem i wykonanie naprawy to osobne role. Sam podpis nie pozwala przypisać podpisującemu wszystkich czynności przy wagonie.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-09",
+        "topic": "records",
+        "text": "Brak rubryki w karcie wymaga sprawdzenia właściwego zlecenia i jego wersji. Nie ustalę przyczyny braku wpisu wyłącznie z samej pustej rubryki.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-10",
+        "topic": "safety",
+        "text": "Osłona i wyłączenie zasilania chronią przed różnymi zagrożeniami. O ich rzeczywistym stanie tej nocy trzeba mówić na podstawie oględzin, nie zwyczajów warsztatowych.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-11",
+        "topic": "safety",
+        "text": "Smar może trafić na odzież podczas normalnej pracy. Żeby wiązać go z konkretnym kontaktem, trzeba porównać próbki i warunki ich zabezpieczenia.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-12",
+        "topic": "report",
+        "text": "Wiedziałem o problemie z TW-217. Nie daje mi to automatycznie wiedzy o każdym zgłoszeniu Leny ani o wszystkich jego odbiorcach.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-13",
+        "topic": "finance",
+        "text": "Potrafię odnieść zapis dostawy do części i zlecenia. Samą fakturą nie potwierdzę, że część zamontowano ani kto zatwierdził rozliczenie.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-14",
+        "topic": "memory",
+        "text": "Pamiętam rozmowy o wagonie, lecz nie podam pewnej minuty ostatniego spotkania z Leną. Nie chcę dopasowywać pamięci do podsuniętej godziny.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "JANUSZ-15",
+        "topic": "responsibility",
+        "text": "O śmierci Leny dowiedziałem się po alarmie. Wiedza warsztatowa nie czyni mnie świadkiem tego, jak doszło do jej obrażeń.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      }
+    ],
+    "ELZBIETA": [
+      {
+        "id": "ELZBIETA-01",
+        "topic": "role",
+        "text": "Zajmuję się ryzykiem i procedurą zgłaszania zagrożeń. Ocena zagrożenia, przekazanie informacji i potwierdzenie odbioru są osobnymi etapami.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-02",
+        "topic": "relationship",
+        "text": "Lena mówiła mi o bezpieczeństwie TW-217. Znam ją z rozmów o tych problemach i traktowałam jej obawy poważnie.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-03",
+        "topic": "report",
+        "text": "Zastrzeżenia dotyczące bezpieczeństwa zgłaszała Lena. Moja rozmowa z nią nie oznacza, że ja byłam autorką jej spostrzeżeń.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-04",
+        "topic": "phone",
+        "text": "Kontakt z Leną o 21:47 potrafię wskazać. Biling może potwierdzić połączenie, ale nie jest zapisem wszystkich słów tej rozmowy.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-05",
+        "topic": "report",
+        "text": "Ustna rozmowa o ryzyku i skuteczne formalne wysłanie zgłoszenia to różne rzeczy. Do potwierdzenia wysłania potrzebny jest ślad nadania lub odbioru.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-06",
+        "topic": "report",
+        "text": "Sam projekt dokumentu nie potwierdza, że adresat go otrzymał. Trzeba rozróżnić autora, wskazanego adresata i faktycznego odbiorcę.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-07",
+        "topic": "safety",
+        "text": "Przy opisie ryzyka odróżniam zagrożenie dla ludzi od samej niezgodności w dokumentacji. Nie każda brakująca rubryka opisuje mechanizm obrażeń.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-08",
+        "topic": "safety",
+        "text": "Stan osłony przed przybyciem pomocy i stan zastany przez zespół oględzin mogą wymagać osobnego ustalenia. Nie byłam tam, żeby sama to porównać.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-09",
+        "topic": "alibi",
+        "text": "Nie widziałam samego zdarzenia. Nie mam dokumentu potwierdzającego każdą minutę mojej nocy i nie zastąpię go godziną rozmowy z Leną.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-10",
+        "topic": "memory",
+        "text": "Ostatni kontakt, który umiem wskazać, nie musi być dowodem, że późniejszego kontaktu na pewno nie było. Nie mam takiej pewności.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-11",
+        "topic": "authorization",
+        "text": "Informacja o zagrożeniu nie jest zgodą na test ani technicznym odbiorem. Te decyzje wymagają ustalenia ich właściwych autorów.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-12",
+        "topic": "witness",
+        "text": "Mogę zrelacjonować rozmowę, w której uczestniczyłam. Nie mogę z niej wyprowadzić, gdzie Lena przebywała przez resztę nocy.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-13",
+        "topic": "responsibility",
+        "text": "Poczucie, że można było zrobić więcej dla bezpieczeństwa, nie jest wiedzą o sprawcy przemocy. Te kwestie trzeba wyjaśniać oddzielnie.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-14",
+        "topic": "emotion",
+        "text": "Rozmowa o Lenie jest dla mnie trudna. Mogę potrzebować chwili, ale emocje nie zmieniają tego, co potrafię potwierdzić.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "ELZBIETA-15",
+        "topic": "pressure",
+        "text": "Presja terminu nie zastępuje oceny ryzyka. Nie potwierdzę konkretnego polecenia zignorowania zagrożenia bez wiedzy o takim poleceniu.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      }
+    ],
+    "KAMIL": [
+      {
+        "id": "KAMIL-01",
+        "topic": "role",
+        "text": "Zajmuję się automatyką i diagnostyką TW-217. Wynik testu, jego autoryzacja i odbiór całego wagonu są różnymi rzeczami.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-02",
+        "topic": "workshop",
+        "text": "Log TCMS zapisuje zdarzenia systemu. Kod może opisywać wykryty objaw, a ustalenie przyczyny wymaga porównania go z warunkami testu.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-03",
+        "topic": "workshop",
+        "text": "Wcześniejszy błąd zapisany w pamięci i błąd aktywny w danej chwili nie muszą oznaczać tego samego stanu urządzenia.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-04",
+        "topic": "authorization",
+        "text": "Zgoda na test powinna być rozpatrywana razem z zapisem sesji. Samo uruchomienie sesji nie dowodzi, że wszystkie wymagane zgody były udzielone.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-05",
+        "topic": "identity",
+        "text": "Konto, sesja, karta i człowiek to różne elementy. Z identyfikatora w logu nie wyprowadzę automatycznie fizycznej tożsamości osoby przy urządzeniu.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-06",
+        "topic": "identity",
+        "text": "Przypisanie karty do osoby w ewidencji nie dokumentuje każdego późniejszego użycia. Czytnik rejestruje nośnik, a nie twarz.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-07",
+        "topic": "records",
+        "text": "Porównując dwa logi, trzeba sprawdzić zgodność czasu systemów. Różnica wskazań nie jest od razu dowodem, że ktoś zmienił przebieg wydarzeń.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-08",
+        "topic": "records",
+        "text": "Zmiana konfiguracji, zapis jej wykonania i rzeczywisty efekt techniczny wymagają rozróżnienia. Samo konto nie tłumaczy intencji operatora.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-09",
+        "topic": "alibi",
+        "text": "Robiłem diagnostykę TW-217. Log sesji pomaga ustalić czynności systemu, ale nie pokazuje każdej minuty mojego pobytu.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-10",
+        "topic": "relationship",
+        "text": "Z Leną rozmawiałem o diagnostyce. Moja rola techniczna nie daje mi wiedzy o wszystkich jej kontaktach i prywatnych sprawach.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-11",
+        "topic": "phone",
+        "text": "Dostęp do konta na urządzeniu i faktyczne wysłanie wiadomości przez konkretną osobę to dwa ustalenia. Potrzebne jest porównanie kontekstu i zapisów.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-12",
+        "topic": "safety",
+        "text": "Nietypowe zdarzenie w teście nie jest samo w sobie opisem wypadku przy stanowisku. Związek z obrażeniami wymaga innych źródeł.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-13",
+        "topic": "memory",
+        "text": "Nie pamiętam ostatniego spotkania z Leną z dokładnością do minuty. Znacznika czasu z logu nie przedstawię jako pamięci spotkania.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-14",
+        "topic": "witness",
+        "text": "Autoryzacja może dotyczyć sesji. Nie jest osobową relacją kogoś, kto widział mnie przez całą noc przy komputerze.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "KAMIL-15",
+        "topic": "responsibility",
+        "text": "Mogę wyjaśnić znaczenie zapisów diagnostycznych. Nie ustalę z samego kodu błędu, kto spowodował śmierć Leny.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      }
+    ],
+    "MAGDALENA": [
+      {
+        "id": "MAGDALENA-01",
+        "topic": "role",
+        "text": "Zajmuję się zgodnością dokumentacji odbiorowej i umów serwisowych. Porównuję treść dokumentów, ich wersje i podstawy zatwierdzenia.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-02",
+        "topic": "authorization",
+        "text": "Potwierdzenie zgodności dokumentacji nie jest osobistym wykonaniem każdej czynności technicznej. Trzeba wskazać, co dokładnie obejmował odbiór.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-03",
+        "topic": "records",
+        "text": "Kopia, projekt i zatwierdzona wersja dokumentu mają różny status. Sam tytuł pliku nie wystarcza do ustalenia, która wersja obowiązywała.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-04",
+        "topic": "records",
+        "text": "Data utworzenia pliku, podpisania dokumentu i wykonania opisanej pracy nie muszą być tą samą datą. Znaczenie każdego pola trzeba sprawdzić.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-05",
+        "topic": "finance",
+        "text": "Umowa, faktura, przyjęcie dostawy i odbiór techniczny potwierdzają różne etapy. Zapłata nie jest sama w sobie dowodem montażu części.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-06",
+        "topic": "finance",
+        "text": "Rozbieżność w oznaczeniu części wymaga porównania dokumentów z elementem. Nie ustalę jej przyczyny wyłącznie z ogólnego opisu faktury.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-07",
+        "topic": "finance",
+        "text": "Powiązanie osoby z dostawcą, korzyść finansowa i udział w konkretnej decyzji są odrębnymi ustaleniami. Jedno nie zastępuje pozostałych.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-08",
+        "topic": "alibi",
+        "text": "Sesja audytowa trwała od 01:30 do 02:00 według mojego oświadczenia. Rejestr połączenia nie jest nieprzerwaną obserwacją mojej osoby.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-09",
+        "topic": "witness",
+        "text": "Ciągłość połączenia i stała obecność przed kamerą nie są tym samym. Sam rejestr nie wskazuje osobowego świadka całego mojego pobytu.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-10",
+        "topic": "relationship",
+        "text": "Moje kontakty z Leną wiązały się ze sprawami zgodności technicznej. Rozbieżności w dokumentach nie są samodzielnym dowodem motywu przemocy.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-11",
+        "topic": "identity",
+        "text": "Zapis użycia karty trzeba odróżnić od ewidencji jej wydania. Nie wskażę na tej podstawie samej osoby stojącej przy drzwiach.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-12",
+        "topic": "phone",
+        "text": "Korespondencję trzeba odczytywać w pełnym wątku. Pojedynczy fragment nie określa sam autora czynności ani znaczenia wcześniejszych ustaleń.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-13",
+        "topic": "alarm",
+        "text": "Nie byłam obecna przy zgłoszeniu alarmu. O tym momencie nie będę mówić tak, jakbym sama go obserwowała.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-14",
+        "topic": "memory",
+        "text": "Nie wskażę pewnej godziny ostatniego spotkania z Leną. Czas sesji audytowej nie jest automatycznie godziną takiego spotkania.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      },
+      {
+        "id": "MAGDALENA-15",
+        "topic": "emotion",
+        "text": "Ostrożnie dobieram słowa, bo różnica między dokumentem a osobistą obserwacją ma znaczenie. Nie jest to samo w sobie przyznanie się do zarzutu.",
+        "kind": "personal-professional",
+        "visibility": "public"
+      }
+    ]
+  },
+  "shared": [
+    {
+      "id": "COMMON-01",
+      "topic": "witness",
+      "text": "Osobowy świadek może potwierdzić tylko to, co sam obserwował. Krótkie spotkanie nie potwierdza całej nocy, a rozmowa nie dowodzi ciągłego wspólnego pobytu.",
+      "kind": "general-principle-not-case-event",
+      "visibility": "public"
+    },
+    {
+      "id": "COMMON-02",
+      "topic": "phone",
+      "text": "Nieodebrane połączenie, odebrana rozmowa i odczytanie wiadomości to różne zdarzenia. Sam czas połączenia nie podaje pełnej treści rozmowy ani miejsca pobytu.",
+      "kind": "general-principle-not-case-event",
+      "visibility": "public"
+    },
+    {
+      "id": "COMMON-03",
+      "topic": "identity",
+      "text": "Zapis użycia karty potwierdza zdarzenie z nośnikiem. Sam nie dowodzi, kto go trzymał ani czy przez otwarte drzwi przeszła tylko jedna osoba.",
+      "kind": "general-principle-not-case-event",
+      "visibility": "public"
+    },
+    {
+      "id": "COMMON-04",
+      "topic": "records",
+      "text": "Brak wpisu ma znaczenie tylko w zakresie, który dany rejestr rzeczywiście obejmuje. Nie jest automatycznym dowodem, że nikt nie przechodził.",
+      "kind": "general-principle-not-case-event",
+      "visibility": "public"
+    },
+    {
+      "id": "COMMON-05",
+      "topic": "report",
+      "text": "Autor zgłoszenia, osoba przekazująca i odbiorca to różne role. Zapisanie projektu nie potwierdza skutecznego wysłania ani odbioru.",
+      "kind": "general-principle-not-case-event",
+      "visibility": "public"
+    },
+    {
+      "id": "COMMON-06",
+      "topic": "memory",
+      "text": "Własna obserwacja, cudza relacja i późniejsze odczytanie dokumentu mają różne źródła. Nie należy przedstawiać później poznanej informacji jako wspomnienia zdarzenia.",
+      "kind": "general-principle-not-case-event",
+      "visibility": "public"
+    },
+    {
+      "id": "COMMON-07",
+      "topic": "alarm",
+      "text": "Godzina znalezienia człowieka, wezwania pomocy i powstania obrażeń to odrębne punkty chronologii. Sam jeden z tych czasów nie ustala pozostałych.",
+      "kind": "general-principle-not-case-event",
+      "visibility": "public"
+    },
+    {
+      "id": "COMMON-08",
+      "topic": "workshop",
+      "text": "Wykryty objaw, przyczyna usterki i rezultat naprawy są odrębne. Brak numeru lub podpisu nie ustala sam z siebie sprawcy przemocy.",
+      "kind": "general-principle-not-case-event",
+      "visibility": "public"
+    },
+    {
+      "id": "COMMON-09",
+      "topic": "authorization",
+      "text": "Podpisanie dokumentu, wykonanie pracy i sprawdzenie jej wyniku to odrębne czynności. Trzeba ustalić zakres konkretnego potwierdzenia.",
+      "kind": "general-principle-not-case-event",
+      "visibility": "public"
+    },
+    {
+      "id": "COMMON-10",
+      "topic": "safety",
+      "text": "Zgodność rodzaju smaru albo włókna nie jest identyfikacją jednej osoby. Stan miejsca po pomocy może różnić się od stanu sprzed wejścia ratowników.",
+      "kind": "general-principle-not-case-event",
+      "visibility": "public"
+    },
+    {
+      "id": "COMMON-11",
+      "topic": "finance",
+      "text": "Presja terminu i oszczędności mogą być tematem do wyjaśnienia, ale same nie dowodzą wydania niebezpiecznego polecenia ani udziału w przemocy.",
+      "kind": "general-principle-not-case-event",
+      "visibility": "public"
+    },
+    {
+      "id": "COMMON-12",
+      "topic": "responsibility",
+      "text": "Uprawnienie dostępu, możliwość działania, motyw i wykonanie czynności to różne ustalenia. Żadne pojedyncze nie zastępuje dowodu konkretnego działania.",
+      "kind": "general-principle-not-case-event",
+      "visibility": "public"
+    },
+    {
+      "id": "COMMON-13",
+      "topic": "emotion",
+      "text": "Milczenie, zdenerwowanie i ostrożny dobór słów nie ustalają prawdziwości zarzutu. Sprostowanie pomyłki nie musi oznaczać przyznania do sugerowanego czynu.",
+      "kind": "general-principle-not-case-event",
+      "visibility": "public"
+    }
+  ]
+}
