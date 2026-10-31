@@ -61,10 +61,11 @@ if(final&&audit){
 const helpButton=by('ps603HelpBtn'),fab=by('psFab');
 if(helpButton&&fab){
  const syncHelpLocation=()=>{
-  const mobile=window.innerWidth<=950;
-  document.body.classList.toggle('ps88-help-mobile',mobile);
-  if(mobile){if(fab.parentElement!==document.body)document.body.append(fab);}
-  else{const tools=by('ps76Tools');if(tools&&fab.parentElement!==tools)tools.append(fab);}
+  // RC35.3: do not pull the progress button out of the sidebar on mobile.
+  // The phone has a menu button, so the help controls stay in one predictable place.
+  document.body.classList.remove('ps88-help-mobile');
+  const tools=by('ps76Tools');
+  if(tools&&fab.parentElement!==tools)tools.append(fab);
  };
  syncHelpLocation();document.addEventListener('DOMContentLoaded',syncHelpLocation,{once:true});window.addEventListener('resize',syncHelpLocation);
  fab.setAttribute('aria-label','Plan śledztwa i wskazówki');

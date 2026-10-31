@@ -278,8 +278,8 @@
         "src/core/witness-engine.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_000__",
-      "sha256": "7d56f79ba853931e13f2c3309a58ad02fc06765eec8ab8926dc1e9961e78c9d4",
-      "size": 1467502
+      "sha256": "6ed37f338f0a32bce7cd7a3a7c7b6174e5df1df3a0e0aaec048e1c3f7c6519cd",
+      "size": 1467973
     },
     {
       "kind": "script",
@@ -1037,8 +1037,8 @@
         "src/navigation/43-interface-consolidation.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_043__",
-      "sha256": "e92191864b04320249bb8781d56398c523e97309d2d4d0618214b6413951d89d",
-      "size": 5265
+      "sha256": "2871a9f990e1947e23edb2dc5c9ef4432e17b68c98e518c97c14a09d909e9be6",
+      "size": 5299
     },
     {
       "kind": "script",
@@ -1280,8 +1280,8 @@
         "src/deduction/55-mentor-and-red-thread.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_055__",
-      "sha256": "e1e54b18579a5778304edaa61174b6e7eb451a6015d38a48c0d746b098bd67be",
-      "size": 24545
+      "sha256": "e3bcd39df8a9088a8220f76dd0dfaf4e5d82c919fe7c95fa7ecf0ce209aed713",
+      "size": 24898
     },
     {
       "kind": "script",
@@ -1391,11 +1391,12 @@
         "src/witnesses/82-relevance-and-voice-625.js",
         "src/witnesses/85-unified-response-633.js",
         "src/integrations/90-specialized-ai-rc7.js",
-        "src/integrations/95-coop-mirror-rc35.js"
+        "src/integrations/95-coop-mirror-rc35.js",
+        "src/navigation/96-mentor-layout-rc353.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_060__",
-      "sha256": "c75e94afc93591d4f15e2d04c407c918e668912c1fad060eb90c6c1acc377b72",
-      "size": 265895
+      "sha256": "fe420d00bbe265d32115adcebe8ede7fd2fc85b14dc6eee537bdc6325574be91",
+      "size": 266682
     },
     {
       "kind": "style",
@@ -1409,11 +1410,12 @@
         "src/styles/77-living-witnesses-620.css",
         "src/styles/78-interviews-cinema-621.css",
         "src/styles/80-animated-faces-622.css",
-        "src/styles/95-coop-mirror-rc35.css"
+        "src/styles/95-coop-mirror-rc35.css",
+        "src/styles/96-mentor-in-navigation-rc353.css"
       ],
       "marker": "__PS_SOURCE_STYLE_063__",
-      "sha256": "fdc21e4a34702dd9d00a361d911b5a139b86735f2002a371053b32070f9f69d3",
-      "size": 19739
+      "sha256": "2604a94294148d8e4c560de25630e3d3213fb93d043078025b9a3b0a702e9523",
+      "size": 23562
     }
   ]
 }

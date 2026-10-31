@@ -71,7 +71,9 @@ function diagnose(){
   'Jeżeli procedura oględzin dobiegła końca, upewnij się, że materiał zabezpieczono do akt.'
  ]};
 }
-function openMentor(){if(!memo.enabled)return;memo.open=true;by('seniorPanel').hidden=false;by('seniorFab').setAttribute('aria-expanded','true');drawMentor();}
+function openMentor(){if(!memo.enabled)return;
+ if(document.body.classList.contains('ui14-nav-open'))document.getElementById('ui14Close')?.click();
+ memo.open=true;by('seniorPanel').hidden=false;by('seniorFab').setAttribute('aria-expanded','true');drawMentor();}
 function closeMentor(){memo.open=false;by('seniorPanel').hidden=true;by('seniorFab').setAttribute('aria-expanded','false');}
 function drawMentor(){if(!memo.open)return;const d=diagnose();if(d.key!==memo.key){memo.key=d.key;memo.step=0;}
  by('seniorContext').textContent=d.label;
@@ -83,7 +85,11 @@ function drawMentor(){if(!memo.open)return;const d=diagnose();if(d.key!==memo.ke
 function setupMentor(){
  const fab=document.createElement('button');fab.id='seniorFab';fab.type='button';fab.className='senior-fab';fab.setAttribute('aria-label','Starszy Śledczy — opcjonalne wskazówki');fab.setAttribute('aria-controls','seniorPanel');fab.setAttribute('aria-expanded','false');fab.innerHTML='<span class="senior-fab-symbol" aria-hidden="true">⌕</span><span>Starszy Śledczy</span>';
  const panel=document.createElement('section');panel.id='seniorPanel';panel.className='senior-panel';panel.hidden=true;panel.setAttribute('aria-label','Pomoc Starszego Śledczego');panel.innerHTML='<header><span class="senior-avatar" aria-hidden="true">SŚ</span><span><strong>Starszy Śledczy</strong><small>Opcjonalny konsultant proceduralny</small></span><button type="button" id="seniorClose" aria-label="Zamknij konsultację">×</button></header><div class="senior-content"><span class="senior-kicker">DIAGNOZA AKTUALNEGO POSTĘPU</span><h3 id="seniorContext"></h3><p id="seniorAdvice" aria-live="polite"></p><span id="seniorLevel" class="senior-level"></span><button type="button" id="seniorAsk" class="senior-action"></button><button type="button" id="seniorGo" class="senior-go"></button><p class="senior-disclaimer">Wskazówki nie dodają dowodów, nie zaliczają zadań i nie zdradzają sprawcy.</p><label class="senior-opt"><input type="checkbox" checked id="seniorToggle"> Włącz Starszego Śledczego</label></div>';
- document.body.append(fab,panel);
+ // RC35.3: keep the mentor button inside navigation, not fixed over gameplay.
+ const sidebar=document.getElementById('ui14Sidebar');
+ const tools=document.getElementById('ps76Tools')||sidebar;
+ if(tools)tools.append(fab);else document.body.append(fab);
+ document.body.append(panel);
  fab.addEventListener('click',()=>memo.open?closeMentor():openMentor());
  by('seniorClose').addEventListener('click',closeMentor);
  by('seniorAsk').addEventListener('click',()=>{if(memo.step<3){memo.step++;if(typeof PS!=='undefined')PS.hints=(PS.hints||0)+1;}drawMentor();});
