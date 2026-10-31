@@ -20,18 +20,23 @@ export default async function handler(req,res){
  if(!checkOrigin(req))return reply(res,403,{ok:false,error:'origin_rejected'});
  if(!configured())return reply(res,503,{ok:false,error:'supabase_not_configured'});
  if(req.method==='POST'&&(req.headers?.['content-type']?.split(';')[0]!=='application/json'||req.headers?.['x-ps-client']!=='game'))return reply(res,415,{ok:false,error:'invalid_content_type'});
+ let stage='start';
  try{
   const body=req.method==='POST'?bodyOf(req):{};
   const action=req.method==='GET'?'status':body.action;
   if(action==='create'){
    if(hasCoopCookie(req))return reply(res,409,{ok:false,error:'leave_existing_room_first'});
    if(!validFrame(body.frame))return reply(res,400,{ok:false,error:'invalid_frame'});
+   stage='load_personal_session';
    const original=await loadSession(sessionId(req,res));
    const sharedId=crypto.randomUUID(),roomId=crypto.randomUUID(),owner=crypto.randomUUID();
+   stage='load_shared_session';
    const initial=await loadSession(sharedId);
+   stage='commit_shared_session';
    if(!(await commitSession(sharedId,initial.revision,original.state)))throw Error('coop_initialization_failed');
    const code=makeCode();
    const room={room_id:roomId,session_id:sharedId,code_hash:codeHash(code),owner_member:owner,guest_member:null,controller_member:owner,version:1,frame:body.frame};
+   stage='insert_room';
    await coopRest('ps_coop_rooms',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify(room)});
    setCoopCookie(req,res,roomId,sharedId,owner);
    return reply(res,200,{ok:true,code,...sanitizeRoom(room,{memberId:owner})});
@@ -89,6 +94,16 @@ export default async function handler(req,res){
  }catch(err){
   if(['invalid_coop_cookie','coop_membership_revoked'].includes(err?.message))clearCoopCookie(req,res);
   const status=[400,401,403,413,423].includes(err?.status)?err.status:503;
-  return reply(res,status,{ok:false,error:status===503?'coop_storage_unavailable':String(err.message||'coop_error')});
+  let error=status===503?'coop_storage_unavailable':String(err.message||'coop_error');
+  if(status===503){
+   const dbStatus=Number(err?.status)||Number(String(err?.message||'').match(/supabase-(\d{3})/)?.[1])||0;
+   if(stage==='insert_room'&&dbStatus===404)error='coop_rooms_table_missing_or_cache_stale';
+   else if(stage==='insert_room'&&[401,403].includes(dbStatus))error='coop_rooms_permission_denied';
+   else if(stage.startsWith('load_')&&dbStatus===404)error='game_sessions_table_missing_or_cache_stale';
+   else if(stage==='commit_shared_session')error='coop_session_commit_failed';
+   // Server-only, sanitized telemetry; never log cookies, credentials or a game save.
+   console.error('[RC35.4 coop]',{stage,dbStatus,error});
+  }
+  return reply(res,status,{ok:false,error});
  }
 }

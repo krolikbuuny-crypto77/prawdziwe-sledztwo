@@ -4,11 +4,12 @@ process.env.GAME_SESSION_SECRET='RC35-secret-long-enough-to-authenticate-coop-ro
 process.env.SUPABASE_URL='https://example.supabase.co';
 process.env.SUPABASE_SERVICE_ROLE_KEY='test-service-role-not-real';
 const rooms=new Map(),games=new Map();
+let failNextRoomInsert=false;
 const json=(data,status=200)=>new Response(data===null?null:JSON.stringify(data),{status,headers:{'Content-Type':'application/json'}});
 globalThis.fetch=async(url,options={})=>{
  const u=new URL(url),q=u.searchParams,method=options.method||'GET',data=options.body?JSON.parse(options.body):{};
  if(u.pathname.endsWith('/ps_game_sessions')){
-  if(method==='POST'){if(!games.has(data.session_id))games.set(data.session_id,{revision:0,approved_state:data.approved_state});return json(null,204);}
+  if(method==='POST'){if(!games.has(data.session_id))games.set(data.session_id,{revision:0,approved_state:data.approved_state});return json(null,201);}
   if(method==='GET'){const id=q.get('session_id')?.slice(3);const row=games.get(id);return json(row?[row]:[]);}
   if(method==='DELETE'){games.delete(q.get('session_id')?.slice(3));return json(null,204);}
  }
@@ -23,6 +24,7 @@ globalThis.fetch=async(url,options={})=>{
    else if(value==='is.null')rows=rows.filter(x=>x[key]==null);
   }
   if(method==='POST'){
+   if(failNextRoomInsert){failNextRoomInsert=false;return json({code:'PGRST205',message:'Database schema not cached'},404);}
    if([...rooms.values()].some(x=>x.code_hash===data.code_hash))return json({error:'duplicate'},409);
    rooms.set(data.room_id,{...data});return json(null,201);
   }
@@ -75,4 +77,8 @@ let stillHost=await simulate(handler,'GET',null,hostCookie);assert.equal(stillHo
 let reused=await simulate(handler,'GET',null,guestCookie);assert.equal(reused.code,403);
 let closed=await simulate(handler,'POST',{action:'leave'},hostCookie);assert.equal(closed.code,200);assert.equal(rooms.size,0);
 let zombie=await simulate(handler,'GET',null,hostCookie);assert.equal(zombie.code,403);
+failNextRoomInsert=true;
+let missingSql=await simulate(handler,'POST',{action:'create',frame});
+assert.equal(missingSql.code,503);
+assert.equal(missingSql.data.error,'coop_rooms_table_missing_or_cache_stale');
 console.log('PASS RC35: room creation, secure code join, 2-player limit, shared server session, frame sync, observer read-only, takeover CAS, leave and token revocation');

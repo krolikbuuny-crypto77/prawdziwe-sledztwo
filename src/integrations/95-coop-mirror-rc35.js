@@ -131,7 +131,16 @@
   try{const data=await call('create',{frame:frame()});code=data.code;
    try{localStorage.setItem('ps-coop-owner-code',code);}catch{}
    window.PS617_SYNC?.coopJoined?.();accept(data);dirty=false;notify('Wyślij kod drugiej osobie.');}
-  catch(err){notify('Nie utworzono pokoju: '+safe(err.message));}finally{busy=false;}
+  catch(err){
+   const messages={
+    coop_rooms_table_missing_or_cache_stale:'Nie znaleziono tabeli pokoi w Supabase. Uruchom SQL 004 i odśwież schemat bazy.',
+    game_sessions_table_missing_or_cache_stale:'Nie znaleziono tabeli sesji gry. Sprawdź migrację SQL 001.',
+    coop_rooms_permission_denied:'Brak uprawnień serwera do tabeli pokoi. Sprawdź klucz service_role w Vercel.',
+    supabase_not_configured:'Brak konfiguracji Supabase lub sekretu sesji w Vercel.',
+    coop_session_commit_failed:'Nie zatwierdzono nowej sesji gry. Sprawdź funkcję ps_commit_session w Supabase.'
+   };
+   notify(messages[err.message]||'Nie utworzono pokoju: '+safe(err.message));
+  }finally{busy=false;}
  }
  async function join(){
   if(busy)return;busy=true;notify('Dołączanie…');
