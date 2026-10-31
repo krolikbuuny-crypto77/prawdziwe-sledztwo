@@ -40,7 +40,7 @@
   ],
   "functions": {
     "api/interview.js": {
-      "maxDuration": 60
+      "maxDuration": 90
     },
     "api/defense-objections.js": {
       "maxDuration": 60

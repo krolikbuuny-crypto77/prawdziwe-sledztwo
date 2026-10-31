@@ -2463,7 +2463,7 @@ window.NPC46_QA={shortKind:npc46ShortKind,anchor:id=>npc46Anchor(NPC9_MEMORY[id]
 
 // Diagnostic metadata is presentation-only: it cannot change evidence, testimony gates or verdict.
 function psAiMeta(value){
- if(!value||typeof value!=='object'||!['zai','groq','local','unknown'].includes(value.provider))return null;
+ if(!value||typeof value!=='object'||!['gemini','zai','mistral','groq','apinex-luna','apinex-glm','apinex-deepseek','local','unknown'].includes(value.provider))return null;
  const clean=(v,max)=>typeof v==='string'&&/^[a-zA-Z0-9._:;/-]+$/.test(v)&&v.length<=max?v:null;
  return {provider:value.provider,model:clean(value.model,96),fallbackReason:clean(value.fallbackReason,190),
   requestId:typeof value.requestId==='string'&&/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value.requestId)?value.requestId:null,
@@ -2473,7 +2473,7 @@ function psAiMeta(value){
    correctiveCalls:Number(value.qualityDiagnostics.correctiveCalls)||0,
    rejectedChecks:Number(value.qualityDiagnostics.rejectedChecks)||0,
    attempts:Array.isArray(value.qualityDiagnostics.attempts)?value.qualityDiagnostics.attempts.slice(0,24).filter(x=>
-     ['zai','groq','local','server'].includes(x?.provider)&&
+     ['gemini','zai','mistral','groq','apinex-luna','apinex-glm','apinex-deepseek','local','server'].includes(x?.provider)&&
      ['generate','quality','rewrite','semantic-audit','post-check','save'].includes(x?.phase)&&
      ['ok','rejected','error','skipped'].includes(x?.result)&&
      typeof x.code==='string'&&/^[a-z_]+$/.test(x.code)&&x.code.length<42&&
@@ -2482,7 +2482,7 @@ function psAiMeta(value){
   }:null};
 }
 const psShowAiDiagnostic=new URLSearchParams(location.search).get('debugAI')==='1';
-const psAiLabel=v=>({zai:'Z.ai',groq:'Groq',local:'silnik lokalny',unknown:'nieustalony'})[v]||'nieustalony';
+const psAiLabel=v=>({'apinex-luna':'APINEX Luna','apinex-glm':'APINEX GLM','apinex-deepseek':'APINEX DeepSeek',gemini:'Gemini',zai:'Z.ai',mistral:'Mistral',groq:'Groq',local:'silnik lokalny',unknown:'nieustalony'})[v]||'nieustalony';
 const CHAT_VISIBLE=Object.create(null);
 function renderChat(){
  renderCharacterList();renderAttached();

@@ -63,7 +63,7 @@ for(const [id,q,source] of [
  const result=await attemptInterview(s,'groq',async(system,payload,a,b,c,phase)=>{
   if(phase==='generate'){
    assert(payload.knowledge.factBank.some(x=>x.id===f.id&&x.text===f.text));
-   assert(system.includes('general-principle-not-case-event'));
+   assert(system.includes('general-principle'));
    return {decision:'answer',factIds:[f.id],text:f.text};
   }
   if(phase==='semantic-audit')return {relevant:true,entailed:true,complete:true,coveredParts:[],semanticRepeat:false};

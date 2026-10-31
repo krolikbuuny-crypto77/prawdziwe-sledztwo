@@ -1,3 +1,9 @@
+> **RC26:** limit oczekiwania na pytanie 90 s, wspólny dla wszystkich modeli i lokalnej rezerwy. Wdrożenie: [RAPORT-RC26.md](RAPORT-RC26.md).
+
+> **Aktualizacja RC25:** przesłuchania: APINEX Luna → GLM Flash → DeepSeek Flash → Z.ai → lokalny rejestr. Aktualna instrukcja: [RAPORT-RC25.md](RAPORT-RC25.md).
+
+> **Aktualizacja RC24:** przesłuchania używają Z.ai GLM-4.7-Flash → Mistral Small → lokalny rejestr. Instrukcja wdrożenia i aktualna polityka: [RAPORT-RC24.md](RAPORT-RC24.md). Starsze raporty AI-required są historyczne.
+
 # Najnowsza wersja — 6.37 Free Groq RC10
 
 Przesłuchania i finał: Google Gemini 3.8 Flash. Dedukcja i laboratorium: **Groq Cloud Free bez karty płatniczej**. Instrukcja: `README-6.37-FREE-GROQ-RC10.md`. Poprzednie README są archiwalne.

@@ -4,7 +4,7 @@ const snapshot={fetch:globalThis.fetch,z:process.env.ZAI_API_KEY,g:process.env.G
 process.env.GAME_SESSION_SECRET='release-test-secret-'.padEnd(40,'k');
 process.env.SUPABASE_URL='https://release-test.supabase.co';
 process.env.SUPABASE_SERVICE_ROLE_KEY='release-test-key';
-process.env.GROQ_API_KEY='release-test-groq';delete process.env.GEMINI_API_KEY;delete process.env.GOOGLE_AI_STUDIO_API_KEY;
+process.env.ZAI_API_KEY='release-test-zai';delete process.env.GEMINI_API_KEY;delete process.env.GOOGLE_AI_STUDIO_API_KEY;
 const {initialState,appendReportedTurn,approvedHistory}=await import('../lib/server-state.js');
 const {default:handler}=await import('../api/interview.js');
 const canonical='Nie pamiętam dokładnej godziny spotkania.';
@@ -37,7 +37,7 @@ async function submit(turnId,question='O której doszło do spotkania?'){
 }
 try{
  let id=randomUUID(),r=await submit(id);
- assert.equal(r.status,200,JSON.stringify(r));assert.equal(r.body.turnId,id);assert.equal(r.body.provider,'groq');
+ assert.equal(r.status,200,JSON.stringify(r));assert.equal(r.body.turnId,id);assert.equal(r.body.provider,'zai');
  assert.equal(state.interviewReceipts[id].question,'O której doszło do spotkania?');
  const calls=apiCalls,used=quotaCalls,saved=commits;
  r=await submit(id);assert.equal(r.status,200);assert.equal(r.body.replayed,true);

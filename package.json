@@ -47,9 +47,9 @@
     "test:stage2-636": "node tools/test-stage2-636.mjs && python tools/test-stage2-sync636.py && npm run test:stage1-636 && npm run test:api629 && npm run test:fast-evidence",
     "test:stage3-636": "node tools/test-stage3-636.mjs && npm run test:stage2-636",
     "test:stage4-636": "npm run test:pre-github",
-    "test:ai-first-hardening": "node tools/test-pre-github636.mjs && python tools/test-pre-github-browser636.py && node tools/test-ai-required637.mjs && python tools/test-ai-required-browser637.py && npm run test:release-candidate",
+    "test:ai-first-hardening": "npm run test:interview-fallback && node tools/test-release-candidate636.mjs",
     "test:pre-github": "npm run check && npm run test:ai-first-hardening && node tools/test-stage1-636.mjs && node tools/test-stage1-diagnostics636.mjs && node tools/test-stage2-636.mjs && node tools/test-stage3-636.mjs && node tools/test-dialogue635.mjs && python tools/test-cloud-evidence635.py && python tools/test-stage2-sync636.py && python tools/test-stage4-636.py && python tools/test-saves.py && python tools/test-navigation.py && python tools/test-audit634.py && python tools/test-witnesses.py",
-    "test:release-candidate": "node tools/test-release-candidate636.mjs && python tools/test-transaction636.py",
+    "test:release-candidate": "node tools/test-release-candidate636.mjs && node tools/test-local-client-rc24.mjs",
     "test:relationship636": "node tools/test-victim-relationship636.mjs",
     "test:ai-understanding637": "node tools/test-ai-understanding637.mjs",
     "test:witness-knowledge-rc5": "node tools/test-witness-dossiers-rc5.mjs && node tools/test-ai-understanding637.mjs && node tools/test-followup-rc4.mjs && node tools/test-stage2-636.mjs && node tools/test-release-candidate636.mjs",
@@ -60,6 +60,8 @@
     "test:polish-pragmatics": "node tools/test-polish-pragmatics-rc20.mjs",
     "test:continuity-rc21": "node tools/test-continuity-rc21.mjs",
     "build:witness-registry": "node tools/build-witness-registry-rc22.mjs",
-    "test:witness-engine": "node tools/check-witness-registry-rc22.mjs && node tools/check-narrative-rc22.mjs && node tools/test-witness-engine-rc22.mjs"
+    "test:witness-engine": "node tools/check-witness-registry-rc22.mjs && node tools/check-narrative-rc22.mjs && node tools/test-witness-engine-rc22.mjs",
+    "test:request-budget": "node tools/test-request-budget-rc23.mjs",
+    "test:interview-fallback": "node tools/test-providers-local-rc25.mjs && node tools/test-local-client-rc24.mjs"
   }
 }
