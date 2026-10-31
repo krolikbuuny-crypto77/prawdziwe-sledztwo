@@ -28,8 +28,8 @@ with sync_playwright() as playwright:
             Object.entries(STATE.dialogues).map(([key,value])=>[key,value.length])),
           hooks: PS_NAV.inspect().hooks, phase: document.getElementById('final').dataset.psF1Phase
         })''')
-        assert len(start['hooks']) == 28, (width, start['hooks'])
-        assert len(set(start['hooks'])) == 28, (width, 'Duplicate hook')
+        assert len(start['hooks']) == 29, (width, start['hooks'])
+        assert len(set(start['hooks'])) == 29, (width, 'Duplicate hook')
         assert start['phase'] == '0', (width, 'Finale unlocked unexpectedly')
         for tab in TABS:
             selector = (f'.sv2-mobile-nav [data-sv2-tab="{tab}"]' if width < 1000
@@ -70,7 +70,7 @@ with sync_playwright() as playwright:
           removeSecond();removeFirst();
           return {log, unchanged:ref===showTab, hooks:PS_NAV.inspect().hooks.length};
         }''')
-        assert sequence == {'log':['beforeB','beforeA','afterA','afterB'], 'unchanged':True, 'hooks':28}, (width,sequence)
+        assert sequence == {'log':['beforeB','beforeA','afterA','afterB'], 'unchanged':True, 'hooks':29}, (width,sequence)
         assert not errors, (width, errors[:4])
         print(f'PASS navigation {width}px: 10 actual clicks, active/ARIA sync, finale gates, lifecycle, no JS errors')
         page.close()

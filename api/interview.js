@@ -1,3 +1,4 @@
+import {assertCoopAccess} from '../lib/coop-session-rc35.js';
 import {askInterviewProvider,interviewModels,INTERVIEW_CHAIN} from '../lib/interview-providers-rc24.js';
 import {localInterviewReply} from '../lib/interview-local-rc24.js';
 import {interviewWirePayload,interviewAnswerSystem,interviewAuditSystem} from '../lib/interview-naturalness-rc28.js';
@@ -352,6 +353,7 @@ export default async function handler(req,res){
  if(!configured())return fail(res,503,'Server session not configured');
  if(configured()){
   try{
+   await assertCoopAccess(req,{write:true});
    playerSession=sessionId(req,res);
    stored=await loadSession(playerSession);
    const previous=clientTurnId?findInterviewTurn(stored.state,clientTurnId):null;

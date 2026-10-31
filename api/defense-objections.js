@@ -1,3 +1,4 @@
+import {assertCoopAccess} from '../lib/coop-session-rc35.js';
 import {configured,checkOrigin,sessionId,loadSession,allowEvidenceReview} from '../lib/server-state.js';
 import trusted from '../lib/trusted-evidence-629.js';
 import {runSpecializedChain,configuredProvider} from '../lib/specialized-router-rc33.js';
@@ -10,6 +11,7 @@ export default async function handler(req,res){
  if(!configured())return send(503,{ok:false,error:'session_store_unavailable'});
  if(!['apinex','google','groq'].some(configuredProvider))return send(503,{ok:false,error:'defense_providers_not_configured'});
  try{
+  await assertCoopAccess(req,{write:true});
   const sid=sessionId(req,res),saved=await loadSession(sid),indictment=saved.state.indictment;
   if(!indictment)return send(409,{ok:false,error:'indictment_not_approved'});
   if(!await allowEvidenceReview(sid,req))return send(429,{ok:false,error:'analysis_rate_limited'});

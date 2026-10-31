@@ -31,6 +31,7 @@
  }
  function schedule(delay=650){clearTimeout(timer);timer=setTimeout(sync,delay);}
  async function sync(force=false){
+  if(window.PS_COOP?.connecting)return;
   if((restoring&&!force)||awaitingResume||busy||disabled||!navigator.onLine||!/^https?:$/.test(location.protocol))return;
   busy=true;
   try{
@@ -234,6 +235,12 @@
  window.PS617_SYNC=Object.freeze({
   ensureEvidence,actorStatusFor,restoreTranscript,get restoring(){return restoring;},isEvidenceApproved:id=>approvedEvidence.has(id),
   enqueue,get approvedVerdict(){return verifiedVerdict;},get pending(){return queue.length;},get enabled(){return !disabled;},get rejected(){return rejectedCount;},
+  coopJoined(){
+   awaitingResume=false;resetPending=false;queue=[];save();rev=null;disabled=false;
+   try{localStorage.removeItem('ps617-reset-pending');}catch{}
+   document.getElementById('psResumeOffer')?.remove();document.body.classList.remove('ps-resume-pending');
+   status('Wspólne śledztwo — stan sprawy na serwerze');schedule();
+  },
   resume(){awaitingResume=false;disabled=false;schedule();},
   resetSession(){
    awaitingResume=false;queue=[];save();resetPending=true;rev=null;approvedEvidence.clear();verifiedVerdict=null;verifiedIndictment=null;disabled=false;

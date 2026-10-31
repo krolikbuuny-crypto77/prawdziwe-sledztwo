@@ -94,8 +94,9 @@
  // W trakcie przesłuchania nie pokazuj graczowi informacji o silniku AI.
  // Czekanie sygnalizuje wyłącznie neutralna wypowiedź w dymku rozmowy.
  // Komunikaty błędów pozostają widoczne, aby nie ukrywać problemów technicznych.
- function showBusy(value){inflight=value;status.style.display=(!value&&!!cloudFailure)?'block':'none';status.textContent=value?'':cloudFailure;
+ function showBusy(value){inflight=value;window.PS_COOP_BUSY_AT=value?(window.PS_COOP_BUSY_AT||Date.now()):0;status.style.display=(!value&&!!cloudFailure)?'block':'none';status.textContent=value?'':cloudFailure;
   const send=by('chatSend'),input=by('chatInput');if(send)send.disabled=value;if(input)input.disabled=value;
+  if(window.PS_COOP?.active){window.PS_COOP.mark();if(!value)window.PS_COOP.flush();}
  }
  function send(){
   if(inflight)return;
@@ -208,6 +209,7 @@
    // Establish the signed Supabase session cookie BEFORE sending a payable AI
    // request. If the POST response is lost, the next retry still uses the same
    // session and durable turnId. Do not spend AI tokens without a handshake.
+   if(window.PS_COOP?.active&&!await window.PS_COOP.beforeInterview())throw Object.assign(Error('coop_control_unavailable'),{coopNotReady:true});
    const handshake=await fetch('/api/game-state',{method:'GET',credentials:'same-origin',cache:'no-store',signal:ctrl.signal});
    if(!handshake.ok)throw Object.assign(Error('session_not_ready'),{sessionNotReady:true});
    if(attached&&window.PS617_SYNC?.ensureEvidence){
@@ -284,7 +286,7 @@
     // Render w finally — dopiero po zatwierdzeniu odpowiedzi lub fallbacku.
    })
    .catch(error=>{
-    unavailable(error?.sessionNotReady?'Sesja serwerowa nie jest gotowa. Ponów pytanie.':error?.localOnly?'Dowód oczekuje na zatwierdzenie przez serwer. Ponów pytanie.':
+    unavailable(error?.coopNotReady?'Wspólny pokój synchronizuje sterowanie. Spróbuj ponownie.':error?.sessionNotReady?'Sesja serwerowa nie jest gotowa. Ponów pytanie.':error?.localOnly?'Dowód oczekuje na zatwierdzenie przez serwer. Ponów pytanie.':
      'Połączenie z AI zostało przerwane. Ponów pytanie.');
    })
    .finally(()=>{

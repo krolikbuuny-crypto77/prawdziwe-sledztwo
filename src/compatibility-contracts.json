@@ -12,7 +12,7 @@
   "navigation": {
     "controller": "src/core/case-engine.js",
     "moduleCount": 10,
-    "hookCount": 28
+    "hookCount": 29
   },
   "saveManager": {
     "controller": "src/core/save-manager.js",

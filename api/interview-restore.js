@@ -1,3 +1,4 @@
+import {assertCoopAccess} from '../lib/coop-session-rc35.js';
 /** RC34: Restore dialogue continuity from a saved local game without trusting its canon. */
 import {configured,sessionId,checkOrigin,loadSession,commitSession,appendReportedTurn} from '../lib/server-state.js';
 import {verifyInterviewExcerpt,restoreHash} from '../lib/interview-restore-proof-rc34.js';
@@ -49,6 +50,7 @@ export default async function handler(req,res){
  if(Buffer.byteLength(raw)>36000)return respond(res,413,{ok:false,error:'too_large'});
  let body;try{body=JSON.parse(raw)}catch{return respond(res,400,{ok:false,error:'invalid_json'});}
  const turns=parseRestore(body);if(!turns)return respond(res,400,{ok:false,error:'invalid_turns'});
+ try{await assertCoopAccess(req,{write:true});}catch(error){return respond(res,error.status||503,{ok:false,error:error.message||'coop_access_denied'});}
  const session=sessionId(req,res);
  try{
   for(let attempt=0;attempt<3;attempt++){

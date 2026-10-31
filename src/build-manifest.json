@@ -278,8 +278,8 @@
         "src/core/witness-engine.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_000__",
-      "sha256": "a05272a269f72bdb139712e22181cee4ae3227cc0240ac304c82dec7ea4680b6",
-      "size": 1465964
+      "sha256": "7d56f79ba853931e13f2c3309a58ad02fc06765eec8ab8926dc1e9961e78c9d4",
+      "size": 1467502
     },
     {
       "kind": "script",
@@ -1390,11 +1390,12 @@
         "src/witnesses/81-out-of-scope-624.js",
         "src/witnesses/82-relevance-and-voice-625.js",
         "src/witnesses/85-unified-response-633.js",
-        "src/integrations/90-specialized-ai-rc7.js"
+        "src/integrations/90-specialized-ai-rc7.js",
+        "src/integrations/95-coop-mirror-rc35.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_060__",
-      "sha256": "aa4bf3ebca9615d28b121874f0cc3376b1fc0355dade3847aa920797b63137fd",
-      "size": 250088
+      "sha256": "ef2e9e14e53cc8d0f42b21607138b70e9dbaa1a6102e40f81fa0981d9328d0da",
+      "size": 265104
     },
     {
       "kind": "style",
@@ -1407,11 +1408,12 @@
         "src/styles/76-narrative-depth-619.css",
         "src/styles/77-living-witnesses-620.css",
         "src/styles/78-interviews-cinema-621.css",
-        "src/styles/80-animated-faces-622.css"
+        "src/styles/80-animated-faces-622.css",
+        "src/styles/95-coop-mirror-rc35.css"
       ],
       "marker": "__PS_SOURCE_STYLE_063__",
-      "sha256": "388c131e6de9628b02559abd44c0e98316b519d0310a4e72de52524e14836165",
-      "size": 16018
+      "sha256": "f1f1af0a5aaed049dac7fe6f4b52d522d4e1e3b3bcbfc337f5c42ab1aaad29a2",
+      "size": 18858
     }
   ]
 }

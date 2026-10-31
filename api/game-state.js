@@ -1,3 +1,4 @@
+import {assertCoopAccess} from '../lib/coop-session-rc35.js';
 /** Zatwierdzanie akcji postępu odbywa się TYLKO na serwerze.
  * Nie przyjmujemy importu całego obiektu STATE ani klientowego werdyktu.
  */
@@ -7,6 +8,7 @@ export default async function handler(req,res){
  if(!['GET','POST'].includes(req.method))return answer(res,405,{ok:false,error:'method_not_allowed'});
  if(!checkOrigin(req))return answer(res,403,{ok:false,error:'origin_rejected'});
  if(!configured())return answer(res,503,{ok:false,error:'supabase_not_configured'});
+ try{await assertCoopAccess(req,{write:req.method==='POST'});}catch(error){return answer(res,error.status||503,{ok:false,error:error.message||'coop_access_denied'});}
  const id=sessionId(req,res);
  try{
   const current=await loadSession(id);

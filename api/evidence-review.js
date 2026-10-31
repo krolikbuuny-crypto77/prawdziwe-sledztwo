@@ -1,3 +1,4 @@
+import {assertCoopAccess} from '../lib/coop-session-rc35.js';
 import trusted from '../lib/trusted-evidence-629.js';
 import {runSpecializedChain,configuredProvider} from '../lib/specialized-router-rc33.js';
 import {configured,checkOrigin,sessionId,loadSession,allowEvidenceReview,approvedHistory} from '../lib/server-state.js';
@@ -160,6 +161,7 @@ export default async function handler(req, res) {
     const draft = normalizeEvidenceRequest(raw);
     if (!draft) return send(res, 400, { ok:false, error:'invalid_evidence' });
     // Authenticate with a signed, HttpOnly session and validate source provenance.
+    await assertCoopAccess(req,{write:true});
     const id=sessionId(req,res);
     let game;
     try{game=await loadSession(id);}catch{return send(res,503,{ok:false,error:'session_store_unavailable'});}

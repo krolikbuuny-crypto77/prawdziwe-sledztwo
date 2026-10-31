@@ -2532,6 +2532,29 @@ if(raw.npc95&&typeof raw.npc95==='object'){
 }
 }
 npc4Restore(d.npc4);eventSeq=Date.now();$('notes').value=STATE.notes;activeDoc=INITIAL[0];renderDocs();renderEvents();tlRender();renderChat();dedRender();scRender();scRenderNotebook();fcRender();tcmsRefresh();msgRefresh();cctvRefresh();forensicRefresh();accessRefresh();ui14Update();if(window.stage3)window.stage3.restore(d.cross3);}
+// RC35: one authoritative navigation owner; mirror reads a strictly presentational view.
+window.PS_COOP_VIEW=Object.freeze({
+ capture:()=>({tab:STATE.tab,activeChar:STATE.activeChar,area:STATE.area,doc:activeDoc,
+  scroll:Math.max(0,Math.min(100000,Math.round(window.scrollY||0))),
+  aiBusy:!!document.getElementById('chatSend')?.disabled,busyAt:Number(window.PS_COOP_BUSY_AT)||0,
+  chatDraft:String(document.getElementById('chatInput')?.value||'').slice(0,1600),
+  inputs:Object.fromEntries(['filterCategory','filterDocs','searchQuery','attachedDoc'].map(id=>[id,String(document.getElementById(id)?.value||'').slice(0,700)]))}),
+ apply:view=>{
+  if(!view||typeof view!=='object')return;
+  if(CONTENT.characters.some(c=>c.id===view.activeChar))STATE.activeChar=view.activeChar;
+  if(AREAS.some(a=>a.id===view.area))STATE.area=view.area;
+  if(byId[view.doc])activeDoc=view.doc;
+  renderAreas();renderDocs();renderChat();
+  if(PS_NAV_TABS.includes(view.tab))showTab(view.tab);
+  const input=document.getElementById('chatInput');if(input)input.value=typeof view.chatDraft==='string'?view.chatDraft.slice(0,1600):'';
+  for(const [id,value] of Object.entries(view.inputs||{})){
+   if(!['filterCategory','filterDocs','searchQuery','attachedDoc'].includes(id)||typeof value!=='string')continue;
+   const node=document.getElementById(id);if(node)node.value=value.slice(0,700);
+  }
+  renderDocs();renderAttached();
+  requestAnimationFrame(()=>window.scrollTo({top:Math.max(0,Math.min(100000,Number(view.scroll)||0)),behavior:'instant'}));
+ }
+});
 function safeLoad(d){const snap=JSON.parse(JSON.stringify(buildSave()));try{applySave(d);}catch(err){try{applySave(snap);}catch(_){}throw err;}}
 function exportSave(){const save=buildSave();const blob=new Blob([JSON.stringify(save,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='Ostatni_kurs_zapis_sprawy.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),12000);toast('Zapis sprawy został pobrany.');}
 $('saveBtn').addEventListener('click',exportSave);$('loadBtn').addEventListener('click',()=>$('loadFile').click());

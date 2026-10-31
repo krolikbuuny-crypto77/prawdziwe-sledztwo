@@ -1,3 +1,4 @@
+import {assertCoopAccess} from '../lib/coop-session-rc35.js';
 import {configured,checkOrigin,sessionId,loadSession,allowEvidenceReview} from '../lib/server-state.js';
 import trusted from '../lib/trusted-evidence-629.js';
 import {runSpecializedChain,configuredProvider} from '../lib/specialized-router-rc33.js';
@@ -17,6 +18,7 @@ export default async function handler(req,res){
  let data;try{data=typeof req.body==='string'?JSON.parse(req.body):req.body||{};}catch{return send(400,{ok:false,error:'invalid_json'});}
  const key=String(data.lab||'');if(!Object.hasOwn(INPUTS,key))return send(400,{ok:false,error:'invalid_lab'});
  try{
+  await assertCoopAccess(req,{write:true});
   const session=sessionId(req,res),saved=await loadSession(session),owned=new Set(saved.state.approvedEvidence||[]);
   const permitted=INPUTS[key].filter(id=>owned.has(id));
   if(permitted.length<(key==='cctv'?4:2))return send(409,{ok:false,error:'lab_prerequisites_missing'});
