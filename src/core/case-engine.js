@@ -2463,7 +2463,7 @@ window.NPC46_QA={shortKind:npc46ShortKind,anchor:id=>npc46Anchor(NPC9_MEMORY[id]
 
 // Diagnostic metadata is presentation-only: it cannot change evidence, testimony gates or verdict.
 function psAiMeta(value){
- if(!value||typeof value!=='object'||!['gemini','mistral','zai','groq','local','unknown','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro'].includes(value.provider))return null;
+ if(!value||typeof value!=='object'||!['gemini','mistral','zai','groq','local','unknown','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro','apinex-jev'].includes(value.provider))return null;
  const clean=(v,max)=>typeof v==='string'&&/^[a-zA-Z0-9._:;/-]+$/.test(v)&&v.length<=max?v:null;
  return {provider:value.provider,model:clean(value.model,96),
   turnId:typeof value.turnId==='string'&&/^[a-f0-9-]{36}$/i.test(value.turnId)?value.turnId.toLowerCase():null,
@@ -2476,7 +2476,7 @@ function psAiMeta(value){
    correctiveCalls:Number(value.qualityDiagnostics.correctiveCalls)||0,
    rejectedChecks:Number(value.qualityDiagnostics.rejectedChecks)||0,
    attempts:Array.isArray(value.qualityDiagnostics.attempts)?value.qualityDiagnostics.attempts.slice(0,64).filter(x=>
-     ['zai','groq','local','server','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro'].includes(x?.provider)&&
+     ['zai','groq','local','server','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro','apinex-jev'].includes(x?.provider)&&
      ['generate','quality','rewrite','semantic-audit','post-check','save'].includes(x?.phase)&&
      ['ok','rejected','error','skipped'].includes(x?.result)&&
      typeof x.code==='string'&&/^[a-z_]+$/.test(x.code)&&x.code.length<42&&

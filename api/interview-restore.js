@@ -3,7 +3,7 @@ import {assertCoopAccess} from '../lib/coop-session-rc35.js';
 import {configured,sessionId,checkOrigin,loadSession,commitSession,appendReportedTurn} from '../lib/server-state.js';
 import {verifyInterviewExcerpt,restoreHash} from '../lib/interview-restore-proof-rc34.js';
 const ids=new Set(['MAREK','TOMASZ','JANUSZ','ELZBIETA','KAMIL','MAGDALENA']);
-const allowedProvider=new Set(['gemini','zai','groq','mistral','local','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro']);
+const allowedProvider=new Set(['gemini','zai','groq','mistral','local','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro','apinex-jev']);
 const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
 const safe=s=>typeof s==='string'&&s.length>=2&&!/[<>\u0000-\u0008\u000e-\u001f]/.test(s);
 const respond=(res,code,body)=>{res.setHeader('Cache-Control','no-store');return res.status(code).json(body);};

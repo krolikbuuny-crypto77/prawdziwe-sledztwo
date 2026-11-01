@@ -31,12 +31,11 @@ result=await runBlindStage({stage:'complete',provider:'apinex-luna',confirmed:tr
 assert.equal(result.integrity.documents,78);assert.equal(result.grade.graded,true);assert.equal(result.grade.canonMatch,true);
 assert.equal(result.grade.assessment,'canon_match_requires_manual_review');
 assert.equal(seen.length,2);assert.equal(Object.hasOwn(seen[1].payload,'previousDecision'),false);
-const wrong=await runBlindStage({stage:'complete',provider:'zai',confirmed:true},async()=>({suspectId:'MAREK',evidenceIds:first,alternativeId:'KAMIL',reasoning:'test'})).catch(e=>e.code);
-assert.equal(wrong,'provider_not_configured');
-process.env.ZAI_API_KEY='fake-zai-key';
-const wrong2=await runBlindStage({stage:'complete',provider:'zai',confirmed:true},async()=>({suspectId:'MAREK',evidenceIds:first,alternativeId:'KAMIL',reasoning:'test'}));
+assert.equal(blindInfo.providers.includes('apinex-jev'),true);
+assert.equal(blindInfo.providers.includes('zai'),false);
+const wrong2=await runBlindStage({stage:'complete',provider:'apinex-jev',confirmed:true},async()=>({suspectId:'MAREK',evidenceIds:first,alternativeId:'KAMIL',reasoning:'test'}));
 assert.equal(wrong2.grade.canonMatch,false);assert.equal(wrong2.grade.assessment,'different_suspect');
-const unknown=await runBlindStage({stage:'complete',provider:'zai',confirmed:true},async()=>({suspectId:null,evidenceIds:['BOGUS-999'],reasoning:'Brak danych'}));
+const unknown=await runBlindStage({stage:'complete',provider:'apinex-jev',confirmed:true},async()=>({suspectId:null,evidenceIds:['BOGUS-999'],reasoning:'Brak danych'}));
 assert.equal(unknown.grade.assessment,'undetermined');assert.equal(unknown.integrity.allCitedDocumentsKnown,false);
 const fakeCitations=evaluateBlindDecision({phase:'complete',decision:{suspectId:'MAGDALENA',evidenceIds:['BOGUS'],alternativeId:'KAMIL'},validIds:new Set(ids)});
 assert.equal(fakeCitations.assessment,'invalid_evidence');

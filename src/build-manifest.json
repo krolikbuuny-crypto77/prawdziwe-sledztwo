@@ -278,8 +278,8 @@
         "src/core/witness-engine.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_000__",
-      "sha256": "6ed37f338f0a32bce7cd7a3a7c7b6174e5df1df3a0e0aaec048e1c3f7c6519cd",
-      "size": 1467973
+      "sha256": "4c8288cb8499a03227f019089c60635140c695c2dc3476b9a97d0a9f48f70eac",
+      "size": 1467999
     },
     {
       "kind": "script",
@@ -1374,6 +1374,7 @@
         "src/integrations/68-long-term-memory.js",
         "src/integrations/65-witness-context.js",
         "src/integrations/35-zai-client.js",
+        "lib/question-typos-rc578.js",
         "lib/question-intent-633.js",
         "src/witnesses/70-intent-repair.js",
         "src/witnesses/71-expanded-local-nlu.js",
@@ -1409,8 +1410,8 @@
         "src/story/111-director-rc54.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_060__",
-      "sha256": "a360578f4cc286500652bac84d3ae4763376c82ce34e29d8874059ab7e3e20bb",
-      "size": 326659
+      "sha256": "c95b4de7d6ae96270387d424076e045b4c6dae8efe1e12cf2a4bba340b6ac679",
+      "size": 329793
     },
     {
       "kind": "style",

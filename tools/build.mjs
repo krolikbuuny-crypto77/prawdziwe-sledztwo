@@ -28,9 +28,16 @@ export function buildPage() {
         const resolved = path.resolve(root, file);
         if (!resolved.startsWith(root + path.sep)) throw Error(`Outside project: ${file}`);
         const contents = fs.readFileSync(resolved, 'utf8');
-        if (file === 'lib/question-intent-633.js') {
+        if (file === 'lib/question-typos-rc578.js') {
+          // Embedded directly before the shared browser parser below.
+          continue;
+        } else if (file === 'lib/question-intent-633.js') {
           // The browser and Vercel execute exactly the same parser source.
-          code += '\n(()=>{\n' + contents.replace(/\bexport\s+(?=(?:const|function)\b)/g, '') +
+          const typoSource = fs.readFileSync(path.join(root, 'lib/question-typos-rc578.js'), 'utf8')
+            .replace(/\bexport\s+(?=(?:const|function)\b)/g, '');
+          const browserIntent = contents.replace(/^import[^\n]*question-typos-rc578[^\n]*\n/m, '')
+            .replace(/\bexport\s+(?=(?:const|function)\b)/g, '');
+          code += '\n(()=>{\n' + typoSource + '\n' + browserIntent +
             '\nwindow.PS633_INTENT=Object.freeze({analyzeQuestion,classifyQuestionPart,legacyQuestionPlan,foldQuestion,INTENT_VERSION});\n})();\n';
         } else code += contents;
       }

@@ -7,6 +7,8 @@ import {runLiveStep,liveAvailable,liveInfo} from '../lib/admin-rc57-live.js';
 import {runGameBatch,gameAuditInfo} from '../lib/admin-rc57-whole-game.js';
 import {runPlaythroughScenario,playthroughInfo} from '../lib/admin-rc57-playthrough.js';
 import {runBlindStage,blindInfo} from '../lib/admin-rc57-blind.js';
+import {upstreamQuotaInfo} from '../lib/apinex-shared-quota-rc5710.js';
+import {runStressBatch,stressInfo} from '../lib/admin-rc57-stress.js';
 const out=(res,status,payload)=>res.status(status).json(payload);
 // Hobby-compatible router: 3 logical paths share ONE serverless function.
 // Vercel passes the rewrite query param as req.query.view. Parse req.url as fallback.
@@ -24,7 +26,7 @@ export default async function handler(req,res){
  if(!configured())return out(res,503,{ok:false,error:'panel_not_configured'});
  if(req.method==='GET'){
   if(!authorized(req))return out(res,401,{ok:false,error:'login_required'});
-  return out(res,200,{ok:true,info:rc57Info,live:liveAvailable(),liveInfo,gameAudit:gameAuditInfo,playthrough:playthroughInfo,blind:blindInfo,session:'active'});
+  return out(res,200,{ok:true,info:rc57Info,live:liveAvailable(),liveInfo,gameAudit:gameAuditInfo,playthrough:playthroughInfo,blind:blindInfo,upstreamQuota:upstreamQuotaInfo(),stress:stressInfo,session:'active'});
  }
  if(req.method!=='POST')return out(res,405,{ok:false,error:'method_not_allowed'});
  if(!sameOrigin(req))return out(res,403,{ok:false,error:'origin_rejected'});
@@ -34,7 +36,7 @@ export default async function handler(req,res){
   if(!loginAllowed(req))return out(res,429,{ok:false,error:'too_many_attempts'});
   const matched=verifyPassword(body.password);registerLogin(req,matched);
   if(!matched)return out(res,401,{ok:false,error:'invalid_credentials'});
-  setSession(res);return out(res,200,{ok:true,info:rc57Info,live:liveAvailable(),liveInfo,gameAudit:gameAuditInfo,playthrough:playthroughInfo,blind:blindInfo});
+  setSession(res);return out(res,200,{ok:true,info:rc57Info,live:liveAvailable(),liveInfo,gameAudit:gameAuditInfo,playthrough:playthroughInfo,blind:blindInfo,upstreamQuota:upstreamQuotaInfo(),stress:stressInfo});
  }
  if(!authorized(req))return out(res,401,{ok:false,error:'login_required'});
  if(body.action==='logout'){clearSession(res);return out(res,200,{ok:true});}
@@ -47,6 +49,10 @@ export default async function handler(req,res){
   try{return out(res,200,{ok:true,...await runBlindStage({stage:body.stage,provider:body.provider,confirmed:body.confirmed})});}
   catch(error){const allowed=new Set(['blind_tests_disabled','invalid_blind_selection','explicit_confirmation_required','provider_not_configured','blind_source_mismatch','invalid_blind_model_answer','blind_provider_rate_limited','blind_provider_timeout','blind_provider_auth_failed','blind_provider_payload_too_large','blind_provider_failure']);
    return out(res,allowed.has(error?.code)?(error?.status||400):500,{ok:false,error:allowed.has(error?.code)?error.code:'blind_test_failed'});}
+ }
+ if(body.action==='stress-batch'){
+  if(!Number.isInteger(body.offset)||body.offset<0||body.offset>=stressInfo.total)return out(res,400,{ok:false,error:'invalid_stress_range'});
+  try{return out(res,200,{ok:true,...runStressBatch(body.offset,20)});}catch{return out(res,500,{ok:false,error:'stress_test_failed'});}
  }
  if(body.action==='playthrough-scenario'){
   if(!playthroughInfo.scenarios.some(x=>x.id===body.scenario))return out(res,400,{ok:false,error:'invalid_playthrough_scenario'});

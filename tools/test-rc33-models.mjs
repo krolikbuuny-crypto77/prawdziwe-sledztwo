@@ -4,7 +4,6 @@ import {interviewModels,INTERVIEW_CHAIN,askInterviewProvider} from '../lib/inter
 import {INTERVIEW_BUDGET,phaseTimeout} from '../lib/interview-budget-636.js';
 import {SPECIALIZED_CHAINS,runSpecializedChain} from '../lib/specialized-router-rc33.js';
 process.env.APINEX_API_KEY='test-secret-APINEX';
-process.env.ZAI_API_KEY='test-secret-ZAI';
 process.env.GROQ_API_KEY='test-secret-GROQ';
 const mock=(body,status=200)=>({ok:status>=200&&status<300,status,headers:{get:()=>null},json:async()=>body});
 const choice=value=>mock({choices:[{message:{content:JSON.stringify(value)}}]});
@@ -12,12 +11,12 @@ const models=INTERVIEW_CHAIN.map(x=>interviewModels[x]);
 assert.equal(INTERVIEW_CHAIN.length,11);
 assert.equal(new Set(models).size,11);
 assert.equal(models[0],'free/gpt-6-luna');
-assert.equal(models.at(-2),'glm-4.7-flash');
+assert.equal(models.at(-2),'free/jev-1.13');
 assert.equal(models.at(-1),'witness-registry-rc24');
 assert(!models.some(x=>/qwen-3.8-max|kimi-k3|claude|mimo-v2.6-flash/.test(x)),'subscription-only model in free chain');
 assert.equal(INTERVIEW_BUDGET.totalMs,270000);
-assert.equal(INTERVIEW_BUDGET.apinexWindowMs,210000);
-assert.equal(INTERVIEW_BUDGET.zaiWindowMs,35000);
+assert.equal(INTERVIEW_BUDGET.apinexWindowMs,245000);
+assert.equal(INTERVIEW_BUDGET.zaiWindowMs,undefined);
 assert.equal(INTERVIEW_BUDGET.commitReserveMs,25000);
 for(const p of INTERVIEW_CHAIN.filter(x=>x!=='local')){
  assert(INTERVIEW_BUDGET.phaseMs[p]?.generate>0 && INTERVIEW_BUDGET.phaseMs[p]?.['semantic-audit']>0);
@@ -30,7 +29,7 @@ for(const p of INTERVIEW_CHAIN.filter(x=>x!=='local')){
  assert.equal(sent.body.model,interviewModels[p]);
  assert.equal(sent.body.response_format.type,'json_object');
  assert(sent.auth.startsWith('Bearer test-secret-'));
- if(p==='zai')assert(sent.url.includes('api.z.ai'));else assert(sent.url.includes('api.apinex.bond'));
+ assert(sent.url.includes('api.apinex.bond'));assert(!sent.url.includes('z.ai'));
 }
 assert.equal(phaseTimeout({provider:'apinex-luna',phase:'generate',now:1000,turnDeadline:1000+270000,providerDeadline:16000}),11500);
 assert.equal(phaseTimeout({provider:'apinex-luna',phase:'generate',now:20000,turnDeadline:270000,providerDeadline:16000}),0);

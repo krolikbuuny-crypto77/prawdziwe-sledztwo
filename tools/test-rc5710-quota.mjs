@@ -1,0 +1,36 @@
+import assert from 'node:assert/strict';
+import {takeApinexSlot,upstreamQuotaInfo} from '../lib/apinex-shared-quota-rc5710.js';
+import {askInterviewProvider} from '../lib/interview-providers-rc24.js';
+process.env.APINEX_API_KEY='FAKE-NOT-REAL';
+process.env.APINEX_SHARED_QUOTA_ENABLED='true';
+process.env.APINEX_MAX_UPSTREAM_CALLS_PER_MINUTE='3';
+process.env.SUPABASE_URL='https://staging-test.supabase.co';
+process.env.SUPABASE_SERVICE_ROLE_KEY='FAKE-SERVICE-NO-REAL-KEY';
+let slots=0,upstream=0;
+const realFetch=globalThis.fetch;
+globalThis.fetch=async(url,opt)=>{
+ assert(url.endsWith('/rpc/ps_take_apinex_slot'));
+ assert.equal(opt.headers.apikey,'FAKE-SERVICE-NO-REAL-KEY');
+ assert.equal(JSON.parse(opt.body).p_max_calls,3);
+ return new Response(JSON.stringify(++slots<=3),{headers:{'Content-Type':'application/json'}});
+};
+const remote=async(url,opt)=>{
+ assert.equal(new URL(url).host,'api.apinex.bond');upstream++;
+ assert.match(opt.headers.Authorization,/FAKE-NOT-REAL/);
+ return new Response(JSON.stringify({choices:[{message:{content:'{"decision":"answer","text":"W biurze.","factIds":[]}'}}]}),{status:200});
+};
+const req=()=>askInterviewProvider({provider:'apinex-luna',scope:'tester',system:'Test',payload:{x:1}},remote);
+const a=await Promise.allSettled([req(),req(),req(),req()]);
+assert.equal(a.filter(x=>x.status==='fulfilled').length,3);
+assert.equal(a.filter(x=>x.status==='rejected').length,1);
+assert.equal(a.find(x=>x.status==='rejected').reason.code,'apinex_shared_rate_limit');
+assert.equal(upstream,3,'fourth request must be denied BEFORE upstream call');
+assert.equal(upstreamQuotaInfo().maxCallsPerMinute,3);
+process.env.APINEX_SHARED_QUOTA_ENABLED='false';
+await req();assert.equal(upstream,4);assert.equal(slots,4,'opt-out does not touch Supabase');
+process.env.APINEX_SHARED_QUOTA_ENABLED='true';
+globalThis.fetch=async()=>new Response('{"code":"PGRST202"}',{status:404});
+await assert.rejects(req(),e=>e.code==='apinex_quota_migration_missing_or_unavailable');
+assert.equal(upstream,4,'missing migration must fail closed if explicitly enabled');
+globalThis.fetch=realFetch;
+console.log('PASS RC57.10: counted actual upstream calls with isolated mocked Supabase, 3/4 admitted, no overspend, migration failure closed, opt-out backward compatible.');

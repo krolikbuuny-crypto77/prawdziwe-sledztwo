@@ -26,7 +26,7 @@ import {classifyModelReply} from '../lib/story-consistency.js';
 import {configured,sessionId,loadSession,commitSession,appendReportedTurn,approvedHistory,allowInterview} from '../lib/server-state.js';
 /* Pakiet 6.7: rozumienie intencji -> dobór udostępnionych faktów -> wypowiedź -> niezależna ocena semantyczna.
  * Stan fabuły i bramki pozostają w silniku lokalnym. Model NIE ma narzędzi do ich modyfikacji.
- * ZAI_API_KEY jest wyłącznie zmienną środowiskową Vercel. */
+ * APINEX_API_KEY jest wyłącznie zmienną środowiskową Vercel. */
 const IDS=new Set(['MAREK','TOMASZ','JANUSZ','ELZBIETA','KAMIL','MAGDALENA']);
 const LIMIT=23_000;
 const scrub=(s,n=400)=>typeof s==='string'?s.replace(/[\u0000-\u001f]/g,' ').trim().slice(0,n):'';
@@ -39,7 +39,7 @@ const diagnostics=(provider,reason,requestId,startedAt)=>({provider,model:provid
 const failureCode=(provider,error)=>{
  const e=String(error?.message||'');
  if(error?.name==='AbortError'||/abort|timeout/i.test(e))return provider+'_timeout';
- if(e==='upstream-429'||e==='upstream_rate_limit')return provider+'_rate_limited';
+ if(e==='upstream-429'||e==='upstream_rate_limit'||e==='apinex_shared_rate_limit')return provider+'_rate_limited';
  if(e==='upstream_authorization'||e==='upstream-401'||e==='upstream-403')return provider+'_authorization_failed';
  if(/^upstream-5\d\d$/.test(e))return provider+'_upstream_unavailable';
  if(e===provider+'_not_configured')return provider+'_not_configured';
@@ -121,14 +121,14 @@ function validated(input){
   question:scrub(input.question,1600),questionPlan,questionParts,presentedEvidenceId
  };
 }
-async function chat(system,scene,maxTokens=650,temperature=0.25,provider='zai',phase='generate'){
+async function chat(system,scene,maxTokens=650,temperature=0.25,provider='apinex-luna',phase='generate'){
  const timeout=phaseTimeout({provider,phase,turnDeadline:scene?._responseDeadline,providerDeadline:scene?._providerDeadline});
  if(!timeout)throw Error('timeout-budget');
  const modelScene=interviewWirePayload(compactInterviewPayload(scene));
  const wireSystem=system;
  const outputLimit=Math.min(maxTokens,phase==='semantic-audit'?900:1200);
  try{
-  return await askInterviewProvider({provider,system:wireSystem,payload:modelScene,maxTokens:outputLimit,temperature,timeoutMs:timeout});
+  return await askInterviewProvider({provider,system:wireSystem,payload:modelScene,maxTokens:outputLimit,temperature,timeoutMs:timeout,scope:scene?._rc57Tester===true?'tester':'game'});
  }catch(error){
   if(error&&typeof error==='object')error.diagnostic={...(error.diagnostic||{}),inputCharacters:wireSystem.length+JSON.stringify(modelScene).length,
    inputUtf8Bytes:Buffer.byteLength(wireSystem+JSON.stringify(modelScene),'utf8'),maxOutputTokens:outputLimit};
@@ -406,15 +406,14 @@ export default async function handler(req,res){
  // Tematy z zatwierdzonej historii (do 40 par), identyczne dla obu dostawców; nie są faktami.
  scene.deliveryGuide+=' '+buildThreadCue(scene.identity.id,scene.approvedThreadHistory||scene.memory.conversation,scene.question);
  if(scene.dialogueFocus){scene.deliveryGuide+=' Zwróć uwagę, że śledczy nawiązuje do ostatniej odpowiedzi. Odnieś się do pytania uzupełniającego, nie powtarzaj mechanicznie wcześniejszej wypowiedzi. Nie traktuj tej wypowiedzi jako ustalonego faktu.';}
- // APINEX Luna -> GLM -> DeepSeek -> Z.ai -> authorised local registry. Modele nie mają dostępu do narzędzi zmieniających stan gry.
+ // APINEX Luna -> GLM -> DeepSeek -> Jev -> authorised local registry. Modele nie mają dostępu do narzędzi zmieniających stan gry.
  const baseWitnessRevision=stored?witnessRevisionSignature(stored.state,input.witnessId):null;
  const requestId=randomUUID();
  scene._responseDeadline=startedAt+INTERVIEW_BUDGET.totalMs;
  const reasons=[],providerFailures=[];
  const trace=makeInterviewTrace();
  if(!process.env.APINEX_API_KEY)reasons.push('apinex_not_configured');
- if(!process.env.ZAI_API_KEY)reasons.push('zai_not_configured');
- const providers=input.localOnly===true?['local']:INTERVIEW_CHAIN.filter(id=>id==='local'||(id==='zai'?!!process.env.ZAI_API_KEY:!!process.env.APINEX_API_KEY));
+ const providers=input.localOnly===true?['local']:INTERVIEW_CHAIN.filter(id=>id==='local'||!!process.env.APINEX_API_KEY);
  if(input.localOnly===true)reasons.push('client_requested_local_fallback');
  let apinexBlocked=false,apinexOutages=0;
  for(const provider of providers){
@@ -426,7 +425,6 @@ export default async function handler(req,res){
   // consuming all remaining retries. Last 25s belongs to local reply + Supabase CAS.
   scene._providerDeadline=provider.startsWith('apinex-')
    ?Math.min(startedAt+INTERVIEW_BUDGET.apinexWindowMs,Date.now()+INTERVIEW_BUDGET.perApinexMs)
-   :provider==='zai'?Math.min(startedAt+INTERVIEW_BUDGET.apinexWindowMs+INTERVIEW_BUDGET.zaiWindowMs,Date.now()+INTERVIEW_BUDGET.perZaiMs)
    :scene._responseDeadline-INTERVIEW_BUDGET.commitReserveMs;
   if(provider!=='local'&&Date.now()+INTERVIEW_BUDGET.minCallMs>=scene._providerDeadline){
    reasons.push(provider+'_budget_exhausted');trace.add(provider,'generate','skipped',0,'no_retry_budget');continue;

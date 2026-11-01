@@ -7,7 +7,7 @@ process.env.RC57_ADMIN_PASSWORD='RC57.2TestOnlyPassword-NotReal-12345';
 process.env.RC57_ADMIN_SECRET='RC57.2TestOnlySecret-NotReal-ABCDEF0123456789';
 process.env.RC57_LIVE_TEST_ENABLED='true';
 process.env.APINEX_API_KEY='NOT_REAL_KEY_TEST_ONLY';
-process.env.ZAI_API_KEY='NOT_REAL_KEY_TEST_ONLY';
+process.env.APINEX_API_KEY='NOT_REAL_KEY_TEST_ONLY';
 const req={headers:{host:'game.example','x-forwarded-proto':'https',origin:'https://game.example',cookie:'__Host-ps57=not-a-real-cookie'},method:'POST'};
 const fake=async (scene,provider)=>{
  assert.equal(provider,'apinex-luna');
@@ -31,7 +31,7 @@ const data=[];for(const mode of ['live-short','live-long']){
 let t=await runLiveStep({mode:'live-short',provider:'apinex-luna',offset:0,confirmed:true},req,fake);
 await assert.rejects(()=>runLiveStep({mode:'live-short',provider:'apinex-luna',offset:1,token:t.nextToken+'x'},req,fake),/bad_live_signature/);
 await assert.rejects(()=>runLiveStep({mode:'live-short',provider:'apinex-luna',offset:2,token:t.nextToken},req,fake),/live_step_out_of_order/);
-await assert.rejects(()=>runLiveStep({mode:'live-short',provider:'zai',offset:1,token:t.nextToken},req,fake),/live_step_out_of_order/);
+await assert.rejects(()=>runLiveStep({mode:'live-short',provider:'unknown',offset:1,token:t.nextToken},req,fake),/invalid_live_range/);
 await assert.rejects(()=>runLiveStep({mode:'live-short',provider:'apinex-luna',offset:1,token:t.nextToken},{...req,headers:{...req.headers,cookie:'__Host-ps57=other-cookie'}},fake),/invalid_live_state/);
 await assert.rejects(()=>runLiveStep({mode:'live-short',provider:'apinex-luna',offset:0,confirmed:false},req,fake),/explicit_confirmation_required/);
 const rc57=()=>({headers:{},setHeader(k,v){this.headers[k]=v},status(code){this.code=code;return this;},json(data){this.data=data;return this;},send(s){this.body=s;return this;}});

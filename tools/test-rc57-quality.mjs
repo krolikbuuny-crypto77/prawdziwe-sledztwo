@@ -28,6 +28,8 @@ const remembered=auditLiveDialogue({question:'Czy pamiętasz, co powiedziałeś 
 assert(remembered.findings.some(x=>x.code==='memory_evasion'));
 const ordered=auditLiveDialogue({question:'Gdzie byłeś?',answer:'Byłem w biurze, potem w dyspozytorni, ale nie odtwarzam kolejności moich wyjść.',history});
 assert(ordered.findings.some(x=>x.code==='self_order_contradiction'));
+assert(auditLiveDialogue({question:'Jaką rolę pełniłeś?',answer:'Nadzór nadzierałem do alarmu.',history:[]}).findings.some(x=>x.code==='speech_typo'));
+assert(auditLiveDialogue({question:'Gdzie byłeś?',answer:'W dyspozyorni.',history:[]}).findings.some(x=>x.code==='speech_typo'));
 const normal=auditLiveDialogue({question:'Gdzie byłeś?',answer:'Nie jestem pewien dokładnej godziny wyjścia do dyspozytorni.',history});
 assert.equal(normal.findings.length,0);
 // Stage report contains QA findings and no additional data in the AI prompt.

@@ -5696,7 +5696,7 @@ window.NPC46_QA={shortKind:npc46ShortKind,anchor:id=>npc46Anchor(NPC9_MEMORY[id]
 
 // Diagnostic metadata is presentation-only: it cannot change evidence, testimony gates or verdict.
 function psAiMeta(value){
- if(!value||typeof value!=='object'||!['gemini','mistral','zai','groq','local','unknown','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro'].includes(value.provider))return null;
+ if(!value||typeof value!=='object'||!['gemini','mistral','zai','groq','local','unknown','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro','apinex-jev'].includes(value.provider))return null;
  const clean=(v,max)=>typeof v==='string'&&/^[a-zA-Z0-9._:;/-]+$/.test(v)&&v.length<=max?v:null;
  return {provider:value.provider,model:clean(value.model,96),
   turnId:typeof value.turnId==='string'&&/^[a-f0-9-]{36}$/i.test(value.turnId)?value.turnId.toLowerCase():null,
@@ -5709,7 +5709,7 @@ function psAiMeta(value){
    correctiveCalls:Number(value.qualityDiagnostics.correctiveCalls)||0,
    rejectedChecks:Number(value.qualityDiagnostics.rejectedChecks)||0,
    attempts:Array.isArray(value.qualityDiagnostics.attempts)?value.qualityDiagnostics.attempts.slice(0,64).filter(x=>
-     ['zai','groq','local','server','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro'].includes(x?.provider)&&
+     ['zai','groq','local','server','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro','apinex-jev'].includes(x?.provider)&&
      ['generate','quality','rewrite','semantic-audit','post-check','save'].includes(x?.phase)&&
      ['ok','rejected','error','skipped'].includes(x?.result)&&
      typeof x.code==='string'&&/^[a-z_]+$/.test(x.code)&&x.code.length<42&&
@@ -17877,7 +17877,7 @@ window.PS65_CONTEXT=PS65_CONTEXT;
     // /api/interview, not only the historical Gemini provider. Never trust a
     // provider name alone: require the server's canonical/verification flags,
     // the exact turn ID and the existing text-safety checks.
-    const auditedProviders=new Set(['gemini','groq','mistral','zai','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro']);
+    const auditedProviders=new Set(['gemini','groq','mistral','zai','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro','apinex-jev']);
     const isAudited=auditedProviders.has(data?.provider)&&data?.semanticVerified===true;
     // Server-authored local fallback is a separate, explicitly marked type.
     // It is not misrepresented as having passed the cloud semantic audit.
@@ -17957,7 +17957,7 @@ window.PS65_CONTEXT=PS65_CONTEXT;
   return result;
  };
  by('chatInput')?.setAttribute('maxlength','1600');
- registerWitnessSendLayer('zai-cloud-fallback',send);
+ registerWitnessSendLayer('apinex-cloud-fallback',send);
  window.PS77_AI=Object.freeze({mode:'ai_required_gemini_rc7',get busy(){return inflight;},
   get lastDiagnostic(){const rows=STATE.dialogues[STATE.activeChar]||[];
    return rows.slice().reverse().find(x=>x.role==='npc'&&x.ai)?.ai||null;},
@@ -17965,13 +17965,68 @@ window.PS65_CONTEXT=PS65_CONTEXT;
 })();
 
 (()=>{
+/* RC57.8: conservative OCR-free spelling tolerance for Polish questions.
+ * Only the read-only intent interpretation is normalized. Original input, names,
+ * times, evidence IDs and player transcript remain UNCHANGED.
+ */
+const VOCAB=Object.freeze([
+ 'gdzie','kiedy','dlaczego','skad','ktorej','godzinie','godzina','byles','bylas',
+ 'przebywales','przebywalas','polnocy','potwierdzic','potwierdzi','potwierdzisz',
+ 'widziales','widzialas','pamietasz','pamietam','powiedziales','powiedzialas',
+ 'wczesniej','zeznania','dokumenty','dokument','przesluchanie','alibi',
+ 'byliscie','spotkales','spotkalas','zgodnosc','obecnosc','warsztacie',
+ 'dyspozytorni','wychodziles','wychodzilas','zglosiles','zglosilas',
+ 'rozmawiales','rozmawialas','dowody','dowodu','swiadek','swiadkowie'
+]);
+const EXACT=new Set(VOCAB);
+const BLOCKED=new Set([
+ // Valid words near question vocabulary must never be silently rewritten.
+ 'gdzies','kiedys','godziny','godzine','godzin','dlatego','gdzieniegdzie',
+ 'skoro','wczoraj','ktory','ktorej','ktora','bylo','byly','bylam','bylamy',
+ 'byles','bylas','miales','mialas','widzialem','widzialam','powiedzialem',
+ 'powiedzialam','potwierdzam','pamietaja','pamietala','pamietalem',
+ 'obecnosci','dokumentacji','warsztatu','dyspozytor','dyspozytora'
+]);
+const EXPLICIT=new Map([
+ ['gdze','gdzie'],['gdzue','gdzie'],['gdzuee','gdzie'],['kiedyy','kiedy'],
+ ['polnoccy','polnocy'],['pamietaszz','pamietasz'],['potwirdzic','potwierdzic'],
+ ['nei','nie'],['nnie','nie'],['niie','nie'],['pytm','pytam']
+]);
+// Damerau-Levenshtein distance <= 1, no unbounded fuzzy matching and no corrections
+// for tokens shorter than 4 characters (except explicit, unambiguous negation).
+const distanceOne=(a,b)=>{
+ if(a===b)return true;
+ if(Math.abs(a.length-b.length)>1)return false;
+ if(a.length===b.length){let diffs=[];for(let i=0;i<a.length;i++)if(a[i]!==b[i])diffs.push(i);
+  return diffs.length===1||(diffs.length===2&&diffs[1]===diffs[0]+1&&a[diffs[0]]===b[diffs[1]]&&a[diffs[1]]===b[diffs[0]]);
+ }
+ let shorter=a.length<b.length?a:b,longer=a.length<b.length?b:a,i=0,j=0,skips=0;
+ while(j<longer.length){if(i<shorter.length&&shorter[i]===longer[j]){i++;j++;}else{skips++;j++;if(skips>1)return false;}}
+ return true;
+};
+function correctIntentTypos(folded){
+ const substitutions=[];
+ // Compounds, IDs and numeric tokens must remain untouched.
+ const text=String(folded||'').replace(/\b[a-z]{3,24}\b/g,(word,offset,source)=>{
+  const before=source[offset-1]||'',after=source[offset+word.length]||'';
+  if(/[a-z0-9:_-]/.test(before)||/[a-z0-9:_-]/.test(after)||EXACT.has(word)||BLOCKED.has(word))return word;
+  const direct=EXPLICIT.get(word);
+  if(direct){substitutions.push({from:word,to:direct});return direct;}
+  if(word.length<4)return word;
+  const matches=VOCAB.filter(v=>Math.abs(v.length-word.length)<=1&&distanceOne(word,v));
+  if(matches.length!==1)return word; // Ambiguity -> leave intact, never guess.
+  substitutions.push({from:word,to:matches[0]});return matches[0];
+ });
+ return {text,substitutions};
+}
+
 /** 6.33 - ONE pure, deterministic, non-authoritative question interpreter.
  * Shared source is imported on Vercel and embedded in the browser at build time.
  * No witness data, evidence, unlocks or side effects are used here.
  */
 const INTENT_VERSION='6.33';
-function foldQuestion(input){return String(input??'').slice(0,1600).toLocaleLowerCase('pl').normalize('NFD')
- .replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l').replace(/[^a-z0-9:?.!,; -]+/g,' ').replace(/\s+/g,' ').trim();}
+function foldQuestion(input){return correctIntentTypos(String(input??'').slice(0,1600).toLocaleLowerCase('pl').normalize('NFD')
+ .replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l').replace(/[^a-z0-9:?.!,; -]+/g,' ').replace(/\s+/g,' ').trim()).text;}
 const interrogative=/(?:^|\b)(?:gdzie|kto|komu|co|kiedy|dlaczego|czemu|jak|czy|skad|o ktorej|w ktorym|na jakiej|ile)\b/;
 const contrast=/\b(?:tylko|lecz|ale|zamiast tego|interesuje mnie|chodzi mi o)\b/;
 const exclusion=/\b(?:nie\s+(?:pytam|mowie|chodz[ięei]|interesuje\s+mnie)\b|nie\s+o\s+(?:lene|lenie|leny|dokument|ostatni))\b/;

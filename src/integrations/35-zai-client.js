@@ -248,7 +248,7 @@
     // /api/interview, not only the historical Gemini provider. Never trust a
     // provider name alone: require the server's canonical/verification flags,
     // the exact turn ID and the existing text-safety checks.
-    const auditedProviders=new Set(['gemini','groq','mistral','zai','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro']);
+    const auditedProviders=new Set(['gemini','groq','mistral','zai','apinex-luna','apinex-minimax','apinex-mimo','apinex-glm','apinex-deepseek','apinex-glmx','apinex-muse','apinex-gemini','apinex-deepseekpro','apinex-glmpro','apinex-jev']);
     const isAudited=auditedProviders.has(data?.provider)&&data?.semanticVerified===true;
     // Server-authored local fallback is a separate, explicitly marked type.
     // It is not misrepresented as having passed the cloud semantic audit.
@@ -328,7 +328,7 @@
   return result;
  };
  by('chatInput')?.setAttribute('maxlength','1600');
- registerWitnessSendLayer('zai-cloud-fallback',send);
+ registerWitnessSendLayer('apinex-cloud-fallback',send);
  window.PS77_AI=Object.freeze({mode:'ai_required_gemini_rc7',get busy(){return inflight;},
   get lastDiagnostic(){const rows=STATE.dialogues[STATE.activeChar]||[];
    return rows.slice().reverse().find(x=>x.role==='npc'&&x.ai)?.ai||null;},

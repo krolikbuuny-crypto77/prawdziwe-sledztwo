@@ -1,0 +1,235 @@
+{
+  "version": "RC57.10-browser",
+  "origin": "isolated about:blank + real Chromium",
+  "steps": [
+    {
+      "width": 390,
+      "name": "load actual compiled game in Chromium",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "actual menu click: overview",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "actual menu click: evidence",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "actual menu click: search",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "actual menu click: inspection12",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "actual menu click: interview",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "actual menu click: timeline",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "actual menu click: notebook",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "actual menu click: labs",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "actual menu click: deduction",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "actual menu click: final",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "back to evidence",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "filter evidence and open a document",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "navigate into search",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "perform actual search with gated inspection result",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "navigate into witness screen",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "type typo into real interrogation input, preserving original question",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "navigate to finale without forced unlock",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "finale correctly locked before gathering evidence",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "navigate to notebook",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "real browser file export and fresh-tab core save-loader restoration",
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "name": "no unhandled JavaScript exceptions",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "load actual compiled game in Chromium",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "actual menu click: overview",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "actual menu click: evidence",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "actual menu click: search",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "actual menu click: inspection12",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "actual menu click: interview",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "actual menu click: timeline",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "actual menu click: notebook",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "actual menu click: labs",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "actual menu click: deduction",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "actual menu click: final",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "back to evidence",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "filter evidence and open a document",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "navigate into search",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "perform actual search with gated inspection result",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "navigate into witness screen",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "type typo into real interrogation input, preserving original question",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "navigate to finale without forced unlock",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "finale correctly locked before gathering evidence",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "navigate to notebook",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "real browser file export and fresh-tab core save-loader restoration",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "no unhandled JavaScript exceptions",
+      "status": "pass"
+    }
+  ],
+  "failures": [],
+  "limitations": [
+    "No full UI walkthrough of 5 multi-stage puzzles",
+    "Game API simulated as unavailable, no live AI or production Supabase",
+    "Does not certify full game completion through player clicks",
+    "Native file-picker import not verified in sandbox; JSON restoration exercised through real safeLoad function"
+  ],
+  "pass": 44,
+  "total": 44
+}

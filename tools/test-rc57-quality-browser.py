@@ -13,6 +13,8 @@ for width in [390,1440]:
   page.goto('about:blank')
   page.evaluate('''() => {
    window.__log=[];window.__logged=false;window.__blockedOnce=false;
+   // Mock accelerated clock: verifies the existing 429 resume flow without waiting 35s per test step.
+   window.__qaTime=Date.now();Date.now=()=>{window.__qaTime+=40000;return window.__qaTime};
    window.fetch=async(path,opts={})=>{
     const body=opts.method==='POST'?JSON.parse(opts.body):{};let status=200;
     let val={ok:true,live:{enabled:true,providers:['apinex-luna']},blind:{stages:[]},gameAudit:{total:380},playthrough:{scenarios:[]}};

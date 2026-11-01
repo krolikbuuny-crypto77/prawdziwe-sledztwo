@@ -70,6 +70,8 @@
     "test:rc57-complete-local": "npm run test:rc57-whole-game && npm run test:rc57 && npm run test:rc57-live && node tools/test-rc35-coop.mjs && python tools/test-saves.py && python tools/test-navigation.py",
     "test:rc57-playthrough": "node tools/test-rc57-playthrough.mjs && python tools/test-rc57-playthrough-browser.py && node tools/test-rc57-whole-game.mjs && python tools/test-navigation.py",
     "test:rc57-blind": "node tools/test-rc57-blind.mjs && python tools/test-rc57-blind-browser.py",
-    "test:rc57-quality": "node tools/test-rc57-quality.mjs && python tools/test-rc57-quality-browser.py"
+    "test:rc57-quality": "node tools/test-rc57-quality.mjs && python tools/test-rc57-quality-browser.py",
+    "test:rc57-provider-migration": "node tools/test-rc57-provider-migration.mjs",
+    "test:rc57-typos": "node tools/test-rc57-typo578.mjs && python tools/test-rc57-typo578-browser.py"
   }
 }
