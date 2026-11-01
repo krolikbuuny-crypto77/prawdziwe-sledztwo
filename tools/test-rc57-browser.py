@@ -3,7 +3,7 @@ from pathlib import Path
 import json,subprocess,shutil
 from playwright.sync_api import sync_playwright
 root=Path(__file__).resolve().parent.parent
-js='''import ui from "./api/admin-rc57-ui.js";import {runBatch} from "./lib/admin-rc57-suite.js";
+js='''import ui from "./lib/admin-rc57-ui.js";import {runBatch} from "./lib/admin-rc57-suite.js";
 process.env.RC57_ADMIN_PASSWORD="OnlyForLocalBrowserTests_RC57_0254";
 process.env.RC57_ADMIN_SECRET="OnlyForLocalBrowserTests_Secret_RC57_abc123abc123";
 const s={status(n){this.code=n;return this},setHeader(){},send(x){this.html=x;return this}};

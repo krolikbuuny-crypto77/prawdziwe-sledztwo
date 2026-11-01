@@ -63,6 +63,7 @@
     "test:rc41": "python tools/test-rc41-auto-timeline.py && python tools/test-rc39-collab-browser.py && python tools/test-rc40-staged-browser.py",
     "test:rc36-rc40": "node tools/test-rc37-psychology.mjs && node tools/test-rc39-collab.mjs && python tools/test-rc36-backup-browser.py && python tools/test-rc39-collab-browser.py && python tools/test-rc40-staged-browser.py && python tools/test-navigation.py && python tools/test-saves.py && node tools/test-rc33-models.mjs && node tools/test-rc341-history-40.mjs",
     "test:rc50-rc54": "node tools/test-rc50.mjs && node tools/test-rc51.mjs && node tools/test-rc52.mjs && python tools/test-rc50-rc54-browser.py && python tools/test-rc41-auto-timeline.py && node tools/test-rc35-coop.mjs && node tools/test-rc33-models.mjs && python tools/test-saves.py && python tools/test-navigation.py",
-    "test:rc57": "node tools/test-rc57.mjs"
+    "test:rc57": "node tools/test-rc57.mjs",
+    "test:rc57-hobby": "node tools/test-rc57-hobby.mjs && npm run test:rc57 && node tools/test-rc33-models.mjs"
   }
 }

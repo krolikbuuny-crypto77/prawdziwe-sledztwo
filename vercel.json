@@ -55,11 +55,15 @@
   "rewrites": [
     {
       "source": "/admin/testy",
-      "destination": "/api/admin-rc57-ui"
+      "destination": "/api/admin-rc57?view=page"
     },
     {
       "source": "/admin/testy/",
-      "destination": "/api/admin-rc57-ui"
+      "destination": "/api/admin-rc57?view=page"
+    },
+    {
+      "source": "/api/status",
+      "destination": "/api/admin-rc57?view=service-status"
     }
   ]
 }

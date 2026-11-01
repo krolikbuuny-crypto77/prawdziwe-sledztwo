@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {runBatch,caseDescriptor,rc57Info} from '../lib/admin-rc57-suite.js';
 import api from '../api/admin-rc57.js';
-import ui from '../api/admin-rc57-ui.js';
+import ui from '../lib/admin-rc57-ui.js';
 import {authorized} from '../lib/admin-rc57-auth.js';
 
 process.env.RC57_ADMIN_PASSWORD='TestOnlyPasswordWithAtLeast24Chars!000';
@@ -24,7 +24,7 @@ let invalid=await call(api,req('POST',{action:'batch',mode:'full',offset:600},co
 let batch=await call(api,req('POST',{action:'batch',mode:'quick',offset:0},cookie));assert.equal(batch.code,200);assert.equal(batch.data.results.length,20);
 let leave=await call(api,req('POST',{action:'logout'},cookie));assert.equal(leave.code,200);assert.match(leave.headers['set-cookie'],/Max-Age=0/);
 let view=await call(ui,req());assert.equal(view.code,200);assert.match(view.html,/RC57 — Centrum testowania/);assert.match(view.headers['content-security-policy'],/script-src 'nonce-/);assert.ok(!view.html.includes(process.env.RC57_ADMIN_PASSWORD));
-const vercel=JSON.parse(readFileSync(new URL('../vercel.json',import.meta.url)));assert.ok(vercel.rewrites.some(x=>x.source==='/admin/testy'&&x.destination==='/api/admin-rc57-ui'));
+const vercel=JSON.parse(readFileSync(new URL('../vercel.json',import.meta.url)));assert.ok(vercel.rewrites.some(x=>x.source==='/admin/testy'&&x.destination==='/api/admin-rc57?view=page'));
 const full=[];for(let offset=0;offset<600;offset+=20){const b=runBatch({mode:'full',offset});assert.equal(b.results.length,20);full.push(...b.results)}
 assert.equal(full.length,600);assert.equal(new Set(full.map(x=>x.id)).size,600);
 for(const witness of rc57Info.witnesses)assert.equal(full.filter(x=>x.witness===witness).length,100);

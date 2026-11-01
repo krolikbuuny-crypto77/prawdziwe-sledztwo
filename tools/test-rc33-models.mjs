@@ -6,12 +6,11 @@ import {SPECIALIZED_CHAINS,runSpecializedChain} from '../lib/specialized-router-
 process.env.APINEX_API_KEY='test-secret-APINEX';
 process.env.ZAI_API_KEY='test-secret-ZAI';
 process.env.GROQ_API_KEY='test-secret-GROQ';
-process.env.GEMINI_API_KEY='test-secret-GOOGLE';
 const mock=(body,status=200)=>({ok:status>=200&&status<300,status,headers:{get:()=>null},json:async()=>body});
 const choice=value=>mock({choices:[{message:{content:JSON.stringify(value)}}]});
 const models=INTERVIEW_CHAIN.map(x=>interviewModels[x]);
-assert.equal(INTERVIEW_CHAIN.length,12);
-assert.equal(new Set(models).size,12);
+assert.equal(INTERVIEW_CHAIN.length,11);
+assert.equal(new Set(models).size,11);
 assert.equal(models[0],'free/gpt-6-luna');
 assert.equal(models.at(-2),'glm-4.7-flash');
 assert.equal(models.at(-1),'witness-registry-rc24');
@@ -49,7 +48,7 @@ assert.equal(vercel.functions['api/lab-narrative.js'].maxDuration,80);
 assert.equal(vercel.functions['api/defense-objections.js'].maxDuration,175);
 assert.equal(SPECIALIZED_CHAINS.evidence.length,5);
 assert.equal(SPECIALIZED_CHAINS.laboratory.length,4);
-assert.equal(SPECIALIZED_CHAINS.defense.length,5);
+assert.equal(SPECIALIZED_CHAINS.defense.length,3);
 // Shared APINEX 429: skip all its other models without burning more calls.
 let hits=[];
 let routed=await runSpecializedChain({task:'evidence',system:'test',payload:{},validate:x=>x.result==='accepted'?x:null,totalMs:20000,attemptMs:1000,transport:async(url,opts)=>{
@@ -67,15 +66,17 @@ routed=await runSpecializedChain({task:'laboratory',system:'test',payload:{},val
  return choice(m==='free/minimax-m3.1-flash'?{findings:[]}:{findings:[{sourceId:'LAB-01',text:'Wynik zatwierdzony.'}]});
 }});
 assert.equal(routed.model,'free/mimo-v2.6-pro');assert.equal(hits.length,2);
-// Gemini APINEX 429 -> Google independent API, no wasted APINEX retries.
+// Without Gemini, a shared APINEX rate limit proceeds to Groq only.
 hits=[];
 routed=await runSpecializedChain({task:'defense',system:'test',payload:{},validate:x=>x.objections?.length===6?x:null,totalMs:20000,attemptMs:1000,transport:async(url,opts)=>{
  hits.push(url);
  if(url.includes('apinex'))return mock({error:{code:429}},429);
- if(url.includes('generativelanguage'))return mock({candidates:[{content:{parts:[{text:JSON.stringify({objections:Array.from({length:6},(_,i)=>({title:'Punkt'+i}))})}]}}]});
- throw Error('unexpected request');
+ if(url.includes('api.groq.com'))return choice({objections:Array.from({length:6},(_,i)=>({title:'Punkt'+i}))});
+ throw Error('unexpected provider');
 }});
-assert.equal(routed.provider,'google');assert.equal(hits.length,2);
+assert.equal(routed.provider,'groq');assert.equal(hits.length,2);
+assert(!SPECIALIZED_CHAINS.defense.flat().some(x=>/google|gemini/i.test(x)));
+assert(!INTERVIEW_CHAIN.some(x=>/gemini/i.test(x)));
 // Groq GPT-OSS fails -> Qwen must omit unsupported reasoning_effort.
 hits=[];
 routed=await runSpecializedChain({task:'evidence',system:'test',payload:{},validate:x=>x.result==='accepted'?x:null,totalMs:20000,attemptMs:1000,transport:async(url,opts)=>{
@@ -86,4 +87,4 @@ routed=await runSpecializedChain({task:'evidence',system:'test',payload:{},valid
 }});
 assert.equal(routed.model,'qwen/qwen3.8-27b');
 assert.equal(hits.at(-1).reasoning_effort,undefined);
-console.log('PASS RC33: 12 interview layers; verified model IDs; 270s budget; client/server parity; specialist cascades; shared 429 skip; invalid answer retry; Google recovery; Qwen request');
+console.log('PASS RC33: 11 interview layers; verified model IDs; 270s budget; client/server parity; specialist cascades; shared 429 skip; invalid answer retry; Groq defense recovery; Qwen request');
