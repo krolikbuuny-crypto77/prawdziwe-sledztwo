@@ -26,7 +26,7 @@ assert.equal(interviewWirePayload({question:'test',dialogueMemory:opening}).dial
 assert.equal(buildDialogueMemory(history,'Czy byłeś w warsztacie?').openingExchange,null);
 const remembered=auditLiveDialogue({question:'Czy pamiętasz, co powiedziałeś na początku tej rozmowy?',answer:'Nie pamiętam dokładnych słów, bo nie prowadziłem nagrania.',history});
 assert(remembered.findings.some(x=>x.code==='memory_evasion'));
-const ordered=auditLiveDialogue({question:'Gdzie byłeś?',answer:'Byłem w biurze, potem w dyspozytorni, ale nie odtwarzam kolejności moich wyjść.',history});
+const ordered=auditLiveDialogue({question:'Gdzie byłeś?',answer:'Najpierw byłem w biurze, następnie w dyspozytorni, ale nie pamiętam, w jakiej kolejności odwiedziłem biuro i dyspozytornię.',history});
 assert(ordered.findings.some(x=>x.code==='self_order_contradiction'));
 assert(auditLiveDialogue({question:'Jaką rolę pełniłeś?',answer:'Nadzór nadzierałem do alarmu.',history:[]}).findings.some(x=>x.code==='speech_typo'));
 assert(auditLiveDialogue({question:'Gdzie byłeś?',answer:'W dyspozyorni.',history:[]}).findings.some(x=>x.code==='speech_typo'));

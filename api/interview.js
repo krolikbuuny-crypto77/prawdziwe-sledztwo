@@ -14,6 +14,7 @@ import {factContractIssue} from '../lib/interview-fact-contract-rc14.js';
 import {trustedScene} from '../lib/trusted-interview-624.js';
 import {buildQuestionContext,repeatsIrrelevantly} from '../lib/question-context-630.js';
 import {reviewInterviewReply,repairCue} from '../lib/interview-quality-635.js';
+import {reviewWitnessDraft} from '../lib/interview-rc57103-gate.js';
 import {buildDialogueMemory,priorDistinctAnswers} from '../lib/dialogue-memory-636.js';
 import {makeInterviewTrace} from '../lib/interview-observability-636.js';
 import {INTERVIEW_BUDGET,phaseTimeout} from '../lib/interview-budget-636.js';
@@ -252,6 +253,15 @@ export async function attemptInterview(scene,provider,invoke=chat,trace=null){
   const quality=reviewInterviewReply(scene,proposal,selected);
   if(!quality.ok){
    if(reviseOrReject(quality.reason,proposal,revision))continue;
+   return null;
+  }
+  // RC57.10.3: catch actual contradictions, unnatural or repetitive drafts
+  // BEFORE semantic-audit API consumption. On first failure, use the existing
+  // bounded rewrite pass with the SAME authoritative facts. Never auto-mark
+  // a bad answer as approved to make admin results green.
+  const dialogueCheck=reviewWitnessDraft(scene,proposal,selected);
+  if(!dialogueCheck.ok){
+   if(reviseOrReject(dialogueCheck.reason,proposal,revision))continue;
    return null;
   }
   const grounded=selected.map(f=>f.text).join(' ');

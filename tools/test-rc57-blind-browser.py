@@ -20,7 +20,7 @@ for w in [390,1440]:
      if(body.action==='login')window.__logged=true;
      else if(body.action==='blind-stage'){
       window.__calls.push(body);
-      val={ok:true,blind:true,phase:body.stage,decision:{suspectId:body.stage==='initial'?null:'MAGDALENA',certainty:'medium',evidenceIds:['MED-01','MED-02','ADM-01'],reasoning:'Na podstawie dokumentów.',counterargument:'Karta nie identyfikuje osoby.',missingProof:'Bezpośredni świadek.',alternativeId:'KAMIL'},grade:{graded:body.stage==='complete',assessment:body.stage==='complete'?'consistent_with_canon':'undetermined'},integrity:{documents:body.stage==='initial'?13:78}};
+      val={ok:true,blind:true,phase:body.stage,decision:{suspectId:body.stage==='initial'?null:'MAGDALENA',certainty:'medium',evidenceIds:['MED-01','MED-02','ADM-01'],reasoning:'Na podstawie dokumentów.',counterargument:'Karta nie identyfikuje osoby.',missingProof:'Bezpośredni świadek.',alternativeId:'KAMIL'},grade:{graded:body.stage==='complete',assessment:body.stage==='complete'?'canon_match_with_source_errors':'not_graded',dimensions:{verdict:{label:body.stage==='complete'?'Wskazany sprawca jest zgodny z kanonem':'Bez oceny nazwiska na etapie początkowym'},evidence:{label:body.stage==='complete'?'Wykryto nieistniejące lub niedostępne źródła':'Identyfikatory źródeł są poprawne; interpretacja wymaga kontroli'},reasoning:{label:'Wykryto twierdzenia wymagające kontroli rozumowania'}}},qa:{findings:body.stage==='complete'?[{code:'unknown_document_in_text',detail:'Nieistniejący LAB-014'}]:[]},integrity:{documents:body.stage==='initial'?13:78}};
      }else if(body.action==='logout')window.__logged=false;
      else {code=400;val={error:'unknown_action'}};
     }else if(!window.__logged){code=401;val={error:'login_required'}};
@@ -37,6 +37,10 @@ for w in [390,1440]:
   page.locator('#blindRun').click()
   page.get_by_text('Zakończono dwie niezależne analizy.',exact=False).wait_for(timeout=15000)
   assert len(page.locator('#blindResults .case').all())==2
+  assert page.get_by_text('1. Trafność wskazania:',exact=False).count()==2
+  assert page.get_by_text('2. Poprawność dowodowa:',exact=False).count()==2
+  assert page.get_by_text('3. Jakość rozumowania:',exact=False).count()==2
+  assert page.get_by_text('Nieistniejący LAB-014',exact=False).count()>=1
   assert page.evaluate('window.__calls.map(x=>x.stage)')==['initial','complete']
   with page.expect_download(timeout=10000) as download:
    page.locator('#blindExport').click()
