@@ -33,4 +33,5 @@ assert.equal(caseDescriptor(0,'quick').witness,'MAREK');assert.equal(caseDescrip
 assert.equal(calls,0,'RC57 must never contact AI or Supabase');
 const counts={pass:0,warning:0,fail:0};for(const x of full)counts[x.status]++;
 console.log('RC57 PASS: admin auth, origin, httpOnly cookie, logout, 404/401 behavior, 600 unique deterministic cases, no external calls, CSP, private route.');
-console.log('RC57 diagnostic results:',JSON.stringify(counts),'(nonzero failure count reflects actual parser defects to review)');
+assert.deepEqual(counts,{pass:600,warning:0,fail:0},'RC57 deterministic regression must not introduce new parser failures');
+console.log('RC57 diagnostic results:',JSON.stringify(counts),'(deterministic test suite; not actual AI replies)');
