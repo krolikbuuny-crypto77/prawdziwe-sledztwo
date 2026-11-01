@@ -39,6 +39,9 @@
     }
   ],
   "functions": {
+    "api/admin-rc57.js": {
+      "maxDuration": 60
+    },
     "api/interview.js": {
       "maxDuration": 300
     },
