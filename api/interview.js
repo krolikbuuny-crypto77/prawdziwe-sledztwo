@@ -2,6 +2,7 @@ import {assertCoopAccess} from '../lib/coop-session-rc35.js';
 import {askInterviewProvider,interviewModels,INTERVIEW_CHAIN,getInterviewProviderMetrics} from '../lib/interview-providers-rc24.js';
 import {localInterviewReply} from '../lib/interview-local-rc24.js';
 import {interviewWirePayload,interviewAnswerSystem,interviewAuditSystem} from '../lib/interview-naturalness-rc28.js';
+import {INTERVIEW_STYLE_CONTEXT,interviewLegacySystem} from '../lib/interview-prompt-rc57106.js';
 import {registry} from '../lib/witness-engine-rc22.js';
 import {chooseWitnessStrategy} from '../lib/witness-strategy-rc22.js';
 import {ledgerContext,witnessRevisionSignature} from '../lib/witness-ledger-rc22.js';
@@ -159,14 +160,7 @@ function hardGuard(sourceText,text){
 }
 const semanticSystem=interviewAuditSystem;
 const answerSystem=interviewAnswerSystem;
-const legacySystem=[
- 'Jesteś SILNIKIEM ROZUMIENIA PYTAŃ w polskiej grze detektywistycznej. Ustal sens pytania oraz intencję całej wypowiedzi.',
- 'Wybierz jedną lub dwie pasujące, już dozwolone wypowiedzi z knowledge.groundedOptions, a potem przeformułuj je bez zmiany faktów.',
- 'deliveryGuide i spokenGuide opisują wyłącznie sposób mówienia; nie są źródłem faktów ani odblokowań.',
- 'Pisz krótko i potocznie, jak świadek, a nie urzędowy komunikat. Nie stosuj didaskaliów ani prawniczych formułek.',
- 'Nie twórz nowych godzin, motywów, dowodów, osób, sprzeczności ani przyznań się do winy.',
- 'Zwróć tylko JSON {"decision":"answer" lub "fallback","sourceIds":["turn"],"text":"wypowiedź","prefaceKey":0}.'
-].join(' ');
+const legacySystem=interviewLegacySystem;
 
 // Fast path is intentionally VERY strict: the generated wording must be
 // a literal contiguous excerpt of one authorised fact. No paraphrase is
@@ -435,15 +429,12 @@ export default async function handler(req,res){
  const challenged=said.filter(q=>/(?:kłamiesz|kłamstwo|przyznaj się|zamordował|zabił)/.test(q)).length;
  const verified=said.filter(q=>/(?:skąd wiesz|co potwierdza|czy widział|jak sprawdzić|z jakiego źródła)/.test(q)).length;
  const repeats=said.length>2 && said.at(-1)===said.at(-3);
- const style=challenged>verified+1?'Odpowiada ostrożniej na zarzuty, ale nie traci pamięci ani nie przyznaje winy bez dopuszczalnych faktów.'
-  :verified>challenged+1?'Na konkretne pytania odpowiada rzeczowo, bez automatycznego ujawniania nowych faktów.'
-  :'Zachowuje powściągliwy, indywidualny ton.';
- scene.deliveryGuide+=' '+style+(repeats?' Śledczy wrócił do wcześniejszego pytania: wolno to zauważyć, nie wolno zmieniać zeznania bez podstaw.':'');
- // Odrębna reżyseria zachowania; tylko zatwierdzona historia, nigdy nowy dowód.
+ const S=INTERVIEW_STYLE_CONTEXT.live;
+ const style=challenged>verified+1?S.cautious:verified>challenged+1?S.verified:S.default;
+ scene.deliveryGuide+=' '+style+(repeats?' '+S.repeated:'');
  scene.deliveryGuide+=' '+dialogueContinuity(scene.identity.id,scene.memory.conversation);
- // Tematy z zatwierdzonej historii (do 40 par), identyczne dla obu dostawców; nie są faktami.
  scene.deliveryGuide+=' '+buildThreadCue(scene.identity.id,scene.approvedThreadHistory||scene.memory.conversation,scene.question);
- if(scene.dialogueFocus){scene.deliveryGuide+=' Zwróć uwagę, że śledczy nawiązuje do ostatniej odpowiedzi. Odnieś się do pytania uzupełniającego, nie powtarzaj mechanicznie wcześniejszej wypowiedzi. Nie traktuj tej wypowiedzi jako ustalonego faktu.';}
+ if(scene.dialogueFocus)scene.deliveryGuide+=' '+S.followup;
  // APINEX Luna -> GLM -> DeepSeek -> Jev -> authorised local registry. Modele nie mają dostępu do narzędzi zmieniających stan gry.
  const baseWitnessRevision=stored?witnessRevisionSignature(stored.state,input.witnessId):null;
  const requestId=randomUUID();
