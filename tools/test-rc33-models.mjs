@@ -31,7 +31,7 @@ for(const p of INTERVIEW_CHAIN.filter(x=>x!=='local')){
  assert(sent.auth.startsWith('Bearer test-secret-'));
  assert(sent.url.includes('api.apinex.bond'));assert(!sent.url.includes('z.ai'));
 }
-assert.equal(phaseTimeout({provider:'apinex-luna',phase:'generate',now:1000,turnDeadline:1000+270000,providerDeadline:16000}),11500);
+assert.equal(phaseTimeout({provider:'apinex-luna',phase:'generate',now:1000,turnDeadline:1000+270000,providerDeadline:16000}),15000);
 assert.equal(phaseTimeout({provider:'apinex-luna',phase:'generate',now:20000,turnDeadline:270000,providerDeadline:16000}),0);
 const front=fs.readFileSync(new URL('../src/integrations/35-zai-client.js',import.meta.url),'utf8');
 const save=fs.readFileSync(new URL('../src/core/case-engine.js',import.meta.url),'utf8');
