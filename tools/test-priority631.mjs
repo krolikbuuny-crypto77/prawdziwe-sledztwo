@@ -1,0 +1,46 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+import {attemptInterview} from '../api/interview.js';
+const code=fs.readFileSync(new URL('../src/core/case-engine.js',import.meta.url),'utf8');
+const begin=code.indexOf('function interviewEvidenceAvailable(');
+const end=code.indexOf('\nfunction inferTone(',begin);
+assert(begin>0&&end>begin);
+const docList=[{id:'MED-01',title:'Protokół wstępny'},{id:'MED-02',title:'Znaleziony później'},{id:'HIDDEN-01',title:'Nieodkryty dowód'}];
+const select={value:'',innerHTML:''};
+const state={found:new Set(['MED-01']),reviewedEvidence:new Set()};
+const ctx={DOCS:docList,INITIAL:['MED-01'],STATE:state,esc:s=>String(s),$:_=>select};
+vm.createContext(ctx);
+vm.runInContext(code.slice(begin,end),ctx);
+ctx.renderAttached();
+assert(!select.innerHTML.includes('Protokół wstępny'));
+assert(!select.innerHTML.includes('Nieodkryty'));
+assert.match(select.innerHTML,/Brak przygotowanych dowodów/);
+state.reviewedEvidence.add('MED-01');ctx.renderAttached();
+assert.match(select.innerHTML,/Protokół wstępny/);
+state.found.add('MED-02');ctx.renderAttached();
+assert.match(select.innerHTML,/Znaleziony później/);
+assert(!select.innerHTML.includes('Nieodkryty'));
+state.reviewedEvidence.clear();ctx.renderAttached();
+assert(!select.innerHTML.includes('Protokół wstępny'));
+assert.match(select.innerHTML,/Znaleziony później/);
+assert.match(code,/reviewedEvidence:\[\.\.\.STATE\.reviewedEvidence\]/);
+assert.match(code,/STATE\.reviewedEvidence=new Set/);
+assert.match(code,/STATE\.reviewedEvidence\.clear\(\)/);
+// AI performance: exact quoted fact needs only one request, paraphrase needs
+// an independent audit. Neither flow can introduce unknown facts.
+const scene={knowledge:{currentGroundedAnswer:'Nie pamiętam dokładnej godziny spotkania.',factBank:[{id:'f0',text:'Nie pamiętam dokładnej godziny spotkania.',certainty:'qualified'}]},question:'O której było spotkanie?',questionParts:[],questionPlan:{compound:false},dialogueFocus:null,memory:{conversation:[]}};
+let calls=0;
+const direct=await attemptInterview(scene,'zai',async()=>{calls++;return {decision:'answer',factIds:['f0'],text:'Nie pamiętam dokładnej godziny spotkania.'}});
+assert.equal(calls,1);assert.equal(direct.semanticVerified,true);
+calls=0;
+const paraphrase=await attemptInterview(scene,'zai',async(system,payload)=>{
+ calls++;
+ return calls===1?{decision:'answer',factIds:['f0'],text:'Naprawdę nie pamiętam dokładnej godziny spotkania.'}:{relevant:true,entailed:true,complete:true,coveredParts:[]};
+});
+assert.equal(calls,2);assert.equal(paraphrase?.semanticVerified,true);
+const compound={...scene,questionParts:[{text:'O której?',intent:'time_precision'},{text:'Skąd wiesz?',intent:'knowledge_source'}]};
+calls=0;
+await attemptInterview(compound,'zai',async(_s,_p)=>{calls++;return calls===1?{decision:'answer',factIds:['f0'],text:'Nie pamiętam dokładnej godziny spotkania.'}:{relevant:true,entailed:true,complete:true,coveredParts:[true,true]}});
+assert.equal(calls,2);
+console.log('PASS 6.31: unrecovered evidence hidden, starter dossier gated by reading, new secured material available, save/reset contract, AI fast verified path and independent audit for paraphrases/compound questions');

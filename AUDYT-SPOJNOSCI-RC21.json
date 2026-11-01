@@ -1,0 +1,23 @@
+{
+  "version": "RC21",
+  "manualFindings": [
+    {
+      "issue": "Mutual corroboration was too imprecisely situated in time",
+      "resolution": "Marek/Janusz: before midnight; Janusz/Kamil: before diagnostic session. Explicitly not continuous coverage of 01:30–02:05."
+    }
+  ],
+  "automatedChecks": [
+    "original canon fingerprint",
+    "valid document references",
+    "secret gate equivalence",
+    "reciprocal contact consistency",
+    "fact length",
+    "style cannot change fact bank",
+    "compaction preserves every fact and unique transcript"
+  ],
+  "compactionExample": {
+    "beforeCharacters": 18767,
+    "afterCharacters": 16285
+  },
+  "liveAPI": "not_run"
+}
