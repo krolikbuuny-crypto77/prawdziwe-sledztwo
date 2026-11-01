@@ -37,7 +37,7 @@ for width in [390,1440]:
   page.locator('#runLive').wait_for(state='visible')
   page.locator('#liveConsent').check()
   page.locator('#runLive').click()
-  page.get_by_text('Limit API lub timeout',exact=False).wait_for(timeout=12000)
+  page.get_by_text('Żądanie dostawcy zostało wstrzymane',exact=False).wait_for(timeout=12000)
   assert page.locator('#liveDone').inner_text().strip()=='1 / 18'
   assert page.locator('#liveBlocked').inner_text().strip()=='1'
   assert page.locator('#liveFailed').inner_text().strip()=='0'

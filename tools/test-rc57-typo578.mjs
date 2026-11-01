@@ -40,7 +40,7 @@ assert.equal(rows.length,18);assert(rows[9].question.includes('pełniłaś'));as
 assert(rows[15].question.includes('pełniłaś'));assert(rows[17].question.includes('Gdzie byłaś'));
 assert(rows[0].question.includes('pełniłeś'));assert(rows[2].question.includes('Gdzie byłeś'));
 const empty=await runLiveStep({mode:'live-short',provider:'apinex-jev',offset:0,token:null,confirmed:true},req,async()=>null);
-assert.equal(empty.results[0].status,'fail');assert.equal(empty.results[0].qa.productionAudit.lastSafeReason,'no_safe_answer');
+assert.equal(empty.results[0].status,'blocked');assert.equal(empty.stopped,'answer_quality_rejected');assert.equal(empty.retryOffset,0);assert.equal(empty.results[0].qa.productionAudit.lastSafeReason,'no_safe_answer');
 const page=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');assert(page.includes('correctIntentTypos'));assert(!page.includes("import {correctIntentTypos}"));
 assert.equal(fs.readdirSync(new URL('../api/',import.meta.url)).filter(x=>x.endsWith('.js')).length,12);
 console.log('RC57.8 PASS: spelling variants, negation, evidence IDs, browser/server shared parser, genders, QA for evasions, diagnostics, 12 Vercel API functions.');

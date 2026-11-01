@@ -1,5 +1,5 @@
 import {assertCoopAccess} from '../lib/coop-session-rc35.js';
-import {askInterviewProvider,interviewModels,INTERVIEW_CHAIN} from '../lib/interview-providers-rc24.js';
+import {askInterviewProvider,interviewModels,INTERVIEW_CHAIN,getInterviewProviderMetrics} from '../lib/interview-providers-rc24.js';
 import {localInterviewReply} from '../lib/interview-local-rc24.js';
 import {interviewWirePayload,interviewAnswerSystem,interviewAuditSystem} from '../lib/interview-naturalness-rc28.js';
 import {registry} from '../lib/witness-engine-rc22.js';
@@ -10,6 +10,7 @@ import {buildPolishPragmatics} from '../lib/polish-pragmatics-rc20.js';
 import {randomUUID} from 'node:crypto';
 import {signInterviewExcerpt} from '../lib/interview-restore-proof-rc34.js';
 import {compactInterviewPayload} from '../lib/interview-payload-rc15.js';
+import {semanticAuditWire} from '../lib/interview-perf-rc57105.js';
 import {factContractIssue} from '../lib/interview-fact-contract-rc14.js';
 import {trustedScene} from '../lib/trusted-interview-624.js';
 import {buildQuestionContext,repeatsIrrelevantly} from '../lib/question-context-630.js';
@@ -125,7 +126,9 @@ function validated(input){
 async function chat(system,scene,maxTokens=650,temperature=0.25,provider='apinex-luna',phase='generate'){
  const timeout=phaseTimeout({provider,phase,turnDeadline:scene?._responseDeadline,providerDeadline:scene?._providerDeadline});
  if(!timeout)throw Error('timeout-budget');
- const modelScene=interviewWirePayload(compactInterviewPayload(scene));
+ // The semantic auditor receives only factual grounding and dialogue checks.
+ // Generator-only psychological coaching has no place in the audit request.
+ const modelScene=phase==='semantic-audit'?semanticAuditWire(scene):interviewWirePayload(compactInterviewPayload(scene));
  const wireSystem=system;
  const outputLimit=Math.min(maxTokens,phase==='semantic-audit'?900:1200);
  try{
@@ -177,10 +180,17 @@ function fastVerbatimEntailment(scene,selected,proposal){
 }
 // Obaj dostawcy dostają ten sam zestaw instrukcji, faktów i historię świadka.
 // Brak kompletnej, zgodnej z faktami odpowiedzi uruchamia następnego dostawcę.
-export async function attemptInterview(scene,provider,invoke=chat,trace=null){
+async function attemptInterviewCore(scene,provider,invoke=chat,trace=null){
  const canonical=scene.knowledge.currentGroundedAnswer;
  scene.polishPragmatics=buildPolishPragmatics(scene.question,scene.approvedThreadHistory||scene.memory?.conversation||[]);
  scene.conversationState=buildConversationState(scene.identity.id,scene.approvedThreadHistory||scene.memory?.conversation||[],scene.question,scene.presentedEvidence);
+ // Pin the witness's own opening reply before compacting the payload's recent history.
+ // This is already-approved dialogue, never evidence or an instruction from the player.
+ if(/(?:pami[eę]tasz.{0,55}(?:pocz[aą]tku|pierwsz)|co powiedzia[lł][ae][sś].{0,50}pocz[aą]tku)/i.test(scene.question)){
+  const prior=Array.isArray(scene.approvedThreadHistory)?scene.approvedThreadHistory:[];
+  const first=prior.find(x=>['witness','świadek'].includes(x?.role)&&typeof x?.text==='string');
+  if(first)scene.conversationOpeningAnchor={kind:'pierwsza zatwierdzona wypowiedź świadka w teście',text:first.text.slice(0,650)};
+ }
  if(!scene.witnessStrategy)scene.witnessStrategy=chooseWitnessStrategy(scene.identity.id,null,scene.declarationLedger,scene.question,scene.presentedEvidence);
  if(scene.conversationState.followUpMode!=='answer_current_question')scene.polishPragmatics.requireSemanticAudit=true;
  // RC21: an explicit knowledge limit is an answer, not automatically an open question.
@@ -202,10 +212,12 @@ export async function attemptInterview(scene,provider,invoke=chat,trace=null){
   try{
    const answer=await invoke(system,{...modelContext(payload,phase),_responseDeadline:scene._responseDeadline,
     _providerDeadline:scene._providerDeadline},maxTokens,temp,provider,phase);
+   trace?.noteProviderCall(phase,getInterviewProviderMetrics(answer));
    trace?.add(provider,phase,'ok',Date.now()-started,'accepted');
    return answer;
   }catch(e){
    if(e&&typeof e==='object')e.interviewPhase=phase;
+   if(e?.diagnostic?.requestDispatched===true)trace?.noteProviderCall(phase,e.diagnostic);
    trace?.add(provider,phase,'error',Date.now()-started,/timeout|abort/i.test(String(e?.message||''))?'timeout':'provider_error');
    throw e;
   }
@@ -313,6 +325,21 @@ export async function attemptInterview(scene,provider,invoke=chat,trace=null){
  return null;
 }
 
+
+// Audit preparation, deterministic guards and prompt construction are measured
+// separately from transport. This wrapper does NOT bypass semantic validation.
+export async function attemptInterview(scene,provider,invoke=chat,trace=null){
+ const started=Date.now();
+ const before=trace?.summary();
+ const previousNetwork=(before?.generateDurationMs||0)+(before?.semanticAuditDurationMs||0);
+ try{return await attemptInterviewCore(scene,provider,invoke,trace);}
+ finally{
+  const after=trace?.summary();
+  const deltaNetwork=((after?.generateDurationMs||0)+(after?.semanticAuditDurationMs||0))-previousNetwork;
+  trace?.addLocalDuration(Math.max(0,Date.now()-started-deltaNetwork));
+ }
+}
+
 // A successful Supabase CAS makes the reply durable. After a lost HTTP response,
 // replay the exact stored cloud answer, never generate or append another witness turn.
 function findInterviewTurn(state,turnId){
@@ -378,6 +405,7 @@ export default async function handler(req,res){
  }
  // Replace ALL client-provided facts with server-owned material before either AI call.
  const approvedTranscript=stored?approvedHistory(stored.state,input.witnessId):[];
+ const contextStartedAt=Date.now();
  const verifiedQuestionContext=buildQuestionContext(scene.question,approvedTranscript);
  scene=trustedScene(scene,stored?.state||null,verifiedQuestionContext);
  if(!scene)return fail(res,400,'Unknown witness');
@@ -422,6 +450,7 @@ export default async function handler(req,res){
  scene._responseDeadline=startedAt+INTERVIEW_BUDGET.totalMs;
  const reasons=[],providerFailures=[];
  const trace=makeInterviewTrace();
+ trace.addContextDuration(Date.now()-contextStartedAt);
  if(!process.env.APINEX_API_KEY)reasons.push('apinex_not_configured');
  const providers=input.localOnly===true?['local']:INTERVIEW_CHAIN.filter(id=>id==='local'||!!process.env.APINEX_API_KEY);
  if(input.localOnly===true)reasons.push('client_requested_local_fallback');
@@ -469,7 +498,10 @@ export default async function handler(req,res){
      }
      if(!saved)return fail(res,503,'Testimony history conflict');
     }
-    const info={...diagnostics(provider,reasons.join(';')||null,requestId,startedAt),providerFailures,qualityDiagnostics:trace.summary()};
+    const qualityDiagnostics=trace.summary();
+    const info={...diagnostics(provider,reasons.join(';')||null,requestId,startedAt),
+     ...Object.fromEntries(['generateDurationMs','semanticAuditDurationMs','localValidationDurationMs','contextPreparationDurationMs','providerCalls','correctiveCalls','rejectedChecks','inputTokens','outputTokens','contextSize','auditMode','providerWaitDurationMs','quotaWaitDurationMs'].map(k=>[k,qualityDiagnostics[k]??null])),
+     totalDurationMs:Date.now()-startedAt,providerFailures,qualityDiagnostics};
     console.info('interview-diagnostic',JSON.stringify(info)); // No question, transcript or secrets.
     return res.status(200).json({...result,serverCanonical:true,turnId:clientTurnId,
      turnProof:signInterviewExcerpt({witnessId:input.witnessId,question:scene.question,text:result.text,turnId:clientTurnId,provider,model:providerModel(provider),evidenceId:incoming.presentedEvidenceId||null}),...info});
@@ -491,8 +523,10 @@ export default async function handler(req,res){
 
  const retryAfterSeconds=Math.max(0,...providerFailures.filter(x=>!x.code.endsWith('_request_too_large')).map(x=>x.retryAfterSeconds||0));
  if(retryAfterSeconds)res.setHeader('Retry-After',String(retryAfterSeconds));
- const info={...diagnostics('unavailable',reasons.join(';')||'cloud_response_unavailable',requestId,startedAt),providerFailures,
-  retryAfterSeconds:retryAfterSeconds||null,qualityDiagnostics:trace.summary()};
+ const qualityDiagnostics=trace.summary();
+ const info={...diagnostics('unavailable',reasons.join(';')||'cloud_response_unavailable',requestId,startedAt),
+  ...Object.fromEntries(['generateDurationMs','semanticAuditDurationMs','localValidationDurationMs','contextPreparationDurationMs','providerCalls','correctiveCalls','rejectedChecks','inputTokens','outputTokens','contextSize','auditMode','providerWaitDurationMs','quotaWaitDurationMs'].map(k=>[k,qualityDiagnostics[k]??null])),
+  totalDurationMs:Date.now()-startedAt,providerFailures,retryAfterSeconds:retryAfterSeconds||null,qualityDiagnostics};
  console.info('interview-diagnostic',JSON.stringify(info));
  return res.status(503).json({ok:false,error:'AI chwilowo niedostępne. Ponów pytanie.',retryable:true,...info});
 }
