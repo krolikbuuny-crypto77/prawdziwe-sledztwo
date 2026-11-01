@@ -1,0 +1,7 @@
+/* RC39: in-flow collaboration, no floating overlay. */
+.ps39-panel{margin:10px auto 0;max-width:1430px;width:100%;border:1px solid #547184;background:#112331;color:#f0f4f7;border-radius:10px;padding:14px;box-sizing:border-box}
+.ps39-panel[hidden]{display:none!important}.ps39-form{display:flex;flex-wrap:wrap;gap:7px}
+.ps39-form select,.ps39-form input{background:#0d1d29;color:#fff;border:1px solid #526c7b;border-radius:6px;padding:9px;min-width:0}
+.ps39-form input{flex:1 1 180px}.ps39-votes{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.ps39-log{display:grid;gap:6px;max-height:250px;overflow:auto}.ps39-entry{margin:0;border:1px solid #3d5360;padding:8px;border-radius:6px;overflow-wrap:anywhere}
+@media(max-width:640px){.ps39-form{flex-direction:column}.ps39-form input{flex:auto}}

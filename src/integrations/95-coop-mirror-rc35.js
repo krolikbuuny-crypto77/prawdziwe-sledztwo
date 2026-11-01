@@ -100,6 +100,8 @@
   bottomDock.hidden=!active;controlDock.hidden=!active;
   controlInfo.textContent=players===1?'Pokój: oczekiwanie na drugiego gracza':controller?'Sterujesz wspólną grą':'Steruje drugi gracz';
   controlActions.replaceChildren();
+  if(active)controlActions.append(button('Kopia zapisu',downloadRoomBackup,true));
+  if(active)controlActions.append(button('Uzgodnienia',()=>document.getElementById('ps39Panel')?.scrollIntoView({block:'center',behavior:'smooth'}),true));
   if(!controller&&active){const takeBtn=button(taking?'Przejmowanie…':'Przejmij sterowanie',take);takeBtn.disabled=taking;takeBtn.classList.add('ps-coop-take-action');controlActions.append(takeBtn);}
   chatDockToggle.textContent='Czat graczy'+(chatUnread?' ('+chatUnread+')':'')+(chatOpen?' ▲':' ▼');
   chatDockToggle.setAttribute('aria-expanded',String(chatOpen));
@@ -218,13 +220,31 @@
   }catch(error){notify('Nie udało się przejąć sterowania: '+safe(error.message));}
   finally{taking=false;lastRenderKey='';redraw();}
  }
+ // RC36: only a verified SERVER room snapshot is eligible for a backup.
+ // A room owner closing the session must not silently lose durable progress.
+ async function downloadRoomBackup(){
+  if(!active)return false;
+  try{
+   const response=await fetch(endpoint+'?since=-1',{credentials:'same-origin',cache:'no-store'});
+   const result=await response.json();
+   if(!response.ok||!result?.ok||!result.frame)throw Error('Pokój nie zwrócił aktualnej migawki.');
+   const save=snapshotFromFrame(result.frame);
+   const blob=new Blob([JSON.stringify(save,null,2)],{type:'application/json;charset=utf-8'});
+   const url=URL.createObjectURL(blob),link=document.createElement('a');
+   link.download='Prawdziwe_Sledztwo_Kopia_Pokoju_'+new Date().toISOString().slice(0,10)+'.json';
+   link.href=url;document.body.append(link);link.click();link.remove();
+   setTimeout(()=>URL.revokeObjectURL(url),1000);
+   notify('Pobrano sprawdzoną kopię wspólnego zapisu.');return true;
+  }catch(error){notify('Nie pobrano kopii: '+safe(error?.message));return false;}
+ }
  async function leave(){
   if(busy||!confirm(owner?'Zamknąć pokój dla obojga graczy?':'Opuścić wspólną grę?'))return;
+  if(owner&&!await downloadRoomBackup()){notify('Nie zamknięto pokoju: najpierw zapisz kopię.');return;}
   busy=true;try{await call('leave');try{localStorage.removeItem('ps-coop-owner-code');}catch{}location.reload();}
   catch(err){notify('Nie udało się opuścić: '+safe(err.message));busy=false;}
  }
  async function publish(){
-  if(!active||!controller||busy||applying||!dirty||Date.now()-lastPublish<850)return;
+  if(!navigator.onLine||!active||!controller||busy||applying||!dirty||Date.now()-lastPublish<850)return;
   busy=true;
   try{const data=await call('frame',{version,frame:frame()});accept(data);dirty=false;lastPublish=Date.now();}
   catch(err){
@@ -248,7 +268,7 @@
  }
  async function beforeInterview(){
   if(!active)return true;
-  if(!controller)return false;
+  if(!navigator.onLine||!controller)return false;
   dirty=true;
   for(let i=0;i<4&&controller;i++){
    if(busy||Date.now()-lastPublish<900){
@@ -278,6 +298,8 @@
   },true);
  }
  for(const type of ['click','input','change','keyup'])document.addEventListener(type,event=>{if(root.contains(event.target)||bottomDock.contains(event.target))return;mark();},true);
+ window.addEventListener('online',()=>{if(!connecting){notify('Przywracanie połączenia z pokojem…');void refresh();}});
+ window.addEventListener('offline',()=>{if(active)notify('Połączenie przerwane. Gra zachowa obecny widok; nie zatwierdzaj zmian przed powrotem sieci.');});
  window.addEventListener('scroll',mark,{passive:true});
  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&active)refresh();});
  // Existing navigation and post-AI rendering pass through these named hooks.
@@ -292,7 +314,7 @@
   }catch{notify('Pokoje niedostępne. Możesz grać samodzielnie.');}
   finally{connecting=false;redraw();window.PS617_SYNC?.retry?.();}
  };
- window.PS_COOP=Object.freeze({get active(){return active;},get controller(){return controller;},get connecting(){return connecting;},get dirty(){return dirty;},get busy(){return busy;},mark,flush:publish,refresh,beforeInterview});
+ window.PS_COOP=Object.freeze({get active(){return active;},get controller(){return controller;},get connecting(){return connecting;},get online(){return navigator.onLine;},mountRoomPanel:node=>root.append(node),get dirty(){return dirty;},get busy(){return busy;},mark,flush:publish,refresh,beforeInterview});
  redraw();pull();
  setInterval(()=>{if(document.hidden||connecting)return;if(!busy&&active){if(controller&&dirty)publish();else refresh();}},1500);
  setInterval(()=>{if(active&&!document.hidden&&chatOpen)void pollChat();},2000);

@@ -1392,11 +1392,25 @@
         "src/witnesses/85-unified-response-633.js",
         "src/integrations/90-specialized-ai-rc7.js",
         "src/integrations/95-coop-mirror-rc35.js",
-        "src/navigation/96-mentor-layout-rc353.js"
+        "src/navigation/96-mentor-layout-rc353.js",
+        "src/integrations/97-board-rc38.js",
+        "src/integrations/98-coop-collab-rc39.js",
+        "src/finale/99-epilogue-rc40.js",
+        "src/integrations/100-auto-timeline-rc41.js",
+        "src/integrations/102-interview-memory-rc42.js",
+        "src/integrations/103-confrontation-rc43.js",
+        "src/story/104-breakthrough-review-rc44.js",
+        "src/integrations/105-timeline-analysis-rc45.js",
+        "src/integrations/106-coop-annotations-rc46.js",
+        "src/integrations/107-psychology-rc47.js",
+        "src/finale/108-review-report-rc48.js",
+        "src/integrations/109-quality-audit-rc49.js",
+        "src/integrations/110-provenance-rc53.js",
+        "src/story/111-director-rc54.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_060__",
-      "sha256": "42ab7c175e3974ff853f24a8180581e46f9a1b0b7b0c76590b68e5fa49c5d4a9",
-      "size": 270954
+      "sha256": "a360578f4cc286500652bac84d3ae4763376c82ce34e29d8874059ab7e3e20bb",
+      "size": 326659
     },
     {
       "kind": "style",
@@ -1411,11 +1425,16 @@
         "src/styles/78-interviews-cinema-621.css",
         "src/styles/80-animated-faces-622.css",
         "src/styles/95-coop-mirror-rc35.css",
-        "src/styles/96-mentor-in-navigation-rc353.css"
+        "src/styles/96-mentor-in-navigation-rc353.css",
+        "src/styles/97-board-rc38.css",
+        "src/styles/98-coop-collab-rc39.css",
+        "src/styles/99-epilogue-rc40.css",
+        "src/styles/100-auto-timeline-rc41.css",
+        "src/styles/102-109-next-stages.css"
       ],
       "marker": "__PS_SOURCE_STYLE_063__",
-      "sha256": "5f69a4c74193a9481ed859edd6b12ae1d5bdd107ea6b89746fdeaf85070155df",
-      "size": 26940
+      "sha256": "7efcc1ced4049dda6054db360682ae4a5a1acced5486f16787ecb1693bc9e8b3",
+      "size": 33553
     }
   ]
 }

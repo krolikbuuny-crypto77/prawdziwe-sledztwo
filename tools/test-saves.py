@@ -28,9 +28,9 @@ with sync_playwright() as playwright:
         hash:SaveManager.sha256('abc'),hooks:SaveManager.inspect().hooks,
         schema:SaveManager.verify(s).schemaVersion,format:s.format,version:s.version};}''')
     assert result['hash']=='ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad',result
-    assert result['schema']==2 and result['version']==11 and len(result['hooks'])==49,result
-    assert len(set(result['hooks']))==49
-    print('PASS v2 checksum (SHA-256 test vector), 49 unique hooks, legacy V7 payload unchanged')
+    assert result['schema']==2 and result['version']==11 and len(result['hooks'])==51,result
+    assert len(set(result['hooks']))==51
+    print('PASS v2 checksum (SHA-256 test vector), 51 unique hooks, legacy V7 payload unchanged')
 
     # Witness memories, evidence, notes, progress, statistics remain in the payload.
     seeded=page.evaluate('''() => {
@@ -155,7 +155,7 @@ with sync_playwright() as playwright:
     assert page.evaluate("localStorage.getItem('ps_detective_autosave_v2')") is None
     print('PASS corrupted autosave is rejected with a visible discard choice')
 
-    assert page.evaluate('SaveManager.inspect().hooks.length')==49
+    assert page.evaluate('SaveManager.inspect().hooks.length')==51
 
     assert not errors,errors[:10]
     page.close();context.close();browser.close()

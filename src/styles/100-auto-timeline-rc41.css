@@ -1,0 +1,19 @@
+/* RC41 — in-flow read-only automatic timeline; never overlaps co-op dock. */
+.ps41-auto{margin:0 0 24px;padding:20px;background:#13232e;border:1px solid #536578;border-radius:13px;min-width:0}
+.ps41-head h3{font-size:22px;margin:0 0 4px;color:#f1d39d}
+.ps41-head p,.ps41-caveat{font-size:12px;line-height:1.6;color:#b7c8cb;margin:0}
+.ps41-stats{color:#e0e9e9;font-size:12px;font-weight:700;margin:10px 0}
+.ps41-controls{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}
+.ps41-controls .input{min-width:180px;flex:1}.ps41-controls button{flex:0 0 auto}
+.ps41-caveat{padding:10px 12px;border-left:3px solid #9e7d4d;background:#202b32;border-radius:4px}
+.ps41-list{display:grid;gap:9px;margin-top:13px;max-height:620px;overflow-y:auto;padding:1px 6px 10px 1px;scrollbar-color:#516b77 #12212b}
+.ps41-day{font-size:13px;letter-spacing:.075em;text-transform:uppercase;color:#f1c88a;margin:16px 0 0}
+.ps41-event{display:grid;grid-template-columns:145px minmax(0,1fr);gap:13px;padding:14px;border:1px solid #39505e;background:#10202a;border-radius:9px;min-width:0}
+.ps41-event.ps41-witness{border-left:4px solid #6785a1}.ps41-event.ps41-document{border-left:4px solid #b58a54}.ps41-event.ps41-flag{border-right:3px solid #b98c58}
+.ps41-time{font-variant-numeric:tabular-nums;font-size:13px;font-weight:800;line-height:1.45;color:#f3d6a8;overflow-wrap:anywhere}
+.ps41-body{display:grid;justify-items:start;gap:5px;min-width:0}.ps41-body strong{color:#eaf0ef;font-size:14px}
+.ps41-status{color:#d8bb83;font-size:11px}.ps41-source,.ps41-note,.ps41-uncertain{color:#aec3c6;font-size:12px;line-height:1.55;margin:0;overflow-wrap:anywhere}
+.ps41-links{display:flex;flex-wrap:wrap;gap:6px}.ps41-links button,.ps41-body>.btn{min-height:30px;font-size:11px;padding:5px 9px}
+.ps41-quote{color:#d0dcdf;font-size:12px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;border-left:2px solid #49677a;margin:3px 0;padding:4px 8px}
+.ps41-warning{font-size:12px;color:#f0c88a;margin:5px 0 0}.ps41-empty{padding:14px;color:#b6cad0}
+@media(max-width:720px){.ps41-auto{padding:12px}.ps41-event{grid-template-columns:1fr;gap:6px;padding:11px}.ps41-controls{display:grid;grid-template-columns:1fr}.ps41-controls .input{min-width:0;width:100%}.ps41-list{max-height:60dvh}.ps41-head h3{font-size:19px}}

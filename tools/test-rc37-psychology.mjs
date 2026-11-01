@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {psychologicalDelivery} from '../lib/interview-psychology-rc37.js';
+import {interviewWirePayload,interviewAnswerSystem} from '../lib/interview-naturalness-rc28.js';
+const scene={question:'Wcześniej twierdziłeś inaczej. Dlaczego ukrywasz tę informację?',identity:'MAREK',witnessStrategy:{action:'defend',stage:'pressured',goal:'avoid overclaim'},dialogueMemory:{previousPairs:[{question:'Gdzie byłeś?',answer:'Nie pamiętam.'},{question:'Kto widział?',answer:'Nie wiem.'},{question:'Kiedy?',answer:'Nie wiem.'},{question:'Dlaczego?',answer:'Nie wiem.'}]},spokenGuide:'Marek mówi rzeczowo.'};
+const a=psychologicalDelivery(scene),p=interviewWirePayload(scene);
+assert.equal(a.authority,'style_only_not_fact');assert.match(a.pressure,/zarzut/);assert.match(a.continuity,/wcześniejszej/);
+assert.deepEqual(p.psychologicalDelivery,a);assert.match(interviewAnswerSystem,/RC37 PSYCHOLOGIA/);
+assert(!JSON.stringify(a).includes('Nowy dowód'));assert(Object.isFrozen(a));
+const fallback=psychologicalDelivery({question:'Gdzie byłeś?'});assert.equal(fallback.authority,'style_only_not_fact');
+console.log('PASS RC37 psychological style stays non-authoritative, covers accusation, previous statements and brief replies');

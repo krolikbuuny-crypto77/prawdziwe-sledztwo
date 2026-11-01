@@ -12,11 +12,11 @@
   "navigation": {
     "controller": "src/core/case-engine.js",
     "moduleCount": 10,
-    "hookCount": 29
+    "hookCount": 42
   },
   "saveManager": {
     "controller": "src/core/save-manager.js",
-    "moduleCount": 49,
+    "moduleCount": 51,
     "schemaVersion": 2
   },
   "witnessEngine": {

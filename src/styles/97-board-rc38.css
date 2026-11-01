@@ -1,0 +1,8 @@
+/* RC38 board: inline in the notebook; no overlays. */
+.ps38-board{margin-top:20px;min-width:0}.ps38-board p{color:var(--muted,#bac7d1)}
+.ps38-form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+.ps38-form select,.ps38-form textarea{min-width:0;width:100%;padding:10px;border:1px solid #627084;border-radius:7px;background:#14202e;color:#fff}
+.ps38-form textarea{grid-column:1/-1}.ps38-form button{justify-self:start}
+.ps38-connections{display:grid;gap:10px}.ps38-connection{background:#14212d;border:1px solid #516073;border-radius:8px;padding:12px;overflow-wrap:anywhere}
+.ps38-connection strong{font-size:13px}.ps38-connection button{min-height:30px}
+@media(max-width:800px){.ps38-form{grid-template-columns:1fr}.ps38-form textarea{grid-column:auto}}

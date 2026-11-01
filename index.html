@@ -2722,6 +2722,68 @@ body.ps-coop-chat-open .layout>.main{padding-bottom:min(75dvh,620px)!important}
  .main > #ps76Tools.ps353-mobile-tools #seniorFab.senior-fab,
  .main > #ps76Tools.ps353-mobile-tools #psFab{flex:1 1 100%!important}
 }
+/* RC38 board: inline in the notebook; no overlays. */
+.ps38-board{margin-top:20px;min-width:0}.ps38-board p{color:var(--muted,#bac7d1)}
+.ps38-form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+.ps38-form select,.ps38-form textarea{min-width:0;width:100%;padding:10px;border:1px solid #627084;border-radius:7px;background:#14202e;color:#fff}
+.ps38-form textarea{grid-column:1/-1}.ps38-form button{justify-self:start}
+.ps38-connections{display:grid;gap:10px}.ps38-connection{background:#14212d;border:1px solid #516073;border-radius:8px;padding:12px;overflow-wrap:anywhere}
+.ps38-connection strong{font-size:13px}.ps38-connection button{min-height:30px}
+@media(max-width:800px){.ps38-form{grid-template-columns:1fr}.ps38-form textarea{grid-column:auto}}
+/* RC39: in-flow collaboration, no floating overlay. */
+.ps39-panel{margin:10px auto 0;max-width:1430px;width:100%;border:1px solid #547184;background:#112331;color:#f0f4f7;border-radius:10px;padding:14px;box-sizing:border-box}
+.ps39-panel[hidden]{display:none!important}.ps39-form{display:flex;flex-wrap:wrap;gap:7px}
+.ps39-form select,.ps39-form input{background:#0d1d29;color:#fff;border:1px solid #526c7b;border-radius:6px;padding:9px;min-width:0}
+.ps39-form input{flex:1 1 180px}.ps39-votes{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.ps39-log{display:grid;gap:6px;max-height:250px;overflow:auto}.ps39-entry{margin:0;border:1px solid #3d5360;padding:8px;border-radius:6px;overflow-wrap:anywhere}
+@media(max-width:640px){.ps39-form{flex-direction:column}.ps39-form input{flex:auto}}
+/* RC40: inline finale retrospective, never overlays evidence or judgement. */
+.ps40-epilogue{margin:20px 0;padding:18px;background:#172532;color:#eaf0f6;border:1px solid #5c7580;border-radius:12px;max-width:100%;overflow-wrap:anywhere}
+.ps40-epilogue[hidden]{display:none!important}.ps40-epilogue ul{padding-left:24px;line-height:1.6}
+.ps40-epilogue button{min-height:42px}.ps40-epilogue small{display:block;color:#c6d1d9;margin-top:14px}
+/* RC41 — in-flow read-only automatic timeline; never overlaps co-op dock. */
+.ps41-auto{margin:0 0 24px;padding:20px;background:#13232e;border:1px solid #536578;border-radius:13px;min-width:0}
+.ps41-head h3{font-size:22px;margin:0 0 4px;color:#f1d39d}
+.ps41-head p,.ps41-caveat{font-size:12px;line-height:1.6;color:#b7c8cb;margin:0}
+.ps41-stats{color:#e0e9e9;font-size:12px;font-weight:700;margin:10px 0}
+.ps41-controls{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}
+.ps41-controls .input{min-width:180px;flex:1}.ps41-controls button{flex:0 0 auto}
+.ps41-caveat{padding:10px 12px;border-left:3px solid #9e7d4d;background:#202b32;border-radius:4px}
+.ps41-list{display:grid;gap:9px;margin-top:13px;max-height:620px;overflow-y:auto;padding:1px 6px 10px 1px;scrollbar-color:#516b77 #12212b}
+.ps41-day{font-size:13px;letter-spacing:.075em;text-transform:uppercase;color:#f1c88a;margin:16px 0 0}
+.ps41-event{display:grid;grid-template-columns:145px minmax(0,1fr);gap:13px;padding:14px;border:1px solid #39505e;background:#10202a;border-radius:9px;min-width:0}
+.ps41-event.ps41-witness{border-left:4px solid #6785a1}.ps41-event.ps41-document{border-left:4px solid #b58a54}.ps41-event.ps41-flag{border-right:3px solid #b98c58}
+.ps41-time{font-variant-numeric:tabular-nums;font-size:13px;font-weight:800;line-height:1.45;color:#f3d6a8;overflow-wrap:anywhere}
+.ps41-body{display:grid;justify-items:start;gap:5px;min-width:0}.ps41-body strong{color:#eaf0ef;font-size:14px}
+.ps41-status{color:#d8bb83;font-size:11px}.ps41-source,.ps41-note,.ps41-uncertain{color:#aec3c6;font-size:12px;line-height:1.55;margin:0;overflow-wrap:anywhere}
+.ps41-links{display:flex;flex-wrap:wrap;gap:6px}.ps41-links button,.ps41-body>.btn{min-height:30px;font-size:11px;padding:5px 9px}
+.ps41-quote{color:#d0dcdf;font-size:12px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;border-left:2px solid #49677a;margin:3px 0;padding:4px 8px}
+.ps41-warning{font-size:12px;color:#f0c88a;margin:5px 0 0}.ps41-empty{padding:14px;color:#b6cad0}
+@media(max-width:720px){.ps41-auto{padding:12px}.ps41-event{grid-template-columns:1fr;gap:6px;padding:11px}.ps41-controls{display:grid;grid-template-columns:1fr}.ps41-controls .input{min-width:0;width:100%}.ps41-list{max-height:60dvh}.ps41-head h3{font-size:19px}}
+/* RC42–RC49: new panels are in normal page flow and cannot obscure the bottom coop dock. */
+.ps-next-panel{display:grid;gap:10px;padding:15px;margin:14px 0;border:1px solid #486172;border-radius:11px;background:#172833;color:#e9eff0;min-width:0;max-width:100%;overflow-wrap:anywhere}
+.ps-next-panel h3{margin:0;color:#f3d39d;font-size:18px}
+.ps-next-panel p{margin:0;line-height:1.55;color:#c4d2d4;font-size:13px}
+.ps-next-panel input,.ps-next-panel select,.ps-next-panel textarea{box-sizing:border-box;max-width:100%;width:100%;min-width:0;background:#14212b;border:1px solid #587183;border-radius:8px;color:#eff5f5;padding:8px;font:inherit}
+.ps-next-panel button{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.ps-next-panel .ps-next-row{border:1px solid #3e5564;background:#11212d;border-radius:8px;padding:9px;display:flex;gap:8px;align-items:center;justify-content:space-between;min-width:0}
+.ps-next-panel .ps-next-row>*{min-width:0}.ps-next-panel .ps-next-row .btn{flex:0 0 auto}
+.ps-next-quote{color:#e3e8e8;margin:0;padding:10px;border-left:3px solid #a5875c;white-space:pre-wrap;font-size:13px;max-height:130px;overflow:auto}
+#ps44Scenes>div{display:flex;flex-wrap:wrap;gap:7px}
+#ps45TimeAnalysis .ps-next-row{display:block;font-size:12px}
+#ps49Diagnostics>div{display:grid;gap:3px}
+@media(max-width:720px){.ps-next-panel{padding:11px}.ps-next-panel h3{font-size:16px}.ps-next-panel .ps-next-row{align-items:stretch;flex-direction:column}.ps-next-panel .ps-next-row .btn{width:100%}}
+/* RC53 — provenance panel, never overlays coop controls */
+#ps53ProvenanceList{display:grid;gap:8px;max-height:420px;overflow:auto}
+#ps53ProvenanceList .ps53-source{align-items:flex-start}
+#ps53ProvenanceList .ps53-source small{display:block;color:#a8bec8;margin-top:5px;line-height:1.45}
+/* RC54 — calm cinematic beat labels; no floating UI or forced animations */
+#ps54Director{background:#192734;border-color:#53616b}
+#ps54Director summary{cursor:pointer;color:#f3d39d;font-size:15px;font-weight:700}
+#ps54Director[open]{display:grid;gap:12px}
+#ps54Director .ps54-path{display:flex;flex-wrap:wrap;gap:7px}
+#ps54Director .ps54-step{padding:5px 8px;border-radius:6px;border:1px solid #3e596b;color:#9cabb7;font-size:11px}
+#ps54Director .ps54-step.done{border-color:#96865e;color:#f3dcaf}
 </style>
 
 
@@ -19948,6 +20010,8 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
   bottomDock.hidden=!active;controlDock.hidden=!active;
   controlInfo.textContent=players===1?'Pokój: oczekiwanie na drugiego gracza':controller?'Sterujesz wspólną grą':'Steruje drugi gracz';
   controlActions.replaceChildren();
+  if(active)controlActions.append(button('Kopia zapisu',downloadRoomBackup,true));
+  if(active)controlActions.append(button('Uzgodnienia',()=>document.getElementById('ps39Panel')?.scrollIntoView({block:'center',behavior:'smooth'}),true));
   if(!controller&&active){const takeBtn=button(taking?'Przejmowanie…':'Przejmij sterowanie',take);takeBtn.disabled=taking;takeBtn.classList.add('ps-coop-take-action');controlActions.append(takeBtn);}
   chatDockToggle.textContent='Czat graczy'+(chatUnread?' ('+chatUnread+')':'')+(chatOpen?' ▲':' ▼');
   chatDockToggle.setAttribute('aria-expanded',String(chatOpen));
@@ -20066,13 +20130,31 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
   }catch(error){notify('Nie udało się przejąć sterowania: '+safe(error.message));}
   finally{taking=false;lastRenderKey='';redraw();}
  }
+ // RC36: only a verified SERVER room snapshot is eligible for a backup.
+ // A room owner closing the session must not silently lose durable progress.
+ async function downloadRoomBackup(){
+  if(!active)return false;
+  try{
+   const response=await fetch(endpoint+'?since=-1',{credentials:'same-origin',cache:'no-store'});
+   const result=await response.json();
+   if(!response.ok||!result?.ok||!result.frame)throw Error('Pokój nie zwrócił aktualnej migawki.');
+   const save=snapshotFromFrame(result.frame);
+   const blob=new Blob([JSON.stringify(save,null,2)],{type:'application/json;charset=utf-8'});
+   const url=URL.createObjectURL(blob),link=document.createElement('a');
+   link.download='Prawdziwe_Sledztwo_Kopia_Pokoju_'+new Date().toISOString().slice(0,10)+'.json';
+   link.href=url;document.body.append(link);link.click();link.remove();
+   setTimeout(()=>URL.revokeObjectURL(url),1000);
+   notify('Pobrano sprawdzoną kopię wspólnego zapisu.');return true;
+  }catch(error){notify('Nie pobrano kopii: '+safe(error?.message));return false;}
+ }
  async function leave(){
   if(busy||!confirm(owner?'Zamknąć pokój dla obojga graczy?':'Opuścić wspólną grę?'))return;
+  if(owner&&!await downloadRoomBackup()){notify('Nie zamknięto pokoju: najpierw zapisz kopię.');return;}
   busy=true;try{await call('leave');try{localStorage.removeItem('ps-coop-owner-code');}catch{}location.reload();}
   catch(err){notify('Nie udało się opuścić: '+safe(err.message));busy=false;}
  }
  async function publish(){
-  if(!active||!controller||busy||applying||!dirty||Date.now()-lastPublish<850)return;
+  if(!navigator.onLine||!active||!controller||busy||applying||!dirty||Date.now()-lastPublish<850)return;
   busy=true;
   try{const data=await call('frame',{version,frame:frame()});accept(data);dirty=false;lastPublish=Date.now();}
   catch(err){
@@ -20096,7 +20178,7 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
  }
  async function beforeInterview(){
   if(!active)return true;
-  if(!controller)return false;
+  if(!navigator.onLine||!controller)return false;
   dirty=true;
   for(let i=0;i<4&&controller;i++){
    if(busy||Date.now()-lastPublish<900){
@@ -20126,6 +20208,8 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
   },true);
  }
  for(const type of ['click','input','change','keyup'])document.addEventListener(type,event=>{if(root.contains(event.target)||bottomDock.contains(event.target))return;mark();},true);
+ window.addEventListener('online',()=>{if(!connecting){notify('Przywracanie połączenia z pokojem…');void refresh();}});
+ window.addEventListener('offline',()=>{if(active)notify('Połączenie przerwane. Gra zachowa obecny widok; nie zatwierdzaj zmian przed powrotem sieci.');});
  window.addEventListener('scroll',mark,{passive:true});
  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&active)refresh();});
  // Existing navigation and post-AI rendering pass through these named hooks.
@@ -20140,7 +20224,7 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
   }catch{notify('Pokoje niedostępne. Możesz grać samodzielnie.');}
   finally{connecting=false;redraw();window.PS617_SYNC?.retry?.();}
  };
- window.PS_COOP=Object.freeze({get active(){return active;},get controller(){return controller;},get connecting(){return connecting;},get dirty(){return dirty;},get busy(){return busy;},mark,flush:publish,refresh,beforeInterview});
+ window.PS_COOP=Object.freeze({get active(){return active;},get controller(){return controller;},get connecting(){return connecting;},get online(){return navigator.onLine;},mountRoomPanel:node=>root.append(node),get dirty(){return dirty;},get busy(){return busy;},mark,flush:publish,refresh,beforeInterview});
  redraw();pull();
  setInterval(()=>{if(document.hidden||connecting)return;if(!busy&&active){if(controller&&dirty)publish();else refresh();}},1500);
  setInterval(()=>{if(active&&!document.hidden&&chatOpen)void pollChat();},2000);
@@ -20166,6 +20250,599 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
  };
  move();
  window.addEventListener('resize',move,{passive:true});
+})();
+/* RC38: player-authored connections, NOT new story evidence or facts. */
+(()=>{
+ 'use strict';
+ const host=document.getElementById('notebook');if(!host||typeof registerSaveHook!=='function')return;
+ const panel=document.createElement('section');panel.id='ps38Board';panel.className='ps38-board surface padded';
+ const title=document.createElement('h3');title.textContent='Tablica śledcza 2.0';
+ const note=document.createElement('p');note.textContent='Łącz wyłącznie odkryte dokumenty i zapisuj własne hipotezy. Sprzeczność jest oznaczeniem gracza, nie ustalonym faktem.';
+ const form=document.createElement('form');form.className='ps38-form';
+ const from=document.createElement('select'),to=document.createElement('select');
+ from.setAttribute('aria-label','Pierwszy dokument');to.setAttribute('aria-label','Drugi dokument');
+ const kind=document.createElement('select');kind.setAttribute('aria-label','Rodzaj powiązania');
+ [['link','Powiązanie'],['conflict','Podejrzana sprzeczność'],['verify','Do sprawdzenia']].forEach(([v,l])=>{const o=document.createElement('option');o.value=v;o.textContent=l;kind.append(o);});
+ const comment=document.createElement('textarea');comment.rows=2;comment.maxLength=450;comment.placeholder='Dlaczego łączysz te materiały? (własna hipoteza)';comment.setAttribute('aria-label','Uzasadnienie hipotezy');
+ const add=document.createElement('button');add.className='btn alt';add.type='submit';add.textContent='Dodaj do tablicy';
+ form.append(from,to,kind,comment,add);
+ const list=document.createElement('div');list.className='ps38-connections';list.setAttribute('aria-live','polite');
+ panel.append(title,note,form,list);host.append(panel);
+ const allowed=new Set(['link','conflict','verify']);let entries=[];
+ const plain=e=>e&&typeof e==='object'&&typeof e.a==='string'&&typeof e.b==='string'&&e.a!==e.b&&byId[e.a]&&byId[e.b]&&allowed.has(e.kind)&&typeof e.note==='string';
+ const name=id=>String(byId[id]?.title||byId[id]?.name||id).slice(0,100);
+ function options(){const valid=[...STATE.found].filter(id=>byId[id]).sort();
+  for(const sel of [from,to]){
+   const selected=sel.value;sel.replaceChildren();const empty=document.createElement('option');empty.value='';empty.textContent='Wybierz odkryty dokument';sel.append(empty);
+   for(const id of valid){const o=document.createElement('option');o.value=id;o.textContent=name(id);sel.append(o);}
+   sel.value=valid.includes(selected)?selected:'';
+  }
+  add.disabled=valid.length<2;
+ }
+ function render(){options();list.replaceChildren();
+  const visible=entries.filter(e=>STATE.found.has(e.a)&&STATE.found.has(e.b));
+  if(!visible.length){const empty=document.createElement('p');empty.textContent='Nie dodano jeszcze powiązań. Wybierz dwa odkryte dokumenty.';list.append(empty);return;}
+  for(const [i,e] of visible.entries()){
+   const row=document.createElement('article');row.className='ps38-connection';
+   const heading=document.createElement('strong');heading.textContent=(e.kind==='conflict'?'SPRZECZNOŚĆ DO WERYFIKACJI':e.kind==='verify'?'DO SPRAWDZENIA':'POWIĄZANIE')+' · '+name(e.a)+' / '+name(e.b);
+   const p=document.createElement('p');p.textContent=e.note||'Bez opisu';
+   const b=document.createElement('button');b.type='button';b.className='btn subtle';b.textContent='Usuń';b.addEventListener('click',()=>{if(window.PS_COOP?.active&&!window.PS_COOP.controller)return;entries.splice(entries.indexOf(e),1);render();window.PS_COOP?.mark?.();});
+   row.append(heading,p,b);list.append(row);
+  }
+ }
+ form.addEventListener('submit',event=>{
+  event.preventDefault();if(window.PS_COOP?.active&&!window.PS_COOP.controller)return;
+  if(!STATE.found.has(from.value)||!STATE.found.has(to.value)||from.value===to.value||entries.length>=80)return;
+  entries.push({a:from.value,b:to.value,kind:kind.value,note:comment.value.trim().slice(0,450)});
+  comment.value='';render();window.PS_COOP?.mark?.();
+ });
+ registerSaveHook({name:'rc38-investigation-board',build(data){data.rc38Board=entries.map(e=>({...e}));},apply(data){entries=Array.isArray(data.rc38Board)?data.rc38Board.filter(plain).slice(-80).map(e=>({a:e.a,b:e.b,kind:e.kind,note:e.note.slice(0,450)})):[];render();}});
+ registerNavigationHook({name:'rc38-board-navigation',after:()=>{if(STATE.tab==='notebook')render();}});
+ window.PS_RC38_BOARD=Object.freeze({inspect:()=>entries.map(e=>({...e})),render});render();
+})();
+/* RC39: both room members can propose questions and cast advisory votes. */
+(()=>{
+ 'use strict';const coop=window.PS_COOP;if(!coop?.mountRoomPanel)return;
+ const node=(tag,cls,label)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(label!==undefined)e.textContent=label;return e;};
+ const host=node('section','ps39-panel');host.id='ps39Panel';host.hidden=true;
+ host.append(node('h3','', 'Wspólne uzgodnienia 2.0'));
+ host.append(node('p','', 'Obie osoby mogą proponować pytania i wskazywać materiały. Głosy są opiniami graczy, nie zatwierdzają werdyktu.'));
+ const form=node('form','ps39-form'),kind=node('select'),input=node('input'),send=node('button','btn alt','Dodaj propozycję');
+ kind.setAttribute('aria-label','Typ propozycji');
+ [['question','Pytanie do świadka'],['evidence','Materiał do ponownego sprawdzenia']].forEach(([value,title])=>{const o=node('option','',title);o.value=value;kind.append(o);});
+ input.maxLength=350;input.required=true;input.placeholder='Zaproponuj konkretne działanie…';input.setAttribute('aria-label','Propozycja dla drugiego gracza');
+ send.type='submit';form.append(kind,input,send);
+ const votes=node('div','ps39-votes');const ready=node('button','btn alt','Jestem gotowy do finału'),review=node('button','btn subtle','Chcę jeszcze sprawdzić');
+ ready.type=review.type='button';votes.append(ready,review);
+ const log=node('div','ps39-log');log.setAttribute('role','log');
+ const status=node('small','ps39-status');host.append(form,votes,status,log);coop.mountRoomPanel(host);
+ let seen=new Set(),lastId=0,polling=false,sending=false;const recent=[];
+ const identifier=()=>crypto.randomUUID?crypto.randomUUID():[1e7,1e3,4e3,8e3,1e11].join('-').replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15>>c/4).toString(16));
+ function render(){log.replaceChildren();const current=new Map();
+  for(const m of recent)if(m.kind==='vote')current.set(m.author,m.text);
+  const head=node('p','ps39-vote-summary','Głosowanie (opinia): '+['Gospodarz','Gość'].map(w=>w+': '+(current.has(w)?current.get(w)==='ready'?'gotowy':'chce sprawdzić':'brak głosu')).join('; '));
+  log.append(head);
+  for(const m of recent.filter(x=>x.kind!=='vote').slice(-30)){
+   const p=node('p','ps39-entry',(m.author==='Gospodarz'?'Gospodarz':'Gość')+': '+(m.kind==='question'?'Pytanie — ':'Materiał — ')+m.text);log.append(p);
+  }
+ }
+ function append(item){if(!item||!Number.isSafeInteger(item.id)||seen.has(item.id))return;seen.add(item.id);lastId=Math.max(lastId,item.id);recent.push(item);while(recent.length>75)recent.shift();render();}
+ async function fetchNew(){if(polling||!coop.active)return;polling=true;
+  try{const response=await fetch('/api/coop-collab?after='+lastId,{credentials:'same-origin',cache:'no-store'});const data=await response.json();
+   if(!response.ok||!data.ok)throw Error('Brak dostępu do uzgodnień');
+   (data.items||[]).forEach(append);status.textContent='';
+  }catch{status.textContent='Uzgodnienia niedostępne. Sprawdź migrację SQL 006.';}finally{polling=false;}
+ }
+ async function post(kind,text){if(sending||!coop.active)return;sending=true;send.disabled=true;
+  try{const response=await fetch('/api/coop-collab',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json','X-PS-Client':'game'},body:JSON.stringify({clientId:identifier(),kind,text})});
+   const result=await response.json();if(!response.ok||!result.ok)throw Error(result.error||'invalid');
+   append(result.item);if(kind!=='vote')input.value='';status.textContent='';
+  }catch(err){status.textContent=err.message==='collab_rate_limited'?'Zbyt wiele propozycji — spróbuj za chwilę.':'Nie zapisano propozycji.';}
+  finally{sending=false;send.disabled=false;}
+ }
+ form.addEventListener('submit',event=>{event.preventDefault();void post(kind.value,input.value.trim().slice(0,350));});
+ ready.addEventListener('click',()=>void post('vote','ready'));
+ review.addEventListener('click',()=>void post('vote','review'));
+ setInterval(()=>{host.hidden=!coop.active;if(coop.active&&!document.hidden)void fetchNew();},2700);
+})();
+/* RC40: a retrospective report ONLY. No verdict alterations or evidence unlocks. */
+(()=>{
+ 'use strict';const host=document.getElementById('final');if(!host)return;
+ const panel=document.createElement('section');panel.id='ps40Epilogue';panel.className='ps40-epilogue';panel.hidden=true;
+ const head=document.createElement('h3');head.textContent='Finał 4.0 · konsekwencje śledztwa';
+ const summary=document.createElement('p'),weakness=document.createElement('p'),files=document.createElement('p');
+ const witnessList=document.createElement('ul');
+ const report=document.createElement('button');report.type='button';report.className='btn alt';report.textContent='Pobierz podsumowanie śledztwa (.txt)';
+ const note=document.createElement('small');note.textContent='Retrospekcja nie zmienia orzeczenia, dowodów ani odpowiedzi świadków.';
+ panel.append(head,summary,weakness,files,witnessList,report,note);host.append(panel);
+ const verdicts={
+  solid:['Oskarżenie utrzymane','Materiał przeszedł dotychczasowe próby kontroli, lecz nie usuwa konsekwencji błędów proceduralnych z akt.'],
+  weak:['Niewystarczające ustalenia','Luki nie są dowodem winy. Zapisane hipotezy zachowują status niezweryfikowanych.'],
+  acquittal:['Brak utrzymania oskarżenia','Niedostateczne powiązanie osoby, mechanizmu i źródeł ogranicza konkluzję.'],
+  returned:['Akta wymagają uzupełnienia','Wyjaśnienie brakujących ogniw jest ważniejsze niż przyspieszenie decyzji.'],
+  excluded:['Uchybienia proceduralne','Nieskutecznie zebrany materiał nie może zastępować poprawnego dowodzenia.'],
+  miscarriage:['Ryzyko błędnego oskarżenia','Pomijanie rozbieżności i dowodów odciążających może prowadzić do krzywdzących decyzji.']
+ };
+ function compute(){const trial=STATE?.sim?.trial||null;if(!trial)return null;
+  const kind=typeof trial.kind==='string'?trial.kind:'weak';
+  const [title,warning]=verdicts[kind]||verdicts.weak;
+  const rows=CONTENT.characters.map(c=>({name:c.name||c.id,turns:Math.max(0,(STATE.dialogues[c.id]||[]).filter(r=>r.role==='player').length)}));
+  return {kind,title,warning,docs:STATE.found.size,rows};
+ }
+ function render(){const s=compute();panel.hidden=!s;if(!s)return;
+  summary.textContent='Wynik istniejącej symulacji: '+s.title+'. Finał nie stanowi orzeczenia prawdziwego sądu.';
+  weakness.textContent='Wnioski i granice: '+s.warning;
+  files.textContent='W lokalnych aktach znajduje się '+s.docs+' odkrytych dokumentów. Sama liczba źródeł nie przesądza o winie.';
+  witnessList.replaceChildren();for(const row of s.rows){const li=document.createElement('li');li.textContent=row.name+': '+row.turns+' zadanych pytań. Wypowiedzi należy konfrontować z niezależnymi źródłami.';witnessList.append(li);}
+ }
+ report.addEventListener('click',()=>{const s=compute();if(!s)return;
+  const text=['PRAWDZIWE ŚLEDZTWO — RAPORT RETROSPEKTYWNY RC40','Wynik symulacji: '+s.title,'Granice wniosku: '+s.warning,'Odkryte dokumenty: '+s.docs,
+   ...s.rows.map(r=>r.name+': '+r.turns+' pytań'),'Hipotezy i notatki nie stanowią nowych faktów ani dowodów.','Materiał ma charakter fikcyjny.'].join('\n');
+  const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='Prawdziwe_Sledztwo_Podsumowanie_RC40.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ });
+ registerNavigationHook({name:'rc40-epilogue-report',after:()=>{if(STATE.tab==='final')render();}});
+ window.PS_RC40_FINALE=Object.freeze({snapshot:compute,render});render();
+})();
+/* RC41 — an automatic, evidence-scoped reconstruction. Presentation only.
+ * No writes to STATE, authority, evidence unlocks, verdict or SaveManager.
+ * Coop re-renders the panel from the verified mirrored snapshot already in STATE.
+ */
+(()=>{
+ 'use strict';
+ const host=document.getElementById('timeline');
+ const anchor=host?.querySelector('.tl-metrics');
+ if(!host||!anchor||typeof TL_EVENTS==='undefined'||typeof STATE==='undefined')return;
+ const make=(tag,cls,content)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(content!==undefined)el.textContent=content;return el;};
+ const root=make('section','ps41-auto');root.id='ps41AutoTimeline';root.setAttribute('aria-label','Automatyczna oś czasu odkrytych wydarzeń');
+ const head=make('div','ps41-head');
+ const title=make('h3','','Automatyczna oś czasu');
+ const intro=make('p','','Oś aktualizuje się na podstawie zdobytych dokumentów i zapisanych przesłuchań. Nie uzupełnia brakujących faktów, nie zmienia ręcznej rekonstrukcji ani werdyktu.');
+ const stats=make('div','ps41-stats');stats.setAttribute('role','status');stats.setAttribute('aria-live','polite');
+ head.append(title,intro,stats);
+ const controls=make('div','ps41-controls');
+ const filter=make('select','input');filter.id='ps41Filter';filter.setAttribute('aria-label','Filtr automatycznej osi czasu');
+ [['all','Wszystkie źródła'],['document','Zdarzenia z dokumentów'],['witness','Wypowiedzi świadków'],['conflict','Wymagające porównania']].forEach(([v,l])=>{const o=make('option','',l);o.value=v;filter.append(o);});
+ const query=make('input','input');query.type='search';query.id='ps41Query';query.maxLength=80;query.placeholder='Szukaj na osi…';query.setAttribute('aria-label','Szukaj na automatycznej osi czasu');
+ const refresh=make('button','btn alt','Odśwież oś');refresh.type='button';
+ controls.append(filter,query,refresh);
+ const caveat=make('p','ps41-caveat','Zdarzenia z akt: godzina podana w odkrytym materiale, bez przypisywania osoby. Zeznania: jedynie dosłowna wzmianka o godzinie, niezweryfikowana i bez potwierdzonej daty. Rozbieżność wymaga oceny śledczego.');
+ const output=make('div','ps41-list');output.id='ps41List';
+ root.append(head,controls,caveat,output);
+ anchor.before(root);
+ const DATE_MIN='2026-11-17T18:00',DATE_MAX='2026-11-18T06:00';
+ const format=(iso,until)=>{const part=(value)=>value.slice(8,10)+'.11 · '+value.slice(11,16);return part(iso)+(until?' – '+part(until):'');};
+ const fold=value=>String(value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l');
+ const witnessTime=/\b(?:[01]?\d|2[0-3]):[0-5]\d\b/g;
+ const eventRules=[
+  ['e16',/\b(?:zgon\w*|smier\w*|zmar\w*|czasu\s+zgonu)\b/],
+  ['e17',/\b(?:czujnik\w*\s+(?:stanowisk\w*\s*)?(?:nr\s*)?3|impuls\w*\s+mechaniczn\w*)\b/],
+  ['e10',/\b(?:sesj\w*\s+diagnostyczn\w*|test\w*\s+diagnostyczn\w*)\b/],
+  ['e18',/\b(?:alarm\w*\s+medyczn\w*|wezwani\w*\s+(?:medyczn\w*|ratunk\w*))\b/]
+ ];
+ const sameMinute=(a,b)=>a.slice(11,16)===b.slice(11,16);
+ function dayForTime(time){ // Presentation-only placement on the night's axis, NOT a confirmed date.
+  const hour=Number(time.slice(0,2));
+  if(hour>=18)return '2026-11-17T'+time;
+  if(hour<=6)return '2026-11-18T'+time;
+  return null;
+ }
+ function extractWitness(c,m,index){
+  if(m?.role!=='npc'||typeof m.text!=='string'||index===0)return [];
+  const result=[];const text=m.text.slice(0,2500);let match;
+  const seen=new Set();
+  while((match=witnessTime.exec(text))!==null&&result.length<3){
+   const time=match[0].padStart(5,'0');if(seen.has(time))continue;seen.add(time);
+   const iso=dayForTime(time);if(!iso||iso<DATE_MIN||iso>DATE_MAX)continue;
+   const left=Math.max(0,match.index-125),right=Math.min(text.length,match.index+130);
+   const snippet=(left?'…':'')+text.slice(left,right).replace(/\s+/g,' ').trim()+(right<text.length?'…':'');
+   const near=fold(text.slice(Math.max(0,match.index-95),Math.min(text.length,match.index+95)));
+   const lead=fold(text.slice(Math.max(0,match.index-26),match.index));
+   const approximate=/(?:okolo|mniej wiecej|gdzies|przed|po|najpozniej|nie wczesniej niz|chyba|miedzy)\s*$/.test(lead);
+   const mentions=[];
+   for(const [id,regex] of eventRules){
+    if(!regex.test(near))continue;
+    const event=TL_EVENTS.find(e=>e.id===id&&e.sources.some(s=>STATE.found.has(s)));
+    if(!event)continue;
+    const mismatch=event.until?(iso<event.from||iso>event.until):!sameMinute(iso,event.from);
+    if(mismatch)mentions.push(event.title);
+   }
+   result.push({kind:'witness',id:'w:'+c.id+':'+index+':'+time,at:iso,time,source:c.name,char:c.id,turn:index,
+    label:'Godzina wspomniana w wypowiedzi: '+time,snippet,until:'',issues:mentions,
+    marker:approximate?'Przybliżona relacja świadka · niepotwierdzona data':'Twierdzenie świadka · niepotwierdzona data'});
+  }
+  witnessTime.lastIndex=0;
+  return result;
+ }
+ function collect(){
+  const docs=[];for(const e of TL_EVENTS){const ids=e.sources.filter(id=>STATE.found.has(id)&&byId[id]);if(!ids.length)continue;
+   const manual=STATE.timeline11?.entries?.[e.id];
+   const diff=!!(manual?.at&&(manual.at!==e.from||(e.until&&manual.to!==e.until)));
+   docs.push({kind:'document',id:e.id,at:e.from,until:e.until,label:e.title,
+    source:ids.map(id=>byId[id].title||id).join(' · '),ids,place:TL_PLACES[e.place]||'Nieustalone',
+    caution:e.caution,issues:diff?['Godzina różni się od Twojej ręcznej rekonstrukcji']:[],
+    marker:e.until?'Potwierdzony przedział w źródle':'Znacznik czasu z dokumentu'});
+  }
+  const claims=[];for(const c of CONTENT.characters){
+   const messages=STATE.dialogues?.[c.id]||[];
+   for(let i=1;i<messages.length;i++)claims.push(...extractWitness(c,messages[i],i));
+  }
+  return [...docs,...claims].sort((a,b)=>a.at.localeCompare(b.at)||Number(a.kind==='witness')-Number(b.kind==='witness')||a.id.localeCompare(b.id));
+ }
+ function openDoc(id){
+  if(!STATE.found.has(id)||!byId[id])return;
+  const input=document.getElementById('filterDocs'),category=document.getElementById('filterCategory');
+  if(input)input.value='';if(category)category.value='';
+  if(typeof activeEvidenceType!=='undefined')activeEvidenceType='all';
+  activeDoc=id;showTab('evidence');renderDocs();
+  document.getElementById('docPaper')?.scrollIntoView({block:'start',behavior:'smooth'});
+ }
+ function openWitness(char,index){
+  const log=STATE.dialogues?.[char]||[];if(!log.length)return;
+  STATE.activeChar=char;
+  // Restore the requested earlier line in the same scrollable transcript.
+  if(typeof CHAT_VISIBLE!=='undefined')CHAT_VISIBLE[char]=Math.max(CHAT_VISIBLE[char]||120,log.length);
+  showTab('interview');renderChat();
+  requestAnimationFrame(()=>document.querySelectorAll('#chatLog .bubble')[index]?.scrollIntoView({block:'center',behavior:'smooth'}));
+ }
+ function renderItem(item){
+  const row=make('article','ps41-event ps41-'+item.kind+(item.issues.length?' ps41-flag':''));
+  row.dataset.kind=item.kind;
+  const mark=make('div','ps41-time',format(item.at,item.until));
+  const body=make('div','ps41-body');
+  const badge=make('small','ps41-status',item.marker);const name=make('strong','',item.label);
+  const source=make('p','ps41-source','Źródło: '+item.source);body.append(badge,name,source);
+  if(item.kind==='document'){
+   body.append(make('p','ps41-note','Zakres zapisu: '+item.place+'. '+item.caution));
+   const links=make('div','ps41-links');for(const id of item.ids){const b=make('button','btn subtle','Otwórz '+id);b.type='button';b.addEventListener('click',()=>openDoc(id));links.append(b);}body.append(links);
+  }else{
+   body.append(make('blockquote','ps41-quote',item.snippet));
+   body.append(make('small','ps41-uncertain','Dzień 17/18 XI jest przypisaniem pomocniczym według godziny. Samo zeznanie nie potwierdza daty ani zdarzenia.'));
+   const b=make('button','btn subtle','Otwórz wypowiedź');b.type='button';b.addEventListener('click',()=>openWitness(item.char,item.turn));body.append(b);
+  }
+  if(item.issues.length){const flag=make('p','ps41-warning','Do porównania: '+item.issues.join('; ')+'. Nie przesądza to o kłamstwie.');body.append(flag);}
+  row.append(mark,body);return row;
+ }
+ let lastSignature='',current=[];
+ function signature(){return [...STATE.found].sort().join('|')+'~'+CONTENT.characters.map(c=>{const log=STATE.dialogues[c.id]||[];return c.id+':'+log.length+':'+String(log.at(-1)?.text||'').slice(-90);}).join('|')+'~'+TL_EVENTS.map(e=>{const x=STATE.timeline11?.entries?.[e.id];return x?.at+':'+x?.to;}).join('|');}
+ function render(force=false){if(STATE.tab!=='timeline'&&!force)return;
+  const sig=signature();if(sig!==lastSignature||force){current=collect();lastSignature=sig;}
+  const events=current.filter(i=>i.kind==='document').length,claims=current.length-events,flags=current.filter(i=>i.issues.length).length;
+  stats.textContent=`${events} odkrytych zdarzeń z akt · ${claims} wzmianek w zeznaniach · ${flags} do porównania`;
+  const mode=filter.value,term=fold(query.value.trim());const selected=current.filter(i=>(mode==='all'||mode===i.kind||(mode==='conflict'&&i.issues.length))&&(!term||fold(i.label+' '+i.source+' '+(i.snippet||'')+' '+(i.caution||'')).includes(term)));
+  output.replaceChildren();if(!selected.length){output.append(make('p','ps41-empty',current.length?'Brak wyników przy tym filtrze.':'Nie odkryto jeszcze materiałów pozwalających ustalić przebieg nocy. Zdobywaj akta i przesłuchuj świadków.'));return;}
+  let day='';for(const item of selected){const newDay=item.at.slice(0,10);if(day!==newDay){day=newDay;output.append(make('h4','ps41-day',newDay==='2026-11-17'?'17 listopada · wieczór':'18 listopada · noc i poranek'));}output.append(renderItem(item));}
+ }
+ filter.addEventListener('change',()=>render(true));query.addEventListener('input',()=>render(true));refresh.addEventListener('click',()=>render(true));
+ registerNavigationHook({name:'rc41-auto-timeline',after:({id})=>{if(id==='timeline')render(true);}});
+ if(typeof PS_EVENTS!=='undefined'){
+  PS_EVENTS.on('evidenceCollected','rc41-auto-evidence',()=>{if(STATE.tab==='timeline')render();});
+  PS_EVENTS.on('laboratoryCompleted','rc41-auto-lab',()=>{if(STATE.tab==='timeline')render();});
+ }
+ // Co-op snapshots and restored saves already update STATE; this view is derived,
+ // not separately persisted or trusted as evidence.
+ setInterval(()=>{if(STATE.tab==='timeline'&&!document.hidden&&signature()!==lastSignature)render();},2000);
+ window.PS_RC41_TIMELINE=Object.freeze({inspect:()=>current.map(({kind,id,at,until,issues})=>({kind,id,at,until,issues:issues.slice()})),refresh:()=>render(true)});
+ render(true);
+})();
+/* RC42: read-only interrogation memory, derived from transcript; never alters NPC facts. */
+(()=>{
+ 'use strict';
+ if(typeof STATE==='undefined'||!document.getElementById('interview'))return;
+ const box=document.createElement('section');box.id='ps42Memory';box.className='ps-next-panel';
+ box.setAttribute('aria-label','Pamięć rozmowy ze świadkiem');
+ const title=document.createElement('h3');title.textContent='Przesłuchanie 4.0 · pamięć pytań';
+ const note=document.createElement('p');note.textContent='Powracające pytania i wątki z rzeczywistej rozmowy. To przypomnienie treści, nie dowód prawdziwości zeznania.';
+ const info=document.createElement('p');info.id='ps42MemorySummary';
+ const list=document.createElement('div');list.id='ps42MemoryItems';
+ box.append(title,note,info,list);
+ document.getElementById('interview').querySelector('.chathead')?.insertAdjacentElement('afterend',box);
+ const fold=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l');
+ const stop=new Set(['kiedy','gdzie','ktory','ktora','ktore','dlaczego','prosze','pan','pani','jest','bylo','miales','wtedy','tego','przy','mnie','czy','ten','tam','oraz','sie','nie','jak','od','do','co','o','w','z','ze']);
+ function view(){const log=STATE.dialogues?.[STATE.activeChar]||[];
+  const turns=log.map((m,i)=>({...m,i})).filter(x=>x.role==='player');
+  const tokens=turns.map(x=>[...new Set((fold(x.text).match(/[a-ząćęłńóśźż]{4,}/g)||[]).filter(y=>!stop.has(y)).slice(0,35))]);
+  const counts=new Map();tokens.forEach(t=>t.forEach(y=>counts.set(y,(counts.get(y)||0)+1)));
+  const repeated=[...counts].filter(([_,n])=>n>=2).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  return {turns,log,repeated};
+ }
+ function render(){if(STATE.tab!=='interview')return;const v=view();
+  info.textContent=`Zadane pytania: ${v.turns.length} · powracające hasła: ${v.repeated.length}`;
+  list.replaceChildren();
+  if(!v.turns.length){const p=document.createElement('p');p.textContent='Rozmowa jeszcze się nie rozpoczęła.';list.append(p);return;}
+  for(const turn of v.turns.slice(-5).reverse()){
+   const row=document.createElement('div');row.className='ps-next-row';
+   const q=document.createElement('span');q.textContent=turn.text.slice(0,220);
+   const btn=document.createElement('button');btn.className='btn subtle';btn.type='button';btn.textContent='Wróć do wątku';
+   btn.addEventListener('click',()=>{
+    if(window.PS_COOP?.active&&!window.PS_COOP.controller)return;
+    const field=document.getElementById('chatInput');if(field){field.value='Chcę doprecyzować wcześniejszą odpowiedź na pytanie: „'+turn.text.slice(0,550).replace(/\s+/g,' ')+'”. Co dokładnie miałeś na myśli?';field.focus();}
+   });row.append(q,btn);list.append(row);
+  }
+  if(v.repeated.length){const tag=document.createElement('small');tag.textContent='Wątki powracające: '+v.repeated.map(([a])=>a).join(' · ');list.prepend(tag);}
+ }
+ registerNavigationHook({name:'rc42-memory',after:()=>render()});
+ const previous=typeof renderChat==='function'?renderChat:null;
+ // Keep display in sync with server-driven and mirrored transcripts without monkey-patching owners.
+ setInterval(()=>{if(!document.hidden&&STATE.tab==='interview')render();},3400);
+ window.PS_RC42=Object.freeze({inspect:view,render});render();
+})();
+/* RC43: confrontation requires an actual previously recorded NPC statement.
+ * A quoted testimony is NOT a new fact; server knowledge gates remain sovereign. */
+(()=>{
+ 'use strict';if(typeof STATE==='undefined')return;
+ const host=document.getElementById('interview');if(!host)return;
+ const wrap=document.createElement('section');wrap.id='ps43Confrontation';wrap.className='ps-next-panel';
+ const title=document.createElement('h3');title.textContent='Konfrontacja zeznań';
+ const hint=document.createElement('p');hint.textContent='Wybierz rzeczywiście wypowiedziane zdanie innego świadka. Cytat pozostaje niezweryfikowaną relacją; samo przytoczenie nie odblokowuje dowodów.';
+ const source=document.createElement('select');source.setAttribute('aria-label','Źródłowy świadek');
+ const quote=document.createElement('select');quote.setAttribute('aria-label','Fragment istniejącego zeznania');
+ const preview=document.createElement('blockquote');preview.className='ps-next-quote';
+ const add=document.createElement('button');add.type='button';add.className='btn alt';add.textContent='Wstaw pytanie do przesłuchania';
+ wrap.append(title,hint,source,quote,preview,add);
+ const layout=host.querySelector('.charactergrid');if(layout)layout.insertAdjacentElement('afterend',wrap);else host.append(wrap);
+ const val=(v,n=400)=>String(v||'').replace(/[\u0000-\u001f]+/g,' ').slice(0,n);
+ function options(){const existing=source.value;source.replaceChildren();const blank=document.createElement('option');blank.value='';blank.textContent='Wybierz innego świadka';source.append(blank);
+  for(const c of CONTENT.characters){if(c.id===STATE.activeChar)continue;
+   if(!(STATE.dialogues[c.id]||[]).slice(1).some(m=>m.role==='npc'))continue;
+   const opt=document.createElement('option');opt.value=c.id;opt.textContent=c.name;source.append(opt);}
+  if([...source.options].some(o=>o.value===existing))source.value=existing;
+  updateQuotes();}
+ function updateQuotes(){const id=source.value,old=quote.value;quote.replaceChildren();
+  const log=STATE.dialogues?.[id]||[];
+  log.slice(1).forEach((m,i)=>{if(m.role!=='npc'||typeof m.text!=='string')return;
+   const o=document.createElement('option');o.value=String(i+1);o.textContent=val(m.text,105);quote.append(o);});
+  if([...quote.options].some(o=>o.value===old))quote.value=old;
+  else if(quote.options.length)quote.selectedIndex=0;
+  refresh();}
+ function refresh(){const m=STATE.dialogues?.[source.value]?.[Number(quote.value)];
+  preview.textContent=m?.role==='npc'?m.text.slice(0,1100):'Nie wybrano zeznania.';
+  add.disabled=!m||m.role!=='npc'||(window.PS_COOP?.active&&!window.PS_COOP.controller);}
+ source.addEventListener('change',updateQuotes);quote.addEventListener('change',refresh);
+ add.addEventListener('click',()=>{const witness=CONTENT.characters.find(c=>c.id===source.value),m=STATE.dialogues?.[source.value]?.[Number(quote.value)],field=document.getElementById('chatInput');
+  if(!witness||m?.role!=='npc'||!field||source.value===STATE.activeChar||(window.PS_COOP?.active&&!window.PS_COOP.controller))return;
+  const quoted=val(m.text.replace(/\[[^\]]*Okazano:[^\]]*\]/g,''),420);
+  field.value=`W przesłuchaniu ${witness.name} padły słowa: „${quoted}”. To niezweryfikowana wypowiedź. Co możesz powiedzieć o tej rozbieżności w granicach własnej wiedzy?`;
+  field.focus();field.scrollIntoView({behavior:'smooth',block:'center'});
+ });
+ registerNavigationHook({name:'rc43-confrontation',after:()=>{if(STATE.tab==='interview')options();}});
+ window.PS_RC43=Object.freeze({refresh:options});options();
+})();
+/* RC44: cinematic breakthroughs index; only existing gate-verified PS85 scenes. */
+(()=>{
+ 'use strict';if(!window.PS85_STORY)return;
+ const parent=document.getElementById('deduction');if(!parent)return;
+ const panel=document.createElement('section');panel.id='ps44Scenes';panel.className='ps-next-panel';
+ const title=document.createElement('h3');title.textContent='Przełomy śledztwa · powrót do scen';
+ const desc=document.createElement('p');desc.textContent='Sceny wynikają tylko z istniejących, zweryfikowanych powiązań. Ponowne obejrzenie nie zmienia zapisu, dowodów ani werdyktu.';
+ const items=document.createElement('div');panel.append(title,desc,items);parent.append(panel);
+ const names={work:'Dyspozycja i dokumentacja',warning:'Ostrzeżenie i obieg zgłoszeń',access:'Przepustka i zapis sesji',lastcontact:'Luka między kontaktami',mechanism:'Granice ustaleń medycznych',faultline:'Dwa łańcuchy informacji',presence:'Zegary nie są alibi',boundary:'Granice ostatniej wiadomości'};
+ function render(){if(STATE.tab!=='deduction')return;items.replaceChildren();
+  const available=window.PS85_STORY.available();const read=new Set(window.PS85_STORY.read());
+  for(const id of available){const b=document.createElement('button');b.type='button';b.className='btn subtle';b.textContent=(read.has(id)?'Odczytana · ':'Nowy przełom · ')+(names[id]||id);
+   b.addEventListener('click',()=>window.PS85_STORY.open(id));items.append(b);}
+  if(!available.length){const p=document.createElement('p');p.textContent='Nowe sceny pojawią się po zweryfikowaniu wymaganych powiązań.';items.append(p);}
+ }
+ registerNavigationHook({name:'rc44-scene-index',after:render});window.PS_RC44=Object.freeze({render});render();
+})();
+/* RC45: read-only time gap analysis; never treats repeated sources as independent proof. */
+(()=>{
+ 'use strict';if(!window.PS_RC41_TIMELINE||typeof TL_EVENTS==='undefined')return;
+ const root=document.getElementById('ps41AutoTimeline');if(!root)return;
+ const panel=document.createElement('section');panel.id='ps45TimeAnalysis';panel.className='ps-next-panel';
+ const title=document.createElement('h3');title.textContent='Oś czasu 3.0 · luki i niezależność źródeł';
+ const intro=document.createElement('p');intro.textContent='Przerwy między znacznikami czasu nie są dowodem braku zdarzeń. Powtarzane relacje i dokumenty nie są automatycznie niezależnym potwierdzeniem.';
+ const list=document.createElement('div');panel.append(title,intro,list);root.querySelector('.ps41-controls')?.insertAdjacentElement('afterend',panel);
+ const minutes=iso=>{const d=Date.parse(iso+':00Z');return Number.isFinite(d)?d/60000:null;};
+ function analyze(){const events=TL_EVENTS.filter(e=>e.sources.some(id=>STATE.found.has(id)&&byId[id])).sort((a,b)=>a.from.localeCompare(b.from));
+  const gaps=[];for(let i=1;i<events.length;i++){const before=events[i-1],after=events[i];const gap=minutes(after.from)-minutes(before.until||before.from);
+   if(gap>=40)gaps.push({from:before.id,to:after.id,minutes:gap});}
+  const multi=events.filter(e=>e.sources.filter(id=>STATE.found.has(id)&&byId[id]).length>1).map(e=>({id:e.id,sources:e.sources.filter(id=>STATE.found.has(id)&&byId[id])}));
+  return {events:events.length,gaps,multi};}
+ function render(){if(STATE.tab!=='timeline')return;const d=analyze();list.replaceChildren();
+  const p=document.createElement('p');p.textContent=`Odkryte punkty: ${d.events} · odcinki bez pośredniego znacznika (≥40 min): ${d.gaps.length} · punkty z wieloma dokumentami: ${d.multi.length}`;list.append(p);
+  for(const gap of d.gaps.slice(0,10)){const x=document.createElement('p');x.className='ps-next-row';
+   x.textContent=`Luka ${gap.minutes} min: ${TL_EVENTS.find(e=>e.id===gap.from)?.title} → ${TL_EVENTS.find(e=>e.id===gap.to)?.title}. Nie wiadomo, co zaszło w tym czasie.`;list.append(x);}
+  for(const group of d.multi.slice(0,10)){const x=document.createElement('p');x.className='ps-next-row';x.textContent=`${TL_EVENTS.find(e=>e.id===group.id)?.title}: źródła ${group.sources.join(', ')} (liczba źródeł nie potwierdza ich niezależności)`;list.append(x);}
+ }
+ registerNavigationHook({name:'rc45-time-analysis',after:render});window.PS_RC45=Object.freeze({analyze,render});setInterval(()=>{if(STATE.tab==='timeline'&&!document.hidden)render();},5500);render();
+})();
+/* RC46: controller-authored annotations of actual transcript lines, co-op synced via signed SaveManager snapshot.
+ * Spectator may propose question in RC39; cannot change authoritative game save. */
+(()=>{
+ 'use strict';if(typeof registerSaveHook!=='function')return;
+ const host=document.getElementById('notebook');if(!host)return;
+ let records=[];
+ const panel=document.createElement('section');panel.id='ps46Annotations';panel.className='ps-next-panel';
+ const heading=document.createElement('h3');heading.textContent='Kooperacja 3.0 · znaczniki przesłuchań';
+ const intro=document.createElement('p');intro.textContent='Oznacz realną wypowiedź jako ważną dla wspólnych notatek. Znacznik nie potwierdza treści i nie wpływa na werdykt. W pokoju edytuje osoba sterująca.';
+ const witness=document.createElement('select');witness.setAttribute('aria-label','Świadek dla adnotacji');
+ const turn=document.createElement('select');turn.setAttribute('aria-label','Wypowiedź do oznaczenia');
+ const comment=document.createElement('input');comment.maxLength=180;comment.placeholder='Uzasadnienie (własna notatka)';
+ const add=document.createElement('button');add.type='button';add.className='btn alt';add.textContent='Oznacz wypowiedź';
+ const list=document.createElement('div');panel.append(heading,intro,witness,turn,comment,add,list);host.append(panel);
+ const allowed=e=>e&&typeof e==='object'&&CONTENT.characters.some(c=>c.id===e.character)&&Number.isInteger(e.index)&&e.index>=1&&e.index<1600&&typeof e.quote==='string'&&e.quote.length<=300&&typeof e.comment==='string'&&e.comment.length<=180;
+ function fill(){const old=witness.value;witness.replaceChildren();
+  for(const c of CONTENT.characters){const o=document.createElement('option');o.value=c.id;o.textContent=c.name;witness.append(o);}
+  witness.value=[...witness.options].some(o=>o.value===old)?old:STATE.activeChar;fillTurns();}
+ function fillTurns(){const old=turn.value;turn.replaceChildren();(STATE.dialogues[witness.value]||[]).forEach((m,i)=>{if(m.role!=='npc'||i===0)return;
+  const o=document.createElement('option');o.value=String(i);o.textContent='Wypowiedź '+i+': '+m.text.slice(0,95);turn.append(o);});
+  if([...turn.options].some(o=>o.value===old))turn.value=old;add.disabled=!turn.value;}
+ function editable(){return !window.PS_COOP?.active||window.PS_COOP.controller;}
+ function render(){fill();list.replaceChildren();add.disabled=!turn.value||!editable();comment.disabled=!editable();
+  const valid=records.filter(e=>{const m=STATE.dialogues[e.character]?.[e.index];return m?.role==='npc'&&m.text.startsWith(e.quote);});
+  if(!valid.length){const p=document.createElement('p');p.textContent='Brak oznaczonych wypowiedzi.';list.append(p);}
+  for(const rec of valid){const row=document.createElement('div');row.className='ps-next-row';
+   const txt=document.createElement('p');txt.textContent=`${CONTENT.characters.find(c=>c.id===rec.character)?.name} · „${rec.quote}…” — ${rec.comment||'Do sprawdzenia'}`;
+   const jump=document.createElement('button');jump.type='button';jump.className='btn subtle';jump.textContent='Pokaż';jump.addEventListener('click',()=>{
+    STATE.activeChar=rec.character;showTab('interview');
+    if(typeof CHAT_VISIBLE!=='undefined')CHAT_VISIBLE[rec.character]=1600;renderChat();
+    document.querySelectorAll('#chatLog .bubble')[rec.index]?.scrollIntoView({block:'center'});
+   });
+   const rm=document.createElement('button');rm.type='button';rm.className='btn subtle';rm.textContent='Usuń';rm.disabled=!editable();rm.addEventListener('click',()=>{if(!editable())return;records=records.filter(x=>x!==rec);window.PS_COOP?.mark?.();render();});
+   row.append(txt,jump,rm);list.append(row);}
+ }
+ witness.addEventListener('change',fillTurns);
+ add.addEventListener('click',()=>{if(!editable()||records.length>=80)return;const m=STATE.dialogues[witness.value]?.[Number(turn.value)];if(m?.role!=='npc')return;
+  const rec={character:witness.value,index:Number(turn.value),quote:m.text.slice(0,300),comment:comment.value.trim().slice(0,180)};
+  if(records.some(e=>e.character===rec.character&&e.index===rec.index))return;
+  records.push(rec);comment.value='';window.PS_COOP?.mark?.();render();});
+ registerSaveHook({name:'rc46-transcript-annotations',build:data=>{data.rc46Annotations=records.map(e=>({...e}));},apply:data=>{records=Array.isArray(data.rc46Annotations)?data.rc46Annotations.filter(allowed).slice(-80).map(e=>({...e})):[];render();}});
+ registerNavigationHook({name:'rc46-annotations',after:()=>{if(STATE.tab==='notebook')render();}});
+ window.PS_RC46=Object.freeze({inspect:()=>records.map(x=>({...x})),render});render();
+})();
+/* RC47: displayed heuristics are transcript-based, never privileged mental states or facts. */
+(()=>{
+ 'use strict';const host=document.getElementById('interview');if(!host)return;
+ const box=document.createElement('section');box.id='ps47Psychology';box.className='ps-next-panel';
+ const title=document.createElement('h3');title.textContent='Psychologia rozmowy · sygnały z pytań';
+ const note=document.createElement('p');note.textContent='Szacunek tonu na podstawie Twoich pytań, a nie odczyt rzeczywistego stanu psychicznego świadka. Nie zwiększa dostępnej wiedzy postaci.';
+ const status=document.createElement('p');box.append(title,note,status);
+ host.querySelector('.chathead')?.insertAdjacentElement('afterend',box);
+ const fold=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l');
+ function inspect(id=STATE.activeChar){const log=STATE.dialogues?.[id]||[];const questions=log.filter(m=>m.role==='player').map(m=>fold(m.text));
+  const pressure=questions.filter(q=>/(klam|ukryw|oszuk|przecz|win|przyznaj)/.test(q)).length;
+  const clarifications=questions.filter(q=>/(dlaczego|sprecyz|sprost|wczesniej|dokladnie|wytlumacz)/.test(q)).length;
+  const sources=questions.filter(q=>/(dowod|dokument|potwierd|zrod|log|rejestr)/.test(q)).length;
+  const fatigue=questions.length>=18?'długa':questions.length>=7?'rozwinięta':'wstępna';
+  return {turns:questions.length,pressure,clarifications,sources,phase:fatigue};}
+ function render(){if(STATE.tab!=='interview')return;const x=inspect();status.textContent=`Rozmowa ${x.phase} (${x.turns} pytań). Zarzuty/nacisk: ${x.pressure}; doprecyzowania: ${x.clarifications}; odwołania do źródeł: ${x.sources}. To opis sposobu prowadzenia rozmowy, nie ocena prawdziwości odpowiedzi.`;}
+ registerNavigationHook({name:'rc47-psychology',after:render});
+ setInterval(()=>{if(!document.hidden&&STATE.tab==='interview')render();},3900);
+ window.PS_RC47=Object.freeze({inspect,render});render();
+})();
+/* RC48: evidence-bounded final report; export only, no mutation to STATE or verdict. */
+(()=>{
+ 'use strict';const host=document.getElementById('final');if(!host)return;
+ const panel=document.createElement('section');panel.id='ps48FinalReport';panel.className='ps-next-panel';
+ const head=document.createElement('h3');head.textContent='Raport śledczego 2.0';
+ const note=document.createElement('p');note.textContent='Raport odróżnia zdobyte dokumenty, relacje świadków i hipotezy graczy. Nie zastępuje istniejącej oceny werdyktu.';
+ const output=document.createElement('div'),download=document.createElement('button');download.type='button';download.className='btn alt';download.textContent='Pobierz szczegółowy raport (.txt)';
+ panel.append(head,note,output,download);host.append(panel);
+ function report(){const lines=['PRAWDZIWE ŚLEDZTWO — RAPORT ANALITYCZNY RC48','Wszystkie dane dotyczą fikcyjnej sprawy.',''];
+  const verdict=STATE.sim?.trial;lines.push('WERDYKT (NIEZMIENIONY): '+(typeof verdict?.kind==='string'?verdict.kind:'jeszcze nie wydano'),'');
+  const docs=[...STATE.found].filter(id=>byId[id]);lines.push('DOKUMENTY ODKRYTE: '+docs.length);
+  docs.sort().slice(0,250).forEach(id=>lines.push('- ['+id+'] '+String(byId[id].title||id).slice(0,180)));lines.push('');
+  lines.push('ZDARZENIA POTWIERDZONE ZAPISAMI (NIE Z DOMYSŁÓW):');
+  const known=TL_EVENTS.filter(e=>e.sources.some(id=>STATE.found.has(id)&&byId[id]));
+  for(const e of known){const ids=e.sources.filter(id=>STATE.found.has(id)&&byId[id]);lines.push('- '+e.from+(e.until?' – '+e.until:'')+' · '+e.title+' · źródła: '+ids.join(', ')+' · ograniczenie: '+e.caution);}
+  lines.push('','PRZESŁUCHANIA (RELACJE, NIE POTWIERDZENIA):');
+  for(const c of CONTENT.characters){const log=STATE.dialogues[c.id]||[];lines.push('- '+c.name+': '+log.filter(m=>m.role==='player').length+' pytań; '+log.filter(m=>m.role==='npc').length+' wypowiedzi');}
+  const notes=String(STATE.notes||'').slice(0,8000);lines.push('','NOTATKI GRACZA (HIPOTEZY):',notes||'Brak');
+  const board=window.PS_RC38_BOARD?.inspect?.()||[];lines.push('','POWIĄZANIA WŁASNE GRACZY:');
+  for(const b of board.slice(0,80))if(STATE.found.has(b.a)&&STATE.found.has(b.b))lines.push('- '+b.kind+' · '+b.a+' / '+b.b+' · '+b.note);
+  const marks=window.PS_RC46?.inspect?.()||[];lines.push('','ADNOTACJE DO ZEZNANIA:');for(const mark of marks.slice(0,80))lines.push('- '+mark.character+' #'+mark.index+' · '+mark.comment);
+  lines.push('','UWAGA: relacje i notatki nie stanowią samodzielnego dowodu; raport nie odblokowuje finału.');return lines.join('\n');}
+ function render(){if(STATE.tab!=='final')return;const docs=[...STATE.found].filter(id=>byId[id]).length;
+  output.textContent=`Dokumenty: ${docs} · świadkowie: ${CONTENT.characters.length} · werdykt: ${STATE.sim?.trial?.kind||'jeszcze nie wydano'}.`;
+ }
+ download.addEventListener('click',()=>{if(window.PS_COOP?.active&&!window.PS_COOP.controller)return;
+  const blob=new Blob([report()],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Prawdziwe_Sledztwo_Raport_RC48.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+ registerNavigationHook({name:'rc48-analytical-report',after:render});window.PS_RC48=Object.freeze({report,render});render();
+})();
+/* RC49: read-only on-device diagnostics; never modifies proof, session or progression. */
+(()=>{
+ 'use strict';const host=document.getElementById('notebook');if(!host||!window.PS_SAVE_MANAGER)return;
+ const section=document.createElement('section');section.id='ps49Diagnostics';section.className='ps-next-panel';
+ const title=document.createElement('h3');title.textContent='Audyt jakości RC49';
+ const para=document.createElement('p');para.textContent='Lokalna kontrola spójności bieżącego zapisu, dowodów i rozmów. Nie łączy się z usługami AI i nie ocenia winy.';
+ const button=document.createElement('button');button.type='button';button.className='btn alt';button.textContent='Sprawdź bieżący stan';
+ const results=document.createElement('div');results.setAttribute('role','status');section.append(title,para,button,results);host.append(section);
+ function audit(){const checks=[];
+  const add=(name,pass)=>checks.push({name,pass:!!pass});
+  try{const save=PS_SAVE_MANAGER.build();PS_SAVE_MANAGER.verify(save);add('SHA-256 zapisu i odczyt metadanych',true);add('Zgodność wersji zapisu',save.version===11&&save.saveMeta?.schemaVersion===2);}catch{add('SHA-256 zapisu i metadane',false);}
+  add('Wyłącznie znane ID dokumentów',[...STATE.found].every(id=>byId[id]));
+  add('Przesłuchania przypisane do świadków',CONTENT.characters.every(c=>Array.isArray(STATE.dialogues[c.id])));
+  add('Zgodne role wypowiedzi',CONTENT.characters.every(c=>(STATE.dialogues[c.id]||[]).every(m=>['player','npc'].includes(m.role)&&typeof m.text==='string')));
+  add('Przedział czasowy ręcznych notatek',STATE.events.every(e=>typeof e.at==='string'&&/^2026-11-(17|18)T\d\d:\d\d$/.test(e.at)));
+  add('Moduł osi czasu',!!window.PS_RC41_TIMELINE?.inspect);
+  add('Weryfikacja przełomów',!!window.PS85_STORY?.available);
+  add('Niezależny silnik werdyktu',!!window.PS_RC40_FINALE?.snapshot);
+  add('Uzgodnienia kooperacyjne dostępne lokalnie',!!window.PS_COOP?.refresh);
+  return checks;}
+ function render(){const a=audit();results.replaceChildren();for(const c of a){const p=document.createElement('p');p.textContent=(c.pass?'OK · ':'UWAGA · ')+c.name;results.append(p);}
+  results.prepend(Object.assign(document.createElement('strong'),{textContent:`${a.filter(x=>x.pass).length}/${a.length} kontroli zaliczonych` }));}
+ button.addEventListener('click',render);
+ registerNavigationHook({name:'rc49-quality-dashboard',after:()=>{if(STATE.tab==='notebook')render();}});
+ window.PS_RC49=Object.freeze({audit,render});
+})();
+/* RC53 — evidence provenance: read-only classification of documents and witness statements.
+ * No evidence IDs are added or exposed before discovery; no causal independence is inferred. */
+(()=>{
+ 'use strict';
+ if(typeof STATE==='undefined'||typeof CONTENT==='undefined'||typeof dedAvailable!=='function')return;
+ const host=document.getElementById('notebook');if(!host)return;
+ const panel=document.createElement('section');panel.id='ps53Provenance';panel.className='ps-next-panel';
+ const title=document.createElement('h3');title.textContent='Wiarygodność źródeł 2.0 · pochodzenie';
+ const intro=document.createElement('p');intro.textContent='Klasyfikacja informuje, skąd pochodzi zapis — nie rozstrzyga, czy jest prawdziwy. Dwa dokumenty z tego samego obiegu nie są niezależnymi potwierdzeniami.';
+ const summary=document.createElement('p');summary.setAttribute('role','status');
+ const filter=document.createElement('select');filter.setAttribute('aria-label','Typ źródła');
+ [['all','Wszystkie dostępne źródła'],['doc','Odkryte dokumenty'],['say','Zeznania świadków']].forEach(([v,label])=>{const opt=document.createElement('option');opt.value=v;opt.textContent=label;filter.append(opt);});
+ const search=document.createElement('input');search.type='search';search.placeholder='Znajdź źródło…';search.maxLength=75;search.setAttribute('aria-label','Szukaj źródła');
+ const output=document.createElement('div');output.id='ps53ProvenanceList';panel.append(title,intro,summary,filter,search,output);
+ host.append(panel);
+ const fold=s=>String(s||'').toLocaleLowerCase('pl').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l');
+ const norm=s=>String(s||'').slice(0,320);
+ function inspect(){
+  const sources=[...dedAvailable().values()];
+  const families=new Map();
+  for(const s of sources){const family=s.type==='doc'?'D:'+String(byId[s.docId]?.family||s.docId):'Z:'+String(s.charId||'');
+   families.set(family,(families.get(family)||0)+1);}
+  return sources.map(s=>{
+   const family=s.type==='doc'?'D:'+String(byId[s.docId]?.family||s.docId):'Z:'+String(s.charId||'');
+   return {key:s.key,type:s.type,label:s.label,category:s.type==='doc'?'Zapis dokumentowy':'Relacja świadka',family,
+    otherFromFamily:Math.max(0,(families.get(family)||1)-1),
+    caveat:s.type==='doc'?'Dokument potwierdza własną treść i zakres rejestracji; nie dowodzi automatycznie osoby, motywu ani przyczyny.':'Zapis potwierdza, że świadek to powiedział — nie potwierdza prawdziwości zdarzenia.'};
+  });
+ }
+ function render(){if(STATE.tab!=='notebook')return;const rows=inspect();summary.textContent=`Dostępne: ${rows.filter(x=>x.type==='doc').length} dokumentów, ${rows.filter(x=>x.type==='say').length} wypowiedzi. Rodzina źródła ≠ liczba niezależnych potwierdzeń.`;
+  output.replaceChildren();let displayed=0;const q=fold(search.value);
+  for(const item of rows){if(filter.value!=='all'&&filter.value!==item.type)continue;if(q&&!fold(item.label).includes(q))continue;if(++displayed>24)break;
+   const section=document.createElement('div');section.className='ps-next-row ps53-source';
+   const desc=document.createElement('div');const top=document.createElement('strong');top.textContent=norm(item.label);const cap=document.createElement('p');cap.textContent=item.category+' · '+(item.otherFromFamily?`W tym samym obiegu / u tego świadka: ${item.otherFromFamily} innych zapisów.`:'Brak innych zapisów z tej rodziny.');const limit=document.createElement('small');limit.textContent=item.caveat;desc.append(top,cap,limit);
+   const btn=document.createElement('button');btn.type='button';btn.className='btn subtle';btn.textContent='Otwórz źródło';btn.addEventListener('click',()=>{const source=dedAvailable().get(item.key);if(source)dedSourceOpen(source);});
+   section.append(desc,btn);output.append(section);
+  }
+  if(!displayed){const p=document.createElement('p');p.textContent='Brak pasujących, odkrytych źródeł.';output.append(p);}
+ }
+ filter.addEventListener('change',render);search.addEventListener('input',render);
+ registerNavigationHook({name:'rc53-provenance',after:render});
+ window.PS_RC53=Object.freeze({inspect,render});render();
+})();
+/* RC54 — cinematic pace strictly from unlocked scenes and real, already saved turns.
+ * Display only; never creates testimony, evidence, psychological truth or new story gates. */
+(()=>{
+ 'use strict';if(typeof STATE==='undefined'||!window.PS85_STORY)return;
+ const host=document.getElementById('interview');if(!host)return;
+ const panel=document.createElement('details');panel.id='ps54Director';panel.className='ps-next-panel';
+ const heading=document.createElement('summary');heading.textContent='Rytm sceny · przesłuchanie';
+ const intro=document.createElement('p');intro.textContent='Dyskretna inscenizacja na podstawie już przeprowadzonej rozmowy. Komentarz nie jest zeznaniem ani dowodem.';
+ const caption=document.createElement('p');caption.id='ps54DirectorCaption';caption.setAttribute('aria-live','off');
+ const path=document.createElement('div');path.className='ps54-path';
+ const go=document.createElement('button');go.className='btn subtle';go.type='button';go.textContent='Zobacz odkryte przełomy';
+ go.addEventListener('click',()=>showTab('deduction'));
+ panel.append(heading,intro,caption,path,go);
+ const point=host.querySelector('#ps43Confrontation')||host.querySelector('.chathead');point?.insertAdjacentElement('afterend',panel);
+ const stageText={opening:'Rozmowa dopiero się rozpoczyna. Zacznij od pytań o konkretną obserwację.',
+ followup:'Wracasz do szczegółów wcześniejszych odpowiedzi. Warto oddzielić pamięć świadka od zapisu dokumentowego.',
+ deep:'Rozmowa jest długa. Teraz szczególnie istotne stają się niespójności, źródła i konkretne granice wiedzy.',
+ breakthrough:'W aktach jest już sprawdzony przełom. Można wrócić do niego przed kolejnym pytaniem.'};
+ function inspect(id=STATE.activeChar){
+  const log=STATE.dialogues?.[id]||[];
+  const turns=log.filter(m=>m?.role==='player').length;
+  const unlocked=window.PS85_STORY.available().slice(0,10);
+  const phase=unlocked.length?'breakthrough':turns>=12?'deep':turns>=3?'followup':'opening';
+  return {phase,turns,available:unlocked.length};
+ }
+ function render(){if(STATE.tab!=='interview')return;const s=inspect();caption.textContent=stageText[s.phase];path.replaceChildren();
+  const phases=[['Początek',s.turns>=1],['Doprecyzowania',s.turns>=3],['Długie przesłuchanie',s.turns>=12],['Zweryfikowany przełom',s.available>0]];
+  for(const [label,done] of phases){const mark=document.createElement('span');mark.className=done?'ps54-step done':'ps54-step';mark.textContent=(done?'● ':'○ ')+label;path.append(mark);}
+  go.disabled=!s.available;go.title=s.available?'Otwórz dostępne, zweryfikowane sceny':'Brak zweryfikowanych przełomów';
+ }
+ registerNavigationHook({name:'rc54-director',after:render});
+ window.PS_RC54=Object.freeze({inspect,render});
+ // Mirror can update STATE outside the navigation lifecycle.
+ let last='';setInterval(()=>{if(document.hidden||STATE.tab!=='interview')return;const s=inspect();const key=STATE.activeChar+':'+s.turns+':'+s.available;if(key!==last){last=key;render();}},3900);
+ render();
 })();
 </script>
 <!-- POPRAWKA 1 / MOBILE P1: zachowaj dostep do elementow, bez poziomego przewijania strony -->

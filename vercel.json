@@ -51,5 +51,15 @@
     "api/lab-narrative.js": {
       "maxDuration": 80
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/admin/testy",
+      "destination": "/api/admin-rc57-ui"
+    },
+    {
+      "source": "/admin/testy/",
+      "destination": "/api/admin-rc57-ui"
+    }
+  ]
 }

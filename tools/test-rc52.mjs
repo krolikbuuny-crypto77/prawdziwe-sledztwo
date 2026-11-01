@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {witnessRelationshipCue} from '../lib/interview-rc52.js';
+import {interviewWirePayload,interviewAnswerSystem} from '../lib/interview-naturalness-rc28.js';
+const scene={identity:{id:'MAREK'},question:'Co wiesz o Wójciku?',approvedThreadHistory:[{role:'witness',text:'Słyszałem nazwisko Krawczyk.'},{role:'player',text:'Zięba powiedziała coś nowego.'}],knowledge:{factBank:[{id:'f0',text:'Nie mam tych informacji.'}],documentsShown:['TEC-01']}};
+const x=witnessRelationshipCue(scene);
+assert.equal(x.authority,'conversation_reference_only_not_fact');
+assert.ok(x.persons.some(p=>p.name==='Janusz Wójcik'&&p.askedNow));
+assert.ok(x.persons.some(p=>p.name==='Tomasz Krawczyk'&&p.previouslyMentionedByWitness));
+assert.ok(!x.persons.some(p=>p.name==='Elżbieta Zięba'));
+assert.ok(!JSON.stringify(x).includes('Zięba powiedziała coś nowego'));
+assert.deepEqual(interviewWirePayload(scene).knowledge.factBank.map(f=>f.text),['Nie mam tych informacji.']);
+assert.ok(interviewAnswerSystem.includes('RC52'));
+console.log('RC52 PASS: no cross witness leakage, own history only');

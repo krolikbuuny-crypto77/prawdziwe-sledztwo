@@ -1,0 +1,24 @@
+/* RC42–RC49: new panels are in normal page flow and cannot obscure the bottom coop dock. */
+.ps-next-panel{display:grid;gap:10px;padding:15px;margin:14px 0;border:1px solid #486172;border-radius:11px;background:#172833;color:#e9eff0;min-width:0;max-width:100%;overflow-wrap:anywhere}
+.ps-next-panel h3{margin:0;color:#f3d39d;font-size:18px}
+.ps-next-panel p{margin:0;line-height:1.55;color:#c4d2d4;font-size:13px}
+.ps-next-panel input,.ps-next-panel select,.ps-next-panel textarea{box-sizing:border-box;max-width:100%;width:100%;min-width:0;background:#14212b;border:1px solid #587183;border-radius:8px;color:#eff5f5;padding:8px;font:inherit}
+.ps-next-panel button{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.ps-next-panel .ps-next-row{border:1px solid #3e5564;background:#11212d;border-radius:8px;padding:9px;display:flex;gap:8px;align-items:center;justify-content:space-between;min-width:0}
+.ps-next-panel .ps-next-row>*{min-width:0}.ps-next-panel .ps-next-row .btn{flex:0 0 auto}
+.ps-next-quote{color:#e3e8e8;margin:0;padding:10px;border-left:3px solid #a5875c;white-space:pre-wrap;font-size:13px;max-height:130px;overflow:auto}
+#ps44Scenes>div{display:flex;flex-wrap:wrap;gap:7px}
+#ps45TimeAnalysis .ps-next-row{display:block;font-size:12px}
+#ps49Diagnostics>div{display:grid;gap:3px}
+@media(max-width:720px){.ps-next-panel{padding:11px}.ps-next-panel h3{font-size:16px}.ps-next-panel .ps-next-row{align-items:stretch;flex-direction:column}.ps-next-panel .ps-next-row .btn{width:100%}}
+/* RC53 — provenance panel, never overlays coop controls */
+#ps53ProvenanceList{display:grid;gap:8px;max-height:420px;overflow:auto}
+#ps53ProvenanceList .ps53-source{align-items:flex-start}
+#ps53ProvenanceList .ps53-source small{display:block;color:#a8bec8;margin-top:5px;line-height:1.45}
+/* RC54 — calm cinematic beat labels; no floating UI or forced animations */
+#ps54Director{background:#192734;border-color:#53616b}
+#ps54Director summary{cursor:pointer;color:#f3d39d;font-size:15px;font-weight:700}
+#ps54Director[open]{display:grid;gap:12px}
+#ps54Director .ps54-path{display:flex;flex-wrap:wrap;gap:7px}
+#ps54Director .ps54-step{padding:5px 8px;border-radius:6px;border:1px solid #3e596b;color:#9cabb7;font-size:11px}
+#ps54Director .ps54-step.done{border-color:#96865e;color:#f3dcaf}
