@@ -4,7 +4,7 @@
  if(typeof STATE==='undefined'||!document.getElementById('interview'))return;
  const box=document.createElement('section');box.id='ps42Memory';box.className='ps-next-panel';
  box.setAttribute('aria-label','Pamięć rozmowy ze świadkiem');
- const title=document.createElement('h3');title.textContent='Przesłuchanie 4.0 · pamięć pytań';
+ const title=document.createElement('h3');title.textContent='Przesłuchania';
  const note=document.createElement('p');note.textContent='Powracające pytania i wątki z rzeczywistej rozmowy. To przypomnienie treści, nie dowód prawdziwości zeznania.';
  const info=document.createElement('p');info.id='ps42MemorySummary';
  const list=document.createElement('div');list.id='ps42MemoryItems';
