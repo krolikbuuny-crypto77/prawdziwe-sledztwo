@@ -1,3 +1,13 @@
+# Najnowsza aktualizacja: RC57.10.28 — jednolity wygląd wszystkich zakładek
+
+**Pełna paczka**: rozpakuj i wgraj całe repozytorium. **Mała poprawka**: nakładaj wyłącznie na RC57.10.27, zachowując strukturę folderów. Po wgraniu uruchom Vercel Preview i sprawdź 10 zakładek na komputerze i telefonie.
+
+Zmiana wyłącznie w wyglądzie: Pulpit, Akta, Poszukiwania, Oś czasu, Oględziny, Notatnik, Laboratorium, Dedukcja i Finał otrzymały jeden wspólny styl pergaminowych kart. Przesłuchania i wszystkie mechaniki są nietknięte. Nie trzeba wykonywać migracji SQL ani zmieniać kluczy.
+
+Bieżący raport: `RAPORT-QA-RC57_10_28.md`. Starsze raporty w paczce są archiwalne.
+
+---
+
 # Prawdziwe Śledztwo — jedna aktualna instrukcja RC57.10.23
 
 Wersja: **RC57.10.23**. Ten dokument zastępuje historyczne poradniki `INSTRUKCJA-RC...` i `README-PAKIET...`. Dawne wydania znajdują się tylko w `docs/archiwum-instrukcji/`. Gdy treść historyczna jest sprzeczna z tą instrukcją, obowiązuje obecny kod i ten dokument.

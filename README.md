@@ -1,3 +1,11 @@
+# Prawdziwe Śledztwo — RC57.10.28
+
+Aktualny przewodnik: **INSTRUKCJA-GLOWNA.md**. Wyniki testów: **RAPORT-QA-RC57_10_28.md**.
+
+RC57.10.28 ujednolica wygląd dziewięciu modułów w stylu „Akta Śledcze”, bez zmiany reguł rozgrywki.
+
+---
+
 # Prawdziwe Śledztwo — RC57.10.23 · Akta Śledcze
 
 **Jedyna instrukcja wdrożenia:** [INSTRUKCJA-GLOWNA.md](INSTRUKCJA-GLOWNA.md).

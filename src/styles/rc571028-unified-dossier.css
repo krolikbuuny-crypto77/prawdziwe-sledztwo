@@ -1,0 +1,269 @@
+/* RC57.10.28 — Jednolity system wizualny dziewięciu modułów śledztwa.
+   Wyłącznie prezentacja: nie ingeruje w reguły dowodowe, zapisy ani AI.
+   Wszystkie style odnoszą się do .ps28-skin; Przesłuchania są nietknięte. */
+:root {
+  --ps28-paper:#f0dbb8;
+  --ps28-paper-light:#faecd3;
+  --ps28-paper-deep:#e5c398;
+  --ps28-ink:#33241b;
+  --ps28-text:#4e3929;
+  --ps28-muted:#72533b;
+  --ps28-brown:#8e603b;
+  --ps28-line:#b48758;
+  --ps28-red:#872d23;
+  --ps28-olive:#676e35;
+  --ps28-shadow:0 5px 17px rgba(31,14,7,.22),inset 0 1px 0 rgba(255,250,236,.8);
+}
+:is(#overview,#evidence,#search,#timeline,#inspection12,#notebook,#labs,#deduction,#final).ps28-skin {
+  --ink:var(--ps28-ink); --text:var(--ps28-text); --muted:var(--ps28-muted);
+  --paper:var(--ps28-paper); --line:var(--ps28-line); --amber:var(--ps28-red);
+  color:var(--ps28-ink)!important;
+  font-size:15px;line-height:1.5;
+  min-width:0;overflow-wrap:break-word;
+}
+:is(#overview,#evidence,#search,#timeline,#inspection12,#notebook,#labs,#deduction,#final).ps28-skin *,
+:is(#overview,#evidence,#search,#timeline,#inspection12,#notebook,#labs,#deduction,#final).ps28-skin *::before,
+:is(#overview,#evidence,#search,#timeline,#inspection12,#notebook,#labs,#deduction,#final).ps28-skin *::after {box-sizing:border-box;}
+/* Treści i nagłówki, jednolite czytelne kolory również w kartach starych generacji. */
+.ps28-skin :is(.sectionheading,.ev-header,.tl-head,.dd-head) {border:1px solid var(--ps28-line)!important;background:linear-gradient(125deg,#f8e6c9,#e7c79e)!important;padding:18px 22px!important;border-radius:13px!important;box-shadow:var(--ps28-shadow)!important;color:var(--ps28-ink)!important;margin:0 0 16px!important;}
+.ps28-skin :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(h1,h2,h3,h4){color:var(--ps28-ink)!important;text-shadow:none!important;letter-spacing:-.015em;}
+.ps28-skin :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(p,small,span){color:var(--ps28-text)!important;line-height:1.55;}
+.ps28-skin :is(.eyebrow,.ev-kicker,.case-kicker) {color:#833f28!important;font-size:11px!important;font-weight:800!important;letter-spacing:.095em!important;}
+.ps28-skin :is(.muted,.small.muted,p.muted,.subtle-text,.ps3-search-guide){color:var(--ps28-muted)!important;opacity:1!important;}
+/* Jasna powierzchnia dokumentu: interfejsy 1–27 korzystały z różnych ciemnych klas. */
+.ps28-skin :is(.surface,.padded.surface,.card,.searchbox,.ps2-context,.ps66-explain,.ps88-details,.ps62-shell,.ux5-hub,.cross3-section,.cross3-inline,.ux4-disclosure,.ux4-guide,.ps41-auto,.ps70Pulse,.fc-intro,.fc-main,.fc-defense,.fc-verdict,.dd-note,.tl-visual,.tl-consistency,.tl-panel,.ev-controls,.ev-detailed-categories,.ev-index,.ev-reader,.ev-workspace,.sc-inspector,.sc-mission,.story26-panel) {
+ background:linear-gradient(138deg,rgba(252,239,213,.97),rgba(234,205,166,.97))!important;
+ color:var(--ps28-ink)!important;
+ border:1px solid var(--ps28-line)!important;
+ border-radius:12px!important;
+ box-shadow:var(--ps28-shadow)!important;
+}
+.ps28-skin :is(.surface,.searchbox,.ps41-auto,.ux5-hub,.cross3-section,.tl-panel,.ev-reader,.story26-panel,.sc-inspector,.fc-main,.fc-defense) :is(h2,h3,h4){color:var(--ps28-ink)!important;text-shadow:none!important;}
+.ps28-skin :is(.surface,.searchbox,.ps41-auto,.ux5-hub,.cross3-section,.tl-panel,.ev-reader,.story26-panel,.sc-inspector,.fc-main,.fc-defense) :is(p,small){color:var(--ps28-text)!important;opacity:1!important;}
+.ps28-skin :is(.chip,.badge,.status,.ev-progress,.tl-metric,.dd-metric,.sc-stats>*,.fc-progress,.cross3-counts>span){border-color:#b38c60!important;color:#523722!important;}
+.ps28-skin :is(.btn.alt,.btn.subtle,.ev-clear,.ev-back) {background:linear-gradient(#f8e7c8,#ddbb8d)!important;border:1px solid #a87748!important;color:#3b2419!important;text-shadow:none!important;box-shadow:0 2px 3px #4d270f22!important;}
+.ps28-skin .btn:not(.alt):not(.subtle){background:linear-gradient(#a73a2d,#75251d)!important;border:1px solid #68291f!important;color:#fff7e7!important;}
+.ps28-skin :is(.btn,button,summary,[role="button"]) {transition:filter .15s ease,box-shadow .15s ease,background-color .15s ease;}
+.ps28-skin :is(.btn,button,summary,[role="button"]):hover:not(:disabled){filter:brightness(1.055);}
+.ps28-skin :is(.btn,button,summary,[role="button"]):focus-visible{outline:3px solid #872d23!important;outline-offset:3px;}
+.ps28-skin :is(input:not([type="checkbox"]):not([type="radio"]),textarea,select,.input){background:#fff4df!important;border:1.5px solid #a77e51!important;color:#33241b!important;border-radius:8px!important;max-width:100%;min-width:0;box-shadow:inset 0 1px 3px #7b4e2e18!important;}
+.ps28-skin :is(input,textarea)::placeholder{color:#785f4b!important;opacity:1;}
+.ps28-skin :is(input,textarea,select):focus-visible{outline:2px solid #8d3227!important;outline-offset:2px;}
+.ps28-skin :is(.grid2,.grid3,.formline,.locationgrid,.fc-grid,.dd-work,.tl-main,.sc-layout,.sc-notegrid){min-width:0;}
+.ps28-skin :is(.grid2,.grid3,.fc-grid,.dd-work,.tl-main,.sc-layout) > *{min-width:0;}
+.ps28-skin :is(details,summary){color:var(--ps28-ink)!important;}
+.ps28-skin details>summary{font-weight:700;line-height:1.45;cursor:pointer;}
+.ps28-skin .ps88-details,.ps28-skin .ps-inspection-help,.ps28-skin .tl-journal{background:#f2dcb8!important;border:1px solid var(--ps28-line)!important;border-radius:10px!important;padding:13px 15px!important;color:var(--ps28-ink)!important;}
+/* 01. PULPIT — jednolity zamiast granatowego onboarding / wątków. */
+#overview.ps28-skin #ps2Welcome,#overview.ps28-skin #ps70Pulse,#overview.ps28-skin #ps70Afterword,
+#overview.ps28-skin #story26Overview,#overview.ps28-skin #ps62Orientation,
+#overview.ps28-skin #ps66Overview,#overview.ps28-skin #ps88MorePaths {
+ background:linear-gradient(125deg,#f6e4c6,#e8c99f)!important;
+ color:#33241b!important;border:1.5px solid #aa7b4e!important;border-radius:13px!important;
+ box-shadow:var(--ps28-shadow)!important;padding:18px 20px!important;margin:16px 0!important;
+}
+#overview.ps28-skin :is(#ps2Welcome,#ps70Pulse,#story26Overview,#ps62Orientation,#ps66Overview) :is(h2,h3,h4,strong,b){color:#352319!important;text-shadow:none!important;}
+#overview.ps28-skin :is(#ps2Welcome,#ps70Pulse,#story26Overview,#ps62Orientation,#ps66Overview) :is(p,small,span){color:#533b2a!important;opacity:1!important;}
+#overview.ps28-skin :is(.ps2-step,.story26-case,.ui15-check,.ui14-module,.ui15-explore-stats>div,.ps2-controls,.ps66-card,.ps62-card) {
+ background:linear-gradient(152deg,#fff0d7,#e9cca2)!important;
+ color:var(--ps28-ink)!important;border:1px solid #b18453!important;border-radius:10px!important;
+ box-shadow:0 2px 6px #67432424!important;padding:13px!important;min-width:0;
+}
+#overview.ps28-skin :is(.ps2-step,.story26-case,.ui15-check,.ui14-module) :is(b,strong){color:#3b261b!important;}
+#overview.ps28-skin :is(.ps2-step,.story26-case,.ui15-check,.ui14-module) :is(p,span,small){color:#5b402d!important;opacity:1!important;}
+#overview.ps28-skin .ui14-module-grid{grid-template-columns:repeat(auto-fit,minmax(205px,1fr))!important;gap:13px!important;}
+#overview.ps28-skin .ui14-module {text-align:left!important;min-height:165px!important;}
+#overview.ps28-skin .ui15-checklist{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px!important;}
+#overview.ps28-skin .ui15-check{display:flex;align-items:center;gap:12px;}
+#overview.ps28-skin .ui15-check-text{flex:1;min-width:0;}
+#overview.ps28-skin .ui15-check-text p{color:#634831!important;line-height:1.5!important;}
+#overview.ps28-skin .ui15-explore-stats{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(120px,1fr))!important;gap:10px!important;}
+#overview.ps28-skin .ui15-explore-stats>div{padding:11px!important;}
+#overview.ps28-skin .story26-track{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))!important;gap:12px!important;}
+#overview.ps28-skin .story26-case>p{color:#553b2a!important;line-height:1.6!important;}
+#overview.ps28-skin .story26-tag{color:#744726!important;font-size:11px!important;font-weight:800!important;}
+#overview.ps28-skin .story26-bar{background:#d5b990!important;border:1px solid #aa8659!important;}
+#overview.ps28-skin .story26-bar i{background:#758048!important;}
+#overview.ps28-skin #ps70Pulse h3{color:#42291b!important;font-size:23px!important;}
+#overview.ps28-skin #ps70Pulse p{color:#513929!important;font-size:14px!important;}
+#overview.ps28-skin .ps70-head small,#overview.ps28-skin .ps70-trail span{color:#725039!important;}
+#overview.ps28-skin .ps70-trail i{background:#8a754c!important;border:1px solid #96734c!important;}
+#overview.ps28-skin .ui14-dashboard{margin-top:18px!important;}
+#overview.ps28-skin .ui14-stat{background:#fff0d6!important;color:#33241b!important;border:1px solid #b89265!important;}
+#overview.ps28-skin .ui14-stat b,#overview.ps28-skin .ui14-stat span{color:#35271d!important;}
+/* 02. AKTA — lista i czytnik w tej samej kartotece. */
+#evidence.ps28-skin :is(.ps2-context,.ev-controls,.ev-detailed-categories,.ev-workspace,.ev-reader,.ev-index,.ev-header){background:linear-gradient(125deg,#f9e8cb,#e7c59b)!important;color:#32231a!important;}
+#evidence.ps28-skin .ev-workspace{display:grid;grid-template-columns:minmax(250px,.92fr) minmax(0,1.3fr);align-items:start;gap:14px!important;padding:14px!important;}
+#evidence.ps28-skin :is(.ev-file,.ev-type-filter,.ev-category,.ev-folder,.ev-sheet,.ev-empty) {background:#fff0d6!important;border:1px solid #b88b5c!important;color:#3a281e!important;border-radius:9px!important;}
+#evidence.ps28-skin .ev-file {box-shadow:0 2px 5px #4c2b1220!important;}
+#evidence.ps28-skin .ev-file.selected{background:#f1d7ad!important;border:2px solid #953e2c!important;}
+#evidence.ps28-skin .ev-file :is(strong,small,.ev-file-class,.ev-file-type-text){color:#513a27!important;opacity:1!important;}
+#evidence.ps28-skin .ev-index-head,#evidence.ps28-skin .ev-reader-top{color:#3b291e!important;border-color:#b78c62!important;}
+#evidence.ps28-skin .ev-sheet{background:#fff6e4!important;min-height:290px;line-height:1.65;}
+/* 03. POSZUKIWANIA */
+#search.ps28-skin .locationgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px!important;}
+#search.ps28-skin :is(.location,.loc,.locationcard,.searcharea,.searchresult,.search-result,.searchResult,.ps66-explain,.searchResults) {background:#f4dfbb!important;color:#39291e!important;border:1px solid #b48958!important;border-radius:10px!important;}
+#search.ps28-skin .locationgrid>button,#search.ps28-skin .locationgrid>div{background:linear-gradient(#fae9cd,#e7c79e)!important;color:#39291e!important;border:1px solid #b18452!important;border-radius:10px!important;min-width:0!important;padding:15px!important;}
+#search.ps28-skin .locationgrid :is(h3,b,strong,p,small){color:#4b3527!important;}
+#search.ps28-skin .searchbox{padding:18px!important;}
+#search.ps28-skin .searchResults{padding:14px!important;line-height:1.6;color:#523c2a!important;}
+/* 04. OŚ CZASU */
+#timeline.ps28-skin :is(.ps41-auto,.tl-panel,.tl-visual,.tl-consistency,.tl-journal){background:linear-gradient(125deg,#f7e6c6,#e9cea7)!important;color:#392719!important;border:1px solid #b18656!important;}
+#timeline.ps28-skin :is(.ps41-event,.tl-choice,.tl-result,.tl-consistency-item,.tl-event,.tl-card,.ps41-item,.tl-metric){background:#fff0d7!important;border:1px solid #bd9669!important;color:#45301f!important;border-radius:8px!important;padding:11px!important;}
+#timeline.ps28-skin :is(.ps41-event,.tl-choice,.tl-consistency-item) :is(b,strong,small,p,span){color:#493322!important;opacity:1!important;}
+#timeline.ps28-skin .tl-choice.locked{background:#dfc8a6!important;color:#6c5540!important;opacity:.86!important;}
+#timeline.ps28-skin .tl-visual{overflow-x:auto!important;}
+#timeline.ps28-skin .tl-chart{border-left:2px solid #9a744a!important;}
+#timeline.ps28-skin .ps41-head :is(h2,h3),#timeline.ps28-skin .tl-head :is(h2,h3){color:#38271c!important;}
+#timeline.ps28-skin .ps41-head p,#timeline.ps28-skin .ps41-empty{color:#5b4130!important;}
+/* 05. OGLĘDZINY: dokumentacja pozostaje pełnowymiarowa i nie ulega przycięciu. */
+#inspection12.ps28-skin :is(.ps2-context,.sc-mission,.sc-inspector,.sc84-summary,.sc-room-case,.sc-activity,.sc-hotspots,.sc84-compare,.et1-photos,.sc84-toolbar,.sc-stats>div) {background:linear-gradient(#fae9ce,#ead1a9)!important;color:#3c2a1f!important;border:1px solid #b48a59!important;border-radius:10px!important;}
+#inspection12.ps28-skin :is(.sc-room,.sc-hotspot,.sc84-queue-item,.sc84-summary-card,.sc-activity-item){background:#fff0d6!important;color:#3a281f!important;border:1px solid #bd976d!important;border-radius:8px!important;}
+#inspection12.ps28-skin :is(.sc-room,.sc-hotspot,.sc84-queue-item) :is(h3,strong,b,p,small,span){color:#473226!important;}
+#inspection12.ps28-skin .sc-layout{grid-template-columns:minmax(0,1.35fr) minmax(290px,.86fr);gap:16px!important;}
+#inspection12.ps28-skin :is(.et1-photo-stage img,.et1-evidence-visual img){max-width:100%;height:auto;object-fit:contain;}
+#inspection12.ps28-skin .sc-blueprint{overflow:hidden;}
+/* 06. NOTATNIK */
+#notebook.ps28-skin :is(.ps88-details,.ps66-root,.sc-notebook,.sc-notelist,.sc-notegrid,.sc-notecard,.sc-note-item){background:linear-gradient(#f8e7ca,#eacda5)!important;color:#3d2a1d!important;border:1px solid #b38a5e!important;border-radius:10px!important;}
+#notebook.ps28-skin .sc-notegrid{padding:15px!important;gap:18px!important;}
+#notebook.ps28-skin .sc-notelist{padding:12px!important;min-height:170px;}
+#notebook.ps28-skin :is(#notes,#scNoteText){min-height:155px;color:#302118!important;font-size:15px;line-height:1.65;}
+#notebook.ps28-skin :is(.sc-notelist,.sc-notegrid) :is(p,small,span,label){color:#513b28!important;opacity:1!important;}
+/* 07. LABORATORIUM */
+#labs.ps28-skin :is(.ux5-hub,.ps62-shell,.cross3-section,.cross3-interview,.cross3-top,.ps62-lab-card){background:linear-gradient(125deg,#f8e8ca,#e8c99f)!important;color:#35251a!important;border:1px solid #b68b5c!important;border-radius:11px!important;}
+#labs.ps28-skin :is(.ux5-card,.ux5-lab-item,.cross3-card,.cross3-item,.cross3-interview-item,.ps62-card,#labCards>.surface) {background:#fff0d6!important;color:#3c2a1c!important;border:1px solid #b58c5c!important;border-radius:9px!important;box-shadow:0 2px 6px #5b3b1d22!important;}
+#labs.ps28-skin :is(.ux5-card,.ux5-lab-item,.cross3-card,.cross3-item) :is(h3,h4,b,strong,p,small,span){color:#4a3423!important;opacity:1!important;}
+#labs.ps28-skin :is(.ux5-hub,.cross3-section) :is(h2,h3,p,small){color:#432f22!important;}
+#labs.ps28-skin .ux5-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))!important;gap:12px!important;}
+#labs.ps28-skin #labCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:14px;}
+/* 08. DEDUKCJA */
+#deduction.ps28-skin :is(.dd-head,.dd-note,.ux4-guide,.ux4-disclosure,.dd-source-panel,.dd-editor-panel,.dd2-review,.dd-board,.dd-board-head,.dd-feedback,.dd-metric){background:linear-gradient(130deg,#f9e8ca,#e8cba4)!important;color:#38271d!important;border:1px solid #b78d60!important;border-radius:11px!important;}
+#deduction.ps28-skin :is(.dd-source,.dd-source-item,.dd-card,.dd-board-card,.dd-filters button,.dd-choice,.dd-link,.dd2-card){background:#fff0d6!important;color:#3c291d!important;border:1px solid #b88c5c!important;border-radius:8px!important;}
+#deduction.ps28-skin :is(.dd-source,.dd-source-item,.dd-card,.dd-board-card) :is(h3,h4,b,strong,p,span,small){color:#4a3323!important;opacity:1!important;}
+#deduction.ps28-skin :is(.dd-source-panel,.dd-editor-panel){padding:18px!important;}
+#deduction.ps28-skin .dd-work{grid-template-columns:minmax(270px,.93fr) minmax(0,1.2fr);gap:15px!important;}
+#deduction.ps28-skin :is(.dd-field,.dd-reason){min-width:0;}
+/* 09. FINAŁ */
+#final.ps28-skin :is(#psF1Gate,.fc-intro,.fc-main,.fc-defense,.fc-verdict,.fc-side,.fc-feedback,.ps60-case-audit,.fc-progress) {background:linear-gradient(135deg,#f8e8cc,#e5c59d)!important;color:#38271d!important;border:1px solid #b48859!important;border-radius:11px!important;box-shadow:var(--ps28-shadow)!important;}
+#final.ps28-skin :is(#psF1Gate,.fc-intro,.fc-main,.fc-defense,.fc-verdict,.fc-side,.fc-feedback) :is(h2,h3,h4,b,strong,p,small){color:#483222!important;opacity:1!important;}
+#final.ps28-skin :is(.fc-check,.fc-challenge,.fc-defense-item,.fc-reason-choice,.fc-link,.fc-board-hints>div,.fc-field){background:#fff0d8!important;color:#39271d!important;border:1px solid #be9669!important;border-radius:9px!important;padding:12px!important;}
+#final.ps28-skin :is(.fc-check,.fc-challenge,.fc-defense-item) :is(b,strong,span,small,p){color:#453021!important;opacity:1!important;}
+#final.ps28-skin .fc-grid{grid-template-columns:minmax(0,1.3fr) minmax(280px,.74fr);gap:16px!important;}
+#final.ps28-skin .fc-fields>*{min-width:0!important;}
+/* Spójne marginesy, bez ucinania aktywnego formularza. */
+.ps28-skin :is(.ui14-dashboard,.story26-panel,.ps41-auto,.ev-workspace,.dd-work,.fc-grid,.sc-layout,.tl-main,.ps88-details,.cross3-section){margin-block:14px!important;}
+.ps28-skin :is(.surface,.story26-panel,.cross3-section,.tl-panel,.dd-source-panel,.dd-editor-panel,.fc-main,.fc-defense,.sc-inspector){min-width:0;}
+.ps28-skin :is(.surface,.story26-panel,.cross3-section,.tl-panel,.dd-source-panel,.dd-editor-panel,.fc-main,.fc-defense,.sc-inspector) :is(p,strong,small,h2,h3,h4){overflow-wrap:anywhere;}
+@media(max-width:1180px){
+ #evidence.ps28-skin .ev-workspace,#final.ps28-skin .fc-grid,#deduction.ps28-skin .dd-work,#inspection12.ps28-skin .sc-layout{grid-template-columns:minmax(0,1fr)!important;}
+ #overview.ps28-skin .story26-track{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))!important;}
+}
+@media(max-width:720px){
+ .ps28-skin :is(.sectionheading,.ev-header,.tl-head,.dd-head){padding:14px 15px!important;}
+ #overview.ps28-skin :is(#ps2Welcome,#ps70Pulse,#ps70Afterword,#story26Overview){padding:14px!important;}
+ #overview.ps28-skin :is(.ui15-checklist,.story26-track,.ui14-module-grid,.ui15-explore-stats){grid-template-columns:minmax(0,1fr)!important;}
+ #overview.ps28-skin .ui14-module{min-height:unset!important;}
+ #evidence.ps28-skin .ev-workspace{padding:10px!important;}
+ #search.ps28-skin .locationgrid,#labs.ps28-skin .ux5-grid,#labs.ps28-skin #labCards{grid-template-columns:minmax(0,1fr)!important;}
+ .ps28-skin :is(.formline,.fc-actions,.dd-editor-actions){flex-wrap:wrap!important;gap:9px!important;}
+ .ps28-skin :is(.formline,.fc-actions,.dd-editor-actions)>.btn{max-width:100%;}
+ .ps28-skin :is(input,select,textarea){font-size:16px!important;}
+ #timeline.ps28-skin :is(.tl-panel,.tl-visual),#deduction.ps28-skin :is(.dd-source-panel,.dd-editor-panel){padding:13px!important;}
+}
+@media(prefers-reduced-motion:reduce){.ps28-skin *, .ps28-skin *::before,.ps28-skin *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
+/* Korekty rzeczywistych modułów RC41–RC57 wykryte w testach Chromium. */
+.ps28-skin :is(.ps-next-panel,.ps66-root,.ps62-orientation,.ps3-search-guide,.ps66-explain,.ps2-context),
+#notebook.ps28-skin #conflictPanel,
+#deduction.ps28-skin :is(.ux4-guide,.ux4-disclosure),
+#final.ps28-skin #ps48FinalReport,
+#final.ps28-skin #psF1Gate {
+ background:linear-gradient(130deg,#f8e6c9,#e6c69e)!important;
+ border:1px solid #ae8253!important;color:#3a291e!important;border-radius:11px!important;
+ box-shadow:var(--ps28-shadow)!important;
+}
+.ps28-skin :is(.ps-next-panel,.ps66-root,.ps2-context,.ux4-guide,.ux4-disclosure,#conflictPanel) :is(h2,h3,h4,strong,b){color:#3d281d!important;opacity:1!important;text-shadow:none!important;}
+.ps28-skin :is(.ps-next-panel,.ps66-root,.ps2-context,.ux4-guide,.ux4-disclosure,#conflictPanel) :is(p,small,span,label){color:#5c3d2c!important;opacity:1!important;}
+#search.ps28-skin .searchbox{background:linear-gradient(125deg,#f8e7c9,#e8c99f)!important;border:1px solid #ad8455!important;color:#39291e!important;}
+#search.ps28-skin .searchbox .eyebrow{color:#853d27!important;}
+#search.ps28-skin #ps3SearchGuide,#search.ps28-skin #ps66Explain_search{color:#5b412f!important;}
+#search.ps28-skin #areas>button:focus-visible{outline:3px solid #883229!important;}
+#evidence.ps28-skin .ev-header :is(h2,h2 span,.ev-progress,.ev-progress *,small,.ev-kicker){color:#3e291c!important;text-shadow:none!important;}
+#evidence.ps28-skin .ev-progress b,#evidence.ps28-skin .ev-progress strong{color:#633521!important;}
+#evidence.ps28-skin .ps2-context :is(span,p,b){color:#4c3527!important;}
+#timeline.ps28-skin :is(.ps41-caveat,.ps41-stats,.ps41-warning,.ps41-empty,.ps41-status,.ps41-quote,.ps41-event,.ps41-list,.ps41-head,.ps41-head p,.ps41-source,.ps41-uncertain) {
+ color:#4b3324!important;
+}
+#timeline.ps28-skin :is(.ps41-caveat,.ps41-empty,.ps41-stats){background:#fae9ca!important;border:1px solid #bd986c!important;border-radius:7px!important;padding:9px 11px!important;}
+#timeline.ps28-skin :is(.ps41-event,.ps41-event strong,.ps41-day,.ps41-body strong,.ps41-time,.ps41-note,.ps41-quote,.ps41-source,.ps41-status){color:#432d20!important;opacity:1!important;}
+#timeline.ps28-skin .ps41-head h3{color:#41281b!important;}
+#timeline.ps28-skin .ps41-list{background:transparent!important;scrollbar-color:#c0a27b #f3ddba!important;}
+#timeline.ps28-skin .ps41-event{background:#fff0d7!important;}
+#timeline.ps28-skin .ps41-day{font-weight:800!important;}
+#timeline.ps28-skin .tl-choice small{color:#5e4632!important;}
+#timeline.ps28-skin .tl-results,#timeline.ps28-skin .tl-consistency-list>*,#timeline.ps28-skin .tl-selection{color:#493322!important;}
+#labs.ps28-skin :is(.ux5-top,.ux5-head,.ux5-card-top,.ux5-grid,.ux5-card,.ux5-lab-item,.ux5-missing,.ux5-missing li,.ux5-report-list,.ux5-empty,.ux5-ready,.ux5-actions){color:#412c20!important;}
+#labs.ps28-skin :is(.ux5-grid,.ux5-card,.ux5-lab-item,.ux5-empty,.ux5-missing li,.ux5-report-list,.ux5-ready){background:#fff0d6!important;border-color:#bb9265!important;}
+#labs.ps28-skin :is(.ux5-card,.ux5-lab-item,.ux5-card-top,.ux5-missing,.ux5-missing li,.ux5-ready,.ux5-empty) :is(h2,h3,h4,b,strong,p,small,span,li){color:#4d3323!important;opacity:1!important;}
+#labs.ps28-skin .ux5-lab-item .ux5-lab-title,#labs.ps28-skin .ux5-card strong{color:#3d291b!important;}
+#labs.ps28-skin .ux5-missing li{padding:8px 10px!important;}
+#labs.ps28-skin .ux5-hub>.ux5-top :is(h3,p,span){color:#3e2b21!important;}
+/* Tablica dedukcyjna w estetyce tablicy korkowej, lecz bez czarnych pól i nieczytelnych nagłówków. */
+#deduction.ps28-skin .thread-board-panel{background:#e9d0ab!important;border:2px solid #91683f!important;color:#39281d!important;box-shadow:var(--ps28-shadow)!important;}
+#deduction.ps28-skin .thread-heading{background:linear-gradient(110deg,#f6e6c8,#ddbb8e)!important;border-bottom:2px solid #b58a58!important;}
+#deduction.ps28-skin .thread-heading :is(h3,p,.thread-eyebrow){color:#39261c!important;text-shadow:none!important;}
+#deduction.ps28-skin .thread-legend .thread-label{background:#fff0d7!important;border:1px solid #ad8356!important;color:#593524!important;}
+#deduction.ps28-skin .thread-controls{background:#eed8b5!important;border-top:1px solid #bd9869!important;border-bottom:1px solid #bd9869!important;}
+#deduction.ps28-skin .thread-controls label{color:#482f1e!important;font-weight:700!important;}
+#deduction.ps28-skin .thread-cork{background:repeating-linear-gradient(22deg,#9a67331a 0,#9a67331a 1px,transparent 1px,transparent 17px),linear-gradient(115deg,#b58a5a,#d5b68d 50%,#b28b61)!important;}
+#deduction.ps28-skin .thread-cork::before{border-color:#a57c50!important;box-shadow:inset 0 0 12px #3c281b27!important;}
+#deduction.ps28-skin .thread-column>header{background:#f8e6c6!important;border-color:#986e43!important;color:#352418!important;}
+#deduction.ps28-skin .thread-column>header :is(strong,span){color:#3b291b!important;}
+#deduction.ps28-skin .thread-status{background:#f1dbb6!important;color:#3d291b!important;border-color:#a47c52!important;}
+#deduction.ps28-skin .thread-paper{background:#fff1d9!important;color:#31231b!important;}
+#deduction.ps28-skin .thread-paper:nth-child(even){background:#f4dcba!important;}
+#deduction.ps28-skin .thread-classic{background:#f4dfbd!important;color:#3d2b1e!important;}
+#deduction.ps28-skin .ux4-guide :is(h3,p,strong,small,span){color:#432e20!important;}
+#deduction.ps28-skin .ux4-guide :is(button:not(.btn),.ux4-step){background:#f9e6c4!important;border:1px solid #bb925f!important;color:#442d1f!important;}
+/* Blokada finału jest dokumentem, nie ciemną planszą. */
+#final.ps28-skin .psf1-grid{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(225px,1fr))!important;gap:12px!important;}
+#final.ps28-skin :is(.psf1-card,.psf1-step,.psf1-item,.psf1-check){background:#fff0d6!important;border:1px solid #b98a58!important;border-radius:10px!important;color:#3b281c!important;box-shadow:0 2px 6px #4c321f22!important;min-width:0;}
+#final.ps28-skin :is(.psf1-card,.psf1-step,.psf1-item,.psf1-check) :is(b,strong,h3,h4,p,small,span){color:#483020!important;opacity:1!important;}
+#final.ps28-skin :is(.psf1-title,.psf1-copy,.psf1-count){color:#3d281c!important;}
+#final.ps28-skin #ps48FinalReport{background:#f4dfbb!important;border-color:#ac7e50!important;}
+#final.ps28-skin #ps48FinalReport :is(h3,p){color:#442b1d!important;}
+#final.ps28-skin .fc-grid :is(.fc-row,.fc-check,.fc-challenge){color:#3e2a1e!important;}
+/* Pola techniczne w paskach łączących moduły nie mogą pozostać granatowe. */
+.ps28-skin :is(.ps41-caveat,.ps70-latest,.ux5-notice,.ps62-explain,.ux4-step,.psf1-card,.thread-status){font-size:13px!important;line-height:1.55!important;}
+@media(max-width:720px){
+ #final.ps28-skin .psf1-grid{grid-template-columns:1fr!important;}
+ #deduction.ps28-skin .thread-controls,#deduction.ps28-skin .thread-cork{grid-template-columns:minmax(0,1fr)!important;}
+ #deduction.ps28-skin .thread-heading{padding:15px!important;}
+}
+/* Ostatnia kontrola kontrastu: nagłówki generowane bez dodatkowych klas. */
+#labs.ps28-skin .ux5-card :is(h3,h4,h5,h6),
+#labs.ps28-skin .ux5-card .ux5-card-top :is(h3,h4,h5),
+#labs.ps28-skin .ux5-card :is(.ux5-card-title,.ux5-card-subtitle,.ux5-card-count,.ux5-card-info,.ux5-meta,.ux5-progress,.ux5-sources),
+#labs.ps28-skin .ux5-card :is(small,span,p) {color:#4e3624!important;opacity:1!important;}
+#labs.ps28-skin .ux5-card :is(.ux5-card-title,h5){font-size:17px!important;font-weight:800!important;}
+#labs.ps28-skin .ux5-grid>.ux5-card{min-width:0!important;padding:14px!important;}
+#labs.ps28-skin .ux5-card :is(.ux5-actions,.ux5-card-actions){display:flex;flex-wrap:wrap;gap:8px!important;}
+#evidence.ps28-skin .ev-header :is(h1,h2,h3) :is(em,span,strong){color:#3e291c!important;opacity:1!important;}
+#evidence.ps28-skin .ev-header .ev-progress :is(b,strong,span,small){color:#492d1b!important;opacity:1!important;}
+#timeline.ps28-skin .ps41-stats,#timeline.ps28-skin .ps41-caveat{color:#452f21!important;}
+#timeline.ps28-skin .ps41-stats *{color:#4e3828!important;}
+#final.ps28-skin #psF1Gate .psf1-card :is(b,p,small,span){color:#4a3020!important;}
+/* Oględziny: panel obsługi zdjęć pozostaje techniczny, ale etykiety i dziennik są czytelne. */
+#inspection12.ps28-skin #ciPanel,
+#inspection12.ps28-skin :is(.sc84-summary-card,.sc84-queue,.sc84-focus,.sc84-recent,#ciFocusCard,.ci-scene-status,.ci-shot,.et1-actions,.et1-photo-controls){
+ background:linear-gradient(130deg,#f6e4c5,#e6c9a3)!important;
+ color:#3b2a1e!important;border:1px solid #af8457!important;border-radius:10px!important;
+}
+#inspection12.ps28-skin :is(#ciPanel,.sc84-summary-card,.sc84-queue,.sc84-focus,.sc84-recent,#ciFocusCard,.et1-actions) :is(h3,h4,strong,b,p,small,span){color:#4a3322!important;opacity:1!important;}
+#inspection12.ps28-skin :is(.ci-tool,.sc84-chipbtn,.ci-shot){background:#f7e4c7!important;border:1px solid #b58a5f!important;color:#483121!important;}
+#inspection12.ps28-skin :is(.ci-tool,.sc84-chipbtn,.ci-shot) :is(b,small,span){color:#4b3525!important;}
+#inspection12.ps28-skin .ci-focus-title,#inspection12.ps28-skin .ci-focus-meta,#inspection12.ps28-skin .ci-focus-state,#inspection12.ps28-skin .ci-subtitle,#inspection12.ps28-skin .ci-heading,#inspection12.ps28-skin .ci-note,#inspection12.ps28-skin .ci-eyebrow{color:#452d1c!important;}
+#inspection12.ps28-skin .et1-photo-heading,#inspection12.ps28-skin .et1-photo-controls{color:#482e1f!important;}
+#inspection12.ps28-skin :is(.sc84-inline-stats>div,.sc84-queue-item,.sc84-recent-item,.sc84-badge){background:#fff0d6!important;border:1px solid #bb9366!important;color:#45301f!important;}
+#inspection12.ps28-skin :is(.sc84-queue-item,.sc84-recent-item,.sc84-badge,.sc84-inline-stats>div) :is(b,span,small){color:#4b3524!important;}
+/* Ozdobne statusy bez kontrastowego tekstu znikały na jasnym tle. */
+.ps28-skin :is(.ps2-step,.story26-case,.ux5-card,.psf1-card,.tl-choice,.ev-file,.dd-card,.fc-check) :is(h2,h3,h4,h5,p,small,b,strong){text-shadow:none!important;}

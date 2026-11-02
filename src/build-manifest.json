@@ -1433,11 +1433,12 @@
         "src/styles/99-epilogue-rc40.css",
         "src/styles/100-auto-timeline-rc41.css",
         "src/styles/102-109-next-stages.css",
-        "src/styles/103-dossier-visual-rc571015.css"
+        "src/styles/103-dossier-visual-rc571015.css",
+        "src/styles/rc571028-unified-dossier.css"
       ],
       "marker": "__PS_SOURCE_STYLE_063__",
-      "sha256": "31b1e3a5a882061773e2f3d139249ea3c52bd9bf100915dc6b3d23af56f0b6fa",
-      "size": 223154
+      "sha256": "a8e9b312db2820df2ece554f4d8b7630ce209e1382d57483f9c947342145ee7e",
+      "size": 252143
     }
   ]
 }
