@@ -19,7 +19,7 @@
    try{
     const response=await fetch('/api/lab-narrative',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json','X-PS-Client':'game'},body:JSON.stringify({lab:select.value})});
     const data=await response.json();
-    if(!response.ok||!data.ok)throw Error(data?.error==='lab_prerequisites_missing'?'Najpierw pozyskaj dokumenty potrzebne do tej pracowni.':'Notatka AI nie jest dostępna ('+(data?.error||response.status)+').');
+    if(!response.ok||!data.ok)throw Error(data?.error==='lab_prerequisites_missing'?'Najpierw pozyskaj dokumenty potrzebne do tej pracowni.':'Notatka AI jest chwilowo niedostępna. Spróbuj ponownie.');
     const a=data.note||{};const text=[a.summary, ...(a.findings||[]).map(x=>'• '+x.text+' [źródło: '+x.sourceId+']'),a.limitations?'Ograniczenia: '+a.limitations:'',a.journalEntry?'Wpis do dziennika (propozycja): '+a.journalEntry:''].filter(Boolean).join('\n\n');
     result.textContent=text||'Brak zatwierdzonych ustaleń.';
    }catch(e){warn(result,e.message||'Nie udało się połączyć z laboratorium AI.');}
@@ -39,7 +39,7 @@
    try{
     const response=await fetch('/api/defense-objections',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json','X-PS-Client':'game'},body:'{}'});
     const data=await response.json();
-    if(!response.ok||data.ok!==true)throw Error(data?.error==='indictment_not_approved'?'Poczekaj na zatwierdzenie aktu oskarżenia na serwerze.':'Obrona AI nie jest dostępna ('+(data?.error||response.status)+').');
+    if(!response.ok||data.ok!==true)throw Error(data?.error==='indictment_not_approved'?'Poczekaj na zatwierdzenie aktu oskarżenia na serwerze.':'Nie udało się przygotować argumentów obrony. Spróbuj ponownie później.');
     result.replaceChildren();
     for(const [i,item] of data.objections.entries()){
      const el=make('p',(i+1)+'. '+item.title+'\n'+item.argument+'\nŹródło: '+item.sourceId+'\nPytanie obrony: '+item.question);

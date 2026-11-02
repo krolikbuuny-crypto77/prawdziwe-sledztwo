@@ -49,7 +49,7 @@
  });
  let pending=null;
  const status=document.createElement('div');status.id='ps77-response-wait';status.setAttribute('aria-live','polite');
- status.style.cssText='font-size:12px;color:#a8afb1;padding:2px 4px;display:none';
+ status.className='ps18-response-status';status.setAttribute('role','status');status.style.cssText='';status.hidden=true;
  by('chatInput')?.closest('.chatfoot')?.appendChild(status);
  let inflight=false,requestSerial=0,cloudFailure='';
  let retryTurn=null;
@@ -94,7 +94,7 @@
  // W trakcie przesłuchania nie pokazuj graczowi informacji o silniku AI.
  // Czekanie sygnalizuje wyłącznie neutralna wypowiedź w dymku rozmowy.
  // Komunikaty błędów pozostają widoczne, aby nie ukrywać problemów technicznych.
- function showBusy(value){inflight=value;window.PS_COOP_BUSY_AT=value?(window.PS_COOP_BUSY_AT||Date.now()):0;status.style.display=(!value&&!!cloudFailure)?'block':'none';status.textContent=value?'':cloudFailure;
+ function showBusy(value){inflight=value;window.PS_COOP_BUSY_AT=value?(window.PS_COOP_BUSY_AT||Date.now()):0;status.hidden=!value&&!cloudFailure;status.className=value?'ps18-response-status ps18-pending':cloudFailure?'ps18-response-status ps18-error':'ps18-response-status';status.textContent=value?'Świadek przygotowuje odpowiedź. Zachowujemy Twoje pytanie.':cloudFailure;
   const send=by('chatSend'),input=by('chatInput');if(send)send.disabled=value;if(input)input.disabled=value;
   if(window.PS_COOP?.active){window.PS_COOP.mark();if(!value)window.PS_COOP.flush();}
  }
@@ -222,23 +222,19 @@
       let detail=null;
       try{detail=await r.json();}catch{} // No raw upstream content is ever displayed.
       const error=String(detail?.error||'');
-      const reasons=String(detail?.fallbackReason||'').split(';').filter(x=>/^(?:gemini|zai|groq)_(?:timeout|rate_limited|authorization_failed|upstream_unavailable|not_configured|request_failed|rejected_by_validation|budget_exhausted|model_not_available)$/.test(x));
-      const labels={model_not_available:'model niedostępny',gemini:'Gemini Flash',zai:'Z.ai',groq:'Groq',timeout:'przekroczony czas',rate_limited:'limit dostawcy',authorization_failed:'brak autoryzacji',upstream_unavailable:'błąd dostawcy',not_configured:'brak konfiguracji',request_failed:'błąd żądania',rejected_by_validation:'odrzucona odpowiedź',budget_exhausted:'brak czasu na próbę'};
-      // Show a safe, finite reason code; no questions, prompts or private data.
-      const attempts=Array.isArray(detail?.qualityDiagnostics?.attempts)?detail.qualityDiagnostics.attempts:[];
-      const rejected=attempts.filter(x=>x&&x.provider==='gemini'&&x.result==='rejected');
-      const lastCode=String(rejected.at(-1)?.code||'');
-      const reasonLabels={bad_fact_ids:'zły wybór faktów',poor_style:'niewłaściwa forma',hard_guard:'niezgodność ze źródłem',not_entailed:'niepotwierdzona treść',not_relevant:'odpowiedź nie na temat',not_complete:'niepełna odpowiedź',missing_question_part:'pominięta część pytania',semantic_repetition:'powtórzenie wcześniejszej odpowiedzi',repeated_previous_reply:'powtórzenie',presented_evidence_ignored:'pominięty dowód',server_guard:'niezgodność końcowa'};
-      const providerStatus=reasons.map(x=>{const sep=x.indexOf('_');const k=x.slice(sep+1);
-       return labels[x.slice(0,sep)]+': '+labels[k]+(x.startsWith('gemini_rejected_by_validation')&&reasonLabels[lastCode]?' ('+reasonLabels[lastCode]+')':'');}).join(', ');
-      const message=r.status===409?'Dowód nie jest jeszcze zatwierdzony. Ponów pytanie po synchronizacji.':
-       r.status===429?'Limit zapytań przesłuchań został osiągnięty. Ponów później.':
-       error==='Shared rate limiter unavailable'?'Limit zapytań Supabase jest niedostępny. Sprawdź migrację SQL 003 i ustawienia serwera.':
-       error==='Server session not configured'?'Sesja Supabase nie jest skonfigurowana na Vercel.':
-       error==='Server testimony history unavailable'?'Serwer nie może odczytać historii przesłuchań z Supabase.':
-       error==='Testimony history conflict'?'Nie udało się zapisać odpowiedzi w Supabase. Ponów pytanie.':
-       r.status===503&&providerStatus?'AI nie zwróciło zatwierdzonej odpowiedzi. '+providerStatus+'. Ponów pytanie.':
-       'AI jest chwilowo niedostępne (HTTP '+r.status+'). Ponów pytanie.';
+      // Szczegóły dostawcy zostają w narzędziach deweloperskich, nie w grze.
+      if(new URLSearchParams(location.search).get('debugAI')==='1')
+       console.warn('[Przesłuchanie: diagnostyka]',{status:r.status,error,reason:detail?.fallbackReason||null,
+          audit:detail?.qualityDiagnostics?.attempts?.slice(-2)||null});
+      const retryRaw=r.headers?.get('Retry-After')||'';
+      const seconds=/^\d{1,4}$/.test(retryRaw)?Math.min(1200,Number(retryRaw)):null;
+      const message=r.status===409?'Dowód jest jeszcze zatwierdzany. Zachowaliśmy pytanie — spróbuj ponownie po synchronizacji.':
+       r.status===429?('Zbyt wiele pytań w krótkim czasie. Pytanie zostało zachowane. '+
+         (seconds?'Spróbuj ponownie za około '+seconds+' s.':'Spróbuj ponownie później.')):
+       r.status===401||r.status===403?'Nie udało się potwierdzić sesji śledztwa. Odśwież stronę i sprawdź zapis.':
+       r.status===503?'Przesłuchanie jest teraz niedostępne. Zachowaliśmy pytanie — spróbuj ponownie później.':
+       r.status===502||r.status===504?'Odpowiedź trwała zbyt długo. Twoje pytanie zostało zachowane. Spróbuj ponownie.':
+       'Nie udało się pobrać odpowiedzi świadka. Pytanie zostało zachowane; spróbuj ponownie.';
       unavailable(message);
       return null;
     }return r.json();})

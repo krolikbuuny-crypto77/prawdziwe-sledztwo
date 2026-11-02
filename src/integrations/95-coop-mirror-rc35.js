@@ -164,14 +164,14 @@
    try{applyRoomFrame(data.frame);dirty=false;notify('');}
    catch(err){notify(data.frame?.save&&!data.frame?.saveJson?
     'Starszy format migawki pokoju: osoba sterująca powinna opublikować nową aktualizację.':
-    'Nie można odtworzyć widoku: '+safe(err.message));}
+    'Nie udało się odświeżyć widoku współpracy. Spróbuj ponownie.');}
    finally{applying=false;}
   }
   if(!wasController&&controller&&(data.frame?.saveJson||data.frame?.save)){
    // Do not overwrite the last controller's progress on a control handoff.
    applying=true;
    try{applyRoomFrame(data.frame);notify('');}
-   catch(error){notify('Sterowanie przekazano, ale trzeba odświeżyć migawkę. '+safe(error.message));dirty=true;}
+   catch(error){notify('Sterowanie przekazano. Odśwież widok współpracy.');dirty=true;}
    finally{applying=false;}
   }
   // Recover an already-open room created on RC35.5: the *current controller*
@@ -193,14 +193,14 @@
     supabase_not_configured:'Brak konfiguracji Supabase lub sekretu sesji w Vercel.',
     coop_session_commit_failed:'Nie zatwierdzono nowej sesji gry. Sprawdź funkcję ps_commit_session w Supabase.'
    };
-   notify(messages[err.message]||'Nie utworzono pokoju: '+safe(err.message));
+   notify(messages[err.message]||'Nie udało się utworzyć pokoju. Spróbuj ponownie.');
   }finally{busy=false;}
  }
  async function join(){
   if(busy)return;busy=true;notify('Dołączanie…');
   try{const data=await call('join',{code:formValue});
    formOpen=false;window.PS617_SYNC?.coopJoined?.();accept(data);notify('Dołączono do wspólnego śledztwa.');}
-  catch(err){notify('Nie dołączono: '+safe(err.message));}finally{busy=false;}
+  catch(err){notify('Nie udało się dołączyć do pokoju. Sprawdź kod i spróbuj ponownie.');}finally{busy=false;}
  }
  async function take(){
   if(!active||controller||taking)return;
@@ -217,7 +217,7 @@
      await new Promise(resolve=>setTimeout(resolve,250*(attempt+1)));
     }
    }
-  }catch(error){notify('Nie udało się przejąć sterowania: '+safe(error.message));}
+  }catch(error){notify('Nie udało się przejąć sterowania. Spróbuj ponownie.');}
   finally{taking=false;lastRenderKey='';redraw();}
  }
  // RC36: only a verified SERVER room snapshot is eligible for a backup.
@@ -235,13 +235,13 @@
    link.href=url;document.body.append(link);link.click();link.remove();
    setTimeout(()=>URL.revokeObjectURL(url),1000);
    notify('Pobrano sprawdzoną kopię wspólnego zapisu.');return true;
-  }catch(error){notify('Nie pobrano kopii: '+safe(error?.message));return false;}
+  }catch(error){notify('Nie udało się pobrać kopii pokoju. Sprawdź połączenie i spróbuj ponownie.');return false;}
  }
  async function leave(){
   if(busy||!confirm(owner?'Zamknąć pokój dla obojga graczy?':'Opuścić wspólną grę?'))return;
   if(owner&&!await downloadRoomBackup()){notify('Nie zamknięto pokoju: najpierw zapisz kopię.');return;}
   busy=true;try{await call('leave');try{localStorage.removeItem('ps-coop-owner-code');}catch{}location.reload();}
-  catch(err){notify('Nie udało się opuścić: '+safe(err.message));busy=false;}
+  catch(err){notify('Nie udało się opuścić pokoju. Spróbuj ponownie.');busy=false;}
  }
  async function publish(){
   if(!navigator.onLine||!active||!controller||busy||applying||!dirty||Date.now()-lastPublish<850)return;
@@ -253,7 +253,7 @@
     // revision and publish in the next cycle iff control is still ours.
     dirty=true;pendingOps=true;
    }else if(err.status===423){dirty=false;pendingOps=true;}
-   else notify('Opóźnienie synchronizacji: '+safe(err.message));
+   else notify('Synchronizacja jest opóźniona. Sprawdź połączenie.');
   }finally{busy=false;}
   if(pendingOps){pendingOps=false;await refresh();}
  }

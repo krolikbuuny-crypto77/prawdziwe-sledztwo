@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 250" fill="none" stroke="#785332" stroke-linejoin="round" stroke-linecap="round">
+  <g opacity=".62" stroke-width="2.4">
+    <path d="M16 223V93L153 40l136 47 141-34 169 49v121M10 226h600M14 98l138-66 140 58 139-45 175 50"/>
+    <path d="M28 101h241v113H28zM292 99h126v116H292zM442 110h148v108H442z"/>
+    <path d="M39 114h217m0 20H40m0 19h216m47-32h104m-104 20h104m43-13h128m-128 17h128" opacity=".35"/>
+    <path d="M64 220V121h176v99M85 220V147h132v73M314 220v-80h91v80M459 217v-63h111v63"/>
+    <path d="M15 91h264M292 92h125M442 105h145"/>
+    <path d="M0 230h620M95 248l25-23m70 23-27-23m108 23 26-23m99 23-22-23" opacity=".35"/>
+    <path d="M294 12h107l10 23H285z" stroke-width="2"/>
+    <path d="M315 32h61"/>
+  </g>
+  <g fill="#795737" stroke="none" font-family="Georgia,serif" font-weight="bold" opacity=".76">
+    <text x="305" y="22" font-size="18">ZAJEZDNIA</text>
+    <text x="331" y="48" font-size="21">TW-217</text>
+  </g>
+  <g opacity=".76" stroke-width="2.2">
+    <!-- Rail tram with front cab, window strip, wheel bogies and pantograph. -->
+    <path d="M123 184v-48q0-9 10-9h143q10 0 10 9v61q-1 12-15 12H137q-14 0-14-12z" fill="#c6a172" fill-opacity=".32"/>
+    <path d="M131 134h143v37H131zM131 175h143"/>
+    <path d="M155 135v36m29-36v36m30-36v36m29-36v36"/>
+    <path d="M139 182h13m111 0h13m-132 13h12m102 0h12M146 210v11m113-11v11"/>
+    <circle cx="154" cy="212" r="7"/><circle cx="257" cy="212" r="7"/>
+    <path d="M202 127v-12l-21-16m21 16 21-16m-47 0h53M201 99V89"/>
+    <path d="M105 91h230" stroke-width="1" opacity=".58"/>
+  </g>
+  <g opacity=".25" stroke-width="1">
+    <path d="M12 232q80 5 152 0m28 4q122-8 210 0m28 0q75 6 167 0M9 116q40-5 80-1M334 79q39-7 86-3M512 111l80 3"/>
+  </g>
+</svg>

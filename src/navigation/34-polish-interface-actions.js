@@ -45,9 +45,9 @@
        if(typeof psSessionActive!=='undefined')psSessionActive=true;
        document.getElementById('psResumeOffer')?.remove();
        toast('Wczytano zapis sprawy.');
-      }catch(err){toast('Nie udało się odczytać zapisu: '+err.message);}
+      }catch(err){console.warn('[Wczytanie zapisu]',err);toast('Nie udało się wczytać tego zapisu. Sprawdź, czy wybrano właściwy plik gry.');}
      });
-    }catch(err){toast('Nie udało się odczytać zapisu: '+err.message);}
+    }catch(err){console.warn('[Wczytanie zapisu]',err);toast('Nie udało się wczytać tego zapisu. Sprawdź, czy wybrano właściwy plik gry.');}
    },true);
   }
  }

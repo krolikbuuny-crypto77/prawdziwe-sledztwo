@@ -1,6 +1,6 @@
 {
   "source_file": "index.html",
-  "image_count": 75,
+  "image_count": 81,
   "audio_count": 9,
   "assets": [
     {
@@ -506,6 +506,42 @@
       "sha256": "2bbd8da3a6f02d349d842a083452d55f37cbcecd67402f119872fbe966203eb1",
       "bytes": 184652,
       "mime": "audio/mpeg"
+    },
+    {
+      "asset": "/assets/portraits/elzbieta.webp",
+      "sha256": "a13451ee802763ef9a2593cbcb773219c23607f78d186740eaebba6ef120b4f2",
+      "bytes": 19860,
+      "mime": "image/webp"
+    },
+    {
+      "asset": "/assets/portraits/janusz.webp",
+      "sha256": "a4c4da08390ebde3d3dc0b6b8baacfab8b21cb96108858a2380f63785195c207",
+      "bytes": 16714,
+      "mime": "image/webp"
+    },
+    {
+      "asset": "/assets/portraits/kamil.webp",
+      "sha256": "6153e86773407e8331034283199c6d1d00015c360fec428ade4c3d0cddbafe54",
+      "bytes": 16498,
+      "mime": "image/webp"
+    },
+    {
+      "asset": "/assets/portraits/magdalena.webp",
+      "sha256": "f21492fead2b4ea43682f7434b898a8ee65ee2b4cafc6632f43b7acf25c88f69",
+      "bytes": 17942,
+      "mime": "image/webp"
+    },
+    {
+      "asset": "/assets/portraits/marek.webp",
+      "sha256": "bf95be1945e9edbd36eda05ede81226ab55d2c9fb36b8754964d90d2e8922819",
+      "bytes": 24060,
+      "mime": "image/webp"
+    },
+    {
+      "asset": "/assets/portraits/tomasz.webp",
+      "sha256": "b51eb0edb87d166cfc63bcb87e6bfd1d333f2e6bd72347cd69c8ce0ea8a06341",
+      "bytes": 16868,
+      "mime": "image/webp"
     }
   ]
 }

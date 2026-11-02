@@ -319,14 +319,24 @@ function npc8PortraitSvg(c,mini,st){
  </g></g><path d="M0 0H320V340H0Z" fill="${url('fade')}"/>
  </svg>`;
 }
+// RC57.10.17 — fotografie fikcyjnych świadków z wybranego projektu "Akta Śledcze".
+// Identyfikatory to stała allowlista, nie dane od gracza; ścieżki są lokalne.
+const NPC8_PHOTOS=Object.freeze({
+ MAREK:'marek.webp',TOMASZ:'tomasz.webp',JANUSZ:'janusz.webp',
+ ELZBIETA:'elzbieta.webp',KAMIL:'kamil.webp',MAGDALENA:'magdalena.webp'
+});
+function npc8PortraitPhoto(id,mini=false){
+ const file=NPC8_PHOTOS[id];if(!file)return '';
+ return `<img class="wp-photo" src="assets/portraits/${file}" alt="" ${mini?'loading="lazy" fetchpriority="low"':'loading="lazy" fetchpriority="high"'} decoding="async" draggable="false" aria-hidden="true">`;
+}
 function npc8PortraitMarkup(c,mini=false){
  const p=NPC8_PORTRAITS[c.id]||NPC8_PORTRAITS.MAREK,st=npc8GetState(c);
  const hostClass=(mini?'wp-mini ':'wp-stage ')+st.cls+' '+st.speaking;
  const vars=`--wp-bg1:${p.bg1};--wp-bg2:${p.bg2};--wp-delay:-${(Object.keys(NPC8_PORTRAITS).indexOf(c.id)+1)*.7}s;`;
- const svg=npc8PortraitSvg(c,mini,st);
- if(mini)return `<div class="${hostClass}" style="${vars}" aria-hidden="true">${svg}<span class="wp-mini-status"></span></div>`;
- const metrics=[['Zaufanie',st.rapport],['Napięcie',st.tension],['Zmęczenie',st.fatigue]];
- return `<div class="${hostClass}" style="${vars}"><div class="wp-picture" role="img" aria-label="${esc('Portret: '+c.name+'. Stan rozmowy: '+st.mood)}">${svg}<div class="wp-topline" aria-hidden="true"><span><i class="wp-signal"></i> SALA PRZESŁUCHAŃ</span><span class="wp-initials">${esc(npc8Initials(c.name))}</span></div></div><div class="wp-caption"><div class="wp-caption-head"><b>SYGNAŁY ZACHOWANIA</b><span class="wp-mood"><i class="wp-signal" aria-hidden="true"></i>${esc(st.mood)}</span></div><div class="wp-metrics">${metrics.map(([label,value])=>`<div class="wp-metric"><span>${label}<em>${value}%</em></span><div class="wp-meter" aria-hidden="true"><i style="width:${value}%"></i></div></div>`).join('')}</div></div></div>`;
+ // The old SVG stays underneath as a lossless fallback and keeps face-controller hooks.
+ const layers=npc8PortraitSvg(c,mini,st)+npc8PortraitPhoto(c.id,mini);
+ if(mini)return `<div class="${hostClass}" data-witness="${c.id}" style="${vars}" aria-hidden="true">${layers}<span class="wp-mini-status"></span></div>`;
+ return `<div class="${hostClass}" data-witness="${c.id}" style="${vars}"><div class="wp-picture" role="img" aria-label="${esc('Fotograficzny portret: '+c.name+'. Stan rozmowy: '+st.mood)}">${layers}<div class="wp-topline" aria-hidden="true"><span><i class="wp-signal"></i> SALA PRZESŁUCHAŃ</span><span class="wp-initials">${esc(npc8Initials(c.name))}</span></div></div></div>`;
 }
 function npc8RefreshWitnessPortrait(){
  const c=CONTENT.characters.find(x=>x.id===STATE.activeChar);
@@ -335,11 +345,11 @@ function npc8RefreshWitnessPortrait(){
  const quick=$('witnessQuickState');
  if(quick){
    const st=npc8GetState(c);
-   quick.innerHTML='<b>REAKCJA</b><span>'+c.name.split(' ')[0]+' jest teraz '+st.mood+'. '+(st.cls==='is-open'?'To dobry moment na pytanie doprecyzowujące.':st.cls==='is-tense'?'Lepiej operować konkretami i dokumentami.':st.cls==='is-tired'?'Długa rozmowa osłabia precyzję odpowiedzi.':'Obserwuj, czy ton rozmowy nie zmienia '+(c.gender==='f'?'jej':'jego')+' postawy.')+'</span>';
+   quick.innerHTML='<b>REAKCJA</b><span>'+(st.cls==='is-open'?'Świadek odpowiada swobodniej. Możesz doprecyzować jego relację.':st.cls==='is-tense'?'Nacisk może utrudnić uzyskanie precyzyjnej odpowiedzi.':st.cls==='is-tired'?'Długa rozmowa osłabia precyzję odpowiedzi.':'Obserwuj, czy ton rozmowy nie zmienia postawy świadka.')+'</span>';
  }
  window.PS622_FACES?.refreshCurrent?.();
 }
-function renderCharacterList(){$('characterList').innerHTML=CONTENT.characters.map(c=>{const st=npc8GetState(c);return `<button class="character ${c.id===STATE.activeChar?'active':''}" data-char="${c.id}" aria-pressed="${c.id===STATE.activeChar}">${npc8PortraitMarkup(c,true)}<span class="charactercopy"><b>${esc(c.name)}</b><small>${esc(c.role)}</small><span>Stan rozmowy: ${esc(st.mood)}</span></span></button>`;}).join('');$('characterList').querySelectorAll('[data-char]').forEach(b=>b.addEventListener('click',()=>{STATE.activeChar=b.dataset.char;renderChat();}));}
+function renderCharacterList(){$('characterList').innerHTML=CONTENT.characters.map(c=>{const st=npc8GetState(c);return `<button class="character ${c.id===STATE.activeChar?'active':''}" data-char="${c.id}" aria-pressed="${c.id===STATE.activeChar}">${npc8PortraitMarkup(c,true)}<span class="charactercopy"><b>${esc(c.name)}</b><small>${esc(c.role)}</small><span class="ps23-witness-status">${c.id===STATE.activeChar?'Przesłuchiwany':(STATE.dialogues[c.id]||[]).some(m=>m.role==='player')?'Rozmowa rozpoczęta':'Wybierz świadka'}</span></span></button>`;}).join('');$('characterList').querySelectorAll('[data-char]').forEach(b=>b.addEventListener('click',()=>{STATE.activeChar=b.dataset.char;renderChat();}));}
 // A document in the initial dossier is not yet a witness-confrontation exhibit.
 // It becomes available only after a deliberate read in Akta. Newly secured
 // documents are available immediately. No unrecovered evidence is ever listed.
@@ -348,6 +358,13 @@ function renderAttached(){
  const select=$('attachedDoc'),current=select.value,available=DOCS.filter(interviewEvidenceAvailable);
  select.innerHTML='<option value="">'+(available.length?'Nie okazuj dowodu':'Brak przygotowanych dowodów — przejrzyj Akta')+'</option>'+available.map(d=>`<option value="${esc(d.id)}">${esc(d.title)}</option>`).join('');
  if(available.some(d=>d.id===current))select.value=current;
+ // A dossier preview may only show evidence the player has already obtained and
+ // consciously reviewed. It reuses the original #attachedDoc selector.
+ const cards=document.getElementById('ps23EvidenceCards');
+ if(cards){
+  cards.innerHTML=available.length?available.slice(0,3).map((d,i)=>`<button type="button" class="ps23-evidence-card ${select.value===d.id?'selected':''}" data-ps23-exhibit="${esc(d.id)}" aria-label="Okaż dowód: ${esc(d.title)}" aria-pressed="${select.value===d.id}"><span class="ps23-evidence-mini" aria-hidden="true">${esc(d.id.replace(/[^A-Za-z0-9-]/g,'').slice(-8))}</span><span>${esc(d.title)}</span></button>`).join(''):'<p class="ps23-evidence-empty">Dowody do okazania pojawią się tutaj po ich zdobyciu i przejrzeniu w Aktach.</p>';
+  cards.querySelectorAll('[data-ps23-exhibit]').forEach(b=>b.addEventListener('click',()=>{select.value=b.dataset.ps23Exhibit;renderAttached();select.dispatchEvent(new Event('change',{bubbles:true}));}));
+ }
 }
 
 function inferTone(q){const s=norm(q);if(/przeprasz|wybacz|nie bylo fair|cofam oskarz/.test(s))return 'apology';if(/przykro mi|wspolczuje|musi byc ciezko|jak sie czuj/.test(s))return 'empathy';if(/nie krec|klamiesz|do cholery|przestan klamac|wyrzuce|stracisz prace|zamkn|gadal/.test(s))return 'pressure';return 'neutral';}
@@ -4615,7 +4632,8 @@ function simInitUI(){
  hearing.innerHTML=`<div class="eyebrow">SYMULACJA KONTROLI PROCESOWEJ</div><h3>Ocena wniosków i zarzuty obrony</h3><p class="muted small">Możesz skierować sprawę z niepełnymi dowodami. Obrona bada słabe ogniwa, a nie szuka jednej przewidzianej kombinacji dokumentów.</p><div class="sim-brief"></div><div id="simHearingDetail"></div>`;
  document.getElementById('final').appendChild(hearing);
  const breakPanel=document.createElement('div');breakPanel.id='simInterrogation';breakPanel.className='sim-interrogation';
- const chatfoot=document.querySelector('#interview .chatfoot');chatfoot.insertBefore(breakPanel,chatfoot.querySelector('#attachedDoc'));
+ const advanced=document.createElement('details');advanced.className='ps22-advanced';advanced.innerHTML='<summary>Taktyki, przerwy i przebieg rozmowy</summary>';advanced.appendChild(breakPanel);
+ const tools=document.querySelector('#interview .ps21-tools');tools.appendChild(advanced);
  simRenderTop();
  for(const el of [g,hearing,breakPanel])el.addEventListener('click',simOnClick);
  for(const el of [g,hearing,breakPanel])el.addEventListener('change',simOnChange);

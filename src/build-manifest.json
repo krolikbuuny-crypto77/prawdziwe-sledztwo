@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "0d877bdaa2a1a5b244468a9e99301aca5abf6760c8336e559365a87b0b2b0376",
+  "sourceHash": "e65347811d40f69d5df944789de31a91dc5cf659d05221c12ee06c4ff485e382",
   "sections": [
     {
       "kind": "style",
@@ -278,8 +278,8 @@
         "src/core/witness-engine.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_000__",
-      "sha256": "4c8288cb8499a03227f019089c60635140c695c2dc3476b9a97d0a9f48f70eac",
-      "size": 1467999
+      "sha256": "e004ce923f722887d6ef73f1dd291567663cfbc9a01c604cc542d5d98eab3cab",
+      "size": 1469568
     },
     {
       "kind": "script",
@@ -872,8 +872,8 @@
         "src/navigation/34-polish-interface-actions.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_034__",
-      "sha256": "a3602c4bdaccf1d0752c8641d7ded8fcb24e3e1ac33aed60d84c1fd9852ae920",
-      "size": 2419
+      "sha256": "5c61e29e3f64d572863cca2a2532292f6c62d775507dfeb313d668648b199650",
+      "size": 2565
     },
     {
       "kind": "script",
@@ -1346,8 +1346,8 @@
         "src/navigation/59-mobile-workspaces.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_059__",
-      "sha256": "7a847029a8cc0c9fd2a6dde355a018cadf99ede579cbb9d3aec5ee2caf426df6",
-      "size": 5961
+      "sha256": "6a00aa71b8f701f72ba08022125dd4f4fd9ded48613ad66b572227b881dcb9be",
+      "size": 6101
     },
     {
       "kind": "style",
@@ -1407,11 +1407,12 @@
         "src/finale/108-review-report-rc48.js",
         "src/integrations/109-quality-audit-rc49.js",
         "src/integrations/110-provenance-rc53.js",
-        "src/story/111-director-rc54.js"
+        "src/story/111-director-rc54.js",
+        "src/navigation/112-photo-dossier-header.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_060__",
-      "sha256": "03a585045f999a0910b55542060804df13589957ba79a6b3a8bbae1f159edd63",
-      "size": 329770
+      "sha256": "4cb1cb91063e36cae4364844f59f1e81ef75ddbd72999522dc8bb27fd712550e",
+      "size": 331172
     },
     {
       "kind": "style",
@@ -1431,11 +1432,12 @@
         "src/styles/98-coop-collab-rc39.css",
         "src/styles/99-epilogue-rc40.css",
         "src/styles/100-auto-timeline-rc41.css",
-        "src/styles/102-109-next-stages.css"
+        "src/styles/102-109-next-stages.css",
+        "src/styles/103-dossier-visual-rc571015.css"
       ],
       "marker": "__PS_SOURCE_STYLE_063__",
-      "sha256": "7efcc1ced4049dda6054db360682ae4a5a1acced5486f16787ecb1693bc9e8b3",
-      "size": 33553
+      "sha256": "31b1e3a5a882061773e2f3d139249ea3c52bd9bf100915dc6b3d23af56f0b6fa",
+      "size": 223154
     }
   ]
 }

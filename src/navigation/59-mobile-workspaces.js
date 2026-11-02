@@ -78,9 +78,11 @@
     if(!mobileQuery.matches)return;
     if(event.target.closest('button,[data-id],.character'))setTimeout(()=>setInterviewView('chat',true),0);
   });
+  // Fotokartoteka: zdjęcie i stan świadka są domyślnie widoczne, ale można je zwinąć.
+  interview.classList.add('psm-portrait-open');
   const portraitToggle=document.createElement('button');portraitToggle.type='button';
-  portraitToggle.className='psm-portrait-toggle';portraitToggle.textContent='Pokaż portret i stan rozmowy';
-  portraitToggle.setAttribute('aria-expanded','false');
+  portraitToggle.className='psm-portrait-toggle';portraitToggle.textContent='Ukryj portret i stan rozmowy';
+  portraitToggle.setAttribute('aria-expanded','true');
   portraitToggle.setAttribute('aria-controls','witnessStage npc4Panel');
   chat.querySelector('.chathead').append(portraitToggle);
   portraitToggle.addEventListener('click',()=>{

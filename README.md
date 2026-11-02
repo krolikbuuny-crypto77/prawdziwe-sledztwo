@@ -1,9 +1,7 @@
-# Prawdziwe Śledztwo — RC57.10.14
+# Prawdziwe Śledztwo — RC57.10.23 · Akta Śledcze
 
-**Jedyna aktualna instrukcja:** [INSTRUKCJA-GLOWNA.md](INSTRUKCJA-GLOWNA.md).
+**Jedyna instrukcja wdrożenia:** [INSTRUKCJA-GLOWNA.md](INSTRUKCJA-GLOWNA.md).
 
-**Raport testów aktualizacji:** [RAPORT-QA-RC57_10_14.md](RAPORT-QA-RC57_10_14.md).
+Wydanie aktualizuje interfejs przesłuchań, aby możliwie wiernie odpowiadał zaakceptowanemu układowi „Akta Śledcze”, zachowując rzeczywistą sprawę Leny Rudnickiej i TW-217. Dowody są pokazywane dopiero po uzyskaniu ich w grze; tylko własne pytania. Bez zmian AI, zasad, zapisów i werdyktu.
 
-To wydanie doprecyzowuje ochronę negacji w produkcyjnych przesłuchaniach: nie blokuje prawidłowego alibi za samą krótką wzmiankę o Lenie, ale nadal odrzuca prawdziwe odejście od zakresu pytania. Zachowuje wcześniejsze 600/600 testów negacji, kontrolę faktów, poprawki językowe i scentralizowane instrukcje. Archiwalne dokumenty znajdują się w `docs/archiwum-instrukcji/`. Instrukcje historyczne nie są wiążącą konfiguracją.
-
-**Wdrożenie:** rozpakuj pełny ZIP i prześlij pliki gry do GitHub, następnie sprawdź wdrożenie Preview w Vercel. Nie wgrywaj samego ZIP-a jako jednego pliku.
+[Raport kontroli RC57.10.23](RAPORT-QA-RC57_10_23.md). Najpierw wdrażaj na Vercel Preview.

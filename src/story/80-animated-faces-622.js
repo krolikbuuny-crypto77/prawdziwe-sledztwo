@@ -85,7 +85,7 @@ const SCENES={
 function card(id,emotion){
  const c=CHARACTER[id];if(!c)return null;
  const card=document.createElement('figure');card.className='ps622-face-card';card.dataset.witness=id;
- const view=document.createElement('div');view.className='ps622-face-view';view.innerHTML=npc8PortraitSvg(c,false,{cls:'is-neutral'});
+ const view=document.createElement('div');view.className='ps622-face-view';view.innerHTML=npc8PortraitSvg(c,false,{cls:'is-neutral'})+npc8PortraitPhoto(id,false);
  const caption=document.createElement('figcaption');caption.textContent=c.name;
  card.append(view,caption);animate(card,id,{question:''});
  if(emotion){card.dataset.ps622Emotion=emotion;card.querySelectorAll('.wp-mouth-curve').forEach(x=>x.setAttribute('d',MOUTH[emotion]||MOUTH.neutral));}
