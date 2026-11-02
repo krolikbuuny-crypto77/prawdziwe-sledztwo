@@ -1,6 +1,6 @@
-# Prawdziwe Śledztwo — jedna aktualna instrukcja RC57.10.12
+# Prawdziwe Śledztwo — jedna aktualna instrukcja RC57.10.14
 
-Wersja: **RC57.10.12**. Ten dokument zastępuje historyczne poradniki `INSTRUKCJA-RC...` i `README-PAKIET...`. Dawne wydania znajdują się tylko w `docs/archiwum-instrukcji/`. Gdy treść historyczna jest sprzeczna z tą instrukcją, obowiązuje obecny kod i ten dokument.
+Wersja: **RC57.10.14**. Ten dokument zastępuje historyczne poradniki `INSTRUKCJA-RC...` i `README-PAKIET...`. Dawne wydania znajdują się tylko w `docs/archiwum-instrukcji/`. Gdy treść historyczna jest sprzeczna z tą instrukcją, obowiązuje obecny kod i ten dokument.
 
 ## 1. Co zmieniono w dialogach
 
@@ -20,8 +20,8 @@ Obecne historyczne nazwy importów `RC50_DIRECTIVE`, `RC51_DIRECTIVE`, `RC52_DIR
 
 ## 3. Wgranie plików
 
-- **Pełny ZIP:** zalecany, gdy wersja na GitHub nie jest dokładnie RC57.10.11 albo chcesz usunąć stare poradniki z katalogu głównego. Rozpakuj i zamień zawartość odpowiedniego repozytorium. Najpierw zrób kopię/gałąź Preview.
-- **ZIP zmian:** wyłącznie do projektu o dokładnie tej samej bazie RC57.10.11; nadpisz pliki zgodnie ze strukturą katalogów. Paczka zmian nie może sama usunąć dawnych plików z repozytorium: ich listę zawiera `USUN-STARE-INSTRUKCJE.txt`. Dla pełnego porządku wybierz pełny ZIP.
+- **Pełny ZIP:** zalecany, gdy wersja na GitHub nie jest dokładnie RC57.10.13 albo chcesz usunąć stare poradniki z katalogu głównego. Rozpakuj i zamień zawartość odpowiedniego repozytorium. Najpierw zrób kopię/gałąź Preview.
+- **ZIP zmian:** wyłącznie do projektu o dokładnie tej samej bazie RC57.10.13; nadpisz pliki zgodnie ze strukturą katalogów. Paczka zmian nie może sama usunąć dawnych plików z repozytorium: ich listę zawiera `USUN-STARE-INSTRUKCJE.txt`. Dla pełnego porządku wybierz pełny ZIP.
 - Nie wrzucaj archiwum ZIP jako pojedynczego pliku do GitHub. Nie wgrywaj `.env` z sekretami ani prywatnych plików JSON raportów.
 - Przy używaniu GitHub + Vercel wdrażaj wersję **Preview** i dopiero po sprawdzeniu produkcję. Sama paczka nie zmienia wdrożenia ani zapisów Supabase.
 
@@ -43,6 +43,8 @@ W katalogu projektu:
 ```bash
 npm run check
 npm run build
+node tools/test-rc571014-excluded-focus.mjs
+node tools/test-rc571013-negations.mjs
 node tools/test-rc571012-corrections.mjs
 node tools/test-rc571011-natural-interview.mjs
 node tools/test-rc571010-testimony-recap.mjs
@@ -64,7 +66,7 @@ Tester jest sekwencyjny, ograniczony do 7 pytań na minutę w karcie. Jedno pyta
 
 ## 7. Granice i bezpieczeństwo
 
-Nie zmieniono łańcucha dostawców, ilości endpointów Vercel, kluczy, migracji, reguł odblokowania dowodów, kanonu, stanu gracza i werdyktu. Nowe wskazówki psychologiczne nie mają uprawnienia do tworzenia faktów. Historyczna dokumentacja jest archiwalna, a bieżące wyniki testów są w `RAPORT-QA-RC57_10_12.md` (poprzedni RC57.10.11 pozostawiono jako archiwalny).
+Nie zmieniono łańcucha dostawców, ilości endpointów Vercel, kluczy, migracji, reguł odblokowania dowodów, kanonu, stanu gracza i werdyktu. Nowe wskazówki psychologiczne nie mają uprawnienia do tworzenia faktów. Historyczna dokumentacja jest archiwalna, a bieżące wyniki testów są w `RAPORT-QA-RC57_10_14.md` (starsze raporty pozostawiono jako archiwalne).
 
 
 ## RC57.10.12 — poprawki po ręcznym audycie
@@ -73,3 +75,21 @@ Nie zmieniono łańcucha dostawców, ilości endpointów Vercel, kluczy, migracj
 - Jedynym miejscem tworzenia zasad mówienia i profili świadków jest `lib/interview-prompt-rc57106.js`. Dawne moduły stylu są adapterami/kontekstem, a nie źródłem nowych wytycznych.
 - Testy po wdrożeniu: pełny test 72 pytań oraz osobne rozmowy swobodne z każdą postacią. Lokalnie sprawdzana jest logika, nie rzeczywista naturalność dostawcy Apinex.
 - Zmiana nie dotyczy bazy Supabase, migracji SQL, sekretów, stanów postępu i dowodów.
+
+## RC57.10.13 — korekta testów negacji
+
+- W poprzedniej wersji test 600 przypadków zwracał **540 pass / 60 fail**: tester szukał dosłownie słowa `odrzuć`, choć wskazówka mówiła „wyklucz temat”. Była to niezgodność kontraktu testowego, nie dowód, że model zignorował 60 pytań.
+- `interview-rc50.js` rozróżnia teraz **jawną negację zakresu** (`nie pytam o X, tylko o Y`) od **zwykłego doprecyzowania** (`poprawiam pytanie`, `chodzi mi o`). W payloadzie przekazywane są pola `explicitNegation`, `excludedTopic`, `targetTopic` — wyłącznie jako wskazówki, bez modyfikowania faktów.
+- `admin-rc57-suite.js` weryfikuje ten podział semantycznie, bez sprawdzania pojedynczego słowa instrukcji. Zachowuje 600 przypadków: 6 świadków × 10 rodzin × 10 wariantów.
+- Tester RC57 jest **deterministyczny**. 600/600 nie oznacza, że prawdziwy model AI poprawnie zrozumie wszystkie polskie negacje — to wymaga testu live.
+- Zmiana nie wymaga SQL ani nowych kluczy API i nie dotyka dowodów, fabuły, werdyktu, pamięci zapisów.
+
+
+## RC57.10.14 — wykluczony temat a faktyczna odpowiedź świadka
+
+- Problem po RC57.10.13: AI-015 dla Tomasza powtarzał `dialogue_excluded_topic_repeated`. Poprzedni warunek odrzucał odpowiedź na pytanie „Nie pytam o Lenę, tylko gdzie byłeś po północy?” za samo pojawienie się imienia Leny — niezależnie od tego, czy świadek podał własne miejsce pobytu. Nie mamy odrzuconych surowych wypowiedzi, więc nie wiemy, czy wszystkie cztery próby były fałszywie odrzucone.
+- Nowy mechanizm sprawdza **zakres odpowiedzi**. Gdy świadek mówi o swoim miejscu pobytu i tylko wspomina Lenę, pojawia się nieblokujące ostrzeżenie `excluded_topic_incidental`. Gdy rozmawia wyłącznie o Lenie, ignorując własny pobyt, pozostaje blokada `dialogue_excluded_topic_repeated`. Reguła jest pomocnicza — nie zatwierdza faktów.
+- Centralny prompt i niezależny audyt mają tę samą instrukcję: negacja wyklucza rozwijanie danego tematu **zamiast** odpowiedzi, nie zakazuje wszystkich słów związanych z tym tematem.
+- Korekta `not_entailed` dokładniej wymaga trzymania się wybranych faktów i odróżniania alarmu od ostatniego kontaktu z Leną. `not_entailed`, `hard_guard` i twarde walidatory **nadal blokują** niepotwierdzone odpowiedzi. Nie usuwano audytów dla poprawienia wyniku.
+- Test nowej reguły: `node tools/test-rc571014-excluded-focus.mjs`; pozostałe pełne testy wymieniono wyżej.
+- Test prawdziwego Apinex, w tym AI-014 i AI-015 oraz całe 72 pytań, **nie został wykonany** w ramach pakowania. Po Preview wyeksportuj raport JSON, porównaj `blockedAttempts` i `results`; status `warning` nie oznacza błędu faktograficznego.

@@ -23,7 +23,7 @@ assert.equal(untouched.text,'Kamil MAGDALENA LENA TEC-04 LAB-014 01:35 ZG-41 TW-
 assert.equal(correctIntentTypos('gdzie gdzies kiedy kiedys byles bylas').text,'gdzie gdzies kiedy kiedys byles bylas');
 assert.equal(buildQuestionContext('Gdze byles po północy?').questionPlan.primary,'self_alibi');
 const report=auditLiveDialogue({question:'Nie pytam o Lenę, tylko o twoją obecność po północy. Gdzie byłeś?',answer:'Byłem w dyspozytorni, później znalazłem Lenę i wezwałem pomoc.',history:[]});
-assert(report.findings.some(f=>f.code==='excluded_topic_repeated'));
+assert(report.findings.some(f=>f.code==='excluded_topic_incidental'));
 assert(auditLiveDialogue({question:'Gdzie byłeś po północy?',answer:'Nie potrafię wskazać swojego miejsca po północy.',history:[]}).findings.some(f=>f.code==='location_evasion'));
 assert(auditLiveDialogue({question:'Gdzie byłeś po północy?',answer:'Pracowałem przy stanowisku, ale nie mogę podać miejsca pobytu po północy.',history:[]}).findings.some(f=>f.code==='place_self_contradiction'));
 assert(!auditLiveDialogue({question:'Gdzie byłeś?',answer:'Nie pamiętam dokładnej godziny, ale byłem w dyspozytorni.',history:[]}).findings.some(f=>f.code==='location_evasion'));
