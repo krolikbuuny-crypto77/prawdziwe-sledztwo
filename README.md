@@ -1,3 +1,9 @@
+# Prawdziwe Śledztwo — RC57.10.31
+
+Aktualna instrukcja wdrożenia: `INSTRUKCJA-GLOWNA.md`. Raport bieżącej poprawki: `RAPORT-QA-RC57_10_31.md`. RC57.10.31 poprawia wyłącznie czytelność wybranych paneli Przesłuchań i ustawień dźwięku.
+
+---
+
 # Prawdziwe Śledztwo — RC57.10.28
 
 Aktualny przewodnik: **INSTRUKCJA-GLOWNA.md**. Wyniki testów: **RAPORT-QA-RC57_10_28.md**.

@@ -1,3 +1,5 @@
+> **Aktualizacja RC57.10.31 — czytelne panele i ustawienia dźwięku (2 listopada 2026).** Zmieniono wyłącznie wygląd rozwijanych sekcji „Rytm sceny” i „Nie wiem, co sprawdzić dalej” w Przesłuchaniach oraz panelu ustawień dźwięku. Nowy kontrast i wygoda mobilna. Wszystkie mechaniki, stan świadków, przełomy, AI, przełączniki audio i Supabase pozostają bez zmian. Pełna paczka: do nowego wdrożenia; poprawka tylko na RC57.10.30. Raport: `RAPORT-QA-RC57_10_31.md`.
+
 > **Aktualizacja RC57.10.30 — wygląd (2 listopada 2026).** Naprawiono kontrast konfrontacji zeznań, kart nawigacji fotograficznej Oględzin oraz ładowanie aktywnego kadru 4K. Nie są potrzebne nowe zmienne środowiskowe ani migracje Supabase. Najpierw sprawdź Vercel Preview. Wyniki lokalne w `RAPORT-QA-RC57_10_30.md`.
 
 # Najnowsza aktualizacja: RC57.10.28 — jednolity wygląd wszystkich zakładek
