@@ -228,3 +228,7 @@ Wersja dotyczy **wyłącznie prezentacji** i nie zmienia reguł, dokumentów, do
 - Zachowano ograniczone animacje i możliwość skorzystania z klawiatury mobilnej.
 
 **Wdrożenie:** pełną paczkę rozpakuj i wgraj zawartość repozytorium GitHub, najlepiej do gałęzi Vercel Preview. Małą poprawkę stosuj wyłącznie na RC57.10.26; nie usuwaj katalogów `api`, `lib` i `story-bible`. Nie trzeba SQL ani zmian w konfiguracji.
+
+## Aktualizacja RC57.10.29 — kontrast i czytelność
+
+Ta wersja naprawia nieczytelne panele zauważone po RC57.10.28 (m.in. luki Osi czasu, Notatnik, lista źródeł, Dedukcja i Poszukiwania). Zmiany są wyłącznie w warstwie CSS, w `src/styles/rc571028-unified-dossier.css`, oraz w manifeście i wynikowym `index.html`. Nie wymaga zmian Supabase, kluczy API ani migracji zapisów. Wersję RC57.10.29 możesz wgrać jako pełną paczkę lub nałożyć **wyłącznie na dokładną RC57.10.28** małą poprawkę. Kontrola: `python tools/test-rc571029-contrast.py`. Szczegóły: `RAPORT-QA-RC57_10_29.md`.

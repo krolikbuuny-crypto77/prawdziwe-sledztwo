@@ -267,3 +267,138 @@
 #inspection12.ps28-skin :is(.sc84-queue-item,.sc84-recent-item,.sc84-badge,.sc84-inline-stats>div) :is(b,span,small){color:#4b3524!important;}
 /* Ozdobne statusy bez kontrastowego tekstu znikały na jasnym tle. */
 .ps28-skin :is(.ps2-step,.story26-case,.ux5-card,.psf1-card,.tl-choice,.ev-file,.dd-card,.fc-check) :is(h2,h3,h4,h5,p,small,b,strong){text-shadow:none!important;}
+
+/* RC57.10.29 — audyt rzeczywistego kontrastu po zgłoszeniu gracza.
+   Naprawa komponentów dynamicznych nieobjętych poprzednim skinem.
+   Wyłącznie CSS; nie zmieniamy pytań, faktów ani dostępności dowodów. */
+.ps28-skin .ps-next-panel .ps-next-row,
+#notebook.ps28-skin #ps53ProvenanceList .ps53-source {
+  background:linear-gradient(120deg,#fff0d5,#e8cb9f)!important;
+  border:1px solid #a97c4e!important;
+  color:#3b281b!important;
+  border-radius:9px!important;
+  padding:11px 13px!important;
+  box-shadow:0 2px 4px #57351a1a!important;
+  font-size:13.5px!important;
+  line-height:1.55!important;
+}
+.ps28-skin .ps-next-panel .ps-next-row :is(strong,b,small,span,p),
+#notebook.ps28-skin #ps53ProvenanceList .ps53-source :is(strong,b,small,span,p){
+  color:#473021!important;opacity:1!important;
+}
+#notebook.ps28-skin #ps53ProvenanceList .ps53-source small{display:block;line-height:1.5!important;color:#634831!important;}
+.ps28-skin .ps-next-panel>.ps-next-row{margin:0!important;}
+
+/* Notatnik: puste wyniki i rzeczywiste punkty konfrontacji. */
+#notebook.ps28-skin #conflictPanel :is(.cf-empty,.cf-entry){
+  background:linear-gradient(115deg,#fff0d8,#eaceaa)!important;
+  color:#432d1d!important;
+  border:1px solid #ab8255!important;
+  border-left:3px solid #91683f!important;
+  border-radius:9px!important;
+  padding:12px 14px!important;
+  font-size:13.5px!important;
+  line-height:1.6!important;
+}
+#notebook.ps28-skin #conflictPanel :is(.cf-empty,.cf-entry) :is(h3,h4,p,small,span,strong,b),
+#notebook.ps28-skin #conflictPanel :is(.cf-intro,.cf-sources,.cf-meta){color:#513826!important;opacity:1!important;}
+#notebook.ps28-skin #conflictPanel .cf-kicker{color:#81412b!important;}
+#notebook.ps28-skin #conflictPanel .cf-filters button{
+  background:#f7e6c7!important;color:#543525!important;border:1px solid #9b7349!important;
+  font-weight:600!important;
+}
+#notebook.ps28-skin #conflictPanel .cf-filters button[aria-pressed="true"]{
+  background:#7f2b23!important;color:#fff5df!important;border-color:#642119!important;
+}
+#notebook.ps28-skin #conflictPanel .cf-toggle,
+#notebook.ps28-skin #conflictPanel .cf-links button{
+  background:linear-gradient(#f9e8cb,#dfbd92)!important;
+  color:#3b2619!important;border:1px solid #ae8153!important;
+}
+#notebook.ps28-skin .cf-note-flag{background:#f2d8b0!important;color:#4e2e1f!important;border-color:#aa8054!important;}
+
+/* Oś czasu: puste/niepotwierdzone punkty były nadal granatowe z ciemnym tekstem. */
+#timeline.ps28-skin :is(.tl-locked-msg,.tl-locked,.tl-unavailable){
+  background:#f7e4c5!important;color:#503722!important;
+  border:1px dashed #af895c!important;border-radius:8px!important;
+  line-height:1.55!important;padding:12px!important;
+}
+#timeline.ps28-skin :is(.tl-locked-msg,.tl-locked,.tl-unavailable) :is(span,p,small,strong){color:#503722!important;}
+
+/* Ogólny znacznik etapu, inaczej na granacie z ciemnobrązowym napisem. */
+.ps28-skin .chip{
+  background:#f5e0bd!important;color:#422c1f!important;
+  border:1px solid #ad8253!important;
+  opacity:1!important;
+}
+
+/* Poszukiwania: jasny tekst z dawnego ciemnego motywu na nowym pergaminie. */
+#search.ps28-skin .ps3-search-guide :is(strong,b,em,span){color:#493222!important;}
+#search.ps28-skin :is(.ps3-match,.ps3-all-area,.ps3-search-hit) :is(p,strong,b,small,span){opacity:1!important;}
+
+/* Oględziny: rozkładane statystyki i instrukcje niezależnie od desktopowego display:contents. */
+#inspection12.ps28-skin .p1-inspection-extras>summary,
+#inspection12.ps28-skin .ov36-advanced>summary{
+  background:linear-gradient(#f8e7c9,#e5c49b)!important;
+  border:1px solid #b2895a!important;
+  border-radius:9px!important;
+  padding:11px 14px!important;
+  color:#412c20!important;
+  font-size:14px!important;
+  font-weight:700!important;
+  margin-block:9px!important;
+  min-height:43px!important;
+}
+#inspection12.ps28-skin .p1-inspection-extras:not([open])>summary{margin-bottom:12px!important;}
+#inspection12.ps28-skin :is(.et2-room-picker,.et2-orient,.ov35-detail,.ov35-annotations,.sim-photo-meta){
+  background:#f7e5c7!important;color:#3c2c21!important;
+  border:1px solid #b38d63!important;border-radius:8px!important;
+}
+#inspection12.ps28-skin :is(.et2-room-picker,.et2-orient,.ov35-detail,.ov35-annotations) :is(h2,h3,h4,p,small,span,b,strong){color:#433022!important;opacity:1!important;}
+/* Ciemna scena fotograficzna pozostaje ciemna; jej napisy mają jasny kolor. */
+#inspection12.ps28-skin .et1-photo-stage{color:#f7ecdb!important;}
+#inspection12.ps28-skin .et1-photo-stage :is(span,small,p,strong,b){color:#f7ecdb!important;}
+
+/* Dedukcja: wyjaśnienia źródeł i panele korelacji nie mogą używać bladoszarego tekstu. */
+#deduction.ps28-skin :is(.correlation-summary,.correlation-timeline,.correlation-timeline-item){
+  background:#f6e3c3!important;color:#422c1d!important;
+  border:1px solid #ab8156!important;border-radius:8px!important;
+  line-height:1.55!important;
+}
+#deduction.ps28-skin :is(.correlation-summary,.correlation-timeline,.correlation-timeline-item) :is(h2,h3,h4,span,small,p,strong,b){
+  color:#4b3525!important;opacity:1!important;
+}
+#deduction.ps28-skin .correlation-marker{background:#e2e9d5!important;color:#294638!important;border-color:#789780!important;}
+#deduction.ps28-skin :is(.sim-detail,.sim-route,.sim51-progress,.sim51-library,.sim51-detail,.sim51-quality,.ps53-stats,.ps53-detail,.ps53-route,.ps53-card){
+  background:#f5e1be!important;color:#432f22!important;
+  border:1px solid #b0895a!important;border-radius:8px!important;
+}
+#deduction.ps28-skin :is(.sim-detail,.sim-route,.sim51-progress,.sim51-library,.sim51-detail,.sim51-quality,.ps53-stats,.ps53-detail,.ps53-route,.ps53-card) :is(h3,h4,p,span,small,strong,b,label){color:#483221!important;opacity:1!important;}
+/* Karty źródeł pozostają klikane i w wyróżnionym stanie mają kontrastowy tekst. */
+#deduction.ps28-skin .ps53-card.selected{background:#e4c399!important;border-color:#85392b!important;}
+
+/* Dodatkowe panele analityczne i związane z nimi kafelki na jasnym tle. */
+.ps28-skin :is(.ps62-route,.ps66-detail,.ps66-analysis){
+  background:#f6e3c3!important;color:#483221!important;
+  border:1px solid #aa8256!important;border-radius:9px!important;
+}
+.ps28-skin :is(.ps62-route,.ps66-detail,.ps66-analysis) :is(h3,h4,p,small,span,b,strong){color:#473020!important;opacity:1!important;}
+/* Statusy aktywne mają dalej wyraźny kolor, nie zmieniamy ich znaczenia. */
+.ps28-skin .ps66-check{background:#842d24!important;color:#fff3d9!important;border:1px solid #642119!important;}
+.ps28-skin .ps66-check :is(span,b,small){color:#fff3d9!important;}
+
+/* Zmiany wyłącznie w dziewięciu panelach .ps28-skin — brak wpływu na przesłuchania. */
+@media(max-width:720px){
+ .ps28-skin .ps-next-panel .ps-next-row{padding:11px!important;}
+ #notebook.ps28-skin #conflictPanel .cf-filters button{min-height:42px!important;}
+ #inspection12.ps28-skin .p1-inspection-extras>summary{padding:12px!important;}
+}
+/* Dodatkowy przegląd miejsc, w których ciemne style RC35–RC54 pozostały po ujednoliceniu. */
+#evidence.ps28-skin .ev-search{background:#f7e5c6!important;color:#4a3323!important;border:1px solid #b58b5d!important;}
+#inspection12.ps28-skin .ov36-advanced{background:#f5dfba!important;color:#402b1e!important;border:1px solid #ad8456!important;border-radius:9px!important;}
+#inspection12.ps28-skin .ov36-advanced :is(p,span,small,b,strong,label,summary){color:#412b1d!important;}
+#deduction.ps28-skin :is(.ps53-observation,.ps53-link,.sim51-progress,.sim51-library,.sim51-detail,.sim51-quality){background:#f7e4c6!important;color:#422e20!important;border:1px solid #b38a59!important;border-radius:8px!important;}
+#deduction.ps28-skin :is(.ps53-observation,.ps53-link,.sim51-progress,.sim51-library,.sim51-detail,.sim51-quality) :is(span,p,small,strong,b,summary,label){color:#4a3220!important;opacity:1!important;}
+#deduction.ps28-skin :is(.sim51-doc,.sim51-path,.sim-node){background:#f3dbb8!important;border:1px solid #a47b4f!important;color:#3b2a1e!important;}
+#deduction.ps28-skin :is(.sim51-doc,.sim51-path,.sim-node).active{background:#e3c295!important;border:2px solid #893b2b!important;color:#332218!important;}
+#deduction.ps28-skin :is(.sim51-doc,.sim51-path,.sim-node) :is(b,strong,p,span,small){color:#3f2b1e!important;opacity:1!important;}
