@@ -402,3 +402,88 @@
 #deduction.ps28-skin :is(.sim51-doc,.sim51-path,.sim-node){background:#f3dbb8!important;border:1px solid #a47b4f!important;color:#3b2a1e!important;}
 #deduction.ps28-skin :is(.sim51-doc,.sim51-path,.sim-node).active{background:#e3c295!important;border:2px solid #893b2b!important;color:#332218!important;}
 #deduction.ps28-skin :is(.sim51-doc,.sim51-path,.sim-node) :is(b,strong,p,span,small){color:#3f2b1e!important;opacity:1!important;}
+
+
+
+/* RC57.10.30 — spójna typografia i widoczność faktycznych paneli.
+   Wyłącznie prezentacja, bez zmiany kontroli dowodów, pytań ani postępu. */
+#interview .ps-next-panel,
+#interview #ps43Confrontation,
+#interview :is(#ps43Confrontation, .ps-next-panel) > details {
+  background:linear-gradient(135deg,#faedd5 0%,#e9cda4 100%)!important;
+  color:#38251a!important;
+  border:1px solid #a97b49!important;
+  border-radius:11px!important;
+  box-shadow:0 3px 10px rgba(44,20,7,.16)!important;
+}
+#interview .ps-next-panel :is(h2,h3,h4),
+#interview #ps43Confrontation h3{color:#4e2c20!important;opacity:1!important;font-weight:750!important;}
+#interview .ps-next-panel :is(p,small,label,blockquote,span,strong,b),
+#interview #ps43Confrontation :is(p,small,label,blockquote){color:#4b3426!important;opacity:1!important;}
+#interview .ps-next-panel .ps-next-row,
+#interview .ps-next-panel .ps-next-quote,
+#interview #ps43Confrontation blockquote{
+ background:#fff1d7!important;color:#39271b!important;
+ border:1px solid #b68f63!important;border-radius:8px!important;
+}
+#interview .ps-next-panel :is(input,select,textarea),
+#interview #ps43Confrontation select{
+ background:#fff4df!important;color:#34271e!important;
+ border:1px solid #a57d50!important;min-height:43px!important;
+}
+#interview .ps-next-panel button:disabled{background:#e0d2bb!important;color:#665749!important;opacity:.8!important;}
+#interview .ps-next-panel button:not(:disabled){color:#fff2dd!important;}
+#interview .ps-next-panel button.btn.alt:not(:disabled),
+#interview .ps-next-panel button.btn.subtle:not(:disabled){background:#853126!important;border-color:#662318!important;}
+#interview .ps-next-panel :is(summary,p,small){line-height:1.55!important;}
+/* Nawigacja punktów na dokumentacji fotograficznej: jeden rodzaj kart, bez granatu. */
+#inspection12 #ov36Navigation,
+#inspection12 .ov36-navigator{
+ background:linear-gradient(140deg,#fae9cb,#e8c99f)!important;
+ color:#392719!important;border:1px solid #ae8150!important;
+ border-radius:11px!important;box-shadow:0 3px 10px #47230822!important;
+}
+#inspection12 .ov36-navigator :is(.ov36-heading h4,.ov36-help,.ov36-counter,.ov36-empty,.ov36-where p,.ov37-source,.ov37-context,.ov37-status,.ov37-section-head h5,.ov37-section-head span){
+ color:#493322!important;opacity:1!important;line-height:1.55!important;
+}
+#inspection12 .ov36-navigator .ov36-counter{background:#fff1d6!important;border:1px solid #9c764a!important;}
+#inspection12 .ov36-navigator :is(.ov36-region-card,.ov37-card-document,.ov37-archive,.ov36-advanced){
+ background:#fff0d4!important;color:#372519!important;
+ border:1px solid #b2895c!important;border-radius:9px!important;
+}
+#inspection12 .ov36-navigator :is(.ov36-region-card,.ov37-card-document){min-height:90px!important;gap:11px!important;}
+#inspection12 .ov36-navigator :is(.ov36-region-card,.ov37-card-document):hover,
+#inspection12 .ov36-navigator :is(.ov36-region-card,.ov37-card-document):focus-visible{
+ background:#f5dfbc!important;border-color:#8c502d!important;
+}
+#inspection12 .ov36-navigator :is(.ov36-region-card,.ov37-card-document).is-active{
+ background:#f4d8aa!important;border-color:#8b3427!important;box-shadow:inset 0 0 0 1px #8b3427!important;
+}
+#inspection12 .ov36-navigator .ov36-description strong,
+#inspection12 .ov36-navigator .ov37-section-head h5{font-size:14px!important;color:#392519!important;line-height:1.42!important;opacity:1!important;}
+#inspection12 .ov36-navigator :is(.ov36-description span,.ov37-context,.ov37-status,.ov37-source){font-size:12.5px!important;color:#583f2c!important;line-height:1.5!important;opacity:1!important;}
+#inspection12 .ov36-navigator .ov36-number{background:#513722!important;color:#fff0d4!important;border-color:#a57b51!important;}
+#inspection12 .ov36-navigator .ov36-number:is(:focus-visible){outline:2px solid #853126!important;}
+#inspection12 .ov36-navigator .ov36-advanced>summary{color:#462f20!important;}
+#inspection12 .ov36-navigator .ov36-advanced[open]>summary{color:#6e2c23!important;border-bottom:1px solid #ae8d63!important;}
+#inspection12 .ov36-navigator .ov36-where{border-top-color:#b58c60!important;}
+#inspection12 .ov36-navigator .ov36-where button{background:#843126!important;color:#fff4db!important;border-color:#76261c!important;}
+#inspection12 .ov36-navigator :is(button,select){font-size:clamp(12px,.9vw,14px)!important;}
+/* Aktywne zdjęcie ma wypełnić scenę; wcześniejszy height:auto!important
+   zerował wysokość zdjęcia odroczonego w warstwie absolutnej. */
+#inspection12 .et1-photo-stage .psm-scene-zoom-layer,
+#inspection12 .et1-photo-stage .et2-parallax-layer{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;}
+#inspection12 .et1-photo-stage .et2-parallax-layer > #et1SceneImage{
+ display:block!important;width:100%!important;height:100%!important;
+ max-width:none!important;max-height:none!important;object-fit:cover!important;
+}
+#inspection12 #et1Photos .et1-photo-heading .eyebrow,
+#inspection12 #et1Photos .et1-frame-counter{color:#553421!important;opacity:1!important;font-weight:700!important;}
+#inspection12 #et1Photos .et1-photo-controls :is(span,p,small){color:#4c3322!important;}
+@media(max-width:700px){
+ #inspection12 #ov36Navigation{padding:11px!important;}
+ #inspection12 #ov36Navigation .ov36-regions{grid-template-columns:1fr!important;}
+ #interview #ps43Confrontation{padding:13px!important;}
+ #interview #ps43Confrontation select{font-size:16px!important;}
+}
+

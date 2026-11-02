@@ -1,3 +1,5 @@
+> **Aktualizacja RC57.10.30 — wygląd (2 listopada 2026).** Naprawiono kontrast konfrontacji zeznań, kart nawigacji fotograficznej Oględzin oraz ładowanie aktywnego kadru 4K. Nie są potrzebne nowe zmienne środowiskowe ani migracje Supabase. Najpierw sprawdź Vercel Preview. Wyniki lokalne w `RAPORT-QA-RC57_10_30.md`.
+
 # Najnowsza aktualizacja: RC57.10.28 — jednolity wygląd wszystkich zakładek
 
 **Pełna paczka**: rozpakuj i wgraj całe repozytorium. **Mała poprawka**: nakładaj wyłącznie na RC57.10.27, zachowując strukturę folderów. Po wgraniu uruchom Vercel Preview i sprawdź 10 zakładek na komputerze i telefonie.

@@ -311,8 +311,8 @@
         "src/inspection/03-visual-asset-bridge.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_003__",
-      "sha256": "1635d533e349f9df910793a47f9dfc965edd79dbacd1479e0223ba8245afb019",
-      "size": 27863
+      "sha256": "0447b88dec1fc6d07b77f877cae6b3bec86b97a57315ac142c6c20d9d4939064",
+      "size": 27930
     },
     {
       "kind": "script",
@@ -1437,8 +1437,8 @@
         "src/styles/rc571028-unified-dossier.css"
       ],
       "marker": "__PS_SOURCE_STYLE_063__",
-      "sha256": "0b431e36a6c414f04567a12a50d4b389e27aebdaf123a4b333cc9c252051bfd9",
-      "size": 260453
+      "sha256": "72504bd9605133eb892d1f8e3878b1732c9d3a250d921b66cc7cb46d2f12ff97",
+      "size": 265933
     }
   ]
 }

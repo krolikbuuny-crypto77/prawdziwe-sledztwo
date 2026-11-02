@@ -398,7 +398,7 @@ registerSaveHook({name:"03-visual-asset-bridge-load1", apply(save){undefined;for
         state.frame=-1;state.chosen='';
       }
     },
-    after:({id})=>{if(id==='inspection12')schedule();}
+    after:({id})=>{if(id==='inspection12'){image.loading='eager';image.setAttribute('fetchpriority','high');schedule();}}
   });
   updateHero();
   window.PS_ETAP2_QA={
