@@ -1,0 +1,274 @@
+/* RC57.10.49 — laptop 15.6", hierarchia czytelności i układ. Tylko prezentacja.
+   Punkty odniesienia: 1366x768 i 1536x864, bez skalowania całego widoku. */
+:root{--ps49-ink:#35251b;--ps49-muted:#59402e;--ps49-paper:#f5dfbb;--ps49-outline:#a47c4e;--ps49-dark:#0e2530;--ps49-dark-text:#fff0d4}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:76px}
+body{overflow-x:hidden}
+:is(.section,.main,.content,.hero,.heroText,.photos,.tl-panel,.charactergrid,.chat,.characterlist,.dd-work,.dd-source-panel,.dd-editor-panel,.ev-controls,.sc-layout){min-width:0}
+:where(.section) :is(p,small,button,input,textarea,select,label,summary){text-wrap:pretty}
+/* Kontrast pomiędzy farbą i papierem. Brąz na ciemnym granacie jest niedopuszczalny. */
+#overview.ps38-premium .hero :is(.case-kicker,.case-lead),
+#overview.ps38-premium .hero .case-meta,
+#overview.ps38-premium .ps38-actions-list small,
+#overview.ps38-premium #ps2Welcome :is(p,small),
+#timeline :is(.tl-panel,.tl-visual,.tl-consistency) :is(p,.small,.muted,small,label),
+#deduction :is(.dd-work,.dd-note,#ux4Guide) :is(p,small,.muted,label),
+#evidence :is(.ev-reader,.ev-controls,.ev-index) :is(p,small,.muted,label),
+#search .searchbox :is(p,small,label),
+#interview .ps21-tools :is(p,small,label),
+#interview .character .charactercopy small{
+ color:var(--ps49-muted)!important;opacity:1!important;text-shadow:none!important;
+}
+#overview.ps38-premium .hero .case-lead{font-size:clamp(14px,1vw,16px)!important;line-height:1.55!important}
+#overview.ps38-premium .case-kicker{color:#733f22!important}
+#overview.ps38-premium .hero .case-meta{font-size:11px!important}
+#overview.ps38-premium .ps38-actions-list small,
+#overview.ps38-premium #ps2Welcome .ps2-lead,
+#overview.ps38-premium #ps2Welcome .ps2-step>p{font-size:13.5px!important;line-height:1.5!important}
+/* Naprawa okna wznowienia: wcześniej tekst dziedziczył kolor z ciemnego tekstu strony. */
+body.ps-resume-pending #psResumeOffer.ps-resume-offer{background:#162b35!important;border:2px solid #d2a46a!important;color:#fff0d4!important;
+ box-shadow:0 25px 75px #000a!important;border-radius:12px!important;line-height:1.55!important}
+body.ps-resume-pending #psResumeOffer.ps-resume-offer :is(strong,p,span,small,.muted){color:#fff0d4!important;opacity:1!important;text-shadow:none!important}
+body.ps-resume-pending #psResumeOffer.ps-resume-offer strong{display:block;font:700 clamp(23px,2.6vw,31px)/1.16 Georgia,serif!important;margin-bottom:10px!important}
+body.ps-resume-pending #psResumeOffer.ps-resume-offer p{font-size:16px!important;line-height:1.5!important;max-width:54ch}
+body.ps-resume-pending #psResumeOffer.ps-resume-offer .formline{gap:12px!important;margin-top:16px!important}
+body.ps-resume-pending #psResumeOffer.ps-resume-offer .formline button{font-size:16px!important;line-height:1.35!important;min-height:48px!important}
+/* Organizacja menu nie usuwa żadnej z 10 zakładek; grupy ułatwiają orientację. */
+#nav .ps49-nav-group{display:block;color:#f0cf92;font:800 10px/1.3 system-ui,sans-serif;letter-spacing:.13em;
+ text-transform:uppercase;padding:8px 8px 2px;border:0;background:none;pointer-events:none}
+#nav button:focus-visible{outline:3px solid #eac38c!important;outline-offset:1px!important}
+.ps49-help-fold{grid-column:1/-1;margin:0;border:1px solid #b48855;border-radius:10px;overflow:hidden;background:#f0d9b4}
+.ps49-help-fold>summary{cursor:pointer;padding:12px 16px;font:bold 16px/1.35 Georgia,serif;color:#3c281c;background:#f2d7ad;
+ border-bottom:1px solid #bb9364;list-style-position:inside}
+.ps49-help-fold:not([open])>summary{border-bottom:0}
+.ps49-help-fold>summary:focus-visible{outline:3px solid #86382d;outline-offset:-4px}
+.ps49-help-fold>#ps2Welcome{border:0!important;border-radius:0!important;box-shadow:none!important;margin:0!important;width:100%!important;max-width:none!important}
+/* Narzędzia przesłuchań są nadal dostępne, lecz nie zabierają szerokości protokołu. */
+#interview .ps49-interview-tools{order:3;flex:0 0 auto;min-width:0;width:100%;margin:0;
+ border-top:1px solid #bc9162;background:#efdbba}
+#interview .ps49-interview-tools>summary{cursor:pointer;min-height:43px;padding:11px 16px;color:#432c1f;
+ font:bold 14px/1.4 Georgia,serif;list-style-position:inside}
+#interview .ps49-interview-tools[open]>summary{border-bottom:1px solid #b38b5c}
+#interview .ps49-interview-tools .ps21-tools{width:100%!important;max-width:none!important;position:static!important;
+ overflow:visible!important;box-shadow:none!important;border:0!important;background:none!important;padding:12px!important;display:grid!important;
+ grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+#interview .ps49-interview-tools .ps21-tool-card{margin:0!important;max-width:none!important;min-width:0!important;height:auto!important}
+#interview .ps49-interview-tools .ps21-file-label,#interview .ps49-interview-tools .ps21-case-stamp{display:none!important}
+#interview .ps49-interview-tools .ps22-advanced{grid-column:1/-1!important}
+/* Wyraźne pola do wpisywania własnych pytań, przeszukiwania i tworzenia hipotez. */
+#interview #chatInput,#search #searchQuery,#timeline :is(input,select),#deduction :is(input,textarea,select),
+#evidence :is(input,select),#notebook :is(input,textarea,select){font-size:15px!important;line-height:1.45!important;
+ color:#342519!important;background-color:#fff4e0!important;border:1px solid #a57c4e!important;min-height:42px}
+#interview #chatInput{min-height:72px!important;font-size:16px!important}
+#interview :is(#chatInput,#chatSend):focus-visible,#timeline :is(input,select):focus-visible,
+#deduction :is(input,textarea,select):focus-visible{outline:3px solid #a53b2d!important;outline-offset:2px!important}
+#interview .chatfoot #npc4Hint,#interview .chatfoot .muted.tiny{font-size:12.5px!important;color:#5c4330!important}
+#interview .chatlog .bubble{font-size:15px!important;line-height:1.55!important;color:#3b291e!important}
+#interview #characterList .charactercopy small{font-size:13.5px!important;line-height:1.38!important;
+ max-height:none!important;display:block!important;overflow-wrap:anywhere}
+/* Lista zdarzeń i źródeł nie może przewijać się poziomo ani ukrywać treści. */
+#timeline .tl-main,#deduction .dd-work{min-width:0;align-items:start}
+#timeline .tl-panel,#timeline .tl-panel *{min-width:0}
+#timeline .tl-main .tl-panel:nth-child(2){align-self:start}
+#timeline .tl-selection{overflow-x:hidden!important;scrollbar-gutter:stable}
+#timeline .tl-selection :is(button,small,p,div){overflow-wrap:anywhere;white-space:normal}
+#timeline .tl-selection :is(button,.tl-choice){font-size:14px!important;line-height:1.45!important}
+#timeline .tl-panel :is(h3,p){line-height:1.45!important}
+#timeline .tl-panel h3{font-size:18px!important}
+#timeline .tl-main .tl-panel:nth-child(2){min-height:260px}
+#timeline #tlEditor :is(p,div){overflow-wrap:anywhere}
+#deduction .dd-source-list{overflow-x:hidden!important;max-width:100%!important}
+#deduction .dd-source-list *{min-width:0;overflow-wrap:anywhere}
+#deduction .dd-filters{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(145px,.4fr)!important;gap:8px!important}
+#deduction .dd-source-panel,#deduction .dd-editor-panel{min-width:0!important;max-width:100%!important}
+#deduction .dd-source-panel :is(p,small,.muted),#deduction .dd-editor-panel :is(p,small,.muted){font-size:13.5px!important;line-height:1.5!important}
+#deduction .dd-source-list :is(.dd-source-card,.dd-source-item){max-width:100%!important;min-width:0!important}
+/* Tekst w panelach ciemnych musi być jasny. Dobieramy tylko konkretne ciemne kontenery. */
+#overview.ps38-premium :is(.ps38-case-banner,#story26Overview,.ps70-head) :is(p,small,.muted,span),
+#overview.ps38-premium .ps38-case-banner :is(h2,strong),
+#interview #characterList .character[aria-pressed="true"] .charactercopy small{opacity:1!important}
+/* Główne ustawienia pod typowy laptop, także gdy przeglądarka nie jest pełnoekranowa. */
+@media (min-width:901px) and (max-width:1640px){
+ .layout{grid-template-columns:194px minmax(0,1fr)!important}
+ .sidebar{width:194px!important;min-width:194px!important;max-width:194px!important;height:100dvh!important;
+  padding:9px 10px!important;overflow-y:auto!important;overscroll-behavior:contain!important}
+ #nav{display:flex!important;flex-direction:column!important;gap:4px!important}
+ #nav button{padding:8px 10px!important;min-height:40px!important;font-size:13px!important;line-height:1.25!important}
+ #nav .num{font-size:11px!important}
+ .sidebar .brand{min-height:57px!important;margin-bottom:9px!important;padding:6px!important}
+ .sidebar .brand-copy b{font-size:13px!important}
+ .sidebar .brand-copy span{font-size:11px!important}
+ #ui14Sidebar .ui14-navcaption{font-size:11px!important;padding:6px!important;margin-bottom:5px!important;min-height:0!important}
+ #ui14Sidebar .ps38-sidebar-art{height:64px!important;min-height:64px!important;margin-top:9px!important}
+ .topbar{min-height:58px!important;height:58px!important;padding:8px 15px!important;gap:8px!important}
+ .topbar .ps23-header-dossier{min-width:0!important}
+ .content{padding:15px 17px 26px!important;max-width:none!important}
+ .section{max-width:none!important}
+ .section .sectionheading,.section .tl-head,.section .dd-head,.section .ev-header{padding:12px 16px!important;margin-bottom:12px!important}
+ .section .sectionheading p,.section .tl-head p,.section .dd-head p,.section .ev-header p{font-size:14px!important;line-height:1.45!important;max-width:76ch}
+ .section .sectionheading h2,.section .tl-head h2,.section .dd-head h2,.section .ev-header h2{font-size:clamp(23px,2vw,28px)!important}
+ .section .ps36-section-index{margin:0 0 10px!important;padding:7px 10px!important;gap:7px!important}
+ .section .ps36-section-index button{min-height:37px!important;padding:7px 10px!important;font-size:12.5px!important}
+ #overview.ps38-premium .ps38-case-banner{min-height:76px!important;max-height:none!important;margin:0 0 12px!important;padding:12px 22px!important}
+ #overview.ps38-premium .ps38-case-banner h2{font-size:27px!important;line-height:1.05!important}
+ #overview.ps38-premium .ps38-case-banner p{font-size:13px!important;line-height:1.4!important;margin-top:4px!important}
+ #overview.ps38-premium .ps38-front-grid{grid-template-columns:minmax(0,1fr)!important;gap:12px!important;align-items:start!important}
+ #overview.ps38-premium .ps38-front-grid>.hero{display:grid!important;grid-template-columns:minmax(0,1.35fr) minmax(240px,.75fr)!important;
+  min-height:300px!important;height:auto!important;max-height:none!important;overflow:hidden!important}
+ #overview.ps38-premium .hero>.heroText{padding:18px 20px!important;width:100%!important;min-height:300px!important;
+  height:auto!important;overflow:visible!important;gap:12px!important}
+ #overview.ps38-premium .hero .heroText h1{font-size:clamp(31px,3.1vw,41px)!important;line-height:1.02!important;margin:3px 0 0!important}
+ #overview.ps38-premium .hero .case-actions{display:flex!important;gap:10px!important;flex-wrap:wrap!important}
+ #overview.ps38-premium .hero .case-actions button{font-size:14px!important;min-height:44px!important;padding:8px 12px!important;flex:1 1 160px!important}
+ #overview.ps38-premium .hero>#photoGrid{height:100%!important;min-height:300px!important;max-height:none!important;align-self:stretch!important}
+ #overview.ps38-premium .ps38-lower-grid{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)!important;gap:13px!important}
+ #overview.ps38-premium .ps38-lower-grid :is(p,small){font-size:13.5px!important;line-height:1.5!important}
+ /* Dwie kolumny: szeroki protokół + węższy spis świadków. */
+ #interview .sectionheading{width:100%!important;max-width:none!important}
+ #interview .charactergrid{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(218px,245px)!important;
+  grid-template-rows:auto!important;gap:12px!important;align-items:start!important;min-height:0!important;margin-top:12px!important}
+ #interview .charactergrid>.chat{grid-column:1!important;grid-row:1!important;min-width:0!important;max-width:none!important;
+  width:100%!important;display:flex!important;flex-direction:column!important;height:auto!important;max-height:none!important;min-height:0!important;overflow:hidden!important}
+ #interview .charactergrid>.characterlist{grid-column:2!important;grid-row:1!important;min-width:0!important;
+  width:100%!important;max-width:none!important;height:auto!important;max-height:min(76dvh,640px)!important;overflow-y:auto!important;padding:7px!important}
+ #interview .charactergrid>.characterlist .character{height:auto!important;min-height:87px!important;max-height:none!important;padding:8px!important}
+ #interview .charactergrid>.characterlist .wp-mini{max-width:66px!important;flex-basis:66px!important}
+ #interview .chat .chathead{flex:0 0 auto!important;order:0!important;min-height:145px!important;max-height:none!important;height:auto!important;
+  display:grid!important;grid-template-columns:140px minmax(0,1fr)!important;padding:11px!important;gap:14px!important}
+ #interview .chat .chathead .witness-stage-host{grid-column:1!important;grid-row:1!important;width:100%!important;height:134px!important;max-height:134px!important;
+  min-height:0!important;margin:0!important;align-self:start!important}
+ #interview .chat .chathead .chathead-copy{grid-column:2!important;grid-row:1!important;width:100%!important;margin:0!important;
+  max-width:none!important;min-height:0!important;align-self:start!important}
+ #interview .chat .chathead .chathead-copy h3{font-size:23px!important;line-height:1.1!important}
+ #interview .chat .chathead #chatRole{display:block!important;width:100%!important;max-height:none!important;
+  color:#fff2df!important;background:#922f23!important;font-size:13.5px!important;line-height:1.4!important;padding:6px 10px!important}
+ #interview .chat .chathead #npc4Panel{max-width:100%!important;min-width:0!important}
+ #interview .chat .ps23-depot-art{display:none!important}
+ #interview .chat .chatlog{order:1!important;position:relative!important;width:100%!important;flex:0 0 auto!important;
+  height:clamp(195px,29dvh,255px)!important;max-height:255px!important;min-height:195px!important;overflow:auto!important;
+  padding:13px 23px!important;grid-column:auto!important;grid-row:auto!important}
+ #interview .chat .chatlog::before{position:sticky!important;top:-13px!important;margin:-13px -23px 10px!important;
+  padding:9px 14px!important;font-size:15px!important;line-height:1.3!important;min-height:39px!important}
+ #interview .chat .chatfoot{order:2!important;position:relative!important;width:100%!important;max-width:none!important;
+  flex:0 0 auto!important;min-height:0!important;height:auto!important;grid-column:auto!important;grid-row:auto!important;
+  padding:12px 15px!important;gap:9px!important}
+ #interview .chat .chatfoot .formline{display:flex!important;flex-wrap:wrap!important;gap:8px!important;justify-content:space-between!important}
+ #interview .chat .chatfoot #chatSend{font-size:15px!important;min-height:44px!important}
+ #interview .chat .ps87-room-toolbar{order:4!important;flex:0 0 auto!important;position:static!important;min-height:0!important;height:auto!important}
+ #interview .chat .ps23-extras{order:5!important;position:static!important;min-height:0!important;height:auto!important}
+ #timeline .tl-main{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)!important;gap:14px!important}
+ #timeline .tl-selection{max-height:min(49dvh,405px)!important;overflow-y:auto!important}
+ #timeline .tl-main .tl-panel{padding:15px!important}
+ #deduction .ux4-guide,#deduction #ux4Guide{padding:15px!important}
+ #deduction .dd-work{max-width:100%!important}
+ #deduction .dd-source-list{max-height:min(50dvh,420px)!important;overflow-y:auto!important}
+ /* Karty materiałów i panel hipotez nie mogą mieć obciętych opisów. */
+ #deduction .dd-work :is(.dd-source-panel,.dd-editor-panel){padding:16px!important}
+ #search .searchbox,#evidence .ev-controls{padding:16px!important}
+ #search .searchbox :is(input,button){font-size:14.5px!important}
+}
+@media(min-width:901px) and (max-height:800px){
+ #ui14Sidebar .ps38-sidebar-art{display:none!important}
+ .topbar{height:54px!important;min-height:54px!important}
+ .content{padding-top:12px!important}
+ #overview.ps38-premium .ps38-case-banner{padding:9px 16px!important;min-height:68px!important}
+ #overview.ps38-premium .ps38-front-grid>.hero{min-height:278px!important}
+ #overview.ps38-premium .hero>.heroText{min-height:278px!important;padding:14px 18px!important}
+ #overview.ps38-premium .hero>#photoGrid{min-height:278px!important}
+ #interview .chat .chathead{min-height:130px!important;padding:9px!important}
+ #interview .chat .chathead .witness-stage-host{height:117px!important;max-height:117px!important}
+ #interview .chat .chatlog{height:200px!important;min-height:200px!important;max-height:200px!important}
+}
+@media(min-width:701px) and (max-width:900px){
+ #overview.ps38-premium .ps38-front-grid{grid-template-columns:1fr!important}
+ #overview.ps38-premium .ps38-front-grid>.hero{grid-template-columns:minmax(0,1fr)!important;height:auto!important}
+ #interview .ps49-interview-tools .ps21-tools{grid-template-columns:1fr!important}
+ #timeline .tl-main{grid-template-columns:1fr!important}
+}
+@media(max-width:700px){
+ .ps49-help-fold{margin:9px 0!important}
+ #interview .ps49-interview-tools .ps21-tools{grid-template-columns:minmax(0,1fr)!important}
+ #interview .ps49-interview-tools>summary{min-height:44px;font-size:13.5px!important}
+ body.ps-resume-pending #psResumeOffer.ps-resume-offer{padding:18px!important;max-height:calc(100dvh - 24px)!important}
+ body.ps-resume-pending #psResumeOffer.ps-resume-offer .formline button{width:100%!important}
+ #deduction .dd-filters{grid-template-columns:1fr!important}
+}
+@media(prefers-reduced-motion:reduce){.ps49-help-fold *,.ps49-interview-tools *{transition:none!important;animation:none!important}}
+/* RC49 finalny szlif po weryfikacji na 1366x768. */
+#overview.ps38-premium .hero .case-kicker{color:#ffdfac!important;text-shadow:0 1px 2px #24180e!important}
+#overview.ps38-premium .hero .case-kicker-mark{background:#f3c87e!important}
+#overview.ps38-premium .ps38-case-banner .eyebrow{color:#ebc88d!important}
+@media(min-width:901px) and (max-width:1640px){
+ #nav button{height:37px!important;min-height:37px!important;max-height:37px!important;
+  padding:5px 8px!important;margin:0!important;border-radius:7px!important}
+ #nav .ps49-nav-group{padding:5px 6px 0!important;font-size:9.5px!important;margin:0!important;line-height:1.15!important}
+ #ui14Sidebar .ui14-navcaption{min-height:36px!important;padding:7px!important}
+ #interview .charactergrid{grid-template-columns:minmax(0,1fr) minmax(255px,280px)!important}
+ #interview .charactergrid>.characterlist{margin-top:18px!important;max-height:min(75dvh,640px)!important}
+ #interview .charactergrid>.characterlist .character{display:grid!important;grid-template-columns:64px minmax(0,1fr)!important;
+  align-items:center!important;gap:9px!important;width:100%!important;min-height:105px!important;height:auto!important;
+  padding:8px!important;overflow:hidden!important}
+ #interview .charactergrid>.characterlist .wp-mini{grid-column:1!important;width:62px!important;min-width:62px!important;
+  max-width:62px!important;height:75px!important;max-height:75px!important;min-height:75px!important;align-self:center!important}
+ #interview .charactergrid>.characterlist .charactercopy{grid-column:2!important;min-width:0!important;width:100%!important;
+  overflow:hidden!important;white-space:normal!important;max-width:100%!important}
+ #interview .charactergrid>.characterlist .charactercopy b{font-size:16px!important;line-height:1.23!important;
+  white-space:normal!important;overflow-wrap:break-word!important}
+ #interview .charactergrid>.characterlist .charactercopy small{font-size:12.5px!important;line-height:1.32!important;
+  display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
+ #interview .charactergrid>.characterlist .charactercopy .status{font-size:11px!important}
+ #interview .chathead .chathead-copy{display:flex!important;flex-direction:column!important;gap:7px!important;
+  height:auto!important;max-height:none!important}
+ #interview .chathead #npc4Panel{position:static!important;inset:auto!important;margin:7px 0 0!important;
+  transform:none!important;max-width:100%!important;width:100%!important;height:auto!important;align-self:stretch!important}
+ #interview .chathead #chatRole{position:static!important;transform:none!important;margin:0!important;
+  max-width:100%!important;box-shadow:none!important}
+ #interview .chathead .chathead-title{position:static!important;transform:none!important;margin:0!important}
+ #interview .chat .chathead{height:auto!important;min-height:165px!important;overflow:visible!important}
+ #interview .characterlist :is(.character,.character small,.character b){text-overflow:clip!important}
+ #overview.ps38-premium .ps38-case-banner{height:80px!important;min-height:80px!important;overflow:hidden!important}
+ #overview.ps38-premium .ps38-case-banner h2{font-size:25px!important}
+ #overview.ps38-premium .ps38-case-banner p{font-size:13px!important;line-height:1.32!important}
+}
+@media(min-width:901px) and (max-height:800px){
+ #overview.ps38-premium .ps38-case-banner{height:75px!important;min-height:75px!important}
+ #nav button{height:36px!important;min-height:36px!important;max-height:36px!important}
+ #interview .chat .chathead{min-height:160px!important}
+}
+/* Szczególny przypadek: wcześniejsze style !important nie mogą wymuszać widoczności
+   zawartości natywnego, zamkniętego <details>. */
+#ps49StartHelp:not([open])>#ps2Welcome{display:none!important}
+#ps49StartHelp[open]>#ps2Welcome{display:flex!important}
+#overview.ps38-premium #ps49StartHelp:not([open])>#ps2Welcome{display:none!important}
+#overview.ps38-premium #ps49StartHelp[open]>#ps2Welcome{display:flex!important}
+/* Etap 4: karty i panele, także te tworzone dynamicznie przez silnik. */
+#search #ps3SearchGuide{display:block!important;max-width:100%!important;margin:0 0 13px!important;
+ padding:12px 16px!important;border:1px solid #a47e52!important;border-radius:8px!important;
+ background:#f3dbb6!important;color:#412c20!important;font:400 14.5px/1.55 Georgia,serif!important;
+ white-space:normal!important;overflow-wrap:break-word!important;height:auto!important;min-height:0!important}
+#search #ps3SearchGuide strong{color:#572f1c!important;font-weight:750!important;font-size:15px!important}
+#deduction .thread-controls{gap:14px!important;padding:13px 15px!important}
+#deduction .thread-controls label{font-size:14px!important;line-height:1.45!important;color:#4a3324!important}
+#deduction .thread-controls :is(input,select){min-width:0!important;max-width:100%!important;width:100%!important;
+ font-size:14.5px!important;min-height:44px!important;color:#36271b!important;background:#fff2df!important}
+#deduction .thread-column{min-width:0!important;max-width:100%!important;overflow:hidden!important}
+#deduction .thread-node-list{min-width:0!important;max-width:100%!important;overflow-x:hidden!important;
+ overscroll-behavior-x:none!important;scrollbar-gutter:stable!important}
+#deduction .thread-paper{max-width:100%!important;min-width:0!important;overflow-wrap:anywhere!important;
+ transform:none!important;box-shadow:0 2px 5px #42302744!important}
+#deduction .thread-paper strong{font-size:15px!important;line-height:1.38!important}
+#deduction .thread-paper p{font-size:13.5px!important;line-height:1.48!important;color:#443328!important}
+#deduction .thread-paper small{font-size:12px!important;line-height:1.4!important;color:#5c4735!important}
+#deduction .thread-node-list .thread-paper :is(span,b,strong,p,small){overflow-wrap:anywhere!important;max-width:100%!important}
+@media(min-width:901px) and (max-width:1640px){
+ #deduction .thread-cork{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)!important;
+   gap:16px!important;padding:14px 16px 20px!important;min-width:0!important;max-width:100%!important}
+ #deduction .thread-node-list{max-height:min(51dvh,415px)!important}
+ #deduction .thread-heading{padding:13px 18px!important}
+ #deduction .thread-heading :is(h3,p){line-height:1.4!important}
+ #timeline .tl-selection :is(.tl-choice,.tl-event,.tl-option){font-size:14px!important;line-height:1.5!important}
+}
+@media(max-width:900px){
+ #deduction .thread-cork{grid-template-columns:1fr!important;gap:13px!important;padding:10px!important}
+ #deduction .thread-controls{grid-template-columns:1fr!important}
+}

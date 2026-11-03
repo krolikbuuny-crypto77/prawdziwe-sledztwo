@@ -1,0 +1,84 @@
+/* RC57.10.50 — czytelny tytuł dossier i data na laptopie 15,6".
+   Zmiany wyłącznie prezentacyjne; nie dotyczą logiki śledztwa. */
+#ui14Sidebar.sidebar .brand{
+  display:flex!important;
+  align-items:center!important;
+  gap:7px!important;
+  width:100%!important;
+  height:auto!important;
+  min-height:78px!important;
+  padding:9px 8px!important;
+  overflow:visible!important;
+}
+#ui14Sidebar.sidebar .brand .seal{
+  flex:0 0 34px!important;
+  width:34px!important;
+  min-width:34px!important;
+  height:34px!important;
+  min-height:34px!important;
+}
+#ui14Sidebar.sidebar .brand .brand-copy{
+  flex:1 1 auto!important;
+  min-width:0!important;
+  max-width:100%!important;
+  overflow:visible!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:4px!important;
+  text-align:center!important;
+}
+#ui14Sidebar.sidebar .brand .brand-copy b{
+  width:100%!important;
+  max-width:100%!important;
+  display:block!important;
+  white-space:normal!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+  font:800 clamp(13px,.95vw,16px)/1.12 Georgia,'Times New Roman',serif!important;
+  letter-spacing:-.015em!important;
+  color:#382419!important;
+  text-align:center!important;
+}
+#ui14Sidebar.sidebar .brand .brand-copy span{
+  display:inline-block!important;
+  flex:none!important;
+  max-width:100%!important;
+  white-space:nowrap!important;
+  font-size:11px!important;
+  line-height:1.2!important;
+  text-align:center!important;
+}
+/* W poprzedniej skórce tekst daty na ciemnym tle miał zaledwie 10 px;
+   powiększamy go i nie pozwalamy starym regułom przywrócić brązu. */
+#overview.ps38-premium .hero .case-kicker{
+  display:inline-flex!important;
+  align-items:center!important;
+  width:max-content!important;
+  max-width:100%!important;
+  min-height:38px!important;
+  padding:9px 13px!important;
+  background:#30363a!important;
+  border:1px solid #b79261!important;
+  border-radius:6px!important;
+  font:800 12.5px/1.35 Georgia,'Times New Roman',serif!important;
+  letter-spacing:.055em!important;
+  color:#ffefd0!important;
+  opacity:1!important;
+  text-shadow:none!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.10),0 2px 5px rgba(31,20,10,.15)!important;
+}
+#overview.ps38-premium .hero .case-kicker-mark{
+  background:#f7d18e!important;
+  box-shadow:0 0 0 3px rgba(255,232,192,.12)!important;
+}
+@media (min-width:901px) and (max-width:1000px){
+  #ui14Sidebar.sidebar .brand{position:relative!important;inset:auto!important;}
+}
+@media (max-width:940px){
+  #ui14Sidebar.sidebar{padding-top:92px!important;}
+}
+@media (max-width:390px){
+  #overview.ps38-premium .hero .case-kicker{font-size:11.5px!important;letter-spacing:.035em!important;padding:8px 10px!important;}
+}

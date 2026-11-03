@@ -1,3 +1,11 @@
+# Najnowsza wersja: RC57.10.50 — poprawka logo i daty na laptopie
+
+Na podstawie zrzutów ekranu użytkownika naprawiono ucięty tytuł w lewym menu oraz zwiększono kontrast i rozmiar daty 17–18 listopada 2026. Zmiany dotyczą tylko wyglądu. Zobacz `INSTRUKCJA-RC57_10_50.md` oraz `RAPORT-QA-RC57_10_50.md`.
+
+# Najnowsza wersja: RC57.10.49 — interfejs laptopa 15,6 cala
+
+Zobacz `INSTRUKCJA-RC57_10_49.md` i `RAPORT-QA-RC57_10_49.md`. Mechanika gry i silnik AI pozostają jak w RC57.10.48.
+
 > **Aktualizacja RC57.10.48:** jednolity serwerowy ranking wiedzy na podstawie aktualnego pytania, osoby, czasu i źródła. Zobacz `INSTRUKCJA-RC57_10_48.md`, `MAPA-WYSZUKIWANIA-RC57_10_48.md`, `RAPORT-QA-RC57_10_48.md`.
 
 > **Aktualizacja RC57.10.47:** wiedza i psychologia świadków w 12 obszarach. Zobacz `INSTRUKCJA-RC57_10_47.md`, `MAPA-12-OBSZAROW-RC57_10_47.md`, `RAPORT-QA-RC57_10_47.md`.
