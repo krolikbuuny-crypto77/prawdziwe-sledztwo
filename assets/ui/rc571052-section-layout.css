@@ -1,0 +1,144 @@
+/* RC57.10.52 — przemyślana hierarchia dziesięciu modułów. Wyłącznie wygląd i ergonomia. */
+:root{--ps52-space:12px;--ps52-text:#38271b;--ps52-paper:#f6e2c0}
+.section{min-width:0}
+.section :is(button,input,select,textarea){max-width:100%}
+.section :is(.surface,.ps-next-panel,.tl-panel,.ev-workspace,.sc-layout,.dd-work,.dd-source-panel,.dd-editor-panel){min-width:0}
+.section :is(h2,h3,h4){overflow-wrap:break-word}
+/* Stała, przewidywalna wysokość elementów nawigacji między modułami. */
+#ui14Sidebar #nav button{hyphens:auto}
+#nav .ps49-nav-group{line-height:1.45!important}
+.ps52-fold{display:block;width:100%;min-width:0;max-width:100%;margin:10px 0 12px;
+ border:1px solid #ad8254;border-radius:9px;overflow:clip;background:#f1ddb9;color:#3a271c}
+.ps52-fold>summary{min-height:46px;padding:12px 17px;cursor:pointer;display:list-item;
+ font:700 15px/1.45 Georgia,'Times New Roman',serif;color:#38251a;
+ background:#f6e2bf;outline-offset:-3px}
+.ps52-fold>summary:focus-visible{outline:3px solid #a23b2a}
+.ps52-fold[open]>summary{border-bottom:1px solid #ad8254}
+.ps52-fold> :not(summary){margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;max-width:none!important;width:100%!important}
+.ps52-fold .ps41-list,.ps52-fold .ps53-route{max-width:100%}
+#inspection12 .ps52-fold{margin:8px 0 12px}
+#inspection12 .ps52-fold>.et1-actions{padding:10px!important}
+#notebook .ps52-fold>section{margin:0!important;border-radius:0!important}
+#notebook .ps52-fold>section+section{border-top:2px solid #a77f53!important}
+/* Czytelna typografia w kartach, bez ciemnego tekstu na ciemnych kontenerach. */
+#overview .ps38-actions-list small,#search .locationgrid .location,#evidence .ev-workspace small,
+#timeline .tl-main .tl-panel p,#inspection12 .sc-layout .surface p,
+#notebook .sc-notebook p,#labs #ux5Hub p,#deduction .dd-work p,
+#final #psF1Gate p{line-height:1.48!important}
+#evidence .ev-reader,#evidence .ev-index,#search .searchbox,#notebook .sc-notebook,
+#labs #ux5Hub,#deduction .dd-work,#final #psF1Gate{min-width:0!important}
+@media (min-width:941px) and (max-width:1640px){
+ /* 1. Nagłówki i lokalna nawigacja: najpierw zadanie, potem dekoracje. */
+ .section :is(.sectionheading,.tl-head,.dd-head,.ev-header){
+    min-height:0!important;height:auto!important;max-height:none!important;
+    padding:13px 18px!important;margin:0 0 10px!important;gap:14px!important}
+ .section :is(.sectionheading,.tl-head,.dd-head,.ev-header) :is(h1,h2){font-size:clamp(23px,1.9vw,28px)!important;line-height:1.15!important;margin:0 0 4px!important}
+ .section :is(.sectionheading,.tl-head,.dd-head,.ev-header) p{font-size:14px!important;line-height:1.45!important;margin-top:3px!important}
+ #evidence .ev-header{padding:13px 18px!important;min-height:95px!important}
+ #evidence .ev-header .ev-header-copy{width:auto!important;max-width:68ch!important}
+ #evidence .ev-header .ev-progress{min-width:128px!important;max-width:180px!important;padding:9px!important}
+ .section .ps36-section-index{min-height:0!important;height:auto!important;padding:6px 10px!important;
+  margin-bottom:9px!important;gap:5px!important;flex-wrap:wrap!important}
+ .section .ps36-section-index button{min-height:34px!important;height:auto!important;padding:6px 10px!important;
+  font-size:12px!important;line-height:1.3!important}
+ .section .ps36-index-title{font-size:11px!important;white-space:nowrap}
+ .section .ps2-context{min-height:0!important;height:auto!important;padding:10px 13px!important;margin:0 0 9px!important;gap:11px!important}
+ .section .ps2-context-copy{line-height:1.4!important;font-size:13px!important}
+ /* 2. Pulpit: przejrzysty start, nie trzy równorzędne panele. */
+ #overview .ps38-case-banner{margin-bottom:9px!important}
+ #overview .ps38-front-grid{gap:10px!important}
+ #overview .heroText{gap:10px!important}
+ #overview .ps38-lower-grid{gap:11px!important}
+ #overview .ps38-actions-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+ #overview .ps38-actions-list>*{min-width:0!important}
+ /* 3. Akta: wyszukiwanie i filtrowanie nie zabierają całego pierwszego ekranu. */
+ #evidence .ev-controls{min-height:0!important;padding:9px 13px!important;margin:0 0 8px!important;gap:8px!important}
+ #evidence .ev-search{min-height:42px!important;height:auto!important;gap:8px!important}
+ #evidence #evTypeFilters{gap:8px!important;margin:0 0 8px!important}
+ #evidence #evTypeFilters .ev-type-filter{min-height:45px!important;height:auto!important;padding:8px!important;line-height:1.3!important}
+ #evidence #evDetailedCategories{margin:0 0 9px!important}
+ #evidence .ev-workspace{grid-template-columns:minmax(315px,.4fr) minmax(0,.6fr)!important;
+   gap:12px!important;padding:12px!important;align-items:start!important}
+ #evidence .ev-index{max-width:none!important;width:100%!important;overflow-x:hidden!important}
+ #evidence .ev-reader{width:100%!important;max-width:none!important}
+ /* 4. Poszukiwania: formularz jest głównym zadaniem, karty obszarów są zwięzłe. */
+ #search .ps3-search-guide{min-height:0!important;padding:10px 14px!important;margin:0 0 9px!important;font-size:13px!important}
+ #search .searchbox{min-height:0!important;padding:12px 15px!important;margin:0 0 11px!important}
+ #search .searchbox .formline{gap:8px!important;flex-wrap:wrap!important}
+ #search .searchbox #searchResults{margin-top:8px!important;max-width:100%!important}
+ #search .locationgrid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;margin-top:9px!important}
+ #search .locationgrid .location{min-height:58px!important;height:auto!important;padding:9px 11px!important;
+  font-size:14px!important;line-height:1.3!important;min-width:0!important;overflow-wrap:anywhere}
+ /* 5. Przesłuchania: protokół i pytanie są ważniejsze niż ozdobne panele. */
+ #interview .charactergrid{gap:11px!important;align-items:start!important;margin-top:9px!important}
+ #interview .charactergrid>.chat{min-height:0!important}
+ #interview .chat .chathead{min-height:0!important;gap:11px!important}
+ #interview .chat .chathead .chathead-copy h3{font-size:22px!important}
+ #interview .chat .chatlog{height:clamp(235px,33dvh,320px)!important;min-height:235px!important;
+  max-height:320px!important;overflow-y:auto!important;scrollbar-gutter:stable!important}
+ #interview .chat .chatfoot{padding:11px 13px!important}
+ #interview .chat .chatfoot textarea{resize:vertical!important;min-height:72px!important}
+ #interview .charactergrid>.characterlist{max-height:calc(100dvh - 135px)!important;scrollbar-gutter:stable!important}
+ #interview .charactergrid>.characterlist .character{min-height:103px!important}
+ /* 6. Oś czasu: dwie równorzędne kolumny i czytelne wydarzenia. */
+ #timeline #tlMetrics{gap:8px!important;margin-bottom:9px!important}
+ #timeline #tlMetrics .tl-metric{min-height:66px!important;height:auto!important;padding:10px!important}
+ #timeline .tl-main{grid-template-columns:minmax(0,.43fr) minmax(0,.57fr)!important;gap:12px!important}
+ #timeline .tl-main .tl-panel{padding:13px!important;min-height:0!important}
+ #timeline .tl-selection{max-height:clamp(250px,49dvh,415px)!important;overflow-y:auto!important}
+ #timeline .tl-visual{padding:15px!important}
+ #timeline #tlChart{max-height:570px!important;overflow-y:auto!important}
+ /* 7. Oględziny: badany obiekt jest stale dostępny podczas przewijania kadrów. */
+ #inspection12 .ps-inspection-help{margin:7px 0!important;min-height:0!important;padding:0!important}
+ #inspection12 .sc-layout{grid-template-columns:minmax(0,1.36fr) minmax(295px,.86fr)!important;gap:12px!important;align-items:start!important}
+ #inspection12 .sc-layout>.sc-inspector{position:sticky!important;top:72px!important;align-self:start!important;
+  max-height:calc(100dvh - 85px)!important;overflow-y:auto!important;scrollbar-gutter:stable!important}
+ #inspection12 .sc-left>*{min-width:0!important}
+ /* 8. Notatnik: formularz na szerokości, narzędzia dodatkowe poniżej. */
+ #notebook .sc-notegrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:13px!important}
+ #notebook .sc-notegrid>*{min-width:0!important}
+ #notebook .ps38-form{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+ #notebook .ps38-form>*{min-width:0!important}
+ /* 9. Laboratorium: większe karty, 3 zamiast 4 w rzędzie na typowym laptopie. */
+ #labs #ux5Hub{padding:14px!important}
+ #labs #ux5Hub .ux5-top{gap:10px!important;margin:0 0 11px!important}
+ #labs #ux5Hub .ux5-group{margin-bottom:12px!important}
+ #labs #ux5Hub .ux5-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:11px!important}
+ #labs #ux5Hub .ux5-grid>*{min-width:0!important;max-width:100%!important;min-height:0!important}
+ #labs #ux5Hub .ux5-grid :is(p,small){font-size:13px!important;line-height:1.45!important}
+ /* 10. Dedukcja: kroki są kompaktowe, listy źródeł i sieć nie rozpychają dokumentu. */
+ #deduction #ux4Guide{padding:12px 15px!important;min-height:0!important;margin:0 0 9px!important}
+ #deduction #ux4Guide .ux4-steps{gap:9px!important;margin:5px 0!important}
+ #deduction #ux4Guide .ux4-step-help{font-size:13px!important;line-height:1.35!important}
+ #deduction #ux4Guidance{margin:0 0 9px!important}
+ #deduction .dd-work{margin:0 0 10px!important}
+ #deduction .dd-editor-panel{padding:14px 17px!important}
+ #deduction #threadBoardPanel{margin:0 0 10px!important;padding:12px!important}
+ #deduction #threadBoardPanel .thread-heading{min-height:0!important;padding:12px!important}
+ #deduction #threadBoardPanel .thread-cork{min-height:300px!important;max-height:620px!important;overflow:auto!important}
+ /* 11. Finał: czytelna sekwencja i brak zerowej czwartej kolumny. */
+ #final #psF1Gate{padding:17px 18px!important}
+ #final #psF1Gate .psf1-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:11px!important}
+ #final #psF1Gate .psf1-grid>*{min-width:0!important;max-width:100%!important}
+ #final #psF1Gate .psf1-copy{font-size:14px!important;max-width:85ch!important}
+ #final #psF1Gate .psf1-steps{gap:8px!important;flex-wrap:wrap!important}
+}
+/* Kompaktowe ekrany 941–1199: dwa moduły zamiast trzech i bardziej elastyczna szerokość. */
+@media (min-width:941px) and (max-width:1199px){
+ #labs #ux5Hub .ux5-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ #search .locationgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ #evidence .ev-workspace{grid-template-columns:minmax(270px,.42fr) minmax(0,.58fr)!important}
+ #inspection12 .sc-layout{grid-template-columns:minmax(0,1fr)!important}
+ #inspection12 .sc-layout>.sc-inspector{position:static!important;max-height:none!important}
+ #final #psF1Gate .psf1-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+/* Małe ekrany: nic nie zostaje ukryte poza świadomie zamkniętymi wskazówkami. */
+@media (max-width:940px){
+ .ps52-fold>summary{font-size:14px;min-height:44px;padding:11px 13px}
+ #labs #ux5Hub .ux5-grid{grid-template-columns:minmax(0,1fr)!important}
+ #inspection12 .sc-layout>.sc-inspector{position:static!important;max-height:none!important}
+ #final #psF1Gate .psf1-grid{grid-template-columns:minmax(0,1fr)!important}
+ #search .locationgrid{grid-template-columns:minmax(0,1fr)!important;gap:9px!important}
+ #deduction #threadCanvas{min-width:0!important;overflow-x:auto!important}
+}
+@media (prefers-reduced-motion:reduce){.ps52-fold{scroll-behavior:auto}}
