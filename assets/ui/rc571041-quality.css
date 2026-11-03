@@ -1,0 +1,66 @@
+/* RC57.10.41 QUALITY & UX | wygląd i dostępność, bez ingerencji w mechanikę. */
+:root{--q41-ink:#39281e;--q41-muted:#604833;--q41-paper:#f5dfba;--q41-border:#b58c5c;--q41-focus:#8c3028}
+/* Czytelność tekstu oraz klawiatura na wszystkich ekranach. */
+#overview.ps28-skin,#evidence.ps28-skin,#search.ps28-skin,#timeline.ps28-skin,#inspection12.ps28-skin,#notebook.ps28-skin,#labs.ps28-skin,#deduction.ps28-skin,#final.ps28-skin{--ps28-text:#453023;--ps28-muted:#604934}
+:is(.ps28-skin,#interview) :is(a,button,select,input,textarea,summary,[role="button"]):focus-visible{outline:3px solid var(--q41-focus)!important;outline-offset:3px!important}
+.ps28-skin :is(label,.muted,small,.small,.tiny,.dd-help,.sc-inspector p,.et2-hint,.tl-consistency p,.fc-side small){opacity:1!important;text-shadow:none!important}
+.ps28-skin :is(.padded.surface,.sc-inspector,.dd-editor-panel,.fc-main,.ev-reader,.ps41-auto,.cross3-section){overflow-wrap:anywhere}
+/* Akcja i status rozróżniane nie tylko kolorem. */
+.ps28-skin :is(button,.btn){min-height:40px}
+.ps28-skin :is(button,.btn):disabled{cursor:not-allowed;opacity:.76!important;filter:saturate(.68)}
+.ps28-skin :is(.btn,.ps61-menu-button,[role="tab"]){font-weight:700}
+/* Rozwijane dodatkowe obszary zachowują oryginalne funkcje. */
+.ps28-skin details>summary,#interview details>summary{min-height:40px;display:list-item;padding-block:10px;cursor:pointer;line-height:1.4}
+.ps28-skin details[open]>summary,#interview details[open]>summary{border-bottom-color:#b68a5a}
+/* Zapis jest ostrzeżeniem użytkowym, a nie ozdobną kartą zajmującą cały ekran. */
+#overview #psStorageUnavailable{max-width:100%;margin:10px 0!important;box-shadow:none!important;border-left:4px solid #914631!important}
+#overview #psStorageUnavailable .ps39-storage-details>summary{color:#4c3020!important;font-size:13px!important;line-height:1.4!important;overflow-wrap:anywhere}
+#overview #psStorageUnavailable .ps39-storage-body{padding:12px!important;gap:10px!important}
+#overview #psStorageUnavailable :is(p,small,span){color:#513a29!important;opacity:1!important}
+/* Czytelny stan braku danych — nie ujawnia niedostępnych dowodów. */
+#evidence #evIndexList:empty::before,#deduction #dedSourceList:empty::before,#inspection12 #sc84Queue:empty::before{
+ display:block;content:'Brak dostępnych materiałów w tej sekcji.';background:#fff1d9;color:#513a29;
+ border:1px dashed #b89167;border-radius:8px;padding:14px;font:500 13px/1.5 Georgia,serif
+}
+/* Fotografie: bez ucinania przy wąskim ekranie, szczegóły pozostają interaktywne. */
+#inspection12 :is(.et1-photo-stage,.et1-evidence-visual){max-width:100%;min-width:0;overflow:hidden}
+#inspection12 :is(#et1SceneImage,#et1EvidenceImage){max-width:100%;object-fit:contain}
+#inspection12 .psm-photo-zoom{max-width:100%;gap:8px;align-items:center}
+#inspection12 .psm-zoom-caption{color:#483225!important;opacity:1!important}
+#inspection12 .psm-photo-zoom output{min-width:50px;text-align:center;color:#3e2b1d!important;font-weight:750}
+/* Subtelny element aktowy powtarzalny we wszystkich modułach. */
+.ps28-skin :is(.sectionheading,.dd-head,.tl-head,.ev-header){position:relative}
+.ps28-skin :is(.sectionheading,.dd-head,.tl-head,.ev-header)::after{content:'';position:absolute;left:18px;right:18px;bottom:5px;height:1px;background:linear-gradient(90deg,transparent,#a67945a8,transparent);pointer-events:none}
+/* Formularz przesłuchania: teksty i pola bez przypadkowego obcinania. */
+#interview :is(.chatfoot,#npc4Hint,.npc4-notice,.characterlist .character){min-width:0}
+#interview #chatInput{width:100%;box-sizing:border-box;font-size:max(16px,1rem);line-height:1.5;min-height:70px;max-height:27dvh;resize:vertical}
+#interview #chatSend{min-height:44px}
+#interview .characterlist .charactercopy small{font-size:13px!important;line-height:1.45!important}
+#interview .chatfoot .muted.tiny{font-size:11px;line-height:1.4}
+/* Mobilnie najpierw rozmowa, długie narzędzia i konfrontacja nie zasłaniają formularza. */
+@media(max-width:700px){
+  #interview .psm-mobile-tabs{position:sticky;top:0;z-index:12;background:#f0d7ae;padding:7px;border:1px solid #b38a5e;border-radius:8px}
+  #interview.psm-show-chat .chat{min-width:0;max-width:100%;overflow:visible}
+  #interview .chatfoot{position:relative;z-index:2;max-width:100%;padding:12px!important}
+  #interview .chatfoot .formline{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  #interview #chatSend{flex:1 1 160px}
+  #interview .chatlog{max-height:47dvh!important;min-height:180px!important;overflow-y:auto!important;overscroll-behavior:contain}
+  #interview .ps21-tools{min-width:0}
+  #interview #ps43Confrontation{margin-top:12px}
+  #interview #ps43Confrontation :is(select,button){max-width:100%;min-width:0}
+  #inspection12 .psm-photo-zoom{justify-content:center;gap:7px}
+  #inspection12 .psm-zoom-caption{flex:1 0 100%;text-align:center}
+  #inspection12 .et2-room-picker{min-width:0;max-width:100%}
+  #inspection12 .et2-room-picker select{width:100%;max-width:100%}
+  #deduction .ux4-step-button{min-width:0;white-space:normal}
+  .ps28-skin :is(.sectionheading,.dd-head,.tl-head,.ev-header){padding:12px 14px!important;margin-bottom:11px!important}
+}
+@media(max-width:390px){
+  #interview .characterlist .charactercopy small{font-size:12.5px!important}
+  #interview .chatlog{max-height:42dvh!important}
+  #interview #chatInput{min-height:64px}
+  #inspection12 .psm-photo-zoom button{min-width:42px;min-height:43px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ps28-skin :is(button,.btn,.surface,details),#interview :is(button,.btn,.chatlog){animation:none!important;transition:none!important}
+}

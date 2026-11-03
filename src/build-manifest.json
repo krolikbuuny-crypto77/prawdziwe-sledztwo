@@ -1408,11 +1408,12 @@
         "src/integrations/109-quality-audit-rc49.js",
         "src/integrations/110-provenance-rc53.js",
         "src/story/111-director-rc54.js",
-        "src/navigation/112-photo-dossier-header.js"
+        "src/navigation/112-photo-dossier-header.js",
+        "src/navigation/113-premium-dossier-layout.js"
       ],
       "marker": "__PS_SOURCE_SCRIPT_060__",
-      "sha256": "4cb1cb91063e36cae4364844f59f1e81ef75ddbd72999522dc8bb27fd712550e",
-      "size": 331172
+      "sha256": "c6c67f06ffd22a1b0e6ec99a8f19fad3758b5ab0744c5baaf0bbd96ab8eafb20",
+      "size": 334781
     },
     {
       "kind": "style",
@@ -1434,11 +1435,16 @@
         "src/styles/100-auto-timeline-rc41.css",
         "src/styles/102-109-next-stages.css",
         "src/styles/103-dossier-visual-rc571015.css",
-        "src/styles/rc571028-unified-dossier.css"
+        "src/styles/rc571028-unified-dossier.css",
+        "src/styles/rc571034-contrast.css",
+        "src/styles/rc571035-fluid-viewport.css",
+        "src/styles/rc571036-professional-sections.css",
+        "src/styles/rc571037-final-polish.css",
+        "src/styles/rc571038-premium-dossier.css"
       ],
       "marker": "__PS_SOURCE_STYLE_063__",
-      "sha256": "21b08839ff92356686665a4d38b7f4235035da0dbe3c3900fbb6f094c817496c",
-      "size": 271671
+      "sha256": "4b2501a08d548f96e53e0ca7dce2d614427375035c4ec073ea0f315bba7b4aca",
+      "size": 348210
     }
   ]
 }

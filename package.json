@@ -76,6 +76,10 @@
     "test:rc57101-blind": "node tools/test-rc57101-blind-audit.mjs && node tools/test-rc57-blind.mjs && node tools/test-rc57-quality.mjs && python tools/test-rc57-blind-browser.py",
     "test:rc57102-dialogues": "node tools/test-rc57102-live-audit.mjs && node tools/test-rc57-quality.mjs && node tools/test-rc57-typo578.mjs",
     "test:rc57103-preacceptance": "node tools/test-rc57103-preacceptance.mjs && node tools/test-rc57102-live-audit.mjs && node tools/test-rc57-live.mjs",
-    "test:rc57105-performance": "node tools/test-rc57105-performance.mjs && node tools/test-rc57103-preacceptance.mjs && node tools/test-rc57104-reports.mjs"
+    "test:rc57105-performance": "node tools/test-rc57105-performance.mjs && node tools/test-rc57103-preacceptance.mjs && node tools/test-rc57104-reports.mjs",
+    "test:interrogations-rc45": "node tools/test-rc571045-interrogations.mjs && node tools/test-rc571044-local-fallback.mjs && node tools/test-rc571013-negations.mjs",
+    "test:relationships-rc46": "node tools/test-rc571046-relationships.mjs && node tools/test-rc571045-interrogations.mjs",
+    "test:humanity-rc47": "node tools/test-rc571047-humanity.mjs && node tools/test-rc571046-relationships.mjs && node tools/test-rc571045-interrogations.mjs",
+    "test:retrieval-rc48": "node tools/test-rc571048-retrieval.mjs && node tools/test-rc571048-api-contract.mjs && npm run test:humanity-rc47"
   }
 }

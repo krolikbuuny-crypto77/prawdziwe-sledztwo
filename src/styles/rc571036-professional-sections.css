@@ -1,0 +1,147 @@
+/* RC57.10.36 · Profesjonalna architektura wizualna wszystkich modułów.
+   Wyłącznie prezentacja: identyfikatory, sterowanie i dane pozostają bez zmian. */
+:root{
+  --ps36-paper:#f2ddbb;
+  --ps36-paper-deep:#e7c9a1;
+  --ps36-paper-light:#fff1d9;
+  --ps36-ink:#36261c;
+  --ps36-copy:#513a2a;
+  --ps36-line:#ac8054;
+  --ps36-red:#8b3027;
+  --ps36-gap:clamp(10px,1.08vw,18px);
+  --ps36-headgap:clamp(10px,1.3vw,19px);
+  --ps36-radius:11px;
+  --ps36-shadow:0 3px 9px #3d221c1c,0 1px 0 #fff9e7a0 inset;
+}
+/* Czytelna kompozycja: jedna szerokość, jeden rytm pionowy i wyraźne rozdziały. */
+.content{--ps36-available:100%;}
+.section.active{display:flow-root;}
+.section.active.ps36-polished{font-size:clamp(14px,.87vw,16px);line-height:1.6;}
+.section.ps36-polished > :not([hidden]){max-width:100%;min-width:0;}
+.section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head){
+  position:relative;margin-bottom:var(--ps36-headgap)!important;
+  padding:clamp(15px,1.5vw,24px)!important;
+  border-radius:var(--ps36-radius)!important;
+}
+.section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(h1,h2){
+  line-height:1.18!important;letter-spacing:-.016em!important;
+  font-size:clamp(24px,2vw,34px)!important;
+}
+.section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) p{max-width:78ch!important;line-height:1.65!important;font-size:clamp(13px,.88vw,15px)!important;}
+/* Szybka orientacja w module: bez dodatkowego menu bocznego i bez zmiany nawigacji. */
+.ps36-section-index{display:flex;flex-wrap:wrap;align-items:center;gap:7px 9px;
+  padding:10px 13px;margin:0 0 var(--ps36-gap);
+  background:linear-gradient(125deg,#f4e0c0,#e8caa1);border:1px solid var(--ps36-line);
+  border-radius:var(--ps36-radius);box-shadow:var(--ps36-shadow);color:var(--ps36-ink);
+}
+.ps36-index-title{font:750 11px/1.4 system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#6e4b30;
+  padding-right:10px;border-right:1px solid #bb946e;margin-right:2px;}
+.ps36-section-index button{background:#fff3de!important;color:#4b3123!important;border:1px solid #b58a5d!important;
+  font:700 clamp(11px,.74vw,13px)/1.35 system-ui,sans-serif!important;
+  border-radius:7px;padding:8px 11px;min-height:38px;cursor:pointer;
+  transition:background .15s ease,border-color .15s ease;
+}
+.ps36-section-index button:hover{background:#eac799!important;border-color:#8c542d!important;filter:none!important;}
+.ps36-section-index button:focus-visible{outline:3px solid #90392c!important;outline-offset:2px!important;}
+.ps36-section-index button[aria-current="true"]{background:#7b3228!important;color:#fff1d6!important;border-color:#7b3228!important;}
+/* Widoczna hierarchia: podstawowe zadania, następnie analiza i rozszerzenia. */
+.section.ps36-polished > .ps36-primary{scroll-margin-top:18px;}
+.section.ps36-polished > .ps36-secondary{scroll-margin-top:18px;}
+.section.ps36-polished > .ps36-primary + .ps36-primary,
+.section.ps36-polished > .ps36-secondary + .ps36-secondary{margin-top:var(--ps36-gap)!important;}
+.section.ps36-polished > .ps36-primary :is(h2,h3,h4),
+.section.ps36-polished > .ps36-secondary :is(h2,h3,h4){line-height:1.3;}
+.section.ps36-polished > :is(.ps36-primary,.ps36-secondary) :is(p,small,li,summary,blockquote){line-height:1.6;}
+/* Zamiast ciemnych wysp i przypadkowej typografii: wspólne wyglądy skrótów. */
+.ps36-polished .sv2-subnav{background:linear-gradient(125deg,#f4dfbd,#e5c69a)!important;
+  border:1px solid var(--ps36-line)!important;border-radius:10px!important;
+  box-shadow:var(--ps36-shadow)!important;padding:10px 12px!important;
+  margin:0 0 var(--ps36-gap)!important;gap:8px!important;}
+.ps36-polished .sv2-subnav-label{color:#654830!important;letter-spacing:.07em;font-size:11px!important;font-weight:800!important;}
+.ps36-polished .sv2-subnav button{background:#fff0d7!important;border:1px solid #aa8257!important;
+  color:#433020!important;border-radius:7px!important;padding:8px 12px!important;min-height:39px!important;
+  font-weight:750!important;box-shadow:none!important;text-shadow:none!important;}
+.ps36-polished .sv2-subnav button:focus-visible{outline:3px solid #90392c!important;}
+.ps36-polished .sv2-subnav button:hover{background:#eac797!important;filter:none!important;}
+.ps36-polished .sv2-subnav button[aria-current="page"]{background:#8b3027!important;color:#fff1d9!important;}
+.ps36-polished .ps61-secondary-shortcuts > summary{background:#f3dbb5!important;color:#4d3121!important;border:1px solid #ae845b!important;
+  border-radius:8px!important;font-weight:750!important;padding:10px 13px!important;}
+/* Rozbudowane moduły, wspólne pola i informacja zwrotna. */
+.ps36-polished:not(#interview) :is(.surface,.ps2-context,.ps41-auto,.ps66-explain,.sc-inspector,.ev-reader,.ev-index,.tl-panel,.tl-consistency,.ps38-board,.ps-next-panel,.ps88-details,.ux4-guide,.ux4-disclosure,.fc-main,.fc-defense,.fc-verdict,.psF1Gate,.fc-progress){
+  border-radius:var(--ps36-radius)!important;
+}
+.ps36-polished:not(#interview) :is(.surface,.ps2-context,.ps41-auto,.sc-inspector,.ev-reader,.ev-index,.tl-panel,.tl-consistency,.ps38-board,.ps-next-panel,.ps88-details,.ux4-guide,.ux4-disclosure,.fc-main,.fc-defense,.fc-verdict){
+  box-shadow:var(--ps36-shadow);
+}
+.ps36-polished:not(#interview) :is(.surface,.ps2-context,.sc-inspector,.ev-reader,.ev-index,.tl-panel,.ux4-guide,.fc-main,.fc-defense,.ps38-board) :is(h2,h3,h4){
+  margin-bottom:clamp(4px,.4vw,8px);color:var(--ps36-ink)!important;
+}
+.ps36-polished:not(#interview) :is(.surface,.ps2-context,.sc-inspector,.ev-reader,.ev-index,.tl-panel,.ux4-guide,.fc-main,.fc-defense,.ps38-board) :is(p,small,li){
+  overflow-wrap:anywhere;
+}
+.ps36-polished :is(input,textarea,select){line-height:1.45;}
+.ps36-polished :is(label,legend){font-weight:650;}
+.ps36-polished:not(#interview) :is(.formline,.dd-editor-actions,.fc-actions,.p3-actions){gap:8px 12px!important;flex-wrap:wrap;}
+.ps36-polished:not(#interview) :is(.grid2,.grid3,.locationgrid,.ui14-module-grid,.ev-evidence-types,.dd-board,.fc-grid,.sc-layout){gap:var(--ps36-gap)!important;}
+.ps36-polished:not(#interview) :is(.grid2,.grid3,.locationgrid,.ui14-module-grid,.ev-evidence-types) > *{min-width:0;}
+.ps36-polished:not(#interview) :is(.surface,.dd-editor-panel,.dd-source-panel,.fc-main,.fc-defense,.sc-notebook){overflow-wrap:anywhere;}
+/* Pulpit: spójny podział między początkiem, postępem a wątkami. */
+#overview.ps36-polished .hero{margin-bottom:var(--ps36-gap)!important;}
+#overview.ps36-polished :is(#ps2Welcome,#ps70Pulse,#story26Overview){margin-block:var(--ps36-gap)!important;}
+#overview.ps36-polished #story26Overview .story26-track{grid-template-columns:repeat(auto-fit,minmax(min(100%,225px),1fr))!important;gap:12px!important;}
+/* Akta: filtry i dokumenty tworzą jedną całość, ale każda czynność ma własny obszar. */
+#evidence.ps36-polished .ev-evidence-types{margin-block:12px!important;}
+#evidence.ps36-polished .ev-workspace{margin-top:var(--ps36-gap)!important;gap:14px!important;}
+#evidence.ps36-polished .ev-file{line-height:1.5;}
+/* Poszukiwania: wyraźna strefa wyboru i formularz wyszukiwania. */
+#search.ps36-polished #areas{margin-block:var(--ps36-gap)!important;}
+#search.ps36-polished .searchbox{margin-top:var(--ps36-gap)!important;}
+/* Oś czasu: zadanie użytkownika przed długim, automatycznym raportem. */
+#timeline.ps36-polished .tl-metrics{margin-block:var(--ps36-gap)!important;}
+#timeline.ps36-polished .tl-main{margin-bottom:var(--ps36-gap)!important;}
+/* Oględziny: najpierw plan i działania, potem dokumentacja; bez sztywnych wymiarów. */
+#inspection12.ps36-polished .et1-actions{margin-block:var(--ps36-gap)!important;}
+#inspection12.ps36-polished .sc-layout{margin-top:var(--ps36-gap)!important;}
+/* Notatnik: narzędzie główne ma pierwszeństwo przed analizą dodatkową. */
+#notebook.ps36-polished .sc-notebook{margin-block:var(--ps36-gap)!important;}
+#notebook.ps36-polished #conflictPanel{margin-block:var(--ps36-gap)!important;}
+/* Laboratorium i Dedukcja: jeden główny punkt pracy, wyraźnie oddzielone wyniki. */
+#labs.ps36-polished #ux5Hub{margin-bottom:var(--ps36-gap)!important;}
+#deduction.ps36-polished .dd-work{margin-block:var(--ps36-gap)!important;}
+#deduction.ps36-polished #threadBoardPanel{margin-block:var(--ps36-gap)!important;}
+/* Finał: hierarchia od warunków do decyzji, z zachowaniem blokad. */
+#final.ps36-polished #psF1Gate{margin-block:var(--ps36-gap)!important;}
+/* Oddzielony interfejs przesłuchania zachowuje wypracowany wygląd referencyjny. */
+#interview.ps36-polished .charactergrid{margin-bottom:var(--ps36-gap)!important;}
+#interview.ps36-polished .ps-next-panel{margin-block:var(--ps36-gap)!important;}
+/* Urządzenia: priorytet dla czytelności zamiast zmniejszania całej strony. */
+@media(max-width:850px){
+  .ps36-section-index{padding:9px 10px;gap:6px;}
+  .ps36-index-title{flex-basis:100%;border:0;padding:0;margin:0 0 2px;}
+  .ps36-section-index button{flex:1 1 auto;min-width:0;padding:8px 9px;white-space:normal;}
+  .section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head){margin-bottom:12px!important;}
+  .ps36-polished .sv2-subnav{padding:8px!important;}
+}
+@media(max-width:420px){
+  .section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(h1,h2){font-size:clamp(21px,6vw,26px)!important;}
+  .ps36-section-index{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ps36-index-title{grid-column:1/-1;}
+  .ps36-section-index button{width:100%;min-width:0;}
+}
+@media(prefers-reduced-motion:reduce){
+  .ps36-section-index button{transition:none!important;}
+}
+/* Formularz Dedukcji: ukryty panel źródeł nie może rezerwować drugiej kolumny. */
+#deduction.ps36-polished .dd-work.ux4-one-column{
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%!important;
+}
+#deduction.ps36-polished .dd-work.ux4-one-column .dd-editor-panel{
+  width:100%!important;min-width:0!important;max-width:100%!important;
+  grid-column:1/-1!important;
+}
+#deduction.ps36-polished .dd-work .dd-source-panel[hidden]{display:none!important;}
+/* Nagłówki modułów: historyczny jasnoniebieski opis był nieczytelny na pergaminie. */
+.section.ps36-polished.ps28-skin > :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(p,small,.muted,.small,.subtitle,span:not(.eyebrow):not(.chip)){
+  color:#513a29!important;opacity:1!important;text-shadow:none!important;
+}
+.section.ps36-polished.ps28-skin > :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(h1,h2,h3,strong,b){color:#39261b!important;opacity:1!important;}

@@ -1,0 +1,102 @@
+/* RC57.10.42 — mobile interview UX, responsive and accessible.
+   Only presentation: no witness/evidence/game-state changes. */
+@media (max-width: 899px) and (orientation: portrait), (max-width:599px){
+  /* The previous single-row photo strip clipped names and statuses. */
+  #interview.psm-show-witnesses #characterList.characterlist {
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-auto-rows:auto!important;
+    align-content:start!important;
+    max-height:min(52dvh,470px)!important;
+    min-height:0!important;
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    scrollbar-width:thin!important;
+    overscroll-behavior:contain;
+    padding:7px!important;
+    gap:8px!important;
+  }
+  #interview.psm-show-witnesses #characterList .character {
+    display:flex!important;
+    width:100%!important;
+    flex:initial!important;
+    min-width:0!important;
+    height:auto!important;
+    max-height:none!important;
+    min-height:80px!important;
+    padding:7px!important;
+    overflow:visible!important;
+    align-items:center!important;
+    text-align:left!important;
+  }
+  #interview.psm-show-witnesses #characterList .character .charactercopy{
+    flex:1 1 auto!important;min-width:0!important;max-width:100%!important;
+  }
+  #interview.psm-show-witnesses #characterList .charactercopy small {
+    display:-webkit-box!important;-webkit-box-orient:vertical!important;
+    -webkit-line-clamp:2!important;white-space:normal!important;
+    overflow:hidden!important;text-overflow:ellipsis!important;
+    max-height:3em!important;line-height:1.4!important;font-size:13px!important;
+  }
+  #interview.psm-show-witnesses #characterList .character:focus-visible{
+    outline:3px solid #8d3f2b!important;outline-offset:2px!important;
+  }
+  /* Confrontation belongs to an ongoing interview, not witness selection. */
+  #interview.psm-show-witnesses .ps42-confrontation-wrap{display:none!important;}
+  #interview.psm-show-chat .ps42-confrontation-wrap{
+    display:block!important;margin:12px 0 0!important;
+    border:1px solid #b58b57;border-radius:10px;
+    background:linear-gradient(120deg,#f4ddba,#e6c49b);
+    box-shadow:0 2px 8px #2c1c1840;
+    overflow:hidden;
+  }
+  #interview .ps42-confrontation-wrap > summary {
+    cursor:pointer;display:list-item!important;min-height:45px!important;
+    padding:12px 14px!important;margin:0!important;
+    color:#452c1d!important;font:700 14px/1.45 Georgia,serif!important;
+  }
+  #interview .ps42-confrontation-wrap[open]>summary{border-bottom:1px solid #bf956a;}
+  #interview .ps42-confrontation-wrap #ps43Confrontation{
+    margin:0!important;border:0!important;border-radius:0!important;
+    box-shadow:none!important;padding:12px!important;
+  }
+  /* Portrait/psychology summary is available on demand, not on every turn. */
+  #interview .chathead .psm-portrait-toggle{
+    width:auto!important;max-width:160px!important;min-width:110px!important;
+    height:auto!important;min-height:32px!important;
+    padding:5px 8px!important;white-space:normal!important;
+    text-overflow:clip!important;font-size:11px!important;line-height:1.25!important;
+  }
+  #interview .chatfoot{padding:10px 12px!important;min-height:130px!important;}
+  #interview #chatInput{min-height:56px!important;max-height:30dvh!important;}
+  #interview #chatSend{min-height:44px!important;}
+}
+@media(max-width:359px){
+  #interview.psm-show-witnesses #characterList.characterlist{max-height:48dvh!important;}
+  #interview.psm-show-witnesses #characterList .character{min-height:74px!important;}
+}
+@media(min-width:600px) and (orientation:landscape), (min-width:900px){
+  #interview .ps42-confrontation-wrap{display:contents!important;}
+  #interview .ps42-confrontation-wrap > summary{display:none!important;}
+}
+/* Override old carousel's explicit fixed height and numbered grid tracks. */
+@media (max-width: 899px) and (orientation:portrait), (max-width:599px){
+ #interview.psm-show-witnesses #characterList.characterlist {
+   display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;
+   height:auto!important;max-height:min(52dvh,470px)!important;
+ }
+ #interview.psm-show-witnesses #characterList .character {
+   grid-row:auto!important;grid-column:auto!important;flex:0 0 auto!important;
+   box-sizing:border-box!important;max-width:100%!important;
+ }
+}
+/* When expanded portrait is hidden, avoid wasting half of the mobile screen. */
+@media(max-width:700px){
+  #interview.psm-show-chat:not(.psm-portrait-open) .chathead{
+    min-height:126px!important;height:126px!important;flex-basis:126px!important;
+    max-height:none!important;overflow:hidden!important;
+  }
+  #interview.psm-show-chat:not(.psm-portrait-open) .chatlog{
+    max-height:clamp(164px,34dvh,275px)!important;
+  }
+}

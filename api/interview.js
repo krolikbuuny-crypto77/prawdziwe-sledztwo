@@ -25,6 +25,7 @@ import {styleForWitness} from '../lib/narrative-voice-619.js';
 import {dialogueContinuity} from '../lib/dialogue-continuity-620.js';
 import {buildThreadCue} from '../lib/dialogue-threads-621.js';
 import {dialogueDirection} from '../lib/dialogue-direction-rc32.js';
+import {buildInterrogationBrief} from '../lib/interrogation-brief-rc45.js';
 import {classifyModelReply} from '../lib/story-consistency.js';
 import {configured,sessionId,loadSession,commitSession,appendReportedTurn,approvedHistory,allowInterview} from '../lib/server-state.js';
 /* Pakiet 6.7: rozumienie intencji -> dobór udostępnionych faktów -> wypowiedź -> niezależna ocena semantyczna.
@@ -421,6 +422,9 @@ export default async function handler(req,res){
  scene.witnessStrategy=chooseWitnessStrategy(input.witnessId,stored?.state||null,scene.declarationLedger,scene.question,scene.presentedEvidence);
  // RC32: ton i kierunek rozmowy wyłącznie z pytania i zatwierdzonej historii.
  scene.dialogueDynamics=dialogueDirection(scene);
+ // RC57.10.45: consistent question focus, knowledge provenance and character tone;
+ // only approved server facts and approved witness turns enter this plan.
+ scene.interrogationBrief=buildInterrogationBrief(scene);
  const canonical=scene.knowledge.currentGroundedAnswer;
  // Zmiana tonu wynika z dialogu, ale nie z autorytatywnych dowodów ani ze stanu postępu.
  // Po włączeniu Supabase korzysta z zatwierdzonej historii, nie z treści dopisanej w przeglądarce.

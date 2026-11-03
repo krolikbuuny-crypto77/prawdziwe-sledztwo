@@ -4992,6 +4992,1046 @@ body{background:#1a0b05!important;background-image:linear-gradient(90deg,#100803
   cursor:pointer;
 }
 #ps80AudioBar{z-index:40!important;}
+/* RC57.10.32 · final contrast consistency for saved-session prompt,
+   inspections, hypothesis editor and internal section shortcuts.
+   Presentation only; all data, actions and gameplay rules remain untouched. */
+#psResumeOffer.ps-resume-offer {
+  background:linear-gradient(145deg,#fae9ce 0%,#e7c89e 100%)!important;
+  border:2px solid #98683c!important;
+  color:#38271c!important;
+  padding:clamp(16px,3vw,28px)!important;
+  box-shadow:0 9px 23px rgba(29,17,10,.23)!important;
+  border-radius:12px!important;
+}
+#psResumeOffer.ps-resume-offer > strong {
+  color:#422819!important;font:700 clamp(21px,2.1vw,30px)/1.24 Georgia,'Times New Roman',serif!important;
+  text-shadow:none!important;overflow-wrap:normal;
+}
+#psResumeOffer.ps-resume-offer :is(p,.small,.muted) {
+  color:#4a3425!important;opacity:1!important;
+  font-size:clamp(13px,1.05vw,16px)!important;line-height:1.6!important;
+  text-shadow:none!important;
+}
+#psResumeOffer .formline{display:flex;flex-wrap:wrap;gap:11px!important;align-items:stretch;}
+#psResumeOffer .formline button{flex:1 1 175px;min-height:46px;white-space:normal;}
+#psResumeOffer .formline button:first-child{background:#873426!important;color:#fff4e3!important;border-color:#6b271d!important;}
+#psResumeOffer .formline button:not(:first-child){background:#f2ddba!important;color:#412b1d!important;border-color:#ad8050!important;}
+#psResumeOffer button:focus-visible{outline:3px solid #264e65!important;outline-offset:3px!important;}
+
+/* Contextual module navigation: one light dossier strip, not blue dashboard chips. */
+.section:not(#interview) .sv2-subnav {
+  background:linear-gradient(135deg,#f1dbb6,#e7c99f)!important;
+  border:1px solid #ab8152!important;border-radius:10px!important;
+  box-shadow:0 3px 8px rgba(50,27,15,.13)!important;
+  padding:9px 12px!important;margin:8px 0 17px!important;
+  min-width:0;align-items:center!important;gap:7px!important;
+}
+.section:not(#interview) .sv2-subnav-label{
+  color:#633d28!important;opacity:1!important;
+  font:800 11px/1.3 system-ui,sans-serif!important;
+  letter-spacing:.08em!important;margin-right:8px!important;
+}
+.section:not(#interview) .sv2-subnav button{
+  background:#f9e8cc!important;color:#492e20!important;
+  border:1px solid #a87e50!important;border-radius:7px!important;
+  font:700 12px/1.35 system-ui,sans-serif!important;
+  min-height:41px!important;padding:9px 14px!important;
+  text-shadow:none!important;opacity:1!important;
+  box-shadow:0 1px 2px rgba(48,26,11,.13)!important;
+}
+.section:not(#interview) .sv2-subnav button:is(:hover,:focus-visible),
+.section:not(#interview) .sv2-subnav button.active{
+  background:#883529!important;color:#fff2db!important;
+  border-color:#733125!important;
+}
+.section:not(#interview) .sv2-subnav button:focus-visible{outline:2px solid #29465b!important;outline-offset:2px!important;}
+.ps61-secondary-shortcuts:has(>.sv2-subnav) > summary{
+  color:#573823!important;opacity:1!important;
+}
+
+/* Inspections: these explanatory nodes were pale blue on parchment. */
+#inspection12.ps28-skin #ciFocusCard :is(.ci-focus-observation,.ci-focus-meta,.ci-eyebrow),
+#inspection12.ps28-skin #ciFocusCard .ci-focus-action > span {
+  color:#503724!important;opacity:1!important;
+  text-shadow:none!important;line-height:1.6!important;
+}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-observation{font-size:13px!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-title{color:#3e2618!important;opacity:1!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-state:not(.done){
+  background:#f6e6cb!important;color:#543c29!important;border:1px solid #a47c50!important;
+}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-action{border-top-color:#bb9871!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-action button:disabled{
+  background:#e1d2b8!important;color:#67503c!important;border-color:#aa926c!important;opacity:.87!important;
+}
+
+/* Deduction: all input labels inherit obsolete light-on-dark font colors. */
+#deduction.ps28-skin .dd-editor-panel .dd-field,
+#deduction.ps28-skin .dd-editor-panel .dd-field > label,
+#deduction.ps28-skin .dd-editor-panel .dd-help,
+#deduction.ps28-skin .dd-editor-panel :is(.eyebrow,.dd-panel-head,.ux4-intro,.ux4-guide),
+#deduction.ps28-skin .dd-editor-panel :is(.small,.muted){
+  color:#503524!important;opacity:1!important;text-shadow:none!important;
+}
+#deduction.ps28-skin .dd-editor-panel .dd-field > label{
+  display:block;font-weight:750!important;font-size:13px!important;
+  line-height:1.45!important;margin:0 0 4px!important;
+}
+#deduction.ps28-skin .dd-editor-panel :is(input,textarea,select){
+  background:#fff3dd!important;color:#402a1d!important;
+  border:1px solid #a67b4f!important;opacity:1!important;
+  font-size:clamp(14px,1vw,16px)!important;
+}
+#deduction.ps28-skin .dd-editor-panel :is(input,textarea)::placeholder{color:#67503d!important;opacity:1!important;}
+#deduction.ps28-skin .dd-editor-panel :is(input,textarea,select):focus-visible{
+  outline:2px solid #873729!important;outline-offset:1px!important;
+}
+#deduction.ps28-skin .dd-editor-panel .dd-field .dd-help{font-size:12px!important;line-height:1.5!important;}
+
+/* Consistent pale paper section labels without overwriting colored interactive states. */
+.ps28-skin :is(.sc-object-physical,.sc-source,.ci-focus-meta,.dd-field > label){text-shadow:none!important;}
+@media(max-width:690px){
+  #psResumeOffer.ps-resume-offer{padding:15px!important;}
+  #psResumeOffer.ps-resume-offer .formline{display:grid!important;grid-template-columns:minmax(0,1fr)!important;}
+  #psResumeOffer.ps-resume-offer .formline button{width:100%!important;flex:auto!important;}
+  .section:not(#interview) .sv2-subnav{padding:8px!important;gap:6px!important;}
+  .section:not(#interview) .sv2-subnav button{min-width:0!important;flex:1 1 110px!important;}
+}
+
+/* RC57.10.33 — poprawki kontrastu podpisów fotografii i paska animacji.
+   Tylko prezentacja, bez zmian logiki śledztwa. */
+#inspection12.ps28-skin .et2-room-picker > label {
+  color:#422b1d!important;opacity:1!important;text-shadow:none!important;
+  font:750 clamp(13px,1vw,15px)/1.45 system-ui,sans-serif!important;
+}
+#inspection12.ps28-skin .et2-room-picker > select {
+  background:#fff3dc!important;color:#38281c!important;
+  border:1px solid #a47a4d!important;font-size:clamp(14px,1vw,16px)!important;
+}
+#inspection12.ps28-skin .psm-photo-zoom {
+  box-sizing:border-box!important;display:flex!important;align-items:center!important;
+  flex-wrap:wrap!important;justify-content:flex-end!important;gap:8px!important;
+  background:linear-gradient(120deg,#f8e7c9,#e8c99f)!important;
+  border:1px solid #ac8356!important;border-radius:9px!important;
+  margin:9px 0 6px!important;padding:9px 11px!important;min-height:60px!important;
+}
+#inspection12.ps28-skin .psm-photo-zoom > .psm-zoom-caption {
+  flex:1 1 155px!important;min-width:0!important;
+  color:#432e1f!important;opacity:1!important;text-shadow:none!important;
+  font:650 clamp(12px,1vw,14px)/1.4 system-ui,sans-serif!important;
+}
+#inspection12.ps28-skin .psm-photo-zoom > output {
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  box-sizing:border-box!important;min-width:55px!important;min-height:42px!important;
+  padding:6px 8px!important;background:#fff1d7!important;
+  border:1px solid #a67b50!important;border-radius:7px!important;
+  color:#3b291b!important;opacity:1!important;text-shadow:none!important;
+  font:750 13px/1.25 system-ui,sans-serif!important;font-variant-numeric:tabular-nums!important;
+}
+#inspection12.ps28-skin .psm-photo-zoom > button {
+  min-height:42px!important;min-width:42px!important;
+  background:#21333c!important;color:#ffedd4!important;
+  border:1px solid #66717b!important;border-radius:8px!important;
+  font-size:14px!important;
+}
+#inspection12.ps28-skin .psm-photo-zoom > button:hover {background:#334b57!important;}
+#inspection12.ps28-skin :is(.psm-photo-zoom button,.et2-room-picker select):focus-visible {
+  outline:3px solid #883c2c!important;outline-offset:2px!important;
+}
+/* Dawne overflow:auto rysowało pasek przewijania obok przycisku Animacje. */
+#interview .ps87-room-toolbar {
+  box-sizing:border-box!important;display:flex!important;flex-wrap:wrap!important;
+  align-items:center!important;justify-content:space-between!important;
+  gap:8px 12px!important;max-width:100%!important;
+  min-height:55px!important;padding:8px 16px!important;
+  overflow:visible!important;
+}
+#interview .ps87-room-toolbar .ps87-room-title {
+  min-width:0!important;flex:1 1 145px!important;
+  overflow-wrap:anywhere!important;line-height:1.35!important;
+}
+#interview .ps87-room-toolbar .ps87-motion {
+  box-sizing:border-box!important;display:inline-flex!important;
+  align-items:center!important;justify-content:center!important;flex:0 0 auto!important;
+  min-height:38px!important;max-width:100%!important;
+  padding:9px 13px!important;line-height:1.2!important;
+  white-space:normal!important;text-align:center!important;
+}
+#interview .ps87-room-toolbar .ps87-motion:focus-visible {
+  outline:2px solid #f5d3a2!important;outline-offset:2px!important;
+}
+@media(max-width:430px){
+  #inspection12.ps28-skin .psm-photo-zoom {justify-content:center!important;gap:7px!important;}
+  #inspection12.ps28-skin .psm-photo-zoom > .psm-zoom-caption {
+    flex:0 0 100%!important;text-align:center!important;
+  }
+  #inspection12.ps28-skin .psm-photo-zoom > output{min-width:50px!important;}
+  #inspection12.ps28-skin .psm-photo-zoom > button {
+    min-width:40px!important;padding:8px!important;
+  }
+  #inspection12.ps28-skin .psm-photo-zoom > button:last-child {min-width:73px!important;}
+  #interview .ps87-room-toolbar {padding:9px 11px!important;gap:7px!important;}
+  #interview .ps87-room-toolbar .ps87-motion{padding:8px 10px!important;}
+}
+/* Precyzyjne nadpisanie historycznej reguły #interview #ps87RoomToolbar,
+   która ograniczała wysokość do 38px i włączała przewijanie. */
+#interview #ps87RoomToolbar {
+  max-height:none!important;
+  height:auto!important;
+  min-height:52px!important;
+  overflow:visible!important;
+}
+@media(max-width:430px){
+  #interview #ps87RoomToolbar{min-height:52px!important;}
+}
+/* RC57.10.34 — globalny audyt kontrastu tekstów.
+   Warstwa wyłącznie prezentacyjna: nie zmienia logiki, zapisów ani API. */
+:root{
+  --ps1034-ink:#2f2219;
+  --ps1034-text:#4d3828;
+  --ps1034-muted:#614a37;
+  --ps1034-strong:#f4efe6;
+  --ps1034-soft:#d2dcde;
+  --ps1034-soft2:#bcc8cb;
+}
+/* Domyślnie: czytelniejsze teksty drugorzędne i placeholdery na ciemnym motywie. */
+body :is(input,textarea)::placeholder{color:#8b9aa0!important;opacity:1!important;}
+body :is(.muted,.small.muted,.tiny.muted,.searchResults,.footer,.sectionheading p,.dd-head p,.tl-head p,.mg2-help,.mg2-message,.p3-instruction,.p3-note,.ci-note,.tcms-intro p){color:var(--ps1034-soft2)!important;opacity:1!important;}
+body :is(.small,.tiny,.note small,.eventrow,.dd-help,.mg2-key,.p3-actions small){opacity:1!important;}
+body :is(label,legend,output,summary){opacity:1!important;}
+/* Jasna skóra: jeden spójny zestaw kolorów dla tekstów pomocniczych i etykiet. */
+.ps28-skin :is(.surface,.searchbox,.ps41-auto,.ux5-hub,.cross3-section,.tl-panel,.ev-reader,.story26-panel,.sc-inspector,.sc-mission,.fc-main,.fc-defense,.fc-side,.fc-feedback,.dd-note,.dd-source-panel,.dd-editor-panel,.dd-board,.dd-board-head,.dd-feedback,.ux4-guide,.ux4-disclosure,.ps-next-panel,.ps-card,.psm-photo-zoom,.et2-room-picker,.ps-opt-orientation,#psResumeOffer,.ps61-secondary-shortcuts,.sv2-subnav,.ps76-tools) :is(p,small,label,legend,summary,output,.small,.tiny,.muted,.dd-help,.ux4-step-help,.ux4-nav small,.p3-feedback,.fc-feedback,.fc-side small,.fc-side p){color:var(--ps1034-text)!important;opacity:1!important;text-shadow:none!important;}
+.ps28-skin :is(.surface,.searchbox,.ps41-auto,.ux5-hub,.cross3-section,.tl-panel,.ev-reader,.story26-panel,.sc-inspector,.sc-mission,.fc-main,.fc-defense,.fc-side,.fc-feedback,.dd-note,.dd-source-panel,.dd-editor-panel,.dd-board,.dd-board-head,.dd-feedback,.ux4-guide,.ux4-disclosure,.ps-next-panel,.ps-card,.psm-photo-zoom,.et2-room-picker,.ps-opt-orientation,#psResumeOffer,.ps61-secondary-shortcuts,.sv2-subnav,.ps76-tools) :is(h2,h3,h4,strong,b){color:var(--ps1034-ink)!important;text-shadow:none!important;}
+.ps28-skin :is(.surface,.searchbox,.ps41-auto,.ux5-hub,.cross3-section,.tl-panel,.ev-reader,.story26-panel,.sc-inspector,.sc-mission,.fc-main,.fc-defense,.fc-side,.fc-feedback,.dd-note,.dd-source-panel,.dd-editor-panel,.dd-board,.dd-board-head,.dd-feedback,.ux4-guide,.ux4-disclosure,.ps-next-panel,.ps-card,.psm-photo-zoom,.et2-room-picker,.ps-opt-orientation,#psResumeOffer,.ps61-secondary-shortcuts,.sv2-subnav,.ps76-tools) :is(input,textarea,select){color:var(--ps1034-ink)!important;}
+.ps28-skin :is(input,textarea)::placeholder{color:#6e5845!important;opacity:1!important;}
+/* Przesłuchania / panele na ciemnym tle — jaśniejsze teksty pomocnicze. */
+#interview :is(.ps-next-panel,.ps87-room-toolbar,.chathead,.chatfoot,.ps54-issue,.ps53-source,.ps38-board,.ps39-panel,.ps-card) :is(p,small,label,legend,summary,output,.small,.tiny,.muted){color:var(--ps1034-soft)!important;opacity:1!important;text-shadow:none!important;}
+#interview :is(.ps-next-panel,.ps87-room-toolbar,.chathead,.chatfoot,.ps54-issue,.ps53-source,.ps38-board,.ps39-panel,.ps-card) :is(h2,h3,h4,strong,b){color:#f0dcc0!important;text-shadow:none!important;}
+#interview .ps87-room-toolbar .ps87-room-title{color:#f2dfc0!important;}
+#interview .ps87-room-toolbar .ps87-motion{background:#203641!important;color:#f8e6c6!important;border:1px solid #6c8591!important;}
+/* Oględziny — najczęściej zgłaszane miejsca o zbyt bladym tekście. */
+#inspection12.ps28-skin :is(.et2-room-picker,.psm-photo-zoom,.ps-opt-orientation,.ps-opt-orientation details,.ps-opt-orientation summary,#ciFocusCard,.ov36-navigator,.ov37-archive,.ov37-card-document,.ov36-region-card,.ps61-secondary-shortcuts,.sv2-subnav){color:var(--ps1034-ink)!important;}
+#inspection12.ps28-skin :is(.et2-room-picker label,.et2-hint,#et2Direction,.psm-zoom-caption,#psmSceneZoomLabel,.ci-focus-title,.ci-focus-meta,.ci-focus-observation,.ci-focus-action span,.ov36-help,.ov36-counter,.ov36-description span,.ov37-context,.ov37-status,.ov37-source,.sv2-subnav-label){color:var(--ps1034-text)!important;opacity:1!important;text-shadow:none!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-title{color:#3a271a!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-state{background:#fff0d7!important;color:#513a29!important;border:1px solid #a47e52!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-state.done{background:#e4f0e6!important;color:#335644!important;border-color:#7ba08a!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-action{border-top-color:#b69470!important;}
+#inspection12.ps28-skin .psm-photo-zoom > button{background:#18303a!important;color:#fff0d6!important;border-color:#5f7680!important;}
+#inspection12.ps28-skin .psm-photo-zoom > button:last-child{background:#18303a!important;color:#fff0d6!important;}
+/* Dedukcja — etykiety i opisy pól muszą być stale czytelne na jasnych panelach. */
+#deduction.ps28-skin .dd-editor-panel :is(.dd-field,.dd-field > label,.dd-help,.small,.muted,.tiny,.dd-feedback,.dd-countnote,.ux4-step-help,.ux4-step-copy small,.ux4-nav small,.ux4-guide p,.ux4-disclosure summary,.dd-panel-head span,.dd-tag,.dd-editor-actions span){color:#4f3828!important;opacity:1!important;text-shadow:none!important;}
+#deduction.ps28-skin .dd-editor-panel .dd-field > label{font-weight:750!important;font-size:13px!important;line-height:1.45!important;margin:0 0 4px!important;}
+#deduction.ps28-skin :is(.dd-source-panel,.dd-editor-panel,.dd-board,.ux4-guide,.ux4-disclosure,.dd-feedback,.dd-board-head) :is(h2,h3,h4,strong,b){color:#37261a!important;}
+#deduction.ps28-skin .dd-editor-panel :is(input,textarea,select){background:#fff4df!important;color:#38271c!important;border-color:#a77e52!important;}
+#deduction.ps28-skin .dd-editor-panel :is(input,textarea)::placeholder{color:#705845!important;opacity:1!important;}
+/* Werdykt / formularze końcowe. */
+#final.ps28-skin :is(.fc-field,label,.fc-feedback,.fc-side,.fc-side p,.fc-side small,.fc-fields small,.muted,.tiny){color:#4f3828!important;opacity:1!important;text-shadow:none!important;}
+#final.ps28-skin :is(.fc-main,.fc-defense,.fc-side,.fc-feedback) :is(h2,h3,h4,strong,b){color:#36251a!important;}
+/* Drobne poprawki skrótów i pomocy kontekstowej. */
+.ps28-skin .sv2-subnav-label,.ps28-skin .ps76-caption{color:#6a4c35!important;opacity:1!important;text-shadow:none!important;}
+.ps28-skin :is(.sv2-subnav button,.ps61-secondary-shortcuts summary){color:#3d281c!important;}
+@media(max-width:700px){
+  .ps28-skin :is(.psm-photo-zoom,.et2-room-picker,.ps-opt-orientation,.ps-next-panel,.dd-editor-panel,.dd-source-panel,.fc-main,.fc-defense,.fc-side){font-size:inherit!important;}
+  #deduction.ps28-skin .dd-editor-panel .dd-field > label{font-size:12.5px!important;}
+}
+/* RC57.10.35 — automatyczne dopasowanie okna / telefonu / tabletu.
+   Brak skalowania całej strony, brak zmian w mechanice, id, API czy zapisach.
+   Reguły uruchamiają się przy zmianie viewportu i orientacji automatycznie. */
+:root{
+ --ps35-sidebar:clamp(208px,15.5vw,255px);
+ --ps35-gutter:clamp(11px,1.5vw,26px);
+ --ps35-card-gap:clamp(10px,1.15vw,20px);
+}
+html{min-width:0;scroll-padding-top:clamp(65px,8vh,110px);}
+body,.layout,.main,.content{min-width:0;max-width:100%;}
+/* Nie wycinamy okien dialogowych ani efektów: przepełnienie w poziomie
+   obsługują wewnętrzne listy, a nie główny dokument. */
+.layout>.main{min-width:0;max-width:100%;}
+.content{box-sizing:border-box;width:100%;max-width: min(1680px,100%);min-width:0;margin-inline:auto;}
+.content>.section,.content>.section>*{max-width:100%;min-width:0;}
+.content .section img,.content .section video,.content .section canvas{max-width:100%;}
+.content .section :is(.hero,.grid2,.grid3,.locationgrid,.docgrid,.charactergrid,.tl-main,.sc-layout,.dd-work,.fc-grid,.ev-workspace,.ux5-grid,.ui15-checklist,.ui14-module-grid) {min-width:0;max-width:100%;}
+.content .section :is(.hero,.grid2,.grid3,.locationgrid,.docgrid,.charactergrid,.tl-main,.sc-layout,.dd-work,.fc-grid,.ev-workspace,.ux5-grid,.ui15-checklist,.ui14-module-grid)>*{min-width:0;}
+/* Formularze, tabele i media mogą się zmniejszać bez zasłaniania kontrolek. */
+.content .section :is(input:not([type=checkbox]):not([type=radio]),select,textarea){box-sizing:border-box;max-width:100%;min-width:0;}
+.content .section :is(.formline,.dd-editor-actions,.fc-actions,.ev-controls,.sc-toolrow,.tl-tools){min-width:0;flex-wrap:wrap;}
+.content .section :is(.formline,.dd-editor-actions,.fc-actions,.ev-controls,.sc-toolrow,.tl-tools)>*{min-width:0;}
+.content .section :is(.tcms-table-box,.cv-tablebox,.fo-tablewrap,.ax-scroll,.fc-table-wrap,.tl-scroll,.ev-file-list){max-width:100%;overscroll-behavior-inline:contain;}
+.content .section :is(.tcms-table-box,.cv-tablebox,.fo-tablewrap,.ax-scroll,.fc-table-wrap,.tl-scroll){overflow-x:auto;}
+.content .section :is(.ev-file,.dd-card,.ui14-module,.story26-case,.sc-room,.sc-spot,.fc-check){overflow-wrap:anywhere;}
+/* Minimalna wysokość przycisku jest ważniejsza niż stała szerokość. */
+.content .section :is(button,.btn,[role=button]){box-sizing:border-box;max-width:100%;}
+/* Szerokie monitory / komputery: nie zostawiamy ogromnych pustych marginesów,
+   ale nadal ograniczamy szerokość pojedynczego wiersza tekstu. */
+@media(min-width:1025px){
+ .layout{grid-template-columns:var(--ps35-sidebar) minmax(0,1fr)!important;}
+ .sidebar{width:auto!important;min-width:0!important;}
+ .main{width:100%!important;min-width:0!important;}
+ .content{padding:clamp(16px,1.6vw,32px) var(--ps35-gutter)!important;}
+ .topbar{box-sizing:border-box;min-width:0!important;max-width:100%;padding-inline:var(--ps35-gutter)!important;}
+ .topbar>*{min-width:0;}
+ .content #overview .hero{grid-template-columns:minmax(0,1.15fr) minmax(270px,.85fr);}
+ .content #overview .ui14-module-grid{grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr))!important;}
+ .content #overview .ui15-checklist{grid-template-columns:repeat(auto-fit,minmax(min(265px,100%),1fr))!important;}
+ /* Dokumenty obok czytnika, lecz żadna kolumna nie wymusza poziomego scrolla. */
+ #evidence.ps28-skin .ev-workspace{grid-template-columns:minmax(245px,.9fr) minmax(0,1.3fr)!important;}
+ #deduction.ps28-skin .dd-work{grid-template-columns:minmax(250px,.9fr) minmax(0,1.25fr)!important;}
+ #inspection12.ps28-skin .sc-layout{grid-template-columns:minmax(0,1.3fr) minmax(280px,.83fr)!important;}
+ #final.ps28-skin .fc-grid{grid-template-columns:minmax(0,1.3fr) minmax(270px,.75fr)!important;}
+}
+/* Węższy laptop: przywracamy oddech kluczowym kolumnom, nie zmniejszając tekstu. */
+@media(min-width:1025px) and (max-width:1399px){
+ .topbar{gap:clamp(7px,1vw,15px)!important;}
+ .content{padding-inline:clamp(12px,1.2vw,20px)!important;}
+ #evidence.ps28-skin .ev-workspace{grid-template-columns:minmax(210px,.8fr) minmax(0,1.2fr)!important;}
+ #deduction.ps28-skin .dd-work{grid-template-columns:minmax(215px,.8fr) minmax(0,1.2fr)!important;}
+}
+/* Tablet / telefon: pełna szerokość, menu i karty bez sztucznego pomniejszania. */
+@media(max-width:1024px){
+ .layout{grid-template-columns:minmax(0,1fr)!important;}
+ .sidebar,.main{min-width:0;max-width:100%;}
+ .content{padding:clamp(12px,2vw,20px)!important;width:100%!important;}
+ .topbar{box-sizing:border-box;width:100%;min-width:0;max-width:100%;padding-inline:clamp(10px,2vw,20px)!important;}
+ #evidence.ps28-skin .ev-workspace{grid-template-columns:minmax(0,1fr)!important;}
+ #deduction.ps28-skin .dd-work{grid-template-columns:minmax(0,1fr)!important;}
+ #inspection12.ps28-skin .sc-layout{grid-template-columns:minmax(0,1fr)!important;}
+ #final.ps28-skin .fc-grid{grid-template-columns:minmax(0,1fr)!important;}
+ .content .section :is(.tcms-table-box,.cv-tablebox,.fo-tablewrap,.ax-scroll,.fc-table-wrap){max-width:100%;overflow-x:auto;}
+ #ps80Settings{box-sizing:border-box!important;max-width:min(400px,calc(100vw - 24px))!important;max-height:min(78dvh,650px)!important;overflow-y:auto!important;overscroll-behavior:contain!important;}
+ body.ps-resume-pending #psResumeOffer{box-sizing:border-box;max-width:calc(100vw - 24px)!important;max-height:calc(100dvh - 28px)!important;overflow-y:auto!important;}
+}
+@media(max-width:760px){
+ .content .section :is(.hero,.grid2,.grid3,.locationgrid,.docgrid,.tl-main,.sc-layout,.dd-work,.fc-grid,.ev-workspace){grid-template-columns:minmax(0,1fr)!important;}
+ .content .section .formline{gap:8px;}
+ .content .section :is(.sectionheading,.ev-header,.dd-head,.tl-head){padding:clamp(12px,2.5vw,19px)!important;}
+ .content .section :is(.surface.padded,.padded.surface,.dd-source-panel,.dd-editor-panel,.fc-main,.fc-defense){padding:clamp(12px,2.3vw,18px)!important;}
+ .content .section :is(.ux4-steps,.ui14-module-grid,.ui15-checklist,.story26-track){grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr))!important;}
+ .content .section :is(.psm-photo-zoom,.ci-toolbar,.et1-photo-controls){max-width:100%;}
+ .content .section :is(.psm-photo-zoom,.ci-toolbar) button{min-height:40px;}
+ .content .section :is(.psm-photo-zoom output,.et2-room-picker select){min-width:0;}
+}
+@media(max-width:520px){
+ .content{padding:10px!important;}
+ .content .section :is(.hero,.grid2,.grid3,.locationgrid,.docgrid,.tl-main,.sc-layout,.dd-work,.fc-grid,.ev-workspace,.ui14-module-grid,.ui15-checklist){gap:10px!important;}
+ .content .section :is(.sectionheading,.ev-header,.dd-head,.tl-head){padding:12px!important;margin-bottom:12px!important;}
+ .content .section :is(.formline,.dd-editor-actions,.fc-actions) :is(button,.btn){min-height:42px;}
+ .content .section :is(input:not([type=checkbox]):not([type=radio]),textarea,select){font-size:max(16px,1em)!important;}
+ .content .section :is(.ev-controls,.dd-filters,.sc-toolrow,.tl-tools){gap:7px;}
+ .content .section :is(.ev-controls,.dd-filters) :is(input,select){width:100%;}
+ /* Przesłuchania: niezależny scroll protokołu, bez wypychania pola pytania. */
+ #interview .chat{max-width:100%;min-width:0;}
+ #interview .chatlog{width:100%!important;max-width:100%!important;overflow-y:auto!important;overscroll-behavior-y:contain!important;}
+ #interview .chatfoot{max-width:100%;min-width:0;}
+ #interview .chatfoot #chatInput{width:100%!important;min-width:0!important;max-width:100%!important;font-size:16px!important;}
+ #interview #chatSend{min-height:40px!important;}
+ #ps80Settings{left:auto;right:8px;max-width:calc(100vw - 16px)!important;max-height:calc(100dvh - 24px)!important;overflow-y:auto!important;}
+ body.ps-resume-pending #psResumeOffer{width:calc(100vw - 18px)!important;max-height:calc(100dvh - 18px)!important;}
+}
+/* Małe ekrany o niewielkiej wysokości / otwarta klawiatura. */
+@media(max-width:680px) and (max-height:670px){
+ #interview .chatlog{height:clamp(166px,29dvh,225px)!important;min-height:166px!important;max-height:225px!important;}
+ #interview .chatfoot{overflow:visible!important;max-height:none!important;}
+ #interview .chathead{max-height:155px!important;min-height:150px!important;height:150px!important;flex-basis:150px!important;}
+ .content{padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))!important;}
+}
+@media(orientation:landscape) and (max-height:520px) and (max-width:1024px){
+ .content{padding-top:8px!important;}
+ .topbar{min-height:45px;}
+ .content .section :is(.sectionheading,.ev-header,.dd-head,.tl-head){padding-block:10px!important;}
+ #interview .chatlog{height:clamp(158px,37dvh,220px)!important;min-height:158px!important;}
+}
+/* Dostępność: dotyk, fokus i pasek systemowy. */
+@media(pointer:coarse){
+ .content .section :is(.btn,button,summary,[role=button]){touch-action:manipulation;}
+ .content .section :is(.sv2-subnav button,.ux4-step-button,.ci-tool){min-height:42px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+ .content .section :is(.btn,button,[role=button]){scroll-behavior:auto!important;}
+}
+/* Liczniki Osi czasu: cztery kolumny nie mieszczą się na telefonach. */
+@media(max-width:640px){
+ #timeline.ps28-skin .tl-metrics{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;}
+ #timeline.ps28-skin .tl-metrics>*{min-width:0!important;width:100%!important;}
+}
+@media(max-width:359px){
+ #timeline.ps28-skin .tl-metrics{grid-template-columns:minmax(0,1fr)!important;}
+}
+/* Footer pytania: nie obcinamy dolnej linii pomocy ani obramowania. */
+#interview .chatfoot{box-sizing:border-box!important;min-height:146px!important;max-height:none!important;height:auto!important;overflow:visible!important;flex-shrink:0!important;}
+#interview .chatlog{overflow-anchor:none!important;}
+/* RC57.10.36 · Profesjonalna architektura wizualna wszystkich modułów.
+   Wyłącznie prezentacja: identyfikatory, sterowanie i dane pozostają bez zmian. */
+:root{
+  --ps36-paper:#f2ddbb;
+  --ps36-paper-deep:#e7c9a1;
+  --ps36-paper-light:#fff1d9;
+  --ps36-ink:#36261c;
+  --ps36-copy:#513a2a;
+  --ps36-line:#ac8054;
+  --ps36-red:#8b3027;
+  --ps36-gap:clamp(10px,1.08vw,18px);
+  --ps36-headgap:clamp(10px,1.3vw,19px);
+  --ps36-radius:11px;
+  --ps36-shadow:0 3px 9px #3d221c1c,0 1px 0 #fff9e7a0 inset;
+}
+/* Czytelna kompozycja: jedna szerokość, jeden rytm pionowy i wyraźne rozdziały. */
+.content{--ps36-available:100%;}
+.section.active{display:flow-root;}
+.section.active.ps36-polished{font-size:clamp(14px,.87vw,16px);line-height:1.6;}
+.section.ps36-polished > :not([hidden]){max-width:100%;min-width:0;}
+.section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head){
+  position:relative;margin-bottom:var(--ps36-headgap)!important;
+  padding:clamp(15px,1.5vw,24px)!important;
+  border-radius:var(--ps36-radius)!important;
+}
+.section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(h1,h2){
+  line-height:1.18!important;letter-spacing:-.016em!important;
+  font-size:clamp(24px,2vw,34px)!important;
+}
+.section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) p{max-width:78ch!important;line-height:1.65!important;font-size:clamp(13px,.88vw,15px)!important;}
+/* Szybka orientacja w module: bez dodatkowego menu bocznego i bez zmiany nawigacji. */
+.ps36-section-index{display:flex;flex-wrap:wrap;align-items:center;gap:7px 9px;
+  padding:10px 13px;margin:0 0 var(--ps36-gap);
+  background:linear-gradient(125deg,#f4e0c0,#e8caa1);border:1px solid var(--ps36-line);
+  border-radius:var(--ps36-radius);box-shadow:var(--ps36-shadow);color:var(--ps36-ink);
+}
+.ps36-index-title{font:750 11px/1.4 system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#6e4b30;
+  padding-right:10px;border-right:1px solid #bb946e;margin-right:2px;}
+.ps36-section-index button{background:#fff3de!important;color:#4b3123!important;border:1px solid #b58a5d!important;
+  font:700 clamp(11px,.74vw,13px)/1.35 system-ui,sans-serif!important;
+  border-radius:7px;padding:8px 11px;min-height:38px;cursor:pointer;
+  transition:background .15s ease,border-color .15s ease;
+}
+.ps36-section-index button:hover{background:#eac799!important;border-color:#8c542d!important;filter:none!important;}
+.ps36-section-index button:focus-visible{outline:3px solid #90392c!important;outline-offset:2px!important;}
+.ps36-section-index button[aria-current="true"]{background:#7b3228!important;color:#fff1d6!important;border-color:#7b3228!important;}
+/* Widoczna hierarchia: podstawowe zadania, następnie analiza i rozszerzenia. */
+.section.ps36-polished > .ps36-primary{scroll-margin-top:18px;}
+.section.ps36-polished > .ps36-secondary{scroll-margin-top:18px;}
+.section.ps36-polished > .ps36-primary + .ps36-primary,
+.section.ps36-polished > .ps36-secondary + .ps36-secondary{margin-top:var(--ps36-gap)!important;}
+.section.ps36-polished > .ps36-primary :is(h2,h3,h4),
+.section.ps36-polished > .ps36-secondary :is(h2,h3,h4){line-height:1.3;}
+.section.ps36-polished > :is(.ps36-primary,.ps36-secondary) :is(p,small,li,summary,blockquote){line-height:1.6;}
+/* Zamiast ciemnych wysp i przypadkowej typografii: wspólne wyglądy skrótów. */
+.ps36-polished .sv2-subnav{background:linear-gradient(125deg,#f4dfbd,#e5c69a)!important;
+  border:1px solid var(--ps36-line)!important;border-radius:10px!important;
+  box-shadow:var(--ps36-shadow)!important;padding:10px 12px!important;
+  margin:0 0 var(--ps36-gap)!important;gap:8px!important;}
+.ps36-polished .sv2-subnav-label{color:#654830!important;letter-spacing:.07em;font-size:11px!important;font-weight:800!important;}
+.ps36-polished .sv2-subnav button{background:#fff0d7!important;border:1px solid #aa8257!important;
+  color:#433020!important;border-radius:7px!important;padding:8px 12px!important;min-height:39px!important;
+  font-weight:750!important;box-shadow:none!important;text-shadow:none!important;}
+.ps36-polished .sv2-subnav button:focus-visible{outline:3px solid #90392c!important;}
+.ps36-polished .sv2-subnav button:hover{background:#eac797!important;filter:none!important;}
+.ps36-polished .sv2-subnav button[aria-current="page"]{background:#8b3027!important;color:#fff1d9!important;}
+.ps36-polished .ps61-secondary-shortcuts > summary{background:#f3dbb5!important;color:#4d3121!important;border:1px solid #ae845b!important;
+  border-radius:8px!important;font-weight:750!important;padding:10px 13px!important;}
+/* Rozbudowane moduły, wspólne pola i informacja zwrotna. */
+.ps36-polished:not(#interview) :is(.surface,.ps2-context,.ps41-auto,.ps66-explain,.sc-inspector,.ev-reader,.ev-index,.tl-panel,.tl-consistency,.ps38-board,.ps-next-panel,.ps88-details,.ux4-guide,.ux4-disclosure,.fc-main,.fc-defense,.fc-verdict,.psF1Gate,.fc-progress){
+  border-radius:var(--ps36-radius)!important;
+}
+.ps36-polished:not(#interview) :is(.surface,.ps2-context,.ps41-auto,.sc-inspector,.ev-reader,.ev-index,.tl-panel,.tl-consistency,.ps38-board,.ps-next-panel,.ps88-details,.ux4-guide,.ux4-disclosure,.fc-main,.fc-defense,.fc-verdict){
+  box-shadow:var(--ps36-shadow);
+}
+.ps36-polished:not(#interview) :is(.surface,.ps2-context,.sc-inspector,.ev-reader,.ev-index,.tl-panel,.ux4-guide,.fc-main,.fc-defense,.ps38-board) :is(h2,h3,h4){
+  margin-bottom:clamp(4px,.4vw,8px);color:var(--ps36-ink)!important;
+}
+.ps36-polished:not(#interview) :is(.surface,.ps2-context,.sc-inspector,.ev-reader,.ev-index,.tl-panel,.ux4-guide,.fc-main,.fc-defense,.ps38-board) :is(p,small,li){
+  overflow-wrap:anywhere;
+}
+.ps36-polished :is(input,textarea,select){line-height:1.45;}
+.ps36-polished :is(label,legend){font-weight:650;}
+.ps36-polished:not(#interview) :is(.formline,.dd-editor-actions,.fc-actions,.p3-actions){gap:8px 12px!important;flex-wrap:wrap;}
+.ps36-polished:not(#interview) :is(.grid2,.grid3,.locationgrid,.ui14-module-grid,.ev-evidence-types,.dd-board,.fc-grid,.sc-layout){gap:var(--ps36-gap)!important;}
+.ps36-polished:not(#interview) :is(.grid2,.grid3,.locationgrid,.ui14-module-grid,.ev-evidence-types) > *{min-width:0;}
+.ps36-polished:not(#interview) :is(.surface,.dd-editor-panel,.dd-source-panel,.fc-main,.fc-defense,.sc-notebook){overflow-wrap:anywhere;}
+/* Pulpit: spójny podział między początkiem, postępem a wątkami. */
+#overview.ps36-polished .hero{margin-bottom:var(--ps36-gap)!important;}
+#overview.ps36-polished :is(#ps2Welcome,#ps70Pulse,#story26Overview){margin-block:var(--ps36-gap)!important;}
+#overview.ps36-polished #story26Overview .story26-track{grid-template-columns:repeat(auto-fit,minmax(min(100%,225px),1fr))!important;gap:12px!important;}
+/* Akta: filtry i dokumenty tworzą jedną całość, ale każda czynność ma własny obszar. */
+#evidence.ps36-polished .ev-evidence-types{margin-block:12px!important;}
+#evidence.ps36-polished .ev-workspace{margin-top:var(--ps36-gap)!important;gap:14px!important;}
+#evidence.ps36-polished .ev-file{line-height:1.5;}
+/* Poszukiwania: wyraźna strefa wyboru i formularz wyszukiwania. */
+#search.ps36-polished #areas{margin-block:var(--ps36-gap)!important;}
+#search.ps36-polished .searchbox{margin-top:var(--ps36-gap)!important;}
+/* Oś czasu: zadanie użytkownika przed długim, automatycznym raportem. */
+#timeline.ps36-polished .tl-metrics{margin-block:var(--ps36-gap)!important;}
+#timeline.ps36-polished .tl-main{margin-bottom:var(--ps36-gap)!important;}
+/* Oględziny: najpierw plan i działania, potem dokumentacja; bez sztywnych wymiarów. */
+#inspection12.ps36-polished .et1-actions{margin-block:var(--ps36-gap)!important;}
+#inspection12.ps36-polished .sc-layout{margin-top:var(--ps36-gap)!important;}
+/* Notatnik: narzędzie główne ma pierwszeństwo przed analizą dodatkową. */
+#notebook.ps36-polished .sc-notebook{margin-block:var(--ps36-gap)!important;}
+#notebook.ps36-polished #conflictPanel{margin-block:var(--ps36-gap)!important;}
+/* Laboratorium i Dedukcja: jeden główny punkt pracy, wyraźnie oddzielone wyniki. */
+#labs.ps36-polished #ux5Hub{margin-bottom:var(--ps36-gap)!important;}
+#deduction.ps36-polished .dd-work{margin-block:var(--ps36-gap)!important;}
+#deduction.ps36-polished #threadBoardPanel{margin-block:var(--ps36-gap)!important;}
+/* Finał: hierarchia od warunków do decyzji, z zachowaniem blokad. */
+#final.ps36-polished #psF1Gate{margin-block:var(--ps36-gap)!important;}
+/* Oddzielony interfejs przesłuchania zachowuje wypracowany wygląd referencyjny. */
+#interview.ps36-polished .charactergrid{margin-bottom:var(--ps36-gap)!important;}
+#interview.ps36-polished .ps-next-panel{margin-block:var(--ps36-gap)!important;}
+/* Urządzenia: priorytet dla czytelności zamiast zmniejszania całej strony. */
+@media(max-width:850px){
+  .ps36-section-index{padding:9px 10px;gap:6px;}
+  .ps36-index-title{flex-basis:100%;border:0;padding:0;margin:0 0 2px;}
+  .ps36-section-index button{flex:1 1 auto;min-width:0;padding:8px 9px;white-space:normal;}
+  .section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head){margin-bottom:12px!important;}
+  .ps36-polished .sv2-subnav{padding:8px!important;}
+}
+@media(max-width:420px){
+  .section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(h1,h2){font-size:clamp(21px,6vw,26px)!important;}
+  .ps36-section-index{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ps36-index-title{grid-column:1/-1;}
+  .ps36-section-index button{width:100%;min-width:0;}
+}
+@media(prefers-reduced-motion:reduce){
+  .ps36-section-index button{transition:none!important;}
+}
+/* Formularz Dedukcji: ukryty panel źródeł nie może rezerwować drugiej kolumny. */
+#deduction.ps36-polished .dd-work.ux4-one-column{
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%!important;
+}
+#deduction.ps36-polished .dd-work.ux4-one-column .dd-editor-panel{
+  width:100%!important;min-width:0!important;max-width:100%!important;
+  grid-column:1/-1!important;
+}
+#deduction.ps36-polished .dd-work .dd-source-panel[hidden]{display:none!important;}
+/* Nagłówki modułów: historyczny jasnoniebieski opis był nieczytelny na pergaminie. */
+.section.ps36-polished.ps28-skin > :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(p,small,.muted,.small,.subtitle,span:not(.eyebrow):not(.chip)){
+  color:#513a29!important;opacity:1!important;text-shadow:none!important;
+}
+.section.ps36-polished.ps28-skin > :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(h1,h2,h3,strong,b){color:#39261b!important;opacity:1!important;}
+/* RC57.10.37 — ostatnia redakcja wizualna: rytm, typografia, hierarchia CTA.
+   Wyłącznie CSS: bez zmian w mechanice, zawartości, blokadach i zapisie. */
+:root{
+  --ps36-gap:clamp(9px,.8vw,13px);
+  --ps36-headgap:clamp(9px,1vw,13px);
+}
+.section.ps36-polished{font-size:clamp(15px,1vw,17px)!important;line-height:1.55!important;}
+/* Mniej pustki przy zachowaniu dużych, dostępnych elementów dotykowych. */
+.section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head){
+  padding:clamp(13px,1.1vw,19px)!important;
+  margin-bottom:var(--ps36-headgap)!important;
+}
+.section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(h1,h2){
+  font-size:clamp(24px,1.9vw,31px)!important;line-height:1.18!important;
+}
+.section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) p{
+  margin-top:5px!important;line-height:1.5!important;font-size:clamp(14px,.98vw,16px)!important;
+}
+.section.ps36-polished:not(#interview) :is(.surface.padded,.searchbox,.dd-editor-panel,.dd-source-panel,.tl-panel,.fc-main,.fc-defense,.sc-inspector){
+  padding:clamp(13px,1.15vw,19px)!important;
+}
+.section.ps36-polished:not(#interview) :is(p,li,.small,.muted,.dd-help,.story26-description,.sc-note-item small){
+  line-height:1.54!important;
+}
+.section.ps36-polished:not(#interview) :is(label,legend){font-size:max(13px,.94em)!important;font-weight:700!important;}
+.section.ps36-polished:not(#interview) :is(input,select,textarea){font-size:max(14px,.96em)!important;}
+.section.ps36-polished:not(#interview) :is(.surface,.sc-inspector,.dd-editor-panel,.dd-source-panel,.fc-main,.fc-defense) :is(h2,h3,h4){
+  line-height:1.28!important;
+}
+/* Nawigacja śródstronicowa: spokojne, krótkie zakładki bez imitacji osobnych CTA. */
+.ps36-section-index,.ps36-polished .sv2-subnav{
+  padding:7px 10px!important;gap:5px 7px!important;
+  margin-bottom:var(--ps36-gap)!important;box-shadow:0 2px 7px #45291d18!important;
+}
+.ps36-index-title,.ps36-polished .sv2-subnav-label{
+  font-size:10px!important;letter-spacing:.065em!important;
+}
+.ps36-section-index button,.ps36-polished .sv2-subnav button{
+  min-height:36px!important;padding:7px 11px!important;
+  font:700 12px/1.32 system-ui,sans-serif!important;
+  border-radius:7px!important;box-shadow:none!important;
+  background:#fdf0d9!important;color:#4b3123!important;
+}
+.ps36-section-index button:hover,.ps36-polished .sv2-subnav button:hover{
+  background:#edcda4!important;border-color:#865533!important;
+}
+.ps36-section-index button[aria-current="true"],
+.ps36-polished .sv2-subnav button[aria-current="page"]{
+  background:#803329!important;border-color:#803329!important;color:#fff4df!important;
+}
+/* Akcja główna kontra akcja drugorzędna; minimum 44px dla ważnych kontrolek. */
+.section.ps36-polished:not(#interview) :is(.dd-editor-actions,.ux4-nav,.fc-actions,.p3-actions,.formline) .btn:not(:disabled){
+  min-height:42px!important;line-height:1.4!important;
+  font-size:clamp(13px,.91vw,15px)!important;
+}
+.section.ps36-polished:not(#interview) :is(.dd-editor-actions,.ux4-nav,.fc-actions,.p3-actions) .btn:not(.alt):not(.subtle):not(:disabled){
+  background:linear-gradient(180deg,#9c362c,#72251f)!important;
+  color:#fff5e5!important;border:1px solid #6d251e!important;
+  box-shadow:0 3px 7px #321a1940!important;
+}
+.section.ps36-polished:not(#interview) .btn:disabled{
+  cursor:not-allowed!important;opacity:1!important;
+  background:#e9d5b7!important;border-color:#c9ad89!important;color:#77624c!important;
+  box-shadow:none!important;
+}
+/* Dedukcja: wyraźne 3 kroki bez trzech nagłówków, podwójnych instrukcji i
+   powtórzonego zestawu przycisków nad oraz pod formularzem. */
+#deduction.ps36-polished #ux4Guide{padding:12px 15px!important;margin:10px 0!important;}
+#deduction.ps36-polished #ux4Guide .ux4-guide-title > div{display:none!important;}
+#deduction.ps36-polished #ux4Guide .ux4-guide-title{
+  display:flex!important;justify-content:flex-end!important;
+  margin:0!important;min-height:0!important;gap:5px!important;
+}
+#deduction.ps36-polished #ux4Guide .ux4-count{font-size:11px!important;padding:4px 9px!important;}
+#deduction.ps36-polished #ux4Guide .ux4-steps{
+  margin:7px 0 8px!important;gap:7px!important;
+}
+#deduction.ps36-polished #ux4Guide .ux4-step-button{
+  min-height:52px!important;padding:8px 9px!important;gap:8px!important;
+}
+#deduction.ps36-polished #ux4Guide .ux4-step-copy strong{font-size:13px!important;line-height:1.35!important;}
+#deduction.ps36-polished #ux4Guide .ux4-step-copy small{font-size:11px!important;}
+#deduction.ps36-polished #ux4Guide .ux4-step-help{
+  margin:4px 0 1px!important;line-height:1.45!important;font-size:12.5px!important;
+}
+#deduction.ps36-polished #ux4TopNav{display:none!important;}
+#deduction.ps36-polished .dd-editor-top .eyebrow{display:none!important;}
+#deduction.ps36-polished .dd-editor-top{margin-bottom:6px!important;gap:9px!important;}
+#deduction.ps36-polished .dd-editor-top h3{margin:0!important;}
+#deduction.ps36-polished .dd-field{margin-bottom:10px!important;gap:4px!important;}
+#deduction.ps36-polished .dd-field :is(textarea,input,select){padding:9px 10px!important;}
+#deduction.ps36-polished .dd-field textarea{min-height:92px!important;}
+#deduction.ps36-polished .ux4-step-section > h4{font-size:14px!important;margin:5px 0 11px!important;}
+#deduction.ps36-polished .ux4-nav{margin:9px 0!important;}
+/* Pulpit, Notatnik, Oś czasu: szczególnie duże odstępy pomiędzy kartami. */
+#overview.ps36-polished :is(.story26-track,.ui14-module-grid,.ui15-checklist){gap:10px!important;}
+#notebook.ps36-polished :is(.sc-notegrid,.sc-notelist,.sc-notebook){gap:10px!important;}
+#timeline.ps36-polished .tl-metrics{margin:9px 0!important;gap:9px!important;}
+/* Na telefonie mniej pionowych ekranów przed dotarciem do pierwszego działania. */
+@media(max-width:700px){
+  .section.ps36-polished{font-size:15px!important;}
+  .section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head){
+    padding:12px 13px!important;margin-bottom:9px!important;
+  }
+  .section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(h1,h2){font-size:clamp(22px,5.7vw,27px)!important;}
+  .section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) p{font-size:13.5px!important;line-height:1.45!important;}
+  .section.ps36-polished:not(#interview) :is(.surface.padded,.searchbox,.dd-editor-panel,.dd-source-panel,.tl-panel,.fc-main,.fc-defense,.sc-inspector){padding:12px!important;}
+  .ps36-section-index{display:flex!important;flex-wrap:nowrap!important;align-items:stretch!important;
+    padding:6px!important;overflow-x:auto!important;scrollbar-width:thin!important;}
+  .ps36-index-title{display:none!important;}
+  .ps36-section-index button{flex:1 1 0!important;min-width:0!important;max-width:none!important;
+    min-height:40px!important;padding:7px 5px!important;font-size:11px!important;white-space:normal!important;overflow-wrap:break-word!important;}
+  .ps36-polished .sv2-subnav{padding:6px!important;gap:5px!important;}
+  .ps36-polished .sv2-subnav button{min-height:40px!important;padding:7px 9px!important;font-size:11.5px!important;}
+  #deduction.ps36-polished #ux4Guide{padding:10px!important;margin:8px 0!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-steps{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-step-button{min-width:0!important;min-height:48px!important;padding:7px 5px!important;gap:4px!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-step-number{width:22px!important;height:22px!important;min-width:22px!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-step-copy{display:block!important;min-width:0!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-step-copy strong{display:block!important;font-size:11px!important;overflow-wrap:anywhere!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-step-copy small{display:none!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-step-help{font-size:12px!important;}
+  #deduction.ps36-polished .ux4-nav{gap:6px!important;}
+  #deduction.ps36-polished .ux4-nav small{font-size:11px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .ps36-section-index button,.ps36-polished .sv2-subnav button{transition:none!important;}
+}
+/* RC57.10.38 · Dekoracyjne akta śledztwa: wyłącznie warstwa prezentacji.
+ * Nie zmienia stanów, dowodów, zdarzeń, zapisu, API ani werdyktu.
+ * Zdjęcie banera jest ilustracyjnym motywem, nie materiałem dowodowym.
+ */
+:root{
+  --ps38-night:#091a22;
+  --ps38-night2:#122a34;
+  --ps38-gold:#d6af75;
+  --ps38-gold-deep:#946238;
+  --ps38-paper:#efdbb9;
+  --ps38-paper-light:#fff0d7;
+  --ps38-ink:#382419;
+  --ps38-muted:#5e422d;
+  --ps38-red:#892e25;
+}
+html,body{
+  background:#160e0b!important;
+  background-image:radial-gradient(ellipse at 75% 18%,#24363b20,transparent 68%),url('assets/ui/dossier-wood-rc25.webp')!important;
+  background-size:auto,540px 540px!important;
+}
+/* Ciemny granat/złoto wokół prawdziwych dokumentów. */
+.layout{grid-template-columns:clamp(218px,16.6vw,264px) minmax(0,1fr)!important;}
+#ui14Sidebar.sidebar{
+  background:linear-gradient(180deg,#08151bee,#10232aee 56%,#08151bf4),url('assets/ui/dossier-wood-rc25.webp')!important;
+  border-right:2px solid #a67a47!important;
+  box-shadow:3px 0 18px #0008,inset -3px 0 #0b1015!important;
+  padding:10px 12px 14px!important;
+  color:#fff1d8!important;
+}
+#ui14Sidebar .brand{
+  position:relative;
+  padding:11px 8px 15px!important;
+  border:2px solid #c89c60!important;
+  background:linear-gradient(140deg,#f4e1bd,#dbbc8c)!important;
+  border-radius:4px 4px 12px 12px!important;
+  margin-bottom:13px!important;
+  box-shadow:inset 0 1px #fff7e2,0 5px 12px #0007!important;
+}
+#ui14Sidebar .brand::before,#ui14Sidebar .brand::after{
+  content:'✧';position:absolute;color:#8b5a32;font-size:17px;top:3px;pointer-events:none;
+}
+#ui14Sidebar .brand::before{left:5px}
+#ui14Sidebar .brand::after{right:5px}
+#ui14Sidebar .brand-copy b{color:#392417!important;font-family:Georgia,'Times New Roman',serif!important;font-size:clamp(13px,1vw,17px)!important;font-weight:800!important;letter-spacing:-.02em!important;}
+#ui14Sidebar .brand-copy span{color:#fff4df!important;background:linear-gradient(#a83d2e,#76251e)!important;border:1px solid #6d291f!important;border-radius:4px!important;text-align:center!important;padding:1px 6px!important;font-family:Georgia,serif!important;font-size:11px!important;display:inline-block!important;letter-spacing:0!important;}
+#ui14Sidebar .seal{color:#8b5831!important;border:0!important;box-shadow:none!important;background:transparent!important;font-size:27px!important;}
+#ui14Sidebar .ui14-navcaption{border:1px solid #ad804a!important;border-radius:6px!important;background:#081821!important;color:#f4dcaa!important;text-align:center!important;letter-spacing:.08em!important;margin:0 0 10px!important;padding:9px 5px!important;font:bold 14px Georgia,serif!important;box-shadow:inset 0 0 0 1px #27404a!important;}
+#ui14Sidebar #nav{display:grid!important;gap:6px!important;padding:0!important;}
+#ui14Sidebar #nav button{
+  color:#302115!important;
+  border:1px solid #966a3c!important;
+  border-radius:7px!important;
+  background:linear-gradient(180deg,#f7e7ca,#ddbb8a)!important;
+  min-height:43px!important;
+  padding:7px 11px!important;
+  box-shadow:0 2px 6px #0006,inset 0 2px #fff8e7!important;
+  font:700 14px/1.18 Georgia,'Times New Roman',serif!important;
+  display:flex!important;align-items:center!important;gap:8px!important;
+  text-shadow:none!important;
+}
+#ui14Sidebar #nav button:hover{filter:brightness(1.075)!important;border-color:#e4bb78!important;transform:translateX(1px);}
+#ui14Sidebar #nav button.active,#ui14Sidebar #nav button[aria-current='page']{
+  background:linear-gradient(180deg,#a9392d,#74241d)!important;color:#fff3df!important;
+  border:1px solid #e2b171!important;
+  box-shadow:inset 3px 0 #f0b56d,0 0 0 1px #5d221b,0 3px 9px #0007!important;
+}
+#ui14Sidebar #nav .num{font:700 11px/1.2 ui-monospace,monospace!important;color:inherit!important;min-width:23px;text-align:center;opacity:.96!important;border-right:1px solid #8b6e4a77;padding-right:5px;}
+#ui14Sidebar #nav .ps38-nav-icon{font:700 17px/1 Georgia,serif;color:inherit;min-width:21px;display:inline-grid;place-items:center;}
+#ui14Sidebar .ps38-sidebar-art{height:65px;min-height:65px;margin:12px 2px 9px;border-radius:7px;
+ background:linear-gradient(0deg,#07171e40,#07171e14),url('assets/ui/rc571038-side-scene.webp') center/cover no-repeat;
+ border:1px solid #74583c;box-shadow:inset 0 0 13px #0009;pointer-events:none;}
+#ui14Sidebar #ps76Tools{background:transparent!important;border-top:1px solid #8c6c43!important;box-shadow:none!important;padding:10px 2px 0!important;margin-top:auto!important;}
+#ui14Sidebar .ps76-caption{color:#e6c28b!important;letter-spacing:.11em!important;}
+#ui14Sidebar #psFab,#ui14Sidebar #seniorFab{background:linear-gradient(135deg,#102730,#16252a)!important;color:#f4dfbf!important;border:1px solid #b08a56!important;border-radius:7px!important;box-shadow:0 2px 6px #0006!important;min-height:41px!important;}
+/* Nagłówek aplikacji: równa typografia i złoty kontur. */
+.topbar{background:linear-gradient(95deg,#081219,#152732 54%,#090f14)!important;border-bottom:2px solid #bc8f54!important;box-shadow:0 5px 16px #0009!important;}
+.topbar :is(.ps23-dossier-icon,.ps23-date>span){color:#ddb778!important;}
+.topbar :is(.ps23-header-dossier small,.ps23-progress small,.ps23-date small){color:#e6bc80!important;}
+.topbar :is(.ps23-header-dossier strong,.ps23-progress strong,.ps23-date strong){color:#fff1d7!important;font-family:Georgia,serif!important;}
+.topbar .ps23-progress-track{border-color:#b78d52!important;background:#09141a!important;}
+.topbar .ps23-progress-track i{background:linear-gradient(90deg,#6d9039,#bed265)!important;}
+.content{max-width:1660px!important;width:100%!important;padding:clamp(11px,1.25vw,23px)!important;}
+/* Ekrany akt: ozdobne obramowanie bez usuwania wprowadzonych reguł dostępności. */
+.section.ps36-polished:not(#interview) :is(.surface,.searchbox,.tl-panel,.sc-inspector,.ev-index,.ev-reader,.dd-editor-panel,.dd-source-panel,.fc-main,.fc-defense,.ps88-details){
+  border-color:#ac8050!important;
+  box-shadow:0 3px 10px #21100d40,inset 0 1px #fff6e6!important;
+}
+.section.ps36-polished.ps28-skin > :is(.sectionheading,.ev-header,.tl-head,.dd-head){
+  position:relative!important;
+  background-image:linear-gradient(115deg,#fff0d2,#e6c391),url('assets/ui/ref-parchment.webp')!important;
+  background-blend-mode:multiply!important;
+  border:1px solid #aa7e4e!important;
+  box-shadow:0 3px 12px #1d100e44,inset 0 1px #fff9ec!important;
+}
+.section.ps36-polished.ps28-skin > :is(.sectionheading,.ev-header,.tl-head,.dd-head)::before{
+  content:'';position:absolute;top:5px;left:5px;width:18px;height:18px;
+  border-top:2px solid #a67640;border-left:2px solid #a67640;opacity:.72;pointer-events:none;
+}
+.section.ps36-polished.ps28-skin > :is(.sectionheading,.ev-header,.tl-head,.dd-head)::after{
+  content:'';position:absolute;bottom:5px;right:5px;width:18px;height:18px;
+  border-bottom:2px solid #a67640;border-right:2px solid #a67640;opacity:.72;pointer-events:none;
+}
+.ps36-section-index{border:1px solid #b18450!important;background:linear-gradient(180deg,#f6e3c2,#e7c69d)!important;color:#4b2f1c!important;box-shadow:0 2px 8px #160c0a55!important;}
+.ps36-section-index button{border-color:#bc9567!important;}
+/* Referencyjny Pulpit: pas nocy oraz istniejące dane i czynności w dwóch kolumnach. */
+#overview.ps38-premium .ps38-case-banner{
+ position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:center;
+ gap:3px;min-height:126px;padding:17px clamp(20px,3.3vw,44px);margin:8px 0 14px;
+ border:1px solid #c49a62;border-radius:11px;
+ background-image:linear-gradient(90deg,#081b26 4%,#081b26eb 38%,#061c2866 80%,#0b1f28ad),url('assets/ui/rc571038-night-tram.webp');
+ background-size:cover;background-position:center,right center;
+ box-shadow:0 5px 18px #0008,inset 0 1px #e2b97377;overflow:hidden;
+}
+#overview.ps38-premium .ps38-case-banner::after{content:'';position:absolute;z-index:-1;inset:6px;border:1px solid #af875544;border-radius:6px;pointer-events:none;}
+#overview.ps38-premium .ps38-banner-kicker{color:#ecc78e!important;font:bold 11px/1.4 Georgia,serif!important;letter-spacing:.17em!important;}
+#overview.ps38-premium .ps38-case-banner h2{color:#ffe8be!important;font:bold clamp(27px,2.7vw,42px)/1.1 Georgia,serif!important;letter-spacing:-.02em!important;}
+#overview.ps38-premium .ps38-case-banner p{color:#f1e2cb!important;font:italic clamp(13px,1.05vw,16px)/1.4 Georgia,serif!important;max-width:52ch;}
+#overview.ps38-premium .ps38-front-grid{display:grid;grid-template-columns:minmax(0,1.48fr) minmax(320px,.85fr);align-items:stretch;gap:15px;margin-bottom:15px;min-width:0;}
+#overview.ps38-premium .ps38-front-grid > *{min-width:0;}
+#overview.ps38-premium .ps38-front-grid > .hero{
+ display:grid!important;grid-template-columns:minmax(0,1.28fr) minmax(185px,.77fr)!important;
+ gap:0!important;min-height:406px;align-items:stretch!important;margin:0!important;
+ border:2px solid #b88a51!important;border-radius:11px!important;overflow:hidden;
+ box-shadow:0 5px 14px #0009,inset 0 0 0 2px #f8e0b8!important;
+ background:#e8c99c!important;
+}
+#overview.ps38-premium .hero .heroText{
+ position:relative;isolation:isolate;min-height:0!important;margin:0!important;
+ padding:clamp(17px,1.9vw,28px)!important;
+ background:linear-gradient(130deg,#f8e6c8dd,#ebcaa0ee),url('assets/ui/ref-parchment.webp') center/245px auto!important;
+ color:#3d291c!important;border:0!important;border-radius:0!important;
+ box-shadow:none!important;gap:12px!important;
+}
+#overview.ps38-premium .hero .heroText::before{
+ content:'▤   PRZEGLĄD SPRAWY';position:relative;display:block;padding:0 0 8px;
+ border-bottom:1px solid #b78a59;color:#6f472d!important;
+ font:800 11px/1.3 Georgia,serif;letter-spacing:.07em;
+}
+#overview.ps38-premium .hero .heroText::after{
+ content:'';position:absolute;right:15px;top:37px;width:68px;height:74px;
+ background:url('assets/ui/fingerprint.webp') center/contain no-repeat;opacity:.1;z-index:-1;pointer-events:none;
+}
+#overview.ps38-premium .hero .case-kicker{font:bold 10px/1.25 Georgia,serif!important;letter-spacing:.08em!important;color:#815129!important;}
+#overview.ps38-premium .hero .heroText h1{font:bold clamp(28px,2.7vw,46px)/1.05 Georgia,serif!important;color:#392215!important;letter-spacing:-.028em!important;}
+#overview.ps38-premium .hero .heroText h1 em{color:#882f25!important;}
+#overview.ps38-premium .hero .case-lead{font:clamp(12.5px,.94vw,14.5px)/1.53 Georgia,serif!important;color:#4c3020!important;max-width:68ch!important;}
+#overview.ps38-premium .hero .case-actions{display:flex!important;flex-wrap:wrap!important;gap:7px!important;}
+#overview.ps38-premium .hero .case-actions .btn{min-height:39px!important;padding:7px 10px!important;font-size:12px!important;flex:1 1 128px!important;}
+#overview.ps38-premium .hero .case-meta{display:flex!important;gap:5px!important;flex-wrap:wrap!important;margin:0!important;}
+#overview.ps38-premium .hero .case-meta span{font-size:9px!important;color:#68442c!important;border-color:#b79366!important;}
+#overview.ps38-premium .hero #photoGrid{
+ position:relative;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ grid-template-rows:minmax(0,1fr) 105px!important;
+ gap:7px!important;margin:0!important;padding:16px!important;
+ background:linear-gradient(155deg,#0a2029,#122730)!important;border:0!important;border-left:1px solid #a77c49!important;border-radius:0!important;
+ min-width:0;min-height:0;max-height:none!important;
+}
+#overview.ps38-premium .hero #photoGrid::before{
+ content:'TW–217';position:absolute;z-index:2;right:16px;top:17px;transform:rotate(8deg);
+ border:2px solid #8d4433;color:#8d4433;background:#e9cfa5dd;
+ font:700 14px Georgia,serif;padding:2px 7px;pointer-events:none;box-shadow:0 1px 4px #0006;
+}
+#overview.ps38-premium .hero #photoGrid img{
+ display:block!important;max-width:100%;min-width:0;width:100%;height:100%!important;
+ object-fit:cover!important;filter:sepia(.36) saturate(.82) contrast(1.05)!important;
+ border:4px solid #f9e6c8!important;border-bottom-width:8px!important;
+ box-shadow:0 3px 10px #000a!important;background:#a28970!important;
+}
+#overview.ps38-premium .hero #photoGrid img:first-child{grid-column:1/-1;min-height:0;}
+/* Pierwsze kroki: prawdziwe akcje gry, bez danych wymyślonych na potrzeby makiety. */
+#overview.ps38-premium .ps38-front-grid #ps2Welcome{
+ display:flex!important;flex-direction:column!important;justify-content:flex-start!important;
+ gap:9px!important;margin:0!important;padding:18px!important;
+ background:linear-gradient(160deg,#122d37,#0b202a)!important;
+ color:#f8e8d0!important;border:2px solid #bf945c!important;
+ border-radius:11px!important;box-shadow:0 5px 14px #0009,inset 0 0 0 4px #13303d!important;
+}
+#overview.ps38-premium #ps2Welcome .ps2-head{margin:0 0 3px!important;padding:0 0 9px!important;border-bottom:1px solid #9e794c!important;}
+#overview.ps38-premium #ps2Welcome .ps2-eyebrow{color:#dcb875!important;font-size:10px!important;letter-spacing:.08em!important;}
+#overview.ps38-premium #ps2Welcome h2{font:bold clamp(18px,1.45vw,24px)/1.2 Georgia,serif!important;color:#fff0d1!important;}
+#overview.ps38-premium #ps2Welcome .ps2-lead{color:#d3dddc!important;font-size:11.5px!important;line-height:1.45!important;margin-top:5px!important;}
+#overview.ps38-premium #ps2Welcome .ps2-steps{display:grid!important;grid-template-columns:1fr!important;gap:7px!important;margin:0!important;}
+#overview.ps38-premium #ps2Welcome .ps2-step{
+ display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;
+ align-items:center!important;gap:3px 10px!important;min-height:0!important;padding:8px 11px!important;
+ background:linear-gradient(145deg,#233e45,#142b34)!important;
+ border:1px solid #846a4b!important;border-radius:8px!important;
+ box-shadow:inset 0 1px #48616b6b!important;
+}
+#overview.ps38-premium #ps2Welcome .ps2-step.is-next{border-color:#e0b773!important;background:linear-gradient(145deg,#30434a,#19313b)!important;}
+#overview.ps38-premium #ps2Welcome .ps2-step>span{grid-column:1/2!important;color:#e2bb7a!important;letter-spacing:.07em!important;font-size:9px!important;}
+#overview.ps38-premium #ps2Welcome .ps2-step>b{grid-column:1/2!important;color:#fff1d7!important;font:700 14px/1.25 Georgia,serif!important;}
+#overview.ps38-premium #ps2Welcome .ps2-step>p{grid-column:1/2!important;color:#d1d8d7!important;font-size:11px!important;line-height:1.3!important;margin:0!important;}
+#overview.ps38-premium #ps2Welcome .ps2-step>button{grid-column:2/3!important;grid-row:1/4!important;width:auto!important;min-width:84px!important;max-width:116px!important;padding:8px 9px!important;font-size:10.5px!important;line-height:1.25!important;white-space:normal!important;}
+#overview.ps38-premium #ps2Welcome .ps2-controls{padding:8px 0 0!important;margin:0!important;border-top:1px solid #765c3e!important;display:flex!important;flex-wrap:wrap!important;gap:7px!important;align-items:center!important;}
+#overview.ps38-premium #ps2Welcome .ps2-controls span{color:#bdcbcc!important;font-size:10.5px!important;line-height:1.32!important;}
+#overview.ps38-premium #ps2Welcome .ps2-controls button{font-size:10.5px!important;line-height:1.25!important;min-height:33px!important;padding:6px 9px!important;}
+/* Bieg sprawy i rzeczywiste wątki, bez wymyślonych procentów. */
+#overview.ps38-premium .ps38-lower-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.6fr);gap:15px;align-items:start;margin:0 0 15px;}
+#overview.ps38-premium .ps38-progress-stack{display:grid;gap:12px;min-width:0;}
+#overview.ps38-premium #ps70Pulse{
+ margin:0!important;background:linear-gradient(140deg,#10252e,#142e38)!important;
+ border:2px solid #bb8f56!important;border-radius:10px!important;
+ color:#f4e2c8!important;padding:17px 19px!important;
+ box-shadow:0 4px 12px #0008!important;
+}
+#overview.ps38-premium #ps70Pulse :is(.eyebrow,h3,small){color:#f0d09b!important;opacity:1!important;}
+#overview.ps38-premium #ps70Pulse h3{font:bold clamp(18px,1.5vw,24px)/1.25 Georgia,serif!important;}
+#overview.ps38-premium #ps70Pulse p{color:#e6e4da!important;font-size:13px!important;line-height:1.5!important;}
+#overview.ps38-premium #ps70Pulse .ps70-trail{border-top-color:#765d3d!important;}
+#overview.ps38-premium #ps70Pulse .ps70-trail span{color:#dfc08e!important;}
+#overview.ps38-premium #ps88MorePaths{margin:0!important;background:linear-gradient(#f6e4c6,#e6c69d)!important;border:1px solid #bd9061!important;border-radius:10px!important;box-shadow:0 3px 9px #1b100c66!important;}
+#overview.ps38-premium #story26Overview{
+ margin:0!important;padding:18px!important;background:linear-gradient(145deg,#11303a,#0a202a)!important;
+ border:2px solid #ba8d53!important;border-radius:10px!important;color:#f5e5cd!important;
+ box-shadow:0 4px 13px #0008!important;
+}
+#overview.ps38-premium #story26Overview .story26-head{padding:0 0 12px!important;margin:0 0 12px!important;border-bottom:1px solid #84623f!important;}
+#overview.ps38-premium #story26Overview :is(h3,strong){color:#f9e7c4!important;text-shadow:none!important;}
+#overview.ps38-premium #story26Overview .story26-head h3{font:bold 23px Georgia,serif!important;}
+#overview.ps38-premium #story26Overview .story26-head p{color:#d5dcda!important;font-size:12px!important;}
+#overview.ps38-premium #story26Overview .story26-track{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;}
+#overview.ps38-premium #story26Overview .story26-case{
+ background:linear-gradient(155deg,#21414a,#142b34)!important;
+ border:1px solid #92754f!important;border-radius:7px!important;
+ padding:13px!important;min-width:0!important;box-shadow:inset 0 1px #41616b!important;
+}
+#overview.ps38-premium #story26Overview .story26-case .story26-tag{color:#edc38a!important;font-size:10.5px!important;}
+#overview.ps38-premium #story26Overview .story26-case strong{display:block;font-size:14px!important;font-family:Georgia,serif!important;line-height:1.3!important;}
+#overview.ps38-premium #story26Overview .story26-case p{font-size:11.5px!important;line-height:1.42!important;color:#d4dcdd!important;margin-top:5px!important;}
+#overview.ps38-premium #story26Overview .story26-bar{background:#152128!important;border-color:#856f4e!important;}
+#overview.ps38-premium #story26Overview .story26-bar i{background:linear-gradient(90deg,#688f47,#b9d365)!important;}
+#overview.ps38-premium #story26Overview details{margin-top:12px!important;}
+#overview.ps38-premium #story26Overview summary{color:#f3d5a0!important;font-size:13px!important;}
+/* Wygodne skróty z prawdziwą nawigacją zamiast przykładowych danych z obrazu. */
+#overview.ps38-premium .ps38-actions{
+ background:linear-gradient(135deg,#0d2832,#0a1b24)!important;
+ border:2px solid #b78a53!important;border-radius:11px!important;
+ padding:15px 18px;margin-bottom:15px;box-shadow:0 4px 13px #0009;
+}
+#overview.ps38-premium .ps38-actions-heading{display:flex;gap:12px;align-items:center;color:#f5dcad;border-bottom:1px solid #846d48;padding-bottom:10px;margin-bottom:12px;}
+#overview.ps38-premium .ps38-actions-heading strong{font:800 15px Georgia,serif!important;letter-spacing:.065em!important;}
+#overview.ps38-premium .ps38-motif{font-size:25px;color:#e9c583;}
+#overview.ps38-premium .ps38-actions-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;}
+#overview.ps38-premium .ps38-actions-list button{
+ min-height:66px;background:linear-gradient(#263d46,#10262e);border:1px solid #b28b5a;
+ color:#fff0d4;border-radius:8px;display:grid;grid-template-columns:auto minmax(0,1fr);align-content:center;
+ gap:2px 10px;padding:10px 12px;text-align:left;cursor:pointer;box-shadow:inset 0 1px #42616b;
+}
+#overview.ps38-premium .ps38-actions-list button:hover{border-color:#f0c27d;background:linear-gradient(#314c53,#16333b);}
+#overview.ps38-premium .ps38-actions-list button:focus-visible{outline:3px solid #f4c47a;outline-offset:2px;}
+#overview.ps38-premium .ps38-actions-list button>span{grid-row:1/3;align-self:center;font-size:23px;color:#e6bd7f;}
+#overview.ps38-premium .ps38-actions-list button b{font:bold 15px Georgia,serif;color:#fff3de;}
+#overview.ps38-premium .ps38-actions-list button small{font:11px/1.32 Georgia,serif;color:#d5ddd9;}
+/* Informacje o zapisie gry muszą pozostać widoczne, ale nie zasłaniać celu. */
+#overview.ps38-premium #psStorageUnavailable{
+ display:flex!important;flex-wrap:wrap;gap:7px 16px;align-items:center;
+ padding:10px 14px!important;margin:0 0 10px!important;border:1px solid #bb9567!important;
+ background:linear-gradient(120deg,#fae8cb,#ebd1a9)!important;
+}
+#overview.ps38-premium #psStorageUnavailable strong{font-size:13px!important;color:#483021!important;}
+#overview.ps38-premium #psStorageUnavailable p{flex:1 1 330px;margin:0!important;font-size:11px!important;color:#64492f!important;line-height:1.38!important;}
+#overview.ps38-premium #psStorageUnavailable button{padding:6px 12px!important;min-height:35px!important;font-size:11px!important;}
+/* Pozostałe moduły — detale premium tylko na oprawie, nie na danych dowodowych. */
+.section.ps36-polished:not(#overview) :is(.eyebrow,.ev-kicker,.case-kicker){letter-spacing:.12em!important;font-weight:800!important;}
+.section.ps36-polished:not(#overview) :is(.surface.padded,.dd-editor-panel,.dd-source-panel,.tl-panel,.fc-main,.fc-defense,.ps88-details){border-radius:10px!important;}
+.section.ps36-polished:not(#overview) :is(.btn,.sv2-subnav button,.ps36-section-index button){transition:filter .15s,border-color .15s,box-shadow .15s!important;}
+/* Mobilnie: rzeczywista reorganizacja, bez pomniejszania całej strony. */
+@media(max-width:1250px){
+ #overview.ps38-premium .ps38-front-grid{grid-template-columns:minmax(0,1fr)!important;}
+ #overview.ps38-premium .ps38-front-grid .hero{min-height:370px!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-steps{grid-template-columns:repeat(3,minmax(0,1fr))!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-step{display:flex!important;flex-direction:column!important;align-items:stretch!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-step>button{width:100%!important;max-width:none!important;}
+ #overview.ps38-premium .ps38-lower-grid{grid-template-columns:minmax(0,1fr)!important;}
+ #overview.ps38-premium #story26Overview .story26-track{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+@media(max-width:1000px){
+ .layout{display:block!important;grid-template-columns:minmax(0,1fr)!important;}
+ #ui14Sidebar.sidebar{width:100%!important;max-height:none!important;min-height:0!important;position:relative!important;border-right:none!important;border-bottom:2px solid #b58b50!important;padding:7px 8px!important;}
+ #ui14Sidebar .brand{display:none!important;}
+ #ui14Sidebar .ui14-navcaption{display:none!important;}
+ #ui14Sidebar .ps38-sidebar-art{display:none!important;}
+ #ui14Sidebar #nav{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:4px!important;}
+ #ui14Sidebar #nav button{min-width:0!important;min-height:42px!important;display:flex!important;align-items:center!important;justify-content:center!important;font:700 11px/1.25 Georgia,serif!important;padding:6px 3px!important;text-align:center!important;white-space:normal!important;}
+ #ui14Sidebar #nav .ps38-nav-icon{display:none!important;}
+ #ui14Sidebar #nav .num{display:none!important;}
+ #ui14Sidebar #ps76Tools{display:none!important;}
+}
+@media(max-width:700px){
+ .content{padding:10px 9px!important;}
+ #overview.ps38-premium .ps38-case-banner{min-height:104px!important;margin:6px 0 10px!important;padding:13px 18px!important;background-position:center,right center!important;}
+ #overview.ps38-premium .ps38-case-banner h2{font-size:28px!important;}
+ #overview.ps38-premium .ps38-case-banner p{font-size:12px!important;}
+ #overview.ps38-premium .ps38-front-grid{gap:10px;margin-bottom:10px;}
+ #overview.ps38-premium .ps38-front-grid .hero{grid-template-columns:minmax(0,1fr)!important;min-height:0!important;}
+ #overview.ps38-premium .hero .heroText{padding:17px!important;}
+ #overview.ps38-premium .hero #photoGrid{grid-template-rows:155px 65px!important;height:242px!important;padding:9px!important;border-left:0!important;border-top:1px solid #ac8050!important;}
+ #overview.ps38-premium .hero .heroText h1{font-size:35px!important;}
+ #overview.ps38-premium #ps2Welcome{padding:12px!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-steps{grid-template-columns:minmax(0,1fr)!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-step{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;gap:4px 8px!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-step>button{grid-column:2;grid-row:1/4;width:auto!important;max-width:116px!important;}
+ #overview.ps38-premium .ps38-lower-grid{gap:10px;margin-bottom:10px;}
+ #overview.ps38-premium #story26Overview{padding:12px!important;}
+ #overview.ps38-premium #story26Overview .story26-track{grid-template-columns:minmax(0,1fr)!important;}
+ #overview.ps38-premium .ps38-actions{padding:11px!important;}
+ #overview.ps38-premium .ps38-actions-list{grid-template-columns:repeat(2,minmax(0,1fr));}
+ #overview.ps38-premium .ps38-actions-list button{min-height:70px;padding:8px;}
+ #overview.ps38-premium .ps38-actions-list button b{font-size:13px;}
+ #overview.ps38-premium .ps38-actions-list button small{font-size:10px;}
+}
+@media(max-width:359px){
+ #overview.ps38-premium #ps2Welcome .ps2-step{display:flex!important;flex-direction:column!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-step>button{max-width:100%!important;}
+ #overview.ps38-premium .ps38-actions-list button{grid-template-columns:minmax(0,1fr)!important;}
+ #overview.ps38-premium .ps38-actions-list button>span{display:none;}
+}
+@media(prefers-reduced-motion:reduce){#ui14Sidebar #nav button,.ps38-actions-list button{transition:none!important;transform:none!important;}}
+/* Kontrreguły dla dawnego pionowego pseudo-paska na karcie Pulpitu.
+   Stary selektor pozostawiał szerokość 5 px i wysokość całego panelu. */
+#overview.ps38-premium .hero .heroText::before{
+ position:relative!important;inset:auto!important;left:auto!important;top:auto!important;
+ display:block!important;flex:0 0 auto!important;align-self:stretch!important;
+ width:auto!important;height:auto!important;min-height:0!important;
+ background:none!important;padding:0 0 9px!important;margin:0 0 4px!important;
+ border:0!important;border-bottom:1px solid #ae8455!important;
+ color:#694128!important;transform:none!important;opacity:1!important;
+}
+#overview.ps38-premium .hero .heroText::after{z-index:0!important;}
+#overview.ps38-premium .hero .heroText > div{position:relative;z-index:1;}
+#overview.ps38-premium .ps38-front-grid > .hero{
+ height:500px!important;min-height:0!important;align-self:start!important;
+}
+#overview.ps38-premium .hero .heroText{
+ height:100%!important;min-height:0!important;justify-content:flex-start!important;
+ overflow:auto!important;
+}
+#overview.ps38-premium .hero #photoGrid{
+ height:100%!important;max-height:500px!important;min-height:0!important;
+}
+#overview.ps38-premium .hero #photoGrid img{max-height:100%!important;min-height:0!important;}
+#overview.ps38-premium .ps38-front-grid #ps2Welcome{height:auto!important;align-self:start!important;min-height:0!important;}
+#overview.ps38-premium #ps2Welcome .ps2-controls{background:transparent!important;color:#e4dfd0!important;border:0!important;border-top:1px solid #765c3e!important;}
+#overview.ps38-premium #ps2Welcome .ps2-controls span{color:#d1d9d4!important;opacity:1!important;}
+@media(max-width:1250px){
+ #overview.ps38-premium .ps38-front-grid > .hero{height:470px!important;}
+ #overview.ps38-premium .hero #photoGrid{max-height:470px!important;}
+}
+@media(max-width:700px){
+ #overview.ps38-premium .ps38-front-grid > .hero{height:auto!important;min-height:0!important;}
+ #overview.ps38-premium .hero .heroText{height:auto!important;overflow:visible!important;}
+ #overview.ps38-premium .hero #photoGrid{height:242px!important;max-height:242px!important;}
+}
+/* Galerie w starszych wersjach miały absolutne zdjęcia i pełnoekranową warstwę
+   pseudo-elementu. Teraz są to normalne, czytelne fotografie w ramkach. */
+#overview.ps38-premium .hero #photoGrid::before{
+ inset:auto 14px auto auto!important;top:17px!important;left:auto!important;bottom:auto!important;
+ width:auto!important;height:auto!important;min-width:0!important;min-height:0!important;
+ transform:rotate(7deg)!important;display:block!important;pointer-events:none!important;
+}
+#overview.ps38-premium .hero #photoGrid::after{display:none!important;content:none!important;}
+#overview.ps38-premium .hero #photoGrid img{
+ position:relative!important;inset:auto!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+ transform:none!important;opacity:1!important;z-index:auto!important;
+ width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;
+ object-fit:cover!important;object-position:center!important;filter:sepia(.34) saturate(.88) brightness(.92) contrast(1.08)!important;
+ box-sizing:border-box!important;
+}
+#overview.ps38-premium .hero #photoGrid img:first-child{grid-column:1/-1!important;grid-row:1!important;}
+#overview.ps38-premium .hero #photoGrid img:nth-child(2){grid-column:1!important;grid-row:2!important;}
+#overview.ps38-premium .hero #photoGrid img:nth-child(3){grid-column:2!important;grid-row:2!important;}
+@media(min-width:1001px){
+ #ui14Sidebar .ui14-navcaption{display:flex!important;justify-content:center!important;align-items:center!important;}
+}
+@media(max-width:700px){
+ .main > #ps76Tools.ps353-mobile-tools{
+  display:flex!important;flex-wrap:nowrap!important;align-items:stretch!important;
+  padding:6px!important;margin:0 8px 6px!important;gap:5px!important;
+ }
+ .main > #ps76Tools.ps353-mobile-tools .ps76-caption{display:none!important;}
+ .main > #ps76Tools.ps353-mobile-tools #psFab,
+ .main > #ps76Tools.ps353-mobile-tools #seniorFab.senior-fab{
+  flex:1 1 0!important;min-width:0!important;width:auto!important;min-height:42px!important;
+  margin:0!important;padding:6px!important;font-size:11px!important;
+ }
+}
+/* Stary brand był przypięty do całego okna i zasłaniał napis NAWIGACJA.
+   W nowym dossier logo należy do kolumny bocznej, nie do viewportu. */
+@media(min-width:1001px){
+ #ui14Sidebar.sidebar .brand{
+  position:relative!important;inset:auto!important;
+  top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+  display:flex!important;width:100%!important;min-height:65px!important;
+  z-index:auto!important;flex:0 0 auto!important;
+ }
+ #ui14Sidebar.sidebar .ui14-navcaption{position:relative!important;display:flex!important;flex:0 0 auto!important;}
+}
 </style>
 
 
@@ -5017,6 +6057,11 @@ body{background:#1a0b05!important;background-image:linear-gradient(90deg,#100803
 
 
 
+<link rel="stylesheet" href="assets/ui/rc571039-40-preserved.css">
+<link rel="stylesheet" href="assets/ui/rc571041-quality.css" id="rc571041-quality-styles">
+<link rel="stylesheet" href="assets/ui/rc571042-mobile-interview.css" id="rc571042-mobile-layout">
+<link rel="stylesheet" href="assets/ui/rc571043-visual-balance.css" id="rc571043-visual-balance">
+<link rel="stylesheet" href="assets/ui/rc571044-visual-finish.css" id="rc571044-visual-finish">
 </head><body>
 <div id="ps18Boot" class="ps18-boot" role="status" aria-live="polite" aria-label="Otwieranie akt sprawy">
  <div class="ps18-boot-card"><span class="ps18-boot-kicker">AKTA ŚLEDZTWA · TW-217</span>
@@ -23174,6 +24219,63 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
  };
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
+/* RC57.10.38 — układ wizualny zaakceptowanej koncepcji, bez modyfikowania stanu gry. */
+(()=>{
+ 'use strict';
+ function init(){
+  const overview=document.getElementById('overview');
+  if(!overview||overview.classList.contains('ps38-premium'))return;
+  overview.classList.add('ps38-premium');
+  const find=sel=>overview.querySelector(sel);
+  const hero=find('.hero'),welcome=find('#ps2Welcome'),pulse=find('#ps70Pulse'),threads=find('#story26Overview'),more=find('#ps88MorePaths');
+  if(hero&&welcome){
+   const front=document.createElement('div');front.className='ps38-front-grid';
+   hero.parentElement.insertBefore(front,hero);front.append(hero,welcome);
+  }
+  if(pulse&&threads){
+   const lower=document.createElement('div');lower.className='ps38-lower-grid';
+   const left=document.createElement('div');left.className='ps38-progress-stack';
+   pulse.parentElement.insertBefore(lower,pulse);lower.append(left,threads);left.append(pulse);
+   if(more)left.append(more);
+  }
+  const banner=document.createElement('header');banner.className='ps38-case-banner';
+  banner.innerHTML='<span class="ps38-banner-kicker">PULPIT ŚLEDCZY · AKTA SPRAWY</span><h2>Stan sprawy</h2><p>Przeglądaj ustalenia, śledź wątki i planuj kolejne czynności.</p>';
+  const sectionIndex=find('.ps36-section-index');
+  if(sectionIndex)sectionIndex.insertAdjacentElement('afterend',banner);
+  else overview.insertBefore(banner,overview.firstChild);
+  const tasks=document.createElement('nav');tasks.className='ps38-actions';tasks.setAttribute('aria-label','Skróty do czynności śledczych');
+  tasks.innerHTML='<div class="ps38-actions-heading"><span class="ps38-motif" aria-hidden="true">✧</span><strong>NAJBLIŻSZE DZIAŁANIA</strong></div><div class="ps38-actions-list">'+[
+   ['evidence','▤','Przejrzyj akta','Dostępne dokumenty'],
+   ['inspection12','◉','Oględziny','Zbadaj miejsce zdarzenia'],
+   ['notebook','✎','Notatnik','Zapisz swoje ustalenia'],
+   ['deduction','◇','Dedukcja','Połącz fakty i hipotezy']
+  ].map(([id,icon,title,desc])=>'<button type="button" data-ps38-go="'+id+'"><span aria-hidden="true">'+icon+'</span><b>'+title+'</b><small>'+desc+'</small></button>').join('')+'</div>';
+  const after=find('.ps38-lower-grid')||find('.ps38-front-grid');
+  if(after)after.insertAdjacentElement('afterend',tasks);
+  tasks.addEventListener('click',ev=>{
+   const id=ev.target.closest('[data-ps38-go]')?.getAttribute('data-ps38-go');
+   if(!id||typeof showTab!=='function')return;
+   showTab(id);
+  });
+  const sidebar=document.getElementById('ui14Sidebar');
+  if(sidebar){
+   const nav=sidebar.querySelector('#nav');
+   const icons={overview:'⌂',evidence:'▤',search:'⌕',interview:'☷',timeline:'◷',inspection12:'◉',notebook:'✎',labs:'⚗',deduction:'◇',final:'⚑'};
+   nav?.querySelectorAll('button[data-tab]').forEach(btn=>{
+    if(btn.querySelector('.ps38-nav-icon'))return;
+    const icon=document.createElement('span');icon.className='ps38-nav-icon';icon.setAttribute('aria-hidden','true');icon.textContent=icons[btn.dataset.tab]||'◆';
+    const number=btn.querySelector('.num');
+    if(number)number.after(icon);else btn.prepend(icon);
+   });
+   if(!sidebar.querySelector('.ps38-sidebar-art')){
+    const art=document.createElement('div');art.className='ps38-sidebar-art';art.setAttribute('aria-hidden','true');
+    const tools=document.getElementById('ps76Tools');
+    if(tools?.parentElement===sidebar)tools.before(art);else sidebar.append(art);
+   }
+  }
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
 </script>
 <!-- POPRAWKA 1 / MOBILE P1: zachowaj dostep do elementow, bez poziomego przewijania strony -->
 
@@ -23196,4 +24298,80 @@ window.PS625_RELEVANCE=Object.freeze({detect,labels,version:'6.25',last:()=>wind
 
 })();
 </script>
+<script id="ps36-professional-sections">
+/* RC57.10.36 · Organizacja sekcji i nawigacja po zadaniach.
+   Wyłącznie prezentacja: STATE, SaveManager, silniki AI i dowody pozostają nienaruszone. */
+(()=>{
+'use strict';
+function init(){
+ const get=id=>document.getElementById(id);
+ const modules=['overview','evidence','search','interview','timeline','inspection12','notebook','labs','deduction','final'];
+ modules.forEach(id=>get(id)?.classList.add('ps36-polished'));
+ const moveBefore=(node,anchor)=>{if(node&&anchor&&node.parentNode===anchor.parentNode&&node!==anchor)anchor.before(node);};
+ const notes=get('notebook');
+ if(notes){
+  const editor=notes.querySelector('.sc-notebook'),confrontation=get('conflictPanel');
+  const quick=get('ps88QuickNotes'),saves=get('ps88SaveManagement');
+  if(editor&&confrontation){moveBefore(editor,confrontation);moveBefore(quick,confrontation);moveBefore(saves,confrontation);}
+ }
+ const deduction=get('deduction');
+ if(deduction){
+  const work=deduction.querySelector('.dd-work'),thread=get('threadBoardPanel');
+  if(work&&thread)moveBefore(work,thread);
+ }
+ const timeline=get('timeline');
+ if(timeline){
+  const auto=get('ps41AutoTimeline'),metrics=get('tlMetrics'),manual=timeline.querySelector('.tl-main');
+  if(auto&&manual){moveBefore(metrics,auto);moveBefore(manual,auto);}
+ }
+ const keySections={
+  overview:[['Pierwsze kroki','#ps2Welcome'],['Przebieg sprawy','#ps70Pulse'],['Wątki','#story26Overview']],
+  evidence:[['Typy materiałów','#evTypeFilters'],['Kartoteka','#docList']],
+  search:[['Obszary','#areas'],['Wyszukiwanie','.searchbox']],
+  timeline:[['Chronologia','.tl-main'],['Automatyczne ustalenia','#ps41AutoTimeline'],['Podsumowanie','.tl-consistency']],
+  notebook:[['Moje notatki','.sc-notebook'],['Konfrontacja','#conflictPanel'],['Tablica','#ps38Board']]
+ };
+ for(const [tab,list] of Object.entries(keySections)){
+  const sec=get(tab);if(!sec||sec.querySelector('.ps36-section-index'))continue;
+  const entries=list.map(([title,sel])=>({title,node:sec.querySelector(sel)})).filter(e=>e.node);
+  if(entries.length<2)continue;
+  const head=sec.querySelector(':scope > .sectionheading,:scope > .ev-header,:scope > .tl-head,:scope > .dd-head');
+  const index=document.createElement('nav');index.className='ps36-section-index';index.setAttribute('aria-label','Przejdź do części zakładki');
+  const label=document.createElement('span');label.className='ps36-index-title';label.textContent='W tej zakładce';index.append(label);
+  for(const {title,node} of entries){
+   const button=document.createElement('button');button.type='button';button.textContent=title;
+   button.addEventListener('click',()=>{
+    if(node.hidden||getComputedStyle(node).display==='none')return;
+    node.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+    index.querySelectorAll('button').forEach(b=>b.removeAttribute('aria-current'));
+    button.setAttribute('aria-current','true');
+   });
+   index.append(button);
+  }
+  if(head)head.after(index);else sec.prepend(index);
+ }
+ const levels={
+  overview:['ps2Welcome','ps70Pulse','story26Overview'],
+  notebook:['conflictPanel','ps38Board','ps46Annotations','ps49Diagnostics','ps53Provenance'],
+  labs:['ux5Hub','ps62LabStatus'],
+  deduction:['ux4Guide','threadBoardPanel','ux4Board'],
+  final:['psF1Gate','ps60CaseAudit','ps601Fundamenty']
+ };
+ for(const [tab,ids] of Object.entries(levels)){
+  const sec=get(tab);if(!sec)continue;
+  ids.forEach((id,i)=>{const el=get(id);if(el&&el.parentElement===sec)el.classList.add(i<=1?'ps36-primary':'ps36-secondary');});
+ }
+ const report=()=>({version:'RC57.10.36',modules:modules.filter(id=>get(id)?.classList.contains('ps36-polished')),
+  indices:[...document.querySelectorAll('.ps36-section-index')].map(n=>({tab:n.closest('section.section')?.id,buttons:n.querySelectorAll('button').length})),
+  notebookPrimary:get('notebook')?.querySelector('.sc-notebook')?.compareDocumentPosition(get('conflictPanel')),
+  deductionPrimary:get('deduction')?.querySelector('.dd-work')?.compareDocumentPosition(get('threadBoardPanel'))});
+ window.PS36_LAYOUT=Object.freeze({inspect:report});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>requestAnimationFrame(init),{once:true});
+else requestAnimationFrame(init);
+})();
+</script>
+<script src="assets/ui/rc571039-preserved.js" defer></script>
+<script src="assets/ui/rc571041-performance.js" defer></script>
+<script src="assets/ui/rc571042-mobile-interview.js" defer></script>
 </body></html>

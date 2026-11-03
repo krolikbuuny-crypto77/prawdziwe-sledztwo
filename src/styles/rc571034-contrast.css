@@ -1,0 +1,50 @@
+/* RC57.10.34 — globalny audyt kontrastu tekstów.
+   Warstwa wyłącznie prezentacyjna: nie zmienia logiki, zapisów ani API. */
+:root{
+  --ps1034-ink:#2f2219;
+  --ps1034-text:#4d3828;
+  --ps1034-muted:#614a37;
+  --ps1034-strong:#f4efe6;
+  --ps1034-soft:#d2dcde;
+  --ps1034-soft2:#bcc8cb;
+}
+/* Domyślnie: czytelniejsze teksty drugorzędne i placeholdery na ciemnym motywie. */
+body :is(input,textarea)::placeholder{color:#8b9aa0!important;opacity:1!important;}
+body :is(.muted,.small.muted,.tiny.muted,.searchResults,.footer,.sectionheading p,.dd-head p,.tl-head p,.mg2-help,.mg2-message,.p3-instruction,.p3-note,.ci-note,.tcms-intro p){color:var(--ps1034-soft2)!important;opacity:1!important;}
+body :is(.small,.tiny,.note small,.eventrow,.dd-help,.mg2-key,.p3-actions small){opacity:1!important;}
+body :is(label,legend,output,summary){opacity:1!important;}
+/* Jasna skóra: jeden spójny zestaw kolorów dla tekstów pomocniczych i etykiet. */
+.ps28-skin :is(.surface,.searchbox,.ps41-auto,.ux5-hub,.cross3-section,.tl-panel,.ev-reader,.story26-panel,.sc-inspector,.sc-mission,.fc-main,.fc-defense,.fc-side,.fc-feedback,.dd-note,.dd-source-panel,.dd-editor-panel,.dd-board,.dd-board-head,.dd-feedback,.ux4-guide,.ux4-disclosure,.ps-next-panel,.ps-card,.psm-photo-zoom,.et2-room-picker,.ps-opt-orientation,#psResumeOffer,.ps61-secondary-shortcuts,.sv2-subnav,.ps76-tools) :is(p,small,label,legend,summary,output,.small,.tiny,.muted,.dd-help,.ux4-step-help,.ux4-nav small,.p3-feedback,.fc-feedback,.fc-side small,.fc-side p){color:var(--ps1034-text)!important;opacity:1!important;text-shadow:none!important;}
+.ps28-skin :is(.surface,.searchbox,.ps41-auto,.ux5-hub,.cross3-section,.tl-panel,.ev-reader,.story26-panel,.sc-inspector,.sc-mission,.fc-main,.fc-defense,.fc-side,.fc-feedback,.dd-note,.dd-source-panel,.dd-editor-panel,.dd-board,.dd-board-head,.dd-feedback,.ux4-guide,.ux4-disclosure,.ps-next-panel,.ps-card,.psm-photo-zoom,.et2-room-picker,.ps-opt-orientation,#psResumeOffer,.ps61-secondary-shortcuts,.sv2-subnav,.ps76-tools) :is(h2,h3,h4,strong,b){color:var(--ps1034-ink)!important;text-shadow:none!important;}
+.ps28-skin :is(.surface,.searchbox,.ps41-auto,.ux5-hub,.cross3-section,.tl-panel,.ev-reader,.story26-panel,.sc-inspector,.sc-mission,.fc-main,.fc-defense,.fc-side,.fc-feedback,.dd-note,.dd-source-panel,.dd-editor-panel,.dd-board,.dd-board-head,.dd-feedback,.ux4-guide,.ux4-disclosure,.ps-next-panel,.ps-card,.psm-photo-zoom,.et2-room-picker,.ps-opt-orientation,#psResumeOffer,.ps61-secondary-shortcuts,.sv2-subnav,.ps76-tools) :is(input,textarea,select){color:var(--ps1034-ink)!important;}
+.ps28-skin :is(input,textarea)::placeholder{color:#6e5845!important;opacity:1!important;}
+/* Przesłuchania / panele na ciemnym tle — jaśniejsze teksty pomocnicze. */
+#interview :is(.ps-next-panel,.ps87-room-toolbar,.chathead,.chatfoot,.ps54-issue,.ps53-source,.ps38-board,.ps39-panel,.ps-card) :is(p,small,label,legend,summary,output,.small,.tiny,.muted){color:var(--ps1034-soft)!important;opacity:1!important;text-shadow:none!important;}
+#interview :is(.ps-next-panel,.ps87-room-toolbar,.chathead,.chatfoot,.ps54-issue,.ps53-source,.ps38-board,.ps39-panel,.ps-card) :is(h2,h3,h4,strong,b){color:#f0dcc0!important;text-shadow:none!important;}
+#interview .ps87-room-toolbar .ps87-room-title{color:#f2dfc0!important;}
+#interview .ps87-room-toolbar .ps87-motion{background:#203641!important;color:#f8e6c6!important;border:1px solid #6c8591!important;}
+/* Oględziny — najczęściej zgłaszane miejsca o zbyt bladym tekście. */
+#inspection12.ps28-skin :is(.et2-room-picker,.psm-photo-zoom,.ps-opt-orientation,.ps-opt-orientation details,.ps-opt-orientation summary,#ciFocusCard,.ov36-navigator,.ov37-archive,.ov37-card-document,.ov36-region-card,.ps61-secondary-shortcuts,.sv2-subnav){color:var(--ps1034-ink)!important;}
+#inspection12.ps28-skin :is(.et2-room-picker label,.et2-hint,#et2Direction,.psm-zoom-caption,#psmSceneZoomLabel,.ci-focus-title,.ci-focus-meta,.ci-focus-observation,.ci-focus-action span,.ov36-help,.ov36-counter,.ov36-description span,.ov37-context,.ov37-status,.ov37-source,.sv2-subnav-label){color:var(--ps1034-text)!important;opacity:1!important;text-shadow:none!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-title{color:#3a271a!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-state{background:#fff0d7!important;color:#513a29!important;border:1px solid #a47e52!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-state.done{background:#e4f0e6!important;color:#335644!important;border-color:#7ba08a!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-action{border-top-color:#b69470!important;}
+#inspection12.ps28-skin .psm-photo-zoom > button{background:#18303a!important;color:#fff0d6!important;border-color:#5f7680!important;}
+#inspection12.ps28-skin .psm-photo-zoom > button:last-child{background:#18303a!important;color:#fff0d6!important;}
+/* Dedukcja — etykiety i opisy pól muszą być stale czytelne na jasnych panelach. */
+#deduction.ps28-skin .dd-editor-panel :is(.dd-field,.dd-field > label,.dd-help,.small,.muted,.tiny,.dd-feedback,.dd-countnote,.ux4-step-help,.ux4-step-copy small,.ux4-nav small,.ux4-guide p,.ux4-disclosure summary,.dd-panel-head span,.dd-tag,.dd-editor-actions span){color:#4f3828!important;opacity:1!important;text-shadow:none!important;}
+#deduction.ps28-skin .dd-editor-panel .dd-field > label{font-weight:750!important;font-size:13px!important;line-height:1.45!important;margin:0 0 4px!important;}
+#deduction.ps28-skin :is(.dd-source-panel,.dd-editor-panel,.dd-board,.ux4-guide,.ux4-disclosure,.dd-feedback,.dd-board-head) :is(h2,h3,h4,strong,b){color:#37261a!important;}
+#deduction.ps28-skin .dd-editor-panel :is(input,textarea,select){background:#fff4df!important;color:#38271c!important;border-color:#a77e52!important;}
+#deduction.ps28-skin .dd-editor-panel :is(input,textarea)::placeholder{color:#705845!important;opacity:1!important;}
+/* Werdykt / formularze końcowe. */
+#final.ps28-skin :is(.fc-field,label,.fc-feedback,.fc-side,.fc-side p,.fc-side small,.fc-fields small,.muted,.tiny){color:#4f3828!important;opacity:1!important;text-shadow:none!important;}
+#final.ps28-skin :is(.fc-main,.fc-defense,.fc-side,.fc-feedback) :is(h2,h3,h4,strong,b){color:#36251a!important;}
+/* Drobne poprawki skrótów i pomocy kontekstowej. */
+.ps28-skin .sv2-subnav-label,.ps28-skin .ps76-caption{color:#6a4c35!important;opacity:1!important;text-shadow:none!important;}
+.ps28-skin :is(.sv2-subnav button,.ps61-secondary-shortcuts summary){color:#3d281c!important;}
+@media(max-width:700px){
+  .ps28-skin :is(.psm-photo-zoom,.et2-room-picker,.ps-opt-orientation,.ps-next-panel,.dd-editor-panel,.dd-source-panel,.fc-main,.fc-defense,.fc-side){font-size:inherit!important;}
+  #deduction.ps28-skin .dd-editor-panel .dd-field > label{font-size:12.5px!important;}
+}

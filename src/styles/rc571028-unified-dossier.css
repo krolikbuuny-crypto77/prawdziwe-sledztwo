@@ -693,3 +693,195 @@
   cursor:pointer;
 }
 #ps80AudioBar{z-index:40!important;}
+/* RC57.10.32 · final contrast consistency for saved-session prompt,
+   inspections, hypothesis editor and internal section shortcuts.
+   Presentation only; all data, actions and gameplay rules remain untouched. */
+#psResumeOffer.ps-resume-offer {
+  background:linear-gradient(145deg,#fae9ce 0%,#e7c89e 100%)!important;
+  border:2px solid #98683c!important;
+  color:#38271c!important;
+  padding:clamp(16px,3vw,28px)!important;
+  box-shadow:0 9px 23px rgba(29,17,10,.23)!important;
+  border-radius:12px!important;
+}
+#psResumeOffer.ps-resume-offer > strong {
+  color:#422819!important;font:700 clamp(21px,2.1vw,30px)/1.24 Georgia,'Times New Roman',serif!important;
+  text-shadow:none!important;overflow-wrap:normal;
+}
+#psResumeOffer.ps-resume-offer :is(p,.small,.muted) {
+  color:#4a3425!important;opacity:1!important;
+  font-size:clamp(13px,1.05vw,16px)!important;line-height:1.6!important;
+  text-shadow:none!important;
+}
+#psResumeOffer .formline{display:flex;flex-wrap:wrap;gap:11px!important;align-items:stretch;}
+#psResumeOffer .formline button{flex:1 1 175px;min-height:46px;white-space:normal;}
+#psResumeOffer .formline button:first-child{background:#873426!important;color:#fff4e3!important;border-color:#6b271d!important;}
+#psResumeOffer .formline button:not(:first-child){background:#f2ddba!important;color:#412b1d!important;border-color:#ad8050!important;}
+#psResumeOffer button:focus-visible{outline:3px solid #264e65!important;outline-offset:3px!important;}
+
+/* Contextual module navigation: one light dossier strip, not blue dashboard chips. */
+.section:not(#interview) .sv2-subnav {
+  background:linear-gradient(135deg,#f1dbb6,#e7c99f)!important;
+  border:1px solid #ab8152!important;border-radius:10px!important;
+  box-shadow:0 3px 8px rgba(50,27,15,.13)!important;
+  padding:9px 12px!important;margin:8px 0 17px!important;
+  min-width:0;align-items:center!important;gap:7px!important;
+}
+.section:not(#interview) .sv2-subnav-label{
+  color:#633d28!important;opacity:1!important;
+  font:800 11px/1.3 system-ui,sans-serif!important;
+  letter-spacing:.08em!important;margin-right:8px!important;
+}
+.section:not(#interview) .sv2-subnav button{
+  background:#f9e8cc!important;color:#492e20!important;
+  border:1px solid #a87e50!important;border-radius:7px!important;
+  font:700 12px/1.35 system-ui,sans-serif!important;
+  min-height:41px!important;padding:9px 14px!important;
+  text-shadow:none!important;opacity:1!important;
+  box-shadow:0 1px 2px rgba(48,26,11,.13)!important;
+}
+.section:not(#interview) .sv2-subnav button:is(:hover,:focus-visible),
+.section:not(#interview) .sv2-subnav button.active{
+  background:#883529!important;color:#fff2db!important;
+  border-color:#733125!important;
+}
+.section:not(#interview) .sv2-subnav button:focus-visible{outline:2px solid #29465b!important;outline-offset:2px!important;}
+.ps61-secondary-shortcuts:has(>.sv2-subnav) > summary{
+  color:#573823!important;opacity:1!important;
+}
+
+/* Inspections: these explanatory nodes were pale blue on parchment. */
+#inspection12.ps28-skin #ciFocusCard :is(.ci-focus-observation,.ci-focus-meta,.ci-eyebrow),
+#inspection12.ps28-skin #ciFocusCard .ci-focus-action > span {
+  color:#503724!important;opacity:1!important;
+  text-shadow:none!important;line-height:1.6!important;
+}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-observation{font-size:13px!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-title{color:#3e2618!important;opacity:1!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-state:not(.done){
+  background:#f6e6cb!important;color:#543c29!important;border:1px solid #a47c50!important;
+}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-action{border-top-color:#bb9871!important;}
+#inspection12.ps28-skin #ciFocusCard .ci-focus-action button:disabled{
+  background:#e1d2b8!important;color:#67503c!important;border-color:#aa926c!important;opacity:.87!important;
+}
+
+/* Deduction: all input labels inherit obsolete light-on-dark font colors. */
+#deduction.ps28-skin .dd-editor-panel .dd-field,
+#deduction.ps28-skin .dd-editor-panel .dd-field > label,
+#deduction.ps28-skin .dd-editor-panel .dd-help,
+#deduction.ps28-skin .dd-editor-panel :is(.eyebrow,.dd-panel-head,.ux4-intro,.ux4-guide),
+#deduction.ps28-skin .dd-editor-panel :is(.small,.muted){
+  color:#503524!important;opacity:1!important;text-shadow:none!important;
+}
+#deduction.ps28-skin .dd-editor-panel .dd-field > label{
+  display:block;font-weight:750!important;font-size:13px!important;
+  line-height:1.45!important;margin:0 0 4px!important;
+}
+#deduction.ps28-skin .dd-editor-panel :is(input,textarea,select){
+  background:#fff3dd!important;color:#402a1d!important;
+  border:1px solid #a67b4f!important;opacity:1!important;
+  font-size:clamp(14px,1vw,16px)!important;
+}
+#deduction.ps28-skin .dd-editor-panel :is(input,textarea)::placeholder{color:#67503d!important;opacity:1!important;}
+#deduction.ps28-skin .dd-editor-panel :is(input,textarea,select):focus-visible{
+  outline:2px solid #873729!important;outline-offset:1px!important;
+}
+#deduction.ps28-skin .dd-editor-panel .dd-field .dd-help{font-size:12px!important;line-height:1.5!important;}
+
+/* Consistent pale paper section labels without overwriting colored interactive states. */
+.ps28-skin :is(.sc-object-physical,.sc-source,.ci-focus-meta,.dd-field > label){text-shadow:none!important;}
+@media(max-width:690px){
+  #psResumeOffer.ps-resume-offer{padding:15px!important;}
+  #psResumeOffer.ps-resume-offer .formline{display:grid!important;grid-template-columns:minmax(0,1fr)!important;}
+  #psResumeOffer.ps-resume-offer .formline button{width:100%!important;flex:auto!important;}
+  .section:not(#interview) .sv2-subnav{padding:8px!important;gap:6px!important;}
+  .section:not(#interview) .sv2-subnav button{min-width:0!important;flex:1 1 110px!important;}
+}
+
+/* RC57.10.33 — poprawki kontrastu podpisów fotografii i paska animacji.
+   Tylko prezentacja, bez zmian logiki śledztwa. */
+#inspection12.ps28-skin .et2-room-picker > label {
+  color:#422b1d!important;opacity:1!important;text-shadow:none!important;
+  font:750 clamp(13px,1vw,15px)/1.45 system-ui,sans-serif!important;
+}
+#inspection12.ps28-skin .et2-room-picker > select {
+  background:#fff3dc!important;color:#38281c!important;
+  border:1px solid #a47a4d!important;font-size:clamp(14px,1vw,16px)!important;
+}
+#inspection12.ps28-skin .psm-photo-zoom {
+  box-sizing:border-box!important;display:flex!important;align-items:center!important;
+  flex-wrap:wrap!important;justify-content:flex-end!important;gap:8px!important;
+  background:linear-gradient(120deg,#f8e7c9,#e8c99f)!important;
+  border:1px solid #ac8356!important;border-radius:9px!important;
+  margin:9px 0 6px!important;padding:9px 11px!important;min-height:60px!important;
+}
+#inspection12.ps28-skin .psm-photo-zoom > .psm-zoom-caption {
+  flex:1 1 155px!important;min-width:0!important;
+  color:#432e1f!important;opacity:1!important;text-shadow:none!important;
+  font:650 clamp(12px,1vw,14px)/1.4 system-ui,sans-serif!important;
+}
+#inspection12.ps28-skin .psm-photo-zoom > output {
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  box-sizing:border-box!important;min-width:55px!important;min-height:42px!important;
+  padding:6px 8px!important;background:#fff1d7!important;
+  border:1px solid #a67b50!important;border-radius:7px!important;
+  color:#3b291b!important;opacity:1!important;text-shadow:none!important;
+  font:750 13px/1.25 system-ui,sans-serif!important;font-variant-numeric:tabular-nums!important;
+}
+#inspection12.ps28-skin .psm-photo-zoom > button {
+  min-height:42px!important;min-width:42px!important;
+  background:#21333c!important;color:#ffedd4!important;
+  border:1px solid #66717b!important;border-radius:8px!important;
+  font-size:14px!important;
+}
+#inspection12.ps28-skin .psm-photo-zoom > button:hover {background:#334b57!important;}
+#inspection12.ps28-skin :is(.psm-photo-zoom button,.et2-room-picker select):focus-visible {
+  outline:3px solid #883c2c!important;outline-offset:2px!important;
+}
+/* Dawne overflow:auto rysowało pasek przewijania obok przycisku Animacje. */
+#interview .ps87-room-toolbar {
+  box-sizing:border-box!important;display:flex!important;flex-wrap:wrap!important;
+  align-items:center!important;justify-content:space-between!important;
+  gap:8px 12px!important;max-width:100%!important;
+  min-height:55px!important;padding:8px 16px!important;
+  overflow:visible!important;
+}
+#interview .ps87-room-toolbar .ps87-room-title {
+  min-width:0!important;flex:1 1 145px!important;
+  overflow-wrap:anywhere!important;line-height:1.35!important;
+}
+#interview .ps87-room-toolbar .ps87-motion {
+  box-sizing:border-box!important;display:inline-flex!important;
+  align-items:center!important;justify-content:center!important;flex:0 0 auto!important;
+  min-height:38px!important;max-width:100%!important;
+  padding:9px 13px!important;line-height:1.2!important;
+  white-space:normal!important;text-align:center!important;
+}
+#interview .ps87-room-toolbar .ps87-motion:focus-visible {
+  outline:2px solid #f5d3a2!important;outline-offset:2px!important;
+}
+@media(max-width:430px){
+  #inspection12.ps28-skin .psm-photo-zoom {justify-content:center!important;gap:7px!important;}
+  #inspection12.ps28-skin .psm-photo-zoom > .psm-zoom-caption {
+    flex:0 0 100%!important;text-align:center!important;
+  }
+  #inspection12.ps28-skin .psm-photo-zoom > output{min-width:50px!important;}
+  #inspection12.ps28-skin .psm-photo-zoom > button {
+    min-width:40px!important;padding:8px!important;
+  }
+  #inspection12.ps28-skin .psm-photo-zoom > button:last-child {min-width:73px!important;}
+  #interview .ps87-room-toolbar {padding:9px 11px!important;gap:7px!important;}
+  #interview .ps87-room-toolbar .ps87-motion{padding:8px 10px!important;}
+}
+/* Precyzyjne nadpisanie historycznej reguły #interview #ps87RoomToolbar,
+   która ograniczała wysokość do 38px i włączała przewijanie. */
+#interview #ps87RoomToolbar {
+  max-height:none!important;
+  height:auto!important;
+  min-height:52px!important;
+  overflow:visible!important;
+}
+@media(max-width:430px){
+  #interview #ps87RoomToolbar{min-height:52px!important;}
+}

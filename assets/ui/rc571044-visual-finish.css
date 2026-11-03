@@ -1,0 +1,56 @@
+/* RC57.10.44 · uzupełnienie istniejącej warstwy graficznej. Nie zmienia przebiegu gry. */
+/* Fotografia dekoracyjna ma być widoczna; poprawna ścieżka względem katalogu assets/ui. */
+#ui14Sidebar .ps38-sidebar-art{
+  background-color:#13242c!important;
+  background-image:linear-gradient(0deg,rgba(7,15,18,.55),rgba(7,18,24,.06) 65%),
+    url('../images/db64b67b670299ca63cbee79.webp')!important;
+  background-size:cover!important;
+  background-position:center 52%!important;
+  background-repeat:no-repeat!important;
+  border-color:#ac8654!important;
+  box-shadow:inset 0 0 0 1px #e5bf8066,0 3px 10px #03080a80!important;
+}
+#ui14Sidebar .ps38-sidebar-art::after{
+  font-size:10px!important;
+  color:#ffedca!important;
+  text-shadow:0 2px 5px #000,0 1px 2px #000!important;
+  letter-spacing:.075em!important;
+}
+/* Status aktywnego świadka jest widoczny także bez rozróżniania czerwieni. */
+#interview #characterList .character[aria-pressed="true"]{
+  outline:2px solid #8d3329!important;outline-offset:-3px!important;
+  box-shadow:0 2px 7px #3d241a4d,inset 0 0 0 1px #ffe6b8!important;
+}
+#interview #characterList .charactercopy small{
+  color:#553a29!important;opacity:1!important;
+  font-size:13px!important;line-height:1.42!important;
+}
+#interview .chatlog .bubble{line-height:1.55!important;overflow-wrap:anywhere!important;}
+#interview .chatfoot .muted.tiny,
+#interview .chatfoot #npc4Hint{color:#614732!important;opacity:1!important;font-size:12px!important;line-height:1.4!important;}
+#interview .chatfoot textarea{border-color:#9d734a!important;color:#392619!important;}
+#interview .chatfoot textarea::placeholder{color:#76604a!important;opacity:1!important;}
+#interview .chatfoot :is(button,textarea):focus-visible{outline:3px solid #8d3329!important;outline-offset:3px!important;}
+/* Materiały pomocnicze oddzielamy od protokołu: odstępy są mniejsze, lecz rozróżnialne. */
+#interview .ps21-tools :is(.ps21-tool-card,.ps23-evidence-box){min-width:0;overflow-wrap:anywhere;}
+#interview .ps21-tools :is(.ps21-tool-card p,.ps21-tool-card small){line-height:1.5!important;}
+@media(max-width:700px){
+ #interview.psm-show-chat .chathead{border-bottom:1px solid #b28a5b!important;}
+ #interview.psm-show-chat .chathead #chatRole{font-size:13.5px!important;line-height:1.42!important;}
+ #interview.psm-show-chat .chatlog{scrollbar-width:thin;overscroll-behavior-y:contain;}
+ #interview.psm-show-chat .chatlog .bubble{font-size:14px!important;line-height:1.5!important;}
+ #interview.psm-show-chat .chatfoot{border-top:1px solid #b78e61!important;}
+ #interview.psm-show-chat .chatfoot #chatInput{font-size:16px!important;line-height:1.42!important;}
+ #interview.psm-show-chat .chatfoot #chatSend{font-size:14px!important;min-height:46px!important;}
+ #interview .ps42-confrontation-wrap > summary{font-size:13.5px!important;}
+ #interview .psm-portrait-toggle{min-height:42px!important;}
+ /* Gdy ekranowa klawiatura jest otwarta, wpisywanie pytania ma pierwszeństwo przed ozdobami. */
+ #interview.psm-show-chat:focus-within .chatlog{max-height:clamp(125px,25dvh,195px)!important;}
+}
+@media(min-width:701px){
+ #interview .chatlog .bubble{font-size:14px!important;}
+ #interview #characterList .charactercopy small{font-size:13.5px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+ #interview :is(.character,.chatfoot button,.psm-portrait-toggle){animation:none!important;transition:none!important;}
+}

@@ -1,0 +1,215 @@
+/* RC57.10.43 — usunięcie faktycznych kolizji interfejsu mobilnego.
+   Wyłącznie stylowanie: nie zmienia stanu gry, świadków ani odpowiedzi AI. */
+@media (max-width:700px){
+  /* W poprzednim wydaniu przycisk portretu był absolutnie nałożony na rolę
+     świadka. Oba elementy muszą mieć własne miejsca w przepływie. */
+  #interview.psm-show-chat .chathead{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    justify-content:flex-start!important;
+    gap:8px!important;
+    flex:0 0 auto!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow:visible!important;
+    padding:12px!important;
+  }
+  #interview.psm-show-chat .chathead-copy{
+    display:block!important;
+    flex:0 1 auto!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:0!important;
+    margin:0!important;
+  }
+  #interview.psm-show-chat .chathead-title{
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    padding:0!important;
+    margin:0!important;
+  }
+  #interview.psm-show-chat .chathead-title>div{
+    display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+    gap:4px!important;width:100%!important;min-width:0!important;
+  }
+  #interview.psm-show-chat .chathead-title .eyebrow{
+    display:block!important;opacity:1!important;font-size:10px!important;
+    line-height:1.3!important;color:#6d4931!important;letter-spacing:.11em!important;
+    padding:0!important;margin:0!important;
+  }
+  #interview.psm-show-chat #chatName{
+    display:block!important;font-size:clamp(21px,5.8vw,28px)!important;
+    line-height:1.2!important;color:#40271a!important;
+    text-align:left!important;margin:0!important;padding:0!important;
+    max-width:100%!important;overflow-wrap:anywhere!important;
+  }
+  #interview.psm-show-chat #chatRole{
+    display:block!important;
+    position:static!important;
+    align-self:stretch!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin:0!important;
+    padding:6px 9px!important;
+    border:1px solid #b18757!important;
+    border-radius:6px!important;
+    background:#fff0d4!important;
+    color:#462d1d!important;
+    font:500 13px/1.4 Georgia,serif!important;
+    white-space:normal!important;
+    max-height:none!important;
+    box-shadow:none!important;
+    text-overflow:clip!important;
+  }
+  #interview.psm-show-chat .chathead .psm-portrait-toggle{
+    position:static!important;
+    inset:auto!important;
+    top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+    display:inline-flex!important;
+    justify-content:center!important;align-items:center!important;
+    align-self:flex-start!important;
+    order:3!important;
+    min-width:0!important;width:auto!important;
+    max-width:100%!important;
+    height:auto!important;min-height:40px!important;
+    margin:0!important;padding:8px 13px!important;
+    white-space:normal!important;overflow:visible!important;
+    text-overflow:clip!important;opacity:1!important;
+    font:700 12px/1.35 Georgia,serif!important;
+    z-index:auto!important;border-radius:7px!important;
+    border:1px solid #ab8659!important;
+    background:#152d37!important;color:#fff0d7!important;
+    box-shadow:0 2px 5px #291c1740!important;
+  }
+  #interview.psm-show-chat .chathead .psm-portrait-toggle:focus-visible{
+    outline:3px solid #8c3028!important;outline-offset:2px!important;
+  }
+  #interview.psm-show-chat:not(.psm-portrait-open) .chathead .witness-stage-host,
+  #interview.psm-show-chat:not(.psm-portrait-open) .chathead #npc4Panel{
+    display:none!important;
+  }
+  /* Zwinięty nagłówek ma być zwarty, a nie zajmować stałe 126 px. */
+  #interview.psm-show-chat:not(.psm-portrait-open) .chatlog{
+    flex:0 0 auto!important;
+    height:clamp(150px,22dvh,205px)!important;
+    min-height:150px!important;
+    max-height:205px!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    padding:10px 13px!important;
+  }
+  #interview.psm-show-chat .chatfoot{
+    flex:0 0 auto!important;
+    min-height:0!important;height:auto!important;
+    padding:10px 12px!important;
+    gap:7px!important;
+  }
+  #interview.psm-show-chat .chatfoot #chatInput{
+    min-height:60px!important;max-height:min(24dvh,160px)!important;
+    width:100%!important;
+  }
+  #interview.psm-show-chat .chatfoot .formline{
+    gap:6px!important;justify-content:space-between!important;
+  }
+  #interview.psm-show-chat #chatSend{
+    min-height:44px!important;
+  }
+  #interview.psm-show-chat .chatlog .bubble{
+    max-width:100%!important;overflow-wrap:anywhere!important;
+  }
+  /* Przy rozwiniętym portrecie nie ustawiaj stałej wysokości - zależy ona
+     od rzeczywistej liczby wskaźników, a nie od wymuszonej siatki. */
+  #interview.psm-show-chat.psm-portrait-open .chathead{
+    height:auto!important;min-height:0!important;max-height:none!important;
+  }
+  #interview.psm-show-chat.psm-portrait-open .chathead .witness-stage-host{
+    align-self:stretch!important;max-width:100%!important;
+    height:auto!important;min-height:100px!important;max-height:230px!important;
+    overflow:hidden!important;order:2!important;
+  }
+  #interview.psm-show-chat.psm-portrait-open .chathead #npc4Panel{
+    display:block!important;max-width:100%!important;min-width:0!important;
+    padding:8px!important;overflow-wrap:anywhere!important;
+  }
+}
+@media(max-width:359px){
+  #interview.psm-show-chat .chathead{padding:10px!important;gap:6px!important;}
+  #interview.psm-show-chat #chatName{font-size:21px!important;}
+  #interview.psm-show-chat #chatRole{font-size:12.5px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+ #interview .psm-portrait-toggle{transition:none!important;}
+}
+/* RC42 miało bardziej specyficzną regułę 126 px nawet po zmianie display.
+   Kontrola: wysokość musi wynikać z treści, nie z wymuszonego flex-basis. */
+@media(max-width:700px){
+ #interview.psm-show-chat:not(.psm-portrait-open) .chathead{
+  flex:0 0 auto!important;flex-basis:auto!important;
+  height:auto!important;min-height:0!important;max-height:none!important;
+ }
+ #interview.psm-show-chat .chatlog::before{
+  display:block!important;
+  position:sticky!important;top:0!important;
+  flex:0 0 auto!important;
+  width:auto!important;max-width:none!important;min-width:0!important;
+  height:auto!important;min-height:0!important;
+  margin:-10px -13px 10px!important;padding:9px 13px!important;
+  box-sizing:border-box!important;
+  font:700 15px/1.3 Georgia,'Times New Roman',serif!important;
+  border-radius:4px 4px 0 0!important;
+  white-space:normal!important;overflow-wrap:anywhere!important;
+ }
+}
+/* Rozwinięcie portretu: licznik emocji był pozycjonowany absolutnie nad
+   przyciskiem. Wszystkie cztery obszary mają teraz osobne wiersze. */
+@media(max-width:700px){
+ #interview.psm-show-chat.psm-portrait-open .chathead-copy{
+   display:contents!important;
+ }
+ #interview.psm-show-chat.psm-portrait-open .chathead .chathead-title{
+   order:0!important;width:100%!important;
+ }
+ #interview.psm-show-chat.psm-portrait-open .chathead .witness-stage-host{
+   display:flex!important;order:1!important;
+   justify-content:center!important;align-items:center!important;
+   width:100%!important;max-width:100%!important;
+   height:auto!important;min-height:135px!important;max-height:175px!important;
+   margin:0!important;padding:2px!important;
+   position:relative!important;inset:auto!important;
+ }
+ #interview.psm-show-chat.psm-portrait-open .chathead #npc4Panel{
+   order:2!important;position:static!important;
+   inset:auto!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;
+   width:100%!important;max-width:100%!important;
+   height:auto!important;min-height:0!important;max-height:none!important;
+   margin:0!important;padding:8px!important;
+   overflow:visible!important;box-sizing:border-box!important;
+ }
+ #interview.psm-show-chat.psm-portrait-open .chathead .psm-portrait-toggle{
+   order:3!important;
+ }
+}
+/* 681–700 px: poprzedni układ nadal tworzył dwie kolumny. Po rozwinięciu
+   portretu jego licznik wchodził na protokół. Kontener rozmowy jest pionowy. */
+@media(min-width:681px) and (max-width:700px){
+ #interview.psm-show-chat .charactergrid>.chat{
+   display:flex!important;flex-direction:column!important;
+   grid-template-columns:none!important;grid-template-rows:none!important;
+   height:auto!important;min-height:0!important;overflow:visible!important;
+ }
+ #interview.psm-show-chat .chathead{
+   order:0!important;flex:0 0 auto!important;flex-basis:auto!important;
+   height:auto!important;min-height:0!important;max-height:none!important;
+ }
+ #interview.psm-show-chat .chatlog{order:1!important;min-width:0!important;width:100%!important;}
+ #interview.psm-show-chat .chatfoot{order:2!important;min-width:0!important;width:100%!important;}
+ #interview.psm-show-chat .ps21-tools{order:3!important;width:100%!important;}
+ #interview.psm-show-chat #ps87RoomToolbar{order:4!important;}
+ #interview.psm-show-chat .chat>:not(.chathead):not(.ps21-tools):not(.chatlog):not(.chatfoot):not(#ps87RoomToolbar){order:5!important;}
+}

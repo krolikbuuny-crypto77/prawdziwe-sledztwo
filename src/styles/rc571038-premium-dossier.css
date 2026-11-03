@@ -1,0 +1,398 @@
+/* RC57.10.38 · Dekoracyjne akta śledztwa: wyłącznie warstwa prezentacji.
+ * Nie zmienia stanów, dowodów, zdarzeń, zapisu, API ani werdyktu.
+ * Zdjęcie banera jest ilustracyjnym motywem, nie materiałem dowodowym.
+ */
+:root{
+  --ps38-night:#091a22;
+  --ps38-night2:#122a34;
+  --ps38-gold:#d6af75;
+  --ps38-gold-deep:#946238;
+  --ps38-paper:#efdbb9;
+  --ps38-paper-light:#fff0d7;
+  --ps38-ink:#382419;
+  --ps38-muted:#5e422d;
+  --ps38-red:#892e25;
+}
+html,body{
+  background:#160e0b!important;
+  background-image:radial-gradient(ellipse at 75% 18%,#24363b20,transparent 68%),url('assets/ui/dossier-wood-rc25.webp')!important;
+  background-size:auto,540px 540px!important;
+}
+/* Ciemny granat/złoto wokół prawdziwych dokumentów. */
+.layout{grid-template-columns:clamp(218px,16.6vw,264px) minmax(0,1fr)!important;}
+#ui14Sidebar.sidebar{
+  background:linear-gradient(180deg,#08151bee,#10232aee 56%,#08151bf4),url('assets/ui/dossier-wood-rc25.webp')!important;
+  border-right:2px solid #a67a47!important;
+  box-shadow:3px 0 18px #0008,inset -3px 0 #0b1015!important;
+  padding:10px 12px 14px!important;
+  color:#fff1d8!important;
+}
+#ui14Sidebar .brand{
+  position:relative;
+  padding:11px 8px 15px!important;
+  border:2px solid #c89c60!important;
+  background:linear-gradient(140deg,#f4e1bd,#dbbc8c)!important;
+  border-radius:4px 4px 12px 12px!important;
+  margin-bottom:13px!important;
+  box-shadow:inset 0 1px #fff7e2,0 5px 12px #0007!important;
+}
+#ui14Sidebar .brand::before,#ui14Sidebar .brand::after{
+  content:'✧';position:absolute;color:#8b5a32;font-size:17px;top:3px;pointer-events:none;
+}
+#ui14Sidebar .brand::before{left:5px}
+#ui14Sidebar .brand::after{right:5px}
+#ui14Sidebar .brand-copy b{color:#392417!important;font-family:Georgia,'Times New Roman',serif!important;font-size:clamp(13px,1vw,17px)!important;font-weight:800!important;letter-spacing:-.02em!important;}
+#ui14Sidebar .brand-copy span{color:#fff4df!important;background:linear-gradient(#a83d2e,#76251e)!important;border:1px solid #6d291f!important;border-radius:4px!important;text-align:center!important;padding:1px 6px!important;font-family:Georgia,serif!important;font-size:11px!important;display:inline-block!important;letter-spacing:0!important;}
+#ui14Sidebar .seal{color:#8b5831!important;border:0!important;box-shadow:none!important;background:transparent!important;font-size:27px!important;}
+#ui14Sidebar .ui14-navcaption{border:1px solid #ad804a!important;border-radius:6px!important;background:#081821!important;color:#f4dcaa!important;text-align:center!important;letter-spacing:.08em!important;margin:0 0 10px!important;padding:9px 5px!important;font:bold 14px Georgia,serif!important;box-shadow:inset 0 0 0 1px #27404a!important;}
+#ui14Sidebar #nav{display:grid!important;gap:6px!important;padding:0!important;}
+#ui14Sidebar #nav button{
+  color:#302115!important;
+  border:1px solid #966a3c!important;
+  border-radius:7px!important;
+  background:linear-gradient(180deg,#f7e7ca,#ddbb8a)!important;
+  min-height:43px!important;
+  padding:7px 11px!important;
+  box-shadow:0 2px 6px #0006,inset 0 2px #fff8e7!important;
+  font:700 14px/1.18 Georgia,'Times New Roman',serif!important;
+  display:flex!important;align-items:center!important;gap:8px!important;
+  text-shadow:none!important;
+}
+#ui14Sidebar #nav button:hover{filter:brightness(1.075)!important;border-color:#e4bb78!important;transform:translateX(1px);}
+#ui14Sidebar #nav button.active,#ui14Sidebar #nav button[aria-current='page']{
+  background:linear-gradient(180deg,#a9392d,#74241d)!important;color:#fff3df!important;
+  border:1px solid #e2b171!important;
+  box-shadow:inset 3px 0 #f0b56d,0 0 0 1px #5d221b,0 3px 9px #0007!important;
+}
+#ui14Sidebar #nav .num{font:700 11px/1.2 ui-monospace,monospace!important;color:inherit!important;min-width:23px;text-align:center;opacity:.96!important;border-right:1px solid #8b6e4a77;padding-right:5px;}
+#ui14Sidebar #nav .ps38-nav-icon{font:700 17px/1 Georgia,serif;color:inherit;min-width:21px;display:inline-grid;place-items:center;}
+#ui14Sidebar .ps38-sidebar-art{height:65px;min-height:65px;margin:12px 2px 9px;border-radius:7px;
+ background:linear-gradient(0deg,#07171e40,#07171e14),url('assets/ui/rc571038-side-scene.webp') center/cover no-repeat;
+ border:1px solid #74583c;box-shadow:inset 0 0 13px #0009;pointer-events:none;}
+#ui14Sidebar #ps76Tools{background:transparent!important;border-top:1px solid #8c6c43!important;box-shadow:none!important;padding:10px 2px 0!important;margin-top:auto!important;}
+#ui14Sidebar .ps76-caption{color:#e6c28b!important;letter-spacing:.11em!important;}
+#ui14Sidebar #psFab,#ui14Sidebar #seniorFab{background:linear-gradient(135deg,#102730,#16252a)!important;color:#f4dfbf!important;border:1px solid #b08a56!important;border-radius:7px!important;box-shadow:0 2px 6px #0006!important;min-height:41px!important;}
+/* Nagłówek aplikacji: równa typografia i złoty kontur. */
+.topbar{background:linear-gradient(95deg,#081219,#152732 54%,#090f14)!important;border-bottom:2px solid #bc8f54!important;box-shadow:0 5px 16px #0009!important;}
+.topbar :is(.ps23-dossier-icon,.ps23-date>span){color:#ddb778!important;}
+.topbar :is(.ps23-header-dossier small,.ps23-progress small,.ps23-date small){color:#e6bc80!important;}
+.topbar :is(.ps23-header-dossier strong,.ps23-progress strong,.ps23-date strong){color:#fff1d7!important;font-family:Georgia,serif!important;}
+.topbar .ps23-progress-track{border-color:#b78d52!important;background:#09141a!important;}
+.topbar .ps23-progress-track i{background:linear-gradient(90deg,#6d9039,#bed265)!important;}
+.content{max-width:1660px!important;width:100%!important;padding:clamp(11px,1.25vw,23px)!important;}
+/* Ekrany akt: ozdobne obramowanie bez usuwania wprowadzonych reguł dostępności. */
+.section.ps36-polished:not(#interview) :is(.surface,.searchbox,.tl-panel,.sc-inspector,.ev-index,.ev-reader,.dd-editor-panel,.dd-source-panel,.fc-main,.fc-defense,.ps88-details){
+  border-color:#ac8050!important;
+  box-shadow:0 3px 10px #21100d40,inset 0 1px #fff6e6!important;
+}
+.section.ps36-polished.ps28-skin > :is(.sectionheading,.ev-header,.tl-head,.dd-head){
+  position:relative!important;
+  background-image:linear-gradient(115deg,#fff0d2,#e6c391),url('assets/ui/ref-parchment.webp')!important;
+  background-blend-mode:multiply!important;
+  border:1px solid #aa7e4e!important;
+  box-shadow:0 3px 12px #1d100e44,inset 0 1px #fff9ec!important;
+}
+.section.ps36-polished.ps28-skin > :is(.sectionheading,.ev-header,.tl-head,.dd-head)::before{
+  content:'';position:absolute;top:5px;left:5px;width:18px;height:18px;
+  border-top:2px solid #a67640;border-left:2px solid #a67640;opacity:.72;pointer-events:none;
+}
+.section.ps36-polished.ps28-skin > :is(.sectionheading,.ev-header,.tl-head,.dd-head)::after{
+  content:'';position:absolute;bottom:5px;right:5px;width:18px;height:18px;
+  border-bottom:2px solid #a67640;border-right:2px solid #a67640;opacity:.72;pointer-events:none;
+}
+.ps36-section-index{border:1px solid #b18450!important;background:linear-gradient(180deg,#f6e3c2,#e7c69d)!important;color:#4b2f1c!important;box-shadow:0 2px 8px #160c0a55!important;}
+.ps36-section-index button{border-color:#bc9567!important;}
+/* Referencyjny Pulpit: pas nocy oraz istniejące dane i czynności w dwóch kolumnach. */
+#overview.ps38-premium .ps38-case-banner{
+ position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:center;
+ gap:3px;min-height:126px;padding:17px clamp(20px,3.3vw,44px);margin:8px 0 14px;
+ border:1px solid #c49a62;border-radius:11px;
+ background-image:linear-gradient(90deg,#081b26 4%,#081b26eb 38%,#061c2866 80%,#0b1f28ad),url('assets/ui/rc571038-night-tram.webp');
+ background-size:cover;background-position:center,right center;
+ box-shadow:0 5px 18px #0008,inset 0 1px #e2b97377;overflow:hidden;
+}
+#overview.ps38-premium .ps38-case-banner::after{content:'';position:absolute;z-index:-1;inset:6px;border:1px solid #af875544;border-radius:6px;pointer-events:none;}
+#overview.ps38-premium .ps38-banner-kicker{color:#ecc78e!important;font:bold 11px/1.4 Georgia,serif!important;letter-spacing:.17em!important;}
+#overview.ps38-premium .ps38-case-banner h2{color:#ffe8be!important;font:bold clamp(27px,2.7vw,42px)/1.1 Georgia,serif!important;letter-spacing:-.02em!important;}
+#overview.ps38-premium .ps38-case-banner p{color:#f1e2cb!important;font:italic clamp(13px,1.05vw,16px)/1.4 Georgia,serif!important;max-width:52ch;}
+#overview.ps38-premium .ps38-front-grid{display:grid;grid-template-columns:minmax(0,1.48fr) minmax(320px,.85fr);align-items:stretch;gap:15px;margin-bottom:15px;min-width:0;}
+#overview.ps38-premium .ps38-front-grid > *{min-width:0;}
+#overview.ps38-premium .ps38-front-grid > .hero{
+ display:grid!important;grid-template-columns:minmax(0,1.28fr) minmax(185px,.77fr)!important;
+ gap:0!important;min-height:406px;align-items:stretch!important;margin:0!important;
+ border:2px solid #b88a51!important;border-radius:11px!important;overflow:hidden;
+ box-shadow:0 5px 14px #0009,inset 0 0 0 2px #f8e0b8!important;
+ background:#e8c99c!important;
+}
+#overview.ps38-premium .hero .heroText{
+ position:relative;isolation:isolate;min-height:0!important;margin:0!important;
+ padding:clamp(17px,1.9vw,28px)!important;
+ background:linear-gradient(130deg,#f8e6c8dd,#ebcaa0ee),url('assets/ui/ref-parchment.webp') center/245px auto!important;
+ color:#3d291c!important;border:0!important;border-radius:0!important;
+ box-shadow:none!important;gap:12px!important;
+}
+#overview.ps38-premium .hero .heroText::before{
+ content:'▤   PRZEGLĄD SPRAWY';position:relative;display:block;padding:0 0 8px;
+ border-bottom:1px solid #b78a59;color:#6f472d!important;
+ font:800 11px/1.3 Georgia,serif;letter-spacing:.07em;
+}
+#overview.ps38-premium .hero .heroText::after{
+ content:'';position:absolute;right:15px;top:37px;width:68px;height:74px;
+ background:url('assets/ui/fingerprint.webp') center/contain no-repeat;opacity:.1;z-index:-1;pointer-events:none;
+}
+#overview.ps38-premium .hero .case-kicker{font:bold 10px/1.25 Georgia,serif!important;letter-spacing:.08em!important;color:#815129!important;}
+#overview.ps38-premium .hero .heroText h1{font:bold clamp(28px,2.7vw,46px)/1.05 Georgia,serif!important;color:#392215!important;letter-spacing:-.028em!important;}
+#overview.ps38-premium .hero .heroText h1 em{color:#882f25!important;}
+#overview.ps38-premium .hero .case-lead{font:clamp(12.5px,.94vw,14.5px)/1.53 Georgia,serif!important;color:#4c3020!important;max-width:68ch!important;}
+#overview.ps38-premium .hero .case-actions{display:flex!important;flex-wrap:wrap!important;gap:7px!important;}
+#overview.ps38-premium .hero .case-actions .btn{min-height:39px!important;padding:7px 10px!important;font-size:12px!important;flex:1 1 128px!important;}
+#overview.ps38-premium .hero .case-meta{display:flex!important;gap:5px!important;flex-wrap:wrap!important;margin:0!important;}
+#overview.ps38-premium .hero .case-meta span{font-size:9px!important;color:#68442c!important;border-color:#b79366!important;}
+#overview.ps38-premium .hero #photoGrid{
+ position:relative;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ grid-template-rows:minmax(0,1fr) 105px!important;
+ gap:7px!important;margin:0!important;padding:16px!important;
+ background:linear-gradient(155deg,#0a2029,#122730)!important;border:0!important;border-left:1px solid #a77c49!important;border-radius:0!important;
+ min-width:0;min-height:0;max-height:none!important;
+}
+#overview.ps38-premium .hero #photoGrid::before{
+ content:'TW–217';position:absolute;z-index:2;right:16px;top:17px;transform:rotate(8deg);
+ border:2px solid #8d4433;color:#8d4433;background:#e9cfa5dd;
+ font:700 14px Georgia,serif;padding:2px 7px;pointer-events:none;box-shadow:0 1px 4px #0006;
+}
+#overview.ps38-premium .hero #photoGrid img{
+ display:block!important;max-width:100%;min-width:0;width:100%;height:100%!important;
+ object-fit:cover!important;filter:sepia(.36) saturate(.82) contrast(1.05)!important;
+ border:4px solid #f9e6c8!important;border-bottom-width:8px!important;
+ box-shadow:0 3px 10px #000a!important;background:#a28970!important;
+}
+#overview.ps38-premium .hero #photoGrid img:first-child{grid-column:1/-1;min-height:0;}
+/* Pierwsze kroki: prawdziwe akcje gry, bez danych wymyślonych na potrzeby makiety. */
+#overview.ps38-premium .ps38-front-grid #ps2Welcome{
+ display:flex!important;flex-direction:column!important;justify-content:flex-start!important;
+ gap:9px!important;margin:0!important;padding:18px!important;
+ background:linear-gradient(160deg,#122d37,#0b202a)!important;
+ color:#f8e8d0!important;border:2px solid #bf945c!important;
+ border-radius:11px!important;box-shadow:0 5px 14px #0009,inset 0 0 0 4px #13303d!important;
+}
+#overview.ps38-premium #ps2Welcome .ps2-head{margin:0 0 3px!important;padding:0 0 9px!important;border-bottom:1px solid #9e794c!important;}
+#overview.ps38-premium #ps2Welcome .ps2-eyebrow{color:#dcb875!important;font-size:10px!important;letter-spacing:.08em!important;}
+#overview.ps38-premium #ps2Welcome h2{font:bold clamp(18px,1.45vw,24px)/1.2 Georgia,serif!important;color:#fff0d1!important;}
+#overview.ps38-premium #ps2Welcome .ps2-lead{color:#d3dddc!important;font-size:11.5px!important;line-height:1.45!important;margin-top:5px!important;}
+#overview.ps38-premium #ps2Welcome .ps2-steps{display:grid!important;grid-template-columns:1fr!important;gap:7px!important;margin:0!important;}
+#overview.ps38-premium #ps2Welcome .ps2-step{
+ display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;
+ align-items:center!important;gap:3px 10px!important;min-height:0!important;padding:8px 11px!important;
+ background:linear-gradient(145deg,#233e45,#142b34)!important;
+ border:1px solid #846a4b!important;border-radius:8px!important;
+ box-shadow:inset 0 1px #48616b6b!important;
+}
+#overview.ps38-premium #ps2Welcome .ps2-step.is-next{border-color:#e0b773!important;background:linear-gradient(145deg,#30434a,#19313b)!important;}
+#overview.ps38-premium #ps2Welcome .ps2-step>span{grid-column:1/2!important;color:#e2bb7a!important;letter-spacing:.07em!important;font-size:9px!important;}
+#overview.ps38-premium #ps2Welcome .ps2-step>b{grid-column:1/2!important;color:#fff1d7!important;font:700 14px/1.25 Georgia,serif!important;}
+#overview.ps38-premium #ps2Welcome .ps2-step>p{grid-column:1/2!important;color:#d1d8d7!important;font-size:11px!important;line-height:1.3!important;margin:0!important;}
+#overview.ps38-premium #ps2Welcome .ps2-step>button{grid-column:2/3!important;grid-row:1/4!important;width:auto!important;min-width:84px!important;max-width:116px!important;padding:8px 9px!important;font-size:10.5px!important;line-height:1.25!important;white-space:normal!important;}
+#overview.ps38-premium #ps2Welcome .ps2-controls{padding:8px 0 0!important;margin:0!important;border-top:1px solid #765c3e!important;display:flex!important;flex-wrap:wrap!important;gap:7px!important;align-items:center!important;}
+#overview.ps38-premium #ps2Welcome .ps2-controls span{color:#bdcbcc!important;font-size:10.5px!important;line-height:1.32!important;}
+#overview.ps38-premium #ps2Welcome .ps2-controls button{font-size:10.5px!important;line-height:1.25!important;min-height:33px!important;padding:6px 9px!important;}
+/* Bieg sprawy i rzeczywiste wątki, bez wymyślonych procentów. */
+#overview.ps38-premium .ps38-lower-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.6fr);gap:15px;align-items:start;margin:0 0 15px;}
+#overview.ps38-premium .ps38-progress-stack{display:grid;gap:12px;min-width:0;}
+#overview.ps38-premium #ps70Pulse{
+ margin:0!important;background:linear-gradient(140deg,#10252e,#142e38)!important;
+ border:2px solid #bb8f56!important;border-radius:10px!important;
+ color:#f4e2c8!important;padding:17px 19px!important;
+ box-shadow:0 4px 12px #0008!important;
+}
+#overview.ps38-premium #ps70Pulse :is(.eyebrow,h3,small){color:#f0d09b!important;opacity:1!important;}
+#overview.ps38-premium #ps70Pulse h3{font:bold clamp(18px,1.5vw,24px)/1.25 Georgia,serif!important;}
+#overview.ps38-premium #ps70Pulse p{color:#e6e4da!important;font-size:13px!important;line-height:1.5!important;}
+#overview.ps38-premium #ps70Pulse .ps70-trail{border-top-color:#765d3d!important;}
+#overview.ps38-premium #ps70Pulse .ps70-trail span{color:#dfc08e!important;}
+#overview.ps38-premium #ps88MorePaths{margin:0!important;background:linear-gradient(#f6e4c6,#e6c69d)!important;border:1px solid #bd9061!important;border-radius:10px!important;box-shadow:0 3px 9px #1b100c66!important;}
+#overview.ps38-premium #story26Overview{
+ margin:0!important;padding:18px!important;background:linear-gradient(145deg,#11303a,#0a202a)!important;
+ border:2px solid #ba8d53!important;border-radius:10px!important;color:#f5e5cd!important;
+ box-shadow:0 4px 13px #0008!important;
+}
+#overview.ps38-premium #story26Overview .story26-head{padding:0 0 12px!important;margin:0 0 12px!important;border-bottom:1px solid #84623f!important;}
+#overview.ps38-premium #story26Overview :is(h3,strong){color:#f9e7c4!important;text-shadow:none!important;}
+#overview.ps38-premium #story26Overview .story26-head h3{font:bold 23px Georgia,serif!important;}
+#overview.ps38-premium #story26Overview .story26-head p{color:#d5dcda!important;font-size:12px!important;}
+#overview.ps38-premium #story26Overview .story26-track{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;}
+#overview.ps38-premium #story26Overview .story26-case{
+ background:linear-gradient(155deg,#21414a,#142b34)!important;
+ border:1px solid #92754f!important;border-radius:7px!important;
+ padding:13px!important;min-width:0!important;box-shadow:inset 0 1px #41616b!important;
+}
+#overview.ps38-premium #story26Overview .story26-case .story26-tag{color:#edc38a!important;font-size:10.5px!important;}
+#overview.ps38-premium #story26Overview .story26-case strong{display:block;font-size:14px!important;font-family:Georgia,serif!important;line-height:1.3!important;}
+#overview.ps38-premium #story26Overview .story26-case p{font-size:11.5px!important;line-height:1.42!important;color:#d4dcdd!important;margin-top:5px!important;}
+#overview.ps38-premium #story26Overview .story26-bar{background:#152128!important;border-color:#856f4e!important;}
+#overview.ps38-premium #story26Overview .story26-bar i{background:linear-gradient(90deg,#688f47,#b9d365)!important;}
+#overview.ps38-premium #story26Overview details{margin-top:12px!important;}
+#overview.ps38-premium #story26Overview summary{color:#f3d5a0!important;font-size:13px!important;}
+/* Wygodne skróty z prawdziwą nawigacją zamiast przykładowych danych z obrazu. */
+#overview.ps38-premium .ps38-actions{
+ background:linear-gradient(135deg,#0d2832,#0a1b24)!important;
+ border:2px solid #b78a53!important;border-radius:11px!important;
+ padding:15px 18px;margin-bottom:15px;box-shadow:0 4px 13px #0009;
+}
+#overview.ps38-premium .ps38-actions-heading{display:flex;gap:12px;align-items:center;color:#f5dcad;border-bottom:1px solid #846d48;padding-bottom:10px;margin-bottom:12px;}
+#overview.ps38-premium .ps38-actions-heading strong{font:800 15px Georgia,serif!important;letter-spacing:.065em!important;}
+#overview.ps38-premium .ps38-motif{font-size:25px;color:#e9c583;}
+#overview.ps38-premium .ps38-actions-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;}
+#overview.ps38-premium .ps38-actions-list button{
+ min-height:66px;background:linear-gradient(#263d46,#10262e);border:1px solid #b28b5a;
+ color:#fff0d4;border-radius:8px;display:grid;grid-template-columns:auto minmax(0,1fr);align-content:center;
+ gap:2px 10px;padding:10px 12px;text-align:left;cursor:pointer;box-shadow:inset 0 1px #42616b;
+}
+#overview.ps38-premium .ps38-actions-list button:hover{border-color:#f0c27d;background:linear-gradient(#314c53,#16333b);}
+#overview.ps38-premium .ps38-actions-list button:focus-visible{outline:3px solid #f4c47a;outline-offset:2px;}
+#overview.ps38-premium .ps38-actions-list button>span{grid-row:1/3;align-self:center;font-size:23px;color:#e6bd7f;}
+#overview.ps38-premium .ps38-actions-list button b{font:bold 15px Georgia,serif;color:#fff3de;}
+#overview.ps38-premium .ps38-actions-list button small{font:11px/1.32 Georgia,serif;color:#d5ddd9;}
+/* Informacje o zapisie gry muszą pozostać widoczne, ale nie zasłaniać celu. */
+#overview.ps38-premium #psStorageUnavailable{
+ display:flex!important;flex-wrap:wrap;gap:7px 16px;align-items:center;
+ padding:10px 14px!important;margin:0 0 10px!important;border:1px solid #bb9567!important;
+ background:linear-gradient(120deg,#fae8cb,#ebd1a9)!important;
+}
+#overview.ps38-premium #psStorageUnavailable strong{font-size:13px!important;color:#483021!important;}
+#overview.ps38-premium #psStorageUnavailable p{flex:1 1 330px;margin:0!important;font-size:11px!important;color:#64492f!important;line-height:1.38!important;}
+#overview.ps38-premium #psStorageUnavailable button{padding:6px 12px!important;min-height:35px!important;font-size:11px!important;}
+/* Pozostałe moduły — detale premium tylko na oprawie, nie na danych dowodowych. */
+.section.ps36-polished:not(#overview) :is(.eyebrow,.ev-kicker,.case-kicker){letter-spacing:.12em!important;font-weight:800!important;}
+.section.ps36-polished:not(#overview) :is(.surface.padded,.dd-editor-panel,.dd-source-panel,.tl-panel,.fc-main,.fc-defense,.ps88-details){border-radius:10px!important;}
+.section.ps36-polished:not(#overview) :is(.btn,.sv2-subnav button,.ps36-section-index button){transition:filter .15s,border-color .15s,box-shadow .15s!important;}
+/* Mobilnie: rzeczywista reorganizacja, bez pomniejszania całej strony. */
+@media(max-width:1250px){
+ #overview.ps38-premium .ps38-front-grid{grid-template-columns:minmax(0,1fr)!important;}
+ #overview.ps38-premium .ps38-front-grid .hero{min-height:370px!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-steps{grid-template-columns:repeat(3,minmax(0,1fr))!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-step{display:flex!important;flex-direction:column!important;align-items:stretch!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-step>button{width:100%!important;max-width:none!important;}
+ #overview.ps38-premium .ps38-lower-grid{grid-template-columns:minmax(0,1fr)!important;}
+ #overview.ps38-premium #story26Overview .story26-track{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+@media(max-width:1000px){
+ .layout{display:block!important;grid-template-columns:minmax(0,1fr)!important;}
+ #ui14Sidebar.sidebar{width:100%!important;max-height:none!important;min-height:0!important;position:relative!important;border-right:none!important;border-bottom:2px solid #b58b50!important;padding:7px 8px!important;}
+ #ui14Sidebar .brand{display:none!important;}
+ #ui14Sidebar .ui14-navcaption{display:none!important;}
+ #ui14Sidebar .ps38-sidebar-art{display:none!important;}
+ #ui14Sidebar #nav{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:4px!important;}
+ #ui14Sidebar #nav button{min-width:0!important;min-height:42px!important;display:flex!important;align-items:center!important;justify-content:center!important;font:700 11px/1.25 Georgia,serif!important;padding:6px 3px!important;text-align:center!important;white-space:normal!important;}
+ #ui14Sidebar #nav .ps38-nav-icon{display:none!important;}
+ #ui14Sidebar #nav .num{display:none!important;}
+ #ui14Sidebar #ps76Tools{display:none!important;}
+}
+@media(max-width:700px){
+ .content{padding:10px 9px!important;}
+ #overview.ps38-premium .ps38-case-banner{min-height:104px!important;margin:6px 0 10px!important;padding:13px 18px!important;background-position:center,right center!important;}
+ #overview.ps38-premium .ps38-case-banner h2{font-size:28px!important;}
+ #overview.ps38-premium .ps38-case-banner p{font-size:12px!important;}
+ #overview.ps38-premium .ps38-front-grid{gap:10px;margin-bottom:10px;}
+ #overview.ps38-premium .ps38-front-grid .hero{grid-template-columns:minmax(0,1fr)!important;min-height:0!important;}
+ #overview.ps38-premium .hero .heroText{padding:17px!important;}
+ #overview.ps38-premium .hero #photoGrid{grid-template-rows:155px 65px!important;height:242px!important;padding:9px!important;border-left:0!important;border-top:1px solid #ac8050!important;}
+ #overview.ps38-premium .hero .heroText h1{font-size:35px!important;}
+ #overview.ps38-premium #ps2Welcome{padding:12px!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-steps{grid-template-columns:minmax(0,1fr)!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-step{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;gap:4px 8px!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-step>button{grid-column:2;grid-row:1/4;width:auto!important;max-width:116px!important;}
+ #overview.ps38-premium .ps38-lower-grid{gap:10px;margin-bottom:10px;}
+ #overview.ps38-premium #story26Overview{padding:12px!important;}
+ #overview.ps38-premium #story26Overview .story26-track{grid-template-columns:minmax(0,1fr)!important;}
+ #overview.ps38-premium .ps38-actions{padding:11px!important;}
+ #overview.ps38-premium .ps38-actions-list{grid-template-columns:repeat(2,minmax(0,1fr));}
+ #overview.ps38-premium .ps38-actions-list button{min-height:70px;padding:8px;}
+ #overview.ps38-premium .ps38-actions-list button b{font-size:13px;}
+ #overview.ps38-premium .ps38-actions-list button small{font-size:10px;}
+}
+@media(max-width:359px){
+ #overview.ps38-premium #ps2Welcome .ps2-step{display:flex!important;flex-direction:column!important;}
+ #overview.ps38-premium #ps2Welcome .ps2-step>button{max-width:100%!important;}
+ #overview.ps38-premium .ps38-actions-list button{grid-template-columns:minmax(0,1fr)!important;}
+ #overview.ps38-premium .ps38-actions-list button>span{display:none;}
+}
+@media(prefers-reduced-motion:reduce){#ui14Sidebar #nav button,.ps38-actions-list button{transition:none!important;transform:none!important;}}
+/* Kontrreguły dla dawnego pionowego pseudo-paska na karcie Pulpitu.
+   Stary selektor pozostawiał szerokość 5 px i wysokość całego panelu. */
+#overview.ps38-premium .hero .heroText::before{
+ position:relative!important;inset:auto!important;left:auto!important;top:auto!important;
+ display:block!important;flex:0 0 auto!important;align-self:stretch!important;
+ width:auto!important;height:auto!important;min-height:0!important;
+ background:none!important;padding:0 0 9px!important;margin:0 0 4px!important;
+ border:0!important;border-bottom:1px solid #ae8455!important;
+ color:#694128!important;transform:none!important;opacity:1!important;
+}
+#overview.ps38-premium .hero .heroText::after{z-index:0!important;}
+#overview.ps38-premium .hero .heroText > div{position:relative;z-index:1;}
+#overview.ps38-premium .ps38-front-grid > .hero{
+ height:500px!important;min-height:0!important;align-self:start!important;
+}
+#overview.ps38-premium .hero .heroText{
+ height:100%!important;min-height:0!important;justify-content:flex-start!important;
+ overflow:auto!important;
+}
+#overview.ps38-premium .hero #photoGrid{
+ height:100%!important;max-height:500px!important;min-height:0!important;
+}
+#overview.ps38-premium .hero #photoGrid img{max-height:100%!important;min-height:0!important;}
+#overview.ps38-premium .ps38-front-grid #ps2Welcome{height:auto!important;align-self:start!important;min-height:0!important;}
+#overview.ps38-premium #ps2Welcome .ps2-controls{background:transparent!important;color:#e4dfd0!important;border:0!important;border-top:1px solid #765c3e!important;}
+#overview.ps38-premium #ps2Welcome .ps2-controls span{color:#d1d9d4!important;opacity:1!important;}
+@media(max-width:1250px){
+ #overview.ps38-premium .ps38-front-grid > .hero{height:470px!important;}
+ #overview.ps38-premium .hero #photoGrid{max-height:470px!important;}
+}
+@media(max-width:700px){
+ #overview.ps38-premium .ps38-front-grid > .hero{height:auto!important;min-height:0!important;}
+ #overview.ps38-premium .hero .heroText{height:auto!important;overflow:visible!important;}
+ #overview.ps38-premium .hero #photoGrid{height:242px!important;max-height:242px!important;}
+}
+/* Galerie w starszych wersjach miały absolutne zdjęcia i pełnoekranową warstwę
+   pseudo-elementu. Teraz są to normalne, czytelne fotografie w ramkach. */
+#overview.ps38-premium .hero #photoGrid::before{
+ inset:auto 14px auto auto!important;top:17px!important;left:auto!important;bottom:auto!important;
+ width:auto!important;height:auto!important;min-width:0!important;min-height:0!important;
+ transform:rotate(7deg)!important;display:block!important;pointer-events:none!important;
+}
+#overview.ps38-premium .hero #photoGrid::after{display:none!important;content:none!important;}
+#overview.ps38-premium .hero #photoGrid img{
+ position:relative!important;inset:auto!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+ transform:none!important;opacity:1!important;z-index:auto!important;
+ width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;
+ object-fit:cover!important;object-position:center!important;filter:sepia(.34) saturate(.88) brightness(.92) contrast(1.08)!important;
+ box-sizing:border-box!important;
+}
+#overview.ps38-premium .hero #photoGrid img:first-child{grid-column:1/-1!important;grid-row:1!important;}
+#overview.ps38-premium .hero #photoGrid img:nth-child(2){grid-column:1!important;grid-row:2!important;}
+#overview.ps38-premium .hero #photoGrid img:nth-child(3){grid-column:2!important;grid-row:2!important;}
+@media(min-width:1001px){
+ #ui14Sidebar .ui14-navcaption{display:flex!important;justify-content:center!important;align-items:center!important;}
+}
+@media(max-width:700px){
+ .main > #ps76Tools.ps353-mobile-tools{
+  display:flex!important;flex-wrap:nowrap!important;align-items:stretch!important;
+  padding:6px!important;margin:0 8px 6px!important;gap:5px!important;
+ }
+ .main > #ps76Tools.ps353-mobile-tools .ps76-caption{display:none!important;}
+ .main > #ps76Tools.ps353-mobile-tools #psFab,
+ .main > #ps76Tools.ps353-mobile-tools #seniorFab.senior-fab{
+  flex:1 1 0!important;min-width:0!important;width:auto!important;min-height:42px!important;
+  margin:0!important;padding:6px!important;font-size:11px!important;
+ }
+}
+/* Stary brand był przypięty do całego okna i zasłaniał napis NAWIGACJA.
+   W nowym dossier logo należy do kolumny bocznej, nie do viewportu. */
+@media(min-width:1001px){
+ #ui14Sidebar.sidebar .brand{
+  position:relative!important;inset:auto!important;
+  top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+  display:flex!important;width:100%!important;min-height:65px!important;
+  z-index:auto!important;flex:0 0 auto!important;
+ }
+ #ui14Sidebar.sidebar .ui14-navcaption{position:relative!important;display:flex!important;flex:0 0 auto!important;}
+}

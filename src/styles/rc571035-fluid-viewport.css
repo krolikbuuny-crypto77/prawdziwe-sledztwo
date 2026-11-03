@@ -1,0 +1,125 @@
+/* RC57.10.35 — automatyczne dopasowanie okna / telefonu / tabletu.
+   Brak skalowania całej strony, brak zmian w mechanice, id, API czy zapisach.
+   Reguły uruchamiają się przy zmianie viewportu i orientacji automatycznie. */
+:root{
+ --ps35-sidebar:clamp(208px,15.5vw,255px);
+ --ps35-gutter:clamp(11px,1.5vw,26px);
+ --ps35-card-gap:clamp(10px,1.15vw,20px);
+}
+html{min-width:0;scroll-padding-top:clamp(65px,8vh,110px);}
+body,.layout,.main,.content{min-width:0;max-width:100%;}
+/* Nie wycinamy okien dialogowych ani efektów: przepełnienie w poziomie
+   obsługują wewnętrzne listy, a nie główny dokument. */
+.layout>.main{min-width:0;max-width:100%;}
+.content{box-sizing:border-box;width:100%;max-width: min(1680px,100%);min-width:0;margin-inline:auto;}
+.content>.section,.content>.section>*{max-width:100%;min-width:0;}
+.content .section img,.content .section video,.content .section canvas{max-width:100%;}
+.content .section :is(.hero,.grid2,.grid3,.locationgrid,.docgrid,.charactergrid,.tl-main,.sc-layout,.dd-work,.fc-grid,.ev-workspace,.ux5-grid,.ui15-checklist,.ui14-module-grid) {min-width:0;max-width:100%;}
+.content .section :is(.hero,.grid2,.grid3,.locationgrid,.docgrid,.charactergrid,.tl-main,.sc-layout,.dd-work,.fc-grid,.ev-workspace,.ux5-grid,.ui15-checklist,.ui14-module-grid)>*{min-width:0;}
+/* Formularze, tabele i media mogą się zmniejszać bez zasłaniania kontrolek. */
+.content .section :is(input:not([type=checkbox]):not([type=radio]),select,textarea){box-sizing:border-box;max-width:100%;min-width:0;}
+.content .section :is(.formline,.dd-editor-actions,.fc-actions,.ev-controls,.sc-toolrow,.tl-tools){min-width:0;flex-wrap:wrap;}
+.content .section :is(.formline,.dd-editor-actions,.fc-actions,.ev-controls,.sc-toolrow,.tl-tools)>*{min-width:0;}
+.content .section :is(.tcms-table-box,.cv-tablebox,.fo-tablewrap,.ax-scroll,.fc-table-wrap,.tl-scroll,.ev-file-list){max-width:100%;overscroll-behavior-inline:contain;}
+.content .section :is(.tcms-table-box,.cv-tablebox,.fo-tablewrap,.ax-scroll,.fc-table-wrap,.tl-scroll){overflow-x:auto;}
+.content .section :is(.ev-file,.dd-card,.ui14-module,.story26-case,.sc-room,.sc-spot,.fc-check){overflow-wrap:anywhere;}
+/* Minimalna wysokość przycisku jest ważniejsza niż stała szerokość. */
+.content .section :is(button,.btn,[role=button]){box-sizing:border-box;max-width:100%;}
+/* Szerokie monitory / komputery: nie zostawiamy ogromnych pustych marginesów,
+   ale nadal ograniczamy szerokość pojedynczego wiersza tekstu. */
+@media(min-width:1025px){
+ .layout{grid-template-columns:var(--ps35-sidebar) minmax(0,1fr)!important;}
+ .sidebar{width:auto!important;min-width:0!important;}
+ .main{width:100%!important;min-width:0!important;}
+ .content{padding:clamp(16px,1.6vw,32px) var(--ps35-gutter)!important;}
+ .topbar{box-sizing:border-box;min-width:0!important;max-width:100%;padding-inline:var(--ps35-gutter)!important;}
+ .topbar>*{min-width:0;}
+ .content #overview .hero{grid-template-columns:minmax(0,1.15fr) minmax(270px,.85fr);}
+ .content #overview .ui14-module-grid{grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr))!important;}
+ .content #overview .ui15-checklist{grid-template-columns:repeat(auto-fit,minmax(min(265px,100%),1fr))!important;}
+ /* Dokumenty obok czytnika, lecz żadna kolumna nie wymusza poziomego scrolla. */
+ #evidence.ps28-skin .ev-workspace{grid-template-columns:minmax(245px,.9fr) minmax(0,1.3fr)!important;}
+ #deduction.ps28-skin .dd-work{grid-template-columns:minmax(250px,.9fr) minmax(0,1.25fr)!important;}
+ #inspection12.ps28-skin .sc-layout{grid-template-columns:minmax(0,1.3fr) minmax(280px,.83fr)!important;}
+ #final.ps28-skin .fc-grid{grid-template-columns:minmax(0,1.3fr) minmax(270px,.75fr)!important;}
+}
+/* Węższy laptop: przywracamy oddech kluczowym kolumnom, nie zmniejszając tekstu. */
+@media(min-width:1025px) and (max-width:1399px){
+ .topbar{gap:clamp(7px,1vw,15px)!important;}
+ .content{padding-inline:clamp(12px,1.2vw,20px)!important;}
+ #evidence.ps28-skin .ev-workspace{grid-template-columns:minmax(210px,.8fr) minmax(0,1.2fr)!important;}
+ #deduction.ps28-skin .dd-work{grid-template-columns:minmax(215px,.8fr) minmax(0,1.2fr)!important;}
+}
+/* Tablet / telefon: pełna szerokość, menu i karty bez sztucznego pomniejszania. */
+@media(max-width:1024px){
+ .layout{grid-template-columns:minmax(0,1fr)!important;}
+ .sidebar,.main{min-width:0;max-width:100%;}
+ .content{padding:clamp(12px,2vw,20px)!important;width:100%!important;}
+ .topbar{box-sizing:border-box;width:100%;min-width:0;max-width:100%;padding-inline:clamp(10px,2vw,20px)!important;}
+ #evidence.ps28-skin .ev-workspace{grid-template-columns:minmax(0,1fr)!important;}
+ #deduction.ps28-skin .dd-work{grid-template-columns:minmax(0,1fr)!important;}
+ #inspection12.ps28-skin .sc-layout{grid-template-columns:minmax(0,1fr)!important;}
+ #final.ps28-skin .fc-grid{grid-template-columns:minmax(0,1fr)!important;}
+ .content .section :is(.tcms-table-box,.cv-tablebox,.fo-tablewrap,.ax-scroll,.fc-table-wrap){max-width:100%;overflow-x:auto;}
+ #ps80Settings{box-sizing:border-box!important;max-width:min(400px,calc(100vw - 24px))!important;max-height:min(78dvh,650px)!important;overflow-y:auto!important;overscroll-behavior:contain!important;}
+ body.ps-resume-pending #psResumeOffer{box-sizing:border-box;max-width:calc(100vw - 24px)!important;max-height:calc(100dvh - 28px)!important;overflow-y:auto!important;}
+}
+@media(max-width:760px){
+ .content .section :is(.hero,.grid2,.grid3,.locationgrid,.docgrid,.tl-main,.sc-layout,.dd-work,.fc-grid,.ev-workspace){grid-template-columns:minmax(0,1fr)!important;}
+ .content .section .formline{gap:8px;}
+ .content .section :is(.sectionheading,.ev-header,.dd-head,.tl-head){padding:clamp(12px,2.5vw,19px)!important;}
+ .content .section :is(.surface.padded,.padded.surface,.dd-source-panel,.dd-editor-panel,.fc-main,.fc-defense){padding:clamp(12px,2.3vw,18px)!important;}
+ .content .section :is(.ux4-steps,.ui14-module-grid,.ui15-checklist,.story26-track){grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr))!important;}
+ .content .section :is(.psm-photo-zoom,.ci-toolbar,.et1-photo-controls){max-width:100%;}
+ .content .section :is(.psm-photo-zoom,.ci-toolbar) button{min-height:40px;}
+ .content .section :is(.psm-photo-zoom output,.et2-room-picker select){min-width:0;}
+}
+@media(max-width:520px){
+ .content{padding:10px!important;}
+ .content .section :is(.hero,.grid2,.grid3,.locationgrid,.docgrid,.tl-main,.sc-layout,.dd-work,.fc-grid,.ev-workspace,.ui14-module-grid,.ui15-checklist){gap:10px!important;}
+ .content .section :is(.sectionheading,.ev-header,.dd-head,.tl-head){padding:12px!important;margin-bottom:12px!important;}
+ .content .section :is(.formline,.dd-editor-actions,.fc-actions) :is(button,.btn){min-height:42px;}
+ .content .section :is(input:not([type=checkbox]):not([type=radio]),textarea,select){font-size:max(16px,1em)!important;}
+ .content .section :is(.ev-controls,.dd-filters,.sc-toolrow,.tl-tools){gap:7px;}
+ .content .section :is(.ev-controls,.dd-filters) :is(input,select){width:100%;}
+ /* Przesłuchania: niezależny scroll protokołu, bez wypychania pola pytania. */
+ #interview .chat{max-width:100%;min-width:0;}
+ #interview .chatlog{width:100%!important;max-width:100%!important;overflow-y:auto!important;overscroll-behavior-y:contain!important;}
+ #interview .chatfoot{max-width:100%;min-width:0;}
+ #interview .chatfoot #chatInput{width:100%!important;min-width:0!important;max-width:100%!important;font-size:16px!important;}
+ #interview #chatSend{min-height:40px!important;}
+ #ps80Settings{left:auto;right:8px;max-width:calc(100vw - 16px)!important;max-height:calc(100dvh - 24px)!important;overflow-y:auto!important;}
+ body.ps-resume-pending #psResumeOffer{width:calc(100vw - 18px)!important;max-height:calc(100dvh - 18px)!important;}
+}
+/* Małe ekrany o niewielkiej wysokości / otwarta klawiatura. */
+@media(max-width:680px) and (max-height:670px){
+ #interview .chatlog{height:clamp(166px,29dvh,225px)!important;min-height:166px!important;max-height:225px!important;}
+ #interview .chatfoot{overflow:visible!important;max-height:none!important;}
+ #interview .chathead{max-height:155px!important;min-height:150px!important;height:150px!important;flex-basis:150px!important;}
+ .content{padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))!important;}
+}
+@media(orientation:landscape) and (max-height:520px) and (max-width:1024px){
+ .content{padding-top:8px!important;}
+ .topbar{min-height:45px;}
+ .content .section :is(.sectionheading,.ev-header,.dd-head,.tl-head){padding-block:10px!important;}
+ #interview .chatlog{height:clamp(158px,37dvh,220px)!important;min-height:158px!important;}
+}
+/* Dostępność: dotyk, fokus i pasek systemowy. */
+@media(pointer:coarse){
+ .content .section :is(.btn,button,summary,[role=button]){touch-action:manipulation;}
+ .content .section :is(.sv2-subnav button,.ux4-step-button,.ci-tool){min-height:42px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+ .content .section :is(.btn,button,[role=button]){scroll-behavior:auto!important;}
+}
+/* Liczniki Osi czasu: cztery kolumny nie mieszczą się na telefonach. */
+@media(max-width:640px){
+ #timeline.ps28-skin .tl-metrics{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;}
+ #timeline.ps28-skin .tl-metrics>*{min-width:0!important;width:100%!important;}
+}
+@media(max-width:359px){
+ #timeline.ps28-skin .tl-metrics{grid-template-columns:minmax(0,1fr)!important;}
+}
+/* Footer pytania: nie obcinamy dolnej linii pomocy ani obramowania. */
+#interview .chatfoot{box-sizing:border-box!important;min-height:146px!important;max-height:none!important;height:auto!important;overflow:visible!important;flex-shrink:0!important;}
+#interview .chatlog{overflow-anchor:none!important;}

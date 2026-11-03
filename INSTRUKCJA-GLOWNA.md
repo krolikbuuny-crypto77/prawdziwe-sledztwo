@@ -1,3 +1,7 @@
+> **Aktualizacja RC57.10.48:** jednolity serwerowy ranking wiedzy na podstawie aktualnego pytania, osoby, czasu i źródła. Zobacz `INSTRUKCJA-RC57_10_48.md`, `MAPA-WYSZUKIWANIA-RC57_10_48.md`, `RAPORT-QA-RC57_10_48.md`.
+
+> **Aktualizacja RC57.10.47:** wiedza i psychologia świadków w 12 obszarach. Zobacz `INSTRUKCJA-RC57_10_47.md`, `MAPA-12-OBSZAROW-RC57_10_47.md`, `RAPORT-QA-RC57_10_47.md`.
+
 > **Aktualizacja RC57.10.31 — czytelne panele i ustawienia dźwięku (2 listopada 2026).** Zmieniono wyłącznie wygląd rozwijanych sekcji „Rytm sceny” i „Nie wiem, co sprawdzić dalej” w Przesłuchaniach oraz panelu ustawień dźwięku. Nowy kontrast i wygoda mobilna. Wszystkie mechaniki, stan świadków, przełomy, AI, przełączniki audio i Supabase pozostają bez zmian. Pełna paczka: do nowego wdrożenia; poprawka tylko na RC57.10.30. Raport: `RAPORT-QA-RC57_10_31.md`.
 
 > **Aktualizacja RC57.10.30 — wygląd (2 listopada 2026).** Naprawiono kontrast konfrontacji zeznań, kart nawigacji fotograficznej Oględzin oraz ładowanie aktywnego kadru 4K. Nie są potrzebne nowe zmienne środowiskowe ani migracje Supabase. Najpierw sprawdź Vercel Preview. Wyniki lokalne w `RAPORT-QA-RC57_10_30.md`.
@@ -236,3 +240,40 @@ Wersja dotyczy **wyłącznie prezentacji** i nie zmienia reguł, dokumentów, do
 ## Aktualizacja RC57.10.29 — kontrast i czytelność
 
 Ta wersja naprawia nieczytelne panele zauważone po RC57.10.28 (m.in. luki Osi czasu, Notatnik, lista źródeł, Dedukcja i Poszukiwania). Zmiany są wyłącznie w warstwie CSS, w `src/styles/rc571028-unified-dossier.css`, oraz w manifeście i wynikowym `index.html`. Nie wymaga zmian Supabase, kluczy API ani migracji zapisów. Wersję RC57.10.29 możesz wgrać jako pełną paczkę lub nałożyć **wyłącznie na dokładną RC57.10.28** małą poprawkę. Kontrola: `python tools/test-rc571029-contrast.py`. Szczegóły: `RAPORT-QA-RC57_10_29.md`.
+
+## RC57.10.32 — poprawa czytelności
+
+Wersja 57.10.32 jest aktualizacją wizualną do dokładnie RC57.10.31. Poprawia kartę wznowienia sesji, tekst w karcie Oględzin, etykiety hipotez Dedukcji i skróty nawigacji wewnętrznej. Nie wymaga migracji Supabase, konfiguracji API ani zmian w mechanikach. Najpierw wgraj na Vercel Preview. Szczegóły i granice w `RAPORT-QA-RC57_10_32.md`.
+
+## RC57.10.33 — czytelne kontrolki zdjęć i animacji
+
+Wyłącznie zmiana wyglądu, bez ingerencji w dowody, przejścia między pomieszczeniami,
+mechanikę powiększania, ustawienia animacji lub dane zapisów.
+
+- Podpis „Gesty: dwa palce · przesuń kadr” i odczyt „100%” mają ciemny kolor
+  na jasnym pergaminie.
+- Etykieta „Przejdź do pomieszczenia” i lista wyboru mają poprawiony kontrast.
+- Pasek „NOCNA ZMIANA · PRZESŁUCHANIE” nie ma wewnętrznego przewijania;
+  przycisk „Animacje” zachowuje możliwość włączania/wyłączania.
+- Widoki kontrolne i testy lokalne: `RAPORT-QA-RC57_10_33.md`.
+
+## RC57.10.36 — profesjonalne uporządkowanie zakładek
+
+Wersja RC57.10.36 ujednolica układ sekcji i ich nagłówki na wszystkich ekranach. Notatnik rozpoczyna się od edycji notatki, Dedukcja od formularza hipotezy, a Oś czasu od kluczowych metryk i warsztatu chronologicznego. Więcej szczegółów: `RAPORT-QA-RC57_10_36.md`.
+
+Wgrywaj **pełną paczkę** lub **poprawkę wyłącznie na RC57.10.35**. Zachowaj obecne konfiguracje Vercel i Supabase. Nie ma zmian w API ani schemacie zapisów.
+
+## RC57.10.37 — poprawki wyglądu po RC57.10.36
+
+Uproszczono układ wizualny bez zmiany mechanik: mniejsze puste przestrzenie, większa czytelność tekstów, spójne przyciski oraz bardziej kompaktowe ekrany mobilne. W Dedukcji usunięto powtarzające się wizualnie instrukcje i górny zestaw nawigacji, pozostawiając trzy kroki i dolne przyciski przejścia. Aktualizacja jest zgodna wyłącznie z bazową paczką RC57.10.36. Pełne wyniki lokalnej kontroli są w `RAPORT-QA-RC57_10_37.md`.
+
+## RC57.10.42 — mobilne Przesłuchania (dodatkowe poprawki UX)
+
+Na bazie RC57.10.41 ulepszono listę świadków na telefonie, schowano Konfrontację zeznań podczas wyboru świadka, zamieniono ją w rozwijaną część aktywnej rozmowy i domyślnie zwinięto portret/stan psychologiczny na małych ekranach. Logika gry, dialogi i faktografia pozostają bez zmian. Szczegóły, testy i ograniczenia: `RAPORT-QA-RC57_10_42.md`.
+
+## RC57.10.44 — grafika i bezpieczniejsza rezerwa przesłuchań
+
+Poprawiono błędne ścieżki assetów CSS, kontrast mobilnych przesłuchań oraz dosłowną rezerwę świadków przy pytaniach o miejsce pobytu, stanowisko i osobę potwierdzającą odpowiedź. Nie zmieniano kanonu i zasad werdyktu. Zob. `RAPORT-QA-RC57_10_44.md` i `INSTRUKCJA-RC57_10_44.md`.
+
+## RC57.10.45 — uporządkowanie Przesłuchań
+Dodano serwerowy plan odpowiedzi dla sześciu świadków, który scala dopuszczony zakres wiedzy, psychologię z dotychczasowych kartotek, temat aktualnego pytania, historię i bezpieczny fallback. Nie dodaje tajemnic ani nowych zdarzeń i nie zmienia UI. Szczegóły: `MAPA-PRZESLUCHAN-RC57_10_45.md`, `RAPORT-QA-RC57_10_45.md` i `INSTRUKCJA-RC57_10_45.md`.

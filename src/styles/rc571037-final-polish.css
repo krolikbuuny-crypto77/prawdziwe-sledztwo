@@ -1,0 +1,128 @@
+/* RC57.10.37 — ostatnia redakcja wizualna: rytm, typografia, hierarchia CTA.
+   Wyłącznie CSS: bez zmian w mechanice, zawartości, blokadach i zapisie. */
+:root{
+  --ps36-gap:clamp(9px,.8vw,13px);
+  --ps36-headgap:clamp(9px,1vw,13px);
+}
+.section.ps36-polished{font-size:clamp(15px,1vw,17px)!important;line-height:1.55!important;}
+/* Mniej pustki przy zachowaniu dużych, dostępnych elementów dotykowych. */
+.section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head){
+  padding:clamp(13px,1.1vw,19px)!important;
+  margin-bottom:var(--ps36-headgap)!important;
+}
+.section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(h1,h2){
+  font-size:clamp(24px,1.9vw,31px)!important;line-height:1.18!important;
+}
+.section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) p{
+  margin-top:5px!important;line-height:1.5!important;font-size:clamp(14px,.98vw,16px)!important;
+}
+.section.ps36-polished:not(#interview) :is(.surface.padded,.searchbox,.dd-editor-panel,.dd-source-panel,.tl-panel,.fc-main,.fc-defense,.sc-inspector){
+  padding:clamp(13px,1.15vw,19px)!important;
+}
+.section.ps36-polished:not(#interview) :is(p,li,.small,.muted,.dd-help,.story26-description,.sc-note-item small){
+  line-height:1.54!important;
+}
+.section.ps36-polished:not(#interview) :is(label,legend){font-size:max(13px,.94em)!important;font-weight:700!important;}
+.section.ps36-polished:not(#interview) :is(input,select,textarea){font-size:max(14px,.96em)!important;}
+.section.ps36-polished:not(#interview) :is(.surface,.sc-inspector,.dd-editor-panel,.dd-source-panel,.fc-main,.fc-defense) :is(h2,h3,h4){
+  line-height:1.28!important;
+}
+/* Nawigacja śródstronicowa: spokojne, krótkie zakładki bez imitacji osobnych CTA. */
+.ps36-section-index,.ps36-polished .sv2-subnav{
+  padding:7px 10px!important;gap:5px 7px!important;
+  margin-bottom:var(--ps36-gap)!important;box-shadow:0 2px 7px #45291d18!important;
+}
+.ps36-index-title,.ps36-polished .sv2-subnav-label{
+  font-size:10px!important;letter-spacing:.065em!important;
+}
+.ps36-section-index button,.ps36-polished .sv2-subnav button{
+  min-height:36px!important;padding:7px 11px!important;
+  font:700 12px/1.32 system-ui,sans-serif!important;
+  border-radius:7px!important;box-shadow:none!important;
+  background:#fdf0d9!important;color:#4b3123!important;
+}
+.ps36-section-index button:hover,.ps36-polished .sv2-subnav button:hover{
+  background:#edcda4!important;border-color:#865533!important;
+}
+.ps36-section-index button[aria-current="true"],
+.ps36-polished .sv2-subnav button[aria-current="page"]{
+  background:#803329!important;border-color:#803329!important;color:#fff4df!important;
+}
+/* Akcja główna kontra akcja drugorzędna; minimum 44px dla ważnych kontrolek. */
+.section.ps36-polished:not(#interview) :is(.dd-editor-actions,.ux4-nav,.fc-actions,.p3-actions,.formline) .btn:not(:disabled){
+  min-height:42px!important;line-height:1.4!important;
+  font-size:clamp(13px,.91vw,15px)!important;
+}
+.section.ps36-polished:not(#interview) :is(.dd-editor-actions,.ux4-nav,.fc-actions,.p3-actions) .btn:not(.alt):not(.subtle):not(:disabled){
+  background:linear-gradient(180deg,#9c362c,#72251f)!important;
+  color:#fff5e5!important;border:1px solid #6d251e!important;
+  box-shadow:0 3px 7px #321a1940!important;
+}
+.section.ps36-polished:not(#interview) .btn:disabled{
+  cursor:not-allowed!important;opacity:1!important;
+  background:#e9d5b7!important;border-color:#c9ad89!important;color:#77624c!important;
+  box-shadow:none!important;
+}
+/* Dedukcja: wyraźne 3 kroki bez trzech nagłówków, podwójnych instrukcji i
+   powtórzonego zestawu przycisków nad oraz pod formularzem. */
+#deduction.ps36-polished #ux4Guide{padding:12px 15px!important;margin:10px 0!important;}
+#deduction.ps36-polished #ux4Guide .ux4-guide-title > div{display:none!important;}
+#deduction.ps36-polished #ux4Guide .ux4-guide-title{
+  display:flex!important;justify-content:flex-end!important;
+  margin:0!important;min-height:0!important;gap:5px!important;
+}
+#deduction.ps36-polished #ux4Guide .ux4-count{font-size:11px!important;padding:4px 9px!important;}
+#deduction.ps36-polished #ux4Guide .ux4-steps{
+  margin:7px 0 8px!important;gap:7px!important;
+}
+#deduction.ps36-polished #ux4Guide .ux4-step-button{
+  min-height:52px!important;padding:8px 9px!important;gap:8px!important;
+}
+#deduction.ps36-polished #ux4Guide .ux4-step-copy strong{font-size:13px!important;line-height:1.35!important;}
+#deduction.ps36-polished #ux4Guide .ux4-step-copy small{font-size:11px!important;}
+#deduction.ps36-polished #ux4Guide .ux4-step-help{
+  margin:4px 0 1px!important;line-height:1.45!important;font-size:12.5px!important;
+}
+#deduction.ps36-polished #ux4TopNav{display:none!important;}
+#deduction.ps36-polished .dd-editor-top .eyebrow{display:none!important;}
+#deduction.ps36-polished .dd-editor-top{margin-bottom:6px!important;gap:9px!important;}
+#deduction.ps36-polished .dd-editor-top h3{margin:0!important;}
+#deduction.ps36-polished .dd-field{margin-bottom:10px!important;gap:4px!important;}
+#deduction.ps36-polished .dd-field :is(textarea,input,select){padding:9px 10px!important;}
+#deduction.ps36-polished .dd-field textarea{min-height:92px!important;}
+#deduction.ps36-polished .ux4-step-section > h4{font-size:14px!important;margin:5px 0 11px!important;}
+#deduction.ps36-polished .ux4-nav{margin:9px 0!important;}
+/* Pulpit, Notatnik, Oś czasu: szczególnie duże odstępy pomiędzy kartami. */
+#overview.ps36-polished :is(.story26-track,.ui14-module-grid,.ui15-checklist){gap:10px!important;}
+#notebook.ps36-polished :is(.sc-notegrid,.sc-notelist,.sc-notebook){gap:10px!important;}
+#timeline.ps36-polished .tl-metrics{margin:9px 0!important;gap:9px!important;}
+/* Na telefonie mniej pionowych ekranów przed dotarciem do pierwszego działania. */
+@media(max-width:700px){
+  .section.ps36-polished{font-size:15px!important;}
+  .section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head){
+    padding:12px 13px!important;margin-bottom:9px!important;
+  }
+  .section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) :is(h1,h2){font-size:clamp(22px,5.7vw,27px)!important;}
+  .section.ps36-polished > :is(.sectionheading,.ev-header,.tl-head,.dd-head) p{font-size:13.5px!important;line-height:1.45!important;}
+  .section.ps36-polished:not(#interview) :is(.surface.padded,.searchbox,.dd-editor-panel,.dd-source-panel,.tl-panel,.fc-main,.fc-defense,.sc-inspector){padding:12px!important;}
+  .ps36-section-index{display:flex!important;flex-wrap:nowrap!important;align-items:stretch!important;
+    padding:6px!important;overflow-x:auto!important;scrollbar-width:thin!important;}
+  .ps36-index-title{display:none!important;}
+  .ps36-section-index button{flex:1 1 0!important;min-width:0!important;max-width:none!important;
+    min-height:40px!important;padding:7px 5px!important;font-size:11px!important;white-space:normal!important;overflow-wrap:break-word!important;}
+  .ps36-polished .sv2-subnav{padding:6px!important;gap:5px!important;}
+  .ps36-polished .sv2-subnav button{min-height:40px!important;padding:7px 9px!important;font-size:11.5px!important;}
+  #deduction.ps36-polished #ux4Guide{padding:10px!important;margin:8px 0!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-steps{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-step-button{min-width:0!important;min-height:48px!important;padding:7px 5px!important;gap:4px!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-step-number{width:22px!important;height:22px!important;min-width:22px!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-step-copy{display:block!important;min-width:0!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-step-copy strong{display:block!important;font-size:11px!important;overflow-wrap:anywhere!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-step-copy small{display:none!important;}
+  #deduction.ps36-polished #ux4Guide .ux4-step-help{font-size:12px!important;}
+  #deduction.ps36-polished .ux4-nav{gap:6px!important;}
+  #deduction.ps36-polished .ux4-nav small{font-size:11px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .ps36-section-index button,.ps36-polished .sv2-subnav button{transition:none!important;}
+}
