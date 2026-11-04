@@ -1,3 +1,5 @@
+> **Aktualna wersja: RC57.10.53 — czytelność menu, nagłówka świadków i skrótów.** Instrukcja: `INSTRUKCJA-RC57_10_53.md`.
+
 > **Aktualna wersja: RC57.10.52 — optymalizacja zakładek.** Instrukcja: `INSTRUKCJA-RC57_10_52.md`.
 
 # Najnowsza wersja: RC57.10.50 — poprawka logo i daty na laptopie

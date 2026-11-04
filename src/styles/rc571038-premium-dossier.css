@@ -396,3 +396,61 @@ html,body{
  }
  #ui14Sidebar.sidebar .ui14-navcaption{position:relative!important;display:flex!important;flex:0 0 auto!important;}
 }
+
+/* RC57.10.54 — Full HD 1920×1080 / skalowanie 100%.
+   Zakres: tylko kompozycja i czytelność. Bez zmian semantyki, dowodów, AI i zapisów.
+   Próg 1600px nie ingeruje w sprawdzony układ laptopów 1366 i 1536px. */
+@media (min-width: 1600px) and (max-width: 2400px) {
+  /* Typografia pomocnicza na fizycznym ekranie 15,6 cala. */
+  #overview.ps38-premium .ps38-actions-list button small {font-size:13px!important;line-height:1.42!important;color:#e5e2d8!important;}
+  #overview.ps38-premium #story26Overview .story26-case p {font-size:13px!important;line-height:1.48!important;}
+  #overview.ps38-premium #ps70Pulse p {font-size:14px!important;}
+  #overview.ps38-premium .ps38-actions-list button {min-height:76px!important;padding:12px 15px!important;}
+  #overview.ps38-premium .ps38-actions-list button b {font-size:16px!important;}
+
+  /* Pulpit: zamiast pustej prawej kolumny, opis i galerie przez pełną szerokość. */
+  #overview.ps38-premium .ps38-front-grid {grid-template-columns:minmax(0,1fr)!important;gap:12px!important;}
+  #overview.ps38-premium .ps38-front-grid > .hero {grid-column:1/-1!important;width:100%!important;height:390px!important;min-height:0!important;grid-template-columns:minmax(0,1.35fr) minmax(370px,.85fr)!important;}
+  #overview.ps38-premium .ps38-front-grid > #ps49StartHelp {grid-column:1/-1!important;width:100%!important;}
+  #overview.ps38-premium .hero .heroText {padding:22px 27px!important;}
+  #overview.ps38-premium .hero .heroText h1 {font-size:clamp(40px,2.4vw,47px)!important;line-height:1.12!important;}
+  #overview.ps38-premium .hero .heroText p {font-size:15px!important;line-height:1.52!important;max-width:75ch!important;}
+  #overview.ps38-premium .hero #photoGrid {height:100%!important;max-height:390px!important;grid-template-rows:minmax(0,2.25fr) minmax(0,1fr)!important;padding:12px!important;}
+  #overview.ps38-premium .ps38-lower-grid {grid-template-columns:minmax(0,.72fr) minmax(0,1.38fr)!important;gap:14px!important;}
+
+  /* Przesłuchania: eliminacja pustej lewej kolumny protokołu. */
+  #interview .charactergrid {grid-template-columns:minmax(0,1fr) 340px!important;gap:12px!important;}
+  #interview #psm-panel-chat.surface.chat {grid-template-columns:minmax(0,1fr)!important;min-width:0!important;}
+  #interview #psm-panel-chat #chatLog,
+  #interview #psm-panel-chat .chatfoot {grid-column:1/-1!important;min-width:0!important;width:100%!important;}
+  #interview #psm-panel-chat #chatLog {padding-inline:18px!important;}
+  #interview #chatInput {font-size:15px!important;line-height:1.55!important;}
+  #interview #characterList {min-width:0!important;}
+  #interview .characterlist .character {min-width:0!important;}
+
+  /* Akta: nagłówek i filtry nie odsuwają spisu akt o kilka ekranów. */
+  #evidence.ev-section .ev-header {height:auto!important;min-height:118px!important;padding:18px 23px!important;}
+  #evidence.ev-section .ev-controls {min-height:0!important;padding:10px 12px!important;}
+  #evidence.ev-section #evTypeFilters {min-height:0!important;}
+  #evidence.ev-section .ev-workspace {grid-template-columns:minmax(350px,.85fr) minmax(0,1.35fr)!important;gap:14px!important;}
+
+  /* Nagłówki pozostałych zakładek: narzędzia bliżej górnej krawędzi. */
+  #search > .sectionheading, #inspection12 > .sectionheading,
+  #notebook > .sectionheading, #labs > .sectionheading,
+  #final > .sectionheading {min-height:0!important;padding-top:15px!important;padding-bottom:15px!important;}
+  #timeline > .tl-head, #deduction > .dd-head {min-height:0!important;padding-top:16px!important;padding-bottom:16px!important;}
+  #search > .sectionheading p, #inspection12 > .sectionheading p,
+  #notebook > .sectionheading p, #labs > .sectionheading p,
+  #final > .sectionheading p {line-height:1.5!important;}
+
+  /* Wygodniejsze pola wyszukiwania i formularze na Full HD. */
+  #search .searchbox input, #evidence .ev-controls input,
+  #notebook textarea, #deduction input, #deduction textarea {font-size:15px!important;line-height:1.45!important;}
+  #search #areas.locationgrid {gap:12px!important;}
+  #search #areas.locationgrid > * {min-height:76px!important;}
+
+  /* Czytelniejsza ręczna oś czasu i tablica hipotez. */
+  #timeline .tl-main {grid-template-columns:minmax(0,.95fr) minmax(0,1.25fr)!important;gap:16px!important;}
+  #deduction .dd-work {min-width:0!important;}
+  #final .fc-grid {gap:16px!important;}
+}

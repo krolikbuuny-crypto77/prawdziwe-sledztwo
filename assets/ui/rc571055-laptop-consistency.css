@@ -1,0 +1,100 @@
+/* RC57.10.55 · Jeden wzorzec układu laptopowego.
+   Cel: zachować podział Full HD również na 1280, 1366, 1440, 1536, 1600 i 1920 px.
+   CSS viewport (po zoomie), nie przekątna fizycznego ekranu, określa dostępną przestrzeń.
+   Tylko prezentacja: żadnych zmian w wiedzy AI, dowodach, nawigacji ani zapisach. */
+
+/* Od 1080px: stabilne regiony pracy. Miary płynne, NIE skalujemy całej strony transformem. */
+@media (min-width:1080px) {
+  :root {
+    --ps55-nav-width:clamp(212px,13.5vw,250px);
+    --ps55-gap:clamp(10px,1vw,17px);
+    --ps55-pad:clamp(12px,1.25vw,24px);
+    --ps55-side-card:clamp(254px,22vw,340px);
+  }
+  body .layout {grid-template-columns:var(--ps55-nav-width) minmax(0,1fr)!important;min-width:0!important;}
+  #ui14Sidebar.sidebar {width:var(--ps55-nav-width)!important;min-width:0!important;max-width:var(--ps55-nav-width)!important;
+    overflow-y:auto!important;overflow-x:hidden!important;scrollbar-gutter:stable!important;}
+  .layout .content {width:100%!important;min-width:0!important;max-width:none!important;
+    padding-inline:var(--ps55-pad)!important;}
+  .layout .content .section {max-width:none!important;min-width:0!important;}
+  .layout .content .section :is(.hero,.heroText,.photos,.charactergrid,.characterlist,.chat,.tl-main,.tl-panel,.ev-workspace,.ev-reader,.ev-index,.dd-work,.dd-source-panel,.dd-editor-panel) {min-width:0!important;}
+
+  /* PULPIT: kolejność i proporcje jak w RC54, na każdym laptopie z wystarczającą szerokością. */
+  #overview.ps38-premium .ps38-front-grid {display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+    gap:var(--ps55-gap)!important;align-items:start!important;}
+  #overview.ps38-premium .ps38-front-grid>.hero {grid-column:1/-1!important;display:grid!important;
+    grid-template-columns:minmax(0,1.3fr) minmax(270px,.85fr)!important;
+    width:100%!important;min-height:0!important;height:clamp(314px,38dvh,416px)!important;max-height:none!important;overflow:hidden!important;}
+  #overview.ps38-premium .ps38-front-grid> #ps49StartHelp {grid-column:1/-1!important;max-width:none!important;width:100%!important;}
+  #overview.ps38-premium .hero>.heroText {width:100%!important;min-width:0!important;
+    height:100%!important;min-height:0!important;max-height:none!important;
+    overflow-y:auto!important;overflow-x:hidden!important;
+    padding:clamp(15px,1.5vw,26px)!important;}
+  #overview.ps38-premium .hero .heroText h1 {font-size:clamp(31px,2.25vw,46px)!important;line-height:1.12!important;}
+  #overview.ps38-premium .hero #photoGrid {width:100%!important;min-width:0!important;
+    height:100%!important;min-height:0!important;max-height:none!important;align-self:stretch!important;
+    grid-template-rows:minmax(0,2.25fr) minmax(0,1fr)!important;}
+  #overview.ps38-premium .ps38-lower-grid {grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)!important;gap:var(--ps55-gap)!important;}
+
+  /* PRZESŁUCHANIA: rozmowa główna i kartoteka po prawej, nigdy 3 kolumny. */
+  #interview .charactergrid {display:grid!important;grid-template-columns:minmax(0,1fr) var(--ps55-side-card)!important;
+    grid-template-rows:auto!important;align-items:start!important;gap:var(--ps55-gap)!important;}
+  #interview .charactergrid>.chat {grid-column:1!important;grid-row:1!important;
+    display:flex!important;flex-direction:column!important;width:100%!important;max-width:none!important;
+    min-width:0!important;height:auto!important;max-height:none!important;overflow:hidden!important;}
+  #interview .charactergrid>.characterlist {grid-column:2!important;grid-row:1!important;
+    width:100%!important;max-width:none!important;min-width:0!important;
+    height:auto!important;max-height:min(78dvh,720px)!important;overflow-y:auto!important;overflow-x:hidden!important;}
+  #interview #psm-panel-chat.surface.chat {grid-template-columns:minmax(0,1fr)!important;}
+  #interview .chat .chathead {display:grid!important;grid-template-columns:clamp(116px,10vw,155px) minmax(0,1fr)!important;
+    min-height:0!important;max-height:none!important;height:auto!important;gap:clamp(10px,1.1vw,17px)!important;}
+  #interview .chat .chathead .witness-stage-host {grid-column:1!important;grid-row:1!important;
+    width:100%!important;height:clamp(118px,11vw,150px)!important;max-height:150px!important;min-height:0!important;}
+  #interview .chat .chathead .chathead-copy {grid-column:2!important;grid-row:1!important;width:100%!important;min-width:0!important;}
+  #interview .chat .chatlog,#interview #chatLog {order:1!important;flex:0 0 auto!important;
+    width:100%!important;max-width:none!important;min-width:0!important;
+    grid-column:1/-1!important;grid-row:auto!important;
+    height:clamp(214px,31dvh,360px)!important;min-height:214px!important;max-height:360px!important;overflow-y:auto!important;}
+  #interview .chat .chatfoot {order:2!important;flex:0 0 auto!important;
+    width:100%!important;max-width:none!important;min-width:0!important;
+    grid-column:1/-1!important;grid-row:auto!important;}
+  #interview #chatInput {max-width:100%!important;min-width:0!important;}
+  #interview .chat .ps87-room-toolbar {order:4!important;}
+  #interview .chat .ps23-extras {order:5!important;}
+  #interview .ps49-interview-tools {order:3!important;}
+
+  /* AKTA, OŚ CZASU i pozostałe narzędzia — jedna rodzina proporcji. */
+  #evidence.ev-section .ev-workspace {display:grid!important;
+    grid-template-columns:minmax(310px,.85fr) minmax(0,1.15fr)!important;gap:var(--ps55-gap)!important;align-items:start!important;}
+  #evidence.ev-section .ev-header {height:auto!important;min-height:0!important;max-height:none!important;padding:clamp(12px,1.2vw,20px)!important;}
+  #timeline .tl-main {display:grid!important;
+    grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)!important;gap:var(--ps55-gap)!important;align-items:start!important;}
+  #timeline .tl-selection {overflow-x:hidden!important;max-height:min(54dvh,460px)!important;}
+  #deduction .dd-work {min-width:0!important;max-width:100%!important;}
+  #deduction .dd-source-list {min-width:0!important;overflow-x:hidden!important;}
+  #search .searchbox input,#notebook textarea,#deduction input,#deduction textarea {min-width:0!important;max-width:100%!important;}
+}
+
+/* Mniejsze okno laptopa / 150–175% powiększenia: zachowaj główne regiony,
+   lecz ogranicz wymiary, nie ucinaj zawartości. */
+@media (min-width:1080px) and (max-width:1240px) {
+  #overview.ps38-premium .ps38-front-grid>.hero {grid-template-columns:minmax(0,1.15fr) minmax(242px,.85fr)!important;height:330px!important;}
+  #overview.ps38-premium .hero .heroText h1 {font-size:32px!important;}
+  #interview .chat .chathead {grid-template-columns:112px minmax(0,1fr)!important;}
+  #interview .chat .chatlog {height:220px!important;}
+  #evidence.ev-section .ev-workspace {grid-template-columns:minmax(260px,.8fr) minmax(0,1.2fr)!important;}
+}
+
+/* Gdy szerokość CSS jest zbyt mała na dwa wygodne panele (mały laptop,
+   okno niezmaksymalizowane lub znaczny zoom), zachowaj kolejność i dostępność.
+   Nie obiecujemy wtedy identycznego dwukolumnowego układu. */
+@media (min-width:901px) and (max-width:1079px) {
+  #overview.ps38-premium .ps38-front-grid {grid-template-columns:minmax(0,1fr)!important;}
+  #overview.ps38-premium .ps38-front-grid>.hero {grid-template-columns:minmax(0,1fr)!important;height:auto!important;}
+  #overview.ps38-premium .hero>.heroText {height:auto!important;min-height:0!important;max-height:none!important;}
+  #overview.ps38-premium .hero>#photoGrid {height:auto!important;max-height:370px!important;min-height:260px!important;}
+  #interview .charactergrid {grid-template-columns:minmax(0,1fr)!important;}
+  #interview .charactergrid>.chat,#interview .charactergrid>.characterlist {grid-column:1/-1!important;grid-row:auto!important;}
+  #interview .charactergrid>.characterlist {max-height:300px!important;}
+  #timeline .tl-main,#evidence.ev-section .ev-workspace {grid-template-columns:minmax(0,1fr)!important;}
+}
