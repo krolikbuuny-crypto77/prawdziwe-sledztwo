@@ -1,0 +1,157 @@
+/* RC57.10.56 — zwarty, czytelny interfejs laptopowy, bez zmiany mechanik gry.
+ * Widok desktop od 941px; wszystkie wartości skalują się z szerokością okna.
+ * Starsze wymuszenia CSS nadpisujemy świadomie tylko w miejscach audytu. */
+:root{
+  --ps56-panel-gap:clamp(9px, .75vw, 14px);
+  --ps56-menu:clamp(258px, 16vw, 284px);
+  --ps56-text-on-dark:#f5e6cc;
+}
+@media(min-width:941px){
+  /* JEDEN WIERSZ na każdą pozycję — cały tekst ma własną kolumnę. */
+  :root{--ps55-nav-width:var(--ps56-menu)!important;--ps55-pad:clamp(13px,1vw,22px)!important;--ps55-gap:var(--ps56-panel-gap)!important}
+  body .layout{grid-template-columns:var(--ps56-menu) minmax(0,1fr)!important;min-width:0!important}
+  #ui14Sidebar.sidebar{width:var(--ps56-menu)!important;min-width:var(--ps56-menu)!important;max-width:var(--ps56-menu)!important;
+    padding:11px 9px!important;overflow-y:auto!important;overflow-x:hidden!important;scrollbar-gutter:stable!important;}
+  #ui14Sidebar #nav{display:grid!important;grid-template-columns:minmax(0,1fr)!important;align-content:start!important;
+    height:auto!important;max-height:none!important;min-height:0!important;gap:3px!important;overflow:visible!important}
+  #ui14Sidebar #nav .ps49-nav-group{font-size:11px!important;letter-spacing:.07em!important;
+    padding:9px 7px 4px!important;margin:0!important;line-height:1.25!important;white-space:nowrap!important}
+  #ui14Sidebar #nav button[data-tab]{display:grid!important;grid-template-columns:24px 24px minmax(0,1fr)!important;
+    grid-template-rows:minmax(0,1fr)!important;align-items:center!important;column-gap:8px!important;
+    padding:7px 10px!important;margin:0!important;min-width:0!important;width:100%!important;
+    min-height:43px!important;height:43px!important;max-height:43px!important;
+    font:700 15px/1.2 Georgia,'Times New Roman',serif!important;white-space:nowrap!important;overflow:hidden!important;
+    text-align:left!important;}
+  #ui14Sidebar #nav button .num{grid-column:1!important;width:24px!important;min-width:24px!important;font-size:11px!important}
+  #ui14Sidebar #nav button .ps38-nav-icon{grid-column:2!important;display:grid!important;place-items:center!important;
+    width:24px!important;min-width:24px!important;font-size:16px!important}
+  #ui14Sidebar #nav button .ps56-nav-label{grid-column:3!important;display:block!important;min-width:0!important;
+    white-space:nowrap!important;overflow:visible!important;word-break:normal!important;line-height:1.18!important}
+  #ui14Sidebar #ps76Tools{margin-top:10px!important}
+  #ui14Sidebar .ui14-navcaption{padding-block:6px!important;margin-block:5px!important}
+  #ui14Sidebar .brand{margin-bottom:7px!important;min-height:68px!important}
+  /* Hierarchia zakładek: narzędzia widoczne wcześniej, instrukcje niższe. */
+  .layout .content{padding:10px clamp(12px,1.25vw,24px) 22px!important}
+  .layout .content .section.active{min-width:0!important;max-width:none!important}
+  .layout .content .section :is(.sectionheading,.tl-head,.dd-head,.ev-header){margin-top:0!important;margin-bottom:9px!important;gap:10px!important}
+  .layout .content .section :is(.sectionheading,.tl-head,.dd-head) p{margin:4px 0 0!important;line-height:1.42!important}
+  .layout .content .section .ps36-section-index{margin:0 0 8px!important;gap:7px!important;min-height:0!important;padding:5px 8px!important}
+  .layout .content .section .ps36-section-index button{padding:5px 9px!important;min-height:30px!important;font-size:12px!important}
+  .layout .content .section :is(input,textarea,select,button){max-width:100%;}
+  .layout .content .section :is(.surface,.panel,.card,.tl-panel,.sc-panel,.dd-panel){min-width:0;}
+  /* PULPIT: zwarty, logiczny przebieg od opisu do działań i odkrytych wątków. */
+  #overview.ps38-premium .ps38-case-banner{padding:12px 17px!important;min-height:0!important;margin:0 0 9px!important}
+  #overview.ps38-premium .ps38-case-banner :is(h2,p){margin-top:2px!important;margin-bottom:2px!important}
+  #overview.ps38-premium .ps38-front-grid{gap:8px!important}
+  #overview.ps38-premium .ps38-front-grid>.hero{height:clamp(365px,42dvh,405px)!important;min-height:365px!important;max-height:none!important}
+  #overview.ps38-premium .hero>.heroText{display:flex!important;flex-direction:column!important;justify-content:center!important;gap:10px!important;
+    padding:clamp(13px,1.2vw,21px)!important;height:100%!important;min-height:0!important;max-height:none!important;overflow-y:visible!important}
+  #overview.ps38-premium .hero>.heroText .case-kicker{margin:0 0 9px!important}
+  #overview.ps38-premium .hero>.heroText h1{margin:5px 0 11px!important}
+  #overview.ps38-premium .hero>.heroText .case-lead{margin:0!important;line-height:1.45!important}
+  #overview.ps38-premium .hero>.heroText .case-actions{margin:0!important;gap:8px!important}
+  #overview.ps38-premium .hero>.heroText .case-meta{margin:0!important}
+  #overview.ps38-premium .hero #photoGrid{height:100%!important;min-height:0!important;align-self:stretch!important}
+  #overview.ps38-premium .hero .heroText h1{font-size:clamp(31px,2.3vw,43px)!important;line-height:1.05!important}
+  #overview.ps38-premium .ps38-lower-grid{gap:var(--ps56-panel-gap)!important;align-items:start!important;margin-block:9px!important}
+  #overview.ps38-premium .ps38-lower-grid>*{min-width:0!important;align-self:start!important}
+  #overview.ps38-premium #story26Overview{margin:0!important;padding:13px 15px!important;min-height:0!important;max-height:none!important}
+  #overview.ps38-premium #story26Overview .story26-head{padding-bottom:7px!important;margin-bottom:9px!important}
+  #overview.ps38-premium #story26Overview .story26-head h3{font-size:20px!important}
+  #overview.ps38-premium #story26Overview .story26-track{gap:9px!important}
+  #overview.ps38-premium #story26Overview .story26-track:has(> .story26-case:only-child){grid-template-columns:minmax(0,1fr)!important}
+  #overview.ps38-premium #story26Overview .story26-case{min-height:0!important;padding:11px!important}
+  #overview.ps38-premium #story26Overview .story26-case p{font-size:13px!important;line-height:1.42!important}
+  #overview.ps38-premium #story26Overview .ps56-empty-thread{margin:4px 0!important;font-size:14px!important;line-height:1.5!important;color:#ecdfca!important}
+  #overview.ps38-premium .ps38-actions{padding:11px 13px!important;margin:8px 0 11px!important;min-height:0!important}
+  #overview.ps38-premium .ps38-actions-heading{margin-bottom:9px!important;padding-bottom:8px!important}
+  #overview.ps38-premium .ps38-actions-list{gap:9px!important}
+  #overview.ps38-premium .ps38-actions-list button{min-height:64px!important;padding:9px 12px!important;gap:3px!important}
+  #overview.ps38-premium .ps38-actions-list button small{font-size:13px!important;line-height:1.3!important}
+  /* AKTA: indeks i czytnik, bez rozpychania od pustego stanu. */
+  #evidence.ev-section .ev-header{padding:12px 16px!important;margin-bottom:8px!important}
+  #evidence.ev-section .ev-controls{padding:8px 12px!important;margin-bottom:7px!important}
+  #evidence.ev-section #evTypeFilters{margin-bottom:7px!important}
+  #evidence.ev-section .ev-workspace{gap:11px!important;padding:11px!important;align-items:start!important}
+  #evidence.ev-section :is(.ev-index,.ev-reader){min-width:0!important;max-width:100%!important}
+  #evidence.ev-section .ev-doc-card{margin-bottom:6px!important}
+  /* SZUKAJ: formularz na początku, obszary jako filtry, potem wyniki. */
+  #search .sectionheading{padding:12px 16px!important;min-height:0!important;height:auto!important}
+  #search .searchbox{order:0!important;padding:11px 14px!important;margin:3px 0 8px!important}
+  #search .ps36-section-index{margin:0 0 6px!important}
+  #search .locationgrid{margin:0 0 9px!important;gap:8px!important;align-items:stretch!important}
+  #search .locationgrid>.location{padding:8px 11px!important;min-height:49px!important;display:flex!important;align-items:center!important}
+  #search .searchResults{margin-top:8px!important;max-width:100%!important;min-height:0!important}
+  /* PRZESŁUCHANIA: protokół to oś widoku, nie element boczny. */
+  #interview .sectionheading{margin-bottom:8px!important}
+  #interview .ps18-guidance{margin:0 0 8px!important}
+  #interview .charactergrid{gap:12px!important;margin-top:7px!important;align-items:start!important}
+  #interview .chat .chathead{margin-bottom:8px!important;min-height:0!important}
+  #interview .chat .chatlog,#interview #chatLog{height:clamp(252px,35dvh,420px)!important;min-height:252px!important;max-height:420px!important}
+  #interview .chat .chatfoot{padding:9px 12px!important}
+  #interview .chat .chatfoot textarea{min-height:65px!important}
+  #interview .charactergrid>.characterlist .character{min-height:94px!important;padding:8px 10px!important}
+  #interview .charactergrid>.characterlist .character .wp-mini{height:69px!important;min-height:69px!important;max-height:69px!important}
+  /* OŚ CZASU: wprowadzanie i podgląd w jednej wysokości roboczej. */
+  #timeline #tlMetrics{margin:0 0 8px!important;gap:9px!important}
+  #timeline .tl-main{gap:11px!important;align-items:start!important}
+  #timeline .tl-main .tl-panel{padding:12px 14px!important;min-height:0!important}
+  #timeline .tl-selection{max-height:clamp(285px,55dvh,510px)!important}
+  #timeline #tlChart{max-height:560px!important}
+  /* OGLĘDZINY: stały obszar działania, mniej wysokich nagłówków. */
+  #inspection12 .sc-stats{margin-bottom:8px!important;gap:7px!important}
+  #inspection12 .sc-layout{gap:11px!important;align-items:start!important}
+  #inspection12 .sc-layout>.sc-inspector{top:61px!important;max-height:calc(100dvh - 73px)!important}
+  #inspection12 .sectionheading{padding:12px 16px!important;min-height:0!important;height:auto!important}
+  #inspection12 .ps-inspection-help{margin:5px 0!important}
+  #inspection12 details:not([open])>summary{padding:7px 11px!important;min-height:32px!important;line-height:1.25!important}
+  #inspection12 .ps52-fold{margin:5px 0!important}
+  /* NOTATKI: edycja przed rozwijanymi narzędziami, zmniejszone odstępy. */
+  #notebook .surface.padded{padding:12px 15px!important}
+  #notebook #notes{min-height:135px!important;height:auto!important;max-height:310px!important}
+  #notebook .sc-notegrid{gap:10px!important}
+  #notebook .ps52-fold{margin:8px 0!important}
+  /* LABORATORIUM: karty bez szerokich pustych rzędów. */
+  #labs #ux5Hub{padding:12px!important}
+  #labs #ux5Hub .ux5-grid{grid-template-columns:repeat(auto-fit,minmax(245px,1fr))!important;gap:10px!important;align-items:stretch!important}
+  #labs #ux5Hub .ux5-grid>*{min-height:0!important}
+  /* DEDUKCJA: nie zostawiaj pustego bloku bez hipotez. */
+  #deduction .dd-work{margin:0 0 9px!important;gap:11px!important}
+  #deduction .dd-head{padding:12px 16px!important;min-height:0!important;height:auto!important}
+  #deduction #ux4Guide{padding:10px 13px!important;margin-bottom:8px!important}
+  #deduction details:not([open])>summary{padding:7px 11px!important;min-height:32px!important}
+  #deduction #threadBoardPanel{margin:0 0 9px!important;padding:11px!important}
+  #deduction #threadBoardPanel .thread-cork{min-height:160px!important;max-height:580px!important}
+  #deduction :is(.dd-source-panel,.dd-editor-panel){min-height:0!important;padding:12px 14px!important}
+  /* FINAŁ: reguły i decyzja bez powielonych pustych kart. */
+  #final #psF1Gate{padding:12px 15px!important;margin-bottom:9px!important}
+  #final #psF1Gate .psf1-grid{gap:9px!important}
+  #final .fc-intro{padding:11px 14px!important;margin:0 0 9px!important}
+  #final :is(.fc-progress,.fc-grid){gap:10px!important;margin-bottom:9px!important}
+}
+/* Na laptopach węższych i przy zoomie elementy NIE są przycinane. */
+@media(min-width:941px) and (max-width:1120px){
+  :root{--ps56-menu:252px}
+  #overview.ps38-premium .ps38-front-grid>.hero{height:auto!important;min-height:365px!important}
+  #overview.ps38-premium .hero>.heroText{height:auto!important;min-height:0!important}
+  #overview.ps38-premium .ps38-actions-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  #evidence.ev-section .ev-workspace{grid-template-columns:minmax(0,1fr)!important}
+  #inspection12 .sc-layout>.sc-inspector{position:static!important;max-height:none!important}
+  #labs #ux5Hub .ux5-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:940px){
+  #ui14Sidebar #nav button .ps56-nav-label{display:inline!important;white-space:normal!important;overflow-wrap:normal!important}
+  #overview.ps38-premium #story26Overview .ps56-empty-thread{color:#eadbbe!important;font-size:13px!important}
+  #overview.ps38-premium #story26Overview .story26-case{min-height:0!important;padding:10px!important}
+  #search .searchbox{margin-bottom:8px!important}
+}
+@media(min-width:1700px){
+  #overview.ps38-premium .ps38-actions-list{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+
+@media(min-width:941px) and (max-width:1450px){
+ #labs #ux5Hub .ux5-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(min-width:1451px) and (max-width:1740px){
+ #labs #ux5Hub .ux5-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}

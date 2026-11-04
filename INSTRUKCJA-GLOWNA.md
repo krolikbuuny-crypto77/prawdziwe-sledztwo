@@ -1,3 +1,9 @@
+# **Aktualna wersja: RC57.10.56 — optymalizacja zakładek, menu i odkrywane wątki śledztwa.**
+
+Zobacz `INSTRUKCJA-RC57_10_56.md` i `RAPORT-QA-RC57_10_56.md`. Poniższe wpisy dotyczą starszych wydań i mają charakter historyczny.
+
+---
+
 > **Aktualna wersja: RC57.10.53 — czytelność menu, nagłówka świadków i skrótów.** Instrukcja: `INSTRUKCJA-RC57_10_53.md`.
 
 > **Aktualna wersja: RC57.10.52 — optymalizacja zakładek.** Instrukcja: `INSTRUKCJA-RC57_10_52.md`.

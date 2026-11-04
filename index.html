@@ -6126,6 +6126,7 @@ html,body{
 <link rel="stylesheet" href="assets/ui/rc571052-section-layout.css" id="rc571052-section-layout">
 <link rel="stylesheet" href="assets/ui/rc571053-navigator-contrast.css" id="rc571053-navigator-contrast">
 <link rel="stylesheet" href="assets/ui/rc571055-laptop-consistency.css" id="rc571055-laptop-consistency">
+<link rel="stylesheet" href="assets/ui/rc571056-compact-workspace.css" id="rc571056-compact-workspace">
 </head><body>
 <div id="ps18Boot" class="ps18-boot" role="status" aria-live="polite" aria-label="Otwieranie akt sprawy">
  <div class="ps18-boot-card"><span class="ps18-boot-kicker">AKTA ŚLEDZTWA · TW-217</span>
@@ -13132,20 +13133,43 @@ const WITNESSES=[
 ];
 function hasAll(ids){return ids.every(id=>STATE.found.has(id));}
 function witnessDone(id,gate){return !!NPC9_MEMORY[id]?.confronted?.includes(gate);}
+// RC57.10.56: w Pulpicie pokazujemy wyłącznie odkryte linie dochodzenia.
+// Treść nieodkrytych dokumentów, tytuły ukrytych tropów i tajemnice świadków
+// nie trafiają do DOM. Uprawnienia, bramki dowodowe i kanon pozostają bez zmian.
 function storyMarkup(){
- let html='<div class="story26-head"><div><h3>Wątki śledztwa</h3><p>Odkrycia zmieniają obraz wydarzeń. Brak dokumentu nie jest dowodem jego treści.</p></div></div><div class="story26-track">';
- for(const t of THREADS){
-  const count=t.needs.filter(id=>STATE.found.has(id)).length,done=count===t.needs.length;
-  const label=done?t.label:({invitation:'Ślady korespondencji',alibi:'Weryfikacja elektronicznego alibi',silences:'Rozbieżności w relacjach'}[t.id]||t.label);
-  html+='<article class="story26-case"><div class="story26-tag">'+(done?'Zestawiono materiały':'W toku · '+count+' / '+t.needs.length)+'</div><strong>'+esc(label)+'</strong><p>'+esc(done?t.revealed:t.opening)+'</p><div class="story26-bar"><i style="width:'+Math.round(count/t.needs.length*100)+'%"></i></div>';
-  if(done)html+='<p>'+esc(t.check)+'</p><div class="story26-refs">Źródła: '+esc(t.needs.join(' · '))+'</div><div class="story26-notes"><button type="button" class="story26-note" data-story26-note="'+t.id+'">Zapisz ustalenie w notatniku</button></div>';
-  html+='</article>';
+ const visible=THREADS.map(t=>({thread:t,count:t.needs.filter(id=>STATE.found.has(id)).length}))
+   .filter(item=>item.count>0);
+ const readyWitnesses=WITNESSES.filter(w=>hasAll(w.needs)||witnessDone(w.id,w.gate));
+ const safeTopics={accident:'Sygnalizacja i zdarzenia techniczne',part:'Dokumentacja podzespołu',silences:'Procedury i rozbieżności',invitation:'Zapis korespondencji',alibi:'Elektroniczne źródła obecności'};
+ let html='<div class="story26-head"><div><h3>Odkryte linie dochodzenia</h3><p>Widoczne są wyłącznie tropy wynikające z materiałów, które już zdobyto.</p></div></div>';
+ if(!visible.length){
+  html+='<p class="ps56-empty-thread">Nie odkryto jeszcze linii dochodzenia. Rozpocznij od akt, poszukiwań lub oględzin. Kolejne kierunki pojawią się wraz z materiałami.</p>';
+ }else{
+  html+='<div class="story26-track">';
+  for(const {thread:t,count} of visible){
+   const done=count===t.needs.length;
+   // Nie pokazujemy nawet tytułu pełnego wątku, jeżeli jego podstawa jest niekompletna.
+   const heading=done?t.label:(safeTopics[t.id]||'Trop do dalszego sprawdzenia');
+   html+='<article class="story26-case"><div class="story26-tag">'+(done?'Zestawiono źródła':'Odkryty trop · do weryfikacji')+'</div><strong>'+esc(heading)+'</strong>';
+   html+='<p>'+esc(done?t.revealed:'Zebrano już materiał z tego obszaru. Porównaj dostępne źródła, zanim sformułujesz wniosek.')+'</p>';
+   if(done){
+    html+='<p>'+esc(t.check)+'</p><div class="story26-refs">Źródła: '+esc(t.needs.join(' · '))+'</div>';
+    html+='<div class="story26-notes"><button type="button" class="story26-note" data-story26-note="'+t.id+'">Zapisz ustalenie w notatniku</button></div>';
+   }
+   html+='</article>';
+  }
+  html+='</div>';
  }
- html+='</div><details style="margin-top:16px"><summary>Co pozostaje do wyjaśnienia u świadków?</summary><div class="story26-track" style="margin-top:12px">';
- for(const w of WITNESSES){const ready=hasAll(w.needs),done=witnessDone(w.id,w.gate);
-  html+='<article class="story26-case"><div class="story26-tag">'+(done?'Zeznanie skonfrontowane':ready?'Można skonfrontować':'Wymaga sprawdzenia')+'</div><strong>'+esc(w.label)+'</strong><p>'+esc(done?w.close:w.open)+'</p>'+(ready?'<div class="story26-refs">'+esc(w.needs.join(' · '))+'</div>':'')+'</article>';
+ if(readyWitnesses.length){
+  html+='<details class="ps56-confrontation" style="margin-top:11px"><summary>Możliwe konfrontacje ze świadkami ('+readyWitnesses.length+')</summary><div class="story26-track" style="margin-top:10px">';
+  for(const w of readyWitnesses){
+   const done=witnessDone(w.id,w.gate);
+   html+='<article class="story26-case"><div class="story26-tag">'+(done?'Zeznanie skonfrontowane':'Materiały do konfrontacji')+'</div>';
+   html+='<strong>'+esc(w.label)+'</strong><p>'+esc(done?w.close:w.open)+'</p>';
+   html+='<div class="story26-refs">Źródła: '+esc(w.needs.join(' · '))+'</div></article>';
+  }
+  html+='</div></details>';
  }
- html+='</div></details>';
  return html;
 }
 function renderStory(){
@@ -24440,4 +24464,5 @@ else requestAnimationFrame(init);
 <script src="assets/ui/rc571042-mobile-interview.js" defer></script>
 <script src="assets/ui/rc571049-laptop-layout.js" defer></script>
 <script src="assets/ui/rc571052-section-layout.js" defer></script>
+<script src="assets/ui/rc571056-compact-workspace.js" defer></script>
 </body></html>
