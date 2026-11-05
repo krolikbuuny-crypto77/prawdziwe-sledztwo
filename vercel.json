@@ -43,11 +43,7 @@
   ],
   "routes": [
     {
-      "src": "^/(lib|src|tools|docs|story-bible|supabase|QA-[^/]*|qa[0-9]+(?:-baseline)?|TEST-[^/]*)(/.*)?$",
-      "status": 404
-    },
-    {
-      "src": "^/[^/]+\\.(?:md|json|txt|log|py)$",
+      "src": "^/(lib|src|tools|QA-[^/]*)(/.*)?$",
       "status": 404
     },
     {

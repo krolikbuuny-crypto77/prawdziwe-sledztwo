@@ -105,11 +105,6 @@
     "test:rc571066:chat": "python tools/test-rc571066-chat.py",
     "test:rc571066": "npm run check && node tools/test-rc571061-parity.mjs && npm run test:rc571066:chat && python tools/test-saves.py && python tools/test-navigation.py && npm run test:rc58",
     "test:humanity-v3": "node tools/test-humanity-v3.mjs",
-    "test:humanity-v3:regression": "npm run check && npm run test:humanity-v3 && npm run test:rc58 && node tools/test-rc571047-humanity.mjs",
-    "migrate:rc571068": "node tools/migrate-rc571068.mjs --apply",
-    "project:doctor": "node tools/project-doctor.mjs",
-    "test:current:quick": "npm run check && npm run project:doctor && npm run test:humanity-v3",
-    "test:current": "npm run test:current:quick && npm run test:rc58 && python tools/test-saves.py && python tools/test-navigation.py",
-    "test:current:browser": "python tools/test-navigation.py && python tools/test-rc571066-chat.py"
+    "test:humanity-v3:regression": "npm run check && npm run test:humanity-v3 && npm run test:rc58 && node tools/test-rc571047-humanity.mjs"
   }
 }
