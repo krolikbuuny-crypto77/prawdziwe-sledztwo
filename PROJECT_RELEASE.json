@@ -1,0 +1,16 @@
+{
+  "release": "RC57.10.68",
+  "base": "RC57.10.67",
+  "date": "2026-11-05",
+  "scope": "Historical documentation archive, current guides, test commands and private static route protection",
+  "clientAssets": {
+    "index.html": "351f7e4f8ee98cbaf246068656700f11823d87382c3eb0825a86fb5a989e9121",
+    "ps-css-8d1a13d7072578e4.css": "8d1a13d7072578e4ab15beb111687996ae2d7e8a720d7f500b9d093328e5d1ac",
+    "ps-js-00-83b5cee83c91e670.js": "83b5cee83c91e67034f606c0d70a10a34ce02a6c17dcf6b0da853bcc94630710",
+    "ps-js-60-b93e70592a8eeef5.js": "b93e70592a8eeef53edbe38ae513059618108f150dbba397e3a0ba2e8c0cad03"
+  },
+  "serverCodeUnchangedFromBase": true,
+  "clientCodeUnchangedFromBase": true,
+  "liveProviderTested": false,
+  "productionDeployed": false
+}
