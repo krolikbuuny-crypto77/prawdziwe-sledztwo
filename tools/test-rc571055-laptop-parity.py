@@ -12,7 +12,7 @@ with sync_playwright() as p:
  browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-dev-shm-usage'])
  page=browser.new_page(viewport={'width':1920,'height':1080},device_scale_factor=1,reduced_motion='reduce')
  page.on('pageerror',lambda e:errors.append(str(e)))
- html=(R/'tools/.test-index-inline.html').read_text(encoding='utf8').replace('<head>','<head><base href="https://qa.game/">',1)
+ html=(R/'index.html').read_text(encoding='utf8').replace('<head>','<head><base href="https://qa.game/">',1)
  def handler(route):
   rel=route.request.url.split('qa.game/',1)[-1].split('?')[0].split('#')[0]
   f=(R/rel).resolve()

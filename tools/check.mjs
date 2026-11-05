@@ -3,23 +3,14 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import {buildPage} from './build.mjs';
-import {checkCaseEngineSync} from './sync-case-engine.mjs';
 const root = path.resolve(import.meta.dirname, '..');
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'src/build-manifest.json'), 'utf8'));
 const compiled = buildPage();
 const deployed = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const failures = [];
-try { checkCaseEngineSync(); } catch (error) { failures.push(error.message); }
 if (compiled.html !== deployed) failures.push('Built index.html differs from src: run npm run build');
-if (!fs.existsSync(path.join(root, 'tools/.test-index-inline.html')) || fs.readFileSync(path.join(root, 'tools/.test-index-inline.html'), 'utf8') !== compiled.inlineTestHtml)
-  failures.push('Browser compatibility fixture is missing or stale');
 if (compiled.scripts.length !== 61 || compiled.styles.length !== 64) failures.push('Script/style source section count changed; review build manifest');
-if ((compiled.html.match(/<style\b/g) || []).length !== 0 || !compiled.html.includes('id="ps-consolidated-styles"')) failures.push('Production HTML must link one versioned stylesheet');
-for (const asset of compiled.externalFiles) {
-  const filepath = path.join(root, asset.filename);
-  if (!fs.existsSync(filepath) || fs.readFileSync(filepath, 'utf8') !== asset.content)
-    failures.push(`Missing or stale content-hashed bundle: ${asset.filename}`);
-}
+if ((compiled.html.match(/<style\b/g) || []).length !== 1) failures.push('Production HTML must contain exactly one combined style element');
 for (const entry of manifest.sections.filter(x => x.kind === 'script')) {
   if (entry.index === 2 || entry.index === 27) continue; // JSON payload or empty hook
   const src = compiled.scripts[entry.index];
@@ -49,8 +40,7 @@ for (const asset of assets) {
 }
 // Integration contracts must survive refactors. The API routes and storage hooks are public contracts.
 const contracts=['/api/interview','/api/evaluate','buildSave','showTab'];
-const allCode = compiled.html + compiled.scripts.join('\n');
-for (const term of contracts) if (!allCode.includes(term)) failures.push(`Missing integration: ${term}`);
+for (const term of contracts) if (!compiled.html.includes(term)) failures.push(`Missing integration: ${term}`);
 console.log(`Validated: ${compiled.scripts.length} script sections, ${compiled.styles.length} CSS sections; ${checkedImages} WebP and ${checkedAudio} MP3 files`);
 if (failures.length){for(const err of failures)console.error('FAIL:',err);process.exit(1);}
 console.log('PASS: syntax, asset hashes, build reproducibility, integration hooks');

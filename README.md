@@ -1,25 +1,24 @@
-# Prawdziwe Śledztwo — Ostatni kurs
+# Prawdziwe Śledztwo — RC57.10.31
 
-**Aktualne wydanie repozytorium: RC57.10.68 (porządkowanie projektu).**
-**Stan wdrożenia:** przygotowane lokalnie; wdrożenia produkcyjnego ani testów prawdziwego AI nie wykonano.
+Aktualna instrukcja wdrożenia: `INSTRUKCJA-GLOWNA.md`. Raport bieżącej poprawki: `RAPORT-QA-RC57_10_31.md`. RC57.10.31 poprawia wyłącznie czytelność wybranych paneli Przesłuchań i ustawień dźwięku.
 
-## Od czego zacząć
+---
 
-- [Instrukcja bieżącego wydania i wdrażania](INSTRUKCJA-GLOWNA.md) — aktualizacja, pełna paczka, Vercel Preview.
-- [Mapa projektu i odpowiedzialności](docs/ARCHITEKTURA-AKTUALNA.md) — klient, API, źródła, zapisy, AI.
-- [Testowanie i status testów](docs/TESTY-AKTUALNE.md) — szybkie i pełne testy, granice weryfikacji.
-- [Spis historycznych raportów i instrukcji](docs/HISTORIA-WYDAN.md) — archiwum bez utraty materiałów.
-- [Raport RC57.10.68](RAPORT-QA-RC57_10_68.md) — zmiany i wyniki.
+# Prawdziwe Śledztwo — RC57.10.28
 
-## Praca z kodem
+Aktualny przewodnik: **INSTRUKCJA-GLOWNA.md**. Wyniki testów: **RAPORT-QA-RC57_10_28.md**.
 
-```bash
-npm run build
-npm run check
-npm run project:doctor
-npm run test:current
-```
+RC57.10.28 ujednolica wygląd dziewięciu modułów w stylu „Akta Śledcze”, bez zmiany reguł rozgrywki.
 
-Serwer Vercel: `api/` i `lib/`. Źródła klienta: `src/`. `index.html` oraz pliki `ps-js-*`, `ps-css-*` **są generowane** przez `npm run build`; nie edytuj ich ręcznie. Autorytatywne reguły śledztwa, fabuła i uprawnienia pozostają po stronie serwera. Szczegóły w mapie projektu.
+---
 
-Dokumenty starszych wersji są materiałem historycznym — nie stanowią instrukcji do aktualnej wersji.
+# Prawdziwe Śledztwo — RC57.10.23 · Akta Śledcze
+
+**Jedyna instrukcja wdrożenia:** [INSTRUKCJA-GLOWNA.md](INSTRUKCJA-GLOWNA.md).
+
+Wydanie aktualizuje interfejs przesłuchań, aby możliwie wiernie odpowiadał zaakceptowanemu układowi „Akta Śledcze”, zachowując rzeczywistą sprawę Leny Rudnickiej i TW-217. Dowody są pokazywane dopiero po uzyskaniu ich w grze; tylko własne pytania. Bez zmian AI, zasad, zapisów i werdyktu.
+
+[Raport kontroli RC57.10.23](RAPORT-QA-RC57_10_23.md). Najpierw wdrażaj na Vercel Preview.
+
+### RC57.10.32
+Korekta kontrastu i ujednolicenie wyglądu: wznowienie sesji, Oględziny, Dedukcja, skróty modułów. Bez zmian mechanik. Raport: `RAPORT-QA-RC57_10_32.md`.

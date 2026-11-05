@@ -19,26 +19,7 @@
   const repeated=[...counts].filter(([_,n])=>n>=2).sort((a,b)=>b[1]-a[1]).slice(0,6);
   return {turns,log,repeated};
  }
- // RC57.10.64: compare the actual player questions before rebuilding an idle
- // panel. Same-length edits and save imports are detected; NPC answers alone
- // do not change this question-based summary.
- let lastRendered=null;
- function questionsChanged(){
-  const id=STATE.activeChar,log=STATE.dialogues?.[id]||[];
-  if(!lastRendered||lastRendered.id!==id||lastRendered.log!==log||lastRendered.length!==log.length)return true;
-  let i=0;
-  for(const m of log){
-   if(m.role!=='player')continue;
-   if(i>=lastRendered.questions.length||lastRendered.questions[i++]!==m.text)return true;
-  }
-  return i!==lastRendered.questions.length;
- }
- function rememberQuestions(){
-  const id=STATE.activeChar,log=STATE.dialogues?.[id]||[];
-  lastRendered={id,log,length:log.length,questions:log.filter(m=>m.role==='player').map(m=>m.text)};
- }
  function render(){if(STATE.tab!=='interview')return;const v=view();
-  rememberQuestions();
   info.textContent=`Zadane pytania: ${v.turns.length} · powracające hasła: ${v.repeated.length}`;
   list.replaceChildren();
   if(!v.turns.length){const p=document.createElement('p');p.textContent='Rozmowa jeszcze się nie rozpoczęła.';list.append(p);return;}
@@ -56,6 +37,6 @@
  registerNavigationHook({name:'rc42-memory',after:()=>render()});
  const previous=typeof renderChat==='function'?renderChat:null;
  // Keep display in sync with server-driven and mirrored transcripts without monkey-patching owners.
- setInterval(()=>{if(!document.hidden&&STATE.tab==='interview'&&questionsChanged())render();},3400);
+ setInterval(()=>{if(!document.hidden&&STATE.tab==='interview')render();},3400);
  window.PS_RC42=Object.freeze({inspect:view,render});render();
 })();

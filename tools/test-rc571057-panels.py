@@ -19,7 +19,7 @@ with sync_playwright() as p:
    r.fulfill(status=200,body=file.read_bytes(),content_type=mimetypes.guess_type(file.name)[0] or 'application/octet-stream')
   else:r.fulfill(status=404,body='')
  page.route('https://qa.game/**',route)
- html=(ROOT/'tools/.test-index-inline.html').read_text().replace('<head>','<head><base href="https://qa.game/">',1)
+ html=(ROOT/'index.html').read_text().replace('<head>','<head><base href="https://qa.game/">',1)
  page.set_content(html,wait_until='domcontentloaded',timeout=90000)
  page.wait_for_timeout(280)
  for w,h in SIZES:

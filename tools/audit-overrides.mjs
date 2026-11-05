@@ -5,7 +5,7 @@ const contracts=JSON.parse(fs.readFileSync(path.join(root,'src/compatibility-con
 const found=[];
 function findFiles(dir){for(const ent of fs.readdirSync(dir,{withFileTypes:true})){
   const p=path.join(dir,ent.name);
-  if(ent.isDirectory()){if(ent.name==='case-engine-parts')continue;findFiles(p);}
+  if(ent.isDirectory())findFiles(p);
   else if(ent.name.endsWith('.js'))found.push(p);
 }}
 findFiles(path.join(root,'src'));
