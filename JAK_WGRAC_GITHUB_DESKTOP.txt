@@ -1,0 +1,24 @@
+PRAWDZIWE ŚLEDZTWO — RC57.10.68
+JEDNA PACZKA DO GITHUB DESKTOP
+
+1. Otwórz GitHub Desktop i wybierz repozytorium prawdziwe-sledztwo.
+2. Sprawdź Repository > Repository settings > Remote:
+   dla Twojego projektu ma być krolikbuuny-crypto77/prawdziwe-sledztwo.
+3. Wybierz Repository > Show in Explorer.
+4. Rozpakuj TEN ZIP bezpośrednio do OTWARTEGO folderu prawdziwe-sledztwo.
+   Ważne: plik index.html musi znaleźć się bezpośrednio w tym folderze,
+   a obok niego katalogi assets, api, lib, src itd.
+   Gdy Windows spyta o zastąpienie istniejących plików, potwierdź.
+   NIE USUWAJ ukrytego folderu .git.
+5. GitHub Desktop: Changes > sprawdź zmiany > Commit to ... > Push origin.
+6. Vercel: sprawdź Deployments i grafiki na wdrożeniu Preview.
+7. Dopiero po sprawdzeniu opublikuj produkcję.
+
+UWAGA:
+Błąd „fatal error in commit_refs_rules” oznacza odrzucenie zmian przez GitHub.
+Ta paczka porządkuje pliki, ale nie usuwa blokady push na serwerze.
+Jeżeli push do main znów się nie powiedzie, użyj nowej gałęzi
+naprawa-grafik-rc571068 i opublikuj ją jako Pull Request.
+Nie używaj Force Push.
+
+Nie dodawaj kluczy API ani plików .env do repozytorium.

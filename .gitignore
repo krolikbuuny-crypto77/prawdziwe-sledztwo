@@ -1,0 +1,8 @@
+# Pliki lokalne i poufne — nie wysyłaj do GitHub
+node_modules/
+.vercel/
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
