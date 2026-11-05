@@ -1,0 +1,201 @@
+{
+  "version": "RC57.10.64",
+  "baseline": null,
+  "method": "local Chromium intercepted static resources; 10 tabs x three widths; external network blocked",
+  "checks": [
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "overview",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "evidence",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "search",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "interview",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "timeline",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "inspection12",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "notebook",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "labs",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "deduction",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "final",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "overview",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "evidence",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "search",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "interview",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "timeline",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "inspection12",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "notebook",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "labs",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "deduction",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "final",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "overview",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "evidence",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "search",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "interview",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "timeline",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "inspection12",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "notebook",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "labs",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "deduction",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "final",
+      "ok": true
+    }
+  ],
+  "stateParity": [],
+  "screenshots": [],
+  "stylesheet": {
+    "after:390": [
+      "ps-css-8d1a13d7072578e4.css"
+    ],
+    "after:1366": [
+      "ps-css-8d1a13d7072578e4.css"
+    ],
+    "after:1920": [
+      "ps-css-8d1a13d7072578e4.css"
+    ]
+  },
+  "errors": []
+}

@@ -1,0 +1,665 @@
+{
+  "version": "RC57.10.66",
+  "baseline": "RC57.10.65",
+  "method": "local Chromium intercepted static resources; 10 tabs x three widths; external network blocked",
+  "checks": [
+    {
+      "version": "before",
+      "width": 390,
+      "tab": "overview",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 390,
+      "tab": "evidence",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 390,
+      "tab": "search",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 390,
+      "tab": "interview",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 390,
+      "tab": "timeline",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 390,
+      "tab": "inspection12",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 390,
+      "tab": "notebook",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 390,
+      "tab": "labs",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 390,
+      "tab": "deduction",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 390,
+      "tab": "final",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1366,
+      "tab": "overview",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1366,
+      "tab": "evidence",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1366,
+      "tab": "search",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1366,
+      "tab": "interview",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1366,
+      "tab": "timeline",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1366,
+      "tab": "inspection12",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1366,
+      "tab": "notebook",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1366,
+      "tab": "labs",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1366,
+      "tab": "deduction",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1366,
+      "tab": "final",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1920,
+      "tab": "overview",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1920,
+      "tab": "evidence",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1920,
+      "tab": "search",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1920,
+      "tab": "interview",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1920,
+      "tab": "timeline",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1920,
+      "tab": "inspection12",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1920,
+      "tab": "notebook",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1920,
+      "tab": "labs",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1920,
+      "tab": "deduction",
+      "ok": true
+    },
+    {
+      "version": "before",
+      "width": 1920,
+      "tab": "final",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "overview",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "evidence",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "search",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "interview",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "timeline",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "inspection12",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "notebook",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "labs",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "deduction",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 390,
+      "tab": "final",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "overview",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "evidence",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "search",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "interview",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "timeline",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "inspection12",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "notebook",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "labs",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "deduction",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1366,
+      "tab": "final",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "overview",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "evidence",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "search",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "interview",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "timeline",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "inspection12",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "notebook",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "labs",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "deduction",
+      "ok": true
+    },
+    {
+      "version": "after",
+      "width": 1920,
+      "tab": "final",
+      "ok": true
+    }
+  ],
+  "stateParity": [
+    {
+      "width": 390,
+      "tab": "overview",
+      "identical": true,
+      "elementsCompared": 317,
+      "diffs": []
+    },
+    {
+      "width": 390,
+      "tab": "evidence",
+      "identical": true,
+      "elementsCompared": 372,
+      "diffs": []
+    },
+    {
+      "width": 390,
+      "tab": "search",
+      "identical": true,
+      "elementsCompared": 99,
+      "diffs": []
+    },
+    {
+      "width": 390,
+      "tab": "interview",
+      "identical": true,
+      "elementsCompared": 700,
+      "diffs": []
+    },
+    {
+      "width": 390,
+      "tab": "timeline",
+      "identical": true,
+      "elementsCompared": 301,
+      "diffs": []
+    },
+    {
+      "width": 390,
+      "tab": "inspection12",
+      "identical": true,
+      "elementsCompared": 492,
+      "diffs": []
+    },
+    {
+      "width": 390,
+      "tab": "notebook",
+      "identical": true,
+      "elementsCompared": 292,
+      "diffs": []
+    },
+    {
+      "width": 390,
+      "tab": "labs",
+      "identical": true,
+      "elementsCompared": 700,
+      "diffs": []
+    },
+    {
+      "width": 390,
+      "tab": "deduction",
+      "identical": true,
+      "elementsCompared": 700,
+      "diffs": []
+    },
+    {
+      "width": 390,
+      "tab": "final",
+      "identical": true,
+      "elementsCompared": 700,
+      "diffs": []
+    },
+    {
+      "width": 1366,
+      "tab": "overview",
+      "identical": true,
+      "elementsCompared": 323,
+      "diffs": []
+    },
+    {
+      "width": 1366,
+      "tab": "evidence",
+      "identical": true,
+      "elementsCompared": 378,
+      "diffs": []
+    },
+    {
+      "width": 1366,
+      "tab": "search",
+      "identical": true,
+      "elementsCompared": 105,
+      "diffs": []
+    },
+    {
+      "width": 1366,
+      "tab": "interview",
+      "identical": true,
+      "elementsCompared": 700,
+      "diffs": []
+    },
+    {
+      "width": 1366,
+      "tab": "timeline",
+      "identical": true,
+      "elementsCompared": 307,
+      "diffs": []
+    },
+    {
+      "width": 1366,
+      "tab": "inspection12",
+      "identical": true,
+      "elementsCompared": 498,
+      "diffs": []
+    },
+    {
+      "width": 1366,
+      "tab": "notebook",
+      "identical": true,
+      "elementsCompared": 298,
+      "diffs": []
+    },
+    {
+      "width": 1366,
+      "tab": "labs",
+      "identical": true,
+      "elementsCompared": 700,
+      "diffs": []
+    },
+    {
+      "width": 1366,
+      "tab": "deduction",
+      "identical": true,
+      "elementsCompared": 700,
+      "diffs": []
+    },
+    {
+      "width": 1366,
+      "tab": "final",
+      "identical": true,
+      "elementsCompared": 700,
+      "diffs": []
+    },
+    {
+      "width": 1920,
+      "tab": "overview",
+      "identical": true,
+      "elementsCompared": 323,
+      "diffs": []
+    },
+    {
+      "width": 1920,
+      "tab": "evidence",
+      "identical": true,
+      "elementsCompared": 378,
+      "diffs": []
+    },
+    {
+      "width": 1920,
+      "tab": "search",
+      "identical": true,
+      "elementsCompared": 105,
+      "diffs": []
+    },
+    {
+      "width": 1920,
+      "tab": "interview",
+      "identical": true,
+      "elementsCompared": 700,
+      "diffs": []
+    },
+    {
+      "width": 1920,
+      "tab": "timeline",
+      "identical": true,
+      "elementsCompared": 307,
+      "diffs": []
+    },
+    {
+      "width": 1920,
+      "tab": "inspection12",
+      "identical": true,
+      "elementsCompared": 498,
+      "diffs": []
+    },
+    {
+      "width": 1920,
+      "tab": "notebook",
+      "identical": true,
+      "elementsCompared": 298,
+      "diffs": []
+    },
+    {
+      "width": 1920,
+      "tab": "labs",
+      "identical": true,
+      "elementsCompared": 700,
+      "diffs": []
+    },
+    {
+      "width": 1920,
+      "tab": "deduction",
+      "identical": true,
+      "elementsCompared": 700,
+      "diffs": []
+    },
+    {
+      "width": 1920,
+      "tab": "final",
+      "identical": true,
+      "elementsCompared": 700,
+      "diffs": []
+    }
+  ],
+  "screenshots": [
+    {
+      "width": 390,
+      "tab": "overview",
+      "identical": true,
+      "differentPixels": 0,
+      "meanAbsChannelDiff": 0.0
+    },
+    {
+      "width": 390,
+      "tab": "interview",
+      "identical": true,
+      "differentPixels": 0,
+      "meanAbsChannelDiff": 0.0
+    },
+    {
+      "width": 390,
+      "tab": "labs",
+      "identical": true,
+      "differentPixels": 0,
+      "meanAbsChannelDiff": 0.0
+    },
+    {
+      "width": 1366,
+      "tab": "overview",
+      "identical": true,
+      "differentPixels": 0,
+      "meanAbsChannelDiff": 0.0
+    },
+    {
+      "width": 1366,
+      "tab": "interview",
+      "identical": true,
+      "differentPixels": 0,
+      "meanAbsChannelDiff": 0.0
+    },
+    {
+      "width": 1366,
+      "tab": "labs",
+      "identical": true,
+      "differentPixels": 0,
+      "meanAbsChannelDiff": 0.0
+    },
+    {
+      "width": 1920,
+      "tab": "overview",
+      "identical": false,
+      "differentPixels": 154,
+      "meanAbsChannelDiff": 0.000693
+    },
+    {
+      "width": 1920,
+      "tab": "interview",
+      "identical": false,
+      "differentPixels": 154,
+      "meanAbsChannelDiff": 0.000693
+    },
+    {
+      "width": 1920,
+      "tab": "labs",
+      "identical": false,
+      "differentPixels": 154,
+      "meanAbsChannelDiff": 0.000693
+    }
+  ],
+  "stylesheet": {
+    "before:390": [
+      "ps-css-8d1a13d7072578e4.css"
+    ],
+    "before:1366": [
+      "ps-css-8d1a13d7072578e4.css"
+    ],
+    "before:1920": [
+      "ps-css-8d1a13d7072578e4.css"
+    ],
+    "after:390": [
+      "ps-css-8d1a13d7072578e4.css"
+    ],
+    "after:1366": [
+      "ps-css-8d1a13d7072578e4.css"
+    ],
+    "after:1920": [
+      "ps-css-8d1a13d7072578e4.css"
+    ]
+  },
+  "errors": []
+}

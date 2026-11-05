@@ -1,0 +1,31 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {gzipSync} from 'node:zlib';
+import {buildPage} from './build.mjs';
+const root=path.resolve(import.meta.dirname,'..');
+const {html,inlineTestHtml,externalFiles}=buildPage();
+const size=(s)=>Buffer.byteLength(s);
+const digest=(s)=>createHash('sha256').update(s).digest('hex');
+const bad=[];
+if (externalFiles.length!==3) bad.push(`Expected 3 bundles, found ${externalFiles.length}`);
+const kinds=externalFiles.map(a=>a.kind);
+if (kinds.filter(x=>x==='script').length!==2 || kinds.filter(x=>x==='style').length!==1) bad.push('Missing cached JS or CSS');
+for(const a of externalFiles){
+  if(!a.filename.includes(digest(a.content).slice(0,16))) bad.push(`Wrong content digest ${a.filename}`);
+  if(!html.includes(a.filename)) bad.push(`Missing HTML link ${a.filename}`);
+  if(fs.readFileSync(path.join(root,a.filename),'utf8')!==a.content) bad.push(`Wrong bytes ${a.filename}`);
+}
+if(!html.includes('<link rel="preload" as="script"')) bad.push('Missing core JS preload');
+if(!fs.readFileSync(path.join(root,'vercel.json'),'utf8').includes('max-age=31536000, immutable')) bad.push('Missing immutable cache policy');
+if(size(html)>=size(inlineTestHtml)) bad.push('Production HTML is not smaller than legacy');
+if(!inlineTestHtml.includes('id="ps-consolidated-styles"') || !inlineTestHtml.includes('function showTab')) bad.push('Bad self-contained test fixture');
+const css=externalFiles.find(x=>x.kind==='style').content;
+const imageUrls=[...css.matchAll(/url\(\s*['"]?assets\/([^)'" ]+)/g)].map(x=>x[1]);
+for(const im of new Set(imageUrls)) if(!fs.existsSync(path.join(root,'assets',im))) bad.push(`Missing referenced CSS asset: ${im}`);
+const gzip=(s)=>gzipSync(s,{level:9}).length;
+const metrics={version:'RC57.10.60',baseline:{html:size(inlineTestHtml),gzipHtml:gzip(inlineTestHtml)},production:{html:size(html),gzipHtml:gzip(html),externalBundles:externalFiles.map(a=>({file:a.filename,kind:a.kind,bytes:size(a.content),gzipBytes:gzip(a.content)})),firstVisitBytes:size(html)+externalFiles.reduce((acc,a)=>acc+size(a.content),0),firstVisitGzipBytes:gzip(html)+externalFiles.reduce((acc,a)=>acc+gzip(a.content),0)},gains:{htmlReductionPercent:Math.round(10000*(1-size(html)/size(inlineTestHtml)))/100},css:{size:size(css),important:(css.match(/!important/g)||[]).length,sourceAssetUrls:new Set(imageUrls).size},validation:{cacheAndBuildFailures:bad}};
+fs.mkdirSync(path.join(root,'QA-RC571060'),{recursive:true});
+fs.writeFileSync(path.join(root,'QA-RC571060/bundle-metrics.json'),JSON.stringify(metrics,null,2)+'\n');
+console.log(JSON.stringify(metrics,null,2));
+if(bad.length) process.exit(1);

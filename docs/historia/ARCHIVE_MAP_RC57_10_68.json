@@ -1,0 +1,1156 @@
+{
+  "release": "RC57.10.68",
+  "base": "RC57.10.67",
+  "note": "History files preserved byte-identically. copyOnly are snapshots of replaced guides.",
+  "items": [
+    {
+      "before": "BAZA-PYTAN-RC16.md",
+      "after": "docs/historia/materialy/BAZA-PYTAN-RC16.md",
+      "sha256": "316c9335cd7ebb1e523d1cedf520d6eaa21f19c687ad3b9a8f39736c092a3b6d",
+      "bytes": 9379
+    },
+    {
+      "before": "BAZA-PYTAN-RC17.md",
+      "after": "docs/historia/materialy/BAZA-PYTAN-RC17.md",
+      "sha256": "97f4963b5c1e6164927e2e38d7162d50d612b87136dfb0218d9dc94eae0e82c1",
+      "bytes": 103819
+    },
+    {
+      "before": "DIAGNOSTYKA-AI-RC13.md",
+      "after": "docs/historia/materialy/DIAGNOSTYKA-AI-RC13.md",
+      "sha256": "5ddf4bcf8b8144997f57d1de05c9f458cde321d2f75ec1d84147f8d4e5a5825a",
+      "bytes": 2540
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_35.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_35.md",
+      "sha256": "f4e714f28244cd57d651eb41a87d114d3d2fdbbea7676db07edb739ecc26487e",
+      "bytes": 1148
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_38.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_38.md",
+      "sha256": "044bdcf6ddb3b94cf955382b9f8c4c4c47189f270555416c3f3617222a08902b",
+      "bytes": 823
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_41.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_41.md",
+      "sha256": "601c32b0dfb5b501188682fc44886a8a113ae4a0b35f026ebc5a928c7bf0b0f6",
+      "bytes": 713
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_42.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_42.md",
+      "sha256": "95e606f8204db7f1a769f7d3d719085ce216984bd891c0bf3bcd8786f8a53516",
+      "bytes": 1006
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_43.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_43.md",
+      "sha256": "5b3b4df37381369c15a9dbf9bd24e700f22d262f09ccc744c18b7db92d21f439",
+      "bytes": 726
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_44.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_44.md",
+      "sha256": "ec6a0c735b93c8fb6a988a4d1a324a27c1a9f4e828ebd2c578b0ef7c502ed092",
+      "bytes": 953
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_45.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_45.md",
+      "sha256": "6a9b4042cba9afc91d909806c1cc099f7f4d42c137cca68561b2287364ec3263",
+      "bytes": 938
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_46.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_46.md",
+      "sha256": "264178816a5a5d0e2641e1a0909c7fd88d65c6275a11ad26815fa2c71b661fb8",
+      "bytes": 1285
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_47.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_47.md",
+      "sha256": "f9ff3fbc2131d1872e624a08cbb9827e6e4ecbf167a3c5b383cf910250364faf",
+      "bytes": 2945
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_48.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_48.md",
+      "sha256": "e02d78b6391c644519521799cd8a1e1575222e5c74e377122c37ffc8b3d12467",
+      "bytes": 1228
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_49.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_49.md",
+      "sha256": "0badfeacd597c3f44ce42240433c7151469cf1e84ea405f5a8f83b54d13f6aa3",
+      "bytes": 1423
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_50.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_50.md",
+      "sha256": "c4d8d298a914704d679cbb237c91e23ff6f10382c4a8c188c2e3997c430b6568",
+      "bytes": 1222
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_51.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_51.md",
+      "sha256": "d1acdec626cc4678b49efe519861db865b348d1da5f5e6251210aa48bf39bc0f",
+      "bytes": 1598
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_52.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_52.md",
+      "sha256": "9b82ece0bc0d9f7f3d91ed5781537c11d395702914ef711057dd876757178bd3",
+      "bytes": 2436
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_53.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_53.md",
+      "sha256": "99110cedc6790da4c8ad36eddfb23481bd9773de8ae0556ea7805af6e1cd8277",
+      "bytes": 1436
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_54.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_54.md",
+      "sha256": "7cdc77cb86d1dae260fe2a0062d1f7ee064c4d9c1bf078fdd7b2e120ab0e75bf",
+      "bytes": 1742
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_55.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_55.md",
+      "sha256": "f91321d81b2371e2dfa72fcbae283646504ed61ca628e7bd8afbd38ca73135a1",
+      "bytes": 2048
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_56.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_56.md",
+      "sha256": "c48b7d790c2985ee339436c6e16b7be700a8af7b6a8f3f972fa4c19d0bb30883",
+      "bytes": 2864
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_57.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_57.md",
+      "sha256": "55d9489259f40ae77a9205327781794d270f0466579336bb4a093c1fcc9f179a",
+      "bytes": 1734
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_58.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_58.md",
+      "sha256": "be30a28908d787b6eeb9a523b0f4b46a966f759f42c7df7c1e8fb3c3dedd2460",
+      "bytes": 947
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_60.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_60.md",
+      "sha256": "d8c47fa7f44737a7f34ba660a11fc924b48808777373df7acf1bc9f499eb6db9",
+      "bytes": 1353
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_61.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_61.md",
+      "sha256": "4bd7424f8d0dcc095005e0193d72b028e3e93668be32781a57d433eca89184e0",
+      "bytes": 1237
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_62.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_62.md",
+      "sha256": "7474ed2e5c7e0b47ddf916f53fd11c7aaec841df1001c1c398ebebdbc44b09d3",
+      "bytes": 1791
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_63.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_63.md",
+      "sha256": "c318a8adbda82a6096fe5396bfd4d0ff9baa0383d7f25a2f4e7291a3b0147c17",
+      "bytes": 1470
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_64.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_64.md",
+      "sha256": "3661cfe0e642d9f154af051cdad4844b6733c05495af8fa112dfb11a11339ae4",
+      "bytes": 1569
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_65.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_65.md",
+      "sha256": "1db3858a38a82837e5a6fcb4468becbc64a2fcfe936cafefda4ce887d929c258",
+      "bytes": 1779
+    },
+    {
+      "before": "INSTRUKCJA-RC57_10_66.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC57_10_66.md",
+      "sha256": "4b9e7cca7fdc351d2d8bfbff2995876373295787819b5ddaf4e244d271c042b8",
+      "bytes": 1653
+    },
+    {
+      "before": "INSTRUKCJA-RC58.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-RC58.md",
+      "sha256": "b3fecaef95905c96060e13c5533bf32342b08707079f9ea84a6ff65ab7ae9c27",
+      "bytes": 2082
+    },
+    {
+      "before": "MAPA-PRZESLUCHAN-RC57_10_45.md",
+      "after": "docs/historia/materialy/MAPA-PRZESLUCHAN-RC57_10_45.md",
+      "sha256": "216fd71365f8e1bb72c50f7077ba2d926c6627f5225e981183409e4da05d969b",
+      "bytes": 5747
+    },
+    {
+      "before": "MAPA-WYSZUKIWANIA-RC57_10_48.md",
+      "after": "docs/historia/materialy/MAPA-WYSZUKIWANIA-RC57_10_48.md",
+      "sha256": "66d5797a251dee0f3265f75e29e31704fb100528144ca3fc7137fccdb33e1d1c",
+      "bytes": 3661
+    },
+    {
+      "before": "NAPRAWA-AI-RC11.md",
+      "after": "docs/historia/materialy/NAPRAWA-AI-RC11.md",
+      "sha256": "b2a2f6ffa0e89fbe697e0c6de5bbca874f65bf80e401fdc0bef4c86647ac7c7d",
+      "bytes": 3569
+    },
+    {
+      "before": "PAKIET-6.13-TRAFNOSC-PARAFRAZY.md",
+      "after": "docs/historia/pakiety/PAKIET-6.13-TRAFNOSC-PARAFRAZY.md",
+      "sha256": "3268cf59fe6beafb35645cfc7d7e69fb36545cb180a160c93e2788453f9d46d3",
+      "bytes": 2286
+    },
+    {
+      "before": "PAKIET-6.14-ROZNORODNOSC-ODPOWIEDZI.md",
+      "after": "docs/historia/pakiety/PAKIET-6.14-ROZNORODNOSC-ODPOWIEDZI.md",
+      "sha256": "5789c8fab7837c6357e6d20060357abd334c5c95e7cbe68e292dd9a8bf15a264",
+      "bytes": 3269
+    },
+    {
+      "before": "PAKIET-6.15-ZAI-JAKO-GLOWNY-ROZMOWCA.md",
+      "after": "docs/historia/pakiety/PAKIET-6.15-ZAI-JAKO-GLOWNY-ROZMOWCA.md",
+      "sha256": "60aba10403ad19c06b310b66ff33fb63eaab9acc98b3c588f7b0f59a9e55d09d",
+      "bytes": 3294
+    },
+    {
+      "before": "PAKIET-6.16-JAKOSC-ANALIZ-CLOUDFLARE.md",
+      "after": "docs/historia/pakiety/PAKIET-6.16-JAKOSC-ANALIZ-CLOUDFLARE.md",
+      "sha256": "b476561786741e54e4f2ef49bc0db9abf9ca05adce2a2da0e73c42bd49ea13a2",
+      "bytes": 3007
+    },
+    {
+      "before": "PAKIET-6.17-TRZY-SILNIKI-I-SUPABASE.md",
+      "after": "docs/historia/pakiety/PAKIET-6.17-TRZY-SILNIKI-I-SUPABASE.md",
+      "sha256": "0d4ad71481d217b6f5e3f4d0967aa21512a5ba32374df3daf6dce35eb123a56b",
+      "bytes": 5133
+    },
+    {
+      "before": "PAKIET-6.18-SERWEROWY-FINAL.md",
+      "after": "docs/historia/pakiety/PAKIET-6.18-SERWEROWY-FINAL.md",
+      "sha256": "cb797b7141f72d15b0c5070c6fda44b32746b5d090cf8b919eca91da4fdb2108",
+      "bytes": 2930
+    },
+    {
+      "before": "PAKIET-6.19-FABULA-2.0-I-FINAL-3.0.md",
+      "after": "docs/historia/pakiety/PAKIET-6.19-FABULA-2.0-I-FINAL-3.0.md",
+      "sha256": "a8fbd2fec9f821968b8aef5069a1166062b407cb132803663a31efde94c4dee6",
+      "bytes": 3646
+    },
+    {
+      "before": "PAKIET-6.20-ZYWE-REAKCJE-I-CIAGLOSC-POSTACI.md",
+      "after": "docs/historia/pakiety/PAKIET-6.20-ZYWE-REAKCJE-I-CIAGLOSC-POSTACI.md",
+      "sha256": "3e814448cb1d489dbd031d5fa5a5b31f459d74a8db94a8f327bee88010849819",
+      "bytes": 3458
+    },
+    {
+      "before": "PAKIET-6.21-DLUGIE-ROZMOWY-I-FILMOWE-PRZELOMY.md",
+      "after": "docs/historia/pakiety/PAKIET-6.21-DLUGIE-ROZMOWY-I-FILMOWE-PRZELOMY.md",
+      "sha256": "97b0ce46a4f76eb079d0915059eabe05a3a48aa76a4cea6fccc2a889f18a74b4",
+      "bytes": 2937
+    },
+    {
+      "before": "PAKIET-6.22-MIMIKA-SWIADKOW.md",
+      "after": "docs/historia/pakiety/PAKIET-6.22-MIMIKA-SWIADKOW.md",
+      "sha256": "958927d2b5c48667062bd686279e1bcc5d0cc3c125de202a8be81987167cc6ce",
+      "bytes": 3216
+    },
+    {
+      "before": "PAKIET-6.23-NATURALNE-PRZESLUCHANIA.md",
+      "after": "docs/historia/pakiety/PAKIET-6.23-NATURALNE-PRZESLUCHANIA.md",
+      "sha256": "da956b40c792d32f7b062049a10536c8c6891f248a57b0a2daa34db0b303a07c",
+      "bytes": 3528
+    },
+    {
+      "before": "PAKIET-6.24-POPRAWKI-PO-AUDYCIE.md",
+      "after": "docs/historia/pakiety/PAKIET-6.24-POPRAWKI-PO-AUDYCIE.md",
+      "sha256": "53f37e841631d37f6064a0062f3f5ad44d0446c73707b0f538b98203cffc10af",
+      "bytes": 4431
+    },
+    {
+      "before": "PAKIET-6.25-TRAFNOSC-I-ROZNORODNOSC-ROZMOW.md",
+      "after": "docs/historia/pakiety/PAKIET-6.25-TRAFNOSC-I-ROZNORODNOSC-ROZMOW.md",
+      "sha256": "72f8b2145c8642f416478f9b7e6cfcbe46e31710c335584f5596f77ac7865ecc",
+      "bytes": 4208
+    },
+    {
+      "before": "RAPORT-ETAPOWY-RC36-RC40.md",
+      "after": "docs/historia/raporty/RAPORT-ETAPOWY-RC36-RC40.md",
+      "sha256": "3025f1dd0f698c64f4ba0a477e2747ba4dc4d5eb1e5808d25a02dbe8d14b4483",
+      "bytes": 3657
+    },
+    {
+      "before": "RAPORT-QA-6.13.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.13.md",
+      "sha256": "df666c3c0245abf3c8d65bbd51151492120742e2f295e2192ae4f68f5e8bcc42",
+      "bytes": 2745
+    },
+    {
+      "before": "RAPORT-QA-6.14.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.14.md",
+      "sha256": "1a83eb02ad0dbed9f059b1b8aa51375f98ba797cd7405a748ec6501eb33a0629",
+      "bytes": 1649
+    },
+    {
+      "before": "RAPORT-QA-6.15.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.15.md",
+      "sha256": "dcb5a3730ad07a868c84593bd77b9519b7b57b3f371260b5f8435cfabedc1a90",
+      "bytes": 1758
+    },
+    {
+      "before": "RAPORT-QA-6.16.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.16.md",
+      "sha256": "474b83e46d7ca6d32feae523e51c74e86c5b26909ef3d5cdaecc8d511b6b3135",
+      "bytes": 2420
+    },
+    {
+      "before": "RAPORT-QA-6.17.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.17.md",
+      "sha256": "8baa21aadf3a83edb36615129b36c75a529ab461463f67fc1652f703cc7cc74c",
+      "bytes": 2032
+    },
+    {
+      "before": "RAPORT-QA-6.18.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.18.md",
+      "sha256": "f4ce8ca59664bf8b348113e9915a615463ffb89dee21f4f48879f6599f64a215",
+      "bytes": 1090
+    },
+    {
+      "before": "RAPORT-QA-6.19.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.19.md",
+      "sha256": "6a0c9bb8c8b8e8872683f9926762efef1bf010fdc8e2c80d072913c61ca93763",
+      "bytes": 4237
+    },
+    {
+      "before": "RAPORT-QA-6.20.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.20.md",
+      "sha256": "562ab8add1fc7c43554b21e9d4247509b08d880108424f245f174bb7f2dda0d2",
+      "bytes": 2716
+    },
+    {
+      "before": "RAPORT-QA-6.21.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.21.md",
+      "sha256": "8e89fa1e5ec83496ef84de5e2277633c6a40474d4b2ab9f5a28c4d83406083ec",
+      "bytes": 3000
+    },
+    {
+      "before": "RAPORT-QA-6.22.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.22.md",
+      "sha256": "a2f724da2cd71a9801d29ee1ed703e6b83dc9a186ad5d78974acbb27ebc7cd45",
+      "bytes": 2265
+    },
+    {
+      "before": "RAPORT-QA-6.23.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.23.md",
+      "sha256": "a0466898bebc067974f4dd31a2440ae122f0033d84ad681de4f32fb37b00e133",
+      "bytes": 2897
+    },
+    {
+      "before": "RAPORT-QA-6.24.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.24.md",
+      "sha256": "d94885644eb6e399dcb576b1152ae804d2766e01e1266a30b6f28fe3c3a387a9",
+      "bytes": 3709
+    },
+    {
+      "before": "RAPORT-QA-6.25.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.25.md",
+      "sha256": "9a8c7351c4a5076065400a6719db0e9e70c7bc4426f07e92740b15e239b0a91e",
+      "bytes": 3567
+    },
+    {
+      "before": "RAPORT-QA-6.26.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.26.md",
+      "sha256": "40cc096c6221d280c0bdb242017377bbf00bafc5626ae382d11a65fac0f7cbcf",
+      "bytes": 1792
+    },
+    {
+      "before": "RAPORT-QA-6.27.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.27.md",
+      "sha256": "1702f82268e7182806dfb0a4502ca8bef44022d777533666d8e7dcd9643fd204",
+      "bytes": 2371
+    },
+    {
+      "before": "RAPORT-QA-6.28.1.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.28.1.md",
+      "sha256": "ee89e5cb51b5c74585769475ebaf31fc613a6a4008de6cd8e2e0c74195f860da",
+      "bytes": 1945
+    },
+    {
+      "before": "RAPORT-QA-6.28.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.28.md",
+      "sha256": "3155045cf764855a14a30b88dd478674b955d010281d71306987bf0634a97bb1",
+      "bytes": 3144
+    },
+    {
+      "before": "RAPORT-QA-6.29.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.29.md",
+      "sha256": "1ea2908d060745418d6182f66d6fa183c849ed690f327e0121d375ab700ad729",
+      "bytes": 1427
+    },
+    {
+      "before": "RAPORT-QA-6.30.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.30.md",
+      "sha256": "c86ecfd86a4d716bc6fc62e43ad57e1822d76acb4882c0f875993c657a0d9584",
+      "bytes": 1768
+    },
+    {
+      "before": "RAPORT-QA-6.31.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.31.md",
+      "sha256": "b781b591016dccdca95cfb8ec80a3f611ef1d7a2cb1fadd923fa6489dc4b7d16",
+      "bytes": 1662
+    },
+    {
+      "before": "RAPORT-QA-6.32.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.32.md",
+      "sha256": "78d794f0a3b182342fe5f30de1336f16d110103e982a02ae0e23de1b1e9db7a7",
+      "bytes": 1382
+    },
+    {
+      "before": "RAPORT-QA-6.33.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.33.md",
+      "sha256": "154cdf378cbd0d6c5a6ee265144b998443335c783a87a448eaccf0e373fd8bcf",
+      "bytes": 2386
+    },
+    {
+      "before": "RAPORT-QA-6.34.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.34.md",
+      "sha256": "12eafdd065789057cacf850f71ee05a397359fd912c90ce3c49714b466b5c050",
+      "bytes": 3208
+    },
+    {
+      "before": "RAPORT-QA-6.35.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.35.md",
+      "sha256": "c22f91f2fc4f2c5462a0a20ab72dfae080a59bb3a57272e327368eba96beb0a0",
+      "bytes": 2553
+    },
+    {
+      "before": "RAPORT-QA-6.36-AI-FIRST-RC.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.36-AI-FIRST-RC.md",
+      "sha256": "27417fbda12f6c85b9e36d6f35390823f722afabb2e36fed9a98c2adb993d7d2",
+      "bytes": 4077
+    },
+    {
+      "before": "RAPORT-QA-6.36-AI-FIRST-RC2.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.36-AI-FIRST-RC2.md",
+      "sha256": "f0577e9919ae85f3af02184f4958662ba41a88235517e4dc1260b7665b030218",
+      "bytes": 1748
+    },
+    {
+      "before": "RAPORT-QA-6.36-AI-FOLLOWUP-RC4.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.36-AI-FOLLOWUP-RC4.md",
+      "sha256": "7515c669da84a8a0175cd4656aa5534fedc2d8f9e3f7397da884616eb00de7b6",
+      "bytes": 1809
+    },
+    {
+      "before": "RAPORT-QA-6.36-AI-REQUIRED.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.36-AI-REQUIRED.md",
+      "sha256": "1b782638f43dcf5db68e11134006716fb2ef13a67ba7ac4a1313d60476bb136e",
+      "bytes": 2343
+    },
+    {
+      "before": "RAPORT-QA-6.36-AI-RESILIENCE-RC6.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.36-AI-RESILIENCE-RC6.md",
+      "sha256": "a24b588b87ded37e7aead6695d6ff67960f11eb4aedd1b20313c0b5285c9201f",
+      "bytes": 1778
+    },
+    {
+      "before": "RAPORT-QA-6.36-AI-UNDERSTANDING-RC3.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.36-AI-UNDERSTANDING-RC3.md",
+      "sha256": "05b9b40612242d7c13610da943ff4bd9f6a0b94d29e7db1d0507138604487e58",
+      "bytes": 4469
+    },
+    {
+      "before": "RAPORT-QA-6.36-ETAP-I.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.36-ETAP-I.md",
+      "sha256": "60163becd6d645daeaecd2666ab55a2ec1fcc6e67224b8e1154bc2cf4be64366",
+      "bytes": 2381
+    },
+    {
+      "before": "RAPORT-QA-6.36-ETAP-III.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.36-ETAP-III.md",
+      "sha256": "b4f20dc5d77f6ed08c702d28db4eef1407a470431d11b1ae8b578d183f1a4b4a",
+      "bytes": 3252
+    },
+    {
+      "before": "RAPORT-QA-6.36-ETAP-IV.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.36-ETAP-IV.md",
+      "sha256": "20de3909324a59d529346ac9c2d572e3a96ee57d180ba918630a9a774b7dfd58",
+      "bytes": 3172
+    },
+    {
+      "before": "RAPORT-QA-6.36-PRZED-GITHUBEM.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.36-PRZED-GITHUBEM.md",
+      "sha256": "4d6039474ccf657bd7265e2eff115c74ad48783fa84a105c674d100735e09fa1",
+      "bytes": 5117
+    },
+    {
+      "before": "RAPORT-QA-6.36-WITNESS-KNOWLEDGE-RC5.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.36-WITNESS-KNOWLEDGE-RC5.md",
+      "sha256": "bb351830870eba9e2cb24b659b99d03ceb4b534ec6851bf922cd0b8472e7ffbb",
+      "bytes": 3488
+    },
+    {
+      "before": "RAPORT-QA-6.37-FREE-GROQ-RC10.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.37-FREE-GROQ-RC10.md",
+      "sha256": "ec348a36ce0a35eff73c736baf1469d81fc0e1a014ab43697476d772c4e1923a",
+      "bytes": 2443
+    },
+    {
+      "before": "RAPORT-QA-6.37-GEMINI38-RC8.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.37-GEMINI38-RC8.md",
+      "sha256": "a88b9700ad300e71f93748a855dfec13cef7845534d3ad4cd161119b440c55bf",
+      "bytes": 2131
+    },
+    {
+      "before": "RAPORT-QA-6.37-RC9.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.37-RC9.md",
+      "sha256": "a3f75fd97fe22f51cbf4ec5f07112dcbc639923e6eb6f814e308dca0196d1aa2",
+      "bytes": 637
+    },
+    {
+      "before": "RAPORT-QA-6.38-RC29.md",
+      "after": "docs/historia/raporty/RAPORT-QA-6.38-RC29.md",
+      "sha256": "c5bfc1fe1b6b4fb98085c3711aa6c857eaa7b7dca0471cf962eb8a07d8939d13",
+      "bytes": 1445
+    },
+    {
+      "before": "RAPORT-QA-RC30.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC30.md",
+      "sha256": "b3d014059d2a6df58b7cfc04dd17a6b7dc7ffd361003dbcd624bb0686027b2ee",
+      "bytes": 1867
+    },
+    {
+      "before": "RAPORT-QA-RC32.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC32.md",
+      "sha256": "906e5592ac28cf045bdb443a0f99de4ef7969b75e3c2715e3eaefdecf4da6fbc",
+      "bytes": 1322
+    },
+    {
+      "before": "RAPORT-QA-RC33.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC33.md",
+      "sha256": "04b73352d4983a01af114e799178bbcdb94002301e39f54a09ad0c81f77b780e",
+      "bytes": 904
+    },
+    {
+      "before": "RAPORT-QA-RC34.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC34.md",
+      "sha256": "8df746a54e6c22ecb3a099a5da73931dc0efcf9701560b23a130dbfbfa089519",
+      "bytes": 881
+    },
+    {
+      "before": "RAPORT-QA-RC34_1.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC34_1.md",
+      "sha256": "bfc241e08579450d6ea143728a35d1ea9e363d2932ffa4ea537affc7ff56f863",
+      "bytes": 775
+    },
+    {
+      "before": "RAPORT-QA-RC35.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC35.md",
+      "sha256": "2e40e2bce03a9a140a03175f4eb73fc8cb878e73fd12ffbae4c00379cea95eff",
+      "bytes": 1971
+    },
+    {
+      "before": "RAPORT-QA-RC35_1.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC35_1.md",
+      "sha256": "d747bcf19649452c37898e00cdadeaefd9765d8233b152dcd18041933080821e",
+      "bytes": 1269
+    },
+    {
+      "before": "RAPORT-QA-RC35_2.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC35_2.md",
+      "sha256": "2ba6e2b114d22cdb7446d7d0d392b86b3336c3d10755708f05d624331fceb669",
+      "bytes": 1032
+    },
+    {
+      "before": "RAPORT-QA-RC35_3.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC35_3.md",
+      "sha256": "9bce3bf7dda04402a66a1b7e879915685428f89ea4e8288f09abe5cb07197525",
+      "bytes": 1165
+    },
+    {
+      "before": "RAPORT-QA-RC35_4.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC35_4.md",
+      "sha256": "8f813b9b2a9e5ae8e09fb99a16dc96a9a60206d480f276b5ee17fca2989b4b72",
+      "bytes": 1224
+    },
+    {
+      "before": "RAPORT-QA-RC35_5.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC35_5.md",
+      "sha256": "c9552b9bf00aabaeca0030a04a0de2f8eeff46a4468e78187da9bdeb80cb63c8",
+      "bytes": 981
+    },
+    {
+      "before": "RAPORT-QA-RC35_6.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC35_6.md",
+      "sha256": "15d7fd75d59eff82fe4ffcc489939289545b68376fb44871f6c31b327e2ead05",
+      "bytes": 1444
+    },
+    {
+      "before": "RAPORT-QA-RC41.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC41.md",
+      "sha256": "88f06442e0fa684fcbf00d1505a783b5be61b9ac965bb0f50a2559392f26d6d3",
+      "bytes": 1533
+    },
+    {
+      "before": "RAPORT-QA-RC50-RC54.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC50-RC54.md",
+      "sha256": "f9dc8d54084ee5d9d79195c18e2c6f01d1f210b5926e494c9493639250f8d619",
+      "bytes": 1457
+    },
+    {
+      "before": "RAPORT-QA-RC57.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57.md",
+      "sha256": "9d8771ebf03ef8ea079dbfd1f3b65be6f5cb726866e4d7f19021a13320fdc7c5",
+      "bytes": 2225
+    },
+    {
+      "before": "RAPORT-QA-RC57_10.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10.md",
+      "sha256": "d6e2dfc95a5198c44396efd6e771922acfcee1616784916710b4fed9e8f75954",
+      "bytes": 4564
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_1.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_1.md",
+      "sha256": "fce68bd3f4efd109d35ba309cf2bde65864462f856911707539a54cd2ecf5041",
+      "bytes": 3164
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_10.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_10.md",
+      "sha256": "7a5866e3117a2042cce8fa480985dba62385c7cf9192c4f1767098d04f7b31c4",
+      "bytes": 3724
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_11.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_11.md",
+      "sha256": "165d04cbca2fda1030deee5b224873506f80e517ab3fb7d37fd62d7417e4a084",
+      "bytes": 4677
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_12.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_12.md",
+      "sha256": "a4e84753053f0a82298fbd75c22ebe0f7483746a724e3b333515963925f1b3a0",
+      "bytes": 3390
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_13.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_13.md",
+      "sha256": "d175c6a6ec71a0cc764bb12f383796f4361f463c28146f46b901339adaf01e4f",
+      "bytes": 2567
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_14.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_14.md",
+      "sha256": "1422b7564bc08850e14e9632c84767d1bd70861ec7e3fc7c40912c5d6188985c",
+      "bytes": 3542
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_15.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_15.md",
+      "sha256": "764b371274d86d00d2ba1f93ff3e574831ad2590bd18c17282c8b1933a208665",
+      "bytes": 2001
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_16.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_16.md",
+      "sha256": "0b0391c8d89862759757504196a0cf108caf0667f6143078238d08f5c8e7702a",
+      "bytes": 2453
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_17.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_17.md",
+      "sha256": "864726de30f9d43c22c0237273f2f357c572d60a392ff39b501d07e15b4c97a9",
+      "bytes": 2253
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_18.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_18.md",
+      "sha256": "408c23362136cf437ed39bf20bab916b42bf6943c2982088044b2a260bb37b1d",
+      "bytes": 2489
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_2.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_2.md",
+      "sha256": "316cc4ff18427740a55ca5655c27217c95e363199d747e52159dbaa4343205b8",
+      "bytes": 3983
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_21.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_21.md",
+      "sha256": "84e4687752f76e14bc95aa2d632fbba2d6c097854dbc12a6e22a2ea0d8c6808e",
+      "bytes": 2509
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_22.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_22.md",
+      "sha256": "6d1218b939d67fe6ea517779549172ca1333e333e46841864da0795ddf72388b",
+      "bytes": 2983
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_23.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_23.md",
+      "sha256": "6401bb83cf6fb7a3f5293b781159f33bd5431e117f988d59a10f0e21abd816e2",
+      "bytes": 3218
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_24.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_24.md",
+      "sha256": "966bfeca2e06e9c07779b11fffeffac8adafff9e7142c952f381157e81e4a21b",
+      "bytes": 1421
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_25.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_25.md",
+      "sha256": "e5585e9557bde6e0b6989a6abbf0d5e976ad5ffd14df14f2be2688e210f302d7",
+      "bytes": 2055
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_26.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_26.md",
+      "sha256": "9dbd2fe6b7aa67339cf24bc6753c15fc5709eab0ad846bc53c386822531ec31a",
+      "bytes": 1932
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_27.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_27.md",
+      "sha256": "ffe554c4c29a0211a993df39a8da333c3b9929bb11dc41ee52c22f553ec1ca33",
+      "bytes": 1364
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_28.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_28.md",
+      "sha256": "d2c7f46053484866c5e9eaa78d635f6033e2cc437f922e02a1eb50b565a08a13",
+      "bytes": 2785
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_29.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_29.md",
+      "sha256": "0007587440cc7ffcd3d2570f6dd012a4ed2d62bdc019383510aa2a6160b93783",
+      "bytes": 2740
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_3.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_3.md",
+      "sha256": "0d77a00460f9d8886de0b9bfed0ddac9f6da3f5e552bd2cf9821f4098b2775e4",
+      "bytes": 2312
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_30.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_30.md",
+      "sha256": "06ec87c74afa3d1140bacb32cbe5fac1c4a8bb90e7f72f2f9750997f0d231107",
+      "bytes": 2189
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_31.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_31.md",
+      "sha256": "730228101691a9d4d0b5b26ac69cbac7330d8e3a9b70ac209c1d979e8b8f3829",
+      "bytes": 2490
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_32.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_32.md",
+      "sha256": "b8d043a375468dca5728c14796964ec0a23c75a4b2e0e78bdd8345dce221a286",
+      "bytes": 2719
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_33.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_33.md",
+      "sha256": "bbe330720b7039d1c0431710e5f96e007e2709e13124b8d8fe009c83d02aa112",
+      "bytes": 1744
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_35.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_35.md",
+      "sha256": "4f41042d12153ca8ae78800be95a2a20a74b2e5bad235e3531db6126e0567e83",
+      "bytes": 2952
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_36.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_36.md",
+      "sha256": "31945e1018c3d0f77f60c2afb4f43654649526077747556fc58d8e80976408e3",
+      "bytes": 2872
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_37.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_37.md",
+      "sha256": "25725f52c4f53e119582377ec30e4eda13d61078459cdb92a3190d75296aaf7d",
+      "bytes": 2219
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_38.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_38.md",
+      "sha256": "8b59b6f57356519427b707e27c513896fe82709c5a8aa158e30b73524eec83ac",
+      "bytes": 2943
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_4.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_4.md",
+      "sha256": "c01ac685c42dbee2027a0de86fc641654bf33a2de50598bb7fb656549c2046bf",
+      "bytes": 4820
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_41.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_41.md",
+      "sha256": "f77415ee76a127207f16149df9091934c5156633a1db8ab383c0f6c5672ee594",
+      "bytes": 2389
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_42.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_42.md",
+      "sha256": "194b1c22c2459eb51992ddcf2120dc6e175f5bc5a5e40e4d135decbdbf4b3eec",
+      "bytes": 3682
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_43.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_43.md",
+      "sha256": "9fcb6467d30f514dd8fbb3676e0d8e540ff5b82ac05e610a638868cf1f7707d2",
+      "bytes": 1946
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_44.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_44.md",
+      "sha256": "612f743aee36e7449c4f4d6c68523ec4854a8db98b8c37258373019e3ea26df9",
+      "bytes": 4417
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_45.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_45.md",
+      "sha256": "fccdbb798a02559564783886763f251def7869074e153d25ea444f8aa76b162b",
+      "bytes": 4218
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_46.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_46.md",
+      "sha256": "9e9bfb03c0f027612b2b269cd60ba1ad4762c9b435d7669388e1f66d97701285",
+      "bytes": 3574
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_47.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_47.md",
+      "sha256": "e9905969a1770e2bbb28c44d5eb40221160e4d61f39a0deccd3327763effc31d",
+      "bytes": 2432
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_48.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_48.md",
+      "sha256": "7aa8240c8f6f7a17f618abc1ec5d7581152147410be23008c3eeb665e43edbc4",
+      "bytes": 3861
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_49.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_49.md",
+      "sha256": "2342df92147907935a75fd29e7c650e816d0d62e5cc394cfcd350c89a6952c85",
+      "bytes": 3189
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_5-WYDAJNOSC.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_5-WYDAJNOSC.md",
+      "sha256": "051b437984abe91c15aedd5bef2258f25d2cf047c47670e39da066d1b6e78d48",
+      "bytes": 7162
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_50.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_50.md",
+      "sha256": "df7f1fc69c0854f8482f3057b4f0ad0dae02fe6ce79ca403b13948a6ddf5f304",
+      "bytes": 1560
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_51.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_51.md",
+      "sha256": "130c065d0558479e5a6d3656bfb39638cd6d57a285fef91e1dae8884fb2f72db",
+      "bytes": 2089
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_52.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_52.md",
+      "sha256": "3547c0067dabfa77c1d7d228394bf0445a1aae7a0f098dc300de82fc0a7e646f",
+      "bytes": 3013
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_53.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_53.md",
+      "sha256": "71037662c8934531384b98c8ce412fc93cc83d80e9f4662a4f83239ee5b026ea",
+      "bytes": 2042
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_54.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_54.md",
+      "sha256": "8770e8021b3e341c4a27d3d9a7073ba380a2855d869fd2200e8426dd4867afe5",
+      "bytes": 2609
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_55.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_55.md",
+      "sha256": "71fa75f127a01896cd9256be11b7f070b470657af4228d5b7a36b2331e99be5b",
+      "bytes": 1796
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_56.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_56.md",
+      "sha256": "cf945661445e8e4c8cdf988423546806d2db35ead5790d859e0c7287d6af5ac9",
+      "bytes": 2495
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_57.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_57.md",
+      "sha256": "a8490c7e55f855e36514ca34fd792b9498eacdf3d1f002022a576c3c8e40cbc6",
+      "bytes": 2175
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_58.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_58.md",
+      "sha256": "11298f4556da78af12e2cb89d744c981574e1a54d8beea51453d6c79b9955820",
+      "bytes": 1992
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_6-JEDEN-PROMPT.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_6-JEDEN-PROMPT.md",
+      "sha256": "461e093c93b84d519188563847a48a3b4a1d759100fa7899c91dd50f751e344b",
+      "bytes": 3508
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_60.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_60.md",
+      "sha256": "971522e2e59c66a87a7aa7ed7e95d7585651b0b6f4a404d5f69466582fb8f1c5",
+      "bytes": 7328
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_61.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_61.md",
+      "sha256": "7eb5dd9c5c91514c14fc8cd68c86985d0bedf5cebfb5764bf4eb0aa7e735f7eb",
+      "bytes": 3803
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_62.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_62.md",
+      "sha256": "be6f55bc01b58f16b5de8dd9a91c10ca0c1c4cc391a5ba82962f6d3375701150",
+      "bytes": 4364
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_63.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_63.md",
+      "sha256": "6423d3e10f7e05b8155a3f75c3d1bf9b59cdc62ca833aaa4b247e8dcb311f945",
+      "bytes": 4972
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_64.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_64.md",
+      "sha256": "d029c0918caf61cb4b03ee8e773954ce2b497d2ca04c3e96a4346301fd555f7c",
+      "bytes": 6619
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_65.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_65.md",
+      "sha256": "df4be2abcb09d72ad61ba9f03f8b3b86482f0d526c8dc11b952b7b201797416b",
+      "bytes": 6624
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_66.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_66.md",
+      "sha256": "85c8f560879431d5fa48d3b09e80d46b77c6b6a0061469d2dedd048f5ad63550",
+      "bytes": 6030
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_7.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_7.md",
+      "sha256": "d9ba4be1ea243772410830dc7584ee7626deecae2e06f385fe66340d784d8ffb",
+      "bytes": 3731
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_8.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_8.md",
+      "sha256": "a2ec019c2c4c77ccfa48508a359062f4bae66dbdc12ad510e1d445cb26a655d8",
+      "bytes": 3364
+    },
+    {
+      "before": "RAPORT-QA-RC57_10_9.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_10_9.md",
+      "sha256": "b9bca0e277406c98763ce8f1a5f33fdd918546e3ba953a7a81fa609b6cb10107",
+      "bytes": 2425
+    },
+    {
+      "before": "RAPORT-QA-RC57_2.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_2.md",
+      "sha256": "1bc3ef7201265b0ff86ec5faa4bcc5f9087c50601a33eff8870f6d052876dbb7",
+      "bytes": 1937
+    },
+    {
+      "before": "RAPORT-QA-RC57_3.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_3.md",
+      "sha256": "2ea954ffa3b0d63c5fc6b051463510ae6b938d910660ea6f0113ede05649e2e5",
+      "bytes": 1996
+    },
+    {
+      "before": "RAPORT-QA-RC57_4.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_4.md",
+      "sha256": "dae17d973cf3cc944368276d682731c487bafb7aaa92b5818d60e2ce25966b18",
+      "bytes": 2227
+    },
+    {
+      "before": "RAPORT-QA-RC57_5.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_5.md",
+      "sha256": "31490d3ee771a011df8bced7e77f6b9e5434f367e7cabb337289108a768829b8",
+      "bytes": 2336
+    },
+    {
+      "before": "RAPORT-QA-RC57_6.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_6.md",
+      "sha256": "ccabd827d413047877062a9a441f741dec51e9a84cf3dd580030c277dfc1f446",
+      "bytes": 2327
+    },
+    {
+      "before": "RAPORT-QA-RC57_7.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_7.md",
+      "sha256": "a71f0199221884322651f6052af83a32fc726d4722e64251269c055fe6fa024d",
+      "bytes": 2738
+    },
+    {
+      "before": "RAPORT-QA-RC57_8.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_8.md",
+      "sha256": "f3b9ac4a62384ce6f51f91917961430be11f7824071ea585277b7abe5bb4849c",
+      "bytes": 1757
+    },
+    {
+      "before": "RAPORT-QA-RC57_9.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC57_9.md",
+      "sha256": "33cd0983162500a40ab5975f0aa65571f2cb252562912e4d1b52852807f9d6ad",
+      "bytes": 2028
+    },
+    {
+      "before": "RAPORT-QA-RC58.md",
+      "after": "docs/historia/raporty/RAPORT-QA-RC58.md",
+      "sha256": "17a159d39c6e03639dd62448530aa24ac8fa6f6e6c96fa05e74857a81d373505",
+      "bytes": 10037
+    },
+    {
+      "before": "RAPORT-RC16.md",
+      "after": "docs/historia/raporty/RAPORT-RC16.md",
+      "sha256": "1636885023d870bb6f62834e1631ec73c551ed6d006f8c923950d2018faaaae9",
+      "bytes": 3269
+    },
+    {
+      "before": "RAPORT-RC17.md",
+      "after": "docs/historia/raporty/RAPORT-RC17.md",
+      "sha256": "8d5defe024fb09ef9a7621f4838c241803df70d87011a19fe56005e6cdb139d0",
+      "bytes": 4436
+    },
+    {
+      "before": "RAPORT-RC18.md",
+      "after": "docs/historia/raporty/RAPORT-RC18.md",
+      "sha256": "3b7705b9d24ea90d165bc9e8691f7d1a6bea4f75d1ea67bd670ee47a28c2ebce",
+      "bytes": 19944
+    },
+    {
+      "before": "RAPORT-RC19.md",
+      "after": "docs/historia/raporty/RAPORT-RC19.md",
+      "sha256": "d2058b3052c93adf5f1367a35632f1ef290b595e77ae9d80064dc8b24a8ba7a9",
+      "bytes": 47432
+    },
+    {
+      "before": "RAPORT-RC20.md",
+      "after": "docs/historia/raporty/RAPORT-RC20.md",
+      "sha256": "dbb098ca7fccc0ee9c225df7fb6d91cc55c0c232c87453616c53727f1f5643fa",
+      "bytes": 17083
+    },
+    {
+      "before": "RAPORT-RC21.md",
+      "after": "docs/historia/raporty/RAPORT-RC21.md",
+      "sha256": "a6e47cd66f97da5f5e4cad9232039097517134c3abad6ea67cd0e63a3fc37318",
+      "bytes": 4104
+    },
+    {
+      "before": "RAPORT-RC22.md",
+      "after": "docs/historia/raporty/RAPORT-RC22.md",
+      "sha256": "a8e6c06b5655f1feeab560824270b7b7f707c4f07ec04d88f32908d69d1da3ea",
+      "bytes": 7494
+    },
+    {
+      "before": "RAPORT-RC23.md",
+      "after": "docs/historia/raporty/RAPORT-RC23.md",
+      "sha256": "fc31776293288504e7d2f37945286846a3123674f559c358ae088812fb9925b7",
+      "bytes": 4081
+    },
+    {
+      "before": "RAPORT-RC24.md",
+      "after": "docs/historia/raporty/RAPORT-RC24.md",
+      "sha256": "e15651466e5bad09d21a0ebdd3fcdddff727bc50735e05f96e7d619ffd4dc845",
+      "bytes": 5918
+    },
+    {
+      "before": "RAPORT-RC25.md",
+      "after": "docs/historia/raporty/RAPORT-RC25.md",
+      "sha256": "a49157e6f92784c9b17ea77250be2cb13616ebe95c5a8ba82f04b1ca93735a51",
+      "bytes": 4048
+    },
+    {
+      "before": "RAPORT-RC26.md",
+      "after": "docs/historia/raporty/RAPORT-RC26.md",
+      "sha256": "13c4b2ed1e97351a48a3c3b5d431db0b7f5129ed60a89744ae81bc03c6def80d",
+      "bytes": 2820
+    },
+    {
+      "before": "RAPORT-RC27.md",
+      "after": "docs/historia/raporty/RAPORT-RC27.md",
+      "sha256": "d41291f0297a930767414ed20e7c5bd5e4b17e76e5008fdfa94d2f0081c7d9b0",
+      "bytes": 2988
+    },
+    {
+      "before": "RAPORT-RC57-HOBBY.md",
+      "after": "docs/historia/raporty/RAPORT-RC57-HOBBY.md",
+      "sha256": "3f0d994849781d5af40654d8c47e6a4775a65710b61c6650c0983c4606056ebd",
+      "bytes": 1292
+    },
+    {
+      "before": "RAPORT-RC57_1.md",
+      "after": "docs/historia/raporty/RAPORT-RC57_1.md",
+      "sha256": "e72558d67ed52ca06e10226445053606c866a2bb275919b882be09daf287be3f",
+      "bytes": 1024
+    },
+    {
+      "before": "ZMIANY-RC14.md",
+      "after": "docs/historia/zmiany/ZMIANY-RC14.md",
+      "sha256": "ad580f2fe2f4962101c65b1b6193c5eb04d472e6cbd45bff287b4a8b7bb2ae57",
+      "bytes": 1775
+    },
+    {
+      "before": "ZMIANY-RC15.md",
+      "after": "docs/historia/zmiany/ZMIANY-RC15.md",
+      "sha256": "640d1f63599ec29c303c5de7d2c798f6ddad9be10ba1ca8628e6123c9347bfb0",
+      "bytes": 2357
+    },
+    {
+      "before": "README.md",
+      "after": "docs/historia/instrukcje/README-PRZED-RC57_10_68.md",
+      "sha256": "7606101077c8c1264517bc3c290297c3aab8978d012482af6c2433733528b039",
+      "bytes": 1209,
+      "copyOnly": true
+    },
+    {
+      "before": "INSTRUKCJA-GLOWNA.md",
+      "after": "docs/historia/instrukcje/INSTRUKCJA-GLOWNA-PRZED-RC57_10_68.md",
+      "sha256": "d128bdd93385508cf2b9796448c4f690e3cfdc5dab01967a397635353d0cafb8",
+      "bytes": 30987,
+      "copyOnly": true
+    },
+    {
+      "before": "GITHUB-WGRYWANIE.md",
+      "after": "docs/historia/instrukcje/GITHUB-WGRYWANIE-PRZED-RC57_10_68.md",
+      "sha256": "b272212d9684a459c0326509407a4edb1a10de4af712b6efc6ba1073b63b2a5f",
+      "bytes": 7491,
+      "copyOnly": true
+    }
+  ]
+}

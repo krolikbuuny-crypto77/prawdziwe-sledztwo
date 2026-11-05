@@ -5,6 +5,17 @@ const AREAS=[{id:'med',title:'Dokumentacja medyczna',desc:'Oględziny i materia�
 const STATE={found:new Set(INITIAL),reviewedEvidence:new Set(),notes:'',events:[],dialogues:{},activeChar:CONTENT.characters[0].id,area:'admin',tab:'overview'};
 for(const c of CONTENT.characters){STATE.dialogues[c.id]=[{role:'npc',text:c.voice.opening}];}
 const $=id=>document.getElementById(id);
+// RC57.10.65: preserve live DOM and existing event handlers when a renderer
+// produces the same markup. The first-child identity invalidates caches after
+// an external replaceChildren/innerHTML on the host. No game data is cached.
+const PS_RENDER_MARKUP=new WeakMap();
+function psRenderMarkup(el,markup){
+ const previous=PS_RENDER_MARKUP.get(el);
+ if(previous&&previous.text===markup&&previous.first===el.firstChild&&previous.count===el.childNodes.length)return false;
+ el.innerHTML=markup;
+ PS_RENDER_MARKUP.set(el,{text:markup,first:el.firstChild,count:el.childNodes.length});
+ return true;
+}
 function psCount(n,one,few,many){const v=Math.abs(Number(n)||0),last=v%10,last2=v%100;return v+' '+(v===1?one:(last>=2&&last<=4&&(last2<12||last2>14)?few:many));}
 function esc(s){return String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
 function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l').replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim();}
@@ -349,20 +360,31 @@ function npc8RefreshWitnessPortrait(){
  }
  window.PS622_FACES?.refreshCurrent?.();
 }
-function renderCharacterList(){$('characterList').innerHTML=CONTENT.characters.map(c=>{const st=npc8GetState(c);return `<button class="character ${c.id===STATE.activeChar?'active':''}" data-char="${c.id}" aria-pressed="${c.id===STATE.activeChar}">${npc8PortraitMarkup(c,true)}<span class="charactercopy"><b>${esc(c.name)}</b><small>${esc(c.role)}</small><span class="ps23-witness-status">${c.id===STATE.activeChar?'Przesłuchiwany':(STATE.dialogues[c.id]||[]).some(m=>m.role==='player')?'Rozmowa rozpoczęta':'Wybierz świadka'}</span></span></button>`;}).join('');$('characterList').querySelectorAll('[data-char]').forEach(b=>b.addEventListener('click',()=>{STATE.activeChar=b.dataset.char;renderChat();}));}
+let psWitnessSignature=null,psWitnessFirst=null;
+function renderCharacterList(){const list=$('characterList');
+ // SVG gradients receive fresh generated IDs on every creation; comparing the
+ // final markup would always miss. Base the early exit on actual witness state.
+ const signature=JSON.stringify([STATE.activeChar,...CONTENT.characters.map(c=>{
+  const st=npc8GetState(c);return [c.id,st.rapport,st.tension,st.fatigue,st.stance,st.mood,st.cls,st.speaking,
+   (STATE.dialogues[c.id]||[]).some(m=>m.role==='player')];
+ })]);
+ if(signature===psWitnessSignature && psWitnessFirst===list.firstChild && list.firstChild)return;
+ const markup=CONTENT.characters.map(c=>{const st=npc8GetState(c);return `<button class="character ${c.id===STATE.activeChar?'active':''}" data-char="${c.id}" aria-pressed="${c.id===STATE.activeChar}">${npc8PortraitMarkup(c,true)}<span class="charactercopy"><b>${esc(c.name)}</b><small>${esc(c.role)}</small><span class="ps23-witness-status">${c.id===STATE.activeChar?'Przesłuchiwany':(STATE.dialogues[c.id]||[]).some(m=>m.role==='player')?'Rozmowa rozpoczęta':'Wybierz świadka'}</span></span></button>`;}).join('');psRenderMarkup(list,markup);psWitnessSignature=signature;psWitnessFirst=list.firstChild;list.querySelectorAll('[data-char]').forEach(b=>b.addEventListener('click',()=>{STATE.activeChar=b.dataset.char;renderChat();}));}
 // A document in the initial dossier is not yet a witness-confrontation exhibit.
 // It becomes available only after a deliberate read in Akta. Newly secured
 // documents are available immediately. No unrecovered evidence is ever listed.
 function interviewEvidenceAvailable(d){return STATE.found.has(d.id)&&(!INITIAL.includes(d.id)||STATE.reviewedEvidence.has(d.id));}
 function renderAttached(){
  const select=$('attachedDoc'),current=select.value,available=DOCS.filter(interviewEvidenceAvailable);
- select.innerHTML='<option value="">'+(available.length?'Nie okazuj dowodu':'Brak przygotowanych dowodów — przejrzyj Akta')+'</option>'+available.map(d=>`<option value="${esc(d.id)}">${esc(d.title)}</option>`).join('');
+ const options='<option value="">'+(available.length?'Nie okazuj dowodu':'Brak przygotowanych dowodów — przejrzyj Akta')+'</option>'+available.map(d=>`<option value="${esc(d.id)}">${esc(d.title)}</option>`).join('');
+ psRenderMarkup(select,options);
  if(available.some(d=>d.id===current))select.value=current;
  // A dossier preview may only show evidence the player has already obtained and
  // consciously reviewed. It reuses the original #attachedDoc selector.
  const cards=document.getElementById('ps23EvidenceCards');
  if(cards){
-  cards.innerHTML=available.length?available.slice(0,3).map((d,i)=>`<button type="button" class="ps23-evidence-card ${select.value===d.id?'selected':''}" data-ps23-exhibit="${esc(d.id)}" aria-label="Okaż dowód: ${esc(d.title)}" aria-pressed="${select.value===d.id}"><span class="ps23-evidence-mini" aria-hidden="true">${esc(d.id.replace(/[^A-Za-z0-9-]/g,'').slice(-8))}</span><span>${esc(d.title)}</span></button>`).join(''):'<p class="ps23-evidence-empty">Dowody do okazania pojawią się tutaj po ich zdobyciu i przejrzeniu w Aktach.</p>';
+  const markup=available.length?available.slice(0,3).map((d,i)=>`<button type="button" class="ps23-evidence-card ${select.value===d.id?'selected':''}" data-ps23-exhibit="${esc(d.id)}" aria-label="Okaż dowód: ${esc(d.title)}" aria-pressed="${select.value===d.id}"><span class="ps23-evidence-mini" aria-hidden="true">${esc(d.id.replace(/[^A-Za-z0-9-]/g,'').slice(-8))}</span><span>${esc(d.title)}</span></button>`).join(''):'<p class="ps23-evidence-empty">Dowody do okazania pojawią się tutaj po ich zdobyciu i przejrzeniu w Aktach.</p>';
+  if(!psRenderMarkup(cards,markup))return;
   cards.querySelectorAll('[data-ps23-exhibit]').forEach(b=>b.addEventListener('click',()=>{select.value=b.dataset.ps23Exhibit;renderAttached();select.dispatchEvent(new Event('change',{bubbles:true}));}));
  }
 }
@@ -2504,21 +2526,69 @@ function psAiMeta(value){
 const psShowAiDiagnostic=new URLSearchParams(location.search).get('debugAI')==='1';
 const psAiLabel=v=>v?.startsWith?.('apinex-')?'APINEX':({zai:'Z.ai',groq:'Groq',local:'silnik lokalny',unknown:'nieustalony'})[v]||'nieustalony';
 const CHAT_VISIBLE=Object.create(null);
+// RC57.10.66: cache only transcript presentation, never game or AI state.
+const PS66_CHAT_VIEW=new WeakMap();
+const PS66_CHAT_STATS={reuse:0,incremental:0,full:0};
+window.PS66_CHAT_QA=Object.freeze({metrics:()=>({...PS66_CHAT_STATS})});
+function ps66CommitChat(log,id,msgs,hidden,parts,header){
+ let entry=PS66_CHAT_VIEW.get(log);
+ if(!entry){
+  entry={dirty:false};
+  entry.observer=new MutationObserver(()=>{entry.dirty=true;});
+  entry.observer.observe(log,{subtree:true,childList:true,characterData:true,attributes:true});
+  PS66_CHAT_VIEW.set(log,entry);
+ }
+ // A pending AI spinner or another extension may have modified any bubble.
+ // The observer forces a canonical redraw rather than preserving stale markup.
+ const external=entry.dirty||entry.observer.takeRecords().length>0;
+ const same=!external&&entry.id===id&&entry.messages===msgs;
+ let mode='full';
+ if(same&&entry.hidden===hidden&&entry.header===!!header&&entry.parts.length===parts.length&&
+    entry.parts.every((v,i)=>v===parts[i])){
+  mode='reuse';
+ }else if(same&&entry.header===!!header&&hidden>=entry.hidden&&msgs.length>=entry.length){
+  const discarded=hidden-entry.hidden,remaining=entry.parts.length-discarded;
+  if(remaining>=0&&remaining<=parts.length&&entry.parts.slice(discarded).every((v,i)=>v===parts[i])){
+   let ok=true;
+   for(let i=0;i<discarded;i++){
+    const bubble=log.querySelector(':scope > .bubble');
+    if(!bubble){ok=false;break;}
+    bubble.remove();
+   }
+   if(ok&&header){
+    const older=log.querySelector('#chatOlder');
+    if(!older)ok=false;else older.textContent='Pokaż wcześniejsze wiadomości ('+hidden+')';
+   }
+   if(ok){
+    const suffix=parts.slice(remaining).join('');
+    if(suffix)log.insertAdjacentHTML('beforeend',suffix);
+    mode='incremental';
+   }
+  }
+ }
+ if(mode==='full')log.innerHTML=header+parts.join('');
+ PS66_CHAT_STATS[mode]++;
+ entry.id=id;entry.messages=msgs;entry.hidden=hidden;entry.length=msgs.length;
+ entry.parts=parts;entry.header=!!header;entry.dirty=false;
+ entry.observer.takeRecords();
+ return mode!=='reuse';
+}
 function renderChat(){
  renderCharacterList();renderAttached();
  const c=CONTENT.characters.find(c=>c.id===STATE.activeChar),log=$('chatLog'),msgs=STATE.dialogues[c.id];
  $('chatName').textContent=c.name;$('chatRole').textContent=c.role;npc8RefreshWitnessPortrait();
  // Render only a window of messages; the full, unmodified transcript stays in STATE and in save files.
  const limit=CHAT_VISIBLE[c.id]||120,hidden=Math.max(0,msgs.length-limit);
- log.innerHTML=(hidden?'<div class="chat-history"><button type="button" class="btn alt" id="chatOlder">Pokaż wcześniejsze wiadomości ('+hidden+')</button><span class="muted small">Cała rozmowa pozostaje w zapisie gry.</span></div>':'')+
-  msgs.slice(hidden).map(m=>`<div class="bubble ${m.role==='npc'?'npc':'player'}"><span>${m.role==='npc'?esc(c.name):'Ty'}</span>${esc(m.text)}${m.role==='npc'&&psShowAiDiagnostic&&m.ai?`<div class="small muted" style="margin-top:6px;border-top:1px solid #54616a;padding-top:3px">Dostawca: ${esc(psAiLabel(m.ai.provider))} · model: ${esc(m.ai.model||'—')} · przełączenie: ${esc(m.ai.fallbackReason||'brak')} · czas AI (API): ${esc(m.ai.durationMs==null?'—':String(m.ai.durationMs)+' ms')} · ID: ${esc(m.ai.requestId||'—')}${m.ai.qualityDiagnostics?`<div style="margin-top:3px">Etapy: ${m.ai.qualityDiagnostics.attempts.map(x=>`${esc(x.provider)} / ${esc(x.phase)} / ${esc(x.result)}${x.result==='rejected'?` (${esc(x.code)})`:''}: ${x.durationMs} ms`).join(' · ')}</div>`:''}</div>`:''}</div>`).join('');
- if(hidden)log.querySelector('#chatOlder').addEventListener('click',()=>{
+ const historyMarkup=hidden?'<div class="chat-history"><button type="button" class="btn alt" id="chatOlder">Pokaż wcześniejsze wiadomości ('+hidden+')</button><span class="muted small">Cała rozmowa pozostaje w zapisie gry.</span></div>':'';
+ const pieces=msgs.slice(hidden).map(m=>`<div class="bubble ${m.role==='npc'?'npc':'player'}"><span>${m.role==='npc'?esc(c.name):'Ty'}</span>${esc(m.text)}${m.role==='npc'&&psShowAiDiagnostic&&m.ai?`<div class="small muted" style="margin-top:6px;border-top:1px solid #54616a;padding-top:3px">Dostawca: ${esc(psAiLabel(m.ai.provider))} · model: ${esc(m.ai.model||'—')} · przełączenie: ${esc(m.ai.fallbackReason||'brak')} · czas AI (API): ${esc(m.ai.durationMs==null?'—':String(m.ai.durationMs)+' ms')} · ID: ${esc(m.ai.requestId||'—')}${m.ai.qualityDiagnostics?`<div style="margin-top:3px">Etapy: ${m.ai.qualityDiagnostics.attempts.map(x=>`${esc(x.provider)} / ${esc(x.phase)} / ${esc(x.result)}${x.result==='rejected'?` (${esc(x.code)})`:''}: ${x.durationMs} ms`).join(' · ')}</div>`:''}</div>`:''}</div>`);
+ const changed=ps66CommitChat(log,c.id,msgs,hidden,pieces,historyMarkup);
+
+ if(hidden)log.querySelector('#chatOlder').onclick=()=>{
    const wasHeight=log.scrollHeight,wasTop=log.scrollTop;
    CHAT_VISIBLE[c.id]=Math.min(msgs.length,limit+120);renderChat();
    log.scrollTop=Math.max(0,log.scrollHeight-wasHeight+wasTop);
- });
- else log.scrollTop=log.scrollHeight;
- if(hidden && !log.dataset.historyExpanded)log.scrollTop=log.scrollHeight;
+ };
+ if(changed&&(!hidden||!log.dataset.historyExpanded))log.scrollTop=log.scrollHeight;
  npc4Render();
 }
 
@@ -3337,13 +3407,16 @@ function ded2QuickNeeds(d){return !dd7Reasoning(d).ok;}
 function dedSourceOpen(s){if(s.type==='doc'){activeDoc=s.docId;showTab('evidence');renderDocs();}else if(s.charId){STATE.activeChar=s.charId;showTab('interview');}}
 function dedRenderSources(){const st=STATE.deduction,map=dedAvailable();const q=norm(st.sourceQuery),kind=st.sourceType,oldScroll=$('dedSourceList').scrollTop;
  const items=[...map.values()].filter(s=>(kind==='all'||s.type===kind)&&(!q||norm(s.label+' '+s.body+' '+s.subtitle).includes(q)));
- $('dedSourceCount').textContent=map.size+' dostępnych'+(items.length>120?' · pokazano 120 (użyj wyszukiwania)':'');$('dedSourceList').innerHTML=items.length?items.slice(0,120).map(s=>{
+ $('dedSourceCount').textContent=map.size+' dostępnych'+(items.length>120?' · pokazano 120 (użyj wyszukiwania)':'');const markup=items.length?items.slice(0,120).map(s=>{
   const used=st.draft.links.some(l=>l.source===s.key);
   return `<div class="dd-source"><div><span class="dd-tag">${s.type==='doc'?'DOKUMENT':'ZEZNANIE'}</span> <small>${esc(s.subtitle)}</small></div><strong>${esc(s.label)}</strong><details><summary>Przeczytaj źródło</summary><div class="dd-source-preview">${esc(s.body)}</div></details><div class="formline"><button class="btn ${used?'subtle':'alt'}" data-dd-add="${esc(s.key)}" ${used?'disabled':''}>${used?'Połączono':'+ Połącz'}</button><button class="btn subtle" data-dd-open="${esc(s.key)}">${s.type==='doc'?'Otwórz akta':'Otwórz rozmowę'}</button></div></div>`;
  }).join(''):'<div class="dd-empty">Nie ma źródeł spełniających filtr. Odkrywaj kolejne dokumenty lub prowadź przesłuchania.</div>';
- $('dedSourceList').scrollTop=oldScroll;
- $('dedSourceList').querySelectorAll('[data-dd-add]').forEach(b=>b.addEventListener('click',()=>dedAddSource(b.dataset.ddAdd)));
- $('dedSourceList').querySelectorAll('[data-dd-open]').forEach(b=>b.addEventListener('click',()=>{const s=map.get(b.dataset.ddOpen);if(s)dedSourceOpen(s);}));
+ const changed=psRenderMarkup($('dedSourceList'),markup);
+ if(changed){
+  $('dedSourceList').scrollTop=oldScroll;
+  $('dedSourceList').querySelectorAll('[data-dd-add]').forEach(b=>b.addEventListener('click',()=>dedAddSource(b.dataset.ddAdd)));
+  $('dedSourceList').querySelectorAll('[data-dd-open]').forEach(b=>b.addEventListener('click',()=>{const s=map.get(b.dataset.ddOpen);if(s)dedSourceOpen(s);}));
+ }
  window.PS_CORRELATIONS?.scheduleApply();
 }
 function dedRenderEditor(){const st=STATE.deduction,d=st.draft,map=dedAvailable();const review=$('dd2Review');if(review){review.hidden=true;review.innerHTML='';}
@@ -3360,16 +3433,17 @@ function dedRenderEditor(){const st=STATE.deduction,d=st.draft,map=dedAvailable(
  $('dedFeedback').textContent=st.feedback||'Lokalna kontrola wskazuje luki i związki tematyczne między źródłami; nie zastępuje samodzielnej oceny śledczego.';
 }
 function dedRenderBoard(){const st=STATE.deduction,map=dedAvailable(),cards=st.cards.filter(c=>st.cardFilter==='all'||c.kind===st.cardFilter);
- $('dedBoard').innerHTML=cards.length?cards.map(c=>{
+ const boardMarkup=cards.length?cards.map(c=>{
   const links=dedSafeLinks(c.links,map),rival=st.cards.find(x=>x.id===c.rival),families=new Set(links.map(l=>map.get(l.source)?.family).filter(Boolean));
   return `<article class="dd-card type-${esc(c.kind)} ${st.selected===c.id?'selected':''}"><div class="dd-card-top"><span class="dd-tag">${esc(c.id)} · ${esc(DD_KINDS[c.kind])}</span><span class="muted tiny">${links.length} źr. · ${families.size} rodzin</span></div><h4>${esc(c.title)}</h4><p>${esc(c.statement)}</p><div class="dd-branch">${links.map(l=>{const src=map.get(l.source);return `<div class="dd-branch-row"><span class="dd-tag">${esc(DD_ROLES[l.role])}</span><b>${esc(src.short)}</b><span>${esc(src.label.length>80?src.label.slice(0,77)+'…':src.label)}</span></div>`;}).join('')}${rival?`<div class="dd-branch-row"><span class="dd-tag">konkurencyjna</span><b>${esc(rival.id+' · '+rival.title)}</b></div>`:''}</div>${c.alternative?`<p><b>Inna interpretacja:</b> ${esc(c.alternative)}</p>`:''}${c.test?`<p><b>Do sprawdzenia:</b> ${esc(c.test)}</p>`:''}<div class="dd-card-footer"><span class="muted tiny">Hipoteza do dalszej weryfikacji</span><button class="btn alt" data-dd-edit="${esc(c.id)}">Edytuj / przeanalizuj</button></div></article>`;
  }).join(''):`<div class="dd-empty">${st.cards.length?'Brak kart w wybranej kategorii. Zmień filtr.':'Tablica jest jeszcze pusta. Zacznij od połączenia źródła z własnym ustaleniem, a następnie zapisz kartę.'}</div>`;
+ if(!psRenderMarkup($('dedBoard'),boardMarkup))return;
  $('dedBoard').querySelectorAll('[data-dd-edit]').forEach(b=>b.addEventListener('click',()=>dedSelect(b.dataset.ddEdit)));
 }
 function dedRender(){const st=STATE.deduction,available=dedAvailable();
  const links=st.cards.reduce((n,c)=>n+dedSafeLinks(c.links,available).length,0);const families=new Set(st.cards.flatMap(c=>dedSafeLinks(c.links,available).map(l=>available.get(l.source)?.family).filter(Boolean)));
  const incomplete=st.cards.filter(ded2QuickNeeds).length;
- $('dedMetrics').innerHTML=[[st.cards.length,'Utworzone karty'],[links,'Połączenia źródeł'],[families.size,'Rodziny źródeł'],[incomplete,'Karty do dopracowania']].map(([v,label])=>`<div class="dd-metric"><strong>${v}</strong><span>${esc(label)}</span></div>`).join('');
+ psRenderMarkup($('dedMetrics'),[[st.cards.length,'Utworzone karty'],[links,'Połączenia źródeł'],[families.size,'Rodziny źródeł'],[incomplete,'Karty do dopracowania']].map(([v,label])=>`<div class="dd-metric"><strong>${v}</strong><span>${esc(label)}</span></div>`).join(''));
  $('dedSourceSearch').value=st.sourceQuery;$('dedSourceType').value=st.sourceType;$('dedCardFilter').value=st.cardFilter;
  dedRenderSources();dedRenderEditor();dedRenderBoard();
 }
@@ -3764,16 +3838,22 @@ function scSvg(room){return `<svg viewBox="0 0 600 350" aria-hidden="true"><g fi
 function scRender(){if(!$('scRooms'))return;const s=STATE.scene12,room=SC_ROOMS.find(r=>r.id===s.room)||SC_ROOMS[0],spots=SC_SPOTS.filter(h=>h.room===room.id),inspected=spots.filter(h=>s.inspected.includes(h.id)).length;
  const collected=SC_SPOTS.filter(h=>h.doc&&STATE.found.has(h.doc)).length;
  $('scMissionCount').textContent=s.inspected.length+' / '+SC_SPOTS.length;
- $('scMetrics').innerHTML=[[s.visited.length+'/7','Odwiedzone strefy'],[s.inspected.length+'/'+SC_SPOTS.length,'Zbadane punkty'],[collected,'Materiały w aktach'],[Object.keys(s.roomCases).length+'/7','Rekonstrukcje stref']].map(([n,l])=>`<div class="sc-stat"><b>${esc(n)}</b><span>${esc(l)}</span></div>`).join('');
- $('scRooms').innerHTML=SC_ROOMS.map(r=>{const n=SC_SPOTS.filter(h=>h.room===r.id&&s.inspected.includes(h.id)).length,m=SC_SPOTS.filter(h=>h.room===r.id).length;return `<button type="button" class="sc-room ${s.room===r.id?'active':''} ${s.visited.includes(r.id)?'visited':''}" data-sc-room="${r.id}" aria-pressed="${s.room===r.id}"><b>${esc(r.title)}</b><small>${n}/${m} zbadanych</small></button>`;}).join('');
- $('scRoomTitle').textContent=room.title;$('scRoomDesc').textContent=room.desc;$('scRoomProgress').textContent=`${inspected} / ${spots.length}`;$('scBlueprintBase').innerHTML=scSvg(room);
+ psRenderMarkup($('scMetrics'),[[s.visited.length+'/7','Odwiedzone strefy'],[s.inspected.length+'/'+SC_SPOTS.length,'Zbadane punkty'],[collected,'Materiały w aktach'],[Object.keys(s.roomCases).length+'/7','Rekonstrukcje stref']].map(([n,l])=>`<div class="sc-stat"><b>${esc(n)}</b><span>${esc(l)}</span></div>`).join(''));
+ const roomsMarkup=SC_ROOMS.map(r=>{const n=SC_SPOTS.filter(h=>h.room===r.id&&s.inspected.includes(h.id)).length,m=SC_SPOTS.filter(h=>h.room===r.id).length;return `<button type="button" class="sc-room ${s.room===r.id?'active':''} ${s.visited.includes(r.id)?'visited':''}" data-sc-room="${r.id}" aria-pressed="${s.room===r.id}"><b>${esc(r.title)}</b><small>${n}/${m} zbadanych</small></button>`;}).join('');
+ const roomsChanged=psRenderMarkup($('scRooms'),roomsMarkup);
+ $('scRoomTitle').textContent=room.title;$('scRoomDesc').textContent=room.desc;$('scRoomProgress').textContent=`${inspected} / ${spots.length}`;psRenderMarkup($('scBlueprintBase'),scSvg(room));
  const visible=spots.filter(h=>s.discovered.includes(h.id));
- $('scPins').innerHTML=visible.map((h,i)=>`<button type="button" class="sc-pin ${s.inspected.includes(h.id)?'inspected':''} ${s.selected===h.id?'active':''}" data-sc-spot="${h.id}" style="left:${h.x}%;top:${h.y}%" title="${esc(h.title)}" aria-label="${esc(h.title)}">${s.inspected.includes(h.id)?'✓':(i+1)}</button>`).join('');
- $('scHotspots').innerHTML='<div class="ov3-results-heading">Odkryte obiekty: '+visible.length+' / '+spots.length+'</div>'+
+ const pinsMarkup=visible.map((h,i)=>`<button type="button" class="sc-pin ${s.inspected.includes(h.id)?'inspected':''} ${s.selected===h.id?'active':''}" data-sc-spot="${h.id}" style="left:${h.x}%;top:${h.y}%" title="${esc(h.title)}" aria-label="${esc(h.title)}">${s.inspected.includes(h.id)?'✓':(i+1)}</button>`).join('');
+ const pinsChanged=psRenderMarkup($('scPins'),pinsMarkup);
+ const hotspotsMarkup='<div class="ov3-results-heading">Odkryte obiekty: '+visible.length+' / '+spots.length+'</div>'+
   (visible.length?visible.map((h,i)=>`<button type="button" class="sc-spot ${s.selected===h.id?'active':''} ${s.inspected.includes(h.id)?'done':''}" data-sc-spot="${h.id}"><span class="sc-num">${s.inspected.includes(h.id)?'✓':i+1}</span><span class="sc-label"><b>${esc(h.title)}</b><small>${s.inspected.includes(h.id)?h.doc&&STATE.found.has(h.doc)?'Zbadano · w aktach':'Zbadano':s.steps[h.id]?.method?'Trwa analiza':'Odkryto · wymaga badania'}</small></span></button>`).join(''):'<p class="ov3-unfound">Wybierz oznaczony obszar na fotografii albo odpowiednią kartę pod kadrem. Następnie wybierz metodę badania.</p>');
+ // The enhanced renderer owns this host after installation; avoid a redundant
+ // legacy draw immediately before the enhanced draw. Preserve fallback alone.
+ const hotspotsChanged=!window.PS84_HOTSPOTS_ACTIVE&&psRenderMarkup($('scHotspots'),hotspotsMarkup);
  $('scRoomProgress').textContent=`Odkryto ${visible.length}/${spots.length} · zbadano ${inspected}`;
- document.querySelectorAll('[data-sc-room]').forEach(b=>b.addEventListener('click',()=>scPickRoom(b.dataset.scRoom)));
- document.querySelectorAll('[data-sc-spot]').forEach(b=>b.addEventListener('click',()=>scPick(b.dataset.scSpot)));
+ if(roomsChanged)document.querySelectorAll('#scRooms [data-sc-room]').forEach(b=>b.addEventListener('click',()=>scPickRoom(b.dataset.scRoom)));
+ if(pinsChanged)document.querySelectorAll('#scPins [data-sc-spot]').forEach(b=>b.addEventListener('click',()=>scPick(b.dataset.scSpot)));
+ if(hotspotsChanged)document.querySelectorAll('#scHotspots [data-sc-spot]').forEach(b=>b.addEventListener('click',()=>scPick(b.dataset.scSpot)));
  scDetail();scRenderRoomCase();scRenderActivity();
 }
 function scDetail(){const s=STATE.scene12,h=SC_BY_SPOT[s.selected],el=$('scDetail');

@@ -1,0 +1,100 @@
+/* RC57.10.57 — targeted UI corrections from actual laptop screenshots.
+   Presentation only. No state, evidence, AI or story-gate changes. */
+@media (min-width: 941px) {
+  /* Header of the case: never crop any of its three lines after scrolling/zoom. */
+  #overview.ps38-premium .ps38-case-banner {
+    display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+    justify-content:center!important;gap:3px!important;
+    height:auto!important;min-height:102px!important;max-height:none!important;
+    overflow:visible!important;padding:15px 20px!important;
+  }
+  #overview.ps38-premium .ps38-case-banner .ps38-banner-kicker {
+    display:block!important;position:static!important;line-height:1.4!important;
+    margin:0!important;padding:0!important;color:#f2d59f!important;
+    font-size:12px!important;letter-spacing:.085em!important;
+  }
+  #overview.ps38-premium .ps38-case-banner h2 {
+    margin:0!important;line-height:1.16!important;font-size:clamp(28px,2vw,36px)!important;
+  }
+  #overview.ps38-premium .ps38-case-banner p {
+    margin:0!important;line-height:1.45!important;font-size:clamp(13px,.9vw,15px)!important;
+    max-width:70ch!important;
+  }
+  /* Laboratory: avoid 4 cards + one orphan on a vast empty row. */
+  #labs #ux5Hub .ux5-grid {
+    display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;
+    gap:12px!important;align-items:stretch!important;background:transparent!important;
+    padding:0!important;margin-inline:0!important;
+  }
+  #labs #ux5Hub .ux5-grid > .ux5-card {grid-column:span 2!important;min-width:0!important;}
+  #labs #ux5Hub .ux5-grid:has(> :nth-child(5):last-child) > .ux5-card:nth-last-child(-n+2) {grid-column:span 3!important;}
+  #labs #ux5Hub .ux5-grid:has(> :nth-child(4):last-child) > .ux5-card {grid-column:span 3!important;}
+  #labs #ux5Hub .ux5-grid:has(> :nth-child(2):last-child) > .ux5-card {grid-column:span 3!important;}
+  #labs #ux5Hub .ux5-grid:has(> :first-child:last-child) > .ux5-card {grid-column:span 6!important;}
+  #labs #ux5Hub .ux5-card {padding:14px 15px!important;gap:8px!important;}
+  #labs #ux5Hub .ux5-count, #labs #ux5Hub .ux5-count strong {
+    color:#4c3020!important;opacity:1!important;font-size:13px!important;font-weight:700!important;
+    text-shadow:none!important;
+  }
+  #labs #ux5Hub .ux5-card p, #labs #ux5Hub .ux5-card small {line-height:1.5!important;color:#563b2b!important;}
+  #labs #ux5Hub .ux5-summary {
+    color:#54341f!important;background:#f8e5c7!important;border-color:#b38b5e!important;
+    font-size:12.5px!important;font-weight:750!important;opacity:1!important;
+  }
+  #labs #ux5Hub .ux5-group-head span,
+  #labs #ux5Hub .ux5-empty {color:#513422!important;opacity:1!important;font-size:13px!important;}
+
+  #labs #ux5Hub .ux5-card .ux5-serial {color:#68452b!important;}
+  #labs #ux5Hub .ux5-actions {margin-top:auto!important;}
+  /* Inspection: empty state in the beige list must be readable, not cream-on-cream. */
+  #inspection12 #scHotspots {
+    align-content:start!important;overflow-x:hidden!important;scrollbar-gutter:stable!important;
+    min-height:0!important;padding:6px 9px 9px!important;
+  }
+  #inspection12 #scHotspots:has(> .ov3-unfound) {grid-template-columns:minmax(0,1fr)!important;}
+  #inspection12 #scHotspots .ov3-results-heading {
+    color:#432b1d!important;font-size:14px!important;font-weight:800!important;
+    letter-spacing:0!important;line-height:1.45!important;
+    margin:0!important;padding:4px 0 6px!important;
+  }
+  #inspection12 #scHotspots :is(.sc84-sorted-note,.sc-empty-state,.sc84-empty,.ov3-unfound),
+  #inspection12 #scHotspots > p {
+    color:#523725!important;opacity:1!important;font-size:13.5px!important;
+    line-height:1.55!important;text-shadow:none!important;
+  }
+  #inspection12 #scHotspots :is(.sc-empty-state,.sc84-empty,.ov3-unfound) {
+    margin:6px 0 0!important;padding:12px 14px!important;
+    border:1px dashed #b78a59!important;border-radius:9px!important;
+    background:#f3ddbc!important;min-height:0!important;
+  }
+  /* Deduction step two: document rows have their own scroll region and safe pin gutter. */
+  #deduction .dd-work {gap:12px!important;align-items:start!important;}
+  #deduction .dd-source-panel, #deduction .dd-editor-panel {min-width:0!important;}
+  #deduction #dedSourceList {
+    display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+    align-content:start!important;gap:9px!important;
+    max-height:clamp(350px,53dvh,570px)!important;
+    min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;
+    scrollbar-gutter:stable!important;padding:3px 15px 12px 3px!important;
+  }
+  #deduction #dedSourceList .dd-source {
+    width:calc(100% - 13px)!important;max-width:calc(100% - 13px)!important;
+    margin:0!important;min-width:0!important;
+    padding:11px 22px 11px 13px!important;box-sizing:border-box!important;
+    overflow-wrap:anywhere!important;
+  }
+  #deduction #dedSourceList .dd-source :is(p,small,span) {line-height:1.45!important;}
+  #deduction #ux4Board {margin-top:12px!important;}
+}
+@media (min-width:941px) and (max-width:1500px) {
+  #labs #ux5Hub .ux5-grid > .ux5-card {grid-column:span 3!important;}
+  #labs #ux5Hub .ux5-grid:has(> :nth-child(5):last-child) > .ux5-card:nth-last-child(-n+2) {grid-column:span 3!important;}
+  #labs #ux5Hub .ux5-grid:has(> :first-child:last-child) > .ux5-card {grid-column:span 6!important;}
+}
+@media (max-width:940px) {
+  #labs #ux5Hub .ux5-count, #labs #ux5Hub .ux5-count strong {color:#4c3020!important;opacity:1!important;}
+  #inspection12 #scHotspots .ov3-results-heading {color:#432b1d!important;font-size:14px!important;line-height:1.45!important;}
+  #inspection12 #scHotspots :is(.sc84-sorted-note,.sc84-empty,.sc-empty-state) {color:#4d3321!important;font-size:13px!important;}
+  #deduction #dedSourceList {min-width:0!important;overflow-x:hidden!important;scrollbar-gutter:stable!important;padding-right:14px!important;}
+  #deduction #dedSourceList .dd-source {max-width:calc(100% - 12px)!important;margin-right:12px!important;}
+}

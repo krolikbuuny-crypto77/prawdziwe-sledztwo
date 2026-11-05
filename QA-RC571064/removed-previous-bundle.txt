@@ -1,0 +1,3 @@
+Po nałożeniu małej paczki aktualizacyjnej uruchom npm run build.
+Stary plik ps-js-60-6bb4f84ca3cf3049.js zostanie usunięty automatycznie;
+nie wdrażaj go razem z nowym pakietem ps-js-60-b93e70592a8eeef5.js.

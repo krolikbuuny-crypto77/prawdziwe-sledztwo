@@ -1,0 +1,391 @@
+{
+  "version": "RC57.10.64",
+  "method": "local Chromium with Playwright-fulfilled static resources; no paid API",
+  "warning": "Timings are local synchronous tab-switch + layout-flush estimates; JS heap is forced-GC and does not include native/browser memory. No real-network FCP/LCP or memory-leak proof.",
+  "errors": [],
+  "results": [
+    {
+      "width": 1366,
+      "runs": 360,
+      "navigation": {
+        "count": 350,
+        "medianMs": 33.35,
+        "p95Ms": 78.6,
+        "maxMs": 110.5
+      },
+      "byTab": {
+        "overview": {
+          "count": 35,
+          "medianMs": 20,
+          "p95Ms": 32.9,
+          "maxMs": 35.2
+        },
+        "evidence": {
+          "count": 35,
+          "medianMs": 42.3,
+          "p95Ms": 51.9,
+          "maxMs": 67.8
+        },
+        "search": {
+          "count": 35,
+          "medianMs": 10.5,
+          "p95Ms": 17.3,
+          "maxMs": 20.7
+        },
+        "interview": {
+          "count": 35,
+          "medianMs": 78.6,
+          "p95Ms": 99.3,
+          "maxMs": 110.5
+        },
+        "timeline": {
+          "count": 35,
+          "medianMs": 38.6,
+          "p95Ms": 47.7,
+          "maxMs": 48.1
+        },
+        "inspection12": {
+          "count": 35,
+          "medianMs": 48.1,
+          "p95Ms": 66.1,
+          "maxMs": 70.4
+        },
+        "notebook": {
+          "count": 35,
+          "medianMs": 25.1,
+          "p95Ms": 36.3,
+          "maxMs": 42.5
+        },
+        "labs": {
+          "count": 35,
+          "medianMs": 25,
+          "p95Ms": 32.1,
+          "maxMs": 40.3
+        },
+        "deduction": {
+          "count": 35,
+          "medianMs": 34.4,
+          "p95Ms": 38.5,
+          "maxMs": 44.2
+        },
+        "final": {
+          "count": 35,
+          "medianMs": 35.5,
+          "p95Ms": 43.5,
+          "maxMs": 71.3
+        }
+      },
+      "baseline": {
+        "jsHeapUsedMB": 4.7663,
+        "domNodes": 10802,
+        "domListeners": 633,
+        "layoutCount": 0,
+        "recalcStyleCount": 0
+      },
+      "after": {
+        "jsHeapUsedMB": 6.1104,
+        "domNodes": 11505,
+        "domListeners": 676,
+        "layoutCount": 1247,
+        "recalcStyleCount": 1501
+      },
+      "progress": [
+        {
+          "cycle": 1,
+          "jsHeapUsedMB": 5.294,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 33,
+          "recalcStyleCount": 38
+        },
+        {
+          "cycle": 2,
+          "jsHeapUsedMB": 5.4376,
+          "domNodes": 11511,
+          "domListeners": 676,
+          "layoutCount": 67,
+          "recalcStyleCount": 78
+        },
+        {
+          "cycle": 3,
+          "jsHeapUsedMB": 5.4691,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 102,
+          "recalcStyleCount": 120
+        },
+        {
+          "cycle": 4,
+          "jsHeapUsedMB": 5.5478,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 137,
+          "recalcStyleCount": 161
+        },
+        {
+          "cycle": 5,
+          "jsHeapUsedMB": 5.6264,
+          "domNodes": 11511,
+          "domListeners": 676,
+          "layoutCount": 171,
+          "recalcStyleCount": 202
+        },
+        {
+          "cycle": 6,
+          "jsHeapUsedMB": 5.5953,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 206,
+          "recalcStyleCount": 245
+        },
+        {
+          "cycle": 7,
+          "jsHeapUsedMB": 5.6527,
+          "domNodes": 11679,
+          "domListeners": 676,
+          "layoutCount": 240,
+          "recalcStyleCount": 286
+        },
+        {
+          "cycle": 8,
+          "jsHeapUsedMB": 5.7552,
+          "domNodes": 11508,
+          "domListeners": 676,
+          "layoutCount": 276,
+          "recalcStyleCount": 329
+        },
+        {
+          "cycle": 9,
+          "jsHeapUsedMB": 5.9083,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 311,
+          "recalcStyleCount": 371
+        },
+        {
+          "cycle": 10,
+          "jsHeapUsedMB": 5.9148,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 345,
+          "recalcStyleCount": 411
+        },
+        {
+          "cycle": 11,
+          "jsHeapUsedMB": 5.9431,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 380,
+          "recalcStyleCount": 453
+        },
+        {
+          "cycle": 12,
+          "jsHeapUsedMB": 5.9764,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 414,
+          "recalcStyleCount": 495
+        },
+        {
+          "cycle": 13,
+          "jsHeapUsedMB": 5.9753,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 449,
+          "recalcStyleCount": 536
+        },
+        {
+          "cycle": 14,
+          "jsHeapUsedMB": 5.9763,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 483,
+          "recalcStyleCount": 578
+        },
+        {
+          "cycle": 15,
+          "jsHeapUsedMB": 5.9856,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 517,
+          "recalcStyleCount": 619
+        },
+        {
+          "cycle": 16,
+          "jsHeapUsedMB": 5.9879,
+          "domNodes": 11508,
+          "domListeners": 676,
+          "layoutCount": 553,
+          "recalcStyleCount": 662
+        },
+        {
+          "cycle": 17,
+          "jsHeapUsedMB": 6.0072,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 587,
+          "recalcStyleCount": 703
+        },
+        {
+          "cycle": 18,
+          "jsHeapUsedMB": 6.0143,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 622,
+          "recalcStyleCount": 744
+        },
+        {
+          "cycle": 19,
+          "jsHeapUsedMB": 6.0315,
+          "domNodes": 11508,
+          "domListeners": 676,
+          "layoutCount": 656,
+          "recalcStyleCount": 786
+        },
+        {
+          "cycle": 20,
+          "jsHeapUsedMB": 6.0425,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 691,
+          "recalcStyleCount": 828
+        },
+        {
+          "cycle": 21,
+          "jsHeapUsedMB": 6.0449,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 726,
+          "recalcStyleCount": 870
+        },
+        {
+          "cycle": 22,
+          "jsHeapUsedMB": 6.051,
+          "domNodes": 11508,
+          "domListeners": 676,
+          "layoutCount": 761,
+          "recalcStyleCount": 911
+        },
+        {
+          "cycle": 23,
+          "jsHeapUsedMB": 6.0646,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 797,
+          "recalcStyleCount": 954
+        },
+        {
+          "cycle": 24,
+          "jsHeapUsedMB": 6.0685,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 831,
+          "recalcStyleCount": 996
+        },
+        {
+          "cycle": 25,
+          "jsHeapUsedMB": 6.0709,
+          "domNodes": 11508,
+          "domListeners": 676,
+          "layoutCount": 867,
+          "recalcStyleCount": 1039
+        },
+        {
+          "cycle": 26,
+          "jsHeapUsedMB": 6.0888,
+          "domNodes": 11679,
+          "domListeners": 676,
+          "layoutCount": 902,
+          "recalcStyleCount": 1082
+        },
+        {
+          "cycle": 27,
+          "jsHeapUsedMB": 6.0948,
+          "domNodes": 11679,
+          "domListeners": 676,
+          "layoutCount": 936,
+          "recalcStyleCount": 1124
+        },
+        {
+          "cycle": 28,
+          "jsHeapUsedMB": 6.0854,
+          "domNodes": 11508,
+          "domListeners": 676,
+          "layoutCount": 971,
+          "recalcStyleCount": 1167
+        },
+        {
+          "cycle": 29,
+          "jsHeapUsedMB": 6.0867,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 1006,
+          "recalcStyleCount": 1208
+        },
+        {
+          "cycle": 30,
+          "jsHeapUsedMB": 6.0947,
+          "domNodes": 11508,
+          "domListeners": 676,
+          "layoutCount": 1041,
+          "recalcStyleCount": 1250
+        },
+        {
+          "cycle": 31,
+          "jsHeapUsedMB": 6.0955,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 1077,
+          "recalcStyleCount": 1293
+        },
+        {
+          "cycle": 32,
+          "jsHeapUsedMB": 6.1037,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 1113,
+          "recalcStyleCount": 1336
+        },
+        {
+          "cycle": 33,
+          "jsHeapUsedMB": 6.1234,
+          "domNodes": 11508,
+          "domListeners": 676,
+          "layoutCount": 1145,
+          "recalcStyleCount": 1376
+        },
+        {
+          "cycle": 34,
+          "jsHeapUsedMB": 6.1105,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 1179,
+          "recalcStyleCount": 1418
+        },
+        {
+          "cycle": 35,
+          "jsHeapUsedMB": 6.1258,
+          "domNodes": 11679,
+          "domListeners": 676,
+          "layoutCount": 1213,
+          "recalcStyleCount": 1460
+        },
+        {
+          "cycle": 36,
+          "jsHeapUsedMB": 6.1104,
+          "domNodes": 11676,
+          "domListeners": 676,
+          "layoutCount": 1247,
+          "recalcStyleCount": 1501
+        }
+      ],
+      "nodeDelta": 703,
+      "listenerDelta": 43,
+      "heapDeltaMB": 1.3441,
+      "failureCount": 0,
+      "localRequests": 285,
+      "blockedRequests": 0,
+      "cycles": 36
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "version": "RC57.10.63",
+  "kind": "local synthetic CSS parser microbenchmark, not Vercel performance",
+  "runsPerMode": 24,
+  "statistics": {
+    "before": {
+      "rawBytes": 685724,
+      "gzip9Bytes": 144380,
+      "brotli9Bytes": 125810,
+      "ruleCount": 4666,
+      "parserMedianMs": 16.8,
+      "parserP95Ms": 18.5,
+      "parserRuns": 24
+    },
+    "after": {
+      "rawBytes": 661537,
+      "gzip9Bytes": 129254,
+      "brotli9Bytes": 112871,
+      "ruleCount": 4666,
+      "parserMedianMs": 16.8,
+      "parserP95Ms": 18,
+      "parserRuns": 24
+    }
+  },
+  "delta": {
+    "rawBytes": -24187,
+    "gzip9Bytes": -15126,
+    "brotli9Bytes": -12939,
+    "ruleCount": 0,
+    "parserMedianMs": 0.0
+  },
+  "limitations": "Local Chromium parser microbenchmark and offline compression; no live HTTP transfer, cache hit or real-user FCP/LCP measured. Do not infer a production speedup."
+}

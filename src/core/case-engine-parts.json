@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "description": "Canonical authoring chunks. Generated src/core/case-engine.js retains exact legacy content and runtime order.",
+  "referenceSha256": "cfd2d0f6bdbbeaa92df281dab529294893837547f067cca68533324fe2136779",
+  "parts": [
+    {
+      "file": "src/core/case-engine-parts/01-start-navigation-evidence.js",
+      "chars": 191818,
+      "bytes": 196932,
+      "sha256": "b978afe6d709c7ad9e825fe8a19b9726156bfdda5cc3481f09b8ed37432fb312"
+    },
+    {
+      "file": "src/core/case-engine-parts/02-witness-language-data.js",
+      "chars": 285243,
+      "bytes": 285247,
+      "sha256": "5cea43422f2975d96c3ae7fb1c2bae6cc07d129b6e8892256db8a2037d2b5b99"
+    },
+    {
+      "file": "src/core/case-engine-parts/03-witness-dialogue-memory.js",
+      "chars": 146645,
+      "bytes": 148345,
+      "sha256": "939d14b508f721ab9ca66622539c110a4a25c9f997d3fd122ea034f48d465e62"
+    },
+    {
+      "file": "src/core/case-engine-parts/04-witness-behaviour-tcms.js",
+      "chars": 158295,
+      "bytes": 159088,
+      "sha256": "523d621a89bb9088351dbee186e8b067a781cbb4bba86e3dc9c791e731938fac"
+    },
+    {
+      "file": "src/core/case-engine-parts/05-tcms-messages-cctv.js",
+      "chars": 147700,
+      "bytes": 149782,
+      "sha256": "f25a2eb3ce6a6c0464d00fcfc0b2bc345c219a1cff2b10c265e252c16984f32b"
+    },
+    {
+      "file": "src/core/case-engine-parts/06-cctv-forensics-access.js",
+      "chars": 168010,
+      "bytes": 170046,
+      "sha256": "e4e80070850ae0162fffb336a6f018b536f37d62990507f71635e70a355b87f8"
+    },
+    {
+      "file": "src/core/case-engine-parts/07-access-investigation.js",
+      "chars": 119352,
+      "bytes": 122366,
+      "sha256": "94f914935324e1bf720446e20dab2ff7c1083fc92211f06fdae1688ae47898da"
+    },
+    {
+      "file": "src/core/case-engine-parts/08-scene-progression-and-final.js",
+      "chars": 147353,
+      "bytes": 149955,
+      "sha256": "36bc92034501aba94a440e679e88ab6d437be2510e7ab29519a8498a7d3a1ed5"
+    }
+  ]
+}

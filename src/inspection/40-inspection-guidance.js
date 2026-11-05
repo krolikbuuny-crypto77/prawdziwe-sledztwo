@@ -101,7 +101,8 @@
     const resolved=visible.filter(h=>s.inspected.includes(h.id));
     const list=s.pendingOnly ? unresolved : [...unresolved,...resolved];
     const box=$('scHotspots'); if(!box) return;
-    box.innerHTML='<div class="ov3-results-heading">Odkryte obiekty: '+visible.length+' / '+spotsForRoom(room.id).length+'</div>' + (s.pendingOnly?'<div class="sc84-sorted-note">Widok pokazuje tylko punkty, które nadal wymagają badania.</div>':'<div class="sc84-sorted-note">Na górze listy znajdują się punkty niezbadane, niżej już przeanalizowane.</div>') + (list.length?list.map((h,i)=>`<button type="button" class="sc-spot ${s.selected===h.id?'active':''} ${s.inspected.includes(h.id)?'done':''} ${!s.inspected.includes(h.id)?'sc84-priority':''}" data-sc-spot="${h.id}"><span class="sc-num">${s.inspected.includes(h.id)?'✓':i+1}</span><span class="sc-label"><b>${esc(h.title)}</b><small>${esc(statusText(h))}</small></span></button>`).join(''):'<p class="ov3-unfound">W tej chwili nie ma tu punktów spełniających wybrany filtr. Wyłącz filtr albo odkryj nowe miejsce na zdjęciu.</p>');
+    const markup='<div class="ov3-results-heading">Odkryte obiekty: '+visible.length+' / '+spotsForRoom(room.id).length+'</div>' + (s.pendingOnly?'<div class="sc84-sorted-note">Widok pokazuje tylko punkty, które nadal wymagają badania.</div>':'<div class="sc84-sorted-note">Na górze listy znajdują się punkty niezbadane, niżej już przeanalizowane.</div>') + (list.length?list.map((h,i)=>`<button type="button" class="sc-spot ${s.selected===h.id?'active':''} ${s.inspected.includes(h.id)?'done':''} ${!s.inspected.includes(h.id)?'sc84-priority':''}" data-sc-spot="${h.id}"><span class="sc-num">${s.inspected.includes(h.id)?'✓':i+1}</span><span class="sc-label"><b>${esc(h.title)}</b><small>${esc(statusText(h))}</small></span></button>`).join(''):'<p class="ov3-unfound">W tej chwili nie ma tu punktów spełniających wybrany filtr. Wyłącz filtr albo odkryj nowe miejsce na zdjęciu.</p>');
+    if(!psRenderMarkup(box,markup))return;
     box.querySelectorAll('[data-sc-spot]').forEach(b=>b.addEventListener('click',()=>window.scPick(b.dataset.scSpot)));
   }
   function jumpTo(id){
@@ -137,6 +138,7 @@
     toast('Wszystkie odkryte punkty są już zbadane.');
   }
   const oldRender=window.scRender;
+  window.PS84_HOTSPOTS_ACTIVE=true;
   window.scRender=function(){const out=oldRender.apply(this,arguments); ensure(); renderHotspotsEnhanced(); renderSummary(); renderFocus(); renderCompare(); decoratePins(); bindToolbar(); return out;};
   const oldPick=window.scPick;
   window.scPick=function(id){const out=oldPick.apply(this,arguments); const s=ensure(); if(s&&s.selected===id) pushRecent(id); renderSummary(); renderFocus(); renderCompare(); decoratePins(); return out;};

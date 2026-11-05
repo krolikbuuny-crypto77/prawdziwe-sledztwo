@@ -1,0 +1,69 @@
+{
+  "version": "RC57.10.65",
+  "baseline": null,
+  "runs": [
+    {
+      "tab": "interview",
+      "mutations": {
+        "characterList": 0,
+        "attachedDoc": 0,
+        "ps23EvidenceCards": 0
+      },
+      "medianMs": 20.5,
+      "p95Ms": 23.5,
+      "active": "interview",
+      "navActive": 1,
+      "overflow": false,
+      "version": "after",
+      "width": 390
+    },
+    {
+      "tab": "inspection12",
+      "mutations": {
+        "scRooms": 0,
+        "scPins": 0,
+        "scHotspots": 0,
+        "scMetrics": 0,
+        "scBlueprintBase": 0
+      },
+      "medianMs": 16.799999999813735,
+      "p95Ms": 19.59999999962747,
+      "active": "inspection12",
+      "navActive": 1,
+      "overflow": false,
+      "version": "after",
+      "width": 390
+    },
+    {
+      "tab": "deduction",
+      "mutations": {
+        "dedSourceList": 0,
+        "dedBoard": 0,
+        "dedMetrics": 0
+      },
+      "medianMs": 20.899999999906868,
+      "p95Ms": 26,
+      "active": "deduction",
+      "navActive": 1,
+      "overflow": false,
+      "version": "after",
+      "width": 390
+    }
+  ],
+  "errors": [],
+  "interactions": [
+    {
+      "width": 390,
+      "witnessDOMStable": true,
+      "witnessStatusUpdated": true,
+      "witnessButtonWorks": true,
+      "exhibitAppears": true,
+      "selectedExhibitPreserved": true,
+      "inspectionDOMStable": true,
+      "roomButtonWorks": true,
+      "deductionSourcesStable": true,
+      "deductionFilterUpdates": true,
+      "deductionFilterResets": true
+    }
+  ]
+}

@@ -7,7 +7,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 ROOT=Path(__file__).resolve().parent.parent
-HTML=(ROOT/'index.html').read_text(encoding='utf-8')
+HTML=(ROOT/'tools/.test-index-inline.html').read_text(encoding='utf-8')
 STORAGE_SHIM="""(contents) => {
  const map=new Map(Object.entries(contents||{}));
  const store={getItem(key){return map.has(String(key))?map.get(String(key)):null;},

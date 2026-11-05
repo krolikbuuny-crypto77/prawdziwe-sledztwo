@@ -9,6 +9,8 @@ import {ledgerContext,witnessRevisionSignature} from '../lib/witness-ledger-rc22
 import {buildConversationState} from '../lib/conversation-state-rc21.js';
 import {buildPolishPragmatics} from '../lib/polish-pragmatics-rc20.js';
 import {randomUUID} from 'node:crypto';
+import {serverTurnMemory,exactRecallReply,chronologyAttributionIssue} from '../lib/interview-turn-memory-rc58.js';
+import {repetitionContext,repetitionReview} from '../lib/interview-repetition-rc58.js';
 import {signInterviewExcerpt} from '../lib/interview-restore-proof-rc34.js';
 import {compactInterviewPayload} from '../lib/interview-payload-rc15.js';
 import {semanticAuditWire} from '../lib/interview-perf-rc57105.js';
@@ -25,6 +27,7 @@ import {styleForWitness} from '../lib/narrative-voice-619.js';
 import {dialogueContinuity} from '../lib/dialogue-continuity-620.js';
 import {buildThreadCue} from '../lib/dialogue-threads-621.js';
 import {dialogueDirection} from '../lib/dialogue-direction-rc32.js';
+import {buildWitnessHumanityV3} from '../lib/witness-humanity-v3.js';
 import {buildInterrogationBrief} from '../lib/interrogation-brief-rc45.js';
 import {classifyModelReply} from '../lib/story-consistency.js';
 import {configured,sessionId,loadSession,commitSession,appendReportedTurn,approvedHistory,allowInterview} from '../lib/server-state.js';
@@ -50,6 +53,9 @@ const failureCode=(provider,error)=>{
  if(e==='upstream_payment_required')return provider+'_payment_required';
  if(e==='upstream_request_too_large')return provider+'_request_too_large';
  if(e==='upstream_unavailable')return provider+'_upstream_unavailable';
+ if(e==='model_call_budget_exhausted')return provider+'_budget_exhausted';
+ if(e==='invalid_model_json'||e==='invalid_model_payload')return provider+'_invalid_json';
+ if(e.startsWith('apinex_queue_')||e==='apinex_distributed_queue_unavailable')return provider+'_rate_limiter_unavailable';
  if(e==='upstream_invalid_request')return provider+'_invalid_request';
   if(e==='model_not_available')return provider+'_model_not_available';
  if(e==='provider-not-configured')return provider+'_not_configured';
@@ -176,6 +182,7 @@ function fastVerbatimEntailment(scene,selected,proposal){
 // Obaj dostawcy dostają ten sam zestaw instrukcji, faktów i historię świadka.
 // Brak kompletnej, zgodnej z faktami odpowiedzi uruchamia następnego dostawcę.
 async function attemptInterviewCore(scene,provider,invoke=chat,trace=null){
+ if(!scene.witnessHumanityV3)scene.witnessHumanityV3=buildWitnessHumanityV3(scene);
  const canonical=scene.knowledge.currentGroundedAnswer;
  scene.polishPragmatics=buildPolishPragmatics(scene.question,scene.approvedThreadHistory||scene.memory?.conversation||[]);
  scene.conversationState=buildConversationState(scene.identity.id,scene.approvedThreadHistory||scene.memory?.conversation||[],scene.question,scene.presentedEvidence);
@@ -203,18 +210,32 @@ async function attemptInterviewCore(scene,provider,invoke=chat,trace=null){
   }:null
  });
  const run=async(system,payload,maxTokens,temp,phase)=>{
-  const started=Date.now();
-  try{
-   const answer=await invoke(system,{...modelContext(payload,phase),_responseDeadline:scene._responseDeadline,
-    _providerDeadline:scene._providerDeadline},maxTokens,temp,provider,phase);
-   trace?.noteProviderCall(phase,getInterviewProviderMetrics(answer));
-   trace?.add(provider,phase,'ok',Date.now()-started,'accepted');
-   return answer;
-  }catch(e){
-   if(e&&typeof e==='object')e.interviewPhase=phase;
-   if(e?.diagnostic?.requestDispatched===true)trace?.noteProviderCall(phase,e.diagnostic);
-   trace?.add(provider,phase,'error',Date.now()-started,/timeout|abort/i.test(String(e?.message||''))?'timeout':'provider_error');
-   throw e;
+  const budget=scene._modelCallBudget||(scene._modelCallBudget={used:0,max:4});
+  for(let transportRetry=0;transportRetry<2;transportRetry++){
+   if(budget.used>=budget.max){
+    const blocked=new Error('model_call_budget_exhausted');blocked.interviewPhase=phase;
+    trace?.add(provider,phase,'skipped',0,'no_retry_budget');throw blocked;
+   }
+   budget.used++;
+   const started=Date.now();
+   try{
+    const answer=await invoke(system,{...modelContext(payload,phase),_responseDeadline:scene._responseDeadline,
+     _providerDeadline:scene._providerDeadline},maxTokens,temp,provider,phase);
+    trace?.noteProviderCall(phase,getInterviewProviderMetrics(answer));
+    trace?.add(provider,phase,'ok',Date.now()-started,'accepted');
+    return answer;
+   }catch(e){
+    if(e&&typeof e==='object')e.interviewPhase=phase;
+    if(e?.diagnostic?.requestDispatched===true)trace?.noteProviderCall(phase,e.diagnostic);
+    trace?.add(provider,phase,'error',Date.now()-started,/timeout|abort/i.test(String(e?.message||''))?'timeout':'provider_error');
+    const code=String(e?.code||e?.message||'');
+    const transient=/^(?:upstream_unavailable|upstream-50[02347]|network_error)$/.test(code)||[502,503,504].includes(e?.diagnostic?.upstreamStatus);
+    // 429/credentials/invalid facts are NEVER retried on the same request.
+    const backoff=Math.floor(Math.min(1000,200*2**transportRetry)+Math.random()*160);
+    const deadline=Math.min(scene._responseDeadline||Infinity,scene._providerDeadline||Infinity);
+    if(!transient||transportRetry>=1||budget.used>=budget.max||Date.now()+backoff+INTERVIEW_BUDGET.minCallMs>=deadline)throw e;
+    await new Promise(resolve=>setTimeout(resolve,backoff));
+   }
   }
  };
  const reject=(reason)=>{trace?.add(provider,'quality','rejected',0,reason);return null;};
@@ -253,10 +274,15 @@ async function attemptInterviewCore(scene,provider,invoke=chat,trace=null){
    return null;
   }
   const proposal=normalizeWitnessSpeech(scrub(response.text,1650));
+  const chronology=chronologyAttributionIssue(scene.turnMemory,proposal);
+  if(chronology){trace?.add(provider,'quality','rejected',0,'invented_prior_quote');return null;}
   if(!proposal||!reviewSpokenReply(proposal,{compound:scene.questionParts.length>1||scene.polishPragmatics?.segments?.length>1}).ok){
    if(reviseOrReject('poor_style',proposal,revision))continue;
    return null;
   }
+  const rep=repetitionReview(scene.repetitionContext,scene.question,proposal);
+  if(rep.status==='justified_repeat')trace?.add(provider,'quality','ok',0,'justified_repetition');
+  if(rep.status==='potential_irrelevant_repeat')trace?.add(provider,'quality','ok',0,'stylistic_repetition');
   const quality=reviewInterviewReply(scene,proposal,selected);
   if(!quality.ok){
    if(reviseOrReject(quality.reason,proposal,revision))continue;
@@ -292,6 +318,8 @@ async function attemptInterviewCore(scene,provider,invoke=chat,trace=null){
   const audit=await run(semanticSystem,{
    question:scene.question,questionParts:scene.questionParts,polishPragmatics:scene.polishPragmatics,conversationState:scene.conversationState,declarationLedger:scene.declarationLedger,witnessStrategy:scene.witnessStrategy,
    conversation:scene.memory.conversation.slice(-5),dialogueFocus:scene.dialogueFocus,
+   turnMemory:scene.turnMemory?{first:scene.turnMemory.first?{sequence:scene.turnMemory.first.sequence,answer:scene.turnMemory.first.answer.slice(0,650)}:null,
+    recent:scene.turnMemory.recent?.slice(-3),ordered:scene.turnMemory.ordered}:null,
    presentedEvidence:scene.presentedEvidence,dialogueDynamics:scene.dialogueDynamics,
    priorReplies:previousDistinct,
    selectedFacts:selected.map(f=>({text:f.text,certainty:f.certainty,origin:f.origin,source:f.source,kind:f.knowledgeKind})),
@@ -301,8 +329,9 @@ async function attemptInterviewCore(scene,provider,invoke=chat,trace=null){
     audit.coveredParts.length===scene.questionParts.length&&audit.coveredParts.every(x=>x===true));
   const semanticallyRepeated=previousDistinct.length>0&&audit?.semanticRepeat===true;
   if(semanticallyRepeated){
-   if(reviseOrReject('semantic_repetition',proposal,revision))continue;
-   return null;
+   // Repetition alone is not a canon violation. Do not spend another model call
+   // merely to change wording; genuine non-answers still fail relevant/complete.
+   trace?.add(provider,'quality','ok',0,'stylistic_repetition');
   }
   if(!partsOk){
    if(reviseOrReject('missing_question_part',proposal,revision))continue;
@@ -310,6 +339,9 @@ async function attemptInterviewCore(scene,provider,invoke=chat,trace=null){
   }
   if(classifyModelReply(audit,true)!=='grounded_reply'){
    const reason=audit?.entailed===false?'not_entailed':audit?.relevant===false?'not_relevant':'not_complete';
+   // The same facts with the same question cannot make an unsupported claim true.
+   // Stop this provider's retry loop and use next configured provider / safe fallback.
+   if(reason==='not_entailed'){trace?.add(provider,'quality','rejected',0,reason);return null;}
    if(reviseOrReject(reason,proposal,revision))continue;
    return null;
   }
@@ -412,16 +444,30 @@ export default async function handler(req,res){
  // 6.30: reconstruct question semantics from the ORIGINAL question and server-
  // approved transcript AFTER removing all client-authored fact/context hints.
  Object.assign(scene,verifiedQuestionContext);
+ scene.questionScope={authority:'question_interpretation_only_not_facts',
+  exactQuestion:scene.question,
+  positiveQuestion:verifiedQuestionContext.questionPlan?.positiveQuestion||scene.question,
+  excludedTopics:(verifiedQuestionContext.questionPlan?.excludedTopics||[]).slice(0,3),
+  multipleParts:verifiedQuestionContext.questionParts?.length||0,
+  note:'Najpierw odpowiedz na pytanie gracza. Nie wymyślaj oskarżenia ani wykluczonych tematów. Konieczna wzmianka w uczciwej odpowiedzi jest dozwolona.'};
  if(stored){
   scene.memory.conversation=scene.approvedThreadHistory.slice(-12).map(x=>({role:x.role==='witness'?'świadek':'śledczy',text:x.narrativeStatus==='offline_unverified'?'Odpowiedź lokalna (niezweryfikowana; nie jest źródłem faktów).':x.text}));
   scene.memory.longTerm=[];
  }
  // Pamięć jest odbudowywana z serwerowo zapisanej historii, nie z danych klienta.
  scene.dialogueMemory=buildDialogueMemory(scene.approvedThreadHistory||[],scene.question);
+ // Exact chronological memory is sourced exclusively from persisted receipts and
+ // CAS witness ledger; client's history and long-term summary are never trusted.
+ scene.turnMemory=serverTurnMemory(stored?.state||{},input.witnessId,scene.question,scene.knowledge.factBank);
+ scene.repetitionContext=repetitionContext(scene.approvedThreadHistory||[],scene.question);
+ const recall=exactRecallReply(scene.turnMemory);
+ if(recall&&!recall.ok)return res.status(409).json({ok:false,error:'Nie można wiarygodnie odtworzyć wskazanej tury rozmowy.',retryable:false,reasonCode:recall.reason});
  scene.declarationLedger=ledgerContext(stored?.state||{},input.witnessId,scene.question);
  scene.witnessStrategy=chooseWitnessStrategy(input.witnessId,stored?.state||null,scene.declarationLedger,scene.question,scene.presentedEvidence);
  // RC32: ton i kierunek rozmowy wyłącznie z pytania i zatwierdzonej historii.
  scene.dialogueDynamics=dialogueDirection(scene);
+ // Żywi świadkowie 3.0: server-derived delivery plan; facts still owned by factBank.
+ scene.witnessHumanityV3=buildWitnessHumanityV3(scene);
  // RC57.10.45: consistent question focus, knowledge provenance and character tone;
  // only approved server facts and approved witness turns enter this plan.
  scene.interrogationBrief=buildInterrogationBrief(scene);
@@ -443,11 +489,14 @@ export default async function handler(req,res){
  const baseWitnessRevision=stored?witnessRevisionSignature(stored.state,input.witnessId):null;
  const requestId=randomUUID();
  scene._responseDeadline=startedAt+INTERVIEW_BUDGET.totalMs;
+ scene._modelCallBudget={used:0,max:4}; // generate + correction + ALL independent audits, all providers
+ const maxCloudProviders=4;
  const reasons=[],providerFailures=[];
  const trace=makeInterviewTrace();
  trace.addContextDuration(Date.now()-contextStartedAt);
  if(!process.env.APINEX_API_KEY)reasons.push('apinex_not_configured');
- const providers=input.localOnly===true?['local']:INTERVIEW_CHAIN.filter(id=>id==='local'||!!process.env.APINEX_API_KEY);
+ const providers=recall?.ok||input.localOnly===true?['local']:
+  [...INTERVIEW_CHAIN.filter(id=>id!=='local'&&!!process.env.APINEX_API_KEY).slice(0,maxCloudProviders),'local'];
  if(input.localOnly===true)reasons.push('client_requested_local_fallback');
  let apinexBlocked=false,apinexOutages=0;
  for(const provider of providers){
@@ -464,7 +513,9 @@ export default async function handler(req,res){
    reasons.push(provider+'_budget_exhausted');trace.add(provider,'generate','skipped',0,'no_retry_budget');continue;
   }
   try{
-   const result=provider==='local'?localInterviewReply(scene):await attemptInterview(scene,provider,chat,trace);
+   const result=recall?.ok?{ok:true,decision:'answer',text:recall.text,factIds:[],sourceIds:[],sourceId:'turn',
+    localVerified:true,quotedTurnId:recall.quotedTurnId,quotedSequence:recall.sequence,exactPriorQuote:true}:
+    provider==='local'?localInterviewReply(scene):await attemptInterview(scene,provider,chat,trace);
    if(provider==='local')trace.add('local','generate','ok',0,'authored_fallback');
    if(result&&(provider==='local'||!repeatsIrrelevantly(scene.question,result.text,approvedTranscript))){
     if(stored){
@@ -494,6 +545,10 @@ export default async function handler(req,res){
      if(!saved)return fail(res,503,'Testimony history conflict');
     }
     const qualityDiagnostics=trace.summary();
+    qualityDiagnostics.callLimit=scene._modelCallBudget.max;
+    qualityDiagnostics.totalAttemptedModelCalls=scene._modelCallBudget.used;
+    qualityDiagnostics.humanityVersion=scene.witnessHumanityV3?.version||null;
+    qualityDiagnostics.humanityMove=scene.witnessHumanityV3?.interpretation?.move||null;
     const info={...diagnostics(provider,reasons.join(';')||null,requestId,startedAt),
      ...Object.fromEntries(['generateDurationMs','semanticAuditDurationMs','localValidationDurationMs','contextPreparationDurationMs','providerCalls','correctiveCalls','rejectedChecks','inputTokens','outputTokens','contextSize','auditMode','providerWaitDurationMs','quotaWaitDurationMs'].map(k=>[k,qualityDiagnostics[k]??null])),
      totalDurationMs:Date.now()-startedAt,providerFailures,qualityDiagnostics};
@@ -519,6 +574,9 @@ export default async function handler(req,res){
  const retryAfterSeconds=Math.max(0,...providerFailures.filter(x=>!x.code.endsWith('_request_too_large')).map(x=>x.retryAfterSeconds||0));
  if(retryAfterSeconds)res.setHeader('Retry-After',String(retryAfterSeconds));
  const qualityDiagnostics=trace.summary();
+ qualityDiagnostics.callLimit=scene._modelCallBudget.max;qualityDiagnostics.totalAttemptedModelCalls=scene._modelCallBudget.used;
+ qualityDiagnostics.humanityVersion=scene.witnessHumanityV3?.version||null;
+ qualityDiagnostics.humanityMove=scene.witnessHumanityV3?.interpretation?.move||null;
  const info={...diagnostics('unavailable',reasons.join(';')||'cloud_response_unavailable',requestId,startedAt),
   ...Object.fromEntries(['generateDurationMs','semanticAuditDurationMs','localValidationDurationMs','contextPreparationDurationMs','providerCalls','correctiveCalls','rejectedChecks','inputTokens','outputTokens','contextSize','auditMode','providerWaitDurationMs','quotaWaitDurationMs'].map(k=>[k,qualityDiagnostics[k]??null])),
   totalDurationMs:Date.now()-startedAt,providerFailures,retryAfterSeconds:retryAfterSeconds||null,qualityDiagnostics};

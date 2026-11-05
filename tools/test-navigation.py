@@ -8,7 +8,7 @@ import shutil
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
-HTML = (ROOT / 'index.html').read_text(encoding='utf-8')
+HTML = (ROOT / 'tools/.test-index-inline.html').read_text(encoding='utf-8')
 TABS = ('overview', 'evidence', 'search', 'interview', 'timeline', 'inspection12',
         'notebook', 'labs', 'deduction', 'final')
 
