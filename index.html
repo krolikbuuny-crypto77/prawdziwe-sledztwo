@@ -6090,6 +6090,260 @@ html,body{
   #deduction .dd-work {min-width:0!important;}
   #final .fc-grid {gap:16px!important;}
 }
+/* RC57.10.58 · Korekta panelu akt i mierników przesłuchania.
+ * Wyłącznie wygląd: bez zmian w DOM, danych, pytaniach, stanie, API i zapisie.
+ * Ostatni arkusz w paczce: jedna kontrolowana warstwa zamiast zmian
+ * kilkudziesięciu historycznych reguł CSS z !important.
+ */
+
+/* Czytelne, zwarte wiersze w spisie dokumentów. */
+#evidence.ps28-skin .ev-workspace {
+  box-sizing: border-box !important;
+  align-items: stretch !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+#evidence.ps28-skin .ev-index,
+#evidence.ps28-skin .ev-reader {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+}
+#evidence.ps28-skin .ev-index {
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+#evidence.ps28-skin .ev-index-head {
+  box-sizing: border-box !important;
+  flex: 0 0 auto !important;
+  min-width: 0 !important;
+  min-height: 82px !important;
+  padding: 14px 18px !important;
+  gap: 12px !important;
+}
+#evidence.ps28-skin .ev-index-head h3 {
+  font-size: clamp(20px, 1.55vw, 24px) !important;
+  line-height: 1.15 !important;
+}
+#evidence.ps28-skin .ev-index-num {
+  flex: 0 0 auto !important;
+  padding: 8px 10px !important;
+}
+#evidence.ps28-skin .ev-file-list {
+  flex: 1 1 auto !important;
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  scrollbar-gutter: stable;
+}
+#evidence.ps28-skin .ev-file {
+  box-sizing: border-box !important;
+  padding: 10px 12px !important;
+  min-height: 68px !important;
+  gap: 9px !important;
+  align-items: center !important;
+  overflow-wrap: anywhere !important;
+}
+#evidence.ps28-skin .ev-file-main { gap: 3px !important; min-width: 0 !important; }
+#evidence.ps28-skin .ev-file-class { font-size: 10px !important; line-height: 1.2 !important; }
+#evidence.ps28-skin .ev-file strong { font-size: clamp(12px, 1vw, 14px) !important; line-height: 1.25 !important; }
+#evidence.ps28-skin .ev-file small { font-size: 11px !important; line-height: 1.25 !important; }
+#evidence.ps28-skin .ev-index-bottom {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  box-sizing: border-box !important;
+  min-height: 43px !important;
+  padding: 11px 16px !important;
+  font-size: 10px !important;
+  line-height: 1.35 !important;
+  letter-spacing: .075em !important;
+  color: #694931 !important;
+  background: #e9c99f !important;
+}
+
+/* Desktop: dwie kolumny o takiej samej wysokości, przewijane w środku.
+ * Ograniczamy całą przestrzeń roboczą, nie czytanie dokumentu.
+ */
+@media (min-width: 1025px) {
+  #evidence.ps28-skin .ev-workspace {
+    height: clamp(600px, calc(100dvh - 165px), 880px) !important;
+  }
+  #evidence.ps28-skin .ev-index,
+  #evidence.ps28-skin .ev-reader {
+    height: 100% !important;
+    max-height: 100% !important;
+    align-self: stretch !important;
+    overflow: hidden !important;
+  }
+  #evidence.ps28-skin .ev-file-list { max-height: none !important; }
+  #evidence.ps28-skin .ev-reader {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  #evidence.ps28-skin .ev-reader-top,
+  #evidence.ps28-skin .ev-reader-foot { flex: 0 0 auto !important; }
+  #evidence.ps28-skin .ev-sheet {
+    box-sizing: border-box !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* Tablet: bez stałej wysokości całej dwukolumnowej sekcji.
+ * Widok lista/podgląd jest sterowany istniejącym JS; nie zmieniamy go.
+ */
+@media (max-width: 1024px) {
+  #evidence.ps28-skin .ev-workspace {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+  }
+  #evidence.ps28-skin .ev-index { height: auto !important; max-height: none !important; }
+  #evidence.ps28-skin .ev-file-list {
+    flex: none !important;
+    max-height: clamp(350px, 60dvh, 660px) !important;
+    min-height: 0 !important;
+  }
+  #evidence.ps28-skin .ev-reader {
+    height: auto !important;
+    max-height: none !important;
+  }
+}
+@media (max-width: 430px) {
+  #evidence.ps28-skin .ev-index-head { min-height: 74px !important; padding: 12px 13px !important; }
+  #evidence.ps28-skin .ev-file { padding: 10px 8px !important; min-height: 67px !important; gap: 6px !important; }
+  #evidence.ps28-skin .ev-file strong { font-size: 12px !important; }
+  #evidence.ps28-skin .ev-index-bottom { padding: 10px 12px !important; font-size: 10px !important; }
+}
+
+/* Mierniki: zaufanie, napięcie i zmęczenie — równe karty,
+ * bez nachodzących obramowań i zawijających się procentów. */
+#interview #npc4Panel {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  padding: 6px 8px !important;
+  overflow: hidden !important;
+}
+#interview #npc4Panel .npc4-metrics {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  align-items: stretch !important;
+}
+#interview #npc4Panel .npc4-metric,
+#interview #npc4Panel .npc4-metric:last-child {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 4px 7px !important;
+  border: 1px solid #b58a58 !important;
+  border-radius: 6px !important;
+  background: linear-gradient(180deg, #fae9c7, #efd2aa) !important;
+}
+#interview #npc4Panel .npc4-label {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: baseline !important;
+  min-width: 0 !important;
+  gap: 4px !important;
+  margin: 0 0 5px !important;
+  font: 700 clamp(10px, .95vw, 13px)/1.1 Georgia, serif !important;
+  white-space: nowrap !important;
+}
+#interview #npc4Panel .npc4-value {
+  flex: 0 0 auto !important;
+  font-size: 10px !important;
+  line-height: 1.1 !important;
+}
+#interview #npc4Panel .npc4-track {
+  box-sizing: border-box !important;
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  height: 9px !important;
+  min-height: 9px !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+}
+#interview #npc4Panel .npc4-track > span { max-width: 100% !important; }
+
+/* Niewielki ekran wymaga dodatkowych kilkunastu pikseli na mierniki.
+ * Nie skalujemy tekstu ani całego interfejsu. */
+@media (max-width: 680px) {
+  #interview .chathead {
+    height: 196px !important;
+    min-height: 196px !important;
+    max-height: 196px !important;
+  }
+  #interview #npc4Panel {
+    left: 7px !important;
+    right: 7px !important;
+    bottom: 6px !important;
+    height: 58px !important;
+    min-height: 58px !important;
+    max-height: 58px !important;
+    padding: 5px !important;
+  }
+  #interview #npc4Panel .npc4-metrics { gap: 4px !important; }
+  #interview #npc4Panel .npc4-metric,
+  #interview #npc4Panel .npc4-metric:last-child { padding: 4px 5px !important; }
+  #interview #npc4Panel .npc4-label {
+    margin: 0 0 5px !important;
+    gap: 2px !important;
+    font-size: 10px !important;
+  }
+  #interview #npc4Panel .npc4-value { font-size: 9px !important; }
+  #interview #npc4Panel .npc4-track { height: 8px !important; min-height: 8px !important; }
+}
+@media (max-width: 360px) {
+  #interview #npc4Panel .npc4-metrics { gap: 3px !important; }
+  #interview #npc4Panel .npc4-metric,
+  #interview #npc4Panel .npc4-metric:last-child { padding: 4px 3px !important; }
+}
+
+/* Przycisk zwijania portretu był zakotwiczony do dołu, więc zachodził
+ * na górną krawędź mierników. Zostawiamy go przy zdjęciu, ponad paskami. */
+@media (max-width: 680px) {
+  #interview .chathead .psm-portrait-toggle {
+    position: absolute !important;
+    top: 100px !important;
+    bottom: auto !important;
+    left: 8px !important;
+    right: auto !important;
+    width: 94px !important;
+    max-width: 94px !important;
+    height: 25px !important;
+    min-height: 25px !important;
+    padding: 3px 4px !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+    z-index: 9 !important;
+  }
+  #interview .chathead .psm-portrait-toggle::after {
+    content: 'Ukryj portret';
+    display: block;
+    font: 700 10px/1.2 Georgia, serif;
+    text-align: center;
+    white-space: nowrap;
+  }
+  #interview .chathead .psm-portrait-toggle[aria-expanded='false']::after {
+    content: 'Pokaż portret';
+  }
+}
 </style>
 
 

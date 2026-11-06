@@ -1440,11 +1440,12 @@
         "src/styles/rc571035-fluid-viewport.css",
         "src/styles/rc571036-professional-sections.css",
         "src/styles/rc571037-final-polish.css",
-        "src/styles/rc571038-premium-dossier.css"
+        "src/styles/rc571038-premium-dossier.css",
+        "src/styles/66-rc571058-panel-layout.css"
       ],
       "marker": "__PS_SOURCE_STYLE_063__",
-      "sha256": "05cc332740529742190abe7163d911d7cc56f73123c3e8cf3287e693939cee19",
-      "size": 352605
+      "sha256": "1edf38c9b684429036b11e62cda5739e51f547c285c2a1987b35087775f4c322",
+      "size": 361166
     }
   ]
 }
