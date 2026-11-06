@@ -252,3 +252,318 @@
     content: 'Pokaż portret';
   }
 }
+
+/* RC57.10.58 — druga korekta widoczna na zrzutach z 06.11.2026.
+   Trzy obszary: karta świadka, tablica Czerwonej Nitki, pulpit sprawy.
+   Wyłącznie CSS. Nie zmieniamy zdarzeń, identyfikatorów ani silnika gry. */
+
+/* 1. NAGŁÓWEK PRZESŁUCHANIA — tekst i mierniki w zwykłym przepływie.
+   Wcześniejsze absolutne pozycjonowanie zakrywało opis stanowiska świadka. */
+@media (min-width: 681px) {
+  #interview .charactergrid > .chat {
+    grid-template-rows: minmax(230px, auto) minmax(215px, 1fr) auto !important;
+  }
+  #interview .chat .chathead.chathead-live {
+    display: grid !important;
+    grid-template-columns: clamp(112px, 13vw, 172px) minmax(0, 1fr) !important;
+    height: auto !important;
+    min-height: 230px !important;
+    max-height: none !important;
+    overflow: visible !important;
+    gap: clamp(10px, 1.2vw, 18px) !important;
+    padding: 13px 16px !important;
+    align-items: start !important;
+  }
+  #interview .chathead .witness-stage-host {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    align-self: start !important;
+    max-width: 100% !important;
+  }
+  #interview .chathead .chathead-copy {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+    z-index: 3 !important;
+  }
+  #interview .chathead .chathead-copy::after { display: none !important; }
+  #interview .chathead .chathead-title { position: static !important; margin: 0 !important; }
+  #interview .chathead #chatName { margin: 0 0 8px !important; line-height: 1.1 !important; }
+  #interview .chathead #chatRole {
+    position: static !important;
+    display: block !important;
+    width: fit-content !important;
+    max-width: min(100%, 460px) !important;
+    max-height: none !important;
+    height: auto !important;
+    padding: 8px 11px !important;
+    margin: 0 !important;
+    line-height: 1.3 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    overflow-wrap: anywhere !important;
+  }
+  #interview .chathead #npc4Panel {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 62px !important;
+    max-height: none !important;
+    margin: 5px 0 0 !important;
+    padding: 7px !important;
+    overflow: visible !important;
+    align-self: stretch !important;
+    z-index: 4 !important;
+  }
+  #interview #npc4Panel .npc4-label { font-size: clamp(11px, .92vw, 13px) !important; }
+}
+
+/* Mniejszy ekran: obraz i nazwisko obok siebie, mierniki w osobnym rzędzie.
+   Brak ograniczenia do sztywnych 179/196/230 pikseli. */
+@media (max-width: 680px) {
+  #interview .chat .chathead.chathead-live {
+    display: grid !important;
+    grid-template-columns: clamp(82px, 27vw, 110px) minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    gap: 10px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    flex: 0 0 auto !important;
+    flex-basis: auto !important;
+    padding: 10px !important;
+    overflow: visible !important;
+  }
+  #interview .chathead .chathead-copy { display: contents !important; }
+  #interview .chathead .chathead-copy::after { display: none !important; }
+  #interview .chathead .chathead-title {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    position: static !important;
+    margin: 0 !important;
+    align-self: center !important;
+    min-width: 0 !important;
+  }
+  #interview .chathead .witness-stage-host {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    position: relative !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    align-self: start !important;
+    transform: none !important;
+  }
+  #interview .chathead #chatRole {
+    position: static !important;
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+    white-space: normal !important;
+    font-size: 11.5px !important;
+    line-height: 1.27 !important;
+    padding: 6px 8px !important;
+  }
+  #interview .chathead #npc4Panel {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 58px !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 6px !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+  #interview #npc4Panel .npc4-label { margin: 0 0 5px !important; }
+  #interview .chathead .psm-portrait-toggle { top: 92px !important; }
+}
+@media (max-width: 360px) {
+  #interview .chat .chathead.chathead-live { gap: 7px !important; padding: 8px !important; }
+  #interview .chathead #chatRole { font-size: 10.5px !important; }
+}
+
+/* 2. CZERWONA NITKA — mniej pustej powierzchni i większa czytelność. */
+#deduction #threadBoardPanel { min-width: 0 !important; overflow: hidden !important; }
+#deduction #threadBoardPanel .thread-cork {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: clamp(18px, 2.8vw, 38px) !important;
+  padding: clamp(14px, 1.8vw, 24px) !important;
+  min-height: 0 !important;
+  align-items: start !important;
+}
+#deduction #threadBoardPanel .thread-column { min-width: 0 !important; }
+#deduction #threadBoardPanel .thread-column > header {
+  min-height: 45px !important;
+  padding: 10px 13px !important;
+  margin-bottom: 8px !important;
+}
+#deduction #threadBoardPanel .thread-column > header strong { font-size: 16px !important; line-height: 1.3 !important; }
+#deduction #threadBoardPanel .thread-column > header span { font-size: 12px !important; }
+#deduction #threadBoardPanel .thread-node-list {
+  display: grid !important;
+  align-content: start !important;
+  gap: 10px !important;
+  max-height: min(60dvh, 560px) !important;
+  min-height: 0 !important;
+  padding: 5px 15px 12px 5px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-gutter: stable !important;
+}
+#deduction #threadBoardPanel .thread-paper {
+  padding: 13px 15px !important;
+  min-width: 0 !important;
+  border-radius: 6px !important;
+}
+#deduction #threadBoardPanel .thread-paper strong {
+  font-size: clamp(14px, 1.1vw, 17px) !important;
+  line-height: 1.35 !important;
+  margin: 0 30px 5px 0 !important;
+}
+#deduction #threadBoardPanel .thread-paper small { font-size: 11.5px !important; line-height: 1.4 !important; }
+#deduction #threadBoardPanel .thread-paper p { font-size: 12.5px !important; line-height: 1.5 !important; }
+#deduction #threadBoardPanel .thread-pin,
+#deduction #threadBoardPanel .thread-target { width: 34px !important; height: 34px !important; }
+#deduction #threadBoardPanel #threadCardNodes > .thread-empty {
+  min-height: 160px !important;
+  padding: 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  background: #f6e2bf !important;
+  border: 2px dashed #a77c4e !important;
+}
+#deduction #threadBoardPanel .thread-empty strong { font-size: 18px !important; line-height: 1.35 !important; }
+#deduction #threadBoardPanel .thread-empty p { font-size: 13px !important; line-height: 1.45 !important; margin: 0 !important; }
+#deduction #threadBoardPanel .thread-create { min-height: 43px !important; margin-top: 4px !important; font-size: 13px !important; }
+#deduction #threadBoardPanel .thread-status { font-size: 13px !important; line-height: 1.5 !important; }
+#deduction .ux4-disclosure > summary,
+#deduction .thread-classic > summary { min-height: 43px !important; padding: 10px 13px !important; font-size: 13px !important; line-height: 1.35 !important; }
+@media (max-width: 800px) {
+  #deduction #threadBoardPanel .thread-cork { grid-template-columns: minmax(0, 1fr) !important; gap: 17px !important; }
+  #deduction #threadBoardPanel .thread-node-list { max-height: 44dvh !important; }
+  #deduction #threadBoardPanel .thread-pin { right: -8px !important; }
+  #deduction #threadBoardPanel .thread-target { left: -8px !important; }
+}
+
+/* 3. PRZEGLĄD SPRAWY — bez paska przewijania wewnątrz planszy tytułowej.
+   Wysokość wynika z zawartości, nie ze sztywnego 330–416 px. */
+#overview.ps38-premium .ps38-front-grid > .hero {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  align-items: stretch !important;
+}
+#overview.ps38-premium .hero > .heroText {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding: clamp(16px, 2.1vw, 30px) !important;
+  gap: 13px !important;
+}
+#overview.ps38-premium .hero .heroText h1 { font-size: clamp(30px, 2.9vw, 44px) !important; line-height: 1.13 !important; }
+#overview.ps38-premium .hero .case-lead { font-size: clamp(14px, 1.15vw, 16px) !important; line-height: 1.55 !important; }
+#overview.ps38-premium .hero .case-actions .btn {
+  min-height: 44px !important;
+  font-size: 13px !important;
+  line-height: 1.3 !important;
+}
+#overview.ps38-premium .hero .case-meta span { font-size: 10.5px !important; line-height: 1.3 !important; }
+@media (min-width: 901px) {
+  #overview.ps38-premium .hero #photoGrid {
+    height: auto !important;
+    min-height: 300px !important;
+    max-height: none !important;
+    align-self: stretch !important;
+  }
+}
+@media (max-width: 900px) {
+  #overview.ps38-premium .ps38-front-grid > .hero { grid-template-columns: minmax(0, 1fr) !important; }
+  #overview.ps38-premium .hero > .heroText { height: auto !important; }
+  #overview.ps38-premium .hero #photoGrid { height: auto !important; min-height: 210px !important; max-height: 360px !important; }
+}
+
+/* Osobne osie overflow — historyczna reguła overflow-x:hidden powodowała
+   w Chromium wyliczenie overflow-y:auto mimo późniejszego overflow:visible. */
+.layout .content #overview.ps38-premium .ps38-front-grid > .hero {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+.layout .content #overview.ps38-premium .ps38-front-grid > .hero > .heroText {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+/* Dodatkowa kontrola po renderowaniu: plansza tablicy nie może ucinać listy.
+   Historyczne max-height:580px powodowało wystawanie kart poza korkową ramkę. */
+#deduction #threadBoardPanel #threadCanvas {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+
+/* Nagłówek rozmowy ma wysokość treści, nie zbędny pusty margines.
+   Ozdobny stempel TW-217 nie może znajdować się na pasku zmęczenia. */
+@media (min-width: 681px) {
+  #interview .charactergrid > .chat {
+    grid-template-rows: minmax(183px, auto) minmax(215px, 1fr) auto !important;
+  }
+  #interview .chat .chathead.chathead-live { min-height: 183px !important; }
+  #interview .chathead::after { display: none !important; }
+}
+
+/* Przełącznik portretu ma jedną, krótką etykietę, jest zakotwiczony
+   przy zdjęciu i nie tworzy dodatkowego wiersza siatki. */
+@media (max-width: 680px) {
+  #interview.psm-show-chat .chat .chathead.chathead-live > .psm-portrait-toggle {
+    position: absolute !important;
+    display: grid !important;
+    place-items: center !important;
+    top: 101px !important;
+    left: 11px !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: clamp(79px, 26vw, 102px) !important;
+    min-width: 0 !important;
+    max-width: 102px !important;
+    height: 25px !important;
+    min-height: 25px !important;
+    max-height: 25px !important;
+    padding: 2px 4px !important;
+    margin: 0 !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    z-index: 8 !important;
+  }
+  #interview.psm-show-chat .chathead > .psm-portrait-toggle::after {
+    content: 'Ukryj portret' !important;
+    font: 700 10px/1.1 Georgia, serif !important;
+    white-space: nowrap !important;
+  }
+  #interview.psm-show-chat .chathead > .psm-portrait-toggle[aria-expanded='false']::after {
+    content: 'Pokaż portret' !important;
+  }
+}
