@@ -1,0 +1,309 @@
+/* RC57.10.58 — Laboratorium i Finał: czytelność i responsywność.
+   Tylko CSS. Brak zmian w stanie gry, fabule, punktacji, API lub odblokowaniach.
+   Jawnie rozdzielamy ciemne warsztaty od jasnych kart akt. */
+
+/* 1. LABORATORIUM — pięć wariantów oceny dowodów.  */
+#labs.ps28-skin :is(.mini5-field,.p3-final-choice) {
+  background:#14232b !important;
+  border:1px solid #637987 !important;
+  color:#f3e7d6 !important;
+  max-width:100%;
+  min-width:0;
+}
+#labs.ps28-skin :is(.mini5-field,.p3-final-choice) legend {
+  color:#ffddb0 !important;
+  font-size:14px !important;
+  font-weight:750;
+  line-height:1.5 !important;
+  padding-inline:8px;
+}
+#labs.ps28-skin :is(.mini5-choice,.p3-final-option) {
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  min-height:54px;
+  padding:13px 14px;
+  border:1.5px solid #536a74 !important;
+  border-radius:9px;
+  background:#1a2b33 !important;
+  color:#f6eddf !important;
+  opacity:1 !important;
+  line-height:1.58 !important;
+  font-size:14px !important;
+  cursor:pointer;
+  overflow-wrap:anywhere;
+}
+#labs.ps28-skin :is(.mini5-choice,.p3-final-option) :is(span,b,strong,small,p) {
+  color:#f6eddf !important;
+  opacity:1 !important;
+  font-size:inherit !important;
+  line-height:inherit !important;
+  text-shadow:none !important;
+}
+#labs.ps28-skin :is(.mini5-choice,.p3-final-option) b {color:#ffd28f !important;}
+#labs.ps28-skin :is(.mini5-choice,.p3-final-option):has(input:checked) {
+  background:#284138 !important;
+  border-color:#aad2a8 !important;
+  box-shadow:inset 3px 0 0 #aad2a8;
+}
+#labs.ps28-skin :is(.mini5-choice,.p3-final-option):hover {border-color:#e4ba7e !important;}
+#labs.ps28-skin :is(.mini5-choice,.p3-final-option):focus-within {
+  outline:3px solid #e4ba7e;
+  outline-offset:2px;
+}
+#labs.ps28-skin :is(.mini5-choice,.p3-final-option) input[type="radio"] {
+  accent-color:#eac38e;
+  flex:0 0 19px;
+  width:19px;
+  height:19px;
+  margin-top:2px;
+}
+
+/* 2. LABORATORIUM — warsztaty, metadane, rekonstrukcja łańcucha bloków. */
+#labs.ps28-skin :is(.mg2-panel,.mg2-plot,.mg2-sample,.mg2-clock label,.mg2-node) {
+  color:#f3e9db !important;
+  border-color:#617681 !important;
+  overflow-wrap:anywhere;
+}
+#labs.ps28-skin :is(.mg2-panel,.mg2-sample,.mg2-clock label,.mg2-node)
+  :is(h2,h3,h4,h5,p,small,span,b,strong,label,em) {
+  color:#f0e6d6 !important;
+  opacity:1 !important;
+  text-shadow:none !important;
+}
+#labs.ps28-skin .mg2-panel .eyebrow {color:#efc48e !important;}
+#labs.ps28-skin .mg2-panel :is(.mg2-top p,.mg2-help,.mg2-key,.mg2-message) {
+  color:#d7e0dd !important;
+  font-size:14px !important;
+  line-height:1.6 !important;
+}
+#labs.ps28-skin .mg2-panel :is(.mg2-top h3,.mg2-sample strong,.mg2-clock strong) {
+  color:#ffe0ad !important;
+  font-size:clamp(16px,1.45vw,21px) !important;
+  line-height:1.45 !important;
+}
+#labs.ps28-skin .mg2-status {
+  color:#f6ead6 !important;
+  border-color:#81949a !important;
+  font-size:11px !important;
+  line-height:1.4 !important;
+  white-space:normal;
+}
+#labs.ps28-skin .mg2-status.done {color:#c6f0d5 !important;}
+#labs.ps28-skin .mg2-controls label,
+#labs.ps28-skin .mg2-clock label {
+  color:#eef1e9 !important;
+  font-size:14px !important;
+  line-height:1.5 !important;
+}
+#labs.ps28-skin .mg2-node {min-width:145px;max-width:230px;padding:11px 12px;font-size:14px !important;}
+#labs.ps28-skin .mg2-node small {color:#d3e0e3 !important;font-size:12px !important;line-height:1.5 !important;}
+#labs.ps28-skin .mg2-edge {color:#ffe0ac !important;}
+#labs.ps28-skin .mg2-nodes {scrollbar-width:thin;scrollbar-color:#9caaaf #14232b;scroll-padding-inline:12px;}
+#labs.ps28-skin .mg2-panel :is(.mg2-action,.mg2-action.alt) {
+  min-height:44px;
+  font-size:13px !important;
+  line-height:1.4;
+}
+#labs.ps28-skin .mg2-message.ok {color:#c5f5da !important;}
+#labs.ps28-skin .mg2-message.bad {color:#ffcfbd !important;}
+
+/* 3. FINAŁ — etapy na jasnym dokumencie, bez ciemnej czcionki w ciemnej kapsułce. */
+#final.ps28-skin #psF1Gate {width:100%;max-width:100%;min-width:0;}
+#final.ps28-skin #psF1Gate :is(.psf1-copy,.psf1-count,.psf1-status) {
+  color:#543b28 !important;
+  opacity:1 !important;
+  font-size:14px !important;
+  line-height:1.6 !important;
+}
+#final.ps28-skin #psF1Gate .psf1-title {color:#39251a !important;font-size:clamp(20px,2vw,25px) !important;}
+#final.ps28-skin #psF1Gate .psf1-steps {display:flex;flex-wrap:wrap;gap:9px;min-width:0;}
+#final.ps28-skin #psF1Gate .psf1-steps span {
+  background:#fff0d6 !important;
+  color:#4a3020 !important;
+  border:1px solid #a98259 !important;
+  border-radius:999px;
+  padding:8px 13px;
+  font-size:13px !important;
+  line-height:1.4 !important;
+  font-weight:750;
+  overflow-wrap:anywhere;
+}
+#final.ps28-skin #psF1Gate .psf1-steps span.current {
+  background:#87372b !important;
+  color:#fff6e9 !important;
+  border-color:#6e281e !important;
+}
+#final.ps28-skin #psF1Gate .psf1-steps span.done {
+  background:#315b45 !important;
+  color:#f1ffed !important;
+  border-color:#315b45 !important;
+}
+
+/* 4. FINAŁ — formularz aktu, kwalifikacja i przypinanie dowodów. */
+#final.ps28-skin .fc-grid {width:100%;max-width:100%;min-width:0;}
+#final.ps28-skin .fc-main {width:100%;max-width:100%;min-width:0;}
+#final.ps28-skin .fc-main :is(.fc-fields,.fc-reasons,.fc-attach,.fc-attach-grid,.fc-links) {min-width:0;max-width:100%;}
+#final.ps28-skin .fc-fields label,
+#final.ps28-skin .fc-attach-grid label {
+  font-size:14px !important;
+  line-height:1.5 !important;
+  color:#432e20 !important;
+  font-weight:700;
+}
+#final.ps28-skin .fc-main :is(select,input,textarea) {font-size:14px !important;line-height:1.4 !important;}
+#final.ps28-skin #psQualification {
+  background:linear-gradient(135deg,#fbecd3,#e9ceaa) !important;
+  border:1px solid #ae8355 !important;
+  color:#38261a !important;
+  padding:clamp(14px,2vw,20px);
+  min-width:0;
+}
+#final.ps28-skin #psQualification :is(h3,p,small,.eyebrow,#psQInfo) {
+  color:#463023 !important;
+  opacity:1 !important;
+  font-size:14px !important;
+  line-height:1.6 !important;
+}
+#final.ps28-skin #psQualification h3 {font-size:clamp(18px,1.8vw,23px) !important;line-height:1.3 !important;}
+#final.ps28-skin #psQualification .ps-q-choice {
+  background:#fff3df !important;
+  border:1.5px solid #b68d60 !important;
+  border-radius:9px;
+  min-width:0;
+  min-height:55px;
+  padding:13px;
+  color:#392719 !important;
+}
+#final.ps28-skin #psQualification .ps-q-choice :is(b,small,span) {
+  color:#3c281b !important;
+  opacity:1 !important;
+  line-height:1.55 !important;
+}
+#final.ps28-skin #psQualification .ps-q-choice b {font-size:15px !important;}
+#final.ps28-skin #psQualification .ps-q-choice small {font-size:13px !important;}
+#final.ps28-skin #psQualification .ps-q-choice.selected,
+#final.ps28-skin #psQualification .ps-q-choice:has(input:checked) {
+  background:#f2dab6 !important;
+  border-color:#983d30 !important;
+  box-shadow:inset 4px 0 0 #983d30;
+}
+#final.ps28-skin #psQualification .ps-q-choice:focus-within {outline:3px solid #a64735;outline-offset:2px;}
+#final.ps28-skin .fc-progress>div {
+  background:#fff0d7 !important;
+  color:#453020 !important;
+  border:1px solid #b58d61 !important;
+  min-width:0;
+  font-size:14px !important;
+  line-height:1.55 !important;
+}
+#final.ps28-skin .fc-progress>div b {color:#613921 !important;font-size:15px !important;}
+#final.ps28-skin .fc-attach {
+  background:#f3e1c4 !important;
+  color:#39291d !important;
+  border:1px solid #a97d4f !important;
+  padding:clamp(12px,2vw,17px);
+  min-width:0;
+}
+#final.ps28-skin .fc-attach :is(h3,h4,p,small,label,span) {
+  color:#4a3424 !important;
+  opacity:1 !important;
+}
+#final.ps28-skin .fc-attach-grid {gap:10px;align-items:end;}
+#final.ps28-skin .fc-links {display:flex;flex-wrap:wrap;gap:8px;}
+#final.ps28-skin .fc-proof {
+  display:inline-flex;
+  align-items:flex-start;
+  max-width:100%;
+  min-width:0;
+  background:#fff3df !important;
+  border:1px solid #ad8359 !important;
+  color:#392719 !important;
+  padding:8px 11px;
+  font-size:13px !important;
+  line-height:1.45 !important;
+}
+#final.ps28-skin .fc-proof :is(span,b,strong,small) {color:#3e2b1e !important;opacity:1 !important;}
+#final.ps28-skin .fc-proof button {color:#8a3026 !important;min-width:28px;min-height:28px;}
+#final.ps28-skin :is(.fc-attach,.fc-proof,.fc-main,.fc-progress>div) {overflow-wrap:anywhere;}
+
+/* 5. Kontrola argumentacji — jasno oznaczone karty i czytelne komunikaty. */
+#final.ps28-skin #ps60CaseAudit {
+  background:linear-gradient(140deg,#f5e4c5,#e8c79f) !important;
+  color:#35241b !important;
+  border:1px solid #b18355 !important;
+  border-radius:11px;
+  min-width:0;
+}
+#final.ps28-skin #ps60CaseAudit :is(.eyebrow,h3,.ps60-help) {
+  color:#493020 !important;
+  opacity:1 !important;
+  font-size:14px !important;
+  line-height:1.55 !important;
+}
+#final.ps28-skin #ps60CaseAudit h3 {font-size:clamp(20px,2vw,25px) !important;}
+#final.ps28-skin #ps60CaseAudit :is(.ps60-overview,.ps60-item) {
+  background:#fff0d7 !important;
+  color:#403020 !important;
+  border:1px solid #b58a5b !important;
+}
+#final.ps28-skin #ps60CaseAudit :is(.ps60-overview,.ps60-item)
+  :is(b,strong,span,p,small,div) {
+  color:#3d2b1d !important;
+  opacity:1 !important;
+  font-size:13px !important;
+  line-height:1.55 !important;
+}
+#final.ps28-skin #ps60CaseAudit .ps60-overview b {color:#4a331e !important;font-size:15px !important;}
+#final.ps28-skin #ps60CaseAudit .ps60-indicator {color:#8b432d !important;font-size:16px !important;}
+#final.ps28-skin #ps60CaseAudit .ps60-item.complete .ps60-indicator {color:#276b3c !important;}
+#final.ps28-skin #ps60CaseAudit summary {color:#4a3020 !important;font-size:14px !important;}
+#final.ps28-skin #ps60CaseAudit .ps60-item button {
+  background:#80382d !important;
+  color:#fff8ed !important;
+  border-color:#64291f !important;
+  min-height:40px;
+  font-size:13px !important;
+}
+#final.ps28-skin :is(.fc-feedback,.fc-challenge-result,.fc-final-summary>div) {
+  font-size:14px !important;
+  line-height:1.6 !important;
+}
+/* Przyciemnione alerty i nagłówki wewnątrz jasnych kart. */
+#final.ps28-skin .fc-feedback :is(p,span,b,strong),
+#final.ps28-skin .fc-challenge-result :is(p,span,b,strong) {color:#3d2a1d !important;}
+
+@media(max-width:850px) {
+  #final.ps28-skin .fc-grid {grid-template-columns:minmax(0,1fr) !important;}
+  #final.ps28-skin .fc-attach-grid {grid-template-columns:minmax(0,1fr) !important;}
+  #final.ps28-skin .fc-attach-grid .btn {width:100%;min-height:44px;}
+  #final.ps28-skin .fc-fields {grid-template-columns:minmax(0,1fr) !important;}
+}
+@media(max-width:600px) {
+  #labs.ps28-skin .mini5-field {padding:12px;}
+  #labs.ps28-skin .mini5-choice {padding:13px 11px;}
+  #labs.ps28-skin .mg2-controls,
+  #labs.ps28-skin .mg2-controls.two,
+  #labs.ps28-skin .mg2-compare {grid-template-columns:minmax(0,1fr);}
+  #final.ps28-skin #psF1Gate .psf1-steps {display:grid;grid-template-columns:minmax(0,1fr);}
+  #final.ps28-skin #psF1Gate .psf1-steps span {width:100%;}
+  #final.ps28-skin #psQualification .ps-q-choice {padding:12px;}
+  #final.ps28-skin .fc-proof {width:100%;justify-content:space-between;}
+  #final.ps28-skin .fc-actions .btn {min-height:44px;flex:1 1 165px;}
+}
+/* Fieldset legend must remain inside clipped document panels. */
+#labs.ps28-skin .mini5-field {
+  overflow:visible !important;
+  margin-top:18px;
+}
+#labs.ps28-skin .mini5-field legend {
+  float:left;
+  width:100%;
+  max-width:100%;
+  margin:0 0 10px;
+  padding:2px 0 6px;
+  background:transparent;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+#labs.ps28-skin .mini5-options {clear:both;}

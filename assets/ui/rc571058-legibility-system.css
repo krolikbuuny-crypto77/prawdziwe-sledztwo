@@ -1,0 +1,270 @@
+/*
+ * RC57.10.58 — audyt czytelności (7 XI 2026).
+ * Tylko prezentacja. Nie ingeruje w dane, stan gry, odblokowania ani wywołania AI.
+ * Przyczyna: jasny motyw ps28 nadpisuje ciemne karty starszych modułów
+ * kolorem #4d3828, dając w niektórych kartach kontrast ok. 1.1:1.
+ */
+
+/* 01. OGLĘDZINY — wspólna paleta dla wszystkich ciemnych kart.
+ * Wybór jawnych komponentów zapobiega zmianie jasnych dokumentów i pól. */
+#inspection12.ps28-skin :is(
+  .sc6-result, .sc-success, .sc-clue, .sc-feedback,
+  .sc-status, .sc-detail-slab, .sc-note,
+  .sc-case-result, .sc84-compare-card, .ov36-region-card,
+  .ov37-card-document, .sc-method, .sc-answer
+) {
+  color:#f5ebdc !important;
+  border-color:#6a847e;
+  overflow-wrap:anywhere;
+}
+#inspection12.ps28-skin :is(
+  .sc6-result, .sc-success, .sc-clue, .sc-feedback,
+  .sc-status, .sc-detail-slab, .sc-note,
+  .sc-case-result, .sc84-compare-card, .ov36-region-card,
+  .ov37-card-document, .sc-method, .sc-answer
+) :is(p,small,span,b,strong,h2,h3,h4,h5,label,li) {
+  color:#f0e7d9 !important;
+  opacity:1 !important;
+  text-shadow:none !important;
+}
+/* Dwa dodatkowe kontenery pośrednie w analizie porównawczej. */
+#inspection12.ps28-skin .sc-side-by-side>div {
+  color:#f1e8d8 !important;
+  background:#1b2c29;
+}
+#inspection12.ps28-skin .sc-side-by-side>div :is(p,small,span,b,strong,h3,h4) {
+  color:#f0e7d9 !important;
+}
+/* Interaktywne etykiety, przyciski, fazy — zachowana semantyka statusów. */
+#inspection12.ps28-skin #scDetail {
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+#inspection12.ps28-skin .sc6-flow {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  margin:10px 0 15px;
+}
+#inspection12.ps28-skin .sc6-flow .sc6-phase {
+  min-height:32px;
+  display:inline-flex;
+  align-items:center;
+  padding:7px 11px;
+  font-size:12px;
+  line-height:1.3;
+  letter-spacing:.01em;
+  white-space:normal;
+  color:#e9edf0 !important;
+}
+#inspection12.ps28-skin .sc6-flow .sc6-phase :is(b,p,small,span) {
+  color:inherit !important;
+  font-size:inherit !important;
+  line-height:inherit !important;
+}
+#inspection12.ps28-skin .sc6-flow .sc6-phase.is-done {
+  background:#1c3b32;
+  border-color:#6eaa8c;
+  color:#d9f3e5 !important;
+}
+#inspection12.ps28-skin .sc6-flow .sc6-phase.is-now {
+  background:#473522;
+  border-color:#e0b574;
+  color:#ffe8bd !important;
+}
+#inspection12.ps28-skin .sc-stephead {
+  flex-wrap:wrap;
+  gap:8px 12px;
+  align-items:center;
+}
+#inspection12.ps28-skin .sc-stephead>span {
+  font-size:12px;
+  line-height:1.4;
+  padding:7px 10px;
+}
+#inspection12.ps28-skin .sc-stephead>b {
+  font-size:clamp(14px,1.1vw,16px);
+  line-height:1.45;
+}
+#inspection12.ps28-skin .sc6-result {
+  border-width:1.5px;
+  border-radius:11px;
+  padding:clamp(13px,1.2vw,18px);
+  gap:12px;
+  box-shadow:inset 3px 0 0 #79ae96;
+}
+#inspection12.ps28-skin .sc6-result.sc6-locked {
+  box-shadow:inset 3px 0 0 #d29e82;
+}
+#inspection12.ps28-skin .sc6-result>b {
+  color:#f6e7c7 !important;
+  font-size:clamp(15px,1.08vw,17px) !important;
+  line-height:1.4;
+}
+#inspection12.ps28-skin .sc6-result p {
+  color:#e9f0e8 !important;
+  font-size:14px !important;
+  line-height:1.65 !important;
+}
+#inspection12.ps28-skin .sc6-actions {
+  gap:9px;
+  align-items:stretch;
+  min-width:0;
+}
+#inspection12.ps28-skin .sc6-actions .btn,
+#inspection12.ps28-skin .sc6-result>.btn {
+  min-height:44px !important;
+  height:auto !important;
+  max-width:100%;
+  padding:10px 16px !important;
+  white-space:normal;
+  text-align:center;
+  font-size:14px !important;
+  line-height:1.4 !important;
+}
+#inspection12.ps28-skin .sc-success,
+#inspection12.ps28-skin .sc-clue,
+#inspection12.ps28-skin .sc-status,
+#inspection12.ps28-skin .sc-feedback,
+#inspection12.ps28-skin .sc-detail-slab,
+#inspection12.ps28-skin .sc-case-result {
+  padding:13px 15px;
+  border-radius:9px;
+}
+#inspection12.ps28-skin .sc-success :is(b,strong),
+#inspection12.ps28-skin .sc-case-result :is(b,strong) {
+  color:#d6f5d8 !important;
+  font-size:15px !important;
+  line-height:1.4;
+}
+#inspection12.ps28-skin .sc-clue>span {
+  color:#f8d99e !important;
+  font-size:12px !important;
+  letter-spacing:.06em;
+}
+#inspection12.ps28-skin :is(
+  .sc-success, .sc-clue, .sc-status, .sc-feedback,
+  .sc-detail-slab, .sc-note, .sc-case-result,
+  .sc84-compare-card
+) :is(p,small,li) {
+  font-size:14px !important;
+  line-height:1.6 !important;
+}
+#inspection12.ps28-skin :is(.sc-method,.sc-answer) {
+  min-height:47px;
+  padding:12px 13px;
+  font-size:14px !important;
+  line-height:1.45;
+}
+#inspection12.ps28-skin :is(.sc-method,.sc-answer):hover,
+#inspection12.ps28-skin :is(.sc-method,.sc-answer):focus-visible {
+  border-color:#e4bc85;
+  background:#273d48;
+}
+#inspection12.ps28-skin .sc-answer>span {
+  color:#ffe2b3 !important;
+  font-size:12px;
+}
+/* Karta sprawy ma JASNY pergamin: tu tekst musi pozostać ciemny. */
+#inspection12.ps28-skin .sc-room-case :is(.sc-case-intro,.sc-case-question,.sc-case-needs span) {
+  color:#493124 !important;
+  font-size:14px !important;
+  line-height:1.6;
+}
+#inspection12.ps28-skin .sc-room-case .sc-case-heading>span {
+  color:#80502d !important;
+  font-size:12px !important;
+}
+/* Wewnętrzne karty odpowiedzi mają odrębne, ciemne tło. */
+#inspection12.ps28-skin .sc-room-case .sc-case-options label {
+  color:#f4eee1 !important;
+  font-size:14px !important;
+  line-height:1.55;
+}
+#inspection12.ps28-skin .sc-room-case .sc-case-options label :is(span,small,b,strong) {
+  color:#f4eee1 !important;
+}
+#inspection12.ps28-skin .sc84-compare-card h5 {
+  color:#f7e9d5 !important;
+  font-size:15px !important;
+}
+#inspection12.ps28-skin .sc84-compare-card .btn {
+  min-height:44px;
+  font-size:14px;
+}
+#inspection12.ps28-skin :is(.ov36-region-card,.ov37-card-document) {
+  min-height:80px;
+  font-size:14px;
+  line-height:1.45;
+}
+#inspection12.ps28-skin :is(.ov36-region-card,.ov37-card-document) .ov36-number {
+  color:#ffe6b8 !important;
+}
+/* Podpis fotografii szczegółowej jest na ciemnym tle, nie na pergaminie. */
+#inspection12.ps28-skin .et1-evidence-caption,
+#inspection12.ps28-skin .et1-evidence-caption :is(small,span) {
+  color:#f2e6d3 !important;
+  font-size:12px !important;
+  line-height:1.45;
+}
+/* 02. PODOBNY KONFLIKT W INNYCH MODUŁACH: notatki i audyt hipotez. */
+#notebook.ps28-skin .sc-note,
+#deduction.ps28-skin .dd2-claim {
+  color:#f2eadf !important;
+  border-color:#71818a;
+  overflow-wrap:anywhere;
+}
+#notebook.ps28-skin .sc-note :is(p,span,small,b,strong,h3,h4,li),
+#deduction.ps28-skin .dd2-claim :is(p,span,small,b,strong,h3,h4,li,blockquote) {
+  color:#f0e9dc !important;
+  opacity:1 !important;
+}
+#deduction.ps28-skin .dd2-claim :is(.dd2-quote,.dd2-src,blockquote) {
+  font-size:14px !important;
+  line-height:1.6 !important;
+}
+#deduction.ps28-skin .dd2-claim .dd2-claim-head {
+  font-size:12px !important;
+  gap:8px;
+}
+#deduction.ps28-skin .dd2-claim .dd2-weak {color:#ffd3bf !important;}
+#deduction.ps28-skin .dd2-claim .dd2-ok {color:#baf2d1 !important;}
+#deduction.ps28-skin .dd2-claim details>summary {
+  color:#ffdaa6 !important;
+  font-size:14px !important;
+}
+#notebook.ps28-skin .sc-note :is(p,small,span) {
+  font-size:14px !important;
+  line-height:1.6 !important;
+}
+/* 03. Małe ekrany — min. 44 px dla dotyku, karty nie wychodzą poza kontener. */
+@media(max-width:700px){
+  #inspection12.ps28-skin #scDetail {
+    min-width:0;
+    max-width:100%;
+  }
+  #inspection12.ps28-skin .sc6-flow {
+    gap:7px;
+  }
+  #inspection12.ps28-skin .sc6-flow .sc6-phase {
+    font-size:12px !important;
+    min-height:34px;
+  }
+  #inspection12.ps28-skin .sc6-result,
+  #inspection12.ps28-skin :is(.sc-clue,.sc-success,.sc-status,.sc-room-case,.sc84-compare-card) {
+    max-width:100%;
+    padding:13px;
+  }
+  #inspection12.ps28-skin .sc6-actions {
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+  }
+  #inspection12.ps28-skin .sc6-actions .btn {
+    width:100% !important;
+    min-width:0;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #inspection12.ps28-skin :is(.sc6-result,.sc6-phase,.sc-method,.sc-answer){transition:none!important;}
+}

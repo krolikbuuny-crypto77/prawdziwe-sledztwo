@@ -2766,12 +2766,20 @@ function mini5Correct(kind,answer){
 }
 
 function msgReportRead(){const r={};for(const k of ['slot','time','account','device','source','summary'])r[k]=String($('msgR_'+k)?.value||'').trim().slice(0,800);return r;}
+/* Dokument źródłowy jest identyfikowany po kodzie LUB dokładnym tytule z akt.
+   Nazwę bierzemy z kanonicznej bazy dokumentów, zamiast utrzymywać ręczne aliasy. */
+function msgMetadataSourceMatches(value,documentId='DIG-05'){
+ const compact=text=>norm(String(text||'')).replace(/[^a-z0-9]/g,'');
+ const entered=compact(value), code=compact(documentId), title=compact(byId[documentId]?.title);
+ if(!entered||!title)return false;
+ return entered===code||entered===title||entered===code+title||entered===title+code;
+}
 function msgIsValid(saved,found){if(!saved||!Array.isArray(saved.chain)||saved.chain.length!==5||!MSG_INPUT.every(id=>found.has(id)))return false;
  if(saved.chain.some((id,i)=>id!==MSG_ANSWER.ids[i]))return false;
  const bytes=msgKeyBytes(saved.key);if(!bytes||saved.chain.some(id=>!msgDecode(MSG_BY_ID[id],saved.key).valid))return false;
  const r=saved.report||{};
  const n=x=>norm(String(x||'')).replace(/[^a-z0-9]/g,'');
- if(n(r.slot)!=='4107'||n(r.time)!=='0132'||n(r.account)!=='aud04'||n(r.device)!=='tabaud02'||n(r.source)!=='dig05')return false;
+ if(n(r.slot)!=='4107'||n(r.time)!=='0132'||n(r.account)!=='aud04'||n(r.device)!=='tabaud02'||!msgMetadataSourceMatches(r.source))return false;
  const summary=norm(r.summary||'').replace(/[^a-z0-9ąćęłńóśźż ]/g,' ');
  const requirements=[/oryginal|protokol/,/stanowisk/,/oznacze|porown|porownan/];
  if(String(r.summary||'').startsWith('m5:'))return mini5Correct('msg',r.summary);
@@ -2803,7 +2811,7 @@ function msgRender(){const root=$('msgWorkspace');if(!root)return;const st=STATE
  <div class="msg-parts"><div class="msg-table-wrap"><table class="msg-table"><thead><tr><th>Nr rekordu / blok</th><th>Slot / wątek</th><th>Poprzedni → następny</th><th>Oznaczenie nadawcy</th><th>Urządzenie</th><th>Czas</th><th>Jakość</th></tr></thead><tbody id="msgTableRows"></tbody></table></div><div class="formline msg-page"><span id="msgCount"></span><button class="btn subtle" id="msgClearFilters">Wyczyść filtry</button></div></div>
  <div class="msg-grid-two"><div class="surface padded"><div class="eyebrow">INSPEKTOR BAJTÓW</div><h3 style="margin:8px 0">Wybrany rekord</h3><div id="msgInspect">Wybierz wiersz w tabeli.</div><label class="msg-key-label">Klucz XOR (3 bajty HEX) <input id="msgKey" value="${esc(st.key)}" placeholder="np. A1 B2 C3" autocomplete="off" spellcheck="false" maxlength="12"></label><button class="btn subtle" id="msgDecodeBtn">Odszyfruj wybrany blok i sprawdź CRC</button><div id="msgDecoded" class="msg-decode">Wpisz ustalony klucz i przetestuj fragment.</div></div><div class="surface padded"><div class="eyebrow">ODTWARZANA SEKWENCJA</div><h3 style="margin:8px 0">Łańcuch bloków</h3><p class="muted small">Dodawaj bloki z inspektora. Strzałkami ustal ich kolejność. Zwracaj uwagę na zgodność identyfikatora wątku i wzajemnych wskaźników.</p><div id="msgChain"></div><div class="msg-chain-preview" id="msgPreview"></div></div></div>
  <div class="surface padded msg-report"><div class="eyebrow">RAPORT ANALITYCZNY / REKONSTRUKCJA I PRZYPISANIE ŹRÓDŁA</div><h3>Protokół odzyskania wiadomości</h3><p class="muted small">Aby zatwierdzić materiał, odtwórz kolejność zaszyfrowanych bloków, wykaż spójność ich integralności i uzgodnij konto, urządzenie oraz czas z dokumentami, a nie z samymi inicjałami.</p><div class="msg-filter-grid msg-report-grid">${[
- ['slot','Numer slotu'],['time','Godzina nadania (HH:MM)'],['account','Identyfikator konta'],['device','Identyfikator urządzenia'],['source','Niezależny dokument metadanych']].map(([k,l])=>`<label>${l}<input id="msgR_${k}" value="${esc(st.report[k]||'')}" autocomplete="off"></label>`).join('')}<div class="msg-wide">${mini5Select('msg','msgR_summary',st.report.summary||'')}</div></div><div class="formline"><button class="btn" id="msgSubmit" ${st.solved?'disabled':''}>Zweryfikuj raport i łańcuch</button><span id="msgAttemptCounter" class="muted small">Próby weryfikacji: ${st.attempts}</span></div><div id="msgReportNote" class="notice ${st.solved?'':'warning'}">${st.solved?'Analiza zakończona: dwa niezależne materiały dołączono do akt. Sama korespondencja nie stanowi dowodu fizycznej obecności nadawcy.':'Wynik zostanie przyznany dopiero po udokumentowaniu poprawnej rekonstrukcji.'}</div></div>`;
+ ['slot','Numer slotu'],['time','Godzina nadania (HH:MM)'],['account','Identyfikator konta'],['device','Identyfikator urządzenia'],['source','Niezależny dokument metadanych (kod lub pełny tytuł)']].map(([k,l])=>`<label>${l}<input id="msgR_${k}" value="${esc(st.report[k]||'')}" autocomplete="off"></label>`).join('')}<div class="msg-wide">${mini5Select('msg','msgR_summary',st.report.summary||'')}</div></div><div class="formline"><button class="btn" id="msgSubmit" ${st.solved?'disabled':''}>Zweryfikuj raport i łańcuch</button><span id="msgAttemptCounter" class="muted small">Próby weryfikacji: ${st.attempts}</span></div><div id="msgReportNote" class="notice ${st.solved?'':'warning'}">${st.solved?'Analiza zakończona: dwa niezależne materiały dołączono do akt. Sama korespondencja nie stanowi dowodu fizycznej obecności nadawcy.':'Wynik zostanie przyznany dopiero po udokumentowaniu poprawnej rekonstrukcji.'}</div></div>`;
  for(const k of ['slot','alias','thread','device','quality','status','search']){$('msgF_'+k).addEventListener('input',()=>{st.filters[k]=$('msgF_'+k).value;msgRenderRows();});}
  for(const k of ['slot','time','account','device','source','summary'])$('msgR_'+k).addEventListener('input',()=>{st.report[k]=$('msgR_'+k).value.slice(0,800);});
  $('msgKey').addEventListener('input',()=>{st.key=$('msgKey').value.slice(0,12);msgRenderChain();});
